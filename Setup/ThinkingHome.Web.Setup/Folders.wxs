@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Directory Id="WEBAPPFOLDER" Name="webapp">
+        <Directory Id="FOLDER_DB7A0EE418E649AD96EEDB93DB8D493F" Name="Areas">
+          <Directory Id="FOLDER_E7C98E25B91D46C2B00EAE48E8A72209" Name="AlarmClock">
+            <Directory Id="FOLDER_4FD560826423433BA23044EAC074E056" Name="bin" />
+            <Directory Id="FOLDER_EC5F5DB289AA4C728D956585E9BF9608" Name="obj">
+              <Directory Id="FOLDER_85E1401F4E884B139988BF466035CC9B" Name="Debug" />
+              <Directory Id="FOLDER_864308D7CBCE48A5A7C2A5902315BAB3" Name="Release" />
+            </Directory>
+            <Directory Id="FOLDER_E3CC26A24C414F1B80470310781AC584" Name="Views" />
+          </Directory>
+          <Directory Id="FOLDER_DF0B4A2717254DC0904B332CBAEAB7EE" Name="Packages">
+            <Directory Id="FOLDER_EA51EF594FB546778C0B3666D7A95C97" Name="obj">
+              <Directory Id="FOLDER_32EC86BBD75D4A528552E3C1E3E1F3E7" Name="Debug" />
+              <Directory Id="FOLDER_DCED728FBD894AD5A49283A8774D802F" Name="Release" />
+            </Directory>
+            <Directory Id="FOLDER_CF35C8415D79404BADEBA1D1B162CB3C" Name="Views">
+              <Directory Id="FOLDER_FA90677B314F4DF09EC4829EBDDEA2F6" Name="DefaultPackages" />
+            </Directory>
+          </Directory>
+          <Directory Id="FOLDER_F4FE83D9E03E4571BC80FBAFDF3F82CB" Name="Scripts">
+            <Directory Id="FOLDER_9E62CF2C64B240A7813C27E265E342D4" Name="bin" />
+            <Directory Id="FOLDER_CF45C879297545BEBDF50EC4D2E4E3B7" Name="obj">
+              <Directory Id="FOLDER_510B774D53A7403D81796CDAE9F0DB2A" Name="Debug" />
+              <Directory Id="FOLDER_3E760CF7D7AA4DC9B94E4A44C1142719" Name="Release" />
+            </Directory>
+            <Directory Id="FOLDER_60BA2375D9C4432198DA165F0DCD1D60" Name="Views">
+              <Directory Id="FOLDER_1BC3D3362C7D45CB81851EBE42AE9A37" Name="DefaultScripts" />
+            </Directory>
+          </Directory>
+          <Directory Id="FOLDER_A103E90D63FE4B71ABA296E87460D060" Name="Weather">
+            <Directory Id="FOLDER_7DD09A901C9C4DBEA0F3C67513FA1ECC" Name="bin" />
+            <Directory Id="FOLDER_16CDFA7910EE43DA8F6DBB978502D89B" Name="obj">
+              <Directory Id="FOLDER_5986ADB8FED740C4990CBE73DCBED275" Name="Debug" />
+              <Directory Id="FOLDER_F519E89ACB0A4BDEB0B1F87D3DB0858F" Name="Release" />
+            </Directory>
+            <Directory Id="FOLDER_D863A978F3BC4195B6482BFE75C177F7" Name="Views" />
+          </Directory>
+        </Directory>
+        <Directory Id="FOLDER_63AE1717E12C47A69C7CB889D7495EC4" Name="bin" />
+        <Directory Id="FOLDER_99D7C83207A1437B954C3F596A34FF2D" Name="Content">
+          <Directory Id="FOLDER_0CB8B6538D6C4195A6ECF4530E9C7F8D" Name="css" />
+          <Directory Id="FOLDER_B396EA4C8F934399AF67DD8CDBB67CFE" Name="fonts" />
+          <Directory Id="FOLDER_8810D7F00BD4450F8D2E85BC1E2E5319" Name="js">
+            <Directory Id="FOLDER_2EB183B696D6470E8A46510150C3651A" Name="ace">
+              <Directory Id="FOLDER_42ED5ECA40A14B03A8DEAD5C7B938C66" Name="snippets" />
+            </Directory>
+          </Directory>
+          <Directory Id="FOLDER_C45CB363DDDD4A84806E40167C4EB8B7" Name="less" />
+        </Directory>
+        <Directory Id="FOLDER_56D3E24773E541C484BF8E693798262E" Name="obj">
+          <Directory Id="FOLDER_089DEAFC7BA946F2B9400176B506EB0F" Name="Debug" />
+          <Directory Id="FOLDER_B774ECAFF6304C9786113B98BC0AAD29" Name="Release">
+            <Directory Id="FOLDER_A2C7028CCC2B4165BE38FF83BD25D793" Name="Package">
+              <Directory Id="FOLDER_CF61A23B7F2545FA9FD8452BC539CAF8" Name="PackageTmp">
+                <Directory Id="FOLDER_8A410F94C8854657B43F7F2C4ED75606" Name="App_Data" />
+                <Directory Id="FOLDER_C4A94DC350B143EF891D1FF5FECC1B5C" Name="bin" />
+                <Directory Id="FOLDER_DF15B40026F74C0BAF4A86E160772EE3" Name="Content">
+                  <Directory Id="FOLDER_DC5EF7AC4EED49B8B8993940394A23C5" Name="css" />
+                  <Directory Id="FOLDER_07D7B3091BF747CBB168DF534FA8941E" Name="js">
+                    <Directory Id="FOLDER_0E762E5DE9194ED485F6EE2B161538EF" Name="ace">
+                      <Directory Id="FOLDER_E17F92944E2447C4BE12B5C7D418E134" Name="snippets" />
+                    </Directory>
+                  </Directory>
+                </Directory>
+                <Directory Id="FOLDER_BFD527F4430242FE99063EC4E76E9084" Name="Views">
+                  <Directory Id="FOLDER_BC0CB98EA5044A119B7DB25416A5AF6B" Name="Default" />
+                  <Directory Id="FOLDER_0CE8EE078F1E4D7BBA585CA49845410A" Name="Settings" />
+                  <Directory Id="FOLDER_6892D122FD2A48259345C827E2A773EB" Name="Shared" />
+                </Directory>
+              </Directory>
+            </Directory>
+          </Directory>
+        </Directory>
+        <Directory Id="FOLDER_5E0EF2C5CAB0419EAD2F0BC1157D1E9E" Name="Properties">
+          <Directory Id="FOLDER_6B6706EC48AB4784B2A89E58A631781E" Name="PublishProfiles" />
+        </Directory>
+        <Directory Id="FOLDER_A68991A58C714FAAB669FD41F7080664" Name="Views">
+          <Directory Id="FOLDER_7F8E26C2C8A24B3382CE0B0DDB1891D0" Name="Default" />
+          <Directory Id="FOLDER_2EA65E4C2B414DBAAFC0EC9B0A70B935" Name="Shared" />
+        </Directory>
+      </Directory>
+    </DirectoryRef>
+  </Fragment>
+</Wix>

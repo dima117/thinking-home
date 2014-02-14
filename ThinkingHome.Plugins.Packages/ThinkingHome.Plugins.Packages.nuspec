@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <version>1.0.0.0</version>
+    <authors>dima117</authors>
+    <owners>dima117</owners>
+    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+    <dependencies>
+      <dependency id="ThinkingHome.Plugins.Listener" />
+    </dependencies>
+    <id>ThinkingHome.Plugins.Packages</id>
+    <title>Packages plugin</title>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Install plugins from remote repository</description>
+    <summary>Install plugins from remote repository</summary>
+  </metadata>
+  <files>
+    <file src="ThinkingHome.Plugins.Packages.dll" target="ThinkingHome.Plugins.Packages.dll" />
+  </files>
+</package>

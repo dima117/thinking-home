@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <version>1.0.0.0</version>
+    <authors>dima117</authors>
+    <owners>dima117</owners>
+    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+    <dependencies>
+      <dependency id="ThinkingHome.Plugins.Listener" />
+    </dependencies>
+    <id>ThinkingHome.Plugins.Scripts</id>
+    <title>Scripts plugin</title>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Custom scripts support</description>
+    <summary>Custom scripts support</summary>
+  </metadata>
+  <files>
+    <file src="ClearScript.dll" target="ClearScript.dll" />
+    <file src="ClearScriptV8-32.dll" target="ClearScriptV8-32.dll" />
+    <file src="ClearScriptV8-64.dll" target="ClearScriptV8-64.dll" />
+    <file src="v8-ia32.dll" target="v8-ia32.dll" />
+    <file src="v8-x64.dll" target="v8-x64.dll" />
+    <file src="ThinkingHome.Plugins.Scripts.dll" target="ThinkingHome.Plugins.Scripts.dll" />
+  </files>
+</package>

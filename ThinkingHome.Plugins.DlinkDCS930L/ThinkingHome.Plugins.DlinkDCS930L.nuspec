@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+	<metadata>
+		<version>1.0.0.0</version>
+		<authors>dima117</authors>
+		<owners>dima117</owners>
+		<licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+		<dependencies>
+			<dependency id="ThinkingHome.Plugins.Scripts" />
+		</dependencies>
+		<id>ThinkingHome.Plugins.DlinkDCS930L</id>
+		<title>Dlink DCS-930L camera plugin</title>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>Dlink DCS-930L ip-camera support</description>
+		<summary>Dlink DCS-930L ip-camera support</summary>
+	</metadata>
+	<files>
+		<file src="ThinkingHome.Plugins.DlinkDCS930L.dll" target="ThinkingHome.Plugins.DlinkDCS930L.dll" />
+	</files>
+</package>

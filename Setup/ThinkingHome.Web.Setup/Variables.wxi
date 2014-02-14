@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+
+	<?define ProductName="ThinkingHome WebConsole" ?>
+	<?define ProductVersion="1.0.0.0" ?>
+	<?define ProductCode="B11B668F-D619-42C5-BEC1-3BCA23DF0719"?>
+	<?define UpgradeCode="5B5F0537-5653-41D1-A690-18C8CB1BC850"?>
+	<?define Manufacturer="Thinking-Home.RU"?>
+
+</Include>

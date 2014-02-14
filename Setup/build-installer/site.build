@@ -1,0 +1,79 @@
+<?xml version="1.0" ?>
+<project name="ecm7" default="full" xmlns="http://nant.sf.net/release/0.85/nant.xsd">
+
+	<!-- Settings -->
+	<property name="nant.settings.currentframework" value="net-4.0" />
+  
+	<property name="site.dir" value="D:\Sites\ecm7\Stores\thinking-home.ru\system"/>
+
+	<property name="web.dir" value="..\..\ThinkingHome.Site" />
+	<property name="dist.dir" value="..\dist\site"/>
+
+	<!-- Tasks -->
+	<target name="compile" unless="${target::has-executed('compile')}">
+		<msbuild project="${path::combine(web.dir, 'ThinkingHome.Site.csproj')}">
+			<property name="Configuration" value="Release" />
+			<property name="Platform" value="AnyCPU" />
+		</msbuild>
+	</target>
+
+	<target name="dist" depends="compile" unless="${target::has-executed('dist')}" >
+
+		<echo message="Delete temporary directories" />
+		<delete dir="${dist.dir}" if="${directory::exists(dist.dir)}"/>
+
+		<echo message="Create temporary directories" />
+		<mkdir dir="${dist.dir}" />
+
+		<echo message="Prepare application" />
+		<copy todir="${dist.dir}" includeemptydirs="false">
+			<fileset basedir="${web.dir}">
+				<include name="**\*"/>
+				<exclude name="**\*.cs" />
+				<exclude name="**\*.scc"/>
+				<exclude name="**\*.pdb" />
+				<exclude name="**\*.csproj" />
+				<exclude name="**\*.vspscc" />
+				<exclude name="**\*.log" />
+				<exclude name="**\*.Cache" />
+				<exclude name="**\*.csproj.user" />
+				<exclude name="**\packages.config" />
+				<exclude name="**\web.*.config" />
+				<exclude name="bin\*.xml" />
+			</fileset>
+		</copy>
+
+		<delete dir="${path::combine(dist.dir, 'obj') }" if="${directory::exists(path::combine(dist.dir, 'obj'))}"/>
+		<delete dir="${path::combine(dist.dir, 'Properties') }" if="${directory::exists(path::combine(dist.dir, 'Properties'))}"/>
+		<delete dir="${path::combine(dist.dir, 'log') }" if="${directory::exists(path::combine(dist.dir, 'log'))}"/>
+
+    <xmlpoke
+      file="${path::combine(dist.dir, 'web.config')}"
+      xpath="/configuration/system.web/compilation/@debug"
+      value="false" />
+
+	</target>
+
+	<target name="transfer" unless="${target::has-executed('transfer')}" >
+
+		<echo message="Create destination directories" />
+
+		<mkdir unless="${directory::exists(site.dir)}"  dir="${site.dir}" />
+
+		<copy todir="${site.dir}">
+			<fileset basedir="${dist.dir}">
+				<include name="**\*"/>
+			</fileset>
+		</copy>
+
+	</target>
+
+	<target name="full">
+		<call target="compile" />
+		<call target="dist" />
+		<call target="transfer" />
+	</target>
+
+
+</project>
+

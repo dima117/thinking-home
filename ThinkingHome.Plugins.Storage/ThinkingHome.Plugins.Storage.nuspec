@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <version>1.0.0.0</version>
+    <authors>dima117</authors>
+    <owners>dima117</owners>
+    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+    <!--<dependencies>
+      <dependency id="NLog" version="2.0.1.2" />
+    </dependencies>-->
+    <id>ThinkingHome.Plugins.Storage</id>
+    <title>Storage plugin</title>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Adds support store arbitrary data in the database for plugins</description>
+    <summary>Adds support store arbitrary data in the database for plugins</summary>
+  </metadata>
+  <files>
+    <file src="ThinkingHome.Plugins.Storage.dll" target="ThinkingHome.Plugins.Storage.dll" />
+  </files>
+</package>

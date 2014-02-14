@@ -1,0 +1,141 @@
+﻿@{
+	Layout = "~/Views/Shared/Layout.cshtml";
+	ViewBag.Title = "User Scripts";
+}
+<div class="col-md-5">
+	<div data-bind="visible: !chosenScriptData()">
+		<h1>User scripts</h1>
+		<div class="panel-actions">
+			<input type="button" value="Add script" class="btn btn-primary" data-bind="click: $root.addScript" />
+		</div>
+		<div class="help-block" data-bind="visible: !list().length">
+			Click the "Add" button for create new script. Enter unique script name.
+			Select created script from list for edit.
+		</div>
+		<ul class="list-group" data-bind="foreach: list">
+			<li class="list-group-item">
+				<a href="#" data-bind="text: $data.name(), click: $root.editScript"></a>
+				<div class="pull-right">
+					<a href="#" data-bind="click: $root.runScript">Run</a>
+					<a href="#" data-bind="click: $root.deleteScript">Delete</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="col-md-8">
+	<!-- Chosen script -->
+	<div data-bind="with: chosenScriptData">
+		<h1 data-bind="text: name"></h1>
+		<div class="panel-actions">
+			<input type="button" value="Save" class="btn btn-primary" data-bind="click: $root.saveScript" />
+			<input type="button" value="Cancel" class="btn btn-default" data-bind="click: $root.goToList" />
+		</div>
+		<pre id="script-body" data-bind="text: body" style="height: 240px;" />
+	</div>
+</div>
+
+<script type="text/javascript">
+
+	function ScriptsViewModel() {
+
+		// Data
+		var self = this;
+
+		self.list = ko.observableArray();
+		self.chosenScriptData = ko.observable();
+
+		// Behaviours
+		self.updateList = function () {
+
+			$.th.send(
+				'Scripts',
+				'GetScriptList',
+				null,
+				function (data) {
+					var array = [];
+
+					for (var i = 0; i < data.length; i++) {
+						array.push(ko.mapping.fromJS(data[i]));
+					}
+
+					self.list(array);
+				});
+		};
+
+		self.addScript = function () {
+
+			var name = window.prompt("Enter new script name");
+
+			if (name) {
+
+				$.th.send(
+					'Scripts',
+					'AddScript',
+					{ name: name, body: '' },
+					function () { self.updateList(); });
+			}
+		};
+
+		self.editScript = function (script) {
+
+			$.th.send(
+				'Scripts',
+				'LoadScript',
+				{ id: script.id() },
+				function (data) {
+					var obj = ko.mapping.fromJS(data);
+					self.chosenScriptData(obj);
+
+					var editor = ace.edit('script-body');
+					editor.setTheme("ace/theme/textmate");
+					editor.getSession().setMode("ace/mode/javascript");
+					editor.focus();
+				});
+		};
+
+		self.runScript = function (script) {
+			$.th.send('Scripts', 'Run', { name: script.name() });
+		};
+
+		self.saveScript = function (script) {
+
+			var text = ace.edit('script-body').getValue();
+
+			$.th.send(
+				'Scripts',
+				'SaveScript',
+				{ id: script.id(), body: text },
+				function () {
+					self.chosenScriptData(null);
+				});
+		};
+
+		self.deleteScript = function (script) {
+
+			if (window.confirm('Warning!\nScript and all related subscribes will be deleted!')) {
+
+				$.th.send(
+					'Scripts',
+					'DeleteScript',
+					{ scriptId: script.id() },
+					function () { self.updateList(); });
+			}
+		};
+
+		self.goToList = function () {
+			self.chosenScriptData(null);
+		};
+
+		// Init
+		self.updateList();
+	}
+
+	$(function () {
+
+		ko.applyBindings(new ScriptsViewModel());
+	});
+</script>
+
+

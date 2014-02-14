@@ -1,0 +1,184 @@
+<?xml version="1.0" ?>
+<project name="th-noolite" default="full" xmlns="http://nant.sf.net/release/0.85/nant.xsd">
+
+	<!-- Settings -->
+	<property name="nant.settings.currentframework" value="net-4.0" />
+	<property name="th.ver" value="1.0.0.0"/>
+	<property name="build-configuration" value="Release"/>
+
+	<property name="dist.dir" value="..\dist"/>
+
+	<property name="dist.service.dir" value="${path::combine(dist.dir, 'service')}"/>
+	<property name="build.service.dir"
+		value="${path::combine('..\..\ThinkingHome.Service\bin\', build-configuration)}" />
+	<property name="build.console.dir"
+		value="${path::combine('..\..\ThinkingHome.TestConsole\bin\', build-configuration)}" />
+
+	<property name="dist.plugins.dir" value="${path::combine(dist.service.dir, 'Plugins')}" />
+	<property name="build.plugins.dir" value="${path::combine('..\..\build', build-configuration)}" />
+
+	<property name="dist.webconsole.dir" value="${path::combine(dist.dir, 'web')}" />
+	<property name="build.webconsole.dir" value="..\..\ThinkingHome.Web" />
+
+	<property name="dac.dir" value="$..\data-access" />
+
+	<property name="customactions.dir" value="${path::combine('..\ThinkingHome.SetupCustomActions\bin', build-configuration)}" />
+	<property name="setup.service.dir" value="..\ThinkingHome.Service.Setup" />
+	<property name="setup.webconsole.dir" value="..\ThinkingHome.Web.Setup" />
+	<property name="msi.source.dir" value="..\msi"/>
+	
+	<!-- Tasks -->
+	<target name="compile" unless="${target::has-executed('compile')}">
+
+		<msbuild project="..\..\ThinkingHome.sln">
+			<property name="Configuration" value="${build-configuration}" />
+			<property name="Platform" value="Any CPU" />
+		</msbuild>
+
+		<msbuild project="..\ThinkingHome.SetupCustomActions\ThinkingHome.SetupCustomActions.csproj">
+			<property name="Configuration" value="${build-configuration}" />
+			<property name="Platform" value="x86" />
+		</msbuild>
+	</target>
+
+	<target name="dist" depends="compile" unless="${target::has-executed('dist')}" >
+
+		<delete dir="${dist.dir}" />
+		<mkdir dir="${dist.dir}" />
+
+		<copy todir="${dist.dir}">
+			<fileset>
+				<include name="${path::combine(customactions.dir, 'ThinkingHome.SetupCustomActions.CA.dll')}" />
+				<include name="..\..\License.rtf" />
+			</fileset>
+		</copy>
+
+		<echo message="## service" />
+		<copy todir="${dist.dir}"
+			file="${path::combine(build.service.dir, 'ThinkingHome.Service.exe')}" />
+
+		<copy todir="${dist.service.dir}">
+			<fileset basedir="${build.service.dir}">
+				<include name="**\*.dll"/>
+				<include name="**\*.config"/>
+				<include name="**\*.sdf"/>
+			</fileset>
+		</copy>
+
+		<copy todir="${dist.service.dir}">
+			<fileset basedir="${build.console.dir}">
+				<include name="**\ThinkingHome.TestConsole.exe"/>
+				<include name="**\ThinkingHome.TestConsole.exe.config"/>
+			</fileset>
+		</copy>
+
+		<copy todir="${dist.service.dir}">
+			<fileset basedir="${dac.dir}">
+				<include name="**\*.dll"/>
+			</fileset>
+		</copy>
+
+		<echo message="## plugins" />
+		<foreach item="Folder" in="${build.plugins.dir}" property="foldername">
+			<do>
+				<!-- используем path::get-file-name, т.к. нам нужно получить имя папки без пути к ней -->
+				<property name="tmp.dir.name" value="${path::get-file-name(foldername)}"/>
+				<property name="tmp.todir.name" value="${path::combine(dist.plugins.dir, tmp.dir.name)}.${th.ver}"/>
+
+				<copy todir="${tmp.todir.name}">
+					<fileset basedir="${foldername}">
+						<include name="**/*" />
+						<exclude name="**/*.pdb" />
+					</fileset>
+				</copy>
+
+				<exec program="nuget" workingdir="${tmp.todir.name}">
+					<arg value="pack" />
+					<arg value="${tmp.dir.name}.nuspec" />
+				</exec>
+
+				<delete>
+					<fileset basedir="${tmp.todir.name}">
+						<include name="**/*.nuspec" />
+					</fileset>
+				</delete>
+			</do>
+		</foreach>
+
+
+		<echo message="## web console" />
+		<copy todir="${dist.webconsole.dir}" includeemptydirs="false" >
+			<fileset basedir="${build.webconsole.dir}">
+				<include name="**\*"/>
+				<exclude name="**\*.csproj"/>
+				<exclude name="**\*.user"/>
+				<exclude name="**\*.cs"/>
+			</fileset>
+		</copy>
+
+
+	</target>
+
+	<target name="configure" depends="dist" unless="${target::has-executed('configure')}" >
+
+		<!--<xmlpoke
+			file="${path::combine(dist.dir, 'web.config')}"
+			xpath="/configuration/system.web/compilation/@debug" value="false" />-->
+
+	</target>
+
+	<target name="msi" depends="dist" >
+
+		<loadtasks assembly="ECM7.NantContrib.dll" />
+
+		<delete dir="${msi.source.dir}" />
+		<mkdir dir="${msi.source.dir}" />
+
+		<wix-build-file-list
+			directoryRef="INSTALLFOLDER"
+			filesResultPath="${path::combine(setup.service.dir, 'Files.wxs')}"
+			foldersResultPath="${path::combine(setup.service.dir, 'Folders.wxs')}"  >
+			<folders>
+				<add
+					component-id="ServiceComponents"
+					path="${dist.service.dir}"
+					folder-id="SERVICEINSTALLFOLDER"
+					folder-name="service" />
+			</folders>
+		</wix-build-file-list>
+
+		<msbuild project="${path::combine(setup.service.dir, 'ThinkingHome.Service.Setup.wixproj')}">
+			<property name="Configuration" value="${build-configuration}" />
+			<property name="Platform" value="x86" />
+		</msbuild>
+
+		<wix-build-file-list
+			directoryRef="INSTALLFOLDER"
+			filesResultPath="${path::combine(setup.webconsole.dir, 'Files.wxs')}"
+			foldersResultPath="${path::combine(setup.webconsole.dir, 'Folders.wxs')}"  >
+			<folders>
+				<add
+					component-id="ProductComponents"
+					path="${dist.webconsole.dir}"
+					folder-id="WEBAPPFOLDER"
+					folder-name="webapp" />
+			</folders>
+		</wix-build-file-list>
+
+		<msbuild project="${path::combine(setup.webconsole.dir, 'ThinkingHome.Web.Setup.wixproj')}">
+			<property name="Configuration" value="${build-configuration}" />
+			<property name="Platform" value="x86" />
+		</msbuild>
+
+	</target>
+
+	<target name="full">
+		<call target="compile" />
+		<call target="dist" />
+		<!--<call target="configure" />-->
+		<call target="msi" />
+	</target>
+
+
+</project>
+

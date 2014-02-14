@@ -1,0 +1,54 @@
+﻿@font-face {
+	font-family: "Raleway";
+	font-style: normal;
+	font-weight: bold;
+	src: url("../fonts/raleway.eot?#iefix") format("embedded-opentype"), url("../fonts/raleway.svg#ralewaythin") format("svg"), url("../fonts/raleway.woff") format("woff"), url("../fonts/raleway.ttf") format("truetype");
+}
+
+@media(max-width:768px) {
+	.site-logo-area 
+	{
+		margin-left: 16px;
+		margin-bottom: 22px;
+	}
+}
+
+.site-logo {
+	white-space: nowrap;
+}
+
+.site-logo:hover {
+	text-decoration: none;
+}
+
+.site-logo-icon {
+	background-image: url(../img/logo.png);
+	background-repeat: no-repeat;
+	width: 36px;
+	height: 36px;
+	display: inline-block;
+	position: relative;
+	top: 6px;
+}
+
+.site-logo-name {
+	font-family: 'Raleway', Tahoma;
+	color: #333;
+	font-size: 26px;
+	line-height: 26px;
+	height: 26px;
+	display: inline-block;
+}
+
+.site-logo-subname
+{
+	color: #3399FF;
+}
+
+.site-subtitle {
+	font-family: 'Segoe UI';
+	color: gray;
+	font-size: 12px;
+	letter-spacing: 6px;
+}
+
