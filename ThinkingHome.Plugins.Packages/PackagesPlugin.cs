@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using ThinkingHome.Core.Plugins;
-using ThinkingHome.Core.Plugins.Packages;
+using ThinkingHome.Core.Plugins.HomePackages;
 using ThinkingHome.Plugins.Listener;
 
 namespace ThinkingHome.Plugins.Packages

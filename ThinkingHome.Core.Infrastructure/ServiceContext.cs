@@ -4,7 +4,7 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using NHibernate;
 using ThinkingHome.Core.Plugins;
-using ThinkingHome.Core.Plugins.Packages;
+using ThinkingHome.Core.Plugins.HomePackages;
 
 namespace ThinkingHome.Core.Infrastructure
 {

@@ -49,9 +49,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Packages\HomePackageInfo.cs" />
+    <Compile Include="HomePackages\HomePackageInfo.cs" />
     <Compile Include="Commands\IExportCommandAttribute.cs" />
-    <Compile Include="Packages\IHomePackageManager.cs" />
+    <Compile Include="HomePackages\IHomePackageManager.cs" />
     <Compile Include="IServiceContext.cs" />
     <Compile Include="Commands\MethodCollection.cs" />
     <Compile Include="Plugin.cs" />

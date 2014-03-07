@@ -2,7 +2,7 @@
 using System.ComponentModel.Composition;
 using System.Linq;
 using NuGet;
-using ThinkingHome.Core.Plugins.Packages;
+using ThinkingHome.Core.Plugins.HomePackages;
 
 namespace ThinkingHome.Core.Infrastructure
 {

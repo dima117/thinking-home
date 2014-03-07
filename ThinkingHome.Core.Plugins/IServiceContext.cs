@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using NHibernate;
-using ThinkingHome.Core.Plugins.Packages;
+using ThinkingHome.Core.Plugins.HomePackages;
 
 namespace ThinkingHome.Core.Plugins
 {
