@@ -273,13 +273,14 @@ namespace ThinkingHome.Plugins.Scripts
 
 		private static void ExecuteScript(UserScript script, ScriptHost scriptHost, Logger logger, object[] args)
 		{
+			//Debugger.Launch();
 			try
 			{
 				//var engine = new JScriptEngine(WindowsScriptEngineFlags.EnableDebugging);
 				var engine = new JScriptEngine();
 				engine.AddHostObject("host", scriptHost);
 
-				string initArgsScript = string.Format("var arguments = {0};", args.ToJson());
+				string initArgsScript = string.Format("var arguments = {0};", args.ToJson("null"));
 				engine.Execute(initArgsScript);
 				engine.Execute(script.Body);
 			}

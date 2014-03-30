@@ -16,7 +16,7 @@
 			type: 'GET',
 			dataType: 'jsonp',
 			url: this.getUrl(plugin, method),
-			data: { json: json, callback: '?' }
+			data: { json: json }
 		})
 		.done(onSuccess);
 	};

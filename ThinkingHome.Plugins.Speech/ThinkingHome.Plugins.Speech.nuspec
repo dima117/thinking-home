@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+	<metadata>
+		<version>1.0.0.0</version>
+		<authors>dima117</authors>
+		<owners>dima117</owners>
+		<licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+		<dependencies>
+			<dependency id="ThinkingHome.Plugins.Listener" />
+			<dependency id="ThinkingHome.Plugins.Scripts" />
+		</dependencies>
+		<id>ThinkingHome.Plugins.Speech</id>
+		<title>Speech plugin</title>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>Install plugins from remote repository</description>
+		<summary>Install plugins from remote repository</summary>
+	</metadata>
+	<files>
+		<file src="ThinkingHome.Plugins.Speech.dll" target="ThinkingHome.Plugins.Speech.dll" />
+		<file src="Microsoft.Speech.dll" target="Microsoft.Speech.dll" />
+	</files>
+</package>

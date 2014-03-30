@@ -11,10 +11,9 @@ namespace ThinkingHome.Core.Plugins.Utils
 		/// <summary>
 		/// Сериализация в JSON
 		/// </summary>
-		/// <param name="obj">Сериализуемый объект</param>
-		public static string ToJson(this object obj)
+		public static string ToJson(this object obj, string defaultValue = "")
 		{
-			return obj == null ? string.Empty : JsonConvert.SerializeObject(obj);
+			return obj == null ? defaultValue : JsonConvert.SerializeObject(obj);
 		}
 
 		/// <summary>
