@@ -32,7 +32,6 @@ x64/
 *.tlb
 *.tli
 *.tlh
-*.tmp
 *.log
 *.vspscc
 *.vssscc
