@@ -10,9 +10,9 @@ namespace ThinkingHome.Plugins.DlinkDCS930L
 	public class DlinkDCS930LPlugin : Plugin
 	{
 		[ScriptCommand("dcs930", "getImage")]
-		public byte[] GetImage(string to, string subject)
+		public byte[] GetImage(string ip = null)
 		{
-			var cameraIp = ConfigurationManager.AppSettings["testCameraIP"];
+			var cameraIp = ip ?? ConfigurationManager.AppSettings["testCameraIP"];
 			var bytes = GetImage(cameraIp, "admin", "");
 
 			return bytes;

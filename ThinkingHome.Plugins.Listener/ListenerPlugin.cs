@@ -26,6 +26,7 @@ namespace ThinkingHome.Plugins.Listener
 			var actions = new HttpMethodCollection();
 			foreach (var action in RequestReceived)
 			{
+				Logger.Info("Register HTTP handler {0}.{1}", action.Metadata.PluginAlias, action.Metadata.MethodAlias);
 				actions.RegisterMethod(action.Metadata, action.Value);
 			}
 

@@ -44,7 +44,7 @@ namespace ThinkingHome.Plugins.NooLite
 		[ScriptCommand("noolite", "setLevel")]
 		public void SetLevel(int channel, int level)
 		{
-			Debugger.Launch();
+			//Debugger.Launch();
 			SetLevel((byte)channel, (byte)level);
 		}
 

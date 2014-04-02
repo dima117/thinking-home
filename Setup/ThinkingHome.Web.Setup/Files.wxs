@@ -2,257 +2,257 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <Fragment>
     <ComponentGroup Id="ProductComponents">
-      <Component Id="Component8BDCBED8C1FD4445816AC4A08C1DD699" Guid="8bdcbed8-c1fd-4445-816a-c4a08c1dd699" DiskId="1" Directory="WEBAPPFOLDER">
-        <File Id="FILE_7EBEFBE43A214F2D9D4766B4AD0AB2D3" Source="..\dist\web\Global.asax" />
-        <File Id="FILE_FB290AE557004483BC42DCF8B053CDD6" Source="..\dist\web\packages.config" />
-        <File Id="FILE_7011322AF84F4955928335D676C32A9F" Source="..\dist\web\Web.config" />
+      <Component Id="Component4099D83593D64CAF9B1638687D37964F" Guid="4099d835-93d6-4caf-9b16-38687d37964f" DiskId="1" Directory="WEBAPPFOLDER">
+        <File Id="FILE_D83D584556B14971ACCC4314EE5C9467" Source="..\dist\web\Global.asax" />
+        <File Id="FILE_C26067DF28944D7F9E80BD75C4B7BDE1" Source="..\dist\web\packages.config" />
+        <File Id="FILE_AD2091030970462EADDB0B5489DCF6F6" Source="..\dist\web\Web.config" />
       </Component>
-      <Component Id="ComponentB9910C8557C146D4B7F1DB500BCE9D58" Guid="b9910c85-57c1-46d4-b7f1-db500bce9d58" DiskId="1" Directory="FOLDER_61C5F85BD6274A2991CB4501694F6752">
-        <File Id="FILE_65073CA2406E4E3C9C0EA638E0F139C3" Source="..\dist\web\Areas\AlarmClock\packages.config" />
-        <File Id="FILE_8DE9722C082E4BF0A5D84FEA9B44DCDE" Source="..\dist\web\Areas\AlarmClock\web.config" />
+      <Component Id="Component92F37019C4DD44ABB445700E4300F88C" Guid="92f37019-c4dd-44ab-b445-700e4300f88c" DiskId="1" Directory="FOLDER_6E6C82F7DCFB4453BC407EA7B244558A">
+        <File Id="FILE_987DF3E90E3445899DB56A6EC8747CC7" Source="..\dist\web\Areas\AlarmClock\packages.config" />
+        <File Id="FILE_24898F1F741545A88772EB21AD10B91E" Source="..\dist\web\Areas\AlarmClock\web.config" />
       </Component>
-      <Component Id="Component759D1F42E4C6412A971E1A8742BA6E11" Guid="759d1f42-e4c6-412a-971e-1a8742ba6e11" DiskId="1" Directory="FOLDER_C5235AAE51B44C11B4504066798B455F">
-        <File Id="FILE_1B96D62931724D28AB2DAFC77FB648D4" Source="..\dist\web\Areas\AlarmClock\bin\Microsoft.Web.Infrastructure.dll" />
-        <File Id="FILE_2363CD8576FB49E792CC573F8F31999C" Source="..\dist\web\Areas\AlarmClock\bin\Microsoft.Web.Infrastructure.xml" />
-        <File Id="FILE_1ECB26591D46491CA8B50878C824B278" Source="..\dist\web\Areas\AlarmClock\bin\System.Web.Helpers.dll" />
-        <File Id="FILE_8A2A216703DF47898572C21922A83A12" Source="..\dist\web\Areas\AlarmClock\bin\System.Web.Helpers.xml" />
-        <File Id="FILE_BE8354878FAA4356A315036D16069B19" Source="..\dist\web\Areas\AlarmClock\bin\System.Web.Mvc.dll" />
-        <File Id="FILE_67E9146225814A79A1DD5511DE7156D1" Source="..\dist\web\Areas\AlarmClock\bin\System.Web.Mvc.xml" />
-        <File Id="FILE_9104D38568714D5490A3B1A3CBE389BD" Source="..\dist\web\Areas\AlarmClock\bin\System.Web.Razor.dll" />
-        <File Id="FILE_A0512759E6224DF6913EF4038E0C963B" Source="..\dist\web\Areas\AlarmClock\bin\System.Web.Razor.xml" />
-        <File Id="FILE_B4508F6F0CE04ABF8399E8609CD79EF5" Source="..\dist\web\Areas\AlarmClock\bin\System.Web.WebPages.Deployment.dll" />
-        <File Id="FILE_6332AA6F8B5B418D832BC55C5AB75ADA" Source="..\dist\web\Areas\AlarmClock\bin\System.Web.WebPages.Deployment.xml" />
-        <File Id="FILE_7CAFF16D805B4F37B4B97A0A0C0C3343" Source="..\dist\web\Areas\AlarmClock\bin\System.Web.WebPages.dll" />
-        <File Id="FILE_3B5F75ACC69440F594D81C0600989157" Source="..\dist\web\Areas\AlarmClock\bin\System.Web.WebPages.Razor.dll" />
-        <File Id="FILE_7814B3C699D846558FD3E46B0E85E4B5" Source="..\dist\web\Areas\AlarmClock\bin\System.Web.WebPages.Razor.xml" />
-        <File Id="FILE_3862332159B94DB2B34A68682EF72DCD" Source="..\dist\web\Areas\AlarmClock\bin\System.Web.WebPages.xml" />
-        <File Id="FILE_DFDFC2AF561643CEBF4F2AEB81B7AB21" Source="..\dist\web\Areas\AlarmClock\bin\ThinkingHome.Widgets.AlarmClock.dll" />
-        <File Id="FILE_E99EB6BB4D4E4434BEC5D5A298C3FCFC" Source="..\dist\web\Areas\AlarmClock\bin\ThinkingHome.Widgets.AlarmClock.pdb" />
+      <Component Id="ComponentCBD205861DDD40BB9B52E14ECFD5BECA" Guid="cbd20586-1ddd-40bb-9b52-e14ecfd5beca" DiskId="1" Directory="FOLDER_709FCCD3437E44BC9FB7C28EED4E560A">
+        <File Id="FILE_72F6F6F015AA493B97A0D041274216F0" Source="..\dist\web\Areas\AlarmClock\bin\Microsoft.Web.Infrastructure.dll" />
+        <File Id="FILE_2318FF9C65C84AEC857609B3C9F3439E" Source="..\dist\web\Areas\AlarmClock\bin\Microsoft.Web.Infrastructure.xml" />
+        <File Id="FILE_FEF61179571347DAA7AD0D96E59F2E58" Source="..\dist\web\Areas\AlarmClock\bin\System.Web.Helpers.dll" />
+        <File Id="FILE_036E74A791E447DA9278CB072959388D" Source="..\dist\web\Areas\AlarmClock\bin\System.Web.Helpers.xml" />
+        <File Id="FILE_B5DDE62F524A461CAD38EE44F6283FCF" Source="..\dist\web\Areas\AlarmClock\bin\System.Web.Mvc.dll" />
+        <File Id="FILE_FD550CDAC671442AB90977EA679E4EE3" Source="..\dist\web\Areas\AlarmClock\bin\System.Web.Mvc.xml" />
+        <File Id="FILE_8E6B290E9C26428FB6C047342BB2F833" Source="..\dist\web\Areas\AlarmClock\bin\System.Web.Razor.dll" />
+        <File Id="FILE_54D495DEC9DA471B83E9ECDDC4D8A542" Source="..\dist\web\Areas\AlarmClock\bin\System.Web.Razor.xml" />
+        <File Id="FILE_EB25559137B941388386684DA0E75C8C" Source="..\dist\web\Areas\AlarmClock\bin\System.Web.WebPages.Deployment.dll" />
+        <File Id="FILE_93352ED9786E4AC389DF3DAE8A0D6D92" Source="..\dist\web\Areas\AlarmClock\bin\System.Web.WebPages.Deployment.xml" />
+        <File Id="FILE_C02F474F3918490380CA3B76D952025A" Source="..\dist\web\Areas\AlarmClock\bin\System.Web.WebPages.dll" />
+        <File Id="FILE_0E48F1743D824E60BEEB0730A1375BC4" Source="..\dist\web\Areas\AlarmClock\bin\System.Web.WebPages.Razor.dll" />
+        <File Id="FILE_DD1EF42D890344BFBD319C095AEC2719" Source="..\dist\web\Areas\AlarmClock\bin\System.Web.WebPages.Razor.xml" />
+        <File Id="FILE_624F39700E074C969192D2A08AEEA6E9" Source="..\dist\web\Areas\AlarmClock\bin\System.Web.WebPages.xml" />
+        <File Id="FILE_FCB4D35931AB4DE4968B2E0ECC109FEC" Source="..\dist\web\Areas\AlarmClock\bin\ThinkingHome.Widgets.AlarmClock.dll" />
+        <File Id="FILE_35E52B16DCE84B6D887CEDF870659FA3" Source="..\dist\web\Areas\AlarmClock\bin\ThinkingHome.Widgets.AlarmClock.pdb" />
       </Component>
-      <Component Id="Component96F646366A3049BCB036A8CFA578BDD9" Guid="96f64636-6a30-49bc-b036-a8cfa578bdd9" DiskId="1" Directory="FOLDER_52B3CC0D1A83433BB214C922892E1450">
-        <File Id="FILE_012B1E05548C4A9EBACBBF8A5563A3E2" Source="..\dist\web\Areas\AlarmClock\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-        <File Id="FILE_0205A2C22A52458797DADCCD4EF939B8" Source="..\dist\web\Areas\AlarmClock\obj\Debug\ThinkingHome.Widgets.AlarmClock.csproj.FileListAbsolute.txt" />
-        <File Id="FILE_2DAA2E61B9AA47F9B1EBBF86BEC1AB6D" Source="..\dist\web\Areas\AlarmClock\obj\Debug\ThinkingHome.Widgets.AlarmClock.csprojResolveAssemblyReference.cache" />
-        <File Id="FILE_A9BFC41A9EF5460FA7E0E1AF8395140A" Source="..\dist\web\Areas\AlarmClock\obj\Debug\ThinkingHome.Widgets.AlarmClock.dll" />
-        <File Id="FILE_E7CBECC329EE4AE297BBCDDC481417AD" Source="..\dist\web\Areas\AlarmClock\obj\Debug\ThinkingHome.Widgets.AlarmClock.pdb" />
+      <Component Id="ComponentF477ABE8FE644EDCB024449E2B611B35" Guid="f477abe8-fe64-4edc-b024-449e2b611b35" DiskId="1" Directory="FOLDER_B52943F7BB924FB8A7E72AE3A20852E1">
+        <File Id="FILE_861603872B2649A6AD06FAE11E7D16C1" Source="..\dist\web\Areas\AlarmClock\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+        <File Id="FILE_7F48DDC3A84340C0A197313206DE2986" Source="..\dist\web\Areas\AlarmClock\obj\Debug\ThinkingHome.Widgets.AlarmClock.csproj.FileListAbsolute.txt" />
+        <File Id="FILE_0E0DD847C3F04A5AA753E2264AD96C22" Source="..\dist\web\Areas\AlarmClock\obj\Debug\ThinkingHome.Widgets.AlarmClock.csprojResolveAssemblyReference.cache" />
+        <File Id="FILE_7081EB7A33D54088A8778DAA71BFDF14" Source="..\dist\web\Areas\AlarmClock\obj\Debug\ThinkingHome.Widgets.AlarmClock.dll" />
+        <File Id="FILE_E7E18C19AF9F46CCBD0971EB4424A036" Source="..\dist\web\Areas\AlarmClock\obj\Debug\ThinkingHome.Widgets.AlarmClock.pdb" />
       </Component>
-      <Component Id="ComponentFE79066BBD404CE7A8E05BE764BAC6E6" Guid="fe79066b-bd40-4ce7-a8e0-5be764bac6e6" DiskId="1" Directory="FOLDER_91EB4674F8EF4623AF23F7435FAD0471">
-        <File Id="FILE_479B610662154A4DA5A24F5DFBF95724" Source="..\dist\web\Areas\AlarmClock\obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
-        <File Id="FILE_B9803F5CA42745B5B44A9B863481F222" Source="..\dist\web\Areas\AlarmClock\obj\Release\ThinkingHome.Widgets.AlarmClock.csproj.FileListAbsolute.txt" />
-        <File Id="FILE_58382965D9584C5299CC640C559931DC" Source="..\dist\web\Areas\AlarmClock\obj\Release\ThinkingHome.Widgets.AlarmClock.csprojResolveAssemblyReference.cache" />
-        <File Id="FILE_45D5A0DC2C4F499DB5741B5EA4868538" Source="..\dist\web\Areas\AlarmClock\obj\Release\ThinkingHome.Widgets.AlarmClock.dll" />
-        <File Id="FILE_F464DCB505DB414A922D1281C4949C52" Source="..\dist\web\Areas\AlarmClock\obj\Release\ThinkingHome.Widgets.AlarmClock.pdb" />
+      <Component Id="ComponentD20FE4B0CFD345E78292A8D6CBDEECB5" Guid="d20fe4b0-cfd3-45e7-8292-a8d6cbdeecb5" DiskId="1" Directory="FOLDER_ABF14389A14F43F99C6388C3BFDB75CE">
+        <File Id="FILE_A2F02D30964F4EFA8240DFD48433714B" Source="..\dist\web\Areas\AlarmClock\obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
+        <File Id="FILE_9E21DDA97FAB49109E7817A14D1C979C" Source="..\dist\web\Areas\AlarmClock\obj\Release\ThinkingHome.Widgets.AlarmClock.csproj.FileListAbsolute.txt" />
+        <File Id="FILE_B3F0A026917D41BD833B18936F501A23" Source="..\dist\web\Areas\AlarmClock\obj\Release\ThinkingHome.Widgets.AlarmClock.csprojResolveAssemblyReference.cache" />
+        <File Id="FILE_DF7CE779339641F4ABCFC4442EAE8F89" Source="..\dist\web\Areas\AlarmClock\obj\Release\ThinkingHome.Widgets.AlarmClock.dll" />
+        <File Id="FILE_EF8FBB7BD81F43E693749402DEC10CD3" Source="..\dist\web\Areas\AlarmClock\obj\Release\ThinkingHome.Widgets.AlarmClock.pdb" />
       </Component>
-      <Component Id="Component3C498A969BC84750B61C54C63145542B" Guid="3c498a96-9bc8-4750-b61c-54c63145542b" DiskId="1" Directory="FOLDER_446E2CB13B8247D6B9BEE9C88B6B90DB">
-        <File Id="FILE_0B3A74DAF85A4FCD9FA52C9BEFC0BD39" Source="..\dist\web\Areas\AlarmClock\Views\Web.config" />
+      <Component Id="ComponentAE79F98CC62D463BA09D22EA65C9A2CF" Guid="ae79f98c-c62d-463b-a09d-22ea65c9a2cf" DiskId="1" Directory="FOLDER_99A5CF5D5F1D40B4AF9DC5C6EA7F42CE">
+        <File Id="FILE_84A0C979D327412D8A2D5AD52CB7D642" Source="..\dist\web\Areas\AlarmClock\Views\Web.config" />
       </Component>
-      <Component Id="ComponentB06809774A614E1A81A58A8215D61122" Guid="b0680977-4a61-4e1a-81a5-8a8215d61122" DiskId="1" Directory="FOLDER_61590B4665ED40418CAB9540E7ED80B6">
-        <File Id="FILE_478BD5196D994106A9158850ECCB698D" Source="..\dist\web\Areas\Packages\packages.config" />
-        <File Id="FILE_23FD2C4693C64AFA99A48B2B6A9C663B" Source="..\dist\web\Areas\Packages\Web.config" />
+      <Component Id="Component20A9CB4D668D4B10B63D545A69C806B8" Guid="20a9cb4d-668d-4b10-b63d-545a69c806b8" DiskId="1" Directory="FOLDER_7CD2ACAD317E40768C4D40F097456656">
+        <File Id="FILE_CF63FD157CA94D6089C05BF390F05FDF" Source="..\dist\web\Areas\Packages\packages.config" />
+        <File Id="FILE_6DB4EDC04BA94073AC2B18984525B401" Source="..\dist\web\Areas\Packages\Web.config" />
       </Component>
-      <Component Id="Component64885C2BA93D4BC488B220190A2481D8" Guid="64885c2b-a93d-4bc4-88b2-20190a2481d8" DiskId="1" Directory="FOLDER_AC749247969B49AEB73DC31417C0DE5A">
-        <File Id="FILE_12F6D62B4BA44B9F9AC6482C17F34327" Source="..\dist\web\Areas\Packages\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-        <File Id="FILE_F21765427FB548BC8A35B9A4D74DB7C3" Source="..\dist\web\Areas\Packages\obj\Debug\ThinkingHome.Widgets.Packages.csproj.FileListAbsolute.txt" />
-        <File Id="FILE_B3F7C633A83047218104BA38E9DC491D" Source="..\dist\web\Areas\Packages\obj\Debug\ThinkingHome.Widgets.Packages.csprojResolveAssemblyReference.cache" />
-        <File Id="FILE_F130F872DF074A7999FC56A76F67B6B2" Source="..\dist\web\Areas\Packages\obj\Debug\ThinkingHome.Widgets.Packages.dll" />
-        <File Id="FILE_1C0233C643834AB7A3361E939749CAE8" Source="..\dist\web\Areas\Packages\obj\Debug\ThinkingHome.Widgets.Packages.pdb" />
+      <Component Id="ComponentB7F18E7DAC774D7692FB15964264953E" Guid="b7f18e7d-ac77-4d76-92fb-15964264953e" DiskId="1" Directory="FOLDER_300FD70D32D442E1882FBD8EF5519128">
+        <File Id="FILE_F27650C402664DD48CD4AE2CA2D7BBD7" Source="..\dist\web\Areas\Packages\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+        <File Id="FILE_B673FD3DDC5C48C5A92BA9FCD0D3758D" Source="..\dist\web\Areas\Packages\obj\Debug\ThinkingHome.Widgets.Packages.csproj.FileListAbsolute.txt" />
+        <File Id="FILE_D6A8CFA6233A4C62A49C4654FE302EA2" Source="..\dist\web\Areas\Packages\obj\Debug\ThinkingHome.Widgets.Packages.csprojResolveAssemblyReference.cache" />
+        <File Id="FILE_642C699F3BB940B3AD8206A57734EB94" Source="..\dist\web\Areas\Packages\obj\Debug\ThinkingHome.Widgets.Packages.dll" />
+        <File Id="FILE_4BD09D0767674F3B80BEFE1D3165AAD5" Source="..\dist\web\Areas\Packages\obj\Debug\ThinkingHome.Widgets.Packages.pdb" />
       </Component>
-      <Component Id="Component9E8D18E028AB4EBAB5E3B2089322FA78" Guid="9e8d18e0-28ab-4eba-b5e3-b2089322fa78" DiskId="1" Directory="FOLDER_2BE8A0E8ED6E4733BB3BA2FEFC1BCC2C">
-        <File Id="FILE_4E5237D9957743FAB87A6B7CD0247118" Source="..\dist\web\Areas\Packages\obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
-        <File Id="FILE_7FE3C742E51B4487841BFEF7E2DCC3DE" Source="..\dist\web\Areas\Packages\obj\Release\ThinkingHome.Widgets.Packages.csproj.FileListAbsolute.txt" />
-        <File Id="FILE_E2D8D0D0DFD8425BBDDCEFB51176F355" Source="..\dist\web\Areas\Packages\obj\Release\ThinkingHome.Widgets.Packages.csprojResolveAssemblyReference.cache" />
-        <File Id="FILE_6930FE0C98F341DAAB9DC9CA03A85D58" Source="..\dist\web\Areas\Packages\obj\Release\ThinkingHome.Widgets.Packages.dll" />
-        <File Id="FILE_12472FBD034C4DD8B6947412CD05A984" Source="..\dist\web\Areas\Packages\obj\Release\ThinkingHome.Widgets.Packages.pdb" />
+      <Component Id="Component52F2470BAA8744BFA490C6027AB25329" Guid="52f2470b-aa87-44bf-a490-c6027ab25329" DiskId="1" Directory="FOLDER_929C5FA6580B4567AD327F894E995160">
+        <File Id="FILE_A9C18B4394AC4E85B35C30C6F9D463A6" Source="..\dist\web\Areas\Packages\obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
+        <File Id="FILE_153C98B0A4A646F7BFB516671F2901FC" Source="..\dist\web\Areas\Packages\obj\Release\ThinkingHome.Widgets.Packages.csproj.FileListAbsolute.txt" />
+        <File Id="FILE_0D401628CD5C4190B26E134DDE2339E5" Source="..\dist\web\Areas\Packages\obj\Release\ThinkingHome.Widgets.Packages.csprojResolveAssemblyReference.cache" />
+        <File Id="FILE_4AD9F7387F5C4E52A500D1FC8D836A65" Source="..\dist\web\Areas\Packages\obj\Release\ThinkingHome.Widgets.Packages.dll" />
+        <File Id="FILE_924F067A15CE4BDE80EA0AF0FD39DE5F" Source="..\dist\web\Areas\Packages\obj\Release\ThinkingHome.Widgets.Packages.pdb" />
       </Component>
-      <Component Id="Component26BC4DC37197428F888D83969EE676F5" Guid="26bc4dc3-7197-428f-888d-83969ee676f5" DiskId="1" Directory="FOLDER_AEE843217A8146C5BF39EE2DAC969A37">
-        <File Id="FILE_9ACA94C824EA4BC1A642125F4326558E" Source="..\dist\web\Areas\Packages\Views\Web.config" />
+      <Component Id="ComponentA9594BC5D2344F1D81C536B6DE511F8F" Guid="a9594bc5-d234-4f1d-81c5-36b6de511f8f" DiskId="1" Directory="FOLDER_E30DA0ABBCC54CA199BEDB83269CE205">
+        <File Id="FILE_7759F81E44F2468B804401DE049D28C2" Source="..\dist\web\Areas\Packages\Views\Web.config" />
       </Component>
-      <Component Id="ComponentC80E99C610B94B9AA828D208BF2151EF" Guid="c80e99c6-10b9-4b9a-a828-d208bf2151ef" DiskId="1" Directory="FOLDER_ECB4B1FC61BA415E92F7F3B13D4F9A4D">
-        <File Id="FILE_0136B05ACAAE4C7098BA62090BB6746C" Source="..\dist\web\Areas\Packages\Views\DefaultPackages\Index.cshtml" />
+      <Component Id="Component8BFC7F9BDA9C4F0F8DB5445F7F36E53E" Guid="8bfc7f9b-da9c-4f0f-8db5-445f7f36e53e" DiskId="1" Directory="FOLDER_8DABC98CF7474E05A5749BA9390E2408">
+        <File Id="FILE_B569F60304FF4AC0AC8AA51A9AE1E7E9" Source="..\dist\web\Areas\Packages\Views\DefaultPackages\Index.cshtml" />
       </Component>
-      <Component Id="Component1746BA49B103403D82D818D32CACCE53" Guid="1746ba49-b103-403d-82d8-18d32cacce53" DiskId="1" Directory="FOLDER_39C06E36AD224F6BBE99B07088EB4A77">
-        <File Id="FILE_585838D066194006B4F3F0CA5A18BE49" Source="..\dist\web\Areas\Scripts\packages.config" />
-        <File Id="FILE_CF22F32FFD13418E85D9B9D595536B43" Source="..\dist\web\Areas\Scripts\Web.config" />
+      <Component Id="Component3ED268F108464535917197C4EBEE16D1" Guid="3ed268f1-0846-4535-9171-97c4ebee16d1" DiskId="1" Directory="FOLDER_B02335DF100B4FC7A47A86D12C0BB1C2">
+        <File Id="FILE_DA0E529FDDD74278B90024369B7669AD" Source="..\dist\web\Areas\Scripts\packages.config" />
+        <File Id="FILE_4C0C06839AE64FBB8E18AA32AEDC3C91" Source="..\dist\web\Areas\Scripts\Web.config" />
       </Component>
-      <Component Id="Component2B4FBF8E9CB24F00990DB35BA6194E88" Guid="2b4fbf8e-9cb2-4f00-990d-b35ba6194e88" DiskId="1" Directory="FOLDER_92320B1D361F4CD7BDABB5B9AC7EE39B">
-        <File Id="FILE_D894431900D44E4FA2B689AB5B327775" Source="..\dist\web\Areas\Scripts\bin\Microsoft.Web.Infrastructure.dll" />
-        <File Id="FILE_60670160305E4651916B6F388D3789E6" Source="..\dist\web\Areas\Scripts\bin\Microsoft.Web.Infrastructure.xml" />
-        <File Id="FILE_93F9FFFB753C4532B0F3BC3597A6A573" Source="..\dist\web\Areas\Scripts\bin\System.Web.Helpers.dll" />
-        <File Id="FILE_B820B670D53C4C028C2BEB58B260201A" Source="..\dist\web\Areas\Scripts\bin\System.Web.Helpers.xml" />
-        <File Id="FILE_8656AFC11B5C482B8AA6A902FB0F2A37" Source="..\dist\web\Areas\Scripts\bin\System.Web.Mvc.dll" />
-        <File Id="FILE_DF58E2E6037E470CAFDF86F7F03CB767" Source="..\dist\web\Areas\Scripts\bin\System.Web.Mvc.xml" />
-        <File Id="FILE_13C48917DD804EDF929581EE821437CE" Source="..\dist\web\Areas\Scripts\bin\System.Web.Razor.dll" />
-        <File Id="FILE_9A2F83078D1247AAA4A240727652FB40" Source="..\dist\web\Areas\Scripts\bin\System.Web.Razor.xml" />
-        <File Id="FILE_2AA695EC68534F70B295CDA348F2695A" Source="..\dist\web\Areas\Scripts\bin\System.Web.WebPages.Deployment.dll" />
-        <File Id="FILE_AF4749FF7F294DE09D2D54D92FC20616" Source="..\dist\web\Areas\Scripts\bin\System.Web.WebPages.Deployment.xml" />
-        <File Id="FILE_11B20038776A4C20A066EBA1311E661D" Source="..\dist\web\Areas\Scripts\bin\System.Web.WebPages.dll" />
-        <File Id="FILE_773AA362B4784E29A221FE4D36426CBF" Source="..\dist\web\Areas\Scripts\bin\System.Web.WebPages.Razor.dll" />
-        <File Id="FILE_86EF97E036414FC680EF5166FC391EF4" Source="..\dist\web\Areas\Scripts\bin\System.Web.WebPages.Razor.xml" />
-        <File Id="FILE_2008566FE1F74524BB5108FE9805FAB3" Source="..\dist\web\Areas\Scripts\bin\System.Web.WebPages.xml" />
-        <File Id="FILE_183126EFFE5E4AB5A36195A9B4088A39" Source="..\dist\web\Areas\Scripts\bin\ThinkingHome.Widgets.Scripts.dll" />
-        <File Id="FILE_7D708E76AEAF4022A736B8AD7FA84ECA" Source="..\dist\web\Areas\Scripts\bin\ThinkingHome.Widgets.Scripts.pdb" />
+      <Component Id="Component1D6498A6D1E34DC0A7A1BEC83C9F7A6A" Guid="1d6498a6-d1e3-4dc0-a7a1-bec83c9f7a6a" DiskId="1" Directory="FOLDER_F698A8A429A5447885BA2138EAA6CEAB">
+        <File Id="FILE_397FFFC6E8BF41C2900FAED43E2B2E2B" Source="..\dist\web\Areas\Scripts\bin\Microsoft.Web.Infrastructure.dll" />
+        <File Id="FILE_09A06FC44AA64CF298FD6D8B851A13FD" Source="..\dist\web\Areas\Scripts\bin\Microsoft.Web.Infrastructure.xml" />
+        <File Id="FILE_212C87D63F7644F49A738ED8C9AA9450" Source="..\dist\web\Areas\Scripts\bin\System.Web.Helpers.dll" />
+        <File Id="FILE_CFE6AD88144E4419B6FBD02E3B7584B6" Source="..\dist\web\Areas\Scripts\bin\System.Web.Helpers.xml" />
+        <File Id="FILE_2F635586FD184FB1A633E7C55946696A" Source="..\dist\web\Areas\Scripts\bin\System.Web.Mvc.dll" />
+        <File Id="FILE_7E24857A149F4880B947CBBABB76DEF8" Source="..\dist\web\Areas\Scripts\bin\System.Web.Mvc.xml" />
+        <File Id="FILE_A5A769196EA74E78ABFF0EFCCD9F8403" Source="..\dist\web\Areas\Scripts\bin\System.Web.Razor.dll" />
+        <File Id="FILE_D3407742AE6748E8AE007C23C443FB33" Source="..\dist\web\Areas\Scripts\bin\System.Web.Razor.xml" />
+        <File Id="FILE_1A380F1368F24AA4879057AE83DB7BBA" Source="..\dist\web\Areas\Scripts\bin\System.Web.WebPages.Deployment.dll" />
+        <File Id="FILE_3B06AEE8B00340478823C03D55D55D0B" Source="..\dist\web\Areas\Scripts\bin\System.Web.WebPages.Deployment.xml" />
+        <File Id="FILE_B1F7000C633D46988A5166ADD8A00DB9" Source="..\dist\web\Areas\Scripts\bin\System.Web.WebPages.dll" />
+        <File Id="FILE_34DF909D56C14B609C419AB080314A5E" Source="..\dist\web\Areas\Scripts\bin\System.Web.WebPages.Razor.dll" />
+        <File Id="FILE_E3BC1A63A8AD4125859DE1660CD329C7" Source="..\dist\web\Areas\Scripts\bin\System.Web.WebPages.Razor.xml" />
+        <File Id="FILE_14B35E2355964855B0598671325B26B6" Source="..\dist\web\Areas\Scripts\bin\System.Web.WebPages.xml" />
+        <File Id="FILE_96490E2F90FF4B4A92495AEE5786E4F1" Source="..\dist\web\Areas\Scripts\bin\ThinkingHome.Widgets.Scripts.dll" />
+        <File Id="FILE_18A8E4F306D942B485E15E4FDD4A2A24" Source="..\dist\web\Areas\Scripts\bin\ThinkingHome.Widgets.Scripts.pdb" />
       </Component>
-      <Component Id="Component8798C61D192244578F35935DA67595D3" Guid="8798c61d-1922-4457-8f35-935da67595d3" DiskId="1" Directory="FOLDER_67BAC28F5608462E94CC3D753C61A7C9">
-        <File Id="FILE_C6B59525DDC542A28B6C68BD350412A6" Source="..\dist\web\Areas\Scripts\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-        <File Id="FILE_47B1317828D343EE98A6FEC91FC6A9FE" Source="..\dist\web\Areas\Scripts\obj\Debug\ThinkingHome.Widgets.Scripts.csproj.FileListAbsolute.txt" />
-        <File Id="FILE_01F4D73721B94004A59A90D9F43915D9" Source="..\dist\web\Areas\Scripts\obj\Debug\ThinkingHome.Widgets.Scripts.csprojResolveAssemblyReference.cache" />
-        <File Id="FILE_81170BCDA2CC49278159CA2BF1C4F872" Source="..\dist\web\Areas\Scripts\obj\Debug\ThinkingHome.Widgets.Scripts.dll" />
-        <File Id="FILE_B286BBF0CDF946C1B3DA0E165B083B68" Source="..\dist\web\Areas\Scripts\obj\Debug\ThinkingHome.Widgets.Scripts.pdb" />
+      <Component Id="Component94E911278DAD4F39BC111FB68E4DECEC" Guid="94e91127-8dad-4f39-bc11-1fb68e4decec" DiskId="1" Directory="FOLDER_38C8448107EC4568871FDEDD0FF61BB3">
+        <File Id="FILE_7C089D17FEE6423298F669372313B083" Source="..\dist\web\Areas\Scripts\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+        <File Id="FILE_106EC6E102CC402BA7D70882FEE7C84F" Source="..\dist\web\Areas\Scripts\obj\Debug\ThinkingHome.Widgets.Scripts.csproj.FileListAbsolute.txt" />
+        <File Id="FILE_CED0F9603BD74A5BAC2A2A2409771F36" Source="..\dist\web\Areas\Scripts\obj\Debug\ThinkingHome.Widgets.Scripts.csprojResolveAssemblyReference.cache" />
+        <File Id="FILE_110ACB0BDC1F43C3BCBF98DCDDC41320" Source="..\dist\web\Areas\Scripts\obj\Debug\ThinkingHome.Widgets.Scripts.dll" />
+        <File Id="FILE_971FB19CAE444B78998B6B916E7CD6ED" Source="..\dist\web\Areas\Scripts\obj\Debug\ThinkingHome.Widgets.Scripts.pdb" />
       </Component>
-      <Component Id="Component168D6BBDE8D74D46838E69C53C1DC4DF" Guid="168d6bbd-e8d7-4d46-838e-69c53c1dc4df" DiskId="1" Directory="FOLDER_757A3DF2C24046E0A4D9C8C74FCE7155">
-        <File Id="FILE_71B929272D244419AE09935352291FAF" Source="..\dist\web\Areas\Scripts\obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
-        <File Id="FILE_F6C10E75A7894E41A640E67633BAA631" Source="..\dist\web\Areas\Scripts\obj\Release\ThinkingHome.Widgets.Scripts.csproj.FileListAbsolute.txt" />
-        <File Id="FILE_F9E357B842AC436A923E05F91F45730B" Source="..\dist\web\Areas\Scripts\obj\Release\ThinkingHome.Widgets.Scripts.dll" />
-        <File Id="FILE_9683179B216C466F90629548B7CBCB7F" Source="..\dist\web\Areas\Scripts\obj\Release\ThinkingHome.Widgets.Scripts.pdb" />
+      <Component Id="ComponentB56819D65ED6476C85E0EB1C27F3E153" Guid="b56819d6-5ed6-476c-85e0-eb1c27f3e153" DiskId="1" Directory="FOLDER_BF989539F6C84900ADDF28C37CAECCAF">
+        <File Id="FILE_A4FD1CC570C343F7BC5D3C0D57ABDAA5" Source="..\dist\web\Areas\Scripts\obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
+        <File Id="FILE_36A30592D9A74A3C94197017E341E10F" Source="..\dist\web\Areas\Scripts\obj\Release\ThinkingHome.Widgets.Scripts.csproj.FileListAbsolute.txt" />
+        <File Id="FILE_23E2556316A04892A071E719F23BC1DD" Source="..\dist\web\Areas\Scripts\obj\Release\ThinkingHome.Widgets.Scripts.dll" />
+        <File Id="FILE_905C76B1953F48D39901A166ABFD81C2" Source="..\dist\web\Areas\Scripts\obj\Release\ThinkingHome.Widgets.Scripts.pdb" />
       </Component>
-      <Component Id="ComponentC2C8AA0A977C457BBAA8D347452D6496" Guid="c2c8aa0a-977c-457b-baa8-d347452d6496" DiskId="1" Directory="FOLDER_15954DFF464D4EBB860B06243462F6EF">
-        <File Id="FILE_E81C8B7AE2FA49C99D648DA3ACBD4985" Source="..\dist\web\Areas\Scripts\Views\Web.config" />
+      <Component Id="Component9A150F2E201F472ABF83831BDE5CCD33" Guid="9a150f2e-201f-472a-bf83-831bde5ccd33" DiskId="1" Directory="FOLDER_58743C6C082D4DC69A4C68B014F0D84A">
+        <File Id="FILE_2E33F57D569C4E98BB1AF6AF310F68C8" Source="..\dist\web\Areas\Scripts\Views\Web.config" />
       </Component>
-      <Component Id="Component0B01D66FF37145DD96F470991F39C105" Guid="0b01d66f-f371-45dd-96f4-70991f39c105" DiskId="1" Directory="FOLDER_2F7C7B0DFED040D7B3EA1422F5CE1E33">
-        <File Id="FILE_BC3FAB67D3DC4974891C1441AC9407DF" Source="..\dist\web\Areas\Scripts\Views\DefaultScripts\Events.cshtml" />
-        <File Id="FILE_7F70DD3F45934C6D81401D2AB98BB084" Source="..\dist\web\Areas\Scripts\Views\DefaultScripts\Index.cshtml" />
+      <Component Id="Component304F74E6760A4018A225967BBE907BCA" Guid="304f74e6-760a-4018-a225-967bbe907bca" DiskId="1" Directory="FOLDER_B0D3866174B44EFCB657CD760C05217F">
+        <File Id="FILE_F8411ECFB4C4403A89140E5A32EF3852" Source="..\dist\web\Areas\Scripts\Views\DefaultScripts\Events.cshtml" />
+        <File Id="FILE_F97A2C12227A4972BABA833BFA15B749" Source="..\dist\web\Areas\Scripts\Views\DefaultScripts\Index.cshtml" />
       </Component>
-      <Component Id="ComponentEC4DADCD6420411ABB77802A5A4132AC" Guid="ec4dadcd-6420-411a-bb77-802a5a4132ac" DiskId="1" Directory="FOLDER_C7F55680E920429E8C02340D78E18F8C">
-        <File Id="FILE_57BA2F60DD374F45A19977C6687BC243" Source="..\dist\web\Areas\Weather\packages.config" />
-        <File Id="FILE_987FDBA8A9AB4D44A07AA145A1DCB8F3" Source="..\dist\web\Areas\Weather\Web.config" />
+      <Component Id="Component187C33EEE1CA47118BCC0EB528D6B6D4" Guid="187c33ee-e1ca-4711-8bcc-0eb528d6b6d4" DiskId="1" Directory="FOLDER_F21E9B49F5F6405DAC83953B87C3D35F">
+        <File Id="FILE_9B7349AFBA2645F597EE8888EBF491E3" Source="..\dist\web\Areas\Weather\packages.config" />
+        <File Id="FILE_A241AEC7FD3F4D338994344B3D08F233" Source="..\dist\web\Areas\Weather\Web.config" />
       </Component>
-      <Component Id="Component79CA703FF44E4D7C8F2523BB006CEB23" Guid="79ca703f-f44e-4d7c-8f25-23bb006ceb23" DiskId="1" Directory="FOLDER_DFF547F47CA64292B980C0F3B88E4165">
-        <File Id="FILE_B45757A67B724B7793F3E87BA84BA63E" Source="..\dist\web\Areas\Weather\bin\Microsoft.Web.Infrastructure.dll" />
-        <File Id="FILE_6E89C4AC08D841529FA37958D3902246" Source="..\dist\web\Areas\Weather\bin\Microsoft.Web.Infrastructure.xml" />
-        <File Id="FILE_6235E5C144F44C839EC67CE1E1D695C3" Source="..\dist\web\Areas\Weather\bin\System.Web.Helpers.dll" />
-        <File Id="FILE_E9BE61C59AB94DA79E0A6F3CF30C5018" Source="..\dist\web\Areas\Weather\bin\System.Web.Helpers.xml" />
-        <File Id="FILE_4542FB9991034307B0A70E98534B0FA8" Source="..\dist\web\Areas\Weather\bin\System.Web.Mvc.dll" />
-        <File Id="FILE_6D07497C8CB84AF3B6F3B7A7D7A30DF1" Source="..\dist\web\Areas\Weather\bin\System.Web.Mvc.xml" />
-        <File Id="FILE_EBDF718E076441D982A9CF7482437D3C" Source="..\dist\web\Areas\Weather\bin\System.Web.Razor.dll" />
-        <File Id="FILE_5509B985E03C4B61AAE1CB13A2B0910B" Source="..\dist\web\Areas\Weather\bin\System.Web.Razor.xml" />
-        <File Id="FILE_C925785F26B3440DBDC00E78FD07C0A9" Source="..\dist\web\Areas\Weather\bin\System.Web.WebPages.Deployment.dll" />
-        <File Id="FILE_C91A0CCB17104271A7C3DF4A8B789195" Source="..\dist\web\Areas\Weather\bin\System.Web.WebPages.Deployment.xml" />
-        <File Id="FILE_D0DC8024E9DE4CC398DF55A3A25B0FB7" Source="..\dist\web\Areas\Weather\bin\System.Web.WebPages.dll" />
-        <File Id="FILE_B150369B22A34298A6E62172A48EC64B" Source="..\dist\web\Areas\Weather\bin\System.Web.WebPages.Razor.dll" />
-        <File Id="FILE_5FF7E1A0C2114887BC8F781D755DBCB7" Source="..\dist\web\Areas\Weather\bin\System.Web.WebPages.Razor.xml" />
-        <File Id="FILE_ACD2C37FE9DB43ABBC1445FE77CBBCC2" Source="..\dist\web\Areas\Weather\bin\System.Web.WebPages.xml" />
-        <File Id="FILE_E8BB957CE15D43659DBC63C75C88B502" Source="..\dist\web\Areas\Weather\bin\ThinkingHome.Widgets.Weather.dll" />
-        <File Id="FILE_4A1289AEF6474B3E9B3F61C99D63A084" Source="..\dist\web\Areas\Weather\bin\ThinkingHome.Widgets.Weather.pdb" />
+      <Component Id="ComponentCB559E139D084D2195CC1BDC95D9E2B5" Guid="cb559e13-9d08-4d21-95cc-1bdc95d9e2b5" DiskId="1" Directory="FOLDER_3A68470A4FEA4D4E9C1D2CCF6018F832">
+        <File Id="FILE_DF932B52EA894C1B88C61CE0CC8E5657" Source="..\dist\web\Areas\Weather\bin\Microsoft.Web.Infrastructure.dll" />
+        <File Id="FILE_EB91690762A14A64959020510840E312" Source="..\dist\web\Areas\Weather\bin\Microsoft.Web.Infrastructure.xml" />
+        <File Id="FILE_FFB10C3AFFB74F8185F2FBD9C2B71D97" Source="..\dist\web\Areas\Weather\bin\System.Web.Helpers.dll" />
+        <File Id="FILE_F291C6E8FE4149D5BB62E169E64F3CBD" Source="..\dist\web\Areas\Weather\bin\System.Web.Helpers.xml" />
+        <File Id="FILE_7DAE0AF7F2E0423F974439FFFE4A2320" Source="..\dist\web\Areas\Weather\bin\System.Web.Mvc.dll" />
+        <File Id="FILE_8E02647F6C804B6782BFC8329D455112" Source="..\dist\web\Areas\Weather\bin\System.Web.Mvc.xml" />
+        <File Id="FILE_10FEE9171A1D44EEB2F0F73A9741612F" Source="..\dist\web\Areas\Weather\bin\System.Web.Razor.dll" />
+        <File Id="FILE_D22F0ABD21694646A8CF14919254A1A7" Source="..\dist\web\Areas\Weather\bin\System.Web.Razor.xml" />
+        <File Id="FILE_F6087E3D53E349C3AA334BF26A062090" Source="..\dist\web\Areas\Weather\bin\System.Web.WebPages.Deployment.dll" />
+        <File Id="FILE_165BE18A2D584CB4A1990A9D4B2A77CC" Source="..\dist\web\Areas\Weather\bin\System.Web.WebPages.Deployment.xml" />
+        <File Id="FILE_BE46E794022D487D9BAFDD8D558C1400" Source="..\dist\web\Areas\Weather\bin\System.Web.WebPages.dll" />
+        <File Id="FILE_56EA43FD295C4987AB928E1FD006C4D9" Source="..\dist\web\Areas\Weather\bin\System.Web.WebPages.Razor.dll" />
+        <File Id="FILE_04360C677B024466B434A1741EB62FA4" Source="..\dist\web\Areas\Weather\bin\System.Web.WebPages.Razor.xml" />
+        <File Id="FILE_5034558FF7844AE78950011FF56B41CD" Source="..\dist\web\Areas\Weather\bin\System.Web.WebPages.xml" />
+        <File Id="FILE_541E178542E740D89D1455D1CDF1BB71" Source="..\dist\web\Areas\Weather\bin\ThinkingHome.Widgets.Weather.dll" />
+        <File Id="FILE_517A2B4E90E14974B4F7511ED556AFC7" Source="..\dist\web\Areas\Weather\bin\ThinkingHome.Widgets.Weather.pdb" />
       </Component>
-      <Component Id="ComponentFFDB4365F47A42D0AEB3786505E7DFEC" Guid="ffdb4365-f47a-42d0-aeb3-786505e7dfec" DiskId="1" Directory="FOLDER_58681D848BD5436CB332653B776E4BB7">
-        <File Id="FILE_EEB22923B56A41A0A574A186EC10ABEB" Source="..\dist\web\Areas\Weather\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-        <File Id="FILE_6E952926E34B40F8839470579A1BDF47" Source="..\dist\web\Areas\Weather\obj\Debug\ThinkingHome.Widgets.Weather.csproj.FileListAbsolute.txt" />
-        <File Id="FILE_D120DC358C954C12A9CC3BE7F949EA6D" Source="..\dist\web\Areas\Weather\obj\Debug\ThinkingHome.Widgets.Weather.csprojResolveAssemblyReference.cache" />
-        <File Id="FILE_0AEFAD078B5645E4937EB2729FE77320" Source="..\dist\web\Areas\Weather\obj\Debug\ThinkingHome.Widgets.Weather.dll" />
-        <File Id="FILE_8FE1EEF813044F9DB357C5BFA9FEB9DF" Source="..\dist\web\Areas\Weather\obj\Debug\ThinkingHome.Widgets.Weather.pdb" />
+      <Component Id="Component6BD70F8AEB4340718ADC7FED4FBDF07A" Guid="6bd70f8a-eb43-4071-8adc-7fed4fbdf07a" DiskId="1" Directory="FOLDER_D71B2C420E1F4A009520E6814C240331">
+        <File Id="FILE_36BEFA6DD66C453FB1492ED15963215B" Source="..\dist\web\Areas\Weather\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+        <File Id="FILE_E6AD84269D4648F5A838E4CE0013B927" Source="..\dist\web\Areas\Weather\obj\Debug\ThinkingHome.Widgets.Weather.csproj.FileListAbsolute.txt" />
+        <File Id="FILE_D841D89E278D4264838283A277B11CE3" Source="..\dist\web\Areas\Weather\obj\Debug\ThinkingHome.Widgets.Weather.csprojResolveAssemblyReference.cache" />
+        <File Id="FILE_F77335CE542946E6AC65307AC35FF522" Source="..\dist\web\Areas\Weather\obj\Debug\ThinkingHome.Widgets.Weather.dll" />
+        <File Id="FILE_A03FE098ACD340B7A47C33677984F9B1" Source="..\dist\web\Areas\Weather\obj\Debug\ThinkingHome.Widgets.Weather.pdb" />
       </Component>
-      <Component Id="ComponentE2DC5343E76841C1A45CB5E456A88CEE" Guid="e2dc5343-e768-41c1-a45c-b5e456a88cee" DiskId="1" Directory="FOLDER_AC1983CA616D4605BF8F870521B6A26C">
-        <File Id="FILE_0D0E450E6FDC4559A5795BFC467E3053" Source="..\dist\web\Areas\Weather\obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
-        <File Id="FILE_95487A98F3BC4DFD8315C326B6D6F830" Source="..\dist\web\Areas\Weather\obj\Release\ThinkingHome.Widgets.Weather.csproj.FileListAbsolute.txt" />
-        <File Id="FILE_2A1581A2D7EE495794E18BC1E4B3C3DC" Source="..\dist\web\Areas\Weather\obj\Release\ThinkingHome.Widgets.Weather.dll" />
-        <File Id="FILE_3E8649EE28B7430A98FCBA10CBC7AF5C" Source="..\dist\web\Areas\Weather\obj\Release\ThinkingHome.Widgets.Weather.pdb" />
+      <Component Id="Component5E61618DDB2B40D69D9CD5414A8DC0D3" Guid="5e61618d-db2b-40d6-9d9c-d5414a8dc0d3" DiskId="1" Directory="FOLDER_03FCE8058C3E4566966F9F831F4CA49F">
+        <File Id="FILE_3715546E702148D399AB888D82F20E0C" Source="..\dist\web\Areas\Weather\obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
+        <File Id="FILE_81F2FDEB8710448F864BB4A578029921" Source="..\dist\web\Areas\Weather\obj\Release\ThinkingHome.Widgets.Weather.csproj.FileListAbsolute.txt" />
+        <File Id="FILE_D1AB4E4EBC494705B2DDEA805DC9640E" Source="..\dist\web\Areas\Weather\obj\Release\ThinkingHome.Widgets.Weather.dll" />
+        <File Id="FILE_9F200662286F4C8EA88E2DA0D108867B" Source="..\dist\web\Areas\Weather\obj\Release\ThinkingHome.Widgets.Weather.pdb" />
       </Component>
-      <Component Id="ComponentCEE24CB9A6DA4AAA9C5BAA5ACE69C789" Guid="cee24cb9-a6da-4aaa-9c5b-aa5ace69c789" DiskId="1" Directory="FOLDER_04B601156D484E22A6A5B8E97A58264A">
-        <File Id="FILE_D836E344B91B4A3CBA3DE016D91F0F2E" Source="..\dist\web\Areas\Weather\Views\Web.config" />
+      <Component Id="ComponentECC3E905FD1C4113B116D48085D67A69" Guid="ecc3e905-fd1c-4113-b116-d48085d67a69" DiskId="1" Directory="FOLDER_1A99806FBC1347579F5A2202DCFAC55A">
+        <File Id="FILE_1AA89AD82A7E4BF3A271AD817C09577A" Source="..\dist\web\Areas\Weather\Views\Web.config" />
       </Component>
-      <Component Id="ComponentD695EEEA227E4EE8914BC7FACB704644" Guid="d695eeea-227e-4ee8-914b-c7facb704644" DiskId="1" Directory="FOLDER_64BFF7A066C4428190DB615387FF2612">
-        <File Id="FILE_F40D87FEF2344ECF96BEA32BEAFFF1E8" Source="..\dist\web\bin\AutoMapper.dll" />
-        <File Id="FILE_EB87A0C2E07C43BBAE5BB544F48F7A8B" Source="..\dist\web\bin\AutoMapper.xml" />
-        <File Id="FILE_DF1A5ECBEA38429587EE8304B0E659BB" Source="..\dist\web\bin\dotless.Core.dll" />
-        <File Id="FILE_44A9995120B842B4B819C310404E0155" Source="..\dist\web\bin\Microsoft.Web.Infrastructure.dll" />
-        <File Id="FILE_D9104905EB094C45913F31FF9B30A501" Source="..\dist\web\bin\Microsoft.Web.Infrastructure.xml" />
-        <File Id="FILE_CE08499A9640486B8295949F42F0082E" Source="..\dist\web\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll" />
-        <File Id="FILE_87F457D0061C448DB1E8E5BE67C943F0" Source="..\dist\web\bin\Newtonsoft.Json.dll" />
-        <File Id="FILE_4AC694D0EACD409085BF61F5A8C190ED" Source="..\dist\web\bin\Newtonsoft.Json.xml" />
-        <File Id="FILE_D50C30E2308D48FC8A6AAF5CC9B676B2" Source="..\dist\web\bin\System.Web.Helpers.dll" />
-        <File Id="FILE_F759DDF24FFC41CE815561F91A358602" Source="..\dist\web\bin\System.Web.Helpers.xml" />
-        <File Id="FILE_85B1B09C18184321A771BEBB3AD2B9B1" Source="..\dist\web\bin\System.Web.Mvc.dll" />
-        <File Id="FILE_F086CC978E954050AAA6FE557ECE55FE" Source="..\dist\web\bin\System.Web.Mvc.xml" />
-        <File Id="FILE_901F71DDE7144865ABCC04CDFD30FA9B" Source="..\dist\web\bin\System.Web.Razor.dll" />
-        <File Id="FILE_8C6FA3D9B7C94AEDAC77FBFFA3A95B99" Source="..\dist\web\bin\System.Web.Razor.xml" />
-        <File Id="FILE_2E90C559081546ADA6793ABA5D9001EB" Source="..\dist\web\bin\System.Web.WebPages.Deployment.dll" />
-        <File Id="FILE_C76BBF24124E4353BECFE95167FBB552" Source="..\dist\web\bin\System.Web.WebPages.Deployment.xml" />
-        <File Id="FILE_A7C41237F4114B77AC231024E40B5BEE" Source="..\dist\web\bin\System.Web.WebPages.dll" />
-        <File Id="FILE_7F3B847F12D84F6F883A4BCA8B681821" Source="..\dist\web\bin\System.Web.WebPages.Razor.dll" />
-        <File Id="FILE_13ABB9A4CEFD4296B63F5AEB9FE1D87B" Source="..\dist\web\bin\System.Web.WebPages.Razor.xml" />
-        <File Id="FILE_7A123CB3FD454785BB6303FAB9C8A0C1" Source="..\dist\web\bin\System.Web.WebPages.xml" />
-        <File Id="FILE_281306EA7D29404994F720E737BD99F2" Source="..\dist\web\bin\ThinkingHome.Web.dll" />
-        <File Id="FILE_B69E8D40A94140BE8AB896DAE4165A8F" Source="..\dist\web\bin\ThinkingHome.Web.pdb" />
-        <File Id="FILE_1CE72BFBE70E4C1FB7E896BE278888E5" Source="..\dist\web\bin\ThinkingHome.Widgets.AlarmClock.dll" />
-        <File Id="FILE_1A38FC00EF8B447AAA7768424408D148" Source="..\dist\web\bin\ThinkingHome.Widgets.AlarmClock.pdb" />
-        <File Id="FILE_A5D6E21B05EC40068FF9756BDB568E64" Source="..\dist\web\bin\ThinkingHome.Widgets.Packages.dll" />
-        <File Id="FILE_4FD73CFBF2614A548F2D613AD556A34A" Source="..\dist\web\bin\ThinkingHome.Widgets.Packages.pdb" />
-        <File Id="FILE_63D3C63EBE324AC9990C6C0C0A0F00B2" Source="..\dist\web\bin\ThinkingHome.Widgets.Scripts.dll" />
-        <File Id="FILE_82FD83BFAAB24FDEA86A455EC327CC19" Source="..\dist\web\bin\ThinkingHome.Widgets.Scripts.pdb" />
+      <Component Id="Component3CD050E0407D4B7286D4CF6F8E7F9C0E" Guid="3cd050e0-407d-4b72-86d4-cf6f8e7f9c0e" DiskId="1" Directory="FOLDER_6994DB70073449378F695643F9BD2236">
+        <File Id="FILE_16FD7FEF12F849D4B4253A3A01F1F753" Source="..\dist\web\bin\AutoMapper.dll" />
+        <File Id="FILE_DA7DA429C71F453A89AEACAF3B5A04B5" Source="..\dist\web\bin\AutoMapper.xml" />
+        <File Id="FILE_0CDB80FA31FD45549C7A803AFFA227BD" Source="..\dist\web\bin\dotless.Core.dll" />
+        <File Id="FILE_85B73539A6F842BFBD64DBDC50EB13B5" Source="..\dist\web\bin\Microsoft.Web.Infrastructure.dll" />
+        <File Id="FILE_9F4A5D7B43C149E1AA03D30DB46DC618" Source="..\dist\web\bin\Microsoft.Web.Infrastructure.xml" />
+        <File Id="FILE_79171E4D22364598A3B2D3A8D36F6289" Source="..\dist\web\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll" />
+        <File Id="FILE_B6D2FB3142DF468CA926F8BAD3335EFB" Source="..\dist\web\bin\Newtonsoft.Json.dll" />
+        <File Id="FILE_48CF1B6D27ED46D8B33B9475209DAA00" Source="..\dist\web\bin\Newtonsoft.Json.xml" />
+        <File Id="FILE_DE7ED8CC60C248A6BC2B642857099F7F" Source="..\dist\web\bin\System.Web.Helpers.dll" />
+        <File Id="FILE_EDAAC527F7EC4B0A9C06EC983EDDDD86" Source="..\dist\web\bin\System.Web.Helpers.xml" />
+        <File Id="FILE_58ACB8C3D2BF434CAD4673071ECCFADD" Source="..\dist\web\bin\System.Web.Mvc.dll" />
+        <File Id="FILE_9FA7F2A8747649D0B715C222A577CC28" Source="..\dist\web\bin\System.Web.Mvc.xml" />
+        <File Id="FILE_8B90F82E00E14DDD8544D2E441139365" Source="..\dist\web\bin\System.Web.Razor.dll" />
+        <File Id="FILE_0038B941DBB94737B04F4BEB80E5617F" Source="..\dist\web\bin\System.Web.Razor.xml" />
+        <File Id="FILE_475564019D3F4C34A8AFB9EB0C64CD5E" Source="..\dist\web\bin\System.Web.WebPages.Deployment.dll" />
+        <File Id="FILE_78A655A7825C4A11B6C47E50675675B1" Source="..\dist\web\bin\System.Web.WebPages.Deployment.xml" />
+        <File Id="FILE_359CF4066903411EB06464B5A49FF86C" Source="..\dist\web\bin\System.Web.WebPages.dll" />
+        <File Id="FILE_B95EADC0E1C14E36832FBB193DE2C574" Source="..\dist\web\bin\System.Web.WebPages.Razor.dll" />
+        <File Id="FILE_F1764B93E4384D8B92C5E874A97DCEE5" Source="..\dist\web\bin\System.Web.WebPages.Razor.xml" />
+        <File Id="FILE_99B11DA3E8DD45C495511C48E3CDBDF1" Source="..\dist\web\bin\System.Web.WebPages.xml" />
+        <File Id="FILE_6B15BA40BD9C4124B8106E3B9946C4A2" Source="..\dist\web\bin\ThinkingHome.Web.dll" />
+        <File Id="FILE_970BFE94722C487EA23DA9821C266B14" Source="..\dist\web\bin\ThinkingHome.Web.pdb" />
+        <File Id="FILE_5D439B467C4345CF85B8A27F3224D5FF" Source="..\dist\web\bin\ThinkingHome.Widgets.AlarmClock.dll" />
+        <File Id="FILE_1DECBBF2E3294C5080FD63FB72D1EE2E" Source="..\dist\web\bin\ThinkingHome.Widgets.AlarmClock.pdb" />
+        <File Id="FILE_5983F33E6FF244B4AA13AFE51F84E52B" Source="..\dist\web\bin\ThinkingHome.Widgets.Packages.dll" />
+        <File Id="FILE_6D90AFE989F54A479020D409AD71194E" Source="..\dist\web\bin\ThinkingHome.Widgets.Packages.pdb" />
+        <File Id="FILE_B5056EEAED964BA180F2C7DBFEC10FC6" Source="..\dist\web\bin\ThinkingHome.Widgets.Scripts.dll" />
+        <File Id="FILE_5A45374911494E578B667D913DA0415C" Source="..\dist\web\bin\ThinkingHome.Widgets.Scripts.pdb" />
       </Component>
-      <Component Id="ComponentA7A271804CFA4D8C9DFBA13DF3232F5F" Guid="a7a27180-4cfa-4d8c-9dfb-a13df3232f5f" DiskId="1" Directory="FOLDER_461BBF7E47E84AFE82C11C138F7828A2">
-        <File Id="FILE_E02F69040D064C1A9E31E306B7162386" Source="..\dist\web\Content\css\bootstrap-theme.css" />
-        <File Id="FILE_C7A2183FA2D6483FAC25F530F41F3E49" Source="..\dist\web\Content\css\bootstrap.min.css" />
+      <Component Id="Component1BA58AB2A7C348A1A71BFF5E2042F97E" Guid="1ba58ab2-a7c3-48a1-a71b-ff5e2042f97e" DiskId="1" Directory="FOLDER_E66AF3D34AE04CDFB3B4A1D5C9F7D82B">
+        <File Id="FILE_D7E9B507B9D748C9913E97E4F5A814C6" Source="..\dist\web\Content\css\bootstrap-theme.css" />
+        <File Id="FILE_BD8155C6870A4E6D927BEC2E2DA75E4D" Source="..\dist\web\Content\css\bootstrap.min.css" />
       </Component>
-      <Component Id="Component2A91E3CE3F344AA196FD44BC9B1C4CA4" Guid="2a91e3ce-3f34-4aa1-96fd-44bc9b1c4ca4" DiskId="1" Directory="FOLDER_D23A4D4FD2184DE89979C30546BDC7A1">
-        <File Id="FILE_DEC7C09E93BD48B495CEC256CF325280" Source="..\dist\web\Content\fonts\glyphicons-halflings-regular.eot" />
-        <File Id="FILE_849BFA319E9140389B967DCAA62BAB52" Source="..\dist\web\Content\fonts\glyphicons-halflings-regular.svg" />
-        <File Id="FILE_C00BC76550BE45B7983F54320D34D0B2" Source="..\dist\web\Content\fonts\glyphicons-halflings-regular.ttf" />
-        <File Id="FILE_5DA10C87E7184E6280E7EDD7C288FCA3" Source="..\dist\web\Content\fonts\glyphicons-halflings-regular.woff" />
+      <Component Id="ComponentFB03F303A7014CAFA24E67574EE8CE89" Guid="fb03f303-a701-4caf-a24e-67574ee8ce89" DiskId="1" Directory="FOLDER_7898B318840B404FB7272C6DFABE465F">
+        <File Id="FILE_8BDC2C1AA6444A6BBBF1DA0FD3DDE5E4" Source="..\dist\web\Content\fonts\glyphicons-halflings-regular.eot" />
+        <File Id="FILE_B07AFE80BD0943DB9028DC68A6F4CA52" Source="..\dist\web\Content\fonts\glyphicons-halflings-regular.svg" />
+        <File Id="FILE_424DFB7627C44DD49242A8A7BAC46292" Source="..\dist\web\Content\fonts\glyphicons-halflings-regular.ttf" />
+        <File Id="FILE_C090AF517B1745589F9908B8A71B31C2" Source="..\dist\web\Content\fonts\glyphicons-halflings-regular.woff" />
       </Component>
-      <Component Id="ComponentE2A19D5C68BA4A5B9A7C274DB0B09C29" Guid="e2a19d5c-68ba-4a5b-9a7c-274db0b09c29" DiskId="1" Directory="FOLDER_6FD1F2C890AF450BA13E69E0B0CF48EA">
-        <File Id="FILE_A195A20F9C99425290708F3167CD21BE" Source="..\dist\web\Content\js\bootstrap.min.js" />
-        <File Id="FILE_FC9381E1E3604E07A32D6B2C4EDFEBA9" Source="..\dist\web\Content\js\jquery.min.js" />
-        <File Id="FILE_BC6A63F230A34549B4A662EC20C16810" Source="..\dist\web\Content\js\knockout.js" />
-        <File Id="FILE_4BB5B2CA71C74886AA6677A5A9A72BB0" Source="..\dist\web\Content\js\knockout.mapping.js" />
-        <File Id="FILE_8065FF0E40E04FD1A7DE6AE0272C30E5" Source="..\dist\web\Content\js\sammy.min.js" />
-        <File Id="FILE_E247B062030D4A4F9A9DDB01356C578C" Source="..\dist\web\Content\js\th.core.js" />
+      <Component Id="Component78876F6B952B4FC3B98E6F74685F4EC7" Guid="78876f6b-952b-4fc3-b98e-6f74685f4ec7" DiskId="1" Directory="FOLDER_24BD4D0F32F7472BB5FB52C597C60692">
+        <File Id="FILE_62EA68F0E6BF414A8DE597EAEB351877" Source="..\dist\web\Content\js\bootstrap.min.js" />
+        <File Id="FILE_E59B2B9E9C9549948D00DDA9F9CAA2CA" Source="..\dist\web\Content\js\jquery.min.js" />
+        <File Id="FILE_D1A9A450BB8F4B9BBC7F738ACCB98FBA" Source="..\dist\web\Content\js\knockout.js" />
+        <File Id="FILE_A7E653FF1524410DBC85EA3FCC97915D" Source="..\dist\web\Content\js\knockout.mapping.js" />
+        <File Id="FILE_CB70954B2C794EE6B265A64FD19B8631" Source="..\dist\web\Content\js\sammy.min.js" />
+        <File Id="FILE_53DDE04BE84E40559DF3DC9B871415BF" Source="..\dist\web\Content\js\th.core.js" />
       </Component>
-      <Component Id="ComponentB66FD5A18E3849578E77183CC890AE20" Guid="b66fd5a1-8e38-4957-8e77-183cc890ae20" DiskId="1" Directory="FOLDER_A850B0D4FF814921BBFD229164CA7A0E">
-        <File Id="FILE_767936AB9AE04889BB44397C014B1E35" Source="..\dist\web\Content\js\ace\ace.js" />
-        <File Id="FILE_3030B35D191846639CF016739F4E177D" Source="..\dist\web\Content\js\ace\ext-chromevox.js" />
-        <File Id="FILE_5E5934A0625B412D998E545CDFAA7EC9" Source="..\dist\web\Content\js\ace\ext-elastic_tabstops_lite.js" />
-        <File Id="FILE_48858DAA38404ABF9FAD317AF809EA31" Source="..\dist\web\Content\js\ace\ext-emmet.js" />
-        <File Id="FILE_88A6620022EE4EFDACD2B82929F3FAE4" Source="..\dist\web\Content\js\ace\ext-keybinding_menu.js" />
-        <File Id="FILE_7EC72CDBBC1F4CA5BD4E39168502C40F" Source="..\dist\web\Content\js\ace\ext-language_tools.js" />
-        <File Id="FILE_B75CD5BD739C428BB7E198C214B3E5F5" Source="..\dist\web\Content\js\ace\ext-modelist.js" />
-        <File Id="FILE_05C102F7924E452FB8AF93D3349F5A8A" Source="..\dist\web\Content\js\ace\ext-old_ie.js" />
-        <File Id="FILE_BC458EC254B949E995FDC8D4A4E78935" Source="..\dist\web\Content\js\ace\ext-searchbox.js" />
-        <File Id="FILE_6E9E2271EC37446BB6FEE768B23DE1DF" Source="..\dist\web\Content\js\ace\ext-settings_menu.js" />
-        <File Id="FILE_D67FF543DC2247D199E46C8E9D2CF380" Source="..\dist\web\Content\js\ace\ext-spellcheck.js" />
-        <File Id="FILE_075F4C94CDD14C1392A6EDEB71AF60BD" Source="..\dist\web\Content\js\ace\ext-split.js" />
-        <File Id="FILE_C721DCAB056641D1AC37BFD33B0A0806" Source="..\dist\web\Content\js\ace\ext-static_highlight.js" />
-        <File Id="FILE_CF23D2918AE94CFA907A1EE71C2E5A06" Source="..\dist\web\Content\js\ace\ext-statusbar.js" />
-        <File Id="FILE_DCA131E211A44BA1BE63F9BBE44B0769" Source="..\dist\web\Content\js\ace\ext-textarea.js" />
-        <File Id="FILE_6E7790185DFE4AAF9545DC95B9CED38A" Source="..\dist\web\Content\js\ace\ext-themelist.js" />
-        <File Id="FILE_67F54935D7A54CAF90D1721FD86DD382" Source="..\dist\web\Content\js\ace\ext-whitespace.js" />
-        <File Id="FILE_516CDC9423E44EE6A1B04BAAF84FEA60" Source="..\dist\web\Content\js\ace\mode-javascript.js" />
-        <File Id="FILE_8BB462E817B44B548EBD7C5F7BD789CA" Source="..\dist\web\Content\js\ace\theme-textmate.js" />
-        <File Id="FILE_DC4457D32C2E44F496AF58C7AB36D7E2" Source="..\dist\web\Content\js\ace\worker-javascript.js" />
+      <Component Id="Component9BBC64417C36487DBA2710EEC3B2AF6D" Guid="9bbc6441-7c36-487d-ba27-10eec3b2af6d" DiskId="1" Directory="FOLDER_4F306CAD250B469C879B5C2F8D464A1F">
+        <File Id="FILE_BD500DF4C5D74BD18DE1626E09B40824" Source="..\dist\web\Content\js\ace\ace.js" />
+        <File Id="FILE_30BED12A1897444EA67EAA0D98EAB549" Source="..\dist\web\Content\js\ace\ext-chromevox.js" />
+        <File Id="FILE_EBF3725C322549A796E1832E32C87DF8" Source="..\dist\web\Content\js\ace\ext-elastic_tabstops_lite.js" />
+        <File Id="FILE_D6C4B36F3535449F8227184A81837B53" Source="..\dist\web\Content\js\ace\ext-emmet.js" />
+        <File Id="FILE_027C364AF9784A0AA63E41C36819EF96" Source="..\dist\web\Content\js\ace\ext-keybinding_menu.js" />
+        <File Id="FILE_FDA28C2E4B844F8C898263F32DEFD7FA" Source="..\dist\web\Content\js\ace\ext-language_tools.js" />
+        <File Id="FILE_857990A9DEC344CD9E70C12F871A12D5" Source="..\dist\web\Content\js\ace\ext-modelist.js" />
+        <File Id="FILE_6EBBFCBE0F2E4BB78D911CDC97A1262C" Source="..\dist\web\Content\js\ace\ext-old_ie.js" />
+        <File Id="FILE_64C7C92C47CC410D92AC93E5A1A7A2F3" Source="..\dist\web\Content\js\ace\ext-searchbox.js" />
+        <File Id="FILE_6519D428473E4D339235D4C274328D69" Source="..\dist\web\Content\js\ace\ext-settings_menu.js" />
+        <File Id="FILE_CD74C26C5F2947CA8635374C11BCC5AD" Source="..\dist\web\Content\js\ace\ext-spellcheck.js" />
+        <File Id="FILE_D7FC15E9F55447129E6430A038FBAD73" Source="..\dist\web\Content\js\ace\ext-split.js" />
+        <File Id="FILE_B043980B60804768A6C5057EA2275B57" Source="..\dist\web\Content\js\ace\ext-static_highlight.js" />
+        <File Id="FILE_3ED97D746F444CAF911E4CD68E212337" Source="..\dist\web\Content\js\ace\ext-statusbar.js" />
+        <File Id="FILE_103E176692044F86B894F54656BD1C59" Source="..\dist\web\Content\js\ace\ext-textarea.js" />
+        <File Id="FILE_D3DF80AC3D904AC4B43EEC8DD2D12DB0" Source="..\dist\web\Content\js\ace\ext-themelist.js" />
+        <File Id="FILE_E7102AF4D6B54954B7BC792661D713E7" Source="..\dist\web\Content\js\ace\ext-whitespace.js" />
+        <File Id="FILE_77717B2ABF1245069A5B05F0BC7E2311" Source="..\dist\web\Content\js\ace\mode-javascript.js" />
+        <File Id="FILE_F90AC6E9041848DFB8F2A6E861D73BC4" Source="..\dist\web\Content\js\ace\theme-textmate.js" />
+        <File Id="FILE_1ACE839D72F24A209F3D053703D9BBF2" Source="..\dist\web\Content\js\ace\worker-javascript.js" />
       </Component>
-      <Component Id="ComponentF066DBD0A2E542698E939D9E9B333155" Guid="f066dbd0-a2e5-4269-8e93-9d9e9b333155" DiskId="1" Directory="FOLDER_AA6C0691A28043299AC6AD9B07ABF40A">
-        <File Id="FILE_11DABB313C7A4850A5414D5687ABD7CE" Source="..\dist\web\Content\js\ace\snippets\javascript.js" />
+      <Component Id="ComponentEEF819823A984DE9B6E5F4649399231D" Guid="eef81982-3a98-4de9-b6e5-f4649399231d" DiskId="1" Directory="FOLDER_48120A5A4C06477A8627A4C655B6E66B">
+        <File Id="FILE_A7D212A14DF2481682F01B2FF5EBE1AF" Source="..\dist\web\Content\js\ace\snippets\javascript.js" />
       </Component>
-      <Component Id="Component6DCE2DEC2ACE47B296E0054CDC7495EC" Guid="6dce2dec-2ace-47b2-96e0-054cdc7495ec" DiskId="1" Directory="FOLDER_C684C7F01011488EA04F5228B180CCD7">
-        <File Id="FILE_E606692434DD4DD0ACDDE6BD198EB78B" Source="..\dist\web\Content\less\site.less" />
+      <Component Id="ComponentB7DC95E954A647C3A30FEF8BD0A74F15" Guid="b7dc95e9-54a6-47c3-a30f-ef8bd0a74f15" DiskId="1" Directory="FOLDER_DFA121771FF1464AA4F4B37F419BF8C4">
+        <File Id="FILE_2B5338BDC50A4731B199170D417094E1" Source="..\dist\web\Content\less\site.less" />
       </Component>
-      <Component Id="ComponentB32537D9A8A84308976B7F75F01FA657" Guid="b32537d9-a8a8-4308-976b-7f75f01fa657" DiskId="1" Directory="FOLDER_DE3FAEA3B8374EF38CDEC6DF7914FAFA">
-        <File Id="FILE_7CDD593AA7F44E6B84692C8D371EF3D4" Source="..\dist\web\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-        <File Id="FILE_DBD53876FCB34527B33F0BDCFC6D2685" Source="..\dist\web\obj\Debug\ThinkingHome.Web.csproj.FileListAbsolute.txt" />
-        <File Id="FILE_ED5F25EAF24E4F81BED72280B48A835C" Source="..\dist\web\obj\Debug\ThinkingHome.Web.csprojResolveAssemblyReference.cache" />
-        <File Id="FILE_2D8518C66B7C4F4EA1981904C758FBDD" Source="..\dist\web\obj\Debug\ThinkingHome.Web.dll" />
-        <File Id="FILE_35EBADFD25384B26BFD9F9CDBDD20441" Source="..\dist\web\obj\Debug\ThinkingHome.Web.pdb" />
+      <Component Id="ComponentBA2732A60B134E6BB7CD61621C20D804" Guid="ba2732a6-0b13-4e6b-b7cd-61621c20d804" DiskId="1" Directory="FOLDER_AA33AB90552C4B9193D4FD91A1E78E3E">
+        <File Id="FILE_8345F25C1E6945F7854BE811EBD6FDAB" Source="..\dist\web\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+        <File Id="FILE_A944AB1B20F64E8F8523D9BAA5E377C8" Source="..\dist\web\obj\Debug\ThinkingHome.Web.csproj.FileListAbsolute.txt" />
+        <File Id="FILE_2E109802AFBE4D07A957CFEF25E5C06A" Source="..\dist\web\obj\Debug\ThinkingHome.Web.csprojResolveAssemblyReference.cache" />
+        <File Id="FILE_B33458DF5ED54E4BA634CF3A4929FF93" Source="..\dist\web\obj\Debug\ThinkingHome.Web.dll" />
+        <File Id="FILE_1BC53B05F9BE4ED49BEC019F5E132FFC" Source="..\dist\web\obj\Debug\ThinkingHome.Web.pdb" />
       </Component>
-      <Component Id="Component85C6450E6F9B4F799D46CB8FED8BBF29" Guid="85c6450e-6f9b-4f79-9d46-cb8fed8bbf29" DiskId="1" Directory="FOLDER_CBF95110170241ABBF07D3D61A18DCB2">
-        <File Id="FILE_328CC2C39AC24632BC0488C4CF1F60F2" Source="..\dist\web\obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
-        <File Id="FILE_9CA0CE25E1E44EF7AEDF86DF360AFE25" Source="..\dist\web\obj\Release\ThinkingHome.Web.csproj.FileListAbsolute.txt" />
-        <File Id="FILE_FBB7C41FBF4444F09C3F2DA1A18AD5F3" Source="..\dist\web\obj\Release\ThinkingHome.Web.csprojResolveAssemblyReference.cache" />
-        <File Id="FILE_CAF33C72842F44AD8227523D6BD77654" Source="..\dist\web\obj\Release\ThinkingHome.Web.dll" />
-        <File Id="FILE_E8D50B7B07A64E2B880DDEC48AB9F002" Source="..\dist\web\obj\Release\ThinkingHome.Web.pdb" />
+      <Component Id="ComponentDDA2775F847A4C0E8CFB30A196619716" Guid="dda2775f-847a-4c0e-8cfb-30a196619716" DiskId="1" Directory="FOLDER_F85B906E4A3043C1A110323CDE43765F">
+        <File Id="FILE_34186668EB9541A4AEDEB15FD85DD6E7" Source="..\dist\web\obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
+        <File Id="FILE_3DE85D46ABAB42679537888517780C2E" Source="..\dist\web\obj\Release\ThinkingHome.Web.csproj.FileListAbsolute.txt" />
+        <File Id="FILE_1447BC00E637468BB245B5AB535AF55E" Source="..\dist\web\obj\Release\ThinkingHome.Web.csprojResolveAssemblyReference.cache" />
+        <File Id="FILE_FC89F09AF48A45D6B0C1C370427A0273" Source="..\dist\web\obj\Release\ThinkingHome.Web.dll" />
+        <File Id="FILE_1125D89F2B32456E98DE78282AD38DBF" Source="..\dist\web\obj\Release\ThinkingHome.Web.pdb" />
       </Component>
-      <Component Id="ComponentF0F6CC1D39FA484EB5F999D26C6C7CFB" Guid="f0f6cc1d-39fa-484e-b5f9-99d26c6c7cfb" DiskId="1" Directory="FOLDER_4C1A0568BC954AAF8239BAD33D952F42">
-        <File Id="FILE_AE834640163E4B40AD7145B760E8BD72" Source="..\dist\web\Properties\PublishProfiles\111.pubxml" />
+      <Component Id="Component7456AE3F8CBB441896FFC61095E024F3" Guid="7456ae3f-8cbb-4418-96ff-c61095e024f3" DiskId="1" Directory="FOLDER_BDC521EF39FC47B5885D72F90D284C7D">
+        <File Id="FILE_6485031F200D4827A00AA9CD3F29AF90" Source="..\dist\web\Properties\PublishProfiles\111.pubxml" />
       </Component>
-      <Component Id="ComponentDD6C834DA28A4FE9A949D214C802985C" Guid="dd6c834d-a28a-4fe9-a949-d214c802985c" DiskId="1" Directory="FOLDER_5276ABFB5BD2440AA608F60046CA579F">
-        <File Id="FILE_45EE7BF627B9457F836585D0091A6EAC" Source="..\dist\web\Views\Web.config" />
-        <File Id="FILE_0A1053117BC34377A3ED3DBEA22D4A23" Source="..\dist\web\Views\_ViewStart.cshtml" />
+      <Component Id="Component5BE518D7C31B4767B33D47BB726BD28A" Guid="5be518d7-c31b-4767-b33d-47bb726bd28a" DiskId="1" Directory="FOLDER_8FD281B7D69B4BA6AB7BB2CE18271CF1">
+        <File Id="FILE_5612F58E0039474982D2B7C5550E8194" Source="..\dist\web\Views\Web.config" />
+        <File Id="FILE_1B1AF2183479448C944878CB479945C7" Source="..\dist\web\Views\_ViewStart.cshtml" />
       </Component>
-      <Component Id="Component5B001B94CBB74A399A75C994E4F65AED" Guid="5b001b94-cbb7-4a39-9a75-c994e4f65aed" DiskId="1" Directory="FOLDER_8F5F9C5A27D045F8A6D07EBFDC058DAD">
-        <File Id="FILE_1E6784D3C2C14A4B966413F25F1DFB1C" Source="..\dist\web\Views\Default\GeneratedScript.cshtml" />
-        <File Id="FILE_3B65425C32264CE492553E6901B3CE9E" Source="..\dist\web\Views\Default\Index.cshtml" />
+      <Component Id="ComponentDEBC9B82FF2C4492A8F4A80B6A6952E3" Guid="debc9b82-ff2c-4492-a8f4-a80b6a6952e3" DiskId="1" Directory="FOLDER_0CB0729D595D40FB854CBDC9B9F2B33A">
+        <File Id="FILE_3BDD894339364E2AB28DE2C8596FE6DB" Source="..\dist\web\Views\Default\GeneratedScript.cshtml" />
+        <File Id="FILE_6967B1CA73424BC49CDD3A078BD3AC39" Source="..\dist\web\Views\Default\Index.cshtml" />
       </Component>
-      <Component Id="ComponentAA1FEEE58D6347369CC2089AD25AA7AA" Guid="aa1feee5-8d63-4736-9cc2-089ad25aa7aa" DiskId="1" Directory="FOLDER_B0EAFDEB48B048448957DD67ED89A231">
-        <File Id="FILE_98900E2F2C3444B28BAE78711D59C528" Source="..\dist\web\Views\Shared\Layout.cshtml" />
+      <Component Id="Component0707EC4A0A154AED9C9BA80E5564E4AD" Guid="0707ec4a-0a15-4aed-9c9b-a80e5564e4ad" DiskId="1" Directory="FOLDER_48430E48C4F7485FB1BDABC1CC0634D6">
+        <File Id="FILE_D6CEF4F6DA4A4861A0ED5F9D408959F6" Source="..\dist\web\Views\Shared\Layout.cshtml" />
       </Component>
     </ComponentGroup>
   </Fragment>

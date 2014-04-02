@@ -33,11 +33,6 @@ namespace ThinkingHome.Web.Controllers
 			return Json(model, JsonRequestBehavior.AllowGet);
 		}
 
-		public ActionResult Tiles(Guid id)
-		{
-			return View(id);
-		}
-
 		public ActionResult GeneratedScript()
 		{
 			var model = new

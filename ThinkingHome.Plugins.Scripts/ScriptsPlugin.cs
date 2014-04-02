@@ -50,7 +50,7 @@ namespace ThinkingHome.Plugins.Scripts
 
 			var properties = plugin.GetType()
 				.GetProperties()
-				.Where(m => m.PropertyType == typeof (ScriptEventHandlerDelegate[]))
+				.Where(m => m.PropertyType == typeof(ScriptEventHandlerDelegate[]))
 				.ToList();
 
 			foreach (var member in properties)
@@ -83,7 +83,7 @@ namespace ThinkingHome.Plugins.Scripts
 			var list = scriptEvents
 				.SelectMany(x => x.Value, (x, y) => new { pluginAlias = x.Key, eventAlias = y })
 				.ToList();
-				
+
 			return list;
 		}
 
@@ -167,9 +167,9 @@ namespace ThinkingHome.Plugins.Scripts
 
 				var subscription = new ScriptEventHandler
 				{
-					Id = guid, 
-					PluginAlias = pluginAlias, 
-					EventAlias = eventAlias, 
+					Id = guid,
+					PluginAlias = pluginAlias,
+					EventAlias = eventAlias,
 					UserScript = script
 				};
 
@@ -250,8 +250,13 @@ namespace ThinkingHome.Plugins.Scripts
 			{
 				var script = session.Query<UserScript>().First(s => s.Name == scriptName);
 
-				ExecuteScript(script, scriptHost, Logger, args);
+				RunScript(script, args);
 			}
+		}
+
+		public void RunScript(UserScript script, params object[] args)
+		{
+			ExecuteScript(script, scriptHost, Logger, args);
 		}
 
 		[Export("BE10460E-0E9E-4169-99BB-B1DE43B150FC", typeof(ScriptEventHandlerDelegate))]
@@ -280,13 +285,13 @@ namespace ThinkingHome.Plugins.Scripts
 				var engine = new JScriptEngine();
 				engine.AddHostObject("host", scriptHost);
 
-				string initArgsScript = string.Format("var arguments = {0};", args.ToJson("null"));
+				string initArgsScript = string.Format("var arguments = {0};", args.ToJson("[]"));
 				engine.Execute(initArgsScript);
 				engine.Execute(script.Body);
 			}
 			catch (Exception ex)
 			{
-				var messge = string.Format("Error in user script {0}", script.Name);
+				var messge = string.Format("error in user script {0}", script.Name);
 				logger.ErrorException(messge, ex);
 			}
 		}
