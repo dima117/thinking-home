@@ -76,6 +76,10 @@
       <Name>ThinkingHome.Core.Plugins</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\ThinkingHome.Plugins.Listener\ThinkingHome.Plugins.Listener.csproj">
+      <Project>{db321a2c-ff9c-48ef-80cf-d356a5d5f3a8}</Project>
+      <Name>ThinkingHome.Plugins.Listener</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ThinkingHome.Plugins.Scripts\ThinkingHome.Plugins.Scripts.csproj">
       <Project>{5dbb0362-36d7-49e8-9277-b212e3585e4b}</Project>
       <Name>ThinkingHome.Plugins.Scripts</Name>

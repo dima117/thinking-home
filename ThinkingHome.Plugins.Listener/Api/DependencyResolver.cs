@@ -7,12 +7,12 @@ namespace ThinkingHome.Plugins.Listener.Api
 {
 	public class DependencyResolver : IDependencyResolver
 	{
-		private readonly HttpMethodCollection actions;
+		private readonly HttpMethodCollection handlers;
 		private readonly Logger logger;
 
-		public DependencyResolver(HttpMethodCollection actions, Logger logger)
+		public DependencyResolver(HttpMethodCollection handlers, Logger logger)
 		{
-			this.actions = actions;
+			this.handlers = handlers;
 			this.logger = logger;
 		}
 		
@@ -25,7 +25,7 @@ namespace ThinkingHome.Plugins.Listener.Api
 		{
 			if (serviceType == typeof(CommonController))
 			{
-				return new CommonController(actions, logger);
+				return new CommonController(handlers, logger);
 			}
 			
 			return null;

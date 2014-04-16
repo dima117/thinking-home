@@ -12,6 +12,7 @@ using ThinkingHome.Core.Plugins;
 using ThinkingHome.Core.Plugins.Commands;
 using ThinkingHome.Core.Plugins.Utils;
 using ThinkingHome.Plugins.Listener;
+using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Scripts.Data;
 using ThinkingHome.Plugins.Scripts.Internal;
 
@@ -75,10 +76,100 @@ namespace ThinkingHome.Plugins.Scripts
 			mapper.Class<ScriptEventHandler>(cfg => cfg.Table("Scripts_EventHandler"));
 		}
 
-		#region edit scripts
+		#region http scripts
 
-		[ExtCommand("Scripts", "GetEventList")]
-		public object GetEvents(dynamic args)
+		[HttpCommand("/api/scripts/list")]
+		public object GetScriptList(HttpRequestParams request)
+		{
+			using (var session = Context.OpenSession())
+			{
+				var list = session.Query<UserScript>()
+					.Select(x => new { id = x.Id, name = x.Name })
+					.ToArray();
+
+				return list;
+			}
+		}
+
+		[HttpCommand("/api/scripts/add")]
+		public object AddScript(HttpRequestParams request)
+		{
+			var name = request.GetRequiredString("name");
+			var body = request.GetRequiredString("body");
+
+			using (var session = Context.OpenSession())
+			{
+				var guid = Guid.NewGuid();
+				var script = new UserScript { Id = guid, Name = name, Body = body };
+				session.Save(script);
+				session.Flush();
+
+				return guid;
+			}
+		}
+
+		[HttpCommand("/api/scripts/delete")]
+		public object DeleteScript(HttpRequestParams request)
+		{
+			Guid scriptId = request.GetRequiredGuid("scriptId");
+
+			using (var session = Context.OpenSession())
+			{
+				var subscription = session.Load<UserScript>(scriptId);
+				session.Delete(subscription);
+				session.Flush();
+			}
+
+			return null;
+		}
+
+		[HttpCommand("/api/scripts/get")]
+		public object LoadScript(HttpRequestParams request)
+		{
+			Guid id = request.GetRequiredGuid("id");
+
+			using (var session = Context.OpenSession())
+			{
+				var script = session.Query<UserScript>()
+					.Select(x => new { id = x.Id, name = x.Name, body = x.Body })
+					.FirstOrDefault(x => x.id == id);
+
+				return script;
+			}
+		}
+
+		[HttpCommand("/api/scripts/update")]
+		public object SaveScript(HttpRequestParams request)
+		{
+			Guid id = request.GetRequiredGuid("id");
+			string body = request.GetRequiredString("body");
+
+			using (var session = Context.OpenSession())
+			{
+				var script = session.Get<UserScript>(id);
+				script.Body = body;
+				session.Flush();
+			}
+
+			return null;
+		}
+
+		[HttpCommand("/api/scripts/run")]
+		public object RunScript(HttpRequestParams request)
+		{
+			string name = request.GetRequiredString("name");
+
+			RunScript(name, null);
+
+			return null;
+		}
+
+		#endregion
+
+		#region http subscriptions
+
+		[HttpCommand("/api/scripts/events")]
+		public object GetEvents(HttpRequestParams request)
 		{
 			var list = scriptEvents
 				.SelectMany(x => x.Value, (x, y) => new { pluginAlias = x.Key, eventAlias = y })
@@ -87,8 +178,8 @@ namespace ThinkingHome.Plugins.Scripts
 			return list;
 		}
 
-		[ExtCommand("Scripts", "GetSubscriptionList")]
-		public object GetSubscriptions(dynamic args)
+		[HttpCommand("/api/scripts/subscription/list")]
+		public object GetSubscriptions(HttpRequestParams request)
 		{
 			using (var session = Context.OpenSession())
 			{
@@ -107,57 +198,12 @@ namespace ThinkingHome.Plugins.Scripts
 			}
 		}
 
-		[ExtCommand("Scripts", "GetScriptList")]
-		public object GetScriptList(dynamic args)
+		[HttpCommand("/api/scripts/subscription/add")]
+		public object AddSubscription(HttpRequestParams request)
 		{
-			using (var session = Context.OpenSession())
-			{
-				var list = session.Query<UserScript>()
-					.Select(x => new { id = x.Id, name = x.Name })
-					.ToArray();
-
-				return list;
-			}
-		}
-
-		[ExtCommand("Scripts", "AddScript")]
-		public object AddScript(dynamic args)
-		{
-			var name = args.name;
-			var body = args.body;
-
-			using (var session = Context.OpenSession())
-			{
-				var guid = Guid.NewGuid();
-				var script = new UserScript { Id = guid, Name = name, Body = body };
-				session.Save(script);
-				session.Flush();
-
-				return guid;
-			}
-		}
-
-		[ExtCommand("Scripts", "DeleteScript")]
-		public object DeleteScript(dynamic args)
-		{
-			Guid scriptId = args.scriptId;
-
-			using (var session = Context.OpenSession())
-			{
-				var subscription = session.Load<UserScript>(scriptId);
-				session.Delete(subscription);
-				session.Flush();
-			}
-
-			return null;
-		}
-
-		[ExtCommand("Scripts", "AddSubscription")]
-		public object AddSubscription(dynamic args)
-		{
-			string pluginAlias = args.pluginAlias;
-			string eventAlias = args.eventAlias;
-			Guid scriptId = args.scriptId;
+			string pluginAlias = request.GetRequiredString("pluginAlias");
+			string eventAlias = request.GetRequiredString("eventAlias");
+			Guid scriptId = request.GetRequiredGuid("scriptId");
 
 			using (var session = Context.OpenSession())
 			{
@@ -180,46 +226,15 @@ namespace ThinkingHome.Plugins.Scripts
 			}
 		}
 
-		[ExtCommand("Scripts", "DeleteSubscription")]
-		public object DeleteSubscription(dynamic args)
+		[HttpCommand("/api/scripts/subscription/delete")]
+		public object DeleteSubscription(HttpRequestParams request)
 		{
-			Guid subscriptionId = args.subscriptionId;
+			Guid subscriptionId = request.GetRequiredGuid("subscriptionId");
 
 			using (var session = Context.OpenSession())
 			{
 				var subscription = session.Load<ScriptEventHandler>(subscriptionId);
 				session.Delete(subscription);
-				session.Flush();
-			}
-
-			return null;
-		}
-
-		[ExtCommand("Scripts", "LoadScript")]
-		public object LoadScript(dynamic args)
-		{
-			Guid id = args.id;
-
-			using (var session = Context.OpenSession())
-			{
-				var script = session.Query<UserScript>()
-					.Select(x => new { id = x.Id, name = x.Name, body = x.Body })
-					.FirstOrDefault(x => x.id == id);
-
-				return script;
-			}
-		}
-
-		[ExtCommand("Scripts", "SaveScript")]
-		public object SaveScript(dynamic args)
-		{
-			Guid id = args.id;
-			string body = args.body;
-
-			using (var session = Context.OpenSession())
-			{
-				var script = session.Get<UserScript>(id);
-				script.Body = body;
 				session.Flush();
 			}
 
@@ -232,16 +247,6 @@ namespace ThinkingHome.Plugins.Scripts
 
 		[ImportMany("Scripts.ScriptExecuted")]
 		public Lazy<Delegate, IExportCommandAttribute>[] ScriptExecuted { get; set; }
-
-		[ExtCommand("Scripts", "Run")]
-		public object RunScript(dynamic args)
-		{
-			string name = args.name;
-
-			RunScript(name, null);
-
-			return null;
-		}
 
 		[ScriptCommand("scripts", "run")]
 		public void RunScript(string scriptName, object[] args)

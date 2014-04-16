@@ -1,16 +1,13 @@
 ﻿using System;
 using System.ComponentModel.Composition;
+using System.Diagnostics;
 using System.Web.Http;
 using System.Web.Http.SelfHost;
 using ThinkingHome.Core.Plugins;
-using ThinkingHome.Core.Plugins.Commands;
 using ThinkingHome.Plugins.Listener.Api;
 
 namespace ThinkingHome.Plugins.Listener
 {
-	/// <summary>
-	/// http://localhost:8000/api/Scripts/Run?json={%22name%22%3A%22moo2%22}
-	/// </summary>
 	[Plugin]
 	public class ListenerPlugin : Plugin
 	{
@@ -19,31 +16,14 @@ namespace ThinkingHome.Plugins.Listener
 		private HttpSelfHostServer server;
 
 		[ImportMany("Listener.RequestReceived")]
-		public Lazy<Func<dynamic, object>, IExportCommandAttribute>[] RequestReceived { get; set; }
+		public Lazy<Func<HttpRequestParams, object>, IHttpCommandAttribute>[] RequestReceived { get; set; }
 
 		public override void Init()
 		{
-			var actions = new HttpMethodCollection();
-			foreach (var action in RequestReceived)
-			{
-				Logger.Info("Register HTTP handler {0}.{1}", action.Metadata.PluginAlias, action.Metadata.MethodAlias);
-				actions.RegisterMethod(action.Metadata, action.Value);
-			}
+			var handlers = RegisterHandlers();
+			var dependencyResolver = new DependencyResolver(handlers, Logger);
 
-			var config = new HttpSelfHostConfiguration(BASE_URL_HTTP)
-			{
-				DependencyResolver = new DependencyResolver(actions, Logger)
-			};
-
-			config.Routes.MapHttpRoute(
-				"API Default", "api/{pluginName}/{methodName}/{callback}",
-				new
-				{
-					controller = "Common", 
-					action = "Get",
-					callback = RouteParameter.Optional
-				})
-				.DataTokens["Namespaces"] = new[] {"ThinkingHome.Plugins.Listener.Api"};
+			var config = BuildConfiguration(dependencyResolver);
 
 			server = new HttpSelfHostServer(config);
 		}
@@ -57,5 +37,36 @@ namespace ThinkingHome.Plugins.Listener
 		{
 			server.Dispose();
 		}
+
+		#region private
+
+		private HttpMethodCollection RegisterHandlers()
+		{
+			var handlers = new HttpMethodCollection();
+			foreach (var action in RequestReceived)
+			{
+				Logger.Info("Register HTTP handler for url: '{0}'", action.Metadata.Url);
+				handlers.RegisterMethod(action.Metadata, action.Value);
+			}
+			return handlers;
+		}
+
+		private static HttpSelfHostConfiguration BuildConfiguration(DependencyResolver dependencyResolver)
+		{
+			var config = new HttpSelfHostConfiguration(BASE_URL_HTTP)
+			{
+				DependencyResolver = dependencyResolver
+			};
+
+			var defaults = new { controller = "Common", action = "Index" };
+			//var dataToken = new[] { "ThinkingHome.Plugins.Listener.Api" };
+
+			Debugger.Launch();
+			config.Routes.MapHttpRoute("Global", "{*url}", defaults);
+				//.DataTokens["Namespaces"] = dataToken;
+			return config;
+		}
+
+		#endregion
 	}
 }

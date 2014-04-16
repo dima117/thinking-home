@@ -76,9 +76,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\DependencyResolver.cs" />
-    <Compile Include="Api\CommonApiController.cs" />
+    <Compile Include="CommonApiController.cs" />
     <Compile Include="Api\HttpMethodCollection.cs" />
-    <Compile Include="ExtCommandAttribute.cs" />
+    <Compile Include="Api\HttpRequestParams.cs" />
+    <Compile Include="HttpCommandAttribute.cs" />
     <Compile Include="ListenerPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

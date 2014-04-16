@@ -2,16 +2,17 @@
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Core.Plugins.HomePackages;
 using ThinkingHome.Plugins.Listener;
+using ThinkingHome.Plugins.Listener.Api;
 
 namespace ThinkingHome.Plugins.Packages
 {
 	[Plugin]
 	public class PackagesPlugin : Plugin
 	{
-		[ExtCommand("Packages", "GetPackages")]
-		public object GetPackages(dynamic args)
+		[HttpCommand("/api/packages/list")]
+		public object GetPackages(HttpRequestParams request)
 		{
-			string query = args.query;
+			string query = request.GetString("query");
 
 			return Context.PackageManager.GetPackages(query)
 				.Select(BuildModel)
@@ -29,35 +30,35 @@ namespace ThinkingHome.Plugins.Packages
 			};
 		}
 
-		[ExtCommand("Packages", "GetInstalledPackages")]
-		public object GetInstalledPackages(dynamic args)
+		[HttpCommand("/api/packages/installed")]
+		public object GetInstalledPackages(HttpRequestParams request)
 		{
 			return Context.PackageManager.GetInstalledPackages();
 		}
 
-		[ExtCommand("Packages", "Install")]
-		public object Install(dynamic args)
+		[HttpCommand("/api/packages/install")]
+		public object Install(HttpRequestParams request)
 		{
-			string packageId = args.packageId;
+			string packageId = request.GetRequiredString("packageId");
 
 			Context.PackageManager.Install(packageId);
 
 			return null;
 		}
 
-		[ExtCommand("Packages", "Update")]
-		public object Update(dynamic args)
+		[HttpCommand("/api/packages/update")]
+		public object Update(HttpRequestParams request)
 		{
-			string packageId = args.packageId;
+			string packageId = request.GetRequiredString("packageId");
 
 			Context.PackageManager.Update(packageId);
 			return null;
 		}
 
-		[ExtCommand("Packages", "UnInstall")]
-		public object UnInstall(dynamic args)
+		[HttpCommand("/api/packages/uninstall")]
+		public object UnInstall(HttpRequestParams request)
 		{
-			string packageId = args.packageId;
+			string packageId = request.GetRequiredString("packageId");
 
 			Context.PackageManager.UnInstall(packageId);
 			return null;
