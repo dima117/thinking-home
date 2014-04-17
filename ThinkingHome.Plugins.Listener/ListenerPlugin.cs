@@ -1,10 +1,12 @@
 ﻿using System;
 using System.ComponentModel.Composition;
 using System.Diagnostics;
+using System.Reflection;
 using System.Web.Http;
 using System.Web.Http.SelfHost;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Plugins.Listener.Api;
+using ThinkingHome.Plugins.Listener.Handlers;
 
 namespace ThinkingHome.Plugins.Listener
 {
@@ -40,18 +42,38 @@ namespace ThinkingHome.Plugins.Listener
 
 		#region private
 
-		private HttpMethodCollection RegisterHandlers()
+		private HttpHandlerCollection RegisterHandlers()
 		{
-			var handlers = new HttpMethodCollection();
+			var handlers = new HttpHandlerCollection();
+
+			// регистрируем обработчики для методов плагинов
 			foreach (var action in RequestReceived)
 			{
 				Logger.Info("Register HTTP handler for url: '{0}'", action.Metadata.Url);
-				handlers.RegisterMethod(action.Metadata, action.Value);
+
+				var handler = new ApiListenerHandler(action.Value);
+				handlers.RegisterHandler(action.Metadata.Url, handler);
 			}
+
+			// регистрируем обработчики для ресурсов
+			foreach (Plugin plugin in Context.GetAllPlugins())
+			{
+				Type type = plugin.GetType();
+				var attributes = type.GetCustomAttributes<HttpResourceAttribute>();
+
+				foreach (var attribute in attributes)
+				{
+					var resHandler = new ResourceListenerHandler(
+						type.Assembly, attribute.ResourcePath, attribute.ContentType);
+
+					handlers.RegisterHandler(attribute.Url, resHandler);
+				}
+			}
+
 			return handlers;
 		}
 
-		private static HttpSelfHostConfiguration BuildConfiguration(DependencyResolver dependencyResolver)
+		private HttpSelfHostConfiguration BuildConfiguration(DependencyResolver dependencyResolver)
 		{
 			var config = new HttpSelfHostConfiguration(BASE_URL_HTTP)
 			{
@@ -59,11 +81,9 @@ namespace ThinkingHome.Plugins.Listener
 			};
 
 			var defaults = new { controller = "Common", action = "Index" };
-			//var dataToken = new[] { "ThinkingHome.Plugins.Listener.Api" };
 
-			Debugger.Launch();
 			config.Routes.MapHttpRoute("Global", "{*url}", defaults);
-				//.DataTokens["Namespaces"] = dataToken;
+
 			return config;
 		}
 

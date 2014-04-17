@@ -2,21 +2,20 @@
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Net.Http;
-using System.Text;
 using System.Web;
 using System.Web.Http;
-using Newtonsoft.Json;
 using NLog;
 using ThinkingHome.Plugins.Listener.Api;
+using ThinkingHome.Plugins.Listener.Handlers;
 
 namespace ThinkingHome.Plugins.Listener
 {
 	public class CommonController : ApiController
 	{
-		private readonly HttpMethodCollection handlers;
+		private readonly HttpHandlerCollection handlers;
 		private readonly Logger logger;
 
-		public CommonController(HttpMethodCollection handlers, Logger logger)
+		public CommonController(HttpHandlerCollection handlers, Logger logger)
 		{
 			this.handlers = handlers;
 			this.logger = logger;
@@ -27,28 +26,23 @@ namespace ThinkingHome.Plugins.Listener
 		{
 			try
 			{
-				Debugger.Launch();
-				logger.Info("execute action: {0};", Request.RequestUri.LocalPath);
+				//Debugger.Launch();
+				string localPath = Request.RequestUri.LocalPath;
 
-				var action = handlers[Request.RequestUri.LocalPath];
+				logger.Info("execute action: {0};", localPath);
 
-				if (action == null)
+				IListenerHandler handler;
+
+				if (!handlers.TryGetValue(localPath, out handler))
 				{
-					var message = string.Format("handler for url '{0}' is not found", Request.RequestUri.LocalPath);
+					var message = string.Format("handler for url '{0}' is not found", localPath);
 					throw new Exception(message);
 				}
 
 				HttpRequestParams parameters = GetRequestParams(Request);
-				object obj = action(parameters);
+				HttpContent content = handler.ProcessRequest(parameters);
 
-				var jsonResult = JsonConvert.SerializeObject(obj);
-
-				//if (!string.IsNullOrWhiteSpace(callback))
-				//{
-				//	jsonResult = string.Format("{0}({1})", callback, jsonResult);
-				//}
-
-				return new HttpResponseMessage { Content = new StringContent(jsonResult, Encoding.UTF8, "application/json") };
+				return new HttpResponseMessage { Content = content };
 			}
 			catch (Exception ex)
 			{

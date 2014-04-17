@@ -7,10 +7,10 @@ namespace ThinkingHome.Plugins.Listener.Api
 {
 	public class DependencyResolver : IDependencyResolver
 	{
-		private readonly HttpMethodCollection handlers;
+		private readonly HttpHandlerCollection handlers;
 		private readonly Logger logger;
 
-		public DependencyResolver(HttpMethodCollection handlers, Logger logger)
+		public DependencyResolver(HttpHandlerCollection handlers, Logger logger)
 		{
 			this.handlers = handlers;
 			this.logger = logger;
