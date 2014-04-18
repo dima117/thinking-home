@@ -56,6 +56,20 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\Index.html" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\css\bootstrap-theme.min.css" />
+    <EmbeddedResource Include="Resources\css\bootstrap.min.css" />
+    <EmbeddedResource Include="Resources\fonts\glyphicons-halflings-regular.svg" />
+    <EmbeddedResource Include="Resources\js\bootstrap.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\js\jquery.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\fonts\glyphicons-halflings-regular.eot" />
+    <EmbeddedResource Include="Resources\fonts\glyphicons-halflings-regular.ttf" />
+    <EmbeddedResource Include="Resources\fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
