@@ -54,16 +54,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Index.html" />
+    <EmbeddedResource Include="Resources\index.html" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\css\bootstrap-theme.min.css" />
     <EmbeddedResource Include="Resources\css\bootstrap.min.css" />
     <EmbeddedResource Include="Resources\fonts\glyphicons-halflings-regular.svg" />
-    <EmbeddedResource Include="Resources\js\bootstrap.min.js" />
+    <EmbeddedResource Include="Resources\js\vendor\bootstrap.min.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\js\jquery.min.js" />
+    <EmbeddedResource Include="Resources\js\vendor\jquery.min.js" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\fonts\glyphicons-halflings-regular.eot" />
@@ -71,13 +71,19 @@
     <EmbeddedResource Include="Resources\fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\js\backbone.marionette.min.js" />
-    <EmbeddedResource Include="Resources\js\backbone.min.js" />
-    <EmbeddedResource Include="Resources\js\require.min.js" />
-    <EmbeddedResource Include="Resources\js\underscore.min.js" />
+    <EmbeddedResource Include="Resources\js\vendor\backbone.marionette.min.js" />
+    <EmbeddedResource Include="Resources\js\vendor\backbone.min.js" />
+    <EmbeddedResource Include="Resources\js\vendor\require.min.js" />
+    <EmbeddedResource Include="Resources\js\vendor\underscore.min.js" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\js\th-main.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\js\vendor\json2.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\js\app.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

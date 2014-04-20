@@ -1,19 +1,24 @@
 ﻿requirejs.config({
 	baseUrl: 'js',
 	paths: {
-		jquery: 'jquery.min',
-		underscore: 'underscore.min'
+		json2: 'vendor/json2.min',
+		jquery: 'vendor/jquery.min',
+		underscore: 'vendor/underscore.min',
+		backbone: 'vendor/backbone.min',
+		marionette: 'vendor/backbone.marionette.min'
+	},
+	shim: {
+		backbone: {
+			deps: ['json2', 'jquery', 'underscore'],
+			exports: 'Backbone'
+		},
+		marionette: {
+			deps: ['backbone'],
+			exports: 'Marionette'
+		}
 	}
-	//},
-	//shim: {
-	//	underscore: { exports: '_' }
-	//}
 });
 
-require(['underscore', 'jquery'], function (xxx, jq) {
-	console.log('ver=', $.fn.jquery);
-	console.log('jq ver=', jq.fn.jquery);
-	
-	console.log('underscore identity call: ', _.identity(5));
-	console.log('underscore identity call: ', xxx.identity(5));
+require(['app'], function (app) {
+	app.start();
 });

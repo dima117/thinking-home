@@ -6,17 +6,19 @@ namespace ThinkingHome.Plugins.WebUI
 	[Plugin]
 
 	// html
-	[HttpResource("/", "ThinkingHome.Plugins.WebUI.Resources.Index.html", "text/html")]
+	[HttpResource("/", "ThinkingHome.Plugins.WebUI.Resources.index.html", "text/html")]
 	
 	// js
-	[HttpResource("/js/require.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.require.min.js", "text/javascript")]
-	[HttpResource("/js/jquery.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.jquery.min.js", "text/javascript")]
-	[HttpResource("/js/underscore.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.underscore.min.js", "text/javascript")]
-	[HttpResource("/js/backbone.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.backbone.min.js", "text/javascript")]
-	[HttpResource("/js/backbone.marionette.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.backbone.marionette.min.js", "text/javascript")]
-	[HttpResource("/js/bootstrap.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.bootstrap.min.js", "text/javascript")]
+	[HttpResource("/js/vendor/require.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.require.min.js", "text/javascript")]
+	[HttpResource("/js/vendor/json2.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.json2.min.js", "text/javascript")]
+	[HttpResource("/js/vendor/jquery.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.jquery.min.js", "text/javascript")]
+	[HttpResource("/js/vendor/underscore.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.underscore.min.js", "text/javascript")]
+	[HttpResource("/js/vendor/backbone.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.backbone.min.js", "text/javascript")]
+	[HttpResource("/js/vendor/backbone.marionette.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.backbone.marionette.min.js", "text/javascript")]
+	[HttpResource("/js/vendor/bootstrap.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.bootstrap.min.js", "text/javascript")]
 
 	[HttpResource("/js/th-main.js", "ThinkingHome.Plugins.WebUI.Resources.js.th-main.js", "text/javascript")]
+	[HttpResource("/js/app.js", "ThinkingHome.Plugins.WebUI.Resources.js.app.js", "text/javascript")]
 
 	// css
 	[HttpResource("/css/bootstrap-theme.min.css", "ThinkingHome.Plugins.WebUI.Resources.css.bootstrap-theme.min.css", "text/css")]
