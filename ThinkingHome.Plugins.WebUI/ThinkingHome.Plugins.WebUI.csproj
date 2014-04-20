@@ -70,6 +70,15 @@
     <EmbeddedResource Include="Resources\fonts\glyphicons-halflings-regular.ttf" />
     <EmbeddedResource Include="Resources\fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\js\backbone.marionette.min.js" />
+    <EmbeddedResource Include="Resources\js\backbone.min.js" />
+    <EmbeddedResource Include="Resources\js\require.min.js" />
+    <EmbeddedResource Include="Resources\js\underscore.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\js\th-main.js" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
