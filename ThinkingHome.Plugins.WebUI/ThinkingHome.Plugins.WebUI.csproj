@@ -57,7 +57,7 @@
     <EmbeddedResource Include="Resources\index.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\css\bootstrap-theme.min.css" />
+    <EmbeddedResource Include="Resources\css\site.css" />
     <EmbeddedResource Include="Resources\css\bootstrap.min.css" />
     <EmbeddedResource Include="Resources\fonts\glyphicons-halflings-regular.svg" />
     <EmbeddedResource Include="Resources\js\vendor\bootstrap.min.js" />
@@ -84,6 +84,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\js\app.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\js\application\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

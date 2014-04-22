@@ -21,9 +21,9 @@ namespace ThinkingHome.Plugins.WebUI
 	[HttpResource("/js/app.js", "ThinkingHome.Plugins.WebUI.Resources.js.app.js", "text/javascript")]
 
 	// css
-	[HttpResource("/css/bootstrap-theme.min.css", "ThinkingHome.Plugins.WebUI.Resources.css.bootstrap-theme.min.css", "text/css")]
 	[HttpResource("/css/bootstrap.min.css", "ThinkingHome.Plugins.WebUI.Resources.css.bootstrap.min.css", "text/css")]
-
+	[HttpResource("/css/site.css", "ThinkingHome.Plugins.WebUI.Resources.css.site.css", "text/css")]
+	
 	// fonts
 	[HttpResource("/fonts/glyphicons-halflings-regular/.eot", "ThinkingHome.Plugins.WebUI.Resources.css.glyphicons-halflings-regular.eot", "application/vnd.ms-fontobject")]
 	[HttpResource("/fonts/glyphicons-halflings-regular/.svg", "ThinkingHome.Plugins.WebUI.Resources.css.glyphicons-halflings-regular.svg", "image/svg+xml")]

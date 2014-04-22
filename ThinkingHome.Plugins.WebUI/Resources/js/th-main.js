@@ -5,9 +5,11 @@
 		jquery: 'vendor/jquery.min',
 		underscore: 'vendor/underscore.min',
 		backbone: 'vendor/backbone.min',
-		marionette: 'vendor/backbone.marionette.min'
+		marionette: 'vendor/backbone.marionette.min',
+		bootstrap: 'vendor/bootstrap.min'
 	},
 	shim: {
+		bootstrap: ['jquery'],
 		backbone: {
 			deps: ['json2', 'jquery', 'underscore'],
 			exports: 'Backbone'
@@ -17,6 +19,9 @@
 			exports: 'Marionette'
 		}
 	}
+});
+
+require(['bootstrap'], function() {
 });
 
 require(['app'], function (app) {
