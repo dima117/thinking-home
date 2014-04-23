@@ -1,9 +1,15 @@
-﻿using ThinkingHome.Core.Plugins;
+﻿using System.Linq;
+using NHibernate.Linq;
+using NHibernate.Mapping.ByCode;
+using ThinkingHome.Core.Plugins;
+using ThinkingHome.Plugins.Listener;
+using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Handlers;
+using ThinkingHome.Plugins.WebUI.Data;
 
 namespace ThinkingHome.Plugins.WebUI
 {
-	[Plugin]
+	#region respurces
 
 	// html
 	[HttpResource("/", "ThinkingHome.Plugins.WebUI.Resources.index.html", "text/html")]
@@ -16,6 +22,8 @@ namespace ThinkingHome.Plugins.WebUI
 	[HttpResource("/js/vendor/backbone.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.backbone.min.js", "text/javascript")]
 	[HttpResource("/js/vendor/backbone.marionette.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.backbone.marionette.min.js", "text/javascript")]
 	[HttpResource("/js/vendor/bootstrap.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.bootstrap.min.js", "text/javascript")]
+
+	[HttpResource("/js/application/navigation.js", "ThinkingHome.Plugins.WebUI.Resources.js.application.navigation.js", "text/javascript")]
 
 	[HttpResource("/js/th-main.js", "ThinkingHome.Plugins.WebUI.Resources.js.th-main.js", "text/javascript")]
 	[HttpResource("/js/app.js", "ThinkingHome.Plugins.WebUI.Resources.js.app.js", "text/javascript")]
@@ -30,8 +38,27 @@ namespace ThinkingHome.Plugins.WebUI
 	[HttpResource("/fonts/glyphicons-halflings-regular/.ttf", "ThinkingHome.Plugins.WebUI.Resources.css.glyphicons-halflings-regular.ttf", "application/x-font-truetype")]
 	[HttpResource("/fonts/glyphicons-halflings-regular/.woff", "ThinkingHome.Plugins.WebUI.Resources.css.glyphicons-halflings-regular.woff", "application/font-woff")]
 
+	#endregion
 
+	[Plugin]
 	public class WebUIPlugin : Plugin
 	{
+		public override void InitDbModel(ModelMapper mapper)
+		{
+			mapper.Class<NavigationItem>(cfg => cfg.Table("WebUI_NavigationItem"));
+		}
+
+		[HttpCommand("/api/webui/items")]
+		public object GetNavigationItems(HttpRequestParams request)
+		{
+			using (var session = Context.OpenSession())
+			{
+				var list = session.Query<NavigationItem>()
+					.Select(x => new { id = x.Id, name = x.Name, modulePath = x.ModulePath, sortOrder = x.SortOrder })
+					.ToArray();
+
+				return list;
+			}
+		}
 	}
 }

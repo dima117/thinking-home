@@ -6,7 +6,9 @@
 		underscore: 'vendor/underscore.min',
 		backbone: 'vendor/backbone.min',
 		marionette: 'vendor/backbone.marionette.min',
-		bootstrap: 'vendor/bootstrap.min'
+		bootstrap: 'vendor/bootstrap.min',
+		
+		navigation: 'application/navigation'
 	},
 	shim: {
 		bootstrap: ['jquery'],
@@ -21,9 +23,6 @@
 	}
 });
 
-require(['bootstrap'], function() {
-});
-
-require(['app'], function (app) {
+require(['app', 'navigation', 'bootstrap'], function (app) {
 	app.start();
 });

@@ -34,7 +34,7 @@
   <ItemGroup>
     <Reference Include="ClearScript">
       <HintPath>..\packages\ClearScript.V8.5.3.7.0\lib\ClearScript.dll</HintPath>
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="ECM7.Migrator.Framework">
       <HintPath>..\packages\ECM7Migrator.2.8.0.0\lib\net40\ECM7.Migrator.Framework.dll</HintPath>
