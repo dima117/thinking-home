@@ -22,8 +22,10 @@ namespace ThinkingHome.Plugins.WebUI
 	[HttpResource("/js/vendor/backbone.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.backbone.min.js", "text/javascript")]
 	[HttpResource("/js/vendor/backbone.marionette.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.backbone.marionette.min.js", "text/javascript")]
 	[HttpResource("/js/vendor/bootstrap.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.bootstrap.min.js", "text/javascript")]
+	[HttpResource("/js/vendor/tpl.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.tpl.min.js", "text/javascript")]
 
 	[HttpResource("/js/application/navigation.js", "ThinkingHome.Plugins.WebUI.Resources.js.application.navigation.js", "text/javascript")]
+	[HttpResource("/js/application/item.tpl", "ThinkingHome.Plugins.WebUI.Resources.js.application.item.tpl")]
 
 	[HttpResource("/js/th-main.js", "ThinkingHome.Plugins.WebUI.Resources.js.th-main.js", "text/javascript")]
 	[HttpResource("/js/app.js", "ThinkingHome.Plugins.WebUI.Resources.js.app.js", "text/javascript")]

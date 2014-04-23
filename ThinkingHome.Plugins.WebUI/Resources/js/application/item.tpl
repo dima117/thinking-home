@@ -1,0 +1,1 @@
+﻿<a href="#" data-module-path="<%= modulePath %>"><%= name %></a>

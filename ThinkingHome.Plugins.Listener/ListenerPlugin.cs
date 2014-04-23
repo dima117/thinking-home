@@ -13,7 +13,7 @@ namespace ThinkingHome.Plugins.Listener
 	[Plugin]
 	public class ListenerPlugin : Plugin
 	{
-		private const string BASE_URL_HTTP = "http://localhost:8000";
+		private const string BASE_URL_HTTP = "http://localhost:8080";
 
 		private HttpSelfHostServer server;
 

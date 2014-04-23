@@ -1,6 +1,7 @@
 ﻿requirejs.config({
 	baseUrl: 'js',
 	paths: {
+		tpl: 'vendor/tpl.min',
 		json2: 'vendor/json2.min',
 		jquery: 'vendor/jquery.min',
 		underscore: 'vendor/underscore.min',
