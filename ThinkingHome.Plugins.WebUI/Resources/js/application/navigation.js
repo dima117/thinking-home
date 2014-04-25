@@ -1,112 +1,91 @@
-﻿define(['app', 'tpl!js/application/item.tpl'], function (application, itemTemplate) {
+﻿define(
+	['app', 'navigation-eitities', 'navigation-views'],
 
-	application.module('Navigation', function (module, app, backbone, marionette, $, _) {
+	function (application) {
 
-		// entities
-		module.NavItem = backbone.Model.extend({
-			urlRoot: 'api/webui/items',
-			defaults: {
-				sortOrder: 0
-			}
-		});
+		application.module('Navigation', function (module, app, backbone, marionette, $, _) {
 
-		module.NavItemCollection = backbone.Collection.extend({
-			url: 'api/webui/items',
-			model: module.NavItem,
-			comparator: 'sortOrder'
-		});
+			var api = {
 
-		module.Router = marionette.AppRouter.extend({
-			appRoutes: { '*path': 'loadPage' }
-		});
+				getItems: function () {
 
-		var api = {
+					var defer = $.Deferred();
 
-			getItems: function () {
+					var items = new module.NavItemCollection();
 
-				var defer = $.Deferred();
+					items.fetch({
+						success: function (collection) {
+							defer.resolve(collection);
+						},
+						error: function () {
+							defer.resolve(undefined);
+						}
+					});
 
-				var items = new module.NavItemCollection();
+					return defer.promise();
+				},
 
-				items.fetch({
-					success: function (collection) {
-						defer.resolve(collection);
-					},
-					error: function () {
-						defer.resolve(undefined);
+				getSystemItems: function () {
+
+					var items = new module.NavItemCollection([
+						{
+							id: '78839E19-38F0-4218-A7AC-E01E2F145997',
+							name: 'Settings',
+							path: 'webapp/webui/settings'
+						}
+					]);
+
+					return items;
+				},
+
+				loadPage: function (path) {
+
+					if (path) {
+
+						app.navigate(path);
+
+						require([path], function (obj) {
+							var view = obj.createView();
+							app.regionMain.show(view);
+						});
 					}
-				});
-
-				return defer.promise();
-			},
-			loadPage: function (path) {
-
-				app.navigate(path);
-
-				require([path], function (obj) {
-					var view = obj.createView();
-					app.regionMain.show(view);
-				});
-			}
-		};
-
-		// views
-		module.NavItemView = marionette.ItemView.extend({
-			template: itemTemplate,
-			tagName: 'li',
-			events: {
-				'click a': 'itemClicked'
-			},
-			itemClicked: function (e) {
-				e.preventDefault();
-
-				var path = this.model.get('path');
-				api.loadPage(path);
-			}
-		});
-
-		module.NavMenuView = marionette.CollectionView.extend({
-			tagName: 'ul',
-			className: 'nav navbar-nav',
-			itemView: module.NavItemView
-		});
-
-		app.addInitializer(function () {
-
-			app.router = new module.Router({
-				controller: api
-			});
-		});
-
-		app.on('initialize:after', function () {
-
-			// right menu
-			var rightMenuItems = new module.NavItemCollection([
-				{
-					id: '78839E19-38F0-4218-A7AC-E01E2F145997',
-					name: 'Settings',
-					path: 'webapp/webui/settings'
 				}
-			]);
+			};
 
-			var rightView = new module.NavMenuView({
-				collection: rightMenuItems
-			});
+			app.addInitializer(function () {
 
-			app.regionNavigationRight.show(rightView);
-
-			// main menu
-			var rq = api.getItems();
-			$.when(rq).done(function (items) {
-
-				var view = new module.NavMenuView({
-					collection: items
+				// routes
+				app.router = new marionette.AppRouter({
+					appRoutes: { '*path': 'loadPage' },
+					controller: api
 				});
 
-				app.regionNavigation.show(view);
+				app.on('page:load', function (path) {
+
+					api.loadPage(path);
+				});
+
+				// right menu
+				var rightItems = api.getSystemItems();
+
+				var rightView = new module.NavMenuView({
+					collection: rightItems
+				});
+
+				app.regionNavigationRight.show(rightView);
+
+				// main menu
+				var rq = api.getItems();
+				$.when(rq).done(function (items) {
+
+					var view = new module.NavMenuView({
+						collection: items
+					});
+
+					app.regionNavigation.show(view);
+				});
 			});
 		});
-	});
 
-	return application.Navigation;
-});
+		return application.Navigation;
+	});

@@ -10,7 +10,9 @@
 		marionette: 'js/vendor/backbone.marionette.min',
 		bootstrap: 'js/vendor/bootstrap.min',
 		
-		navigation: 'js/application/navigation'
+		'navigation': 'js/application/navigation',
+		'navigation-eitities': 'js/application/navigation-eitities',
+		'navigation-views': 'js/application/navigation-views'
 	},
 	shim: {
 		bootstrap: ['jquery'],

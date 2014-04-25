@@ -25,6 +25,8 @@ namespace ThinkingHome.Plugins.WebUI
 	[HttpResource("/js/vendor/tpl.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.tpl.min.js", "text/javascript")]
 
 	[HttpResource("/js/application/navigation.js", "ThinkingHome.Plugins.WebUI.Resources.js.application.navigation.js", "text/javascript")]
+	[HttpResource("/js/application/navigation-eitities.js", "ThinkingHome.Plugins.WebUI.Resources.js.application.navigation-eitities.js", "text/javascript")]
+	[HttpResource("/js/application/navigation-views.js", "ThinkingHome.Plugins.WebUI.Resources.js.application.navigation-views.js", "text/javascript")]
 	[HttpResource("/js/application/item.tpl", "ThinkingHome.Plugins.WebUI.Resources.js.application.item.tpl")]
 
 	[HttpResource("/js/th-main.js", "ThinkingHome.Plugins.WebUI.Resources.js.th-main.js", "text/javascript")]

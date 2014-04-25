@@ -13,8 +13,6 @@
 
 				var rows = new nav.NavItemCollection();
 
-
-
 				var view = new marionette.CompositeView({
 					template: template,
 					itemView: module.TableRowView,
