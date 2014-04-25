@@ -16,7 +16,12 @@
 			comparator: 'sortOrder'
 		});
 
+		module.Router = marionette.AppRouter.extend({
+			appRoutes: { '*path': 'loadPage' }
+		});
+
 		var api = {
+
 			getItems: function () {
 
 				var defer = $.Deferred();
@@ -35,6 +40,8 @@
 				return defer.promise();
 			},
 			loadPage: function (path) {
+
+				app.navigate(path);
 
 				require([path], function (obj) {
 					var view = obj.createView();
@@ -64,38 +71,41 @@
 			itemView: module.NavItemView
 		});
 
-		module.Controller = {
-			load: function () {
+		app.addInitializer(function () {
 
-				// right menu
-				var rightMenuItems = new module.NavItemCollection([
-					{
-						id: '78839E19-38F0-4218-A7AC-E01E2F145997',
-						name: 'Settings',
-						path: 'webapp/webui/settings'
-					}
-				]);
-				
-				var rightView = new module.NavMenuView({
-					collection: rightMenuItems
+			app.router = new module.Router({
+				controller: api
+			});
+		});
+
+		app.on('initialize:after', function () {
+
+			// right menu
+			var rightMenuItems = new module.NavItemCollection([
+				{
+					id: '78839E19-38F0-4218-A7AC-E01E2F145997',
+					name: 'Settings',
+					path: 'webapp/webui/settings'
+				}
+			]);
+
+			var rightView = new module.NavMenuView({
+				collection: rightMenuItems
+			});
+
+			app.regionNavigationRight.show(rightView);
+
+			// main menu
+			var rq = api.getItems();
+			$.when(rq).done(function (items) {
+
+				var view = new module.NavMenuView({
+					collection: items
 				});
 
-				app.regionNavigationRight.show(rightView);
-
-				// main menu
-				var rq = api.getItems();
-				$.when(rq).done(function (items) {
-
-					var view = new module.NavMenuView({
-						collection: items
-					});
-
-					app.regionNavigation.show(view);
-				});
-			}
-		};
-
-		app.on("initialize:after", module.Controller.load);
+				app.regionNavigation.show(view);
+			});
+		});
 	});
 
 	return application.Navigation;

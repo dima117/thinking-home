@@ -7,6 +7,13 @@
 		regionNavigationRight: "#right-nav-region",
 		regionMain: "#main-region"
 	});
+	
+	app.navigate = function (route, options) {
+
+		options || (options = {});
+
+		Backbone.history.navigate(route, options);
+	};
 
 	app.on('initialize:after', function() {
 
