@@ -3,8 +3,9 @@
 	var app = new Marionette.Application();
 
 	app.addRegions({
-		navRegion: "#nav-region",
-		mainRegion: "#main-region"
+		regionNavigation: "#nav-region",
+		regionNavigationRight: "#right-nav-region",
+		regionMain: "#main-region"
 	});
 
 	app.on('initialize:after', function() {

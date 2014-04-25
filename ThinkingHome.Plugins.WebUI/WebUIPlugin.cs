@@ -40,6 +40,10 @@ namespace ThinkingHome.Plugins.WebUI
 	[HttpResource("/fonts/glyphicons-halflings-regular/.ttf", "ThinkingHome.Plugins.WebUI.Resources.css.glyphicons-halflings-regular.ttf", "application/x-font-truetype")]
 	[HttpResource("/fonts/glyphicons-halflings-regular/.woff", "ThinkingHome.Plugins.WebUI.Resources.css.glyphicons-halflings-regular.woff", "application/font-woff")]
 
+	// webapp
+	[HttpResource("/webapp/webui/settings.js", "ThinkingHome.Plugins.WebUI.PluginResources.settings.js", "text/javascript")]
+	[HttpResource("/webapp/webui/settings.tpl", "ThinkingHome.Plugins.WebUI.PluginResources.settings.tpl")]
+
 	#endregion
 
 	[Plugin]
@@ -56,7 +60,7 @@ namespace ThinkingHome.Plugins.WebUI
 			using (var session = Context.OpenSession())
 			{
 				var list = session.Query<NavigationItem>()
-					.Select(x => new { id = x.Id, name = x.Name, modulePath = x.ModulePath, sortOrder = x.SortOrder })
+					.Select(x => new { id = x.Id, name = x.Name, path = x.ModulePath, sortOrder = x.SortOrder })
 					.ToArray();
 
 				return list;

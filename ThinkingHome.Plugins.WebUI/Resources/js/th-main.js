@@ -1,15 +1,16 @@
 ﻿requirejs.config({
-	baseUrl: 'js',
+	baseUrl: '/',
 	paths: {
-		tpl: 'vendor/tpl.min',
-		json2: 'vendor/json2.min',
-		jquery: 'vendor/jquery.min',
-		underscore: 'vendor/underscore.min',
-		backbone: 'vendor/backbone.min',
-		marionette: 'vendor/backbone.marionette.min',
-		bootstrap: 'vendor/bootstrap.min',
+		app: 'js/app',
+		tpl: 'js/vendor/tpl.min',
+		json2: 'js/vendor/json2.min',
+		jquery: 'js/vendor/jquery.min',
+		underscore: 'js/vendor/underscore.min',
+		backbone: 'js/vendor/backbone.min',
+		marionette: 'js/vendor/backbone.marionette.min',
+		bootstrap: 'js/vendor/bootstrap.min',
 		
-		navigation: 'application/navigation'
+		navigation: 'js/application/navigation'
 	},
 	shim: {
 		bootstrap: ['jquery'],

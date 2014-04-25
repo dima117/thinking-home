@@ -113,6 +113,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <EmbeddedResource Include="Resources\js\application\item.tpl" />
+    <EmbeddedResource Include="PluginResources\settings.tpl" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\js\application\navigation.js" />
@@ -120,6 +121,10 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\js\vendor\tpl.min.js" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PluginResources\settings.js" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
