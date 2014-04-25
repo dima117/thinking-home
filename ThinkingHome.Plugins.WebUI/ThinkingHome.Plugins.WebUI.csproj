@@ -114,6 +114,7 @@
     <None Include="packages.config" />
     <EmbeddedResource Include="Resources\js\application\item.tpl" />
     <EmbeddedResource Include="PluginResources\settings.tpl" />
+    <EmbeddedResource Include="PluginResources\table-row.tpl" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\js\application\navigation.js" />

@@ -1,16 +1,32 @@
-﻿define(['app', 'tpl!webapp/webui/settings.tpl'], function (application, template) {
+﻿define(
+	['app', 'navigation', 'tpl!webapp/webui/settings.tpl', 'tpl!webapp/webui/table-row.tpl'],
+	function (application, nav, template, rowTemplate) {
 
-	application.module('WebUI.Settings', function(module, app, backbone, marionette, $, _) {
+		application.module('WebUI.Settings', function (module, app, backbone, marionette, $, _) {
 
-		module.createView = function () {
-			
-			var view = new marionette.ItemView({
-				template: template
+			module.TableRowView = marionette.ItemView.extend({
+				template: rowTemplate,
+				tagName: 'tr'
 			});
 
-			return view;
-		};
-	});
+			module.createView = function () {
 
-	return application.WebUI.Settings;
-});
+				var rows = new nav.NavItemCollection();
+
+
+
+				var view = new marionette.CompositeView({
+					template: template,
+					itemView: module.TableRowView,
+					itemViewContainer: 'tbody',
+					collection: rows
+				});
+
+				rows.fetch();
+
+				return view;
+			};
+		});
+
+		return application.WebUI.Settings;
+	});

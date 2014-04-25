@@ -43,6 +43,7 @@ namespace ThinkingHome.Plugins.WebUI
 	// webapp
 	[HttpResource("/webapp/webui/settings.js", "ThinkingHome.Plugins.WebUI.PluginResources.settings.js", "text/javascript")]
 	[HttpResource("/webapp/webui/settings.tpl", "ThinkingHome.Plugins.WebUI.PluginResources.settings.tpl")]
+	[HttpResource("/webapp/webui/table-row.tpl", "ThinkingHome.Plugins.WebUI.PluginResources.table-row.tpl")]
 
 	#endregion
 
