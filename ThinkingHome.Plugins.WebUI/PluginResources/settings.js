@@ -11,18 +11,27 @@
 
 			module.createView = function () {
 
+				var defer = $.Deferred();
 				var rows = new nav.NavItemCollection();
 
-				var view = new marionette.CompositeView({
-					template: template,
-					itemView: module.TableRowView,
-					itemViewContainer: 'tbody',
-					collection: rows
+				rows.fetch({
+					success: function (collection) {
+						
+						var view = new marionette.CompositeView({
+							template: template,
+							itemView: module.TableRowView,
+							itemViewContainer: 'tbody',
+							collection: collection
+						});
+
+						defer.resolve(view);
+					},
+					error: function () {
+						defer.resolve(undefined);
+					}
 				});
 
-				rows.fetch();
-
-				return view;
+				return defer.promise();
 			};
 		});
 
