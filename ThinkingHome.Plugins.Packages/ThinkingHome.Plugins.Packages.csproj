@@ -54,11 +54,25 @@
       <Name>ThinkingHome.Plugins.Listener</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\ThinkingHome.Plugins.WebUI\ThinkingHome.Plugins.WebUI.csproj">
+      <Project>{5a1778f2-f2dd-4d46-89fd-83864ca6d1a0}</Project>
+      <Name>ThinkingHome.Plugins.WebUI</Name>
+      <Private>False</Private>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="PluginResources\list-item.tpl" />
+    <EmbeddedResource Include="PluginResources\list.tpl" />
     <None Include="ThinkingHome.Plugins.Packages.nuspec">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PluginResources\list-model.js" />
+    <EmbeddedResource Include="PluginResources\list-view.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PluginResources\list-controller.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -61,8 +61,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\AppSectionAttribute.cs" />
     <Compile Include="Data\Migrations.cs" />
     <Compile Include="Data\Model.cs" />
+    <Compile Include="Attributes\JavaScriptResourceAttribute.cs" />
     <Compile Include="WebUIPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -115,6 +117,9 @@
     <EmbeddedResource Include="Resources\js\application\item.tpl" />
     <EmbeddedResource Include="PluginResources\settings.tpl" />
     <EmbeddedResource Include="PluginResources\table-row.tpl" />
+    <None Include="ThinkingHome.Plugins.WebUI.nuspec">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\js\application\navigation.js" />

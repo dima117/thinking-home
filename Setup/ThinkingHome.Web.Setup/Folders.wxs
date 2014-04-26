@@ -3,64 +3,64 @@
   <Fragment>
     <DirectoryRef Id="INSTALLFOLDER">
       <Directory Id="WEBAPPFOLDER" Name="webapp">
-        <Directory Id="FOLDER_A49F8FF679D34735B369C1A65841E377" Name="Areas">
-          <Directory Id="FOLDER_6E6C82F7DCFB4453BC407EA7B244558A" Name="AlarmClock">
-            <Directory Id="FOLDER_709FCCD3437E44BC9FB7C28EED4E560A" Name="bin" />
-            <Directory Id="FOLDER_2D012B76FE6645BBB5619FAE24C6032A" Name="obj">
-              <Directory Id="FOLDER_B52943F7BB924FB8A7E72AE3A20852E1" Name="Debug" />
-              <Directory Id="FOLDER_ABF14389A14F43F99C6388C3BFDB75CE" Name="Release" />
+        <Directory Id="FOLDER_BAF74EB119AB4F5F9DE7EBA9033A0C64" Name="Areas">
+          <Directory Id="FOLDER_74E8D8DBCF76408E88475B2814D5F527" Name="AlarmClock">
+            <Directory Id="FOLDER_FF926A94E34A494CB43921B2CE20DC3D" Name="bin" />
+            <Directory Id="FOLDER_2CB397122D7E484FBF069FEE2013248D" Name="obj">
+              <Directory Id="FOLDER_D7AC28EFE8E84AC7BAD7BA11C3D45635" Name="Debug" />
+              <Directory Id="FOLDER_A3689E14D8964EE7B00A98EE3BDCD7BC" Name="Release" />
             </Directory>
-            <Directory Id="FOLDER_99A5CF5D5F1D40B4AF9DC5C6EA7F42CE" Name="Views" />
+            <Directory Id="FOLDER_2F8CE0C340E147CFABE0F466AF5D71C8" Name="Views" />
           </Directory>
-          <Directory Id="FOLDER_7CD2ACAD317E40768C4D40F097456656" Name="Packages">
-            <Directory Id="FOLDER_B3B47427A2304659ADBDC2A0EE95D52D" Name="obj">
-              <Directory Id="FOLDER_300FD70D32D442E1882FBD8EF5519128" Name="Debug" />
-              <Directory Id="FOLDER_929C5FA6580B4567AD327F894E995160" Name="Release" />
+          <Directory Id="FOLDER_ECFF8D765C494B69A74058DE2980B5BC" Name="Packages">
+            <Directory Id="FOLDER_155B7B9B95C64C5AA06AA22230042B8D" Name="obj">
+              <Directory Id="FOLDER_302497EF61814A7EBBAECE91487A9B7B" Name="Debug" />
+              <Directory Id="FOLDER_8C22D39C4A574C8D8B7B9F61FC0D463F" Name="Release" />
             </Directory>
-            <Directory Id="FOLDER_E30DA0ABBCC54CA199BEDB83269CE205" Name="Views">
-              <Directory Id="FOLDER_8DABC98CF7474E05A5749BA9390E2408" Name="DefaultPackages" />
-            </Directory>
-          </Directory>
-          <Directory Id="FOLDER_B02335DF100B4FC7A47A86D12C0BB1C2" Name="Scripts">
-            <Directory Id="FOLDER_F698A8A429A5447885BA2138EAA6CEAB" Name="bin" />
-            <Directory Id="FOLDER_3878D3FD8F434E4393082C798E8E243C" Name="obj">
-              <Directory Id="FOLDER_38C8448107EC4568871FDEDD0FF61BB3" Name="Debug" />
-              <Directory Id="FOLDER_BF989539F6C84900ADDF28C37CAECCAF" Name="Release" />
-            </Directory>
-            <Directory Id="FOLDER_58743C6C082D4DC69A4C68B014F0D84A" Name="Views">
-              <Directory Id="FOLDER_B0D3866174B44EFCB657CD760C05217F" Name="DefaultScripts" />
+            <Directory Id="FOLDER_4844A601DD224C908B1AB697D1F4F442" Name="Views">
+              <Directory Id="FOLDER_3905C101757944D4BD51DD8FC8D7D136" Name="DefaultPackages" />
             </Directory>
           </Directory>
-          <Directory Id="FOLDER_F21E9B49F5F6405DAC83953B87C3D35F" Name="Weather">
-            <Directory Id="FOLDER_3A68470A4FEA4D4E9C1D2CCF6018F832" Name="bin" />
-            <Directory Id="FOLDER_834E1C4B98B0489C80DD2B87DED60AF4" Name="obj">
-              <Directory Id="FOLDER_D71B2C420E1F4A009520E6814C240331" Name="Debug" />
-              <Directory Id="FOLDER_03FCE8058C3E4566966F9F831F4CA49F" Name="Release" />
+          <Directory Id="FOLDER_C1E42F51B12448E580B95CA40D0ACF23" Name="Scripts">
+            <Directory Id="FOLDER_A0F6DC45F4CF42A2AD2ED58577A1D894" Name="bin" />
+            <Directory Id="FOLDER_3BBBC4356B4A451AA8D7811DFE2D881F" Name="obj">
+              <Directory Id="FOLDER_099671A29AB343DB9884553B1AD8BF19" Name="Debug" />
+              <Directory Id="FOLDER_D1E9F01E6C5645F7AC0C9960783DF21F" Name="Release" />
             </Directory>
-            <Directory Id="FOLDER_1A99806FBC1347579F5A2202DCFAC55A" Name="Views" />
+            <Directory Id="FOLDER_C8EB8F9D0D5D4FAA984722651427DE95" Name="Views">
+              <Directory Id="FOLDER_CDF8F86DA5AD401492B36383C214A9C1" Name="DefaultScripts" />
+            </Directory>
+          </Directory>
+          <Directory Id="FOLDER_205964328B2E4C80987FC944A6B9C264" Name="Weather">
+            <Directory Id="FOLDER_A4C8AD5DE7004A3AAC091BFBF88895A2" Name="bin" />
+            <Directory Id="FOLDER_8270A868E4D642EDAB1C750E06445406" Name="obj">
+              <Directory Id="FOLDER_30A3135304D84AFBAE5FCE3C4A857F9F" Name="Debug" />
+              <Directory Id="FOLDER_06CD929D78D64B68AEBFFA7F86FAF8A1" Name="Release" />
+            </Directory>
+            <Directory Id="FOLDER_945532531D4A4F468DC60931DE816CA5" Name="Views" />
           </Directory>
         </Directory>
-        <Directory Id="FOLDER_6994DB70073449378F695643F9BD2236" Name="bin" />
-        <Directory Id="FOLDER_5E0A21EECCBD42948CB7F4FFBA59757B" Name="Content">
-          <Directory Id="FOLDER_E66AF3D34AE04CDFB3B4A1D5C9F7D82B" Name="css" />
-          <Directory Id="FOLDER_7898B318840B404FB7272C6DFABE465F" Name="fonts" />
-          <Directory Id="FOLDER_24BD4D0F32F7472BB5FB52C597C60692" Name="js">
-            <Directory Id="FOLDER_4F306CAD250B469C879B5C2F8D464A1F" Name="ace">
-              <Directory Id="FOLDER_48120A5A4C06477A8627A4C655B6E66B" Name="snippets" />
+        <Directory Id="FOLDER_927803BCD3E648A3963FC867811C86A3" Name="bin" />
+        <Directory Id="FOLDER_8CB7ACD2F4BE4275BE30D98AC2B75693" Name="Content">
+          <Directory Id="FOLDER_44FEE1A034D6481A81E266BE5DCA2F59" Name="css" />
+          <Directory Id="FOLDER_00F1F10BCD6B47EDB0ABF96B8960F5CD" Name="fonts" />
+          <Directory Id="FOLDER_B4A42E2B2EE243A582BAE31A88CA6F2B" Name="js">
+            <Directory Id="FOLDER_C83C032E2AAF42E8A0DF99314D402663" Name="ace">
+              <Directory Id="FOLDER_BC9BA34D36724188AD7078693C708708" Name="snippets" />
             </Directory>
           </Directory>
-          <Directory Id="FOLDER_DFA121771FF1464AA4F4B37F419BF8C4" Name="less" />
+          <Directory Id="FOLDER_0CFA916862E645F1B432581FAAD10E3E" Name="less" />
         </Directory>
-        <Directory Id="FOLDER_8DDBC883F0B24AC0840DB6299BCD26AC" Name="obj">
-          <Directory Id="FOLDER_AA33AB90552C4B9193D4FD91A1E78E3E" Name="Debug" />
-          <Directory Id="FOLDER_F85B906E4A3043C1A110323CDE43765F" Name="Release" />
+        <Directory Id="FOLDER_8530BD655A7A451196E0D404B2F3DFBE" Name="obj">
+          <Directory Id="FOLDER_32E188DCA3A7400E8A46227FCDBCB49A" Name="Debug" />
+          <Directory Id="FOLDER_A904843B29CA4831A6E1DACA6CC3581E" Name="Release" />
         </Directory>
-        <Directory Id="FOLDER_1679A75ADBB24F2FA0638B0A24D836C8" Name="Properties">
-          <Directory Id="FOLDER_BDC521EF39FC47B5885D72F90D284C7D" Name="PublishProfiles" />
+        <Directory Id="FOLDER_31287C4E4803464E9FB368F4C19D9699" Name="Properties">
+          <Directory Id="FOLDER_48C779FC2FFD4BA9BC479FA56A6AA106" Name="PublishProfiles" />
         </Directory>
-        <Directory Id="FOLDER_8FD281B7D69B4BA6AB7BB2CE18271CF1" Name="Views">
-          <Directory Id="FOLDER_0CB0729D595D40FB854CBDC9B9F2B33A" Name="Default" />
-          <Directory Id="FOLDER_48430E48C4F7485FB1BDABC1CC0634D6" Name="Shared" />
+        <Directory Id="FOLDER_FF5B75B9119F45678BFB1AB4BE9EB6E4" Name="Views">
+          <Directory Id="FOLDER_6E28E02EE99B411D8C0E9CAF2E5FE516" Name="Default" />
+          <Directory Id="FOLDER_20B5F5907028423BB126DF5E4FFA7587" Name="Shared" />
         </Directory>
       </Directory>
     </DirectoryRef>

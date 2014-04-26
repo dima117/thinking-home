@@ -5,6 +5,7 @@ using ThinkingHome.Core.Plugins;
 using ThinkingHome.Plugins.Listener;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Handlers;
+using ThinkingHome.Plugins.WebUI.Attributes;
 using ThinkingHome.Plugins.WebUI.Data;
 
 namespace ThinkingHome.Plugins.WebUI
@@ -15,22 +16,22 @@ namespace ThinkingHome.Plugins.WebUI
 	[HttpResource("/", "ThinkingHome.Plugins.WebUI.Resources.index.html", "text/html")]
 	
 	// js
-	[HttpResource("/js/vendor/require.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.require.min.js", "text/javascript")]
-	[HttpResource("/js/vendor/json2.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.json2.min.js", "text/javascript")]
-	[HttpResource("/js/vendor/jquery.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.jquery.min.js", "text/javascript")]
-	[HttpResource("/js/vendor/underscore.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.underscore.min.js", "text/javascript")]
-	[HttpResource("/js/vendor/backbone.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.backbone.min.js", "text/javascript")]
-	[HttpResource("/js/vendor/backbone.marionette.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.backbone.marionette.min.js", "text/javascript")]
-	[HttpResource("/js/vendor/bootstrap.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.bootstrap.min.js", "text/javascript")]
-	[HttpResource("/js/vendor/tpl.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.tpl.min.js", "text/javascript")]
+	[JavaScriptResource("/js/vendor/require.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.require.min.js")]
+	[JavaScriptResource("/js/vendor/json2.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.json2.min.js")]
+	[JavaScriptResource("/js/vendor/jquery.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.jquery.min.js")]
+	[JavaScriptResource("/js/vendor/underscore.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.underscore.min.js")]
+	[JavaScriptResource("/js/vendor/backbone.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.backbone.min.js")]
+	[JavaScriptResource("/js/vendor/backbone.marionette.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.backbone.marionette.min.js")]
+	[JavaScriptResource("/js/vendor/bootstrap.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.bootstrap.min.js")]
+	[JavaScriptResource("/js/vendor/tpl.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.tpl.min.js")]
 
-	[HttpResource("/js/application/navigation.js", "ThinkingHome.Plugins.WebUI.Resources.js.application.navigation.js", "text/javascript")]
-	[HttpResource("/js/application/navigation-eitities.js", "ThinkingHome.Plugins.WebUI.Resources.js.application.navigation-eitities.js", "text/javascript")]
-	[HttpResource("/js/application/navigation-views.js", "ThinkingHome.Plugins.WebUI.Resources.js.application.navigation-views.js", "text/javascript")]
+	[JavaScriptResource("/js/application/navigation.js", "ThinkingHome.Plugins.WebUI.Resources.js.application.navigation.js")]
+	[JavaScriptResource("/js/application/navigation-eitities.js", "ThinkingHome.Plugins.WebUI.Resources.js.application.navigation-eitities.js")]
+	[JavaScriptResource("/js/application/navigation-views.js", "ThinkingHome.Plugins.WebUI.Resources.js.application.navigation-views.js")]
 	[HttpResource("/js/application/item.tpl", "ThinkingHome.Plugins.WebUI.Resources.js.application.item.tpl")]
 
-	[HttpResource("/js/th-main.js", "ThinkingHome.Plugins.WebUI.Resources.js.th-main.js", "text/javascript")]
-	[HttpResource("/js/app.js", "ThinkingHome.Plugins.WebUI.Resources.js.app.js", "text/javascript")]
+	[JavaScriptResource("/js/th-main.js", "ThinkingHome.Plugins.WebUI.Resources.js.th-main.js")]
+	[JavaScriptResource("/js/app.js", "ThinkingHome.Plugins.WebUI.Resources.js.app.js")]
 
 	// css
 	[HttpResource("/css/bootstrap.min.css", "ThinkingHome.Plugins.WebUI.Resources.css.bootstrap.min.css", "text/css")]
@@ -43,7 +44,7 @@ namespace ThinkingHome.Plugins.WebUI
 	[HttpResource("/fonts/glyphicons-halflings-regular/.woff", "ThinkingHome.Plugins.WebUI.Resources.css.glyphicons-halflings-regular.woff", "application/font-woff")]
 
 	// webapp
-	[HttpResource("/webapp/webui/settings.js", "ThinkingHome.Plugins.WebUI.PluginResources.settings.js", "text/javascript")]
+	[JavaScriptResource("/webapp/webui/settings.js", "ThinkingHome.Plugins.WebUI.PluginResources.settings.js")]
 	[HttpResource("/webapp/webui/settings.tpl", "ThinkingHome.Plugins.WebUI.PluginResources.settings.tpl")]
 	[HttpResource("/webapp/webui/table-row.tpl", "ThinkingHome.Plugins.WebUI.PluginResources.table-row.tpl")]
 

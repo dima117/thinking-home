@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Text;
 
 namespace ThinkingHome.Plugins.Listener.Api
 {
@@ -16,32 +18,85 @@ namespace ThinkingHome.Plugins.Listener.Api
 
 		public string GetString(string name)
 		{
-			throw new NotImplementedException();
+			var urlValue = UrlData.Get(name);
+			var formValue = FormData.Get(name);
+
+			if (string.IsNullOrWhiteSpace(urlValue))
+			{
+				return formValue;
+			}
+
+			if (string.IsNullOrWhiteSpace(formValue))
+			{
+				return urlValue;
+			}
+
+			return string.Format("{0},{1}", urlValue, formValue);
 		}
 
 		public int? GetInt32(string name)
 		{
-			throw new NotImplementedException();
+			var stringValue = GetString(name);
+			int result;
+
+			if (int.TryParse(stringValue, out result))
+			{
+				return result;
+			}
+
+			return null;
 		}
 
 		public Guid? GetGuid(string name)
 		{
-			throw new NotImplementedException();
+			var stringValue = GetString(name);
+			Guid result;
+
+			if (Guid.TryParse(stringValue, out result))
+			{
+				return result;
+			}
+
+			return null;
 		}
 
 		public string GetRequiredString(string name)
 		{
-			throw new NotImplementedException();
+			var value = GetString(name);
+
+			if (string.IsNullOrEmpty(value))
+			{
+				string message = string.Format("parameter {0} is required", name);
+				throw new NullReferenceException(message);
+			}
+
+			return value;
 		}
 
 		public int GetRequiredInt32(string name)
 		{
-			throw new NotImplementedException();
+			var value = GetInt32(name);
+
+			if (!value.HasValue)
+			{
+				string message = string.Format("parameter {0} is required", name);
+				throw new NullReferenceException(message);
+			}
+
+			return value.Value;
 		}
 
 		public Guid GetRequiredGuid(string name)
 		{
-			throw new NotImplementedException();
+			var value = GetGuid(name);
+
+			if (!value.HasValue)
+			{
+				string message = string.Format("parameter {0} is required", name);
+				throw new NullReferenceException(message);
+			}
+
+			return value.Value;
 		}
 	}
 }
