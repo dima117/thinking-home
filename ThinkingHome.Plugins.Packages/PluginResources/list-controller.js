@@ -18,16 +18,16 @@
 						var packageId = itemView.model.get('id');
 						var rqInstall = app.request('update:packages:install', packageId);
 						$.when(rqInstall).done(function (obj) {
-
+							console.log(obj);
 						});
 					});
 
 					view.on('itemview:packages:uninstall', function (itemView) {
 						
 						var packageId = itemView.model.get('id');
-						var rqUninstall = app.request('update:packages:install', packageId);
+						var rqUninstall = app.request('update:packages:uninstall', packageId);
 						$.when(rqUninstall).done(function (obj) {
-
+							console.log(obj);
 						});
 					});
 

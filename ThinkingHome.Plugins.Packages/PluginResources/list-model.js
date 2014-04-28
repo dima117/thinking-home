@@ -36,6 +36,19 @@
 			changePackageState: function (packageId, installPackage) {
 
 				console.log(packageId, installPackage);
+
+				var url = installPackage
+					? '/api/packages/install'
+					: '/api/packages/uninstall';
+
+				var rq = $.ajax({
+					url: url,
+					data: { packageId: packageId },
+					dataType: 'json',
+					type: 'POST'
+				});
+
+				return rq.promise();
 			}
 		};
 

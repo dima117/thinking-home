@@ -6,8 +6,8 @@ namespace ThinkingHome.Core.Plugins.HomePackages
 	{
 		List<HomePackageInfo> GetPackages(string name);
 		List<HomePackageInfo> GetInstalledPackages();
-		void Install(string packageId);
-		void UnInstall(string packageId);
-		void Update(string packageId);
+		HomePackageInfo Install(string packageId);
+		HomePackageInfo UnInstall(string packageId);
+		HomePackageInfo Update(string packageId);
 	}
 }

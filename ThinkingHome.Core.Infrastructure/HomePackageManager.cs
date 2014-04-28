@@ -13,11 +13,45 @@ namespace ThinkingHome.Core.Infrastructure
 
 		public HomePackageManager()
 		{
-			var repository = PackageRepositoryFactory.Default
+			IPackageRepository repository = PackageRepositoryFactory.Default
 				.CreateRepository(AppSettings.PluginsRepository);
 
 			pManager = new PackageManager(repository, AppSettings.PluginsFolder);
 		}
+
+		#region private
+
+		private HomePackageInfo MapPackageInfo(IPackage p)
+		{
+			IPackage dummy = pManager.LocalRepository.FindPackage(p.Id);
+
+			var installedVersion = dummy == null ? null : dummy.Version.ToString();
+
+			return new HomePackageInfo
+			{
+				PackageId = p.Id,
+				PackageVersion = p.Version.ToString(),
+				PackageDescription = p.Description,
+				InstalledVersion = installedVersion
+			};
+		}
+
+		private HomePackageInfo GetPackageInfo(IPackageRepository repository, string packageId)
+		{
+			var packages = repository
+				.GetPackages()
+				.Where(p => p.Id == packageId)
+				.ToList();
+
+			var packageInfo = packages
+				.Select(MapPackageInfo)
+				.FirstOrDefault();
+
+			return packageInfo;
+		}
+
+
+		#endregion
 
 		public List<HomePackageInfo> GetPackages(string name)
 		{
@@ -47,37 +81,27 @@ namespace ThinkingHome.Core.Infrastructure
 			return model;
 		}
 
-		public HomePackageInfo MapPackageInfo(IPackage p)
-		{
-			IPackage dummy = pManager.LocalRepository.FindPackage(p.Id);
-
-			var installedVersion = dummy == null ? null : dummy.Version.ToString();
-
-			return new HomePackageInfo
-			{
-				PackageId = p.Id,
-				PackageVersion = p.Version.ToString(),
-				PackageDescription = p.Description,
-				InstalledVersion = installedVersion
-			};
-		}
-
-
 		#region installation
 
-		public void Install(string packageId)
+		public HomePackageInfo Install(string packageId)
 		{
 			pManager.InstallPackage(packageId);
+
+			return GetPackageInfo(pManager.LocalRepository, packageId);
 		}
 
-		public void UnInstall(string packageId)
+		public HomePackageInfo UnInstall(string packageId)
 		{
 			pManager.UninstallPackage(packageId);
+
+			return GetPackageInfo(pManager.SourceRepository, packageId);
 		}
 
-		public void Update(string packageId)
+		public HomePackageInfo Update(string packageId)
 		{
 			pManager.UpdatePackage(packageId, true, false);
+
+			return GetPackageInfo(pManager.LocalRepository, packageId);
 		}
 
 		#endregion

@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Core.Plugins.HomePackages;
@@ -20,14 +21,19 @@ namespace ThinkingHome.Plugins.Packages
 	{
 		#region api
 
-		private static object BuildModel(HomePackageInfo x)
+		private static object BuildModel(HomePackageInfo packageInfo)
 		{
+			if (packageInfo == null)
+			{
+				return null;
+			}
+
 			return new
 			{
-				id = x.PackageId,
-				version = x.PackageVersion,
-				description = x.PackageDescription,
-				installedVersion = x.InstalledVersion
+				id = packageInfo.PackageId,
+				version = packageInfo.PackageVersion,
+				description = packageInfo.PackageDescription,
+				installedVersion = packageInfo.InstalledVersion
 			};
 		}
 
@@ -36,15 +42,16 @@ namespace ThinkingHome.Plugins.Packages
 		{
 			string query = request.GetString("query");
 
-			return Context.PackageManager.GetPackages(query)
-				.Select(BuildModel)
-				.ToArray();
+			var list = Context.PackageManager.GetPackages(query);
+
+			return list.Select(BuildModel).Where(x => x != null).ToArray();
 		}
 
 		[HttpCommand("/api/packages/installed")]
 		public object GetInstalledPackages(HttpRequestParams request)
 		{
-			return Context.PackageManager.GetInstalledPackages();
+			var list = Context.PackageManager.GetInstalledPackages();
+			return list.Select(BuildModel).Where(x => x != null).ToArray();
 		}
 
 		[HttpCommand("/api/packages/install")]
@@ -52,9 +59,8 @@ namespace ThinkingHome.Plugins.Packages
 		{
 			string packageId = request.GetRequiredString("packageId");
 
-			Context.PackageManager.Install(packageId);
-
-			return null;
+			var package = Context.PackageManager.Install(packageId);
+			return BuildModel(package);
 		}
 
 		[HttpCommand("/api/packages/update")]
@@ -62,8 +68,8 @@ namespace ThinkingHome.Plugins.Packages
 		{
 			string packageId = request.GetRequiredString("packageId");
 
-			Context.PackageManager.Update(packageId);
-			return null;
+			var package = Context.PackageManager.Update(packageId);
+			return BuildModel(package);
 		}
 
 		[HttpCommand("/api/packages/uninstall")]
@@ -71,8 +77,8 @@ namespace ThinkingHome.Plugins.Packages
 		{
 			string packageId = request.GetRequiredString("packageId");
 
-			Context.PackageManager.UnInstall(packageId);
-			return null;
+			var package = Context.PackageManager.UnInstall(packageId);
+			return BuildModel(package);
 		}
 
 		#endregion
