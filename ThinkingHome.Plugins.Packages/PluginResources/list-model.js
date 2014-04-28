@@ -32,12 +32,22 @@
 				});
 
 				return defer.promise();
+			},
+			changePackageState: function (packageId, installPackage) {
+
+				console.log(packageId, installPackage);
 			}
 		};
 
 		// requests
 		app.reqres.setHandler('load:packages:all', function () {
 			return api.loadPackages();
+		});
+		app.reqres.setHandler('update:packages:install', function (packageId) {
+			return api.changePackageState(packageId, true);
+		});
+		app.reqres.setHandler('update:packages:uninstall', function (packageId) {
+			return api.changePackageState(packageId, false);
 		});
 	});
 

@@ -10,8 +10,27 @@
 
 				var rq = app.request('load:packages:all');
 				$.when(rq).done(function (items) {
-						
+
 					var view = new module.PackageListView({ collection: items });
+
+					view.on('itemview:packages:install', function (itemView) {
+
+						var packageId = itemView.model.get('id');
+						var rqInstall = app.request('update:packages:install', packageId);
+						$.when(rqInstall).done(function (obj) {
+
+						});
+					});
+
+					view.on('itemview:packages:uninstall', function (itemView) {
+						
+						var packageId = itemView.model.get('id');
+						var rqUninstall = app.request('update:packages:install', packageId);
+						$.when(rqUninstall).done(function (obj) {
+
+						});
+					});
+
 					defer.resolve(view);
 				});
 

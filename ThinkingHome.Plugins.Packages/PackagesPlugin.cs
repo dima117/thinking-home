@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Diagnostics;
+using System.Linq;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Core.Plugins.HomePackages;
 using ThinkingHome.Plugins.Listener;
@@ -33,7 +34,6 @@ namespace ThinkingHome.Plugins.Packages
 		[HttpCommand("/api/packages/list")]
 		public object GetPackages(HttpRequestParams request)
 		{
-			
 			string query = request.GetString("query");
 
 			return Context.PackageManager.GetPackages(query)
