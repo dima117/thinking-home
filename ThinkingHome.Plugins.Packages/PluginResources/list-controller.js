@@ -4,38 +4,48 @@
 
 		application.module('Packages.List', function (module, app, backbone, marionette, $, _) {
 
+			var mainView = new module.PackageListLayout();			
+
+			var api = {
+				
+				install: function (itemView) {
+					
+					var packageId = itemView.model.get('id');
+					var rq = app.request('update:packages:install', packageId);
+					
+					$.when(rq).done(api.reload);
+				},
+
+				uninstall: function (itemView) {
+					
+					var packageId = itemView.model.get('id');
+					var rq = app.request('update:packages:uninstall', packageId);
+					
+					$.when(rq).done(api.reload);
+				},
+
+				reload: function() {
+
+					var rq = app.request('load:packages:all');
+					
+					$.when(rq).done(function (items) {
+
+						var listView = new module.PackageListView({ collection: items });
+
+						listView.on('itemview:packages:install', api.install);
+						listView.on('itemview:packages:uninstall', api.uninstall);
+
+						mainView.regionList.show(listView);
+					});
+				}
+			};
+
 			module.createView = function () {
 
-				var defer = $.Deferred();
-
-				var rq = app.request('load:packages:all');
-				$.when(rq).done(function (items) {
-
-					var view = new module.PackageListView({ collection: items });
-
-					view.on('itemview:packages:install', function (itemView) {
-
-						var packageId = itemView.model.get('id');
-						var rqInstall = app.request('update:packages:install', packageId);
-						$.when(rqInstall).done(function (obj) {
-							console.log(obj);
-						});
-					});
-
-					view.on('itemview:packages:uninstall', function (itemView) {
-						
-						var packageId = itemView.model.get('id');
-						var rqUninstall = app.request('update:packages:uninstall', packageId);
-						$.when(rqUninstall).done(function (obj) {
-							console.log(obj);
-						});
-					});
-
-					defer.resolve(view);
-				});
-
-				return defer.promise();
+				api.reload();
+				return mainView;
 			};
+
 		});
 
 		return application.Packages.List;

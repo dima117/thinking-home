@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
+﻿using System.Linq;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Core.Plugins.HomePackages;
 using ThinkingHome.Plugins.Listener;
@@ -13,8 +11,8 @@ namespace ThinkingHome.Plugins.Packages
 	[AppSection("Packages", "/webapp/packages/list-controller.js", "ThinkingHome.Plugins.Packages.PluginResources.list-controller.js")]
 	[JavaScriptResource("/webapp/packages/list-model.js", "ThinkingHome.Plugins.Packages.PluginResources.list-model.js")]
 	[JavaScriptResource("/webapp/packages/list-view.js", "ThinkingHome.Plugins.Packages.PluginResources.list-view.js")]
-	[HttpResource("/webapp/packages/list.tpl", "ThinkingHome.Plugins.Packages.PluginResources.list.tpl")]
 	[HttpResource("/webapp/packages/list-item.tpl", "ThinkingHome.Plugins.Packages.PluginResources.list-item.tpl")]
+	[HttpResource("/webapp/packages/layout.tpl", "ThinkingHome.Plugins.Packages.PluginResources.layout.tpl")]
 
 	[Plugin]
 	public class PackagesPlugin : Plugin
@@ -59,8 +57,8 @@ namespace ThinkingHome.Plugins.Packages
 		{
 			string packageId = request.GetRequiredString("packageId");
 
-			var package = Context.PackageManager.Install(packageId);
-			return BuildModel(package);
+			Context.PackageManager.Install(packageId);
+			return null;
 		}
 
 		[HttpCommand("/api/packages/update")]
@@ -68,8 +66,8 @@ namespace ThinkingHome.Plugins.Packages
 		{
 			string packageId = request.GetRequiredString("packageId");
 
-			var package = Context.PackageManager.Update(packageId);
-			return BuildModel(package);
+			Context.PackageManager.Update(packageId);
+			return null;
 		}
 
 		[HttpCommand("/api/packages/uninstall")]
@@ -77,8 +75,8 @@ namespace ThinkingHome.Plugins.Packages
 		{
 			string packageId = request.GetRequiredString("packageId");
 
-			var package = Context.PackageManager.UnInstall(packageId);
-			return BuildModel(package);
+			Context.PackageManager.UnInstall(packageId);
+			return null;
 		}
 
 		#endregion

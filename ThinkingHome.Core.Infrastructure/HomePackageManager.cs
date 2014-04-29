@@ -36,21 +36,6 @@ namespace ThinkingHome.Core.Infrastructure
 			};
 		}
 
-		private HomePackageInfo GetPackageInfo(IPackageRepository repository, string packageId)
-		{
-			var packages = repository
-				.GetPackages()
-				.Where(p => p.Id == packageId)
-				.ToList();
-
-			var packageInfo = packages
-				.Select(MapPackageInfo)
-				.FirstOrDefault();
-
-			return packageInfo;
-		}
-
-
 		#endregion
 
 		public List<HomePackageInfo> GetPackages(string name)
@@ -83,25 +68,19 @@ namespace ThinkingHome.Core.Infrastructure
 
 		#region installation
 
-		public HomePackageInfo Install(string packageId)
+		public void Install(string packageId)
 		{
 			pManager.InstallPackage(packageId);
-
-			return GetPackageInfo(pManager.LocalRepository, packageId);
 		}
 
-		public HomePackageInfo UnInstall(string packageId)
+		public void UnInstall(string packageId)
 		{
 			pManager.UninstallPackage(packageId);
-
-			return GetPackageInfo(pManager.SourceRepository, packageId);
 		}
 
-		public HomePackageInfo Update(string packageId)
+		public void Update(string packageId)
 		{
 			pManager.UpdatePackage(packageId, true, false);
-
-			return GetPackageInfo(pManager.LocalRepository, packageId);
 		}
 
 		#endregion

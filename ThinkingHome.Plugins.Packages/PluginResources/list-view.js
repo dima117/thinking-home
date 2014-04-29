@@ -1,6 +1,6 @@
 ﻿define(
-	['app', 'tpl!webapp/packages/list.tpl', 'tpl!webapp/packages/list-item.tpl'],
-	function (application, template, itemTemplate) {
+	['app', 'tpl!webapp/packages/layout.tpl', 'tpl!webapp/packages/list-item.tpl'],
+	function (application, layoutTemplate, itemTemplate) {
 
 		application.module('Packages.List', function (module, app, backbone, marionette, $, _) {
 
@@ -16,6 +16,7 @@
 
 					if (packageVersion) {
 						this.$('.js-btn-install').hide();
+						this.$el.addClass('bg-success');
 					} else {
 						this.$('.js-btn-uninstall').hide();
 					}
@@ -30,10 +31,15 @@
 				}
 			});
 
-			module.PackageListView = marionette.CompositeView.extend({
-				template: template,
-				itemView: module.PackageView,
-				itemViewContainer: '.ph-items'
+			module.PackageListView = marionette.CollectionView.extend({
+				 itemView: module.PackageView
+			});
+
+			module.PackageListLayout = marionette.Layout.extend({
+				template: layoutTemplate,
+				regions: {
+					regionList: '.ph-list'
+				}
 			});
 		});
 

@@ -62,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="PluginResources\list-item.tpl" />
-    <EmbeddedResource Include="PluginResources\list.tpl" />
+    <EmbeddedResource Include="PluginResources\layout.tpl" />
     <None Include="ThinkingHome.Plugins.Packages.nuspec">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

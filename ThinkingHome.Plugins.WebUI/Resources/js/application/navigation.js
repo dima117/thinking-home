@@ -30,13 +30,9 @@
 
 						require([path], function (obj) {
 							
-							var rq = obj.createView();
-							
-							$.when(rq).done(function (view) {
-
-								app.regionMain.show(view);
-								app.navigate(path);
-							});
+							var view = obj.createView();
+							app.regionMain.show(view);
+							app.navigate(path);
 						});
 					}
 				}

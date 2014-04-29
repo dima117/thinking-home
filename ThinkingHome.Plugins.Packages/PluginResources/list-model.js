@@ -33,16 +33,23 @@
 
 				return defer.promise();
 			},
-			changePackageState: function (packageId, installPackage) {
-
-				console.log(packageId, installPackage);
-
-				var url = installPackage
-					? '/api/packages/install'
-					: '/api/packages/uninstall';
-
+			
+			installPackage: function (packageId) {
+			
 				var rq = $.ajax({
-					url: url,
+					url: '/api/packages/install',
+					data: { packageId: packageId },
+					dataType: 'json',
+					type: 'POST'
+				});
+
+				return rq.promise();
+			},
+			
+			uninstallPackage: function (packageId) {
+			
+				var rq = $.ajax({
+					url: '/api/packages/uninstall',
 					data: { packageId: packageId },
 					dataType: 'json',
 					type: 'POST'
@@ -57,10 +64,10 @@
 			return api.loadPackages();
 		});
 		app.reqres.setHandler('update:packages:install', function (packageId) {
-			return api.changePackageState(packageId, true);
+			return api.installPackage(packageId);
 		});
 		app.reqres.setHandler('update:packages:uninstall', function (packageId) {
-			return api.changePackageState(packageId, false);
+			return api.uninstallPackage(packageId);
 		});
 	});
 
