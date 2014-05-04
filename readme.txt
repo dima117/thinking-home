@@ -28,6 +28,9 @@
 	/api/{pluginAlias}/{methodAlias}	- методы API
 	/webapp/{pluginAlias}/{filePath}	- ресурсы
 
+МОДУЛИ
+	{pluginAlias}.{moduleAlias}
+
 СОБЫТИЯ ПРЕДСТАВЛЕНИЙ
 	this.trigger('{pluginAlias}:{eventName}');
 

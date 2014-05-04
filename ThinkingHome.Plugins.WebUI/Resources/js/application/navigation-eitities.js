@@ -25,7 +25,7 @@
 						{
 							id: '78839E19-38F0-4218-A7AC-E01E2F145997',
 							name: 'Settings',
-							path: 'webapp/webui/settings'
+							path: 'webapp/webui/settings-controller'
 						}
 				]);
 

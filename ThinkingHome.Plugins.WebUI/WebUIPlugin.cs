@@ -44,9 +44,11 @@ namespace ThinkingHome.Plugins.WebUI
 	[HttpResource("/fonts/glyphicons-halflings-regular/.woff", "ThinkingHome.Plugins.WebUI.Resources.css.glyphicons-halflings-regular.woff", "application/font-woff")]
 
 	// webapp
-	[JavaScriptResource("/webapp/webui/settings.js", "ThinkingHome.Plugins.WebUI.PluginResources.settings.js")]
-	[HttpResource("/webapp/webui/settings.tpl", "ThinkingHome.Plugins.WebUI.PluginResources.settings.tpl")]
-	[HttpResource("/webapp/webui/table-row.tpl", "ThinkingHome.Plugins.WebUI.PluginResources.table-row.tpl")]
+	[JavaScriptResource("/webapp/webui/settings-model.js", "ThinkingHome.Plugins.WebUI.PluginResources.settings-model.js")]
+	[JavaScriptResource("/webapp/webui/settings-view.js", "ThinkingHome.Plugins.WebUI.PluginResources.settings-view.js")]
+	[JavaScriptResource("/webapp/webui/settings-controller.js", "ThinkingHome.Plugins.WebUI.PluginResources.settings-controller.js")]
+	[HttpResource("/webapp/webui/layout.tpl", "ThinkingHome.Plugins.WebUI.PluginResources.layout.tpl")]
+	[HttpResource("/webapp/webui/list-item.tpl", "ThinkingHome.Plugins.WebUI.PluginResources.list-item.tpl")]
 
 	#endregion
 
