@@ -114,7 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <EmbeddedResource Include="Resources\js\application\item.tpl" />
+    <EmbeddedResource Include="Resources\js\application\menu-item.tpl" />
     <EmbeddedResource Include="PluginResources\layout.tpl" />
     <EmbeddedResource Include="PluginResources\list-item.tpl" />
     <None Include="ThinkingHome.Plugins.WebUI.nuspec">
@@ -122,7 +122,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\js\application\navigation.js" />
+    <EmbeddedResource Include="Resources\js\application\menu-controller.js" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\js\vendor\tpl.min.js" />
@@ -131,8 +131,8 @@
     <EmbeddedResource Include="PluginResources\settings-controller.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\js\application\navigation-eitities.js" />
-    <EmbeddedResource Include="Resources\js\application\navigation-views.js" />
+    <EmbeddedResource Include="Resources\js\application\menu-model.js" />
+    <EmbeddedResource Include="Resources\js\application\menu-view.js" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="PluginResources\settings-model.js" />

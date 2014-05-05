@@ -4,14 +4,14 @@
 
 		// entities
 		module.NavigationItem = backbone.Model.extend({
-			urlRoot: 'api/webui/items',
+			urlRoot: 'api/webui/sections/common',
 			defaults: {
 				sortOrder: 0
 			}
 		});
 
 		module.NavigationItemCollection = backbone.Collection.extend({
-			url: 'api/webui/items',
+			url: 'api/webui/sections/common',
 			model: module.NavigationItem,
 			comparator: 'sortOrder'
 		});

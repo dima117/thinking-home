@@ -10,9 +10,9 @@
 		marionette: 'js/vendor/backbone.marionette.min',
 		bootstrap: 'js/vendor/bootstrap.min',
 		
-		'navigation': 'js/application/navigation',
-		'navigation-eitities': 'js/application/navigation-eitities',
-		'navigation-views': 'js/application/navigation-views'
+		'menu': 'js/application/menu-controller',
+		'menu-model': 'js/application/menu-model',
+		'menu-view': 'js/application/menu-view'
 	},
 	shim: {
 		bootstrap: ['jquery'],
@@ -27,6 +27,6 @@
 	}
 });
 
-require(['app', 'navigation', 'bootstrap'], function (app) {
+require(['app', 'menu', 'bootstrap'], function (app) {
 	app.start();
 });
