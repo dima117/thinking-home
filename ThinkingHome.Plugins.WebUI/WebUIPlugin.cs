@@ -15,45 +15,49 @@ namespace ThinkingHome.Plugins.WebUI
 {
 	#region respurces
 
-	// html
-	[HttpResource("/", "ThinkingHome.Plugins.WebUI.Resources.index.html", "text/html")]
+	// VENDOR
 
 	// js
-	[JavaScriptResource("/js/vendor/require.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.require.min.js")]
-	[JavaScriptResource("/js/vendor/json2.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.json2.min.js")]
-	[JavaScriptResource("/js/vendor/jquery.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.jquery.min.js")]
-	[JavaScriptResource("/js/vendor/underscore.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.underscore.min.js")]
-	[JavaScriptResource("/js/vendor/backbone.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.backbone.min.js")]
-	[JavaScriptResource("/js/vendor/backbone.marionette.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.backbone.marionette.min.js")]
-	[JavaScriptResource("/js/vendor/bootstrap.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.bootstrap.min.js")]
-	[JavaScriptResource("/js/vendor/tpl.min.js", "ThinkingHome.Plugins.WebUI.Resources.js.vendor.tpl.min.js")]
+	[JavaScriptResource("/vendor/js/require.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.require.min.js")]
+	[JavaScriptResource("/vendor/js/json2.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.json2.min.js")]
+	[JavaScriptResource("/vendor/js/jquery.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.jquery.min.js")]
+	[JavaScriptResource("/vendor/js/underscore.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.underscore.min.js")]
+	[JavaScriptResource("/vendor/js/backbone.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.min.js")]
+	[JavaScriptResource("/vendor/js/backbone.marionette.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.marionette.min.js")]
+	[JavaScriptResource("/vendor/js/bootstrap.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.bootstrap.min.js")]
+	[JavaScriptResource("/vendor/js/tpl.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.tpl.min.js")]
 
 	// css
-	[HttpResource("/css/bootstrap.min.css", "ThinkingHome.Plugins.WebUI.Resources.css.bootstrap.min.css", "text/css")]
-	[HttpResource("/css/site.css", "ThinkingHome.Plugins.WebUI.Resources.css.site.css", "text/css")]
+	[HttpResource("/vendor/css/bootstrap.min.css", "ThinkingHome.Plugins.WebUI.Resources.Vendor.css.bootstrap.min.css", "text/css")]
+	[HttpResource("/vendor/css/site.css", "ThinkingHome.Plugins.WebUI.Resources.Vendor.css.site.css", "text/css")]
 
 	// fonts
-	[HttpResource("/fonts/glyphicons-halflings-regular/.eot", "ThinkingHome.Plugins.WebUI.Resources.css.glyphicons-halflings-regular.eot", "application/vnd.ms-fontobject")]
-	[HttpResource("/fonts/glyphicons-halflings-regular/.svg", "ThinkingHome.Plugins.WebUI.Resources.css.glyphicons-halflings-regular.svg", "image/svg+xml")]
-	[HttpResource("/fonts/glyphicons-halflings-regular/.ttf", "ThinkingHome.Plugins.WebUI.Resources.css.glyphicons-halflings-regular.ttf", "application/x-font-truetype")]
-	[HttpResource("/fonts/glyphicons-halflings-regular/.woff", "ThinkingHome.Plugins.WebUI.Resources.css.glyphicons-halflings-regular.woff", "application/font-woff")]
+	[HttpResource("/vendor/fonts/glyphicons-halflings-regular/.eot", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.glyphicons-halflings-regular.eot", "application/vnd.ms-fontobject")]
+	[HttpResource("/vendor/fonts/glyphicons-halflings-regular/.svg", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.glyphicons-halflings-regular.svg", "image/svg+xml")]
+	[HttpResource("/vendor/fonts/glyphicons-halflings-regular/.ttf", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.glyphicons-halflings-regular.ttf", "application/x-font-truetype")]
+	[HttpResource("/vendor/fonts/glyphicons-halflings-regular/.woff", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.glyphicons-halflings-regular.woff", "application/font-woff")]
+
+	//APPLICATION
+
+	// html
+	[HttpResource("/", "ThinkingHome.Plugins.WebUI.Resources.Application.index.html", "text/html")]
 
 	// webapp: main
-	[JavaScriptResource("/js/th-main.js", "ThinkingHome.Plugins.WebUI.Resources.js.th-main.js")]
-	[JavaScriptResource("/js/app.js", "ThinkingHome.Plugins.WebUI.Resources.js.app.js")]
+	[JavaScriptResource("/application/index.js", "ThinkingHome.Plugins.WebUI.Resources.Application.index.js")]
+	[JavaScriptResource("/application/app.js", "ThinkingHome.Plugins.WebUI.Resources.Application.app.js")]
 
 	// webapp: menu
-	[JavaScriptResource("/js/application/menu-controller.js", "ThinkingHome.Plugins.WebUI.Resources.js.application.menu-controller.js")]
-	[JavaScriptResource("/js/application/menu-model.js", "ThinkingHome.Plugins.WebUI.Resources.js.application.menu-model.js")]
-	[JavaScriptResource("/js/application/menu-view.js", "ThinkingHome.Plugins.WebUI.Resources.js.application.menu-view.js")]
-	[HttpResource("/js/application/menu-item.tpl", "ThinkingHome.Plugins.WebUI.Resources.js.application.menu-item.tpl")]
+	[JavaScriptResource("/application/menu/menu-controller.js", "ThinkingHome.Plugins.WebUI.Resources.Application.Menu.menu-controller.js")]
+	[JavaScriptResource("/application/menu/menu-model.js", "ThinkingHome.Plugins.WebUI.Resources.Application.Menu.menu-model.js")]
+	[JavaScriptResource("/application/menu/menu-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.Menu.menu-view.js")]
+	[HttpResource("/application/menu/menu-item.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.Menu.menu-item.tpl")]
 
 	// webapp: menu settings
-	[SystemSection("Main menu settings", "/webapp/webui/settings-controller.js", "ThinkingHome.Plugins.WebUI.PluginResources.settings-controller.js")]
-	[JavaScriptResource("/webapp/webui/settings-model.js", "ThinkingHome.Plugins.WebUI.PluginResources.settings-model.js")]
-	[JavaScriptResource("/webapp/webui/settings-view.js", "ThinkingHome.Plugins.WebUI.PluginResources.settings-view.js")]
-	[HttpResource("/webapp/webui/layout.tpl", "ThinkingHome.Plugins.WebUI.PluginResources.layout.tpl")]
-	[HttpResource("/webapp/webui/list-item.tpl", "ThinkingHome.Plugins.WebUI.PluginResources.list-item.tpl")]
+	[SystemSection("Main menu items", "/webapp/webui/settings.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.settings.js")]
+	[JavaScriptResource("/webapp/webui/settings-model.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.settings-model.js")]
+	[JavaScriptResource("/webapp/webui/settings-view.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.settings-view.js")]
+	[HttpResource("/webapp/webui/settings-layout.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.settings-layout.tpl")]
+	[HttpResource("/webapp/webui/settings-list-item.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.settings-list-item.tpl")]
 
 	#endregion
 
@@ -94,7 +98,7 @@ namespace ThinkingHome.Plugins.WebUI
 		public object GetSystemSections(HttpRequestParams request)
 		{
 			var list = systemSections
-					.Select(x => new { id = Guid.Empty, name = x.Title, path = x.Url.Trim('/'), sortOrder = x.SortOrder })
+					.Select(x => new { id = Guid.NewGuid(), name = x.Title, path = x.GetModulePath(), sortOrder = x.SortOrder })
 					.ToArray();
 
 			return list;

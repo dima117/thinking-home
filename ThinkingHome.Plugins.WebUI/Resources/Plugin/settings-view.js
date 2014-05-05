@@ -1,5 +1,5 @@
 ﻿define(
-	['app', 'tpl!webapp/webui/layout.tpl', 'tpl!webapp/webui/list-item.tpl'],
+	['app', 'tpl!webapp/webui/settings-layout.tpl', 'tpl!webapp/webui/settings-list-item.tpl'],
 	function (application, layoutTemplate, itemTemplate) {
 
 		application.module('WebUI.Settings', function (module, app, backbone, marionette, $, _) {

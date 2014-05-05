@@ -8,7 +8,7 @@ using ThinkingHome.Plugins.WebUI.Attributes;
 
 namespace ThinkingHome.Plugins.Packages
 {
-	[AppSection("Packages", "/webapp/packages/list-controller.js", "ThinkingHome.Plugins.Packages.PluginResources.list-controller.js")]
+	[SystemSection("Packages", "/webapp/packages/list.js", "ThinkingHome.Plugins.Packages.PluginResources.list.js")]
 	[JavaScriptResource("/webapp/packages/list-model.js", "ThinkingHome.Plugins.Packages.PluginResources.list-model.js")]
 	[JavaScriptResource("/webapp/packages/list-view.js", "ThinkingHome.Plugins.Packages.PluginResources.list-view.js")]
 	[HttpResource("/webapp/packages/list-item.tpl", "ThinkingHome.Plugins.Packages.PluginResources.list-item.tpl")]

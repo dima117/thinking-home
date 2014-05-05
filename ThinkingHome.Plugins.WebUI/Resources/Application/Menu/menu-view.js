@@ -1,5 +1,5 @@
 ﻿define(
-	['app', 'tpl!js/application/menu-item.tpl'],
+	['app', 'tpl!application/menu/menu-item.tpl'],
 
 	function (application, itemTemplate) {
 
