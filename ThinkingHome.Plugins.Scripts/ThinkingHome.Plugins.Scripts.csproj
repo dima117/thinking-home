@@ -85,12 +85,28 @@
       <Name>ThinkingHome.Plugins.Listener</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\ThinkingHome.Plugins.WebUI\ThinkingHome.Plugins.WebUI.csproj">
+      <Project>{5a1778f2-f2dd-4d46-89fd-83864ca6d1a0}</Project>
+      <Name>ThinkingHome.Plugins.WebUI</Name>
+      <Private>False</Private>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <EmbeddedResource Include="Resources\script-list-layout.tpl" />
+    <EmbeddedResource Include="Resources\script-list-item.tpl" />
     <None Include="ThinkingHome.Plugins.Scripts.nuspec">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\script-list-model.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\script-list-view.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\script-list.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

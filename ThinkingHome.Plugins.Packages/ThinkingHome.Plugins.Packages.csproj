@@ -61,18 +61,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="PluginResources\list-item.tpl" />
-    <EmbeddedResource Include="PluginResources\layout.tpl" />
+    <EmbeddedResource Include="Resources\list-item.tpl" />
+    <EmbeddedResource Include="Resources\layout.tpl" />
     <None Include="ThinkingHome.Plugins.Packages.nuspec">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="PluginResources\list-model.js" />
-    <EmbeddedResource Include="PluginResources\list-view.js" />
+    <EmbeddedResource Include="Resources\list-model.js" />
+    <EmbeddedResource Include="Resources\list-view.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="PluginResources\list.js" />
+    <EmbeddedResource Include="Resources\list.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

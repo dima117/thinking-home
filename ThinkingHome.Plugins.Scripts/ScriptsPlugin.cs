@@ -13,11 +13,20 @@ using ThinkingHome.Core.Plugins.Commands;
 using ThinkingHome.Core.Plugins.Utils;
 using ThinkingHome.Plugins.Listener;
 using ThinkingHome.Plugins.Listener.Api;
+using ThinkingHome.Plugins.Listener.Handlers;
 using ThinkingHome.Plugins.Scripts.Data;
 using ThinkingHome.Plugins.Scripts.Internal;
+using ThinkingHome.Plugins.WebUI.Attributes;
 
 namespace ThinkingHome.Plugins.Scripts
 {
+	[SystemSection("Scripts", "/webapp/scripts/script-list.js", "ThinkingHome.Plugins.Scripts.Resources.script-list.js")]
+	[JavaScriptResource("/webapp/scripts/script-list-model.js", "ThinkingHome.Plugins.Scripts.Resources.script-list-model.js")]
+	[JavaScriptResource("/webapp/scripts/script-list-view.js", "ThinkingHome.Plugins.Scripts.Resources.script-list-view.js")]
+	[HttpResource("/webapp/scripts/script-list-item.tpl", "ThinkingHome.Plugins.Scripts.Resources.script-list-item.tpl")]
+	[HttpResource("/webapp/scripts/script-list-layout.tpl", "ThinkingHome.Plugins.Scripts.Resources.script-list-layout.tpl")]
+
+
 	[Plugin]
 	public class ScriptsPlugin : Plugin
 	{
