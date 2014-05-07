@@ -34,7 +34,6 @@ namespace ThinkingHome.Plugins.Scripts
 	[HttpResource("/webapp/scripts/script-editor.tpl", "ThinkingHome.Plugins.Scripts.Resources.script-editor.tpl")]
 	[HttpResource("/webapp/scripts/script-editor-layout.tpl", "ThinkingHome.Plugins.Scripts.Resources.script-editor-layout.tpl")]
 
-
 	[Plugin]
 	public class ScriptsPlugin : Plugin
 	{

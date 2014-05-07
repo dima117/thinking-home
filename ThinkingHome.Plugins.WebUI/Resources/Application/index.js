@@ -9,6 +9,7 @@
 		backbone: 'vendor/js/backbone.min',
 		marionette: 'vendor/js/backbone.marionette.min',
 		bootstrap: 'vendor/js/bootstrap.min',
+		codemirror: 'vendor/js/codemirror-all',
 		
 		'menu': 'application/menu/menu-controller',
 		'menu-model': 'application/menu/menu-model',
