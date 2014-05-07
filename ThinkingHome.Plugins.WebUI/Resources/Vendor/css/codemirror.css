@@ -275,11 +275,11 @@ div.CodeMirror-cursors {
 
 /* Taken from the popular Visual Studio Vibrant Ink Schema */
 
-.cm-s-bootstrap.CodeMirror { background: #F7F7F9; color: #333333; border: 1px solid #d0d0d0; }
+.cm-s-bootstrap.CodeMirror { background: #fcfcfc; color: #333333; border: 1px solid #d0d0d0; }
 .cm-s-bootstrap .CodeMirror-selected { background: #e4e4ea !important; }
 .cm-s-bootstrap .CodeMirror-matchingbracket { font-weight: bold; }
 
-.cm-s-bootstrap .CodeMirror-gutters { background: #dadae3; border-right: 1px solid #d0d0d0; }
+.cm-s-bootstrap .CodeMirror-gutters { background: #efefef; border-right: 1px solid #e2e2e2; }
 .cm-s-bootstrap .CodeMirror-linenumber { color: #999; }
 .cm-s-bootstrap .CodeMirror-cursor { border-left: 1px solid #333 !important; }
 
