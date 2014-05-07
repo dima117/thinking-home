@@ -3,16 +3,16 @@
 	application.module('Scripts.List', function (module, app, backbone, marionette, $, _) {
 
 		// entities
-		module.Script = backbone.Model.extend();
+		module.ScriptListItem = backbone.Model.extend();
 
 		module.ScriptCollection = backbone.Collection.extend({
-			model: module.Script
+			model: module.ScriptListItem
 		});
-
+		 
 		// api
 		var api = {
 
-			loadScripts: function () {
+			loadScriptList: function () {
 
 				var defer = $.Deferred();
 
@@ -32,9 +32,8 @@
 
 		// requests
 		app.reqres.setHandler('load:scripts:list', function () {
-			return api.loadScripts();
+			return api.loadScriptList();
 		});
-
 	});
 
 	return application.Scripts.List;

@@ -95,6 +95,8 @@
     <None Include="packages.config" />
     <EmbeddedResource Include="Resources\script-list-layout.tpl" />
     <EmbeddedResource Include="Resources\script-list-item.tpl" />
+    <EmbeddedResource Include="Resources\script-editor-layout.tpl" />
+    <EmbeddedResource Include="Resources\script-editor.tpl" />
     <None Include="ThinkingHome.Plugins.Scripts.nuspec">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -107,6 +109,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\script-list.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\script-editor-view.js" />
+    <EmbeddedResource Include="Resources\script-editor-model.js" />
+    <EmbeddedResource Include="Resources\script-editor.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

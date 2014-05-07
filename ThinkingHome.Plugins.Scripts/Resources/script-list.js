@@ -1,14 +1,23 @@
 ﻿define(
-	['app', 'webapp/scripts/script-list-model', 'webapp/scripts/script-list-view'],
-	function (application) {
+	['app',
+		'webapp/scripts/script-editor',
+		'webapp/scripts/script-list-model',
+		'webapp/scripts/script-list-view'],
+	function (application, editor) {
 
 		application.module('Scripts.List', function (module, app, backbone, marionette, $, _) {
 
 			var mainView = new module.ScriptListLayout();
 
 			var api = {
-				
-				reload: function() {
+
+				openEditor: function (itemView) {
+					
+					var scriptId = itemView.model.get('id');
+					var editorView = editor.createView(scriptId);
+					mainView.regionList.show(editorView);
+				},
+				reload: function () {
 
 					var rq = app.request('load:scripts:list');
 					
@@ -16,7 +25,7 @@
 
 						var listView = new module.ScriptListView({ collection: items });
 
-						//listView.on('itemview:packages:install', api.install);
+						listView.on('itemview:scripts:edit', api.openEditor);
 						//listView.on('itemview:packages:uninstall', api.uninstall);
 
 						mainView.regionList.show(listView);
