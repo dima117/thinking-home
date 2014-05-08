@@ -10,7 +10,7 @@
 
 			module.ScriptEditorView = marionette.ItemView.extend({
 				template: editorTemplate,
-				onRender: function () {
+				onShow: function () {
 
 					var textarea = this.$('.js-script-body')[0];
 					codemirror.fromTextArea(textarea, {
