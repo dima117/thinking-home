@@ -3,9 +3,9 @@
 	var app = new Marionette.Application();
 
 	app.addRegions({
-		regionMenu: "#menu-region",
-		regionMenuRight: "#right-menu-region",
-		regionContent: "#content-region"
+		regionMenu: "#region-menu",
+		regionMenuRight: "#region-right-menu",
+		regionContent: "#region-page-content"
 	});
 	
 	app.navigate = function (route, options) {
@@ -14,6 +14,10 @@
 
 		Backbone.history.navigate(route, options);
 	};
+	
+	app.setContentView = function(view) {
+		app.regionContent.show(view);
+	},
 
 	app.on('initialize:after', function() {
 

@@ -1,10 +1,9 @@
 ﻿define(
 	['app',
 		'codemirror',
-		'tpl!webapp/scripts/script-editor.tpl',
-		'tpl!webapp/scripts/script-editor-layout.tpl'
+		'tpl!webapp/scripts/script-editor.tpl'
 	],
-	function (application, codemirror, editorTemplate, layoutTemplate) {
+	function (application, codemirror, editorTemplate) {
 	//
 		application.module('Scripts.Editor', function (module, app, backbone, marionette, $, _) {
 
@@ -32,13 +31,6 @@
 				btnCancelClick: function (e) {
 					e.preventDefault();
 					this.trigger('scripts:editor:cancel');
-				}
-			});
-
-			module.ScriptEditorLayout = marionette.Layout.extend({
-				template: layoutTemplate,
-				regions: {
-					regionContent: '.ph-content'
 				}
 			});
 		});

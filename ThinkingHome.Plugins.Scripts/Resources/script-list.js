@@ -1,42 +1,35 @@
 ﻿define(
 	['app',
-		'webapp/scripts/script-editor',
 		'webapp/scripts/script-list-model',
 		'webapp/scripts/script-list-view'],
-	function (application, editor) {
+	function (application) {
 
 		application.module('Scripts.List', function (module, app, backbone, marionette, $, _) {
-
-			var mainView = new module.ScriptListLayout();
 
 			var api = {
 
 				openEditor: function (itemView) {
-					
+
 					var scriptId = itemView.model.get('id');
-					var editorView = editor.createView(scriptId);
-					mainView.regionList.show(editorView);
+					module.trigger('subapp:open', 'editor', scriptId);
 				},
 				reload: function () {
 
 					var rq = app.request('load:scripts:list');
-					
+
 					$.when(rq).done(function (items) {
 
-						var listView = new module.ScriptListView({ collection: items });
+						var view = new module.ScriptListView({ collection: items });
 
-						listView.on('itemview:scripts:edit', api.openEditor);
+						view.on('itemview:scripts:edit', api.openEditor);
 						//listView.on('itemview:packages:uninstall', api.uninstall);
-
-						mainView.regionList.show(listView);
+						app.setContentView(view);
 					});
 				}
 			};
 
-			module.createView = function () {
-
+			module.start = function () {
 				api.reload();
-				return mainView;
 			};
 
 		});

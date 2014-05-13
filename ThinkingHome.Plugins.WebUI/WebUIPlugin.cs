@@ -54,6 +54,9 @@ namespace ThinkingHome.Plugins.WebUI
 	[JavaScriptResource("/application/index.js", "ThinkingHome.Plugins.WebUI.Resources.Application.index.js")]
 	[JavaScriptResource("/application/app.js", "ThinkingHome.Plugins.WebUI.Resources.Application.app.js")]
 
+	// webapp: common
+	[JavaScriptResource("/application/common/common.js", "ThinkingHome.Plugins.WebUI.Resources.Application.Common.common.js")]
+
 	// webapp: menu
 	[JavaScriptResource("/application/menu/menu-controller.js", "ThinkingHome.Plugins.WebUI.Resources.Application.Menu.menu-controller.js")]
 	[JavaScriptResource("/application/menu/menu-model.js", "ThinkingHome.Plugins.WebUI.Resources.Application.Menu.menu-model.js")]
@@ -64,7 +67,7 @@ namespace ThinkingHome.Plugins.WebUI
 	[SystemSection("Main menu items", "/webapp/webui/settings.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.settings.js")]
 	[JavaScriptResource("/webapp/webui/settings-model.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.settings-model.js")]
 	[JavaScriptResource("/webapp/webui/settings-view.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.settings-view.js")]
-	[HttpResource("/webapp/webui/settings-layout.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.settings-layout.tpl")]
+	[HttpResource("/webapp/webui/settings-list.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.settings-list.tpl")]
 	[HttpResource("/webapp/webui/settings-list-item.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.settings-list-item.tpl")]
 
 	#endregion

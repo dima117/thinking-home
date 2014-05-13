@@ -2,6 +2,8 @@
 	baseUrl: '/',
 	paths: {
 		app: 'application/app',
+		common: 'application/common/common',
+
 		tpl: 'vendor/js/tpl.min',
 		json2: 'vendor/js/json2.min',
 		jquery: 'vendor/js/jquery.min',
@@ -28,6 +30,6 @@
 	}
 });
 
-require(['app', 'menu', 'bootstrap'], function (app) {
+require(['app', 'common', 'menu', 'bootstrap'], function (app) {
 	app.start();
 });

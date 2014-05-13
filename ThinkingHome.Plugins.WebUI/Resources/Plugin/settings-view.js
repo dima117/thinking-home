@@ -1,6 +1,6 @@
 ﻿define(
-	['app', 'tpl!webapp/webui/settings-layout.tpl', 'tpl!webapp/webui/settings-list-item.tpl'],
-	function (application, layoutTemplate, itemTemplate) {
+	['app', 'tpl!webapp/webui/settings-list.tpl', 'tpl!webapp/webui/settings-list-item.tpl'],
+	function (application, listTemplate, itemTemplate) {
 
 		application.module('WebUI.Settings', function (module, app, backbone, marionette, $, _) {
 
@@ -9,15 +9,10 @@
 				className: 'media'
 			});
 
-			module.NavigationItemListView = marionette.CollectionView.extend({
-				itemView: module.NavigationItemView
-			});
-
-			module.SettingsLayout = marionette.Layout.extend({
-				template: layoutTemplate,
-				regions: {
-					regionList: '.ph-list'
-				}
+			module.NavigationItemListView = marionette.CompositeView.extend({
+				template: listTemplate,
+				itemView: module.NavigationItemView,
+				itemViewContainer: '.ph-list'
 			});
 		});
 

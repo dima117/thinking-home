@@ -4,8 +4,6 @@
 
 		application.module('Scripts.Editor', function (module, app, backbone, marionette, $, _) {
 
-			var mainView = new module.ScriptEditorLayout();
-
 			var api = {
 
 				load: function (scriptId) {
@@ -14,20 +12,19 @@
 
 					$.when(rq).done(function (model) {
 
-						var editorView = new module.ScriptEditorView({ model: model });
+						var view = new module.ScriptEditorView({ model: model });
 
-						//listView.on('itemview:scripts:edit', api.openEditor);
-						//listView.on('itemview:packages:uninstall', api.uninstall);
+						view.on('scripts:editor:cancel', function() {
+							module.trigger('subapp:open', 'list');
+						});
 
-						mainView.regionContent.show(editorView);
+						app.setContentView(view);
 					});
 				}
 			};
 
-			module.createView = function (scriptId) {
-
+			module.start = function (scriptId) {
 				api.load(scriptId);
-				return mainView;
 			};
 
 		});

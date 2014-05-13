@@ -4,8 +4,6 @@
 
 		application.module('Packages.List', function (module, app, backbone, marionette, $, _) {
 
-			var mainView = new module.PackageListLayout();			
-
 			var api = {
 				
 				install: function (itemView) {
@@ -30,20 +28,18 @@
 					
 					$.when(rq).done(function (items) {
 
-						var listView = new module.PackageListView({ collection: items });
+						var view = new module.PackageListView({ collection: items });
 
-						listView.on('itemview:packages:install', api.install);
-						listView.on('itemview:packages:uninstall', api.uninstall);
+						view.on('itemview:packages:install', api.install);
+						view.on('itemview:packages:uninstall', api.uninstall);
 
-						mainView.regionList.show(listView);
+						app.setContentView(view);
 					});
 				}
 			};
 
-			module.createView = function () {
-
+			module.start = function () {
 				api.reload();
-				return mainView;
 			};
 
 		});

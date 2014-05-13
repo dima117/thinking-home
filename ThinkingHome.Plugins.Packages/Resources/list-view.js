@@ -1,6 +1,6 @@
 ﻿define(
-	['app', 'tpl!webapp/packages/layout.tpl', 'tpl!webapp/packages/list-item.tpl'],
-	function (application, layoutTemplate, itemTemplate) {
+	['app', 'tpl!webapp/packages/list.tpl', 'tpl!webapp/packages/list-item.tpl'],
+	function (application, listTemplate, itemTemplate) {
 
 		application.module('Packages.List', function (module, app, backbone, marionette, $, _) {
 
@@ -31,15 +31,10 @@
 				}
 			});
 
-			module.PackageListView = marionette.CollectionView.extend({
-				 itemView: module.PackageView
-			});
-
-			module.PackageListLayout = marionette.Layout.extend({
-				template: layoutTemplate,
-				regions: {
-					regionList: '.ph-list'
-				}
+			module.PackageListView = marionette.CompositeView.extend({
+				template: listTemplate,
+				itemView: module.PackageView,
+				itemViewContainer: '.ph-list'
 			});
 		});
 

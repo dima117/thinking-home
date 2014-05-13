@@ -21,18 +21,19 @@ using ThinkingHome.Plugins.WebUI.Attributes;
 namespace ThinkingHome.Plugins.Scripts
 {
 	// script list
-	[SystemSection("Scripts", "/webapp/scripts/script-list.js", "ThinkingHome.Plugins.Scripts.Resources.script-list.js")]
+	[SystemSection("Scripts", "/webapp/scripts/index.js", "ThinkingHome.Plugins.Scripts.Resources.index.js")]
+
+	[JavaScriptResource("/webapp/scripts/script-list.js", "ThinkingHome.Plugins.Scripts.Resources.script-list.js")]
 	[JavaScriptResource("/webapp/scripts/script-list-model.js", "ThinkingHome.Plugins.Scripts.Resources.script-list-model.js")]
 	[JavaScriptResource("/webapp/scripts/script-list-view.js", "ThinkingHome.Plugins.Scripts.Resources.script-list-view.js")]
 	[HttpResource("/webapp/scripts/script-list-item.tpl", "ThinkingHome.Plugins.Scripts.Resources.script-list-item.tpl")]
-	[HttpResource("/webapp/scripts/script-list-layout.tpl", "ThinkingHome.Plugins.Scripts.Resources.script-list-layout.tpl")]
+	[HttpResource("/webapp/scripts/script-list.tpl", "ThinkingHome.Plugins.Scripts.Resources.script-list.tpl")]
 
 	// editor
 	[JavaScriptResource("/webapp/scripts/script-editor.js", "ThinkingHome.Plugins.Scripts.Resources.script-editor.js")]
 	[JavaScriptResource("/webapp/scripts/script-editor-model.js", "ThinkingHome.Plugins.Scripts.Resources.script-editor-model.js")]
 	[JavaScriptResource("/webapp/scripts/script-editor-view.js", "ThinkingHome.Plugins.Scripts.Resources.script-editor-view.js")]
 	[HttpResource("/webapp/scripts/script-editor.tpl", "ThinkingHome.Plugins.Scripts.Resources.script-editor.tpl")]
-	[HttpResource("/webapp/scripts/script-editor-layout.tpl", "ThinkingHome.Plugins.Scripts.Resources.script-editor-layout.tpl")]
 
 	[Plugin]
 	public class ScriptsPlugin : Plugin

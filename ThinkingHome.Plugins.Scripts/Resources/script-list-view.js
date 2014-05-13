@@ -1,6 +1,6 @@
 ﻿define(
-	['app', 'tpl!webapp/scripts/script-list-layout.tpl', 'tpl!webapp/scripts/script-list-item.tpl'],
-	function (application, layoutTemplate, itemTemplate) {
+	['app', 'tpl!webapp/scripts/script-list.tpl', 'tpl!webapp/scripts/script-list-item.tpl'],
+	function (application, listTemplate, itemTemplate) {
 
 		application.module('Scripts.List', function (module, app, backbone, marionette, $, _) {
 
@@ -25,15 +25,10 @@
 				}
 			});
 
-			module.ScriptListView = marionette.CollectionView.extend({
-				itemView: module.ScriptView
-			});
-
-			module.ScriptListLayout = marionette.Layout.extend({
-				template: layoutTemplate,
-				regions: {
-					regionList: '.ph-list'
-				}
+			module.ScriptListView = marionette.CompositeView.extend({
+				template: listTemplate,
+				itemView: module.ScriptView,
+				itemViewContainer: '.ph-list'
 			});
 		});
 

@@ -28,9 +28,8 @@
 
 						require([path], function (obj) {
 							
-							var view = obj.createView();
-							app.regionContent.show(view);
 							app.navigate(path);
+							obj.start();
 						});
 					}
 				}

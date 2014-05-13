@@ -12,7 +12,7 @@ namespace ThinkingHome.Plugins.Packages
 	[JavaScriptResource("/webapp/packages/list-model.js", "ThinkingHome.Plugins.Packages.Resources.list-model.js")]
 	[JavaScriptResource("/webapp/packages/list-view.js", "ThinkingHome.Plugins.Packages.Resources.list-view.js")]
 	[HttpResource("/webapp/packages/list-item.tpl", "ThinkingHome.Plugins.Packages.Resources.list-item.tpl")]
-	[HttpResource("/webapp/packages/layout.tpl", "ThinkingHome.Plugins.Packages.Resources.layout.tpl")]
+	[HttpResource("/webapp/packages/list.tpl", "ThinkingHome.Plugins.Packages.Resources.list.tpl")]
 
 	[Plugin]
 	public class PackagesPlugin : Plugin

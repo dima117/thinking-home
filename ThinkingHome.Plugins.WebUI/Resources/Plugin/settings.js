@@ -4,8 +4,6 @@
 
 		application.module('WebUI.Settings', function (module, app, backbone, marionette, $, _) {
 
-			var mainView = new module.SettingsLayout();
-
 			var api = {
 
 				reload: function () {
@@ -14,17 +12,14 @@
 
 					$.when(rq).done(function (items) {
 
-						var listView = new module.NavigationItemListView({ collection: items });
-						
-						mainView.regionList.show(listView);
+						var view = new module.NavigationItemListView({ collection: items });
+						app.setContentView(view);
 					});
 				}
 			};
 
-			module.createView = function () {
-
+			module.start = function () {
 				api.reload();
-				return mainView;
 			};
 			
 		});
