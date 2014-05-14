@@ -17,6 +17,14 @@
 						view.on('scripts:editor:cancel', function() {
 							module.trigger('subapp:open', 'list');
 						});
+						
+						view.on('scripts:editor:save', function () {
+	
+							app.request('update:scripts:editor:save', this.model)
+								.done(function() {
+									module.trigger('subapp:open', 'list');
+								});
+						});
 
 						app.setContentView(view);
 					});

@@ -22,12 +22,30 @@
 					});
 
 				return defer.promise();
+			},
+			saveScript: function (model) {
+
+				var scriptId = model.get('id');
+				var scriptName = model.get('name');
+				var scriptBody = model.get('body');
+
+				var rq = $.post('/api/scripts/save', {
+					id: scriptId,
+					name: scriptName,
+					body: scriptBody
+				});
+
+				return rq.promise();
 			}
 		};
 
 		// requests
 		app.reqres.setHandler('load:scripts:editor:load', function (scriptId) {
 			return api.loadScript(scriptId);
+		});
+
+		app.reqres.setHandler('update:scripts:editor:save', function (model) {
+			return api.saveScript(model);
 		});
 
 	});

@@ -11,14 +11,15 @@
 				var cm = app.module(moduleName, function (m, a, bb, mjs, s, l) {
 
 					var api = {
-						load: function (name, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9) {
+						load: function (name) {
 
 							var path = pages[name] || name;
+							var args = Array.prototype.slice.call(arguments, 1);
 
 							require([path], function (obj) {
 
 								obj.on('subapp:open', api.load);
-								obj.start(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
+								obj.start.apply(obj, args);
 							});
 						}
 					};
@@ -30,6 +31,7 @@
 				
 				return cm;
 			};
+
 		});
 
 		return application.Common;

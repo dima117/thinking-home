@@ -36,24 +36,14 @@
 			
 			installPackage: function (packageId) {
 			
-				var rq = $.ajax({
-					url: '/api/packages/install',
-					data: { packageId: packageId },
-					dataType: 'json',
-					type: 'POST'
-				});
+				var rq = $.post('/api/packages/install', { packageId: packageId });
 
 				return rq.promise();
 			},
 			
 			uninstallPackage: function (packageId) {
 			
-				var rq = $.ajax({
-					url: '/api/packages/uninstall',
-					data: { packageId: packageId },
-					dataType: 'json',
-					type: 'POST'
-				});
+				var rq = $.post('/api/packages/uninstall', { packageId: packageId });
 
 				return rq.promise();
 			}

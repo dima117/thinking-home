@@ -108,23 +108,6 @@ namespace ThinkingHome.Plugins.Scripts
 			}
 		}
 
-		[HttpCommand("/api/scripts/add")]
-		public object AddScript(HttpRequestParams request)
-		{
-			var name = request.GetRequiredString("name");
-			var body = request.GetRequiredString("body");
-
-			using (var session = Context.OpenSession())
-			{
-				var guid = Guid.NewGuid();
-				var script = new UserScript { Id = guid, Name = name, Body = body };
-				session.Save(script);
-				session.Flush();
-
-				return guid;
-			}
-		}
-
 		[HttpCommand("/api/scripts/delete")]
 		public object DeleteScript(HttpRequestParams request)
 		{
@@ -155,16 +138,22 @@ namespace ThinkingHome.Plugins.Scripts
 			}
 		}
 
-		[HttpCommand("/api/scripts/update")]
+		[HttpCommand("/api/scripts/save")]
 		public object SaveScript(HttpRequestParams request)
 		{
-			Guid id = request.GetRequiredGuid("id");
+			Guid? id = request.GetGuid("id");
+			string name = request.GetRequiredString("name");
 			string body = request.GetRequiredString("body");
 
 			using (var session = Context.OpenSession())
 			{
-				var script = session.Get<UserScript>(id);
+				var script = id.HasValue
+					? session.Get<UserScript>(id.Value)
+					: new UserScript { Id = Guid.NewGuid() };
+
+				script.Name = name;
 				script.Body = body;
+				session.SaveOrUpdate(script);
 				session.Flush();
 			}
 
