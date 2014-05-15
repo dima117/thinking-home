@@ -12,7 +12,7 @@
 				onShow: function () {
 
 					var textarea = this.$('.js-script-body')[0];
-					codemirror.fromTextArea(textarea, {
+					this.cm = codemirror.fromTextArea(textarea, {
 						mode: 'javascript',
 						theme: 'bootstrap',
 						lineNumbers: true,
@@ -26,7 +26,10 @@
 				},
 				btnSaveClick: function (e) {
 					e.preventDefault();
-					this.trigger('scripts:editor:save');
+
+					this.cm.save();
+					var data = Backbone.Syphon.serialize(this);
+					this.trigger('scripts:editor:save', data);
 				},
 				btnCancelClick: function (e) {
 					e.preventDefault();

@@ -6,6 +6,18 @@
 
 			var api = {
 
+				redirectToList: function () {
+					module.trigger('subapp:open', 'list');
+				},
+
+				save: function (data) {
+
+					this.model.set(data);
+
+					app.request('update:scripts:editor:save', this.model)
+						.done(api.redirectToList);
+				},
+
 				load: function (scriptId) {
 
 					var rq = app.request('load:scripts:editor:load', scriptId);
@@ -14,17 +26,8 @@
 
 						var view = new module.ScriptEditorView({ model: model });
 
-						view.on('scripts:editor:cancel', function() {
-							module.trigger('subapp:open', 'list');
-						});
-						
-						view.on('scripts:editor:save', function () {
-	
-							app.request('update:scripts:editor:save', this.model)
-								.done(function() {
-									module.trigger('subapp:open', 'list');
-								});
-						});
+						view.on('scripts:editor:cancel', api.redirectToList);
+						view.on('scripts:editor:save', api.save);
 
 						app.setContentView(view);
 					});

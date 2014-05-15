@@ -10,6 +10,7 @@
 		underscore: 'vendor/js/underscore.min',
 		backbone: 'vendor/js/backbone.min',
 		marionette: 'vendor/js/backbone.marionette.min',
+		syphon: 'vendor/js/backbone.syphon',
 		bootstrap: 'vendor/js/bootstrap.min',
 		codemirror: 'vendor/js/codemirror-all',
 		
@@ -23,8 +24,12 @@
 			deps: ['json2', 'jquery', 'underscore'],
 			exports: 'Backbone'
 		},
-		marionette: {
+		syphon: {
 			deps: ['backbone'],
+			exports: 'Backbone.Syphon'
+		},
+		marionette: {
+			deps: ['backbone', 'syphon'],
 			exports: 'Marionette'
 		}
 	}
