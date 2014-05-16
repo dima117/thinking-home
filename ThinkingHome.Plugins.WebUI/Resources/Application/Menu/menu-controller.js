@@ -20,32 +20,10 @@
 						var systemView = new module.SystemMenuView({ collection: itemsSystem });
 						app.regionMenuRight.show(systemView);
 					});
-				},
-
-				loadPage: function (path) {
-
-					if (path) {
-
-						require([path], function (obj) {
-							
-							app.navigate(path);
-							obj.start();
-						});
-					}
 				}
 			};
 
 			app.addInitializer(function () {
-
-				// routes
-				app.router = new marionette.AppRouter({
-					appRoutes: { '*path': 'loadPage' },
-					controller: controller
-				});
-
-				app.on('page:open', controller.loadPage);
-				app.on('menu:reload', controller.reloadMenu);
-
 				controller.reloadMenu();
 			});
 		});

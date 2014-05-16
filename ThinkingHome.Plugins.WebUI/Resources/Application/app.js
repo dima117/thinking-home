@@ -1,6 +1,6 @@
-﻿define(['marionette', 'backbone'], function (Marionette, Backbone) {
+﻿define(['marionette', 'backbone'], function (marionette, backbone) {
 
-	var app = new Marionette.Application();
+	var app = new marionette.Application();
 
 	app.addRegions({
 		regionMenu: "#region-menu",
@@ -8,11 +8,18 @@
 		regionContent: "#region-page-content"
 	});
 	
-	app.navigate = function (route, options) {
+	app.navigate = function (route) {
 
-		options || (options = {});
+		if (route) {
 
-		Backbone.history.navigate(route, options);
+			var args = Array.prototype.slice.call(arguments, 1);
+
+			require([route], function (obj) {
+
+				obj.start.apply(obj, args);
+				backbone.history.navigate(route);
+			});
+		}
 	};
 	
 	app.setContentView = function(view) {
@@ -21,8 +28,15 @@
 
 	app.on('initialize:after', function() {
 
-		if (Backbone.history) {
-			Backbone.history.start();
+		app.router = new marionette.AppRouter({
+			routes: { '*path': 'loadPage' },
+			loadPage: app.navigate
+		});
+
+		app.on('page:open', app.navigate);
+
+		if (backbone.history) {
+			backbone.history.start();
 		}
 	});
 
