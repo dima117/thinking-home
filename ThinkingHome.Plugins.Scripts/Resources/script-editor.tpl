@@ -1,5 +1,4 @@
-﻿<link type="text/css" rel="stylesheet" href="/vendor/css/codemirror.css"/>
-<form>
+﻿<form>
 	<h1><%= name %></h1>
 	<p>
 		<input type="button" value="Save" class="btn btn-primary js-btn-save" />&nbsp;

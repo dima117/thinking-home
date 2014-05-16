@@ -11,7 +11,7 @@
 				openEditor: function (itemView) {
 
 					var scriptId = itemView.model.get('id');
-					module.trigger('subapp:open', 'editor', scriptId);
+					app.trigger('page:open', 'webapp/scripts/script-editor', scriptId);
 				},
 				reload: function () {
 
@@ -22,7 +22,7 @@
 						var view = new module.ScriptListView({ collection: items });
 
 						view.on('itemview:scripts:edit', api.openEditor);
-						//listView.on('itemview:packages:uninstall', api.uninstall);
+						
 						app.setContentView(view);
 					});
 				}

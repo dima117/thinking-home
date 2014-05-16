@@ -114,9 +114,6 @@
     <EmbeddedResource Include="Resources\script-editor-model.js" />
     <EmbeddedResource Include="Resources\script-editor.js" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\index.js" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

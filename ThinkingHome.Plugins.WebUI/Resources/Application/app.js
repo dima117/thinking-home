@@ -25,16 +25,16 @@
 	app.setContentView = function(view) {
 		app.regionContent.show(view);
 	},
-
+	
 	app.on('initialize:after', function() {
 
 		app.router = new marionette.AppRouter({
-			routes: { '*path': 'loadPage' },
-			loadPage: app.navigate
+			appRoutes: { '*path': 'loadPage' },
+			controller: { loadPage: app.navigate }
 		});
 
 		app.on('page:open', app.navigate);
-
+		
 		if (backbone.history) {
 			backbone.history.start();
 		}

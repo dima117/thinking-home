@@ -12,6 +12,7 @@
 				onShow: function () {
 
 					var textarea = this.$('.js-script-body')[0];
+					
 					this.cm = codemirror.fromTextArea(textarea, {
 						mode: 'javascript',
 						theme: 'bootstrap',
