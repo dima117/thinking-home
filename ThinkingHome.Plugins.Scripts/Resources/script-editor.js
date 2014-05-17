@@ -7,7 +7,7 @@
 			var api = {
 
 				redirectToList: function () {
-					app.trigger('page:open', 'webapp/scripts/script-list');
+					app.trigger('page:load', 'webapp/scripts/script-list');
 				},
 
 				save: function (data) {

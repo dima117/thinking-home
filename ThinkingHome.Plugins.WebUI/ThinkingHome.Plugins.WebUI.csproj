@@ -61,10 +61,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\SectionType.cs" />
     <Compile Include="Attributes\AppSectionAttribute.cs" />
-    <Compile Include="Attributes\SystemSectionAttribute.cs" />
-    <Compile Include="Data\Migrations.cs" />
-    <Compile Include="Data\Model.cs" />
     <Compile Include="Attributes\JavaScriptResourceAttribute.cs" />
     <Compile Include="WebUIPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -115,29 +113,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <EmbeddedResource Include="Resources\Application\Menu\menu-item.tpl" />
-    <EmbeddedResource Include="Resources\Plugin\settings-list.tpl" />
-    <EmbeddedResource Include="Resources\Plugin\settings-list-item.tpl" />
+    <EmbeddedResource Include="Resources\Plugin\section-list.tpl" />
+    <EmbeddedResource Include="Resources\Plugin\section-list-item.tpl" />
     <None Include="ThinkingHome.Plugins.WebUI.nuspec">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Application\Menu\menu-controller.js" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\Vendor\js\tpl.min.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Plugin\settings.js" />
+    <EmbeddedResource Include="Resources\Plugin\section-list-common.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Application\Menu\menu-model.js" />
-    <EmbeddedResource Include="Resources\Application\Menu\menu-view.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Plugin\settings-model.js" />
-    <EmbeddedResource Include="Resources\Plugin\settings-view.js" />
+    <EmbeddedResource Include="Resources\Plugin\section-model.js" />
+    <EmbeddedResource Include="Resources\Plugin\section-view.js" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Vendor\js\codemirror-closebrackets.js" />
@@ -162,6 +152,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Vendor\js\backbone.syphon.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Plugin\section-list-system.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

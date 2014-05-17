@@ -4,10 +4,15 @@ namespace ThinkingHome.Plugins.WebUI.Attributes
 	{
 		public string Title { get; set; }
 
-		public AppSectionAttribute(string title, string url, string resourcePath)
+		public int SortOrder { get; set; }
+
+		public SectionType Type { get; set; }
+
+		public AppSectionAttribute(string title, SectionType sectionType, string url, string resourcePath)
 			: base(url, resourcePath)
 		{
 			Title = title;
+			Type = sectionType;
 		}
 	}
 }

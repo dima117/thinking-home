@@ -11,7 +11,7 @@
 				openEditor: function (itemView) {
 
 					var scriptId = itemView.model.get('id');
-					app.trigger('page:open', 'webapp/scripts/script-editor', scriptId);
+					app.trigger('page:load', 'webapp/scripts/script-editor', scriptId);
 				},
 				reload: function () {
 

@@ -28,7 +28,7 @@
 			module.ScriptListView = marionette.CompositeView.extend({
 				template: listTemplate,
 				itemView: module.ScriptView,
-				itemViewContainer: '.ph-list'
+				itemViewContainer: '.js-list'
 			});
 		});
 

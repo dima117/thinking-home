@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using NHibernate.Linq;
-using NHibernate.Mapping.ByCode;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Plugins.Listener;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Handlers;
 using ThinkingHome.Plugins.WebUI.Attributes;
-using ThinkingHome.Plugins.WebUI.Data;
 
 namespace ThinkingHome.Plugins.WebUI
 {
@@ -58,30 +55,20 @@ namespace ThinkingHome.Plugins.WebUI
 	// webapp: common
 	[JavaScriptResource("/application/common/common.js", "ThinkingHome.Plugins.WebUI.Resources.Application.Common.common.js")]
 
-	// webapp: menu
-	[JavaScriptResource("/application/menu/menu-controller.js", "ThinkingHome.Plugins.WebUI.Resources.Application.Menu.menu-controller.js")]
-	[JavaScriptResource("/application/menu/menu-model.js", "ThinkingHome.Plugins.WebUI.Resources.Application.Menu.menu-model.js")]
-	[JavaScriptResource("/application/menu/menu-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.Menu.menu-view.js")]
-	[HttpResource("/application/menu/menu-item.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.Menu.menu-item.tpl")]
-
 	// webapp: menu settings
-	[SystemSection("Main menu items", "/webapp/webui/settings.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.settings.js")]
-	[JavaScriptResource("/webapp/webui/settings-model.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.settings-model.js")]
-	[JavaScriptResource("/webapp/webui/settings-view.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.settings-view.js")]
-	[HttpResource("/webapp/webui/settings-list.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.settings-list.tpl")]
-	[HttpResource("/webapp/webui/settings-list-item.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.settings-list-item.tpl")]
+	[JavaScriptResource("/webapp/webui/section-list-common.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.section-list-common.js")]
+	[JavaScriptResource("/webapp/webui/section-list-system.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.section-list-system.js")]
+	[JavaScriptResource("/webapp/webui/section-model.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.section-model.js")]
+	[JavaScriptResource("/webapp/webui/section-view.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.section-view.js")]
+	[HttpResource("/webapp/webui/section-list.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.section-list.tpl")]
+	[HttpResource("/webapp/webui/section-list-item.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.section-list-item.tpl")]
 
 	#endregion
 
 	[Plugin]
 	public class WebUIPlugin : Plugin
 	{
-		private readonly List<SystemSectionAttribute> systemSections = new List<SystemSectionAttribute>();
-
-		public override void InitDbModel(ModelMapper mapper)
-		{
-			mapper.Class<NavigationItem>(cfg => cfg.Table("WebUI_NavigationItem"));
-		}
+		private readonly List<AppSectionAttribute> sections = new List<AppSectionAttribute>();
 
 		public override void Init()
 		{
@@ -89,32 +76,31 @@ namespace ThinkingHome.Plugins.WebUI
 
 			foreach (var plugin in Context.GetAllPlugins())
 			{
-				var attributes = plugin.GetType().GetCustomAttributes<SystemSectionAttribute>();
-				systemSections.AddRange(attributes);
+				var attributes = plugin.GetType().GetCustomAttributes<AppSectionAttribute>();
+				sections.AddRange(attributes);
 			}
 		}
 
 		[HttpCommand("/api/webui/sections/common")]
 		public object GetSections(HttpRequestParams request)
 		{
-			using (var session = Context.OpenSession())
-			{
-				var list = session.Query<NavigationItem>()
-					.Select(x => new { id = x.Id, name = x.Name, path = x.ModulePath, sortOrder = x.SortOrder })
-					.ToArray();
-
-				return list;
-			}
+			return GetSections(SectionType.Common);
 		}
+
 		[HttpCommand("/api/webui/sections/system")]
 		public object GetSystemSections(HttpRequestParams request)
 		{
-			var list = systemSections
-					.Select(x => new { id = Guid.NewGuid(), name = x.Title, path = x.GetModulePath(), sortOrder = x.SortOrder })
-					.ToArray();
+			return GetSections(SectionType.System);
+		}
+
+		private object GetSections(SectionType sectionType)
+		{
+			var list = sections
+				.Where(section => section.Type == sectionType)
+				.Select(x => new {id = Guid.NewGuid(), name = x.Title, path = x.GetModulePath(), sortOrder = x.SortOrder})
+				.ToArray();
 
 			return list;
-
 		}
 	}
 }

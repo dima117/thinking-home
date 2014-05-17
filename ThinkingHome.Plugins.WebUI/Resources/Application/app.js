@@ -3,10 +3,12 @@
 	var app = new marionette.Application();
 
 	app.addRegions({
-		regionMenu: "#region-menu",
-		regionMenuRight: "#region-right-menu",
 		regionContent: "#region-page-content"
 	});
+	
+	app.setContentView = function (view) {
+		app.regionContent.show(view);
+	},
 	
 	app.navigate = function (route) {
 
@@ -22,19 +24,15 @@
 		}
 	};
 	
-	app.setContentView = function(view) {
-		app.regionContent.show(view);
-	},
+	app.router = new marionette.AppRouter({
+		appRoutes: { '*path': 'loadPage' },
+		controller: { loadPage: app.navigate }
+	});
+
+	app.on('page:load', app.navigate);
 	
 	app.on('initialize:after', function() {
-
-		app.router = new marionette.AppRouter({
-			appRoutes: { '*path': 'loadPage' },
-			controller: { loadPage: app.navigate }
-		});
-
-		app.on('page:open', app.navigate);
-		
+	
 		if (backbone.history) {
 			backbone.history.start();
 		}

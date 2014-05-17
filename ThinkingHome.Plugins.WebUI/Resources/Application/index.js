@@ -35,6 +35,6 @@
 	}
 });
 
-require(['app', 'common', 'menu', 'bootstrap'], function (app) {
+require(['app', 'common', 'bootstrap'], function (app) {
 	app.start();
 });
