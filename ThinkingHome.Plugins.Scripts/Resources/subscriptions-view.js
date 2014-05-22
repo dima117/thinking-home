@@ -8,7 +8,7 @@
 
 		application.module('Scripts.Subscriptions', function (module, app, backbone, marionette, $, _) {
 
-			module.SubscriptionsLayout = marionette.Layout.extend({
+			module.SubscriptionLayout = marionette.Layout.extend({
 				template: layoutTemplate,
 				regions: {
 					regionForm: '#region-subscriptions-form',
@@ -16,19 +16,19 @@
 				}
 			});
 
-			module.SubscriptionsFormView = app.Common.FormView.extend({
+			module.SubscriptionFormView = app.Common.FormView.extend({
 				template: formTemplate
 			});
 
 
-			module.EventHandlerView = marionette.ItemView.extend({
+			module.SubscriptionView = marionette.ItemView.extend({
 				template: itemTemplate,
 				tagName: 'tr'
 			});
 
-			module.EventHandlerListView = marionette.CompositeView.extend({
+			module.SubscriptionListView = marionette.CompositeView.extend({
 				template: listTemplate,
-				itemView: module.EventHandlerView,
+				itemView: module.SubscriptionView,
 				itemViewContainer: 'tbody'
 			});
 		});

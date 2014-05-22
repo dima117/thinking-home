@@ -10,16 +10,19 @@
 
 				reload: function () {
 
-					var layoutView = new module.SubscriptionsLayout();
+					var layoutView = new module.SubscriptionLayout();
 					app.setContentView(layoutView);
 					
-					//var rqHandlers = app.request('load:scripts:handlers');
 					var rqFormData = app.request('load:scripts:subscription-form');
+					var rqList = app.request('load:scripts:subscription-list');
 
-					$.when(rqFormData).done(function (formData) {
+					$.when(rqFormData, rqList).done(function (formData, list) {
 						
-						var formView = new module.SubscriptionsFormView({ model: formData });
+						var formView = new module.SubscriptionFormView({ model: formData });
 						layoutView.regionForm.show(formView);
+						
+						var listView = new module.SubscriptionListView({ collection: list });
+						layoutView.regionList.show(listView);
 					});
 				}
 			};

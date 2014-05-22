@@ -5,10 +5,10 @@
 		// entities
 		module.FormData = backbone.Model.extend();
 		
-		module.EventHandler = backbone.Model.extend();
+		module.Subscription = backbone.Model.extend();
 
-		module.EventHandlerCollection = backbone.Collection.extend({
-			model: module.EventHandler
+		module.SubscriptionCollection = backbone.Collection.extend({
+			model: module.Subscription
 		});
 
 		// api
@@ -20,7 +20,7 @@
 
 				$.getJSON('/api/scripts/subscription/list')
 					.done(function (items) {
-						var collection = new module.EventHandlerCollection(items);
+						var collection = new module.SubscriptionCollection(items);
 						defer.resolve(collection);
 					})
 					.fail(function () {
