@@ -8,6 +8,10 @@
 
 			var api = {
 
+				addSubscription: function () {
+					debugger;
+				},
+
 				reload: function () {
 
 					var layoutView = new module.SubscriptionLayout();
@@ -18,8 +22,11 @@
 
 					$.when(rqFormData, rqList).done(function (formData, list) {
 						
-						var formView = new module.SubscriptionFormView({ model: formData });
-						layoutView.regionForm.show(formView);
+						var form = new module.SubscriptionFormView({ model: formData });
+
+						form.on('scripts:subscription:add', api.addSubscription);
+
+						layoutView.regionForm.show(form);
 						
 						var listView = new module.SubscriptionListView({ collection: list });
 						layoutView.regionList.show(listView);

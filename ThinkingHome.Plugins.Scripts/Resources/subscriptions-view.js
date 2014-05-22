@@ -17,7 +17,16 @@
 			});
 
 			module.SubscriptionFormView = app.Common.FormView.extend({
-				template: formTemplate
+				template: formTemplate,
+				events: {
+					'click .js-btn-add-subscription': 'addSubscription'
+				},
+				addSubscription: function(e) {
+					e.preventDefault();
+
+					this.updateModel();
+					this.trigger('scripts:subscription:add');
+				}
 			});
 
 

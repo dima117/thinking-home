@@ -27,6 +27,12 @@
 					});
 
 					Backbone.Syphon.deserialize(this, data);
+				},
+				
+				updateModel: function() {
+				
+					var data = Backbone.Syphon.serialize(this);
+					this.model.set(data);
 				}
 			});
 

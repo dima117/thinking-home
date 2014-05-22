@@ -12,5 +12,5 @@
 		<select name="selectedScriptId" data-items-field="scriptList" class="form-control" />
 
 	</div>
-	<input type="button" class="btn btn-primary" value="Add subscription" />
+	<input type="button" class="btn btn-primary js-btn-add-subscription" value="Add subscription" />
 </form>
