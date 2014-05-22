@@ -21,12 +21,13 @@ using ThinkingHome.Plugins.WebUI.Attributes;
 namespace ThinkingHome.Plugins.Scripts
 {
 	// script list
-	[AppSection("Events", SectionType.System, "/webapp/scripts/event-list.js", "ThinkingHome.Plugins.Scripts.Resources.event-list.js")]
-	[JavaScriptResource("/webapp/scripts/event-list-model.js", "ThinkingHome.Plugins.Scripts.Resources.event-list-model.js")]
-	[JavaScriptResource("/webapp/scripts/event-list-view.js", "ThinkingHome.Plugins.Scripts.Resources.event-list-view.js")]
-	[HttpResource("/webapp/scripts/event-handler-list-item.tpl", "ThinkingHome.Plugins.Scripts.Resources.event-handler-list-item.tpl")]
-	[HttpResource("/webapp/scripts/event-handler-list.tpl", "ThinkingHome.Plugins.Scripts.Resources.event-handler-list.tpl")]
-	[HttpResource("/webapp/scripts/event-list-layout.tpl", "ThinkingHome.Plugins.Scripts.Resources.event-list-layout.tpl")]
+	[AppSection("Event handlers", SectionType.System, "/webapp/scripts/subscriptions.js", "ThinkingHome.Plugins.Scripts.Resources.subscriptions.js")]
+	[JavaScriptResource("/webapp/scripts/subscriptions-model.js", "ThinkingHome.Plugins.Scripts.Resources.subscriptions-model.js")]
+	[JavaScriptResource("/webapp/scripts/subscriptions-view.js", "ThinkingHome.Plugins.Scripts.Resources.subscriptions-view.js")]
+	[HttpResource("/webapp/scripts/subscriptions-layout.tpl", "ThinkingHome.Plugins.Scripts.Resources.subscriptions-layout.tpl")]
+	[HttpResource("/webapp/scripts/subscriptions-form.tpl", "ThinkingHome.Plugins.Scripts.Resources.subscriptions-form.tpl")]
+	[HttpResource("/webapp/scripts/subscriptions-list.tpl", "ThinkingHome.Plugins.Scripts.Resources.subscriptions-list.tpl")]
+	[HttpResource("/webapp/scripts/subscriptions-list-item.tpl", "ThinkingHome.Plugins.Scripts.Resources.subscriptions-list-item.tpl")]
 
 	[AppSection("Scripts", SectionType.System, "/webapp/scripts/script-list.js", "ThinkingHome.Plugins.Scripts.Resources.script-list.js")]
 	[JavaScriptResource("/webapp/scripts/script-list-model.js", "ThinkingHome.Plugins.Scripts.Resources.script-list-model.js")]

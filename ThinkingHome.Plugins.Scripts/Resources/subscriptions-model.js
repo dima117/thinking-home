@@ -1,6 +1,6 @@
 ﻿define(['app'], function (application) {
 
-	application.module('Scripts.EventList', function (module, app, backbone, marionette, $, _) {
+	application.module('Scripts.Subscriptions', function (module, app, backbone, marionette, $, _) {
 
 		// entities
 		module.FormData = backbone.Model.extend();
@@ -14,7 +14,7 @@
 		// api
 		var api = {
 
-			loadHandlers: function () {
+			loadSubscriptions: function () {
 
 				var defer = $.Deferred();
 
@@ -47,8 +47,8 @@
 		};
 
 		// requests
-		app.reqres.setHandler('load:scripts:handlers', function () {
-			return api.loadHandlers();
+		app.reqres.setHandler('load:scripts:subscription-list', function () {
+			return api.loadSubscriptions();
 		});
 		
 		app.reqres.setHandler('load:scripts:subscription-form', function () {
@@ -56,5 +56,5 @@
 		});
 	});
 
-	return application.Scripts.EventList;
+	return application.Scripts.Subscriptions;
 });
