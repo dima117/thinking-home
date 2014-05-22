@@ -10,36 +10,23 @@
 
 				reload: function () {
 
-					var model = new backbone.Model({
-						'event-handlers': [
-							{ id: '1', name: 'хрюката' },
-							{ id: '2', name: 'парасек' },
-							{ id: '3', name: 'свиняжка' }
-						],
-						'eeeeeeee-options': [
-							{ id: '4', name: 'хрюката - 2' },
-							{ id: '5', name: 'парасек - 2' },
-							{ id: '6', name: 'свиняжка - 2' }
-						],
-					});
 					
-					var view = new module.XxxView({ model: model });
 				
 					/*
 					var layoutView = new module.EventsLayout();
 					app.setContentView(layoutView);
 					*/
-					app.setContentView(view);
+					//app.setContentView(view);
 
 					//var rqHandlers = app.request('load:scripts:handlers');
-					//var rqEvents = app.request('load:scripts:events');
+					var rqFormData = app.request('load:scripts:subscription-form');
 
-					//$.when(rqHandlers, rqEvents).done(function (handlers) {
-
-					//	var view = new module.EventHandlerListView({ collection: handlers });
-
+					$.when(rqFormData).done(function (formData) {
+						
+						var view = new module.SubscriptionFormView({ model: formData });
+						app.setContentView(view);
 					//	layoutView.regionList.show(view);
-					//});
+					});
 				}
 			};
 

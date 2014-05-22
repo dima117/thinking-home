@@ -179,14 +179,30 @@ namespace ThinkingHome.Plugins.Scripts
 
 		#region http subscriptions
 
-		[HttpCommand("/api/scripts/events")]
+		[HttpCommand("/api/scripts/subscription/form")]
 		public object GetEvents(HttpRequestParams request)
 		{
-			var list = scriptEvents
-				.SelectMany(x => x.Value, (x, y) => new { pluginAlias = x.Key, eventAlias = y })
-				.ToList();
+			using (var session = Context.OpenSession())
+			{
+				var events = scriptEvents
+					.SelectMany(x => x.Value, (x, y) => new
+					{
+						id = Guid.NewGuid().ToString(),
+						name = string.Format("{0}.{1}", x.Key, y),
+						pluginAlias = x.Key,
+						eventAlias = y
+					}).ToList();
 
-			return list;
+				var scripts = session.Query<UserScript>()
+					.Select(x => new { id = x.Id, name = x.Name })
+					.ToArray();
+
+				return new
+				{
+					eventList = events,
+					scriptList = scripts
+				};
+			}
 		}
 
 		[HttpCommand("/api/scripts/subscription/list")]

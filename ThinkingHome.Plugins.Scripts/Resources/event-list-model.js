@@ -3,11 +3,7 @@
 	application.module('Scripts.EventList', function (module, app, backbone, marionette, $, _) {
 
 		// entities
-		module.Event = backbone.Model.extend();
-
-		module.EventCollection = backbone.Collection.extend({
-			model: module.Event
-		});
+		module.FormData = backbone.Model.extend();
 		
 		module.EventHandler = backbone.Model.extend();
 
@@ -33,14 +29,14 @@
 
 				return defer.promise();
 			},
-			loadEvents: function () {
+			loadFormData: function () {
 
 				var defer = $.Deferred();
 
-				$.getJSON('/api/scripts/events')
-					.done(function (items) {
-						var collection = new module.EventCollection(items);
-						defer.resolve(collection);
+				$.getJSON('/api/scripts/subscription/form')
+					.done(function (data) {
+						var model = new module.FormData(data);
+						defer.resolve(model);
 					})
 					.fail(function () {
 						defer.resolve(undefined);
@@ -55,8 +51,8 @@
 			return api.loadHandlers();
 		});
 		
-		app.reqres.setHandler('load:scripts:events', function () {
-			return api.loadEvents();
+		app.reqres.setHandler('load:scripts:subscription-form', function () {
+			return api.loadFormData();
 		});
 	});
 

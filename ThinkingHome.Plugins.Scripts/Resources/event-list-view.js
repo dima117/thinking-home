@@ -7,7 +7,7 @@
 
 		application.module('Scripts.EventList', function (module, app, backbone, marionette, $, _) {
 
-			module.XxxView = app.Common.FormView.extend({
+			module.SubscriptionFormView = app.Common.FormView.extend({
 				template: layoutTemplate
 			});
 
