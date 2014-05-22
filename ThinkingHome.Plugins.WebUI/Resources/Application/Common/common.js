@@ -4,33 +4,31 @@
 
 		application.module('Common', function (module, app, backbone, marionette, $, _) {
 
-			module.SubApplication = function (moduleName, startPage, pages) {
+			module.FormView = marionette.ItemView.extend({
 
-				pages = pages || {};
-				
-				var cm = app.module(moduleName, function (m, a, bb, mjs, s, l) {
+				onRender: function () {
 
-					var api = {
-						load: function (name) {
+					var data = this.serializeData();
 
-							var path = pages[name] || name;
-							var args = Array.prototype.slice.call(arguments, 1);
+					this.$('select').each(function(index, select) {
 
-							require([path], function (obj) {
+						select = $(select);
+						
+						var fieldName = select.data('items-field') || (select.attr('name') + '-options');
+						var items = data[fieldName];
 
-								obj.on('subapp:open', api.load);
-								obj.start.apply(obj, args);
+						if (items) {
+
+							_.each(items, function (item) {
+
+								$('<option />').val(item.id).text(item.name).appendTo(select);
 							});
 						}
-					};
+					});
 
-					m.start = function() {
-						api.load(startPage);
-					};
-				});
-				
-				return cm;
-			};
+					Backbone.Syphon.deserialize(this, data);
+				}
+			});
 
 		});
 

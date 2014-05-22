@@ -7,7 +7,7 @@
 	//
 		application.module('Scripts.Editor', function (module, app, backbone, marionette, $, _) {
 
-			module.ScriptEditorView = marionette.ItemView.extend({
+			module.ScriptEditorView = app.Common.FormView.extend({
 				template: editorTemplate,
 				onShow: function () {
 

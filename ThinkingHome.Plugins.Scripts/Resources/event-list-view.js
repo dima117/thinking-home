@@ -7,6 +7,11 @@
 
 		application.module('Scripts.EventList', function (module, app, backbone, marionette, $, _) {
 
+			module.XxxView = app.Common.FormView.extend({
+				template: layoutTemplate
+			});
+
+
 			module.EventHandlerView = marionette.ItemView.extend({
 				template: itemTemplate,
 				tagName: 'tr'

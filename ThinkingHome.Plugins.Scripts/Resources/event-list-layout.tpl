@@ -6,17 +6,14 @@
 				<label>
 					event type
 				</label>
-				<select id="event" class="form-control">
-					<option />
-				</select>
+				<select name="selectedEvent" data-items-field="event-handlers" class="form-control" />
 			</div>
 			<div class="form-group">
 				<label>
 					execute script
 				</label>
-				<select id="execute-script" class="form-control">
-					<option />
-				</select>
+				<select name="eeeeeeee" class="form-control" />
+				
 			</div>
 			<input type="button" class="btn btn-primary" value="Add subscription" />
 		</form>
