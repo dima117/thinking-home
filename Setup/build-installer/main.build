@@ -3,7 +3,7 @@
 
 	<!-- Settings -->
 	<property name="nant.settings.currentframework" value="net-4.0" />
-	<property name="th.ver" value="1.0.0.0"/>
+	<property name="th.ver" value="2.0.0.0"/>
 	<property name="build-configuration" value="Release"/>
 
 	<property name="dist.dir" value="..\dist"/>
@@ -17,27 +17,16 @@
 	<property name="dist.plugins.dir" value="${path::combine(dist.service.dir, 'Plugins')}" />
 	<property name="build.plugins.dir" value="${path::combine('..\..\build', build-configuration)}" />
 
-	<property name="dist.webconsole.dir" value="${path::combine(dist.dir, 'web')}" />
-	<property name="build.webconsole.dir" value="..\..\ThinkingHome.Web" />
-
 	<property name="dac.dir" value="$..\data-access" />
 
-	<property name="customactions.dir" value="${path::combine('..\ThinkingHome.SetupCustomActions\bin', build-configuration)}" />
 	<property name="setup.service.dir" value="..\ThinkingHome.Service.Setup" />
-	<property name="setup.webconsole.dir" value="..\ThinkingHome.Web.Setup" />
 	<property name="msi.source.dir" value="..\msi"/>
 	
 	<!-- Tasks -->
 	<target name="compile" unless="${target::has-executed('compile')}">
-
 		<msbuild project="..\..\ThinkingHome.sln">
 			<property name="Configuration" value="${build-configuration}" />
 			<property name="Platform" value="Any CPU" />
-		</msbuild>
-
-		<msbuild project="..\ThinkingHome.SetupCustomActions\ThinkingHome.SetupCustomActions.csproj">
-			<property name="Configuration" value="${build-configuration}" />
-			<property name="Platform" value="x86" />
 		</msbuild>
 	</target>
 
@@ -46,16 +35,9 @@
 		<delete dir="${dist.dir}" />
 		<mkdir dir="${dist.dir}" />
 
-		<copy todir="${dist.dir}">
-			<fileset>
-				<include name="${path::combine(customactions.dir, 'ThinkingHome.SetupCustomActions.CA.dll')}" />
-				<include name="..\..\License.rtf" />
-			</fileset>
-		</copy>
-
 		<echo message="## service" />
-		<copy todir="${dist.dir}"
-			file="${path::combine(build.service.dir, 'ThinkingHome.Service.exe')}" />
+		<copy todir="${dist.dir}" file="..\..\License.rtf" />
+		<copy todir="${dist.dir}" file="${path::combine(build.service.dir, 'ThinkingHome.Service.exe')}" />
 
 		<copy todir="${dist.service.dir}">
 			<fileset basedir="${build.service.dir}">
@@ -105,18 +87,6 @@
 			</do>
 		</foreach>
 
-
-		<echo message="## web console" />
-		<copy todir="${dist.webconsole.dir}" includeemptydirs="false" >
-			<fileset basedir="${build.webconsole.dir}">
-				<include name="**\*"/>
-				<exclude name="**\*.csproj"/>
-				<exclude name="**\*.user"/>
-				<exclude name="**\*.cs"/>
-			</fileset>
-		</copy>
-
-
 	</target>
 
 	<target name="configure" depends="dist" unless="${target::has-executed('configure')}" >
@@ -148,24 +118,6 @@
 		</wix-build-file-list>
 
 		<msbuild project="${path::combine(setup.service.dir, 'ThinkingHome.Service.Setup.wixproj')}">
-			<property name="Configuration" value="${build-configuration}" />
-			<property name="Platform" value="x86" />
-		</msbuild>
-
-		<wix-build-file-list
-			directoryRef="INSTALLFOLDER"
-			filesResultPath="${path::combine(setup.webconsole.dir, 'Files.wxs')}"
-			foldersResultPath="${path::combine(setup.webconsole.dir, 'Folders.wxs')}"  >
-			<folders>
-				<add
-					component-id="ProductComponents"
-					path="${dist.webconsole.dir}"
-					folder-id="WEBAPPFOLDER"
-					folder-name="webapp" />
-			</folders>
-		</wix-build-file-list>
-
-		<msbuild project="${path::combine(setup.webconsole.dir, 'ThinkingHome.Web.Setup.wixproj')}">
 			<property name="Configuration" value="${build-configuration}" />
 			<property name="Platform" value="x86" />
 		</msbuild>

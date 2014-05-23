@@ -15,7 +15,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		home.sdf = home.sdf
 		License.rtf = License.rtf
-		build-installer\main.build = build-installer\main.build
 		readme.txt = readme.txt
 		scheme.svg = scheme.svg
 		todo.txt = todo.txt
@@ -41,13 +40,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setup", "Setup", "{3AF935D8
 		Setup\build-installer\site.build = Setup\build-installer\site.build
 	EndProjectSection
 EndProject
-Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "ThinkingHome.Web.Setup", "Setup\ThinkingHome.Web.Setup\ThinkingHome.Web.Setup.wixproj", "{F75FFFBE-9B34-462B-87F8-0B3D55BB35C3}"
-EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "ThinkingHome.Service.Setup", "Setup\ThinkingHome.Service.Setup\ThinkingHome.Service.Setup.wixproj", "{39F23985-023C-472E-A1D1-9D5908C14358}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThinkingHome.Service", "ThinkingHome.Service\ThinkingHome.Service.csproj", "{59E5C28C-486E-438B-8F04-C83F0315CD5F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThinkingHome.SetupCustomActions", "Setup\ThinkingHome.SetupCustomActions\ThinkingHome.SetupCustomActions.csproj", "{D0E09F8D-71E7-42E7-BD50-B27E71A3CFBF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{90441DF3-2D18-4212-90D8-4561147B4990}"
 	ProjectSection(SolutionItems) = preProject
@@ -182,16 +177,6 @@ Global
 		{2D340A50-A96B-4164-B16F-65440D2DC3C6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{2D340A50-A96B-4164-B16F-65440D2DC3C6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{2D340A50-A96B-4164-B16F-65440D2DC3C6}.Release|x86.ActiveCfg = Release|Any CPU
-		{F75FFFBE-9B34-462B-87F8-0B3D55BB35C3}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{F75FFFBE-9B34-462B-87F8-0B3D55BB35C3}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{F75FFFBE-9B34-462B-87F8-0B3D55BB35C3}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{F75FFFBE-9B34-462B-87F8-0B3D55BB35C3}.Debug|x86.ActiveCfg = Debug|x86
-		{F75FFFBE-9B34-462B-87F8-0B3D55BB35C3}.Debug|x86.Build.0 = Debug|x86
-		{F75FFFBE-9B34-462B-87F8-0B3D55BB35C3}.Release|Any CPU.ActiveCfg = Release|x86
-		{F75FFFBE-9B34-462B-87F8-0B3D55BB35C3}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{F75FFFBE-9B34-462B-87F8-0B3D55BB35C3}.Release|Mixed Platforms.Build.0 = Release|x86
-		{F75FFFBE-9B34-462B-87F8-0B3D55BB35C3}.Release|x86.ActiveCfg = Release|x86
-		{F75FFFBE-9B34-462B-87F8-0B3D55BB35C3}.Release|x86.Build.0 = Release|x86
 		{39F23985-023C-472E-A1D1-9D5908C14358}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{39F23985-023C-472E-A1D1-9D5908C14358}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{39F23985-023C-472E-A1D1-9D5908C14358}.Debug|Mixed Platforms.Build.0 = Debug|x86
@@ -212,16 +197,6 @@ Global
 		{59E5C28C-486E-438B-8F04-C83F0315CD5F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{59E5C28C-486E-438B-8F04-C83F0315CD5F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{59E5C28C-486E-438B-8F04-C83F0315CD5F}.Release|x86.ActiveCfg = Release|Any CPU
-		{D0E09F8D-71E7-42E7-BD50-B27E71A3CFBF}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{D0E09F8D-71E7-42E7-BD50-B27E71A3CFBF}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{D0E09F8D-71E7-42E7-BD50-B27E71A3CFBF}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{D0E09F8D-71E7-42E7-BD50-B27E71A3CFBF}.Debug|x86.ActiveCfg = Debug|x86
-		{D0E09F8D-71E7-42E7-BD50-B27E71A3CFBF}.Debug|x86.Build.0 = Debug|x86
-		{D0E09F8D-71E7-42E7-BD50-B27E71A3CFBF}.Release|Any CPU.ActiveCfg = Release|x86
-		{D0E09F8D-71E7-42E7-BD50-B27E71A3CFBF}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{D0E09F8D-71E7-42E7-BD50-B27E71A3CFBF}.Release|Mixed Platforms.Build.0 = Release|x86
-		{D0E09F8D-71E7-42E7-BD50-B27E71A3CFBF}.Release|x86.ActiveCfg = Release|x86
-		{D0E09F8D-71E7-42E7-BD50-B27E71A3CFBF}.Release|x86.Build.0 = Release|x86
 		{ACCD1E91-EA1F-4FAB-BC3B-66DC5F735D32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ACCD1E91-EA1F-4FAB-BC3B-66DC5F735D32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACCD1E91-EA1F-4FAB-BC3B-66DC5F735D32}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -267,8 +242,6 @@ Global
 		{ACCD1E91-EA1F-4FAB-BC3B-66DC5F735D32} = {532EA930-A6CB-45B1-9203-F9CA087470FC}
 		{A2E168E7-6E3B-411E-A6D6-F2BE242689B5} = {532EA930-A6CB-45B1-9203-F9CA087470FC}
 		{5A1778F2-F2DD-4D46-89FD-83864CA6D1A0} = {532EA930-A6CB-45B1-9203-F9CA087470FC}
-		{F75FFFBE-9B34-462B-87F8-0B3D55BB35C3} = {3AF935D8-BB2A-4C12-8136-7151E294B49F}
 		{39F23985-023C-472E-A1D1-9D5908C14358} = {3AF935D8-BB2A-4C12-8136-7151E294B49F}
-		{D0E09F8D-71E7-42E7-BD50-B27E71A3CFBF} = {3AF935D8-BB2A-4C12-8136-7151E294B49F}
 	EndGlobalSection
 EndGlobal
