@@ -21,7 +21,7 @@
 				events: {
 					'click .js-btn-add-subscription': 'addSubscription'
 				},
-				addSubscription: function(e) {
+				addSubscription: function (e) {
 					e.preventDefault();
 
 					this.updateModel();
@@ -32,7 +32,15 @@
 
 			module.SubscriptionView = marionette.ItemView.extend({
 				template: itemTemplate,
-				tagName: 'tr'
+				tagName: 'tr',
+				events: {
+					'click .js-delete-subscription': 'deleteSubscription'
+				},
+				deleteSubscription: function (e) {
+					
+					e.preventDefault();
+					this.trigger('scripts:subscription:delete');
+				}
 			});
 
 			module.SubscriptionListView = marionette.CompositeView.extend({

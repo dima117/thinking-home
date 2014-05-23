@@ -39,6 +39,15 @@
 
 				return rq.promise();
 			},
+			
+			deleteSubscription: function (subscriptionId) {
+
+				var rq = $.post('/api/scripts/subscription/delete', {
+					subscriptionId: subscriptionId
+				});
+
+				return rq.promise();
+			},
 
 			loadFormData: function () {
 
@@ -69,6 +78,10 @@
 		
 		app.reqres.setHandler('update:scripts:subscription-add', function (eventAlias, scriptId) {
 			return api.addSubscription(eventAlias, scriptId);
+		});
+		
+		app.reqres.setHandler('update:scripts:subscription-delete', function (subscriptionId) {
+			return api.deleteSubscription(subscriptionId);
 		});
 	});
 

@@ -19,12 +19,26 @@
 						.done(api.reloadList);
 				},
 
+				deleteSubscription: function (itemView) {
+
+					var model = itemView.model.toJSON();
+					var message = _.template('Delete subscription?\n- event: <%= eventAlias %>\n- script: <%= scriptName %>', model);
+
+					if (window.confirm(message)) {
+						
+						var subscriptionId = itemView.model.get('id');
+						app.request('update:scripts:subscription-delete', subscriptionId)
+							.done(api.reloadList);
+					}
+				},
+
 				reloadList: function () {
 
 					app.request('load:scripts:subscription-list')
 						.done(function (list) {
 
 							var view = new module.SubscriptionListView({ collection: list });
+							view.on('itemview:scripts:subscription:delete', api.deleteSubscription);
 							layoutView.regionList.show(view);
 						});
 				},
