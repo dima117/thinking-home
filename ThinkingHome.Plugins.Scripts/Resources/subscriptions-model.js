@@ -29,6 +29,17 @@
 
 				return defer.promise();
 			},
+			
+			addSubscription: function (eventAlias, scriptId) {
+
+				var rq = $.post('/api/scripts/subscription/add', {
+					eventAlias: eventAlias,
+					scriptId: scriptId
+				});
+
+				return rq.promise();
+			},
+
 			loadFormData: function () {
 
 				var defer = $.Deferred();
@@ -44,6 +55,7 @@
 
 				return defer.promise();
 			}
+			
 		};
 
 		// requests
@@ -53,6 +65,10 @@
 		
 		app.reqres.setHandler('load:scripts:subscription-form', function () {
 			return api.loadFormData();
+		});
+		
+		app.reqres.setHandler('update:scripts:subscription-add', function (eventAlias, scriptId) {
+			return api.addSubscription(eventAlias, scriptId);
 		});
 	});
 

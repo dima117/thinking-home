@@ -6,36 +6,49 @@
 
 		application.module('Scripts.Subscriptions', function (module, app, backbone, marionette, $, _) {
 
+			var layoutView;
+
 			var api = {
 
 				addSubscription: function () {
-					debugger;
+
+					var eventAlias = this.model.get('selectedEventAlias');
+					var scriptId = this.model.get('selectedScriptId');
+
+					app.request('update:scripts:subscription-add', eventAlias, scriptId)
+						.done(api.reloadList);
 				},
 
-				reload: function () {
+				reloadList: function () {
 
-					var layoutView = new module.SubscriptionLayout();
-					app.setContentView(layoutView);
-					
-					var rqFormData = app.request('load:scripts:subscription-form');
-					var rqList = app.request('load:scripts:subscription-list');
+					app.request('load:scripts:subscription-list')
+						.done(function (list) {
 
-					$.when(rqFormData, rqList).done(function (formData, list) {
-						
-						var form = new module.SubscriptionFormView({ model: formData });
+							var view = new module.SubscriptionListView({ collection: list });
+							layoutView.regionList.show(view);
+						});
+				},
 
-						form.on('scripts:subscription:add', api.addSubscription);
+				reloadForm: function () {
 
-						layoutView.regionForm.show(form);
-						
-						var listView = new module.SubscriptionListView({ collection: list });
-						layoutView.regionList.show(listView);
-					});
+					app.request('load:scripts:subscription-form')
+						.done(function (formData) {
+
+							var form = new module.SubscriptionFormView({ model: formData });
+							form.on('scripts:subscription:add', api.addSubscription);
+							layoutView.regionForm.show(form);
+						});
 				}
 			};
 
 			module.start = function () {
-				api.reload();
+
+				// init layout
+				layoutView = new module.SubscriptionLayout();
+				app.setContentView(layoutView);
+
+				api.reloadForm();
+				api.reloadList();
 			};
 
 		});

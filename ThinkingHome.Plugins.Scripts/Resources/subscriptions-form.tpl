@@ -3,7 +3,7 @@
 		<label>
 			event type
 		</label>
-		<select name="selectedEventId" data-items-field="eventList" class="form-control" />
+		<select name="selectedEventAlias" data-items-field="eventList" class="form-control" />
 	</div>
 	<div class="form-group">
 		<label>
