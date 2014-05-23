@@ -29,7 +29,6 @@ namespace ThinkingHome.Plugins.Scripts.Data
 		{
 			Database.AddTable("Scripts_EventHandler",
 				new Column("Id", DbType.Guid, ColumnProperty.PrimaryKey, "newid()"),
-				new Column("PluginAlias", DbType.String.WithSize(200), ColumnProperty.NotNull),
 				new Column("EventAlias", DbType.String.WithSize(200), ColumnProperty.NotNull),
 				new Column("UserScriptId", DbType.Guid, ColumnProperty.NotNull)
 			);

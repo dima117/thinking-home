@@ -183,7 +183,7 @@ namespace ThinkingHome.Plugins.Scripts
 		#region http subscriptions
 
 		[HttpCommand("/api/scripts/subscription/form")]
-		public object GetEvents(HttpRequestParams request)
+		public object GetSubscriptionForm(HttpRequestParams request)
 		{
 			using (var session = Context.OpenSession())
 			{
@@ -204,7 +204,7 @@ namespace ThinkingHome.Plugins.Scripts
 		}
 
 		[HttpCommand("/api/scripts/subscription/list")]
-		public object GetSubscriptions(HttpRequestParams request)
+		public object GetSubscriptionList(HttpRequestParams request)
 		{
 			using (var session = Context.OpenSession())
 			{
@@ -214,7 +214,6 @@ namespace ThinkingHome.Plugins.Scripts
 						id = x.Id,
 						scriptId = x.UserScript.Id,
 						scriptName = x.UserScript.Name,
-						pluginAlias = x.PluginAlias,
 						eventAlias = x.EventAlias
 					})
 					.ToList();
@@ -226,7 +225,6 @@ namespace ThinkingHome.Plugins.Scripts
 		[HttpCommand("/api/scripts/subscription/add")]
 		public object AddSubscription(HttpRequestParams request)
 		{
-			string pluginAlias = request.GetRequiredString("pluginAlias");
 			string eventAlias = request.GetRequiredString("eventAlias");
 			Guid scriptId = request.GetRequiredGuid("scriptId");
 
@@ -239,7 +237,6 @@ namespace ThinkingHome.Plugins.Scripts
 				var subscription = new ScriptEventHandler
 				{
 					Id = guid,
-					PluginAlias = pluginAlias,
 					EventAlias = eventAlias,
 					UserScript = script
 				};

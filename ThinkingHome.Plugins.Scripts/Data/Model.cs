@@ -15,8 +15,6 @@ namespace ThinkingHome.Plugins.Scripts.Data
 	{
 		public virtual Guid Id { get; set; }
 
-		public virtual string PluginAlias { get; set; }
-
 		public virtual string EventAlias { get; set; }
 
 		public virtual UserScript UserScript { get; set; }
