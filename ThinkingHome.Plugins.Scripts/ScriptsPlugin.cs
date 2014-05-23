@@ -45,8 +45,7 @@ namespace ThinkingHome.Plugins.Scripts
 	public class ScriptsPlugin : Plugin
 	{
 		private ScriptHost scriptHost;
-		private readonly Dictionary<string, HashSet<string>> scriptEvents =
-			new Dictionary<string, HashSet<string>>(StringComparer.CurrentCultureIgnoreCase);
+		private readonly HashSet<string> scriptEvents = new HashSet<string>(StringComparer.CurrentCultureIgnoreCase);
 
 		public override void Init()
 		{
@@ -83,12 +82,15 @@ namespace ThinkingHome.Plugins.Scripts
 
 				if (eventInfo != null)
 				{
-					if (!scriptEvents.ContainsKey(eventInfo.PluginAlias))
+					Logger.Info("register script event '{0}' ({1})", eventInfo.EventAlias, member);
+
+					if (scriptEvents.Contains(eventInfo.EventAlias))
 					{
-						scriptEvents.Add(eventInfo.PluginAlias, new HashSet<string>(StringComparer.CurrentCultureIgnoreCase));
+						var message = string.Format("duplicate event alias: '{0}'", eventInfo.EventAlias);
+						throw new Exception(message);
 					}
 
-					scriptEvents[eventInfo.PluginAlias].Add(eventInfo.EventAlias);
+					scriptEvents.Add(eventInfo.EventAlias);
 				}
 			}
 		}
@@ -186,13 +188,8 @@ namespace ThinkingHome.Plugins.Scripts
 			using (var session = Context.OpenSession())
 			{
 				var events = scriptEvents
-					.SelectMany(x => x.Value, (x, y) => new
-					{
-						id = Guid.NewGuid().ToString(),
-						name = string.Format("{0}.{1}", x.Key, y),
-						pluginAlias = x.Key,
-						eventAlias = y
-					}).ToList();
+					.Select(eventAlias => new { id = eventAlias, name = eventAlias })
+					.ToList();
 
 				var scripts = session.Query<UserScript>()
 					.Select(x => new { id = x.Id, name = x.Name })
@@ -293,12 +290,12 @@ namespace ThinkingHome.Plugins.Scripts
 		}
 
 		[Export("BE10460E-0E9E-4169-99BB-B1DE43B150FC", typeof(ScriptEventHandlerDelegate))]
-		public void OnScriptEvent(string pluginAlias, string eventAlias, object[] args)
+		public void OnScriptEvent(string eventAlias, object[] args)
 		{
 			using (var session = Context.OpenSession())
 			{
 				var scripts = session.Query<ScriptEventHandler>()
-					.Where(s => s.PluginAlias == pluginAlias && s.EventAlias == eventAlias)
+					.Where(s => s.EventAlias == eventAlias)
 					.Select(x => x.UserScript)
 					.ToList();
 

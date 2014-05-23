@@ -6,7 +6,7 @@ using ThinkingHome.Core.Plugins;
 
 namespace ThinkingHome.Plugins.Scripts
 {
-	public delegate void ScriptEventHandlerDelegate(string pluginAlias, string eventAlias, object[] parameters);
+	public delegate void ScriptEventHandlerDelegate(string eventAlias, object[] parameters);
 
 	public static class ScriptEventHelper
 	{
@@ -31,8 +31,7 @@ namespace ThinkingHome.Plugins.Scripts
 
 			var actions = expression.Compile()(plugin);
 
-			plugin.Run(actions, action => 
-				action(eventInfo.PluginAlias, eventInfo.EventAlias, parameters));
+			plugin.Run(actions, action => action(eventInfo.EventAlias, parameters));
 		}
 	}
 }

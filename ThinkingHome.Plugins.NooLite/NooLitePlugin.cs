@@ -35,7 +35,7 @@ namespace ThinkingHome.Plugins.NooLite
 			rx1164.Dispose();
 		}
 
-		[ScriptEvent("noolite", "commandReceived")]
+		[ScriptEvent("noolite.commandReceived")]
 		public ScriptEventHandlerDelegate[] OnCommandReceivedForScripts { get; set; }
 
 		[ImportMany("EB6000DD-79F1-408A-9325-4DCFFB1AD391")]

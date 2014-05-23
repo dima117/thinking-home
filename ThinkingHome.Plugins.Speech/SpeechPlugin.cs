@@ -183,7 +183,7 @@ namespace ThinkingHome.Plugins.Speech
 			}
 		}
 
-		[ScriptEvent("speech", "commandReceived")]
+		[ScriptEvent("speech.commandReceived")]
 		public ScriptEventHandlerDelegate[] OnCommandReceivedForScripts { get; set; }
 
 
