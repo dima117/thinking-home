@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Threading;
@@ -167,7 +166,7 @@ namespace ThinkingHome.Plugins.Speech
 						var command = GetCommand(commandText);
 						Logger.Info("command info loaded");
 
-						Context.GetPlugin<ScriptsPlugin>().RunScript(command.UserScript);
+						Context.GetPlugin<ScriptsPlugin>().ExecuteScript(command.UserScript);
 
 						this.RaiseScriptEvent(x => x.OnCommandReceivedForScripts, commandText);
 

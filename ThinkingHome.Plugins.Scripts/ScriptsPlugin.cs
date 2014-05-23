@@ -116,21 +116,6 @@ namespace ThinkingHome.Plugins.Scripts
 			}
 		}
 
-		[HttpCommand("/api/scripts/delete")]
-		public object DeleteScript(HttpRequestParams request)
-		{
-			Guid scriptId = request.GetRequiredGuid("scriptId");
-
-			using (var session = Context.OpenSession())
-			{
-				var subscription = session.Load<UserScript>(scriptId);
-				session.Delete(subscription);
-				session.Flush();
-			}
-
-			return null;
-		}
-
 		[HttpCommand("/api/scripts/get")]
 		public object LoadScript(HttpRequestParams request)
 		{
@@ -168,12 +153,32 @@ namespace ThinkingHome.Plugins.Scripts
 			return null;
 		}
 
+		[HttpCommand("/api/scripts/delete")]
+		public object DeleteScript(HttpRequestParams request)
+		{
+			Guid scriptId = request.GetRequiredGuid("scriptId");
+
+			using (var session = Context.OpenSession())
+			{
+				var subscription = session.Load<UserScript>(scriptId);
+				session.Delete(subscription);
+				session.Flush();
+			}
+
+			return null;
+		}
+
 		[HttpCommand("/api/scripts/run")]
 		public object RunScript(HttpRequestParams request)
 		{
-			string name = request.GetRequiredString("name");
+			Guid scriptId = request.GetRequiredGuid("scriptId");
 
-			RunScript(name, null);
+			using (var session = Context.OpenSession())
+			{
+				var script = session.Get<UserScript>(scriptId);
+
+				ExecuteScript(script, new object[0]);
+			}
 
 			return null;
 		}
@@ -277,13 +282,8 @@ namespace ThinkingHome.Plugins.Scripts
 			{
 				var script = session.Query<UserScript>().First(s => s.Name == scriptName);
 
-				RunScript(script, args);
+				ExecuteScript(script, args);
 			}
-		}
-
-		public void RunScript(UserScript script, params object[] args)
-		{
-			ExecuteScript(script, scriptHost, Logger, args);
 		}
 
 		[Export("BE10460E-0E9E-4169-99BB-B1DE43B150FC", typeof(ScriptEventHandlerDelegate))]
@@ -301,6 +301,11 @@ namespace ThinkingHome.Plugins.Scripts
 					ExecuteScript(script, scriptHost, Logger, args);
 				}
 			}
+		}
+
+		public void ExecuteScript(UserScript script, params object[] args)
+		{
+			ExecuteScript(script, scriptHost, Logger, args);
 		}
 
 		private static void ExecuteScript(UserScript script, ScriptHost scriptHost, Logger logger, object[] args)

@@ -10,10 +10,10 @@
 
 					var data = this.serializeData();
 
-					this.$('select').each(function(index, select) {
+					this.$('select').each(function (index, select) {
 
 						select = $(select);
-						
+
 						var fieldName = select.data('items-field') || (select.attr('name') + '-options');
 						var items = data[fieldName];
 
@@ -28,14 +28,34 @@
 
 					Backbone.Syphon.deserialize(this, data);
 				},
-				
-				updateModel: function() {
-				
+
+				updateModel: function () {
+
 					var data = Backbone.Syphon.serialize(this);
 					this.model.set(data);
 				}
 			});
 
+			module.utils = {
+				formatString: function () {
+
+					var s = arguments[0];
+					for (var i = 0; i < arguments.length - 1; i++) {
+						var reg = new RegExp("\\{" + i + "\\}", "gm");
+						s = s.replace(reg, arguments[i + 1]);
+					}
+
+					return s;
+				},
+				alert: function () {
+					var msg = module.utils.formatString.apply(null, arguments);
+					window.alert(msg);
+				},
+				confirm: function () {
+					var msg = module.utils.formatString.apply(null, arguments);
+					return window.confirm(msg);
+				}
+			};
 		});
 
 		return application.Common;

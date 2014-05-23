@@ -8,7 +8,7 @@
 		module.ScriptCollection = backbone.Collection.extend({
 			model: module.ScriptListItem
 		});
-		 
+
 		// api
 		var api = {
 
@@ -27,12 +27,26 @@
 					});
 
 				return defer.promise();
+			},
+
+			runScript: function (scriptId) {
+				return $.post('/api/scripts/run', { scriptId: scriptId }).promise();
+			},
+
+			deleteScript: function (scriptId) {
+				return $.post('/api/scripts/delete', { scriptId: scriptId }).promise();
 			}
 		};
 
 		// requests
 		app.reqres.setHandler('load:scripts:list', function () {
 			return api.loadScriptList();
+		});
+		app.reqres.setHandler('update:scripts:delete', function (scriptId) {
+			return api.deleteScript(scriptId);
+		});
+		app.reqres.setHandler('update:scripts:run', function (scriptId) {
+			return api.runScript(scriptId);
 		});
 	});
 

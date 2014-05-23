@@ -21,11 +21,11 @@
 
 				deleteSubscription: function (itemView) {
 
-					var model = itemView.model.toJSON();
-					var message = _.template('Delete subscription?\n- event: <%= eventAlias %>\n- script: <%= scriptName %>', model);
+					var eventAlias = itemView.model.get('eventAlias');
+					var scriptName = itemView.model.get('scriptName');
 
-					if (window.confirm(message)) {
-						
+					if (app.Common.utils.confirm('Delete subscription?\n- event: "{0}"\n- script: "{1}"', eventAlias, scriptName)) {
+
 						var subscriptionId = itemView.model.get('id');
 						app.request('update:scripts:subscription-delete', subscriptionId)
 							.done(api.reloadList);
