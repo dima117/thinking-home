@@ -23,13 +23,17 @@ namespace ThinkingHome.Plugins.Listener.Handlers
 			this.contentType = contentType;
 		}
 
+		public void SetHeaders(HttpResponseHeaders headers)
+		{
+		}
+
 		public HttpContent ProcessRequest(HttpRequestParams parameters)
 		{
 			var resource = PrepareResource();
 
 			var content = new ByteArrayContent(resource);
 			content.Headers.ContentType = new MediaTypeHeaderValue(contentType);
-			
+
 			return content;
 		}
 

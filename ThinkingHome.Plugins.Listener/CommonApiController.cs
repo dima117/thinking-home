@@ -42,7 +42,10 @@ namespace ThinkingHome.Plugins.Listener
 				HttpRequestParams parameters = GetRequestParams(Request);
 				HttpContent content = handler.ProcessRequest(parameters);
 
-				return new HttpResponseMessage { Content = content };
+				var response = new HttpResponseMessage { Content = content};
+				handler.SetHeaders(response.Headers);
+
+				return response;
 			}
 			catch (Exception ex)
 			{
