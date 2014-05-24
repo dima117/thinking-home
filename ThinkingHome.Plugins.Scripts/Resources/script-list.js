@@ -18,6 +18,17 @@
 						app.Common.utils.alert('Script "{0}" has been executed.', name);
 					});
 				},
+				
+				deleteScript: function (view) {
+					
+					var scriptName = view.model.get('name');
+
+					if (app.Common.utils.confirm('Delete script "{0}"?', scriptName)) {
+
+						var scriptId = view.model.get('id');
+						app.request('update:scripts:delete', scriptId).done(api.reload);
+					}
+				},
 
 				openEditor: function (itemView) {
 
@@ -34,6 +45,7 @@
 
 						view.on('itemview:scripts:edit', api.openEditor);
 						view.on('itemview:scripts:run', api.runScript);
+						view.on('itemview:scripts:delete', api.deleteScript);
 
 						app.setContentView(view);
 					});
