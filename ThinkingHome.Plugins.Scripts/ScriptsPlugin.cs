@@ -136,10 +136,11 @@ namespace ThinkingHome.Plugins.Scripts
 		{
 			Guid? id = request.GetGuid("id");
 			string name = request.GetRequiredString("name");
-			string body = request.GetRequiredString("body");
+			string body = request.GetString("body");
 
 			using (var session = Context.OpenSession())
 			{
+
 				var script = id.HasValue
 					? session.Get<UserScript>(id.Value)
 					: new UserScript { Id = Guid.NewGuid() };
