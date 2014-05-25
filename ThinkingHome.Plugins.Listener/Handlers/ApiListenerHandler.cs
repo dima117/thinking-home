@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Text;
 using Newtonsoft.Json;
 using ThinkingHome.Plugins.Listener.Api;
 
 namespace ThinkingHome.Plugins.Listener.Handlers
 {
-	public class ApiListenerHandler : IListenerHandler
+	public class ApiListenerHandler : ListenerHandler
 	{
 		private readonly Func<HttpRequestParams, object> action;
 
@@ -21,13 +20,12 @@ namespace ThinkingHome.Plugins.Listener.Handlers
 			this.action = action;
 		}
 
-		public void SetHeaders(HttpResponseHeaders headers)
+		public override bool CacheResponse
 		{
-			headers.CacheControl = new CacheControlHeaderValue{NoStore = true, NoCache = true};
-			headers.Pragma.Add(new NameValueHeaderValue("no-cache"));
+			get { return false; }
 		}
 
-		public HttpContent ProcessRequest(HttpRequestParams parameters)
+		public override HttpContent GetContent(HttpRequestParams parameters)
 		{
 			object result = action(parameters);
 			string json = JsonConvert.SerializeObject(result);

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Specialized;
-using System.Diagnostics;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
@@ -31,7 +30,7 @@ namespace ThinkingHome.Plugins.Listener
 
 				logger.Info("execute action: {0};", localPath);
 
-				IListenerHandler handler;
+				ListenerHandler handler;
 
 				if (!handlers.TryGetValue(localPath, out handler))
 				{
@@ -40,11 +39,8 @@ namespace ThinkingHome.Plugins.Listener
 				}
 
 				HttpRequestParams parameters = GetRequestParams(Request);
-				HttpContent content = handler.ProcessRequest(parameters);
-
-				var response = new HttpResponseMessage { Content = content};
-				handler.SetHeaders(response.Headers);
-
+				HttpResponseMessage response = handler.ProcessRequest(parameters);
+				
 				return response;
 			}
 			catch (Exception ex)

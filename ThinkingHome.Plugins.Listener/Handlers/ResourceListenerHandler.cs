@@ -7,7 +7,7 @@ using ThinkingHome.Plugins.Listener.Api;
 
 namespace ThinkingHome.Plugins.Listener.Handlers
 {
-	public class ResourceListenerHandler : IListenerHandler
+	public class ResourceListenerHandler : ListenerHandler
 	{
 		private readonly object lockObject = new object();
 		private WeakReference<byte[]> resourceReference;
@@ -23,11 +23,7 @@ namespace ThinkingHome.Plugins.Listener.Handlers
 			this.contentType = contentType;
 		}
 
-		public void SetHeaders(HttpResponseHeaders headers)
-		{
-		}
-
-		public HttpContent ProcessRequest(HttpRequestParams parameters)
+		public override HttpContent GetContent(HttpRequestParams parameters)
 		{
 			var resource = PrepareResource();
 

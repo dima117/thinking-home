@@ -81,7 +81,7 @@
     <Compile Include="Api\HttpRequestParams.cs" />
     <Compile Include="Handlers\ApiListenerHandler.cs" />
     <Compile Include="Handlers\HttpResourceAttribute.cs" />
-    <Compile Include="Handlers\IListenerHandler.cs" />
+    <Compile Include="Handlers\ListenerHandler.cs" />
     <Compile Include="Handlers\ResourceListenerHandler.cs" />
     <Compile Include="HttpCommandAttribute.cs" />
     <Compile Include="ListenerPlugin.cs" />

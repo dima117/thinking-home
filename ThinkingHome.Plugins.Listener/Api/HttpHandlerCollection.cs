@@ -4,7 +4,7 @@ using ThinkingHome.Plugins.Listener.Handlers;
 
 namespace ThinkingHome.Plugins.Listener.Api
 {
-	public class HttpHandlerCollection : Dictionary<string, IListenerHandler>
+	public class HttpHandlerCollection : Dictionary<string, ListenerHandler>
 	{
 		private readonly object lockObject = new object();
 
@@ -13,7 +13,7 @@ namespace ThinkingHome.Plugins.Listener.Api
 		{
 		}
 
-		public void RegisterHandler(string url, IListenerHandler handler)
+		public void RegisterHandler(string url, ListenerHandler handler)
 		{
 			if (string.IsNullOrWhiteSpace(url) || handler == null)
 			{
