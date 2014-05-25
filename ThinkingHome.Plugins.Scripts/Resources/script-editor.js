@@ -6,6 +6,16 @@
 
 			var api = {
 
+				createEditor: function (model) {
+
+					var view = new module.ScriptEditorView({ model: model });
+
+					view.on('scripts:editor:cancel', api.redirectToList);
+					view.on('scripts:editor:save', api.save);
+
+					app.setContentView(view);
+				},
+
 				redirectToList: function () {
 					app.trigger('page:load', 'webapp/scripts/script-list');
 				},
@@ -20,22 +30,29 @@
 
 				load: function (scriptId) {
 
-					var rq = app.request('load:scripts:editor:load', scriptId);
+					app.request('load:scripts:editor:load', scriptId)
+						.done(api.createEditor);
+				},
 
-					$.when(rq).done(function (model) {
+				add: function () {
 
-						var view = new module.ScriptEditorView({ model: model });
+					var name = window.prompt();
 
-						view.on('scripts:editor:cancel', api.redirectToList);
-						view.on('scripts:editor:save', api.save);
+					if (name) {
 
-						app.setContentView(view);
-					});
+						var model = new module.ScriptData({ name: name });
+						api.createEditor(model);
+					}
 				}
 			};
 
 			module.start = function (scriptId) {
-				api.load(scriptId);
+
+				if (scriptId) {
+					api.load(scriptId);
+				} else {
+					api.add();
+				}
 			};
 
 		});

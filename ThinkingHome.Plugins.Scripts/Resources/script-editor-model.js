@@ -3,7 +3,12 @@
 	application.module('Scripts.Editor', function (module, app, backbone, marionette, $, _) {
 
 		// entities
-		module.ScriptData = backbone.Model.extend();
+		module.ScriptData = backbone.Model.extend({
+			defaults: {
+				id: null,
+				body: null
+			}
+		});
 
 		// api
 		var api = {

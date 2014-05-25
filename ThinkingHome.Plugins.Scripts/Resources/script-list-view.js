@@ -28,7 +28,14 @@
 			module.ScriptListView = marionette.CompositeView.extend({
 				template: listTemplate,
 				itemView: module.ScriptView,
-				itemViewContainer: '.js-list'
+				itemViewContainer: '.js-list',
+				events: {
+					'click .js-add-script': 'btnAddClick'
+				},
+				btnAddClick: function (e) {
+					e.preventDefault();
+					this.trigger('scripts:add');
+				},
 			});
 		});
 
