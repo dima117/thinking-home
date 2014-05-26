@@ -4,7 +4,7 @@
 
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-  padding-top: 50px;
+	padding-top: 50px;
 }
 
 
@@ -13,8 +13,8 @@ body {
  */
 
 .sub-header {
-  padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #eee;
 }
 
 
@@ -24,38 +24,41 @@ body {
 
 /* Hide for mobile, show later */
 .sidebar {
-  display: none;
+	display: none;
 }
+
 @media (min-width: 768px) {
-  .sidebar {
-    position: fixed;
-    top: 51px;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
-    display: block;
-    padding: 20px;
-    overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: #f5f5f5;
-    border-right: 1px solid #eee;
-  }
+	.sidebar {
+		position: fixed;
+		top: 51px;
+		bottom: 0;
+		left: 0;
+		z-index: 1000;
+		display: block;
+		padding: 20px;
+		overflow-x: hidden;
+		overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+		background-color: #f5f5f5;
+		border-right: 1px solid #eee;
+	}
 }
 
 /* Sidebar navigation */
 .nav-sidebar {
-  margin-right: -21px; /* 20px padding + 1px border */
-  margin-bottom: 20px;
-  margin-left: -20px;
+	margin-right: -21px; /* 20px padding + 1px border */
+	margin-bottom: 20px;
+	margin-left: -20px;
 }
-.nav-sidebar > li > a {
-  padding-right: 20px;
-  padding-left: 20px;
-}
-.nav-sidebar > .active > a {
-  color: #fff;
-  background-color: #428bca;
-}
+
+	.nav-sidebar > li > a {
+		padding-right: 20px;
+		padding-left: 20px;
+	}
+
+	.nav-sidebar > .active > a {
+		color: #fff;
+		background-color: #428bca;
+	}
 
 
 /*
@@ -63,15 +66,63 @@ body {
  */
 
 .main {
-  padding: 20px;
-}
-@media (min-width: 768px) {
-  .main {
-    padding-right: 40px;
-    padding-left: 40px;
-  }
-}
-.main .page-header {
-  margin-top: 0;
+	padding: 20px;
 }
 
+@media (min-width: 768px) {
+	.main {
+		padding-right: 40px;
+		padding-left: 40px;
+	}
+}
+
+.main .page-header {
+	margin-top: 0;
+}
+
+.tiles {
+	padding-top: 15px;
+	margin-right: -15px;
+	padding-right: -15px;
+}
+
+.tile {
+	width: 140px;
+	height: 120px;
+	margin-bottom: 6px;
+	margin-right: 10px;
+	display: inline-block;
+	-ms-border-radius: 4px;
+	border-radius: 4px;
+	padding: 2px 6px;
+	position: relative;
+}
+
+.tile-double {
+	width: 290px;
+}
+
+.tile, .tile:hover, .tile:focus {
+	text-decoration: none;
+}
+
+.tile-content {
+	position: absolute;
+}
+
+.tile-title {
+	bottom: 2px;
+	position: absolute;
+	font-weight: bold;
+}
+
+@media (max-width: 319px) {
+	.tile {
+		width: 100%;
+	}
+
+	.tiles {
+		padding-right: 0;
+		margin-right: 0;
+	}
+}

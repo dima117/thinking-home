@@ -115,6 +115,7 @@
     <None Include="packages.config" />
     <EmbeddedResource Include="Resources\Plugin\section-list.tpl" />
     <EmbeddedResource Include="Resources\Plugin\section-list-item.tpl" />
+    <EmbeddedResource Include="Resources\Plugin\tile.tpl" />
     <None Include="ThinkingHome.Plugins.WebUI.nuspec">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -155,6 +156,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Plugin\section-list-system.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Plugin\tiles.js" />
+    <EmbeddedResource Include="Resources\Plugin\tiles-model.js" />
+    <EmbeddedResource Include="Resources\Plugin\tiles-view.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

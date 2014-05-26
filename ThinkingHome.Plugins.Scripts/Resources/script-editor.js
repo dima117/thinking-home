@@ -36,7 +36,7 @@
 
 				add: function () {
 
-					var name = window.prompt();
+					var name = window.prompt('Enter script name:');
 
 					if (name) {
 

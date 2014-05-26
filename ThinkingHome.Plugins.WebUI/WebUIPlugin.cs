@@ -63,6 +63,11 @@ namespace ThinkingHome.Plugins.WebUI
 	[HttpResource("/webapp/webui/section-list.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.section-list.tpl")]
 	[HttpResource("/webapp/webui/section-list-item.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.section-list-item.tpl")]
 
+	[AppSection("Tiles", SectionType.Common, "/webapp/webui/tiles.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles.js")]
+	[JavaScriptResource("/webapp/webui/tiles-model.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-model.js")]
+	[JavaScriptResource("/webapp/webui/tiles-view.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-view.js")]
+	[HttpResource("/webapp/webui/tile.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tile.tpl")]
+
 	#endregion
 
 	[Plugin]
