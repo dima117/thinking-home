@@ -14,9 +14,9 @@
 		bootstrap: 'vendor/js/bootstrap.min',
 		codemirror: 'vendor/js/codemirror-all',
 		
-		'menu': 'application/menu/menu-controller',
-		'menu-model': 'application/menu/menu-model',
-		'menu-view': 'application/menu/menu-view'
+		tiles: 'webapp/webui/tiles',
+		apps: 'webapp/webui/section-list-common',
+		settings: 'webapp/webui/section-list-system'
 	},
 	shim: {
 		bootstrap: ['jquery'],
