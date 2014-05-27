@@ -36,7 +36,7 @@ namespace ThinkingHome.Plugins.WebUI
 	[HttpResource("/vendor/css/bootstrap.min.css", "ThinkingHome.Plugins.WebUI.Resources.Vendor.css.bootstrap.min.css", "text/css")]
 	[HttpResource("/vendor/css/site.css", "ThinkingHome.Plugins.WebUI.Resources.Vendor.css.site.css", "text/css")]
 	[HttpResource("/vendor/css/codemirror.css", "ThinkingHome.Plugins.WebUI.Resources.Vendor.css.codemirror.css", "text/css")]
-	
+
 	// fonts
 	[HttpResource("/vendor/fonts/glyphicons-halflings-regular/.eot", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.glyphicons-halflings-regular.eot", "application/vnd.ms-fontobject")]
 	[HttpResource("/vendor/fonts/glyphicons-halflings-regular/.svg", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.glyphicons-halflings-regular.svg", "image/svg+xml")]
@@ -86,6 +86,29 @@ namespace ThinkingHome.Plugins.WebUI
 			}
 		}
 
+		[HttpCommand("/api/webui/tiles/all")]
+		public object GetTiles(HttpRequestParams request)
+		{
+			var cntnt = new[] { "4:00 - 10°C", "10:00 - 12°C", "16:00 - 18°C", "22:00 - 14°C" };
+			var cntnt2 = new[] { "ст. Воронок", "06:54, 07:11, 07:14, 07:21, 07:28, 07:40" };
+			var cntnt3 = new[] { "Украина решила выйти из СНГ", "Партия Саркози призналась в мошенничестве во время президентских выборов" };
+			var cntnt4 = new[] { "4:40" };
+			
+			return new[]
+			{
+				new TileModel{ title = "Погода", content = cntnt},
+				new TileModel{ title = "Будильник", content = cntnt4},
+				new TileModel{ title = "Расписание"},
+				new TileModel{ title = "Расписание электричек", content = cntnt2, wide = true},
+				new TileModel{ title = "Новости", content = cntnt3, wide = true},
+				new TileModel{ title = "Youtube"},
+				new TileModel{ title = "Погода", content = cntnt},
+				new TileModel{ title = "Будильник", content = cntnt4},
+				new TileModel{ title = "Расписание"},
+				new TileModel{ title = "Youtube"}
+			};
+		}
+
 		[HttpCommand("/api/webui/sections/common")]
 		public object GetSections(HttpRequestParams request)
 		{
@@ -102,10 +125,18 @@ namespace ThinkingHome.Plugins.WebUI
 		{
 			var list = sections
 				.Where(section => section.Type == sectionType)
-				.Select(x => new {id = Guid.NewGuid(), name = x.Title, path = x.GetModulePath(), sortOrder = x.SortOrder})
+				.Select(x => new { id = Guid.NewGuid(), name = x.Title, path = x.GetModulePath(), sortOrder = x.SortOrder })
 				.ToArray();
 
 			return list;
 		}
+	}
+
+	public class TileModel
+	{
+		public Guid id = Guid.NewGuid();
+		public string title;
+		public bool wide;
+		public string[] content;
 	}
 }

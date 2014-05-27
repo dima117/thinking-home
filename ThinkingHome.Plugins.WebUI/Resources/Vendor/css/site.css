@@ -114,6 +114,7 @@ body {
 	bottom: 2px;
 	position: absolute;
 	font-weight: bold;
+	white-space: nowrap;
 }
 
 @media (max-width: 319px) {
