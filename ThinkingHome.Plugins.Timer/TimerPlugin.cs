@@ -21,21 +21,6 @@ namespace ThinkingHome.Plugins.Timer
 		[ImportMany("E62C804C-B96B-4CA8-822E-B1725B363534")]
 		public Action<DateTime>[] OnEvent { get; set; }
 
-		//[OnTimerElapsed]
-		//public void OnTimerElapsed(DateTime now)
-		//{
-		//	DateTime lastAlarmTime = DateTime.MinValue;
-		//	var alarmTime = now.Date.AddHours(8).AddMinutes(15);	// ставим будильник на сегодня на 8:15
-			
-		//	if (now > alarmTime && 									// если пришло время звонка будильника
-		//		now < alarmTime.AddMinutes(5) && 					// и от этого времени не прошло 5 минут
-		//		lastAlarmTime < alarmTime)							// и будильник сегодня еще не звонил
-		//	{
-		//		lastAlarmTime = now;
-		//		Context.GetPlugin<SoundPlugin>().PlayAlarmSound();
-		//	}
-		//}
-
 		public override void Start()
 		{
 			timer.Enabled = true;
