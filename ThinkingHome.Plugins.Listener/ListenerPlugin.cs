@@ -49,7 +49,7 @@ namespace ThinkingHome.Plugins.Listener
 			// регистрируем обработчики для методов плагинов
 			foreach (var action in RequestReceived)
 			{
-				Logger.Info("Register HTTP handler for url: '{0}'", action.Metadata.Url);
+				Logger.Info("Register HTTP handler (API): '{0}'", action.Metadata.Url);
 
 				var handler = new ApiListenerHandler(action.Value);
 				handlers.RegisterHandler(action.Metadata.Url, handler);
@@ -63,6 +63,8 @@ namespace ThinkingHome.Plugins.Listener
 
 				foreach (var attribute in attributes)
 				{
+					Logger.Info("Register HTTP handler (resource): '{0}'", attribute.Url);
+				
 					var resHandler = new ResourceListenerHandler(
 						type.Assembly, attribute.ResourcePath, attribute.ContentType);
 

@@ -35,7 +35,7 @@
 				btnAddClick: function (e) {
 					e.preventDefault();
 					this.trigger('scripts:add');
-				},
+				}
 			});
 		});
 
