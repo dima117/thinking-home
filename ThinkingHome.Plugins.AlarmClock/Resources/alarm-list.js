@@ -8,6 +8,12 @@
 
 			var api = {
 
+				setState: function (itemView, enabled) {
+
+					var id = itemView.model.get('id');
+					app.request('update:alarm-clock:set-state', id, enabled).done(api.reload);
+				},
+				
 				reload: function () {
 
 					var rq = app.request('load:alarm-clock:list');
@@ -16,7 +22,8 @@
 
 						var view = new module.AlarmListView({ collection: items });
 
-						//view.on('itemview:scripts:delete', api.deleteScript);
+						view.on('itemview:alarm-clock:set-state', api.setState);
+						
 						app.setContentView(view);
 					});
 				}

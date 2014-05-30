@@ -124,6 +124,23 @@ namespace ThinkingHome.Plugins.AlarmClock
 			}
 		}
 
+		[HttpCommand("/api/alarm-clock/set-state")]
+		public object SetState(HttpRequestParams request)
+		{
+			var id = request.GetRequiredGuid("id");
+			var enabled = request.GetRequiredBool("enabled");
+			
+			using (var session = Context.OpenSession())
+			{
+				var alarmTime = session.Get<AlarmTime>(id);
+				alarmTime.Enabled = enabled;
+
+				session.Flush();
+			}
+
+			return null;
+		}
+
 
 		#endregion
 	}

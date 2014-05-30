@@ -27,12 +27,20 @@
 					});
 
 				return defer.promise();
+			},
+			setState: function (id, enabled) {
+
+				return $.post('/api/alarm-clock/set-state', { id: id, enabled: enabled }).promise();
 			}
 		};
 
 		// requests
 		app.reqres.setHandler('load:alarm-clock:list', function () {
 			return api.loadList();
+		});
+		
+		app.reqres.setHandler('update:alarm-clock:set-state', function (id, enabled) {
+			return api.setState(id, enabled);
 		});
 	});
 

@@ -60,6 +60,8 @@
 			</fileset>
 		</copy>
 
+		<delete dir="${path::combine(build.plugins.dir, 'ThinkingHome.Plugins.Speech')}" />
+
 		<echo message="## plugins" />
 		<foreach item="Folder" in="${build.plugins.dir}" property="foldername">
 			<do>

@@ -1,8 +1,7 @@
-﻿<h3><%= hours %>:<%= minutes %> 
-	<a href="#" class="btn btn-default js-btn-edit">Edit</a>&nbsp;
-	<a href="#" class="btn btn-default js-btn-enable">Enable</a>
-	<a href="#" class="btn btn-default js-btn-disable">Disable</a>
-</h3>
-<div class="help-block">
-	<%= name %>
+﻿<h3><%= hours %>:<%= minutes %>&emsp;<%= name %></h3>
+<div>
+	<a href="#" class="btn btn-default btn-xs js-btn-enable">Enable</a>
+	<a href="#" class="btn btn-default btn-xs js-btn-disable">Disable</a>&nbsp;
+	<a href="#" class="btn btn-default btn-xs js-btn-edit">Edit</a>&nbsp;
+	<a href="#" class="btn btn-danger btn-xs js-btn-delete">Delete</a>
 </div>

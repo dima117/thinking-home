@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Text;
 
 namespace ThinkingHome.Plugins.Listener.Api
 {
@@ -60,6 +58,19 @@ namespace ThinkingHome.Plugins.Listener.Api
 			return null;
 		}
 
+		public bool? GetBool(string name)
+		{
+			var stringValue = GetString(name);
+			bool result;
+
+			if (bool.TryParse(stringValue, out result))
+			{
+				return result;
+			}
+
+			return null;
+		}
+
 		public string GetRequiredString(string name)
 		{
 			var value = GetString(name);
@@ -89,6 +100,19 @@ namespace ThinkingHome.Plugins.Listener.Api
 		public Guid GetRequiredGuid(string name)
 		{
 			var value = GetGuid(name);
+
+			if (!value.HasValue)
+			{
+				string message = string.Format("parameter {0} is required", name);
+				throw new NullReferenceException(message);
+			}
+
+			return value.Value;
+		}
+
+		public bool GetRequiredBool(string name)
+		{
+			var value = GetBool(name);
 
 			if (!value.HasValue)
 			{
