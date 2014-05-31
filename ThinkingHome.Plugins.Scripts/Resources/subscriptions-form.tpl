@@ -1,13 +1,13 @@
 ﻿<form role="form">
 	<div class="form-group">
 		<label>
-			event type
+			Event type
 		</label>
 		<select name="selectedEventAlias" data-items-field="eventList" class="form-control" />
 	</div>
 	<div class="form-group">
 		<label>
-			execute script
+			Script
 		</label>
 		<select name="selectedScriptId" data-items-field="scriptList" class="form-control" />
 

@@ -1,6 +1,10 @@
 ﻿define(
-	['app', 'tpl!webapp/alarm-clock/list.tpl', 'tpl!webapp/alarm-clock/list-item.tpl'],
-	function (application, listTemplate, itemTemplate) {
+	[
+		'app',
+		'tpl!webapp/alarm-clock/list.tpl',
+		'tpl!webapp/alarm-clock/list-item.tpl',
+		'tpl!webapp/alarm-clock/editor.tpl'],
+	function (application, listTemplate, itemTemplate, editorTemplate) {
 
 		application.module('AlarmClock.List', function (module, app, backbone, marionette, $, _) {
 
@@ -15,8 +19,13 @@
 					this.$('.js-btn-disable').toggleClass('hidden', !enabled);
 				},
 				events: {
+					'click .js-btn-edit': 'btnEditClick',
 					'click .js-btn-enable': 'btnEnableClick',
 					'click .js-btn-disable': 'btnDisableClick'
+				},
+				btnEditClick: function (e) {
+					e.preventDefault();
+					this.trigger('alarm-clock:edit');
 				},
 				btnEnableClick: function (e) {
 					e.preventDefault();
@@ -32,6 +41,24 @@
 				template: listTemplate,
 				itemView: module.AlarmView,
 				itemViewContainer: '.js-list'
+			});
+			
+			module.AlarmEditorView = app.Common.FormView.extend({
+				template: editorTemplate,
+				events: {
+					'click .js-btn-save': 'btnSaveClick',
+					'click .js-btn-cancel': 'btnCancelClick'
+				},
+				btnSaveClick: function (e) {
+					e.preventDefault();
+
+					this.updateModel();
+					this.trigger('alarm-clock:editor:save');
+				},
+				btnCancelClick: function (e) {
+					e.preventDefault();
+					this.trigger('alarm-clock:editor:cancel');
+				}
 			});
 		});
 

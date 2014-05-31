@@ -28,7 +28,7 @@
 						.done(api.redirectToList);
 				},
 
-				load: function (scriptId) {
+				edit: function (scriptId) {
 
 					app.request('load:scripts:editor:load', scriptId)
 						.done(api.createEditor);
@@ -49,7 +49,7 @@
 			module.start = function (scriptId) {
 
 				if (scriptId) {
-					api.load(scriptId);
+					api.edit(scriptId);
 				} else {
 					api.add();
 				}
