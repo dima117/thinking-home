@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Media;
 using NHibernate.Linq;
@@ -146,6 +145,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 				alarmTime.Enabled = enabled;
 
 				session.Save(alarmTime);
+				session.Flush();
 			}
 
 			ReloadTimes();
@@ -171,6 +171,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 				alarmTime.Name = name;
 				alarmTime.Enabled = true;
 
+				session.Save(alarmTime);
 				session.Flush();
 			}
 
