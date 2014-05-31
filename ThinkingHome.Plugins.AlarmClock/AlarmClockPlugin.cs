@@ -38,7 +38,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 
 		public override void Start()
 		{
-			player = new SoundPlayer();
+			player = new SoundPlayer(SoundResources.Ring02);
 		}
 
 		public override void Stop()
@@ -107,6 +107,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 		private void Alarm()
 		{
 			Logger.Info("ALARM! ALARM! ALARM!");
+			player.PlayLooping();
 		}
 
 		#endregion
