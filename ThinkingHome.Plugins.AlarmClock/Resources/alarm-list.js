@@ -19,8 +19,8 @@
 
 				save: function () {
 
-					alert('saved');
-					api.reload();
+					var model = this.model;
+					app.request('update:alarm-clock:save', model).done(api.reload);
 				},
 
 				setState: function (itemView, enabled) {

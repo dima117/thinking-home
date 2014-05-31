@@ -52,7 +52,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 		{
 			lock (lockObject)
 			{
-				UpdateTimes();
+				LoadTimes();
 
 				if (CheckTime(now))
 				{
@@ -64,7 +64,16 @@ namespace ThinkingHome.Plugins.AlarmClock
 
 		#region private
 
-		private void UpdateTimes()
+		private void ReloadTimes()
+		{
+			lock (lockObject)
+			{
+				times = null;
+				LoadTimes();
+			}
+		}
+
+		private void LoadTimes()
 		{
 			if (times == null)
 			{
@@ -126,7 +135,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 		}
 
 		[HttpCommand("/api/alarm-clock/set-state")]
-		public object SetState(HttpRequestParams request)
+		public object SetAlarmState(HttpRequestParams request)
 		{
 			var id = request.GetRequiredGuid("id");
 			var enabled = request.GetRequiredBool("enabled");
@@ -136,9 +145,36 @@ namespace ThinkingHome.Plugins.AlarmClock
 				var alarmTime = session.Get<AlarmTime>(id);
 				alarmTime.Enabled = enabled;
 
+				session.Save(alarmTime);
+			}
+
+			ReloadTimes();
+			return null;
+		}
+
+		[HttpCommand("/api/alarm-clock/save")]
+		public object SaveAlarm(HttpRequestParams request)
+		{
+			var id = request.GetGuid("id");
+			var name = request.GetString("name");
+			var hours = request.GetRequiredInt32("hours");
+			var minutes = request.GetRequiredInt32("minutes");
+			
+			using (var session = Context.OpenSession())
+			{
+				var alarmTime = id.HasValue
+					? session.Get<AlarmTime>(id.Value)
+					: new AlarmTime();
+
+				alarmTime.Hours = hours;
+				alarmTime.Minutes = minutes;
+				alarmTime.Name = name;
+				alarmTime.Enabled = true;
+
 				session.Flush();
 			}
 
+			ReloadTimes();
 			return null;
 		}
 
