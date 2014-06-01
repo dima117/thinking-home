@@ -29,6 +29,14 @@
 					app.request('update:alarm-clock:set-state', id, enabled).done(api.reload);
 				},
 				
+				stop: function () {
+
+					app.request('update:alarm-clock:stop').done(function() {
+
+						app.Common.utils.alert('All alarm has been stopped.');
+					});
+				},
+				
 				reload: function () {
 
 					var rq = app.request('load:alarm-clock:list');
@@ -37,6 +45,7 @@
 
 						var view = new module.AlarmListView({ collection: items });
 
+						view.on('alarm-clock:stop', api.stop);
 						view.on('itemview:alarm-clock:set-state', api.setState);
 						view.on('itemview:alarm-clock:edit', api.edit);
 						

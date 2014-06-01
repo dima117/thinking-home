@@ -40,7 +40,13 @@
 			module.AlarmListView = marionette.CompositeView.extend({
 				template: listTemplate,
 				itemView: module.AlarmView,
-				itemViewContainer: '.js-list'
+				itemViewContainer: '.js-list',
+				events: {
+					'click .js-btn-stop': 'btnStopClick'
+				}, btnStopClick: function (e) {
+					e.preventDefault();
+					this.trigger('alarm-clock:stop');
+				}
 			});
 			
 			module.AlarmEditorView = app.Common.FormView.extend({

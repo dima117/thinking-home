@@ -43,6 +43,10 @@
 			saveAlarm: function (model) {
 
 				return $.post('/api/alarm-clock/save', model.toJSON()).promise();
+			},
+			stopAlarm: function () {
+
+				return $.post('/api/alarm-clock/stop').promise();
 			}
 		};
 
@@ -57,6 +61,10 @@
 		
 		app.reqres.setHandler('update:alarm-clock:save', function (model) {
 			return api.saveAlarm(model);
+		});
+		
+		app.reqres.setHandler('update:alarm-clock:stop', function () {
+			return api.stopAlarm();
 		});
 	});
 

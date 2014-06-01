@@ -110,6 +110,11 @@ namespace ThinkingHome.Plugins.AlarmClock
 			player.PlayLooping();
 		}
 
+		private void StopAlarm()
+		{
+			player.Stop();
+		}
+
 		#endregion
 
 		#region api
@@ -177,6 +182,13 @@ namespace ThinkingHome.Plugins.AlarmClock
 			}
 
 			ReloadTimes();
+			return null;
+		}
+
+		[HttpCommand("/api/alarm-clock/stop")]
+		public object StopAlarm(HttpRequestParams request)
+		{
+			StopAlarm();
 			return null;
 		}
 
