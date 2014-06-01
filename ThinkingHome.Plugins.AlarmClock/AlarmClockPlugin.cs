@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Media;
 using NHibernate.Linq;
@@ -170,7 +171,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 			{
 				var alarmTime = id.HasValue
 					? session.Get<AlarmTime>(id.Value)
-					: new AlarmTime();
+					: new AlarmTime { Id = Guid.NewGuid() };
 
 				alarmTime.Hours = hours;
 				alarmTime.Minutes = minutes;

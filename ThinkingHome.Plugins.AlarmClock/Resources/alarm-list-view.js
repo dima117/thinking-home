@@ -42,10 +42,14 @@
 				itemView: module.AlarmView,
 				itemViewContainer: '.js-list',
 				events: {
-					'click .js-btn-stop': 'btnStopClick'
+					'click .js-btn-stop': 'btnStopClick',
+					'click .js-btn-add': 'btnAddClick'
 				}, btnStopClick: function (e) {
 					e.preventDefault();
 					this.trigger('alarm-clock:stop');
+				}, btnAddClick: function (e) {
+					e.preventDefault();
+					this.trigger('alarm-clock:add');
 				}
 			});
 			
