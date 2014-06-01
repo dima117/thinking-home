@@ -24,7 +24,7 @@
 					var eventAlias = itemView.model.get('eventAlias');
 					var scriptName = itemView.model.get('scriptName');
 
-					if (app.Common.utils.confirm('Delete subscription?\n- event: "{0}"\n- script: "{1}"', eventAlias, scriptName)) {
+					if (app.Common.utils.confirm('Delete the subscription?\n- event: "{0}"\n- script: "{1}"', eventAlias, scriptName)) {
 
 						var subscriptionId = itemView.model.get('id');
 						app.request('update:scripts:subscription-delete', subscriptionId)

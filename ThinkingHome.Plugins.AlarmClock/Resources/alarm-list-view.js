@@ -19,9 +19,10 @@
 					this.$('.js-btn-disable').toggleClass('hidden', !enabled);
 				},
 				events: {
-					'click .js-btn-edit': 'btnEditClick',
 					'click .js-btn-enable': 'btnEnableClick',
-					'click .js-btn-disable': 'btnDisableClick'
+					'click .js-btn-disable': 'btnDisableClick',
+					'click .js-btn-edit': 'btnEditClick',
+					'click .js-btn-delete': 'btnDeleteClick'
 				},
 				btnEditClick: function (e) {
 					e.preventDefault();
@@ -34,6 +35,10 @@
 				btnDisableClick: function (e) {
 					e.preventDefault();
 					this.trigger('alarm-clock:set-state', false);
+				},
+				btnDeleteClick: function (e) {
+					e.preventDefault();
+					this.trigger('alarm-clock:delete');
 				}
 			});
 

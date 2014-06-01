@@ -10,28 +10,39 @@
 				openEditor: function (model) {
 					
 					var view = new module.AlarmEditorView({ model: model });
-					view.on('alarm-clock:editor:save', api.save);
+					view.on('alarm-clock:editor:save', api.saveAlarm);
 					view.on('alarm-clock:editor:cancel', api.reload);
 
 					app.setContentView(view);
 				},
 
-				add: function() {
+				addAlarm: function() {
 
 					var model = new module.AlarmListItem();
 					api.openEditor(model);
 				},
 				
-				edit: function(itemView) {
+				editAlarm: function (itemView) {
 
 					var model = itemView.model;
 					api.openEditor(model);
 				},
 
-				save: function () {
+				saveAlarm: function () {
 
 					var model = this.model;
 					app.request('update:alarm-clock:save', model).done(api.reload);
+				},
+
+				deleteAlarm: function (itemView) {
+
+					var name = itemView.model.get('name');
+
+					if (app.Common.utils.confirm('Delete the alarm "{0}"?', name)) {
+
+						var id = itemView.model.get('id');
+						app.request('update:alarm-clock:delete', id).done(api.reload);
+					}
 				},
 
 				setState: function (itemView, enabled) {
@@ -40,11 +51,11 @@
 					app.request('update:alarm-clock:set-state', id, enabled).done(api.reload);
 				},
 				
-				stop: function () {
+				stopAllSounds: function () {
 
 					app.request('update:alarm-clock:stop').done(function() {
 
-						app.Common.utils.alert('All alarm has been stopped.');
+						app.Common.utils.alert('All alarm sounds were stopped.');
 					});
 				},
 				
@@ -56,10 +67,11 @@
 
 						var view = new module.AlarmListView({ collection: items });
 
-						view.on('alarm-clock:add', api.add);
-						view.on('alarm-clock:stop', api.stop);
+						view.on('alarm-clock:add', api.addAlarm);
+						view.on('alarm-clock:stop', api.stopAllSounds);
 						view.on('itemview:alarm-clock:set-state', api.setState);
-						view.on('itemview:alarm-clock:edit', api.edit);
+						view.on('itemview:alarm-clock:edit', api.editAlarm);
+						view.on('itemview:alarm-clock:delete', api.deleteAlarm);
 						
 						app.setContentView(view);
 					});

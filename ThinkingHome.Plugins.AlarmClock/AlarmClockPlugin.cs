@@ -186,6 +186,22 @@ namespace ThinkingHome.Plugins.AlarmClock
 			return null;
 		}
 
+		[HttpCommand("/api/alarm-clock/delete")]
+		public object DeleteAlarm(HttpRequestParams request)
+		{
+			var id = request.GetRequiredGuid("id");
+			
+			using (var session = Context.OpenSession())
+			{
+				var alarmTime = session.Load<AlarmTime>(id);
+				session.Delete(alarmTime);
+				session.Flush();
+			}
+
+			ReloadTimes();
+			return null;
+		}
+
 		[HttpCommand("/api/alarm-clock/stop")]
 		public object StopAlarm(HttpRequestParams request)
 		{

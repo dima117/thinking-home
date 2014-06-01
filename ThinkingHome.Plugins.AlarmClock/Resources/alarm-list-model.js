@@ -44,6 +44,10 @@
 
 				return $.post('/api/alarm-clock/save', model.toJSON()).promise();
 			},
+			deleteAlarm: function (id) {
+
+				return $.post('/api/alarm-clock/delete', { id: id }).promise();
+			},
 			stopAlarm: function () {
 
 				return $.post('/api/alarm-clock/stop').promise();
@@ -65,6 +69,10 @@
 		
 		app.reqres.setHandler('update:alarm-clock:stop', function () {
 			return api.stopAlarm();
+		});
+		
+		app.reqres.setHandler('update:alarm-clock:delete', function (id) {
+			return api.deleteAlarm(id);
 		});
 	});
 
