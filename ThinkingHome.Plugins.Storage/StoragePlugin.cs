@@ -107,7 +107,7 @@ namespace ThinkingHome.Plugins.Storage
 
 		private static T ParseObject<T>(Item item) where T : class
 		{
-			return item == null ? null : JsonHelper.Get<T>(item.ObjectValue);
+			return item == null ? null : Extensions.FromJson<T>(item.ObjectValue);
 		}
 
 		#endregion

@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.Diagnostics;
 using System.Linq;
 using System.Media;
 using NHibernate.Linq;
 using NHibernate.Mapping.ByCode;
 using ThinkingHome.Core.Plugins;
+using ThinkingHome.Core.Plugins.Utils;
 using ThinkingHome.Plugins.AlarmClock.Data;
 using ThinkingHome.Plugins.Listener;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Handlers;
 using ThinkingHome.Plugins.Scripts;
+using ThinkingHome.Plugins.Scripts.Data;
 using ThinkingHome.Plugins.Timer;
 using ThinkingHome.Plugins.WebUI.Attributes;
 
@@ -136,43 +137,30 @@ namespace ThinkingHome.Plugins.AlarmClock
 
 		#endregion
 
-		#region api
+		#region api list
 
 		[HttpCommand("/api/alarm-clock/list")]
 		public object GetAlarmList(HttpRequestParams request)
 		{
 			using (var session = Context.OpenSession())
 			{
-				var list = session.Query<AlarmTime>()
-					.Select(GetModel)
+				var list = session.Query<AlarmTime>().ToList();
+
+				var model = list
+					.Select(alarm => new
+						{
+							id = alarm.Id,
+							name = alarm.Name,
+							hours = alarm.Hours,
+							minutes = alarm.Minutes,
+							enabled = alarm.Enabled,
+							scriptId = alarm.UserScript.GetValueOrDefault(obj => (Guid?)obj.Id),
+							scriptName = alarm.UserScript.GetValueOrDefault(obj => obj.Name)
+						})
 					.ToArray();
 
-				return list;
+				return model;
 			}
-		}
-
-		private object GetModel(AlarmTime x)
-		{
-			Guid? scriptId = null;
-			string scriptName = null;
-
-			if (x.UserScript != null)
-			{
-				scriptId = x.UserScript.Id;
-				scriptName = x.UserScript.Name;
-			}
-
-			return new
-			{
-				id = x.Id,
-				name = x.Name,
-				hours = x.Hours,
-				minutes = x.Minutes,
-				enabled = x.Enabled,
-				scriptId = scriptId,
-				scriptName = scriptName,
-				playSound = x.PlaySound
-			};
 		}
 
 		[HttpCommand("/api/alarm-clock/set-state")]
@@ -185,33 +173,6 @@ namespace ThinkingHome.Plugins.AlarmClock
 			{
 				var alarmTime = session.Get<AlarmTime>(id);
 				alarmTime.Enabled = enabled;
-
-				session.Save(alarmTime);
-				session.Flush();
-			}
-
-			ReloadTimes();
-			return null;
-		}
-
-		[HttpCommand("/api/alarm-clock/save")]
-		public object SaveAlarm(HttpRequestParams request)
-		{
-			var id = request.GetGuid("id");
-			var name = request.GetString("name");
-			var hours = request.GetRequiredInt32("hours");
-			var minutes = request.GetRequiredInt32("minutes");
-
-			using (var session = Context.OpenSession())
-			{
-				var alarmTime = id.HasValue
-					? session.Get<AlarmTime>(id.Value)
-					: new AlarmTime { Id = Guid.NewGuid() };
-
-				alarmTime.Hours = hours;
-				alarmTime.Minutes = minutes;
-				alarmTime.Name = name;
-				alarmTime.Enabled = true;
 
 				session.Save(alarmTime);
 				session.Flush();
@@ -242,6 +203,80 @@ namespace ThinkingHome.Plugins.AlarmClock
 		{
 			StopAlarm();
 			return null;
+		}
+
+		#endregion
+
+		#region api list
+
+		[HttpCommand("/api/alarm-clock/save")]
+		public object SaveAlarm(HttpRequestParams request)
+		{
+			var id = request.GetGuid("id");
+			var name = request.GetString("name");
+			var hours = request.GetRequiredInt32("hours");
+			var minutes = request.GetRequiredInt32("minutes");
+			var scriptId = request.GetGuid("scriptId");
+
+			using (var session = Context.OpenSession())
+			{
+				var alarmTime = id.HasValue
+					? session.Get<AlarmTime>(id.Value)
+					: new AlarmTime { Id = Guid.NewGuid() };
+
+				var script = scriptId.HasValue
+					? session.Load<UserScript>(scriptId.Value)
+					: null;
+
+				alarmTime.Name = name;
+				alarmTime.Hours = hours;
+				alarmTime.Minutes = minutes;
+				alarmTime.UserScript = script;
+				alarmTime.Enabled = true;
+
+				session.Save(alarmTime);
+				session.Flush();
+			}
+
+			ReloadTimes();
+			return null;
+		}
+
+		[HttpCommand("/api/alarm-clock/editor")]
+		public object LoadEditor(HttpRequestParams request)
+		{
+			var id = request.GetGuid("id");
+
+			using (var session = Context.OpenSession())
+			{
+				var scriptList = session
+					.Query<UserScript>()
+					.Select(s => new { id = s.Id, name = s.Name })
+					.ToArray();
+
+				if (id.HasValue)
+				{
+					var alarm = session.Get<AlarmTime>(id.Value);
+
+					return BuildEditorModel(
+						scriptList,
+						alarm.Id,
+						alarm.Name,
+						alarm.Hours,
+						alarm.Minutes,
+						alarm.Enabled,
+						alarm.UserScript.GetValueOrDefault(obj => (Guid?)obj.Id)
+					);
+				}
+
+				return BuildEditorModel(scriptList);
+			}
+		}
+
+		private static object BuildEditorModel(
+			object scripts, Guid? id = null, string name = null, int hours = 0, int minutes = 0, bool enabled = false, Guid? scriptId = null)
+		{
+			return new { id, name, hours, minutes, enabled, scriptId, scripts };
 		}
 
 

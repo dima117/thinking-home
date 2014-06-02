@@ -7,25 +7,26 @@
 		application.module('AlarmClock.List', function (module, app, backbone, marionette, $, _) {
 
 			var api = {
-				openEditor: function (model) {
-					
-					var view = new module.AlarmEditorView({ model: model });
-					view.on('alarm-clock:editor:save', api.saveAlarm);
-					view.on('alarm-clock:editor:cancel', api.reload);
+				openEditor: function (alarmId) {
 
-					app.setContentView(view);
+					app.request('load:alarm-clock:editor', alarmId).done(function (model) {
+					
+						var view = new module.AlarmEditorView({ model: model });
+						view.on('alarm-clock:editor:save', api.saveAlarm);
+						view.on('alarm-clock:editor:cancel', api.reload);
+
+						app.setContentView(view);
+					});
 				},
 
 				addAlarm: function() {
-
-					var model = new module.AlarmListItem();
-					api.openEditor(model);
+					api.openEditor();
 				},
 				
 				editAlarm: function (itemView) {
 
-					var model = itemView.model;
-					api.openEditor(model);
+					var alarmId = itemView.model.get('id');
+					api.openEditor(alarmId);
 				},
 
 				saveAlarm: function () {

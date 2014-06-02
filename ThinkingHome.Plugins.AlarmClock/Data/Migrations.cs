@@ -30,9 +30,6 @@ namespace ThinkingHome.Plugins.AlarmClock.Data
 		public override void Apply()
 		{
 			Database.AddColumn("AlarmClock_AlarmTime",
-				new Column("PlaySound", DbType.Boolean, ColumnProperty.NotNull, false)
-			);
-			Database.AddColumn("AlarmClock_AlarmTime",
 				new Column("UserScriptId", DbType.Guid, ColumnProperty.Null)
 			);
 
@@ -44,7 +41,6 @@ namespace ThinkingHome.Plugins.AlarmClock.Data
 		public override void Revert()
 		{
 			Database.RemoveConstraint("AlarmClock_AlarmTime", "AlarmClock_AlarmTime_UserScriptId");
-			Database.RemoveColumn("AlarmClock_AlarmTime", "PlaySound");
 			Database.RemoveColumn("AlarmClock_AlarmTime", "UserScriptId");
 		}
 	}

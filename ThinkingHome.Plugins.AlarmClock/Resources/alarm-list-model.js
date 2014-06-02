@@ -9,6 +9,8 @@
 				minutes: 0
 			}
 		});
+		
+		module.AlarmEditorModel = backbone.Model.extend();
 
 		module.AlarmCollection = backbone.Collection.extend({
 			model: module.AlarmListItem,
@@ -51,6 +53,21 @@
 			stopAlarm: function () {
 
 				return $.post('/api/alarm-clock/stop').promise();
+			},
+			loadEditor: function (id) {
+			
+				var defer = $.Deferred();
+
+				$.getJSON('/api/alarm-clock/editor', { id: id })
+					.done(function (alarm) {
+						var model = new module.AlarmEditorModel(alarm);
+						defer.resolve(model);
+					})
+					.fail(function () {
+						defer.resolve(undefined);
+					});
+
+				return defer.promise();
 			}
 		};
 
@@ -73,6 +90,10 @@
 		
 		app.reqres.setHandler('update:alarm-clock:delete', function (id) {
 			return api.deleteAlarm(id);
+		});
+		
+		app.reqres.setHandler('load:alarm-clock:editor', function (id) {
+			return api.loadEditor(id);
 		});
 	});
 

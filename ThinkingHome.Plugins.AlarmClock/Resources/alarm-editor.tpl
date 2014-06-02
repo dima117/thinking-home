@@ -22,15 +22,27 @@
 			<li>
 				<select name="hours" class="form-control">
 					<% for (var h = 0; h < 24; h++) { %>
-						<option value="<%= h %>"><%= ('0' + h).slice(-2) %></option>
+					<option value="<%= h %>"><%= ('0' + h).slice(-2) %></option>
 					<% } %>
 				</select></li>
 			<li>
 				<select name="minutes" class="form-control">
 					<% for (var m = 0; m < 60; m++) { %>
-						<option value="<%= m %>"><%= ('0' + m).slice(-2) %></option>
+					<option value="<%= m %>"><%= ('0' + m).slice(-2) %></option>
 					<% } %>
 				</select></li>
 		</ul>
+	</div>
+	<div class="form-group">
+		<label>
+			Action
+		</label>
+		<div class="row">
+			<div class="col-sm-4">
+				<select name="scriptId" data-items-field="scripts" class="form-control">
+					<option value="">&lt;PLAY SOUND&gt;</option>
+				</select>
+			</div>
+		</div>
 	</div>
 </form>
