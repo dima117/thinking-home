@@ -1,4 +1,5 @@
 ﻿using System;
+using ThinkingHome.Plugins.Scripts.Data;
 
 namespace ThinkingHome.Plugins.AlarmClock.Data
 {
@@ -13,5 +14,9 @@ namespace ThinkingHome.Plugins.AlarmClock.Data
 		public virtual int Minutes { get; set; }
 		
 		public virtual bool Enabled { get; set; }
+
+		public virtual bool PlaySound { get; set; }
+
+		public virtual UserScript UserScript { get; set; }
 	}
 }

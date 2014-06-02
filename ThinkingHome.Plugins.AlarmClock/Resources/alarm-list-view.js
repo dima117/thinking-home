@@ -13,10 +13,17 @@
 				onRender: function () {
 
 					var enabled = this.model.get('enabled');
+					var playSound = this.model.get('playSound');
+					var scriptId = this.model.get('scriptId');
 
 					this.$el.toggleClass('bg-info', enabled);
 					this.$('.js-btn-enable').toggleClass('hidden', enabled);
 					this.$('.js-btn-disable').toggleClass('hidden', !enabled);
+					
+					this.$('.js-play-sound').toggleClass('hidden', !playSound);
+					this.$('.js-run-script').toggleClass('hidden', !scriptId);
+					
+
 				},
 				events: {
 					'click .js-btn-enable': 'btnEnableClick',

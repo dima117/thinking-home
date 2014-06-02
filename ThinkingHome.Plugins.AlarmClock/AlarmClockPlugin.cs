@@ -105,10 +105,10 @@ namespace ThinkingHome.Plugins.AlarmClock
 			// и от этого времени не прошло 5 минут
 			// и будильник сегодня еще не звонил
 			var date = now.Date.AddHours(time.Hours).AddMinutes(time.Minutes);
-			
+
 			if (date < lastAlarm)
 			{
-				date =date.AddDays(1);
+				date = date.AddDays(1);
 			}
 
 			return now > date && now < date.AddMinutes(5) && lastAlarm < date;
@@ -123,7 +123,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 				Logger.Info("ALARM: {0} ({1})", alarm.Name, alarm.Id);
 
 				Guid alarmId = alarm.Id;
-				Run(AlarmStartedForPlugins, x => x(alarmId));	
+				Run(AlarmStartedForPlugins, x => x(alarmId));
 			}
 
 			this.RaiseScriptEvent(x => x.AlarmStartedForScripts);
@@ -144,18 +144,35 @@ namespace ThinkingHome.Plugins.AlarmClock
 			using (var session = Context.OpenSession())
 			{
 				var list = session.Query<AlarmTime>()
-					.Select(x => new
-					{
-						id = x.Id,
-						name = x.Name,
-						hours = x.Hours,
-						minutes = x.Minutes,
-						enabled = x.Enabled
-					})
+					.Select(GetModel)
 					.ToArray();
 
 				return list;
 			}
+		}
+
+		private object GetModel(AlarmTime x)
+		{
+			Guid? scriptId = null;
+			string scriptName = null;
+
+			if (x.UserScript != null)
+			{
+				scriptId = x.UserScript.Id;
+				scriptName = x.UserScript.Name;
+			}
+
+			return new
+			{
+				id = x.Id,
+				name = x.Name,
+				hours = x.Hours,
+				minutes = x.Minutes,
+				enabled = x.Enabled,
+				scriptId = scriptId,
+				scriptName = scriptName,
+				playSound = x.PlaySound
+			};
 		}
 
 		[HttpCommand("/api/alarm-clock/set-state")]
@@ -163,7 +180,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 		{
 			var id = request.GetRequiredGuid("id");
 			var enabled = request.GetRequiredBool("enabled");
-			
+
 			using (var session = Context.OpenSession())
 			{
 				var alarmTime = session.Get<AlarmTime>(id);
@@ -184,7 +201,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 			var name = request.GetString("name");
 			var hours = request.GetRequiredInt32("hours");
 			var minutes = request.GetRequiredInt32("minutes");
-			
+
 			using (var session = Context.OpenSession())
 			{
 				var alarmTime = id.HasValue
@@ -208,7 +225,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 		public object DeleteAlarm(HttpRequestParams request)
 		{
 			var id = request.GetRequiredGuid("id");
-			
+
 			using (var session = Context.OpenSession())
 			{
 				var alarmTime = session.Load<AlarmTime>(id);
