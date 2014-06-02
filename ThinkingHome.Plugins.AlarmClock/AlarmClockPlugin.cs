@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Diagnostics;
 using System.Linq;
 using System.Media;
@@ -10,6 +11,7 @@ using ThinkingHome.Plugins.AlarmClock.Data;
 using ThinkingHome.Plugins.Listener;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Handlers;
+using ThinkingHome.Plugins.Scripts;
 using ThinkingHome.Plugins.Timer;
 using ThinkingHome.Plugins.WebUI.Attributes;
 
@@ -47,22 +49,34 @@ namespace ThinkingHome.Plugins.AlarmClock
 			player.Dispose();
 		}
 
+		#region events
+
+		[ImportMany("0917789F-A980-4224-B43F-A820DEE093C8")]
+		public Action<Guid>[] AlarmStartedForPlugins { get; set; }
+
+		[ScriptEvent("alarmClock.alarmStarted")]
+		public ScriptEventHandlerDelegate[] AlarmStartedForScripts { get; set; }
+
+		#endregion
+
+		#region private
+
 		[OnTimerElapsed]
-		public void OnTimerElapsed(DateTime now)
+		private void OnTimerElapsed(DateTime now)
 		{
 			lock (lockObject)
 			{
 				LoadTimes();
 
-				if (CheckTime(now))
+				var alarms = times.Where(x => CheckTime(x, now, lastAlarmTime)).ToArray();
+
+				if (alarms.Any())
 				{
 					lastAlarmTime = now;
-					Alarm();
+					Alarm(alarms);
 				}
 			}
 		}
-
-		#region private
 
 		private void ReloadTimes()
 		{
@@ -85,30 +99,34 @@ namespace ThinkingHome.Plugins.AlarmClock
 			}
 		}
 
-		private static DateTime GetDate(AlarmTime time, DateTime now, DateTime lastAlarm)
-		{
-			var date = now.Date.AddHours(time.Hours).AddMinutes(time.Minutes);
-			return date > lastAlarm ? date : date.AddDays(1);
-		}
-
-		private bool CheckTime(DateTime now)
+		private static bool CheckTime(AlarmTime time, DateTime now, DateTime lastAlarm)
 		{
 			// если прошло время звонка будильника
 			// и от этого времени не прошло 5 минут
 			// и будильник сегодня еще не звонил
+			var date = now.Date.AddHours(time.Hours).AddMinutes(time.Minutes);
+			
+			if (date < lastAlarm)
+			{
+				date =date.AddDays(1);
+			}
 
-			var list = times
-				.Select(t => GetDate(t, now, lastAlarmTime))
-				.Where(t => now > t && now < t.AddMinutes(5) && lastAlarmTime < t)
-				.ToArray();
-
-			return list.Any();
+			return now > date && now < date.AddMinutes(5) && lastAlarm < date;
 		}
 
-		private void Alarm()
+		private void Alarm(AlarmTime[] alarms)
 		{
-			Logger.Info("ALARM! ALARM! ALARM!");
 			player.PlayLooping();
+
+			foreach (var alarm in alarms)
+			{
+				Logger.Info("ALARM: {0} ({1})", alarm.Name, alarm.Id);
+
+				Guid alarmId = alarm.Id;
+				Run(AlarmStartedForPlugins, x => x(alarmId));	
+			}
+
+			this.RaiseScriptEvent(x => x.AlarmStartedForScripts);
 		}
 
 		private void StopAlarm()

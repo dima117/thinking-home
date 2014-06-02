@@ -6,6 +6,7 @@ using System.Net.Mail;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using ThinkingHome.Core.Plugins;
+using ThinkingHome.Plugins.AlarmClock;
 using ThinkingHome.Plugins.DlinkDCS930L;
 using ThinkingHome.Plugins.Scripts;
 
@@ -86,6 +87,22 @@ namespace ThinkingHome.Plugins.Tmp
 		public void DoorBell()
 		{
 			doorBell.Play();
+		}
+
+		#endregion
+
+		#region test
+
+		[OnAlarmStarted]
+		public void Asfafasfasg1(Guid id)
+		{
+			Logger.Info("test1: {0}", id);
+		}
+
+		[OnAlarmStarted]
+		public void Asfafasfasg2(Guid id)
+		{
+			Logger.Info("test2: {0}", id);
 		}
 
 		#endregion

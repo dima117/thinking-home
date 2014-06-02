@@ -61,6 +61,7 @@
     <Compile Include="AlarmClockPlugin.cs" />
     <Compile Include="Data\Migrations.cs" />
     <Compile Include="Data\Model.cs" />
+    <Compile Include="OnAlarmStartedAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SoundResources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -90,6 +91,11 @@
     <ProjectReference Include="..\ThinkingHome.Plugins.Listener\ThinkingHome.Plugins.Listener.csproj">
       <Project>{db321a2c-ff9c-48ef-80cf-d356a5d5f3a8}</Project>
       <Name>ThinkingHome.Plugins.Listener</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\ThinkingHome.Plugins.Scripts\ThinkingHome.Plugins.Scripts.csproj">
+      <Project>{5dbb0362-36d7-49e8-9277-b212e3585e4b}</Project>
+      <Name>ThinkingHome.Plugins.Scripts</Name>
       <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\ThinkingHome.Plugins.Timer\ThinkingHome.Plugins.Timer.csproj">
