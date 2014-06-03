@@ -7,32 +7,25 @@
 		application.module('AlarmClock.List', function (module, app, backbone, marionette, $, _) {
 
 			var api = {
-				openEditor: function (alarmId) {
-
-					app.request('load:alarm-clock:editor', alarmId).done(function (model) {
-					
-						var view = new module.AlarmEditorView({ model: model });
-						view.on('alarm-clock:editor:save', api.saveAlarm);
-						view.on('alarm-clock:editor:cancel', api.reload);
-
-						app.setContentView(view);
-					});
-				},
 
 				addAlarm: function() {
-					api.openEditor();
+					app.trigger('page:load', 'webapp/alarm-clock/editor');
 				},
 				
 				editAlarm: function (itemView) {
 
-					var alarmId = itemView.model.get('id');
-					api.openEditor(alarmId);
+					var id = itemView.model.get('id');
+					app.trigger('page:load', 'webapp/alarm-clock/editor', id);
 				},
-
-				saveAlarm: function () {
-
-					var model = this.model;
-					app.request('update:alarm-clock:save', model).done(api.reload);
+				
+				enable: function (itemView) {
+					var id = itemView.model.get('id');
+					app.request('update:alarm-clock:set-state', id, true).done(api.reload);
+				},
+				
+				disable: function (itemView) {
+					var id = itemView.model.get('id');
+					app.request('update:alarm-clock:set-state', id, false).done(api.reload);
 				},
 
 				deleteAlarm: function (itemView) {
@@ -44,12 +37,6 @@
 						var id = itemView.model.get('id');
 						app.request('update:alarm-clock:delete', id).done(api.reload);
 					}
-				},
-
-				setState: function (itemView, enabled) {
-
-					var id = itemView.model.get('id');
-					app.request('update:alarm-clock:set-state', id, enabled).done(api.reload);
 				},
 				
 				stopAllSounds: function () {
@@ -70,7 +57,8 @@
 
 						view.on('alarm-clock:add', api.addAlarm);
 						view.on('alarm-clock:stop', api.stopAllSounds);
-						view.on('itemview:alarm-clock:set-state', api.setState);
+						view.on('itemview:alarm-clock:enable', api.enable);
+						view.on('itemview:alarm-clock:disable', api.disable);
 						view.on('itemview:alarm-clock:edit', api.editAlarm);
 						view.on('itemview:alarm-clock:delete', api.deleteAlarm);
 						

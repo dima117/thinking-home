@@ -117,6 +117,9 @@
     <EmbeddedResource Include="Resources\alarm-list-view.js" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\alarm-editor.js" />
+    <EmbeddedResource Include="Resources\alarm-editor-view.js" />
+    <EmbeddedResource Include="Resources\alarm-editor-model.js" />
     <Content Include="Ring02.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
