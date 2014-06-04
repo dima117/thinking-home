@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.Diagnostics;
 using System.Linq;
 using System.Media;
 using NHibernate.Linq;
@@ -99,7 +100,11 @@ namespace ThinkingHome.Plugins.AlarmClock
 			{
 				using (var session = Context.OpenSession())
 				{
-					times = session.Query<AlarmTime>().Where(t => t.Enabled).ToList();
+					times = session.Query<AlarmTime>()
+						.Fetch(a => a.UserScript)
+						.Where(t => t.Enabled)
+						.ToList();
+
 					Logger.Info("loaded {0} alarm times", times.Count);
 				}
 			}
@@ -122,21 +127,35 @@ namespace ThinkingHome.Plugins.AlarmClock
 
 		private void Alarm(AlarmTime[] alarms)
 		{
-			player.PlayLooping();
+			Logger.Info("ALARM!");
+
+			if (alarms.Any(a => a.PlaySound))
+			{
+				Logger.Info("Play sound");
+				player.PlayLooping();
+			}
 
 			foreach (var alarm in alarms)
 			{
-				Logger.Info("ALARM: {0} ({1})", alarm.Name, alarm.Id);
+				Logger.Info("Run event handlers: {0} ({1})", alarm.Name, alarm.Id);
 
 				Guid alarmId = alarm.Id;
 				Run(AlarmStartedForPlugins, x => x(alarmId));
+
+				if (alarm.UserScript != null)
+				{
+					Logger.Info("Run script: {0} ({1})", alarm.UserScript.Name, alarm.UserScript.Id);
+					Context.GetPlugin<ScriptsPlugin>().ExecuteScript(alarm.UserScript);
+				}
 			}
 
+			Logger.Info("Run subscribed scripts");
 			this.RaiseScriptEvent(x => x.AlarmStartedForScripts);
 		}
 
 		private void StopAlarm()
 		{
+			Logger.Info("Stop all sounds");
 			player.Stop();
 		}
 
