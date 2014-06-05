@@ -26,7 +26,7 @@
 		
 
 
-ПРАВИЛ ИМЕНОВАНИЯ
+ПРАВИЛА ИМЕНОВАНИЯ
 - URL
 	/api/{pluginAlias}/{methodAlias}	- методы API
 	/webapp/{pluginAlias}/{filePath}	- ресурсы

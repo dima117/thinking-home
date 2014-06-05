@@ -50,10 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HomePackages\HomePackageInfo.cs" />
-    <Compile Include="Commands\IExportCommandAttribute.cs" />
     <Compile Include="HomePackages\IHomePackageManager.cs" />
     <Compile Include="IServiceContext.cs" />
-    <Compile Include="Commands\MethodCollection.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="PluginAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

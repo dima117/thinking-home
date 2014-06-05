@@ -190,7 +190,7 @@ namespace ThinkingHome.Plugins.Speech
 
 		#region methods
 
-		[ScriptCommand("speech", "say")]
+		[ScriptCommand("say")]
 		public void Say(string text)
 		{
 			speechSynthesizer.Speak(text);

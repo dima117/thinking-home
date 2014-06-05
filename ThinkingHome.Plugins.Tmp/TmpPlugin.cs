@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using System.Media;
 using System.Net.Mail;
-using System.Runtime.CompilerServices;
 using System.Threading;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Plugins.AlarmClock;
@@ -16,7 +14,7 @@ namespace ThinkingHome.Plugins.Tmp
     public class TmpPlugin : Plugin
     {
 		#region camera
-		[ScriptCommand("dcs930", "sendImage")]
+		[ScriptCommand("sendDCS930Image")]
 		public void SendImage(string to, string subject)
 		{
 			var bytes = Context.GetPlugin<DlinkDCS930LPlugin>().GetImage();
@@ -83,7 +81,7 @@ namespace ThinkingHome.Plugins.Tmp
 			doorBell.Dispose();
 		}
 
-		[ScriptCommand("sounds", "doorBell")]
+		[ScriptCommand("playDoorBell")]
 		public void DoorBell()
 		{
 			doorBell.Play();

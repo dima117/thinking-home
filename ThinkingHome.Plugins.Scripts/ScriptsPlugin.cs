@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using Microsoft.ClearScript.Windows;
@@ -9,13 +8,11 @@ using NHibernate.Linq;
 using NHibernate.Mapping.ByCode;
 using NLog;
 using ThinkingHome.Core.Plugins;
-using ThinkingHome.Core.Plugins.Commands;
 using ThinkingHome.Core.Plugins.Utils;
 using ThinkingHome.Plugins.Listener;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Handlers;
 using ThinkingHome.Plugins.Scripts.Data;
-using ThinkingHome.Plugins.Scripts.Internal;
 using ThinkingHome.Plugins.WebUI.Attributes;
 
 namespace ThinkingHome.Plugins.Scripts
@@ -49,11 +46,17 @@ namespace ThinkingHome.Plugins.Scripts
 
 		public override void Init()
 		{
-			var actions = new PluginMethodCollection();
+			var actions = new Dictionary<string, Delegate>(StringComparer.InvariantCultureIgnoreCase);
 
 			foreach (var action in ScriptExecuted)
 			{
-				actions.RegisterMethod(action.Metadata, action.Value);
+				if (actions.ContainsKey(action.Metadata.Alias))
+				{
+					var msg = string.Format("duplicate script command '{0}'", action.Metadata.Alias);
+					throw new Exception(msg);
+				}
+
+				actions.Add(action.Metadata.Alias, action.Value);
 			}
 
 			scriptHost = new ScriptHost(actions, Logger, RunScript);
@@ -274,9 +277,8 @@ namespace ThinkingHome.Plugins.Scripts
 		#region run scripts
 
 		[ImportMany("Scripts.ScriptExecuted")]
-		public Lazy<Delegate, IExportCommandAttribute>[] ScriptExecuted { get; set; }
+		public Lazy<Delegate, IScriptCommandAttribute>[] ScriptExecuted { get; set; }
 
-		[ScriptCommand("scripts", "run")]
 		public void RunScript(string scriptName, object[] args)
 		{
 			using (var session = Context.OpenSession())

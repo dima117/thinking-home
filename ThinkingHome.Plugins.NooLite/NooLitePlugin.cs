@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.Composition;
-using System.Diagnostics;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.NooLite;
 using ThinkingHome.NooLite.Common;
@@ -41,7 +40,7 @@ namespace ThinkingHome.Plugins.NooLite
 		[ImportMany("EB6000DD-79F1-408A-9325-4DCFFB1AD391")]
 		public Action<int, int, byte[]>[] OnCommandReceivedForPlugins { get; set; }
 		
-		[ScriptCommand("noolite", "setLevel")]
+		[ScriptCommand("nooliteSetLevel")]
 		public void SetLevel(int channel, int level)
 		{
 			//Debugger.Launch();

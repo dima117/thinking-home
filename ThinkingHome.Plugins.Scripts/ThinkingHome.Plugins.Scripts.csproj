@@ -63,9 +63,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Internal\PluginMethodCollection.cs" />
-    <Compile Include="Internal\ScriptHost.cs" />
-    <Compile Include="Internal\ScriptPluginWrapper.cs" />
+    <Compile Include="IScriptCommandAttribute.cs" />
+    <Compile Include="ScriptHost.cs" />
     <Compile Include="ScriptCommandAttribute.cs" />
     <Compile Include="Data\Migrations.cs" />
     <Compile Include="Data\Model.cs" />
@@ -123,6 +122,7 @@
     <EmbeddedResource Include="Resources\subscriptions-view.js" />
     <EmbeddedResource Include="Resources\subscriptions.js" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
