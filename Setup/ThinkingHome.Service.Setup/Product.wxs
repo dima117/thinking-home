@@ -1,69 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
-	<Product Id="*" Name="ThinkingHome.Service" Language="1033" Version="1.0.0.0" Manufacturer="Thinking-Home.RU" UpgradeCode="48dc066c-97cc-4512-8fa3-52bbe195e075">
-		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
-		<Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+  xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
+  xmlns:fire="http://schemas.microsoft.com/wix/FirewallExtension">
+  <Product Id="*" Name="ThinkingHome.Service" Language="1033" Version="1.0.0.0" Manufacturer="Thinking-Home.RU" UpgradeCode="48dc066c-97cc-4512-8fa3-52bbe195e075">
+	<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+	<Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
 
-		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-		
-		<Feature Id="ProductFeature" Title="ThinkingHome.Service" Level="1">
-			<ComponentGroupRef Id="ProductComponents" />
-			<ComponentGroupRef Id="ServiceComponents" />
-		</Feature>
+	<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
 
-		<PropertyRef Id="NETFRAMEWORK45"/>
+	<Feature Id="ProductFeature" Title="ThinkingHome.Service" Level="1">
+	  <ComponentGroupRef Id="ProductComponents" />
+	  <ComponentGroupRef Id="ServiceComponents" />
+	</Feature>
 
-		<Condition Message="This application requires .NET Framework 4.5. Please install the .NET Framework then run this installer again.">
-			<![CDATA[Installed OR NETFRAMEWORK45]]>
-		</Condition>
+	<PropertyRef Id="NETFRAMEWORK45"/>
 
-		<UIRef Id="WixUI_Minimal" />
-		<WixVariable Id="WixUILicenseRtf" Value="..\dist\License.rtf" />
-	</Product>
+	<Condition Message="This application requires .NET Framework 4.5. Please install the .NET Framework then run this installer again.">
+	  <![CDATA[Installed OR NETFRAMEWORK45]]>
+	</Condition>
+
+	<UIRef Id="WixUI_Minimal" />
+	<WixVariable Id="WixUILicenseRtf" Value="..\dist\License.rtf" />
+  </Product>
 
 
-	<Fragment>
-		<Directory Id="TARGETDIR" Name="SourceDir">
-			<Directory Id="ProgramFilesFolder">
-				<Directory Id="INSTALLFOLDER" Name="ThinkingHome" >
-				</Directory>
-			</Directory>
+  <Fragment>
+	<Directory Id="TARGETDIR" Name="SourceDir">
+	  <Directory Id="ProgramFilesFolder">
+		<Directory Id="INSTALLFOLDER" Name="ThinkingHome" >
 		</Directory>
-	</Fragment>
+	  </Directory>
+	</Directory>
+  </Fragment>
 
-	<Fragment>
-		<ComponentGroup Id="ServiceComponents">
-			<Component Id="ServiceComponent" Directory="SERVICEINSTALLFOLDER"
-				Guid="3042F070-5FDE-4CC5-8D31-9D6DF53795BC">
+  <Fragment>
+	<ComponentGroup Id="ServiceComponents">
+	  <Component Id="ServiceComponent" Directory="SERVICEINSTALLFOLDER"
+		  Guid="3042F070-5FDE-4CC5-8D31-9D6DF53795BC">
 
-				<File 
-					Id="ThinkingHome.Service.exe" 
-					Name="ThinkingHome.Service.exe" 
-					Source="..\dist\ThinkingHome.Service.exe" 
-					Vital="yes" KeyPath="yes" DiskId="1"/>
+		<File
+			Id="ThinkingHome.Service.exe"
+			Name="ThinkingHome.Service.exe"
+			Source="..\dist\ThinkingHome.Service.exe"
+			Vital="yes" KeyPath="yes" DiskId="1"/>
 
 
-				<ServiceInstall	Id="ServiceInstaller"
-								Type="ownProcess"
-								Vital="yes"
-								Name="ThinkingHome.Service"
-								DisplayName="Home automation service"
-								Description="A service that does very interesting things"
-								Start="auto"
-								Account="LOCALSYSTEM"
-								ErrorControl="normal" >
-				</ServiceInstall>
-				<ServiceControl Id="ServiceControl_Start"
-								Name="ThinkingHome.Service"
-								Start="install"
-								Wait="no" />
-				<ServiceControl Id="ServiceControl_Stop"
-								Name="ThinkingHome.Service"
-								Stop="both"
-								Remove="uninstall"
-								Wait="yes" />
-			</Component>
+		<ServiceInstall	Id="ServiceInstaller"
+						Type="ownProcess"
+						Vital="yes"
+						Name="ThinkingHome.Service"
+						DisplayName="Home automation service"
+						Description="A service that does very interesting things"
+						Start="auto"
+						Account="LOCALSYSTEM"
+						ErrorControl="normal" >
+		</ServiceInstall>
+		<ServiceControl Id="ServiceControl_Start"
+						Name="ThinkingHome.Service"
+						Start="install"
+						Wait="no" />
+		<ServiceControl Id="ServiceControl_Stop"
+						Name="ThinkingHome.Service"
+						Stop="both"
+						Remove="uninstall"
+						Wait="yes" />
 
-		</ComponentGroup>
-	</Fragment>
+		<fire:FirewallException Id="th_ui_domain_tcp" 
+					   Name="ThinkingHome WebUI"
+					   Protocol="tcp"
+					   Port="41831"
+					   Scope="any"
+					   IgnoreFailure="yes" />
+
+	  </Component>
+
+	</ComponentGroup>
+  </Fragment>
 </Wix>
