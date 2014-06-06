@@ -36,7 +36,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setup", "Setup", "{3AF935D8-BB2A-4C12-8136-7151E294B49F}"
 	ProjectSection(SolutionItems) = preProject
 		Setup\build-installer\main.build = Setup\build-installer\main.build
-		Setup\build-installer\site.build = Setup\build-installer\site.build
 	EndProjectSection
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "ThinkingHome.Service.Setup", "Setup\ThinkingHome.Service.Setup\ThinkingHome.Service.Setup.wixproj", "{39F23985-023C-472E-A1D1-9D5908C14358}"

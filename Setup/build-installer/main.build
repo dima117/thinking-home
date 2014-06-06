@@ -1,9 +1,14 @@
-<?xml version="1.0" ?>
+﻿<?xml version="1.0" ?>
 <project name="th-noolite" default="full" xmlns="http://nant.sf.net/release/0.85/nant.xsd">
 
 	<!-- Settings -->
 	<property name="nant.settings.currentframework" value="net-4.0" />
-	<property name="th.ver" value="2.0.0.0"/>
+
+	<property name="base.version" value="2.0.0"/>
+	<property name="build.number" value="1377" unless="${property::exists('build.number')}" />
+
+	<property name="version" value="${base.version}.${build.number}"/>
+
 	<property name="build-configuration" value="Release"/>
 
 	<property name="dist.dir" value="..\dist"/>
@@ -22,9 +27,28 @@
 
 	<property name="setup.service.dir" value="..\ThinkingHome.Service.Setup" />
 	<property name="msi.source.dir" value="..\msi"/>
-	
+
 	<!-- Tasks -->
+	<target name="set-version"
+		unless="${target::has-executed('set-version')}" >
+
+		<asminfo output="..\..\AssemblyInfo.cs" language="CSharp">
+			<imports>
+				<import namespace="System.Reflection" />
+				<import namespace="System.Runtime.InteropServices" />
+			</imports>
+			<attributes>
+				<attribute type="AssemblyVersionAttribute" value="${version}" />
+				<attribute type="AssemblyFileVersionAttribute" value="${version}" />
+				<attribute type="AssemblyCopyrightAttribute" value="Copyright © 2013-2014 Thinking-Home.RU" />
+				<attribute type="AssemblyProductAttribute" value="ThinkingHome.Service" />
+			</attributes>
+		</asminfo>
+
+	</target>
+
 	<target name="compile" unless="${target::has-executed('compile')}">
+
 		<msbuild project="..\..\ThinkingHome.sln">
 			<property name="Configuration" value="${build-configuration}" />
 			<property name="Platform" value="Any CPU" />
@@ -68,7 +92,7 @@
 			<do>
 				<!-- используем path::get-file-name, т.к. нам нужно получить имя папки без пути к ней -->
 				<property name="tmp.dir.name" value="${path::get-file-name(foldername)}"/>
-				<property name="tmp.todir.name" value="${path::combine(dist.plugins.dir, tmp.dir.name)}.${th.ver}"/>
+				<property name="tmp.todir.name" value="${path::combine(dist.plugins.dir, tmp.dir.name)}.${version}"/>
 
 				<copy todir="${tmp.todir.name}">
 					<fileset basedir="${foldername}">
@@ -128,6 +152,7 @@
 	</target>
 
 	<target name="full">
+		<call target="set-version" />
 		<call target="compile" />
 		<call target="dist" />
 		<!--<call target="configure" />-->
