@@ -1,145 +1,148 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5DBB0362-36D7-49E8-9277-B212E3585E4B}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ThinkingHome.Plugins.Scripts</RootNamespace>
-    <AssemblyName>ThinkingHome.Plugins.Scripts</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-    <RestorePackages>true</RestorePackages>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>..\build\Debug\ThinkingHome.Plugins.Scripts\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\build\Release\ThinkingHome.Plugins.Scripts\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="ClearScript">
-      <HintPath>..\packages\ClearScript.V8.5.3.7.0\lib\ClearScript.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ECM7.Migrator.Framework">
-      <HintPath>..\packages\ECM7Migrator.2.8.0.0\lib\net40\ECM7.Migrator.Framework.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Iesi.Collections">
-      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="NHibernate">
-      <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="NLog">
-      <HintPath>..\packages\NLog.2.0.1.2\lib\net45\NLog.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="IScriptCommandAttribute.cs" />
-    <Compile Include="ScriptHost.cs" />
-    <Compile Include="ScriptCommandAttribute.cs" />
-    <Compile Include="Data\Migrations.cs" />
-    <Compile Include="Data\Model.cs" />
-    <Compile Include="ScriptEventAttribute.cs" />
-    <Compile Include="ScriptEventHelper.cs" />
-    <Compile Include="ScriptsPlugin.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScriptsUiPlugin.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ThinkingHome.Core.Plugins\ThinkingHome.Core.Plugins.csproj">
-      <Project>{a344c63b-b956-4781-8558-0a3846c840e3}</Project>
-      <Name>ThinkingHome.Core.Plugins</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\ThinkingHome.Plugins.Listener\ThinkingHome.Plugins.Listener.csproj">
-      <Project>{db321a2c-ff9c-48ef-80cf-d356a5d5f3a8}</Project>
-      <Name>ThinkingHome.Plugins.Listener</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\ThinkingHome.Plugins.WebUI\ThinkingHome.Plugins.WebUI.csproj">
-      <Project>{5a1778f2-f2dd-4d46-89fd-83864ca6d1a0}</Project>
-      <Name>ThinkingHome.Plugins.WebUI</Name>
-      <Private>False</Private>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-    <EmbeddedResource Include="Resources\script-list.tpl" />
-    <EmbeddedResource Include="Resources\script-list-item.tpl" />
-    <EmbeddedResource Include="Resources\script-editor.tpl" />
-    <EmbeddedResource Include="Resources\subscriptions-list.tpl" />
-    <EmbeddedResource Include="Resources\subscriptions-layout.tpl" />
-    <EmbeddedResource Include="Resources\subscriptions-list-item.tpl" />
-    <EmbeddedResource Include="Resources\subscriptions-form.tpl" />
-    <None Include="ThinkingHome.Plugins.Scripts.nuspec">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\script-list-model.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\script-list-view.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\script-list.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\script-editor-view.js" />
-    <EmbeddedResource Include="Resources\script-editor-model.js" />
-    <EmbeddedResource Include="Resources\script-editor.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\subscriptions-model.js" />
-    <EmbeddedResource Include="Resources\subscriptions-view.js" />
-    <EmbeddedResource Include="Resources\subscriptions.js" />
-  </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>
-if not exist "$(TargetDir)" md "$(TargetDir)"
-xcopy /s /y "$(SolutionDir)packages\ClearScript.V8.5.3.7.0\tools\native\x86\*.*" "$(TargetDir)"
-if not exist "$(TargetDir)" md "$(TargetDir)"
-xcopy /s /y "$(SolutionDir)packages\ClearScript.V8.5.3.7.0\tools\native\amd64\*.*" "$(TargetDir)"</PostBuildEvent>
-  </PropertyGroup>
-  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
-  </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	<Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+	<PropertyGroup>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		<ProjectGuid>{5DBB0362-36D7-49E8-9277-B212E3585E4B}</ProjectGuid>
+		<OutputType>Library</OutputType>
+		<AppDesignerFolder>Properties</AppDesignerFolder>
+		<RootNamespace>ThinkingHome.Plugins.Scripts</RootNamespace>
+		<AssemblyName>ThinkingHome.Plugins.Scripts</AssemblyName>
+		<TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+		<FileAlignment>512</FileAlignment>
+		<SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+		<RestorePackages>true</RestorePackages>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<Optimize>false</Optimize>
+		<OutputPath>..\build\Debug\ThinkingHome.Plugins.Scripts\</OutputPath>
+		<DefineConstants>DEBUG;TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<DebugType>pdbonly</DebugType>
+		<Optimize>true</Optimize>
+		<OutputPath>..\build\Release\ThinkingHome.Plugins.Scripts\</OutputPath>
+		<DefineConstants>TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+	<ItemGroup>
+		<Reference Include="ClearScript">
+			<HintPath>..\packages\ClearScript.V8.5.3.7.0\lib\ClearScript.dll</HintPath>
+			<Private>True</Private>
+		</Reference>
+		<Reference Include="ECM7.Migrator.Framework">
+			<HintPath>..\packages\ECM7Migrator.2.8.0.0\lib\net40\ECM7.Migrator.Framework.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="Iesi.Collections">
+			<HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="NHibernate">
+			<HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="NLog">
+			<HintPath>..\packages\NLog.2.0.1.2\lib\net45\NLog.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="System" />
+		<Reference Include="System.ComponentModel.Composition" />
+		<Reference Include="System.ComponentModel.DataAnnotations" />
+		<Reference Include="System.Core" />
+		<Reference Include="System.Xml.Linq" />
+		<Reference Include="System.Data.DataSetExtensions" />
+		<Reference Include="Microsoft.CSharp" />
+		<Reference Include="System.Data" />
+		<Reference Include="System.Xml" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="IScriptCommandAttribute.cs" />
+		<Compile Include="ScriptHost.cs" />
+		<Compile Include="ScriptCommandAttribute.cs" />
+		<Compile Include="Data\Migrations.cs" />
+		<Compile Include="Data\Model.cs" />
+		<Compile Include="ScriptEventAttribute.cs" />
+		<Compile Include="ScriptEventHelper.cs" />
+		<Compile Include="ScriptsPlugin.cs" />
+		<Compile Include="..\AssemblyInfo.cs">
+			<Link>Properties\AssemblyInfo.cs</Link>
+		</Compile>
+		<Compile Include="ScriptsUiPlugin.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\ThinkingHome.Core.Plugins\ThinkingHome.Core.Plugins.csproj">
+			<Project>{a344c63b-b956-4781-8558-0a3846c840e3}</Project>
+			<Name>ThinkingHome.Core.Plugins</Name>
+			<Private>False</Private>
+		</ProjectReference>
+		<ProjectReference Include="..\ThinkingHome.Plugins.Listener\ThinkingHome.Plugins.Listener.csproj">
+			<Project>{db321a2c-ff9c-48ef-80cf-d356a5d5f3a8}</Project>
+			<Name>ThinkingHome.Plugins.Listener</Name>
+			<Private>False</Private>
+		</ProjectReference>
+		<ProjectReference Include="..\ThinkingHome.Plugins.WebUI\ThinkingHome.Plugins.WebUI.csproj">
+			<Project>{5a1778f2-f2dd-4d46-89fd-83864ca6d1a0}</Project>
+			<Name>ThinkingHome.Plugins.WebUI</Name>
+			<Private>False</Private>
+		</ProjectReference>
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="packages.config" />
+		<EmbeddedResource Include="Resources\script-list.tpl" />
+		<EmbeddedResource Include="Resources\script-list-item.tpl" />
+		<EmbeddedResource Include="Resources\script-editor.tpl" />
+		<EmbeddedResource Include="Resources\subscriptions-list.tpl" />
+		<EmbeddedResource Include="Resources\subscriptions-layout.tpl" />
+		<EmbeddedResource Include="Resources\subscriptions-list-item.tpl" />
+		<EmbeddedResource Include="Resources\subscriptions-form.tpl" />
+		<None Include="ThinkingHome.Plugins.Scripts.nuspec">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="Resources\script-list-model.js" />
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="Resources\script-list-view.js" />
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="Resources\script-list.js" />
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="Resources\script-editor-view.js" />
+		<EmbeddedResource Include="Resources\script-editor-model.js" />
+		<EmbeddedResource Include="Resources\script-editor.js" />
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="Resources\subscriptions-model.js" />
+		<EmbeddedResource Include="Resources\subscriptions-view.js" />
+		<EmbeddedResource Include="Resources\subscriptions.js" />
+	</ItemGroup>
+	<ItemGroup />
+	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+	<PropertyGroup>
+		<PostBuildEvent>
+			if not exist "$(TargetDir)" md "$(TargetDir)"
+			xcopy /s /y "$(SolutionDir)packages\ClearScript.V8.5.3.7.0\tools\native\x86\*.*" "$(TargetDir)"
+			if not exist "$(TargetDir)" md "$(TargetDir)"
+			xcopy /s /y "$(SolutionDir)packages\ClearScript.V8.5.3.7.0\tools\native\amd64\*.*" "$(TargetDir)"
+		</PostBuildEvent>
+	</PropertyGroup>
+	<Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+	<Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+		<PropertyGroup>
+			<ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+		</PropertyGroup>
+		<Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+	</Target>
+	<!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
