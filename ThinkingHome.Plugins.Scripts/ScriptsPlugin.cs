@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Reflection;
@@ -9,46 +10,29 @@ using NHibernate.Mapping.ByCode;
 using NLog;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Core.Plugins.Utils;
-using ThinkingHome.Plugins.Listener;
-using ThinkingHome.Plugins.Listener.Api;
-using ThinkingHome.Plugins.Listener.Handlers;
 using ThinkingHome.Plugins.Scripts.Data;
-using ThinkingHome.Plugins.WebUI.Attributes;
 
 namespace ThinkingHome.Plugins.Scripts
 {
-	// script list
-	[AppSection("Event handlers", SectionType.System, "/webapp/scripts/subscriptions.js", "ThinkingHome.Plugins.Scripts.Resources.subscriptions.js")]
-	[JavaScriptResource("/webapp/scripts/subscriptions-model.js", "ThinkingHome.Plugins.Scripts.Resources.subscriptions-model.js")]
-	[JavaScriptResource("/webapp/scripts/subscriptions-view.js", "ThinkingHome.Plugins.Scripts.Resources.subscriptions-view.js")]
-	[HttpResource("/webapp/scripts/subscriptions-layout.tpl", "ThinkingHome.Plugins.Scripts.Resources.subscriptions-layout.tpl")]
-	[HttpResource("/webapp/scripts/subscriptions-form.tpl", "ThinkingHome.Plugins.Scripts.Resources.subscriptions-form.tpl")]
-	[HttpResource("/webapp/scripts/subscriptions-list.tpl", "ThinkingHome.Plugins.Scripts.Resources.subscriptions-list.tpl")]
-	[HttpResource("/webapp/scripts/subscriptions-list-item.tpl", "ThinkingHome.Plugins.Scripts.Resources.subscriptions-list-item.tpl")]
-
-	[AppSection("Scripts", SectionType.System, "/webapp/scripts/script-list.js", "ThinkingHome.Plugins.Scripts.Resources.script-list.js")]
-	[JavaScriptResource("/webapp/scripts/script-list-model.js", "ThinkingHome.Plugins.Scripts.Resources.script-list-model.js")]
-	[JavaScriptResource("/webapp/scripts/script-list-view.js", "ThinkingHome.Plugins.Scripts.Resources.script-list-view.js")]
-	[HttpResource("/webapp/scripts/script-list-item.tpl", "ThinkingHome.Plugins.Scripts.Resources.script-list-item.tpl")]
-	[HttpResource("/webapp/scripts/script-list.tpl", "ThinkingHome.Plugins.Scripts.Resources.script-list.tpl")]
-
-	// editor
-	[JavaScriptResource("/webapp/scripts/script-editor.js", "ThinkingHome.Plugins.Scripts.Resources.script-editor.js")]
-	[JavaScriptResource("/webapp/scripts/script-editor-model.js", "ThinkingHome.Plugins.Scripts.Resources.script-editor-model.js")]
-	[JavaScriptResource("/webapp/scripts/script-editor-view.js", "ThinkingHome.Plugins.Scripts.Resources.script-editor-view.js")]
-	[HttpResource("/webapp/scripts/script-editor.tpl", "ThinkingHome.Plugins.Scripts.Resources.script-editor.tpl")]
-
 	[Plugin]
 	public class ScriptsPlugin : Plugin
 	{
 		private ScriptHost scriptHost;
-		private readonly HashSet<string> scriptEvents = new HashSet<string>(StringComparer.CurrentCultureIgnoreCase);
+		private HashSet<string> scriptEvents;
 
 		public override void Init()
 		{
+			var actions = RegisterScriptCommands();
+
+			scriptHost = new ScriptHost(actions, Logger, ExecuteScriptByName);
+			scriptEvents = RegisterScriptEvents(Context.GetAllPlugins(), Logger);
+		}
+
+		private Dictionary<string, Delegate> RegisterScriptCommands()
+		{
 			var actions = new Dictionary<string, Delegate>(StringComparer.InvariantCultureIgnoreCase);
 
-			foreach (var action in ScriptExecuted)
+			foreach (var action in ScriptCommands)
 			{
 				if (actions.ContainsKey(action.Metadata.Alias))
 				{
@@ -58,44 +42,40 @@ namespace ThinkingHome.Plugins.Scripts
 
 				actions.Add(action.Metadata.Alias, action.Value);
 			}
-
-			scriptHost = new ScriptHost(actions, Logger, RunScript);
-
-			foreach (var plugin in Context.GetAllPlugins())
-			{
-				GetScriptEvents(plugin);
-			}
+			return actions;
 		}
 
-		private void GetScriptEvents(Plugin plugin)
+		private static HashSet<string> RegisterScriptEvents(IEnumerable<Plugin> plugins, Logger logger)
 		{
-			if (plugin == null)
+			var scriptEvents = new HashSet<string>(StringComparer.CurrentCultureIgnoreCase);
+			
+			foreach (var plugin in plugins)
 			{
-				return;
-			}
+				var properties = plugin.GetType()
+					.GetProperties()
+					.Where(m => m.PropertyType == typeof(ScriptEventHandlerDelegate[]))
+					.ToList();
 
-			var properties = plugin.GetType()
-				.GetProperties()
-				.Where(m => m.PropertyType == typeof(ScriptEventHandlerDelegate[]))
-				.ToList();
-
-			foreach (var member in properties)
-			{
-				var eventInfo = member.GetCustomAttributes<ScriptEventAttribute>().SingleOrDefault();
-
-				if (eventInfo != null)
+				foreach (var member in properties)
 				{
-					Logger.Info("register script event '{0}' ({1})", eventInfo.EventAlias, member);
+					var eventInfo = member.GetCustomAttributes<ScriptEventAttribute>().SingleOrDefault();
 
-					if (scriptEvents.Contains(eventInfo.EventAlias))
+					if (eventInfo != null)
 					{
-						var message = string.Format("duplicate event alias: '{0}'", eventInfo.EventAlias);
-						throw new Exception(message);
-					}
+						logger.Info("register script event '{0}' ({1})", eventInfo.EventAlias, member);
 
-					scriptEvents.Add(eventInfo.EventAlias);
+						if (scriptEvents.Contains(eventInfo.EventAlias))
+						{
+							var message = string.Format("duplicate event alias: '{0}'", eventInfo.EventAlias);
+							throw new Exception(message);
+						}
+
+						scriptEvents.Add(eventInfo.EventAlias);
+					}
 				}
 			}
+
+			return scriptEvents;
 		}
 
 		public override void InitDbModel(ModelMapper mapper)
@@ -104,182 +84,38 @@ namespace ThinkingHome.Plugins.Scripts
 			mapper.Class<ScriptEventHandler>(cfg => cfg.Table("Scripts_EventHandler"));
 		}
 
-		#region http scripts
+		#region public
 
-		[HttpCommand("/api/scripts/list")]
-		public object GetScriptList(HttpRequestParams request)
+		public ReadOnlyCollection<string> ScriptEvents
 		{
-			using (var session = Context.OpenSession())
-			{
-				var list = session.Query<UserScript>()
-					.Select(x => new { id = x.Id, name = x.Name })
-					.ToArray();
-
-				return list;
-			}
+			get { return scriptEvents.ToList().AsReadOnly(); }
 		}
 
-		[HttpCommand("/api/scripts/get")]
-		public object LoadScript(HttpRequestParams request)
+		/// <summary>
+		/// Запуск скриптов (для плагинов)
+		/// </summary>
+		/// <param name="script"></param>
+		/// <param name="args"></param>
+		public void ExecuteScript(UserScript script, params object[] args)
 		{
-			Guid id = request.GetRequiredGuid("id");
-
-			using (var session = Context.OpenSession())
-			{
-				var script = session.Query<UserScript>()
-					.Select(x => new { id = x.Id, name = x.Name, body = x.Body })
-					.FirstOrDefault(x => x.id == id);
-
-				return script;
-			}
-		}
-
-		[HttpCommand("/api/scripts/save")]
-		public object SaveScript(HttpRequestParams request)
-		{
-			Guid? id = request.GetGuid("id");
-			string name = request.GetRequiredString("name");
-			string body = request.GetString("body");
-
-			using (var session = Context.OpenSession())
-			{
-
-				var script = id.HasValue
-					? session.Get<UserScript>(id.Value)
-					: new UserScript { Id = Guid.NewGuid() };
-
-				script.Name = name;
-				script.Body = body;
-				session.SaveOrUpdate(script);
-				session.Flush();
-			}
-
-			return null;
-		}
-
-		[HttpCommand("/api/scripts/delete")]
-		public object DeleteScript(HttpRequestParams request)
-		{
-			Guid scriptId = request.GetRequiredGuid("scriptId");
-
-			using (var session = Context.OpenSession())
-			{
-				var subscription = session.Load<UserScript>(scriptId);
-				session.Delete(subscription);
-				session.Flush();
-			}
-
-			return null;
-		}
-
-		[HttpCommand("/api/scripts/run")]
-		public object RunScript(HttpRequestParams request)
-		{
-			Guid scriptId = request.GetRequiredGuid("scriptId");
-
-			using (var session = Context.OpenSession())
-			{
-				var script = session.Get<UserScript>(scriptId);
-
-				ExecuteScript(script, new object[0]);
-			}
-
-			return null;
+			ExecuteScript(script, scriptHost, Logger, args);
 		}
 
 		#endregion
 
-		#region http subscriptions
+		#region private
 
-		[HttpCommand("/api/scripts/subscription/form")]
-		public object GetSubscriptionForm(HttpRequestParams request)
-		{
-			using (var session = Context.OpenSession())
-			{
-				var events = scriptEvents
-					.Select(eventAlias => new { id = eventAlias, name = eventAlias })
-					.ToList();
+		/// <summary>
+		/// Методы плагинов, доступные для скриптов
+		/// </summary>
+		[ImportMany("41AAE5E9-50CE-46E9-AE54-5A4DF4049846")]
+		private Lazy<Delegate, IScriptCommandAttribute>[] ScriptCommands { get; set; }
 
-				var scripts = session.Query<UserScript>()
-					.Select(x => new { id = x.Id, name = x.Name })
-					.ToArray();
 
-				return new
-				{
-					eventList = events,
-					scriptList = scripts
-				};
-			}
-		}
-
-		[HttpCommand("/api/scripts/subscription/list")]
-		public object GetSubscriptionList(HttpRequestParams request)
-		{
-			using (var session = Context.OpenSession())
-			{
-				var list = session.Query<ScriptEventHandler>()
-					.Select(x => new
-					{
-						id = x.Id,
-						scriptId = x.UserScript.Id,
-						scriptName = x.UserScript.Name,
-						eventAlias = x.EventAlias
-					})
-					.ToList();
-
-				return list;
-			}
-		}
-
-		[HttpCommand("/api/scripts/subscription/add")]
-		public object AddSubscription(HttpRequestParams request)
-		{
-			string eventAlias = request.GetRequiredString("eventAlias");
-			Guid scriptId = request.GetRequiredGuid("scriptId");
-
-			using (var session = Context.OpenSession())
-			{
-				var guid = Guid.NewGuid();
-
-				var script = session.Load<UserScript>(scriptId);
-
-				var subscription = new ScriptEventHandler
-				{
-					Id = guid,
-					EventAlias = eventAlias,
-					UserScript = script
-				};
-
-				session.Save(subscription);
-				session.Flush();
-
-				return guid;
-			}
-		}
-
-		[HttpCommand("/api/scripts/subscription/delete")]
-		public object DeleteSubscription(HttpRequestParams request)
-		{
-			Guid subscriptionId = request.GetRequiredGuid("subscriptionId");
-
-			using (var session = Context.OpenSession())
-			{
-				var subscription = session.Load<ScriptEventHandler>(subscriptionId);
-				session.Delete(subscription);
-				session.Flush();
-			}
-
-			return null;
-		}
-
-		#endregion
-
-		#region run scripts
-
-		[ImportMany("Scripts.ScriptExecuted")]
-		public Lazy<Delegate, IScriptCommandAttribute>[] ScriptExecuted { get; set; }
-
-		public void RunScript(string scriptName, object[] args)
+		/// <summary>
+		/// Запуск скриптов по имени (из других скриптов)
+		/// </summary>
+		private void ExecuteScriptByName(string scriptName, object[] args)
 		{
 			using (var session = Context.OpenSession())
 			{
@@ -289,8 +125,11 @@ namespace ThinkingHome.Plugins.Scripts
 			}
 		}
 
+		/// <summary>
+		/// Запуск скриптов, подписанных на события
+		/// </summary>
 		[Export("BE10460E-0E9E-4169-99BB-B1DE43B150FC", typeof(ScriptEventHandlerDelegate))]
-		public void OnScriptEvent(string eventAlias, object[] args)
+		private void OnScriptEvent(string eventAlias, object[] args)
 		{
 			using (var session = Context.OpenSession())
 			{
@@ -306,11 +145,9 @@ namespace ThinkingHome.Plugins.Scripts
 			}
 		}
 
-		public void ExecuteScript(UserScript script, params object[] args)
-		{
-			ExecuteScript(script, scriptHost, Logger, args);
-		}
-
+		/// <summary>
+		/// Запуск скрипта
+		/// </summary>
 		private static void ExecuteScript(UserScript script, ScriptHost scriptHost, Logger logger, object[] args)
 		{
 			//Debugger.Launch();

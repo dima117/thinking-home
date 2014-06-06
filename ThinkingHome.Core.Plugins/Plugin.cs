@@ -48,12 +48,12 @@ namespace ThinkingHome.Core.Plugins
 
 		#region utils
 
-		public Logger Logger
+		protected Logger Logger
 		{
 			get { return logger; }
 		}
 
-		public IServiceContext Context
+		protected IServiceContext Context
 		{
 			get { return context; }
 		}

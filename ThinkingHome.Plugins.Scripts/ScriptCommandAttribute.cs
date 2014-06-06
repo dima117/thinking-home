@@ -10,7 +10,7 @@ namespace ThinkingHome.Plugins.Scripts
 		public string Alias { get; private set; }
 
 		public ScriptCommandAttribute(string alias)
-			: base("Scripts.ScriptExecuted", typeof(Delegate))
+			: base("41AAE5E9-50CE-46E9-AE54-5A4DF4049846", typeof(Delegate))
 		{
 			Alias = alias;
 		}
