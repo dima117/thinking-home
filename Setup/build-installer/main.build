@@ -101,6 +101,18 @@
 					</fileset>
 				</copy>
 
+				<echo message="${path::combine(tmp.todir.name, tmp.dir.name)}.nuspec" />
+
+				<xmlpoke
+					file="${path::combine(tmp.todir.name, tmp.dir.name)}.nuspec"
+					xpath="/xxx:package/xxx:metadata/xxx:version"
+					value="${version}">
+
+					<namespaces>
+						<namespace prefix="xxx" uri="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd" />
+					</namespaces>
+				</xmlpoke>
+
 				<exec program="${nuget.path}" workingdir="${tmp.todir.name}">
 					<arg value="pack" />
 					<arg value="${tmp.dir.name}.nuspec" />
