@@ -112,9 +112,11 @@
 					</namespaces>
 				</xmlpoke>
 
-				<exec program="nuget.exe" workingdir="${tmp.todir.name}">
+				<exec program="nuget">
 					<arg value="pack" />
-					<arg value="${tmp.dir.name}.nuspec" />
+					<arg value="${path::combine(tmp.todir.name, tmp.dir.name)}.nuspec" />
+					<arg value="-OutputDirectory" />
+					<arg value="${tmp.todir.name}" />
 				</exec>
 
 				<delete>
