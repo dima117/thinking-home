@@ -12,7 +12,6 @@
 	<property name="build-configuration" value="Release"/>
 
 	<property name="dist.dir" value="..\dist"/>
-	<property name="nuget.path" value="..\..\.nuget\nuget"/>
 
 	<property name="dist.service.dir" value="${path::combine(dist.dir, 'service')}"/>
 	<property name="build.service.dir"
@@ -113,7 +112,7 @@
 					</namespaces>
 				</xmlpoke>
 
-				<exec program="${nuget.path}" workingdir="${tmp.todir.name}">
+				<exec program="nuget" workingdir="${tmp.todir.name}">
 					<arg value="pack" />
 					<arg value="${tmp.dir.name}.nuspec" />
 				</exec>
