@@ -112,7 +112,7 @@
 					</namespaces>
 				</xmlpoke>
 
-				<exec program="nuget" workingdir="${tmp.todir.name}">
+				<exec program="nuget.exe" workingdir="${tmp.todir.name}">
 					<arg value="pack" />
 					<arg value="${tmp.dir.name}.nuspec" />
 				</exec>
