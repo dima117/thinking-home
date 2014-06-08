@@ -2,6 +2,8 @@
 using ECM7.Migrator.Framework;
 using ForeignKeyConstraint = ECM7.Migrator.Framework.ForeignKeyConstraint;
 
+[assembly: MigrationAssembly("ThinkingHome.Plugins.Scripts")]
+
 namespace ThinkingHome.Plugins.Scripts.Data
 {
 	[Migration(1)]

@@ -14,7 +14,7 @@
 					var enabled = this.model.get('enabled');
 					var scriptId = this.model.get('scriptId');
 
-					this.$el.toggleClass('bg-info', enabled);
+					this.$el.toggleClass('bg-success', enabled);
 					this.$('.js-btn-enable').toggleClass('hidden', enabled);
 					this.$('.js-btn-disable').toggleClass('hidden', !enabled);
 					

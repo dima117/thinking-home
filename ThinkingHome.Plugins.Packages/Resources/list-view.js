@@ -16,7 +16,7 @@
 
 					if (packageVersion) {
 						this.$('.js-btn-install').hide();
-						this.$el.addClass('bg-info');
+						this.$el.addClass('bg-success');
 					} else {
 						this.$('.js-btn-uninstall').hide();
 					}

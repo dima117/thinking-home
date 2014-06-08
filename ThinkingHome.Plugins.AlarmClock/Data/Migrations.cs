@@ -2,6 +2,8 @@
 using ECM7.Migrator.Framework;
 using ForeignKeyConstraint = ECM7.Migrator.Framework.ForeignKeyConstraint;
 
+[assembly: MigrationAssembly("ThinkingHome.Plugins.AlarmClock")]
+
 namespace ThinkingHome.Plugins.AlarmClock.Data
 {
 	[Migration(1)]

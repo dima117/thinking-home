@@ -1,4 +1,4 @@
 ﻿<div>
-	<h4 class="js-section-link"><%= name %></h4>
+	<h4><a href="#" class="js-section-link"><%= name %></a></h4>
 </div>
 
