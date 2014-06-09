@@ -7,6 +7,7 @@ using ThinkingHome.Plugins.Listener;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Handlers;
 using ThinkingHome.Plugins.WebUI.Attributes;
+using ThinkingHome.Plugins.WebUI.Model;
 
 namespace ThinkingHome.Plugins.WebUI
 {
@@ -130,13 +131,5 @@ namespace ThinkingHome.Plugins.WebUI
 
 			return list;
 		}
-	}
-
-	public class TileModel
-	{
-		public Guid id = Guid.NewGuid();
-		public string title;
-		public bool wide;
-		public string[] content;
 	}
 }
