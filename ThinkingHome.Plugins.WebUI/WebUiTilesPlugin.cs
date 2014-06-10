@@ -17,7 +17,7 @@ namespace ThinkingHome.Plugins.WebUI
 		private InternalDictionary<TileInfo> tiles;
 
 		[ImportMany("FA4F97A0-41A0-4A72-BEF3-6DB579D909F4")]
-		private Lazy<Action<TileModel>, ITileAttribute>[] TileHandlers { get; set; }
+		public Lazy<Action<TileModel>, ITileAttribute>[] TileHandlers { get; set; }
 
 		public override void Init()
 		{

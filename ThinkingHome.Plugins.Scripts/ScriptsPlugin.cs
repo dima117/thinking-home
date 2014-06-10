@@ -104,7 +104,7 @@ namespace ThinkingHome.Plugins.Scripts
 		/// Методы плагинов, доступные для скриптов
 		/// </summary>
 		[ImportMany("41AAE5E9-50CE-46E9-AE54-5A4DF4049846")]
-		private Lazy<Delegate, IScriptCommandAttribute>[] ScriptCommands { get; set; }
+		public Lazy<Delegate, IScriptCommandAttribute>[] ScriptCommands { get; set; }
 
 
 		/// <summary>
@@ -124,7 +124,7 @@ namespace ThinkingHome.Plugins.Scripts
 		/// Запуск скриптов, подписанных на события
 		/// </summary>
 		[Export("BE10460E-0E9E-4169-99BB-B1DE43B150FC", typeof(ScriptEventHandlerDelegate))]
-		private void OnScriptEvent(string eventAlias, object[] args)
+		public void OnScriptEvent(string eventAlias, object[] args)
 		{
 			using (var session = Context.OpenSession())
 			{

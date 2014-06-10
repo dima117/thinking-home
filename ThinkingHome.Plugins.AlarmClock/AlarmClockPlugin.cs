@@ -63,17 +63,17 @@ namespace ThinkingHome.Plugins.AlarmClock
 		#region events
 
 		[ImportMany("0917789F-A980-4224-B43F-A820DEE093C8")]
-		private Action<Guid>[] AlarmStartedForPlugins { get; set; }
+		public Action<Guid>[] AlarmStartedForPlugins { get; set; }
 
 		[ScriptEvent("alarmClock.alarmStarted")]
-		private ScriptEventHandlerDelegate[] AlarmStartedForScripts { get; set; }
+		public ScriptEventHandlerDelegate[] AlarmStartedForScripts { get; set; }
 
 		#endregion
 
 		#region private
 
 		[OnTimerElapsed]
-		private void OnTimerElapsed(DateTime now)
+		public void OnTimerElapsed(DateTime now)
 		{
 			lock (lockObject)
 			{
