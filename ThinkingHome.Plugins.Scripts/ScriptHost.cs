@@ -1,16 +1,16 @@
 using System;
-using System.Collections.Generic;
 using NLog;
+using ThinkingHome.Core.Plugins.Utils;
 
 namespace ThinkingHome.Plugins.Scripts
 {
 	public class ScriptHost
 	{
-		private readonly Dictionary<string, Delegate> methods;
+		private readonly InternalDictionary<Delegate> methods;
 		private readonly Logger logger;
 		private readonly Action<string, object[]> scriptRunner;
 
-		public ScriptHost(Dictionary<string, Delegate> methods, Logger logger, Action<string, object[]> scriptRunner)
+		public ScriptHost(InternalDictionary<Delegate> methods, Logger logger, Action<string, object[]> scriptRunner)
 		{
 			this.methods = methods;
 			this.logger = logger;

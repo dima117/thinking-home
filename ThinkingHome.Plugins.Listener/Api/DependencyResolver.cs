@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using System.Web.Http.Dependencies;
 using NLog;
+using ThinkingHome.Core.Plugins.Utils;
+using ThinkingHome.Plugins.Listener.Handlers;
 
 namespace ThinkingHome.Plugins.Listener.Api
 {
 	public class DependencyResolver : IDependencyResolver
 	{
-		private readonly HttpHandlerCollection handlers;
+		private readonly InternalDictionary<ListenerHandler> handlers;
 		private readonly Logger logger;
 
-		public DependencyResolver(HttpHandlerCollection handlers, Logger logger)
+		public DependencyResolver(InternalDictionary<ListenerHandler> handlers, Logger logger)
 		{
 			this.handlers = handlers;
 			this.logger = logger;

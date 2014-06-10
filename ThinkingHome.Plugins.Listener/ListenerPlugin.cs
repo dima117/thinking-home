@@ -1,10 +1,10 @@
 ﻿using System;
 using System.ComponentModel.Composition;
-using System.Diagnostics;
 using System.Reflection;
 using System.Web.Http;
 using System.Web.Http.SelfHost;
 using ThinkingHome.Core.Plugins;
+using ThinkingHome.Core.Plugins.Utils;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Handlers;
 
@@ -42,9 +42,9 @@ namespace ThinkingHome.Plugins.Listener
 
 		#region private
 
-		private HttpHandlerCollection RegisterHandlers()
+		private InternalDictionary<ListenerHandler> RegisterHandlers()
 		{
-			var handlers = new HttpHandlerCollection();
+			var handlers = new InternalDictionary<ListenerHandler>();
 
 			// регистрируем обработчики для методов плагинов
 			foreach (var action in RequestReceived)
@@ -52,7 +52,7 @@ namespace ThinkingHome.Plugins.Listener
 				Logger.Info("Register HTTP handler (API): '{0}'", action.Metadata.Url);
 
 				var handler = new ApiListenerHandler(action.Value);
-				handlers.RegisterHandler(action.Metadata.Url, handler);
+				handlers.Register(action.Metadata.Url, handler);
 			}
 
 			// регистрируем обработчики для ресурсов
@@ -68,7 +68,7 @@ namespace ThinkingHome.Plugins.Listener
 					var resHandler = new ResourceListenerHandler(
 						type.Assembly, attribute.ResourcePath, attribute.ContentType);
 
-					handlers.RegisterHandler(attribute.Url, resHandler);
+					handlers.Register(attribute.Url, resHandler);
 				}
 			}
 

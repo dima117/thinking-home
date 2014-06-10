@@ -28,20 +28,15 @@ namespace ThinkingHome.Plugins.Scripts
 			scriptEvents = RegisterScriptEvents(Context.GetAllPlugins(), Logger);
 		}
 
-		private Dictionary<string, Delegate> RegisterScriptCommands()
+		private InternalDictionary<Delegate> RegisterScriptCommands()
 		{
-			var actions = new Dictionary<string, Delegate>(StringComparer.InvariantCultureIgnoreCase);
+			var actions = new InternalDictionary<Delegate>();
 
 			foreach (var action in ScriptCommands)
 			{
-				if (actions.ContainsKey(action.Metadata.Alias))
-				{
-					var msg = string.Format("duplicate script command '{0}'", action.Metadata.Alias);
-					throw new Exception(msg);
-				}
-
-				actions.Add(action.Metadata.Alias, action.Value);
+				actions.Register(action.Metadata.Alias, action.Value);
 			}
+
 			return actions;
 		}
 

@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NLog;
 using ThinkingHome.Core.Plugins;
+using ThinkingHome.Core.Plugins.Utils;
 using ThinkingHome.Plugins.Listener;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.WebUI.Attributes;
@@ -17,7 +14,7 @@ namespace ThinkingHome.Plugins.WebUI
 	[Plugin]
 	public class WebUiTilesPlugin : Plugin
 	{
-		private Dictionary<string, TileInfo> tiles;
+		private InternalDictionary<TileInfo> tiles;
 
 		[ImportMany("FA4F97A0-41A0-4A72-BEF3-6DB579D909F4")]
 		private Lazy<Action<TileModel>, ITileAttribute>[] TileHandlers { get; set; }
@@ -27,23 +24,17 @@ namespace ThinkingHome.Plugins.WebUI
 			tiles = RegisterTiles(TileHandlers, Logger);
 		}
 
-		private static Dictionary<string, TileInfo> RegisterTiles(Lazy<Action<TileModel>, ITileAttribute>[] handlers, Logger logger)
+		private static InternalDictionary<TileInfo> RegisterTiles(Lazy<Action<TileModel>, ITileAttribute>[] handlers, Logger logger)
 		{
-			var tiles = new Dictionary<string, TileInfo>(StringComparer.InvariantCultureIgnoreCase);
+			var tiles = new InternalDictionary<TileInfo>();
 
 			// регистрируем обработчики для методов плагинов
 			foreach (var handler in handlers)
 			{
 				logger.Info("Register TILE: '{0}'", handler.Metadata.Key);
 
-				if (tiles.ContainsKey(handler.Metadata.Key))
-				{
-					throw new Exception("duplicated tile key");
-				}
-
 				var tileInfo = new TileInfo(handler.Metadata, handler.Value);
-
-				tiles.Add(handler.Metadata.Key, tileInfo);
+				tiles.Register(handler.Metadata.Key, tileInfo);
 			}
 
 			return tiles;

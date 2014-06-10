@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using NLog;
+using ThinkingHome.Core.Plugins.Utils;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Handlers;
 
@@ -11,10 +12,10 @@ namespace ThinkingHome.Plugins.Listener
 {
 	public class CommonController : ApiController
 	{
-		private readonly HttpHandlerCollection handlers;
+		private readonly InternalDictionary<ListenerHandler> handlers;
 		private readonly Logger logger;
 
-		public CommonController(HttpHandlerCollection handlers, Logger logger)
+		public CommonController(InternalDictionary<ListenerHandler> handlers, Logger logger)
 		{
 			this.handlers = handlers;
 			this.logger = logger;
