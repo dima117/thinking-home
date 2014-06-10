@@ -75,7 +75,7 @@ namespace ThinkingHome.Plugins.WebUI
 	public class WebUIPlugin : Plugin
 	{
 		private readonly List<AppSectionAttribute> sections = new List<AppSectionAttribute>();
-
+		
 		public override void Init()
 		{
 			base.Init();
@@ -85,29 +85,6 @@ namespace ThinkingHome.Plugins.WebUI
 				var attributes = plugin.GetType().GetCustomAttributes<AppSectionAttribute>();
 				sections.AddRange(attributes);
 			}
-		}
-
-		[HttpCommand("/api/webui/tiles/all")]
-		public object GetTiles(HttpRequestParams request)
-		{
-			var cntnt = new[] { "4:00 - 10°C", "10:00 - 12°C", "16:00 - 18°C", "22:00 - 14°C" };
-			var cntnt2 = new[] { "ст. Воронок", "06:54, 07:11, 07:14, 07:21, 07:28, 07:40" };
-			var cntnt3 = new[] { "Украина решила выйти из СНГ", "Партия Саркози призналась в мошенничестве во время президентских выборов" };
-			var cntnt4 = new[] { "4:40" };
-			
-			return new[]
-			{
-				new TileModel{ title = "Погода", content = cntnt},
-				new TileModel{ title = "Будильник", content = cntnt4},
-				new TileModel{ title = "Расписание"},
-				new TileModel{ title = "Расписание электричек", content = cntnt2, wide = true},
-				new TileModel{ title = "Новости", content = cntnt3, wide = true},
-				new TileModel{ title = "Youtube"},
-				new TileModel{ title = "Погода", content = cntnt},
-				new TileModel{ title = "Будильник", content = cntnt4},
-				new TileModel{ title = "Расписание"},
-				new TileModel{ title = "Youtube"}
-			};
 		}
 
 		[HttpCommand("/api/webui/sections/common")]

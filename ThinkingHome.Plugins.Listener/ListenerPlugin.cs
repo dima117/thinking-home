@@ -17,8 +17,8 @@ namespace ThinkingHome.Plugins.Listener
 
 		private HttpSelfHostServer server;
 
-		[ImportMany("Listener.RequestReceived")]
-		public Lazy<Func<HttpRequestParams, object>, IHttpCommandAttribute>[] RequestReceived { get; set; }
+		[ImportMany("5D358D8E-2310-49FE-A660-FB3ED7003B4C")]
+		private Lazy<Func<HttpRequestParams, object>, IHttpCommandAttribute>[] RequestReceived { get; set; }
 
 		public override void Init()
 		{

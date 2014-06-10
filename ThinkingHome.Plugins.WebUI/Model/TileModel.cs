@@ -8,7 +8,7 @@ namespace ThinkingHome.Plugins.WebUI.Model
 		public Guid id = Guid.NewGuid();
 		public string title;
 		public bool wide;
-		public string[] content;
+		public string content;
 		// ReSharper restore InconsistentNaming
 	}
 }

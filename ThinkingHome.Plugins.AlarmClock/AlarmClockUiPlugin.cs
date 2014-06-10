@@ -9,6 +9,7 @@ using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Handlers;
 using ThinkingHome.Plugins.Scripts.Data;
 using ThinkingHome.Plugins.WebUI.Attributes;
+using ThinkingHome.Plugins.WebUI.Model;
 
 namespace ThinkingHome.Plugins.AlarmClock
 {
@@ -168,6 +169,16 @@ namespace ThinkingHome.Plugins.AlarmClock
 			object scripts, Guid? id = null, string name = null, int hours = 0, int minutes = 0, bool enabled = false, Guid? scriptId = null)
 		{
 			return new { id, name, hours, minutes, enabled, scriptId, scripts };
+		}
+
+		#endregion
+
+		#region tiles
+
+		[Tile("48AFCCC4-A3B1-41B3-B23A-2EA3DAFD6F55", "Alarm clock", "/api/alarm-clock/list")]
+		public void AlarmClockTile(TileModel tile)
+		{
+			tile.content = "Внимание!\nХРЮКАТА!";
 		}
 
 		#endregion

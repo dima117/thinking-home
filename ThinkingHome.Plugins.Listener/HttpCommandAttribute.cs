@@ -14,7 +14,7 @@ namespace ThinkingHome.Plugins.Listener
 	public class HttpCommandAttribute : ExportAttribute, IHttpCommandAttribute
 	{
 		public HttpCommandAttribute(string url)
-			: base("Listener.RequestReceived", typeof(Func<HttpRequestParams, object>))
+			: base("5D358D8E-2310-49FE-A660-FB3ED7003B4C", typeof(Func<HttpRequestParams, object>))
 		{
 			Url = url;
 		}
