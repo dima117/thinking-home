@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.Linq;
+using NHibernate.Linq;
+using NHibernate.Mapping.ByCode;
 using NLog;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Core.Plugins.Utils;
 using ThinkingHome.Plugins.Listener;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.WebUI.Attributes;
+using ThinkingHome.Plugins.WebUI.Data;
 using ThinkingHome.Plugins.WebUI.Model;
 
 namespace ThinkingHome.Plugins.WebUI
@@ -14,14 +18,14 @@ namespace ThinkingHome.Plugins.WebUI
 	[Plugin]
 	public class WebUiTilesPlugin : Plugin
 	{
-		private InternalDictionary<TileInfo> tiles;
+		private InternalDictionary<TileInfo> availableTiles;
 
 		[ImportMany("FA4F97A0-41A0-4A72-BEF3-6DB579D909F4")]
 		public Lazy<Action<TileModel>, ITileAttribute>[] TileHandlers { get; set; }
 
 		public override void Init()
 		{
-			tiles = RegisterTiles(TileHandlers, Logger);
+			availableTiles = RegisterTiles(TileHandlers, Logger);
 		}
 
 		private static InternalDictionary<TileInfo> RegisterTiles(Lazy<Action<TileModel>, ITileAttribute>[] handlers, Logger logger)
@@ -40,6 +44,12 @@ namespace ThinkingHome.Plugins.WebUI
 			return tiles;
 		}
 
+		public override void InitDbModel(ModelMapper mapper)
+		{
+			mapper.Class<Tile>(cfg => cfg.Table("WebUI_Tile"));
+		}
+
+
 		#region tiles
 
 		[HttpCommand("/api/webui/tiles/all")]
@@ -47,22 +57,20 @@ namespace ThinkingHome.Plugins.WebUI
 		{
 			var result = new List<TileModel>();
 
-			var objects = new[]
+			using (var session = Context.OpenSession())
 			{
-				new { id = Guid.NewGuid(), key = "48AFCCC4-A3B1-41B3-B23A-2EA3DAFD6F55" },
-				new { id = Guid.NewGuid(), key = "48AFCCC4-A3B1-41B3-B23A-2EA3DAFD6F55" },
-				new { id = Guid.NewGuid(), key = "48AFCCC4-A3B1-41B3-B23A-2EA3DAFD6F55" }
-			};
+				var tiles = session.Query<Tile>().ToList();
 
-			foreach (var obj in objects)
-			{
-				TileInfo tile;
-
-				if (tiles.TryGetValue(obj.key, out tile))
+				foreach (var obj in tiles)
 				{
-					var model = new TileModel { id = obj.id, title = tile.Title, wide = tile.IsWide };
-					tile.Handler(model);
-					result.Add(model);
+					TileInfo tile;
+
+					if (availableTiles.TryGetValue(obj.HandlerKey, out tile))
+					{
+						var model = new TileModel { id = obj.Id, title = tile.Title, wide = tile.IsWide };
+						tile.Handler(model);
+						result.Add(model);
+					}
 				}
 			}
 
