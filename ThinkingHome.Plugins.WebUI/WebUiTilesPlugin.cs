@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
+using NHibernate;
 using NHibernate.Linq;
 using NHibernate.Mapping.ByCode;
 using NLog;
@@ -55,22 +56,47 @@ namespace ThinkingHome.Plugins.WebUI
 		[HttpCommand("/api/webui/tiles/all")]
 		public object GetTiles(HttpRequestParams request)
 		{
-			var result = new List<TileModel>();
-
 			using (var session = Context.OpenSession())
 			{
-				var tiles = session.Query<Tile>().ToList();
+				return GetListModel(session, availableTiles, (id, info, model) => info.Handler(model));
+			}
+		}
 
-				foreach (var obj in tiles)
+		#endregion
+
+		#region tiles editor
+
+		[HttpCommand("/api/webui/tiles/editor")]
+		public object LoadTilesEditor(HttpRequestParams request)
+		{
+			using (var session = Context.OpenSession())
+			{
+				var list = GetListModel(session, availableTiles, (id, info, model) => { });
+				var available = availableTiles.Select(el => new { key = el.Key, title = el.Value.Title }).ToArray();
+
+				return new { list, available };
+			}
+		}
+
+		#endregion
+
+		#region helpers
+
+		private static TileModel[] GetListModel(ISession session, InternalDictionary<TileInfo> available, Action<Guid, TileInfo, TileModel> func)
+		{
+			var result = new List<TileModel>();
+
+			var tiles = session.Query<Tile>().ToList();
+
+			foreach (var obj in tiles)
+			{
+				TileInfo tile;
+
+				if (available.TryGetValue(obj.HandlerKey, out tile))
 				{
-					TileInfo tile;
-
-					if (availableTiles.TryGetValue(obj.HandlerKey, out tile))
-					{
-						var model = new TileModel { id = obj.Id, title = tile.Title, wide = tile.IsWide };
-						tile.Handler(model);
-						result.Add(model);
-					}
+					var model = new TileModel { id = obj.Id, title = tile.Title, wide = tile.IsWide };
+					func(obj.Id, tile, model);
+					result.Add(model);
 				}
 			}
 
