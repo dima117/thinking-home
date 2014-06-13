@@ -123,8 +123,9 @@
     <EmbeddedResource Include="Resources\Plugin\section-list.tpl" />
     <EmbeddedResource Include="Resources\Plugin\section-list-item.tpl" />
     <EmbeddedResource Include="Resources\Plugin\tile.tpl" />
-    <EmbeddedResource Include="Resources\Plugin\tile-editor.tpl" />
-    <EmbeddedResource Include="Resources\Plugin\tile-editor-item.tpl" />
+    <EmbeddedResource Include="Resources\Plugin\tiles-editor.tpl" />
+    <EmbeddedResource Include="Resources\Plugin\tiles-editor-layout.tpl" />
+    <EmbeddedResource Include="Resources\Plugin\tiles-editor-form.tpl" />
     <None Include="ThinkingHome.Plugins.WebUI.nuspec">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
