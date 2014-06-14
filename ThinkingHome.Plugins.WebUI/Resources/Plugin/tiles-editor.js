@@ -2,23 +2,30 @@
 
 	application.module('WebUI.TilesEditor', function (module, app, backbone, marionette, $, _) {
 
+		var layoutView;
+
 		var api = {
 
-			reload: function () {
+			reloadForm: function () {
 
-				app.request('load:tiles:all').done(function (collection) {
-					
-					var view = new module.TileCollectionView({
-						collection: collection
+				app.request('load:tiles:editor-form')
+					.done(function (formData) {
+
+						var form = new module.TilesEditorFormView({ model: formData });
+						//form.on('scripts:subscription:add', api.addSubscription);
+						layoutView.regionForm.show(form);
 					});
-					
-					app.setContentView(view);
-				});
 			}
 		};
 
 		module.start = function () {
-			api.reload();
+
+			// init layout
+			layoutView = new module.TilesEditorLayout();
+			app.setContentView(layoutView);
+
+			api.reloadForm();
+			//api.reloadList();
 		};
 	});
 

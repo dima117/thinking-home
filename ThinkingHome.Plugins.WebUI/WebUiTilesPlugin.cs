@@ -72,7 +72,7 @@ namespace ThinkingHome.Plugins.WebUI
 			using (var session = Context.OpenSession())
 			{
 				//var list = GetListModel(session, availableTiles, (id, info, model) => { });
-				var available = availableTiles.Select(el => new { key = el.Key, title = el.Value.Title }).ToArray();
+				var available = availableTiles.Select(el => new { id = el.Key, name = el.Value.Title }).ToArray();
 
 				return new { available };
 			}

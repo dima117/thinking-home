@@ -15,6 +15,7 @@
 		codemirror: 'vendor/js/codemirror-all',
 		
 		tiles: 'webapp/webui/tiles',
+		'tiles-editor': 'webapp/webui/tiles-editor',
 		apps: 'webapp/webui/section-list-common',
 		settings: 'webapp/webui/section-list-system'
 	},

@@ -25,7 +25,7 @@
 		};
 		
 		// requests
-		app.reqres.setHandler('load:tiles:editor', function () {
+		app.reqres.setHandler('load:tiles:editor-form', function () {
 			return api.loadForm();
 		});
 	});
