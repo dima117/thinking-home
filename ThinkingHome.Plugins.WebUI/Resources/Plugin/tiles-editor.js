@@ -15,6 +15,17 @@
 						//form.on('scripts:subscription:add', api.addSubscription);
 						layoutView.regionForm.show(form);
 					});
+			},
+			
+			reloadList: function () {
+
+				app.request('load:tiles:editor-list')
+					.done(function (list) {
+
+						var view = new module.TilesEditorListView({ collection: list });
+						//view.on('itemview:scripts:subscription:delete', api.deleteSubscription);
+						layoutView.regionList.show(view);
+					});
 			}
 		};
 
@@ -25,7 +36,7 @@
 			app.setContentView(layoutView);
 
 			api.reloadForm();
-			//api.reloadList();
+			api.reloadList();
 		};
 	});
 

@@ -119,6 +119,10 @@ body {
 	white-space: nowrap;
 }
 
+.tiles-panel {
+	padding-top: 15px;
+}
+
 @media (max-width: 319px) {
 	.tile {
 		width: 100%;

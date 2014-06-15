@@ -66,15 +66,23 @@ namespace ThinkingHome.Plugins.WebUI
 
 		#region tiles editor
 
-		[HttpCommand("/api/webui/tiles/editor")]
-		public object LoadTilesEditor(HttpRequestParams request)
+		[HttpCommand("/api/webui/tiles/editor-form")]
+		public object LoadTilesEditorForm(HttpRequestParams request)
+		{
+			var available = availableTiles
+				.Select(el => new { id = el.Key, name = el.Value.Title })
+				.ToArray();
+
+			return new { available };
+		}
+
+		[HttpCommand("/api/webui/tiles/editor-list")]
+		public object LoadTilesEditorList(HttpRequestParams request)
 		{
 			using (var session = Context.OpenSession())
 			{
-				//var list = GetListModel(session, availableTiles, (id, info, model) => { });
-				var available = availableTiles.Select(el => new { id = el.Key, name = el.Value.Title }).ToArray();
-
-				return new { available };
+				var list = GetListModel(session, availableTiles);
+				return list;
 			}
 		}
 
@@ -82,7 +90,7 @@ namespace ThinkingHome.Plugins.WebUI
 
 		#region helpers
 
-		private static TileModel[] GetListModel(ISession session, InternalDictionary<TileInfo> available, Action<Guid, TileInfo, TileModel> func)
+		private static TileModel[] GetListModel(ISession session, InternalDictionary<TileInfo> available, Action<Guid, TileInfo, TileModel> func = null)
 		{
 			var result = new List<TileModel>();
 
@@ -95,7 +103,12 @@ namespace ThinkingHome.Plugins.WebUI
 				if (available.TryGetValue(obj.HandlerKey, out tile))
 				{
 					var model = new TileModel { id = obj.Id, title = tile.Title, wide = tile.IsWide };
-					func(obj.Id, tile, model);
+					
+					if (func != null)
+					{
+						func(obj.Id, tile, model);
+					}
+					
 					result.Add(model);
 				}
 			}

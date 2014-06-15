@@ -1,4 +1,4 @@
-﻿<div class="col-md-11 tiles">
-	<div id="region-form"></div>
+﻿<div class="col-md-11">
+	<div id="region-form" class="clearfix"></div>
 	<div id="region-list"></div>
 </div>
