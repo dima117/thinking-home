@@ -17,7 +17,17 @@
 
 		module.TilesEditorFormView = app.Common.FormView.extend({
 			template: formTemplate,
-			className: 'tiles-panel'
+			className: 'tiles-panel',
+			events: {
+				'click .js-add-tile': 'onBtnAddTileClick'
+			},
+			onBtnAddTileClick: function(e) {
+
+				e.preventDefault();
+
+				this.updateModel();
+				this.trigger('scripts:tiles-editor:add');
+			}
 		});
 		
 		module.TilesEditorListItemView = marionette.ItemView.extend({

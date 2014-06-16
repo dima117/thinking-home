@@ -13,6 +13,14 @@
 		});
 
 		var api = {
+
+			addTile: function (key) {
+
+				var rq = $.post('/api/tiles/editor-add', { key: key });
+
+				return rq.promise();
+			},
+
 			loadForm: function () {
 
 				var defer = $.Deferred();
@@ -30,6 +38,7 @@
 
 				return defer.promise();
 			},
+
 			loadList: function () {
 
 				var defer = $.Deferred();
@@ -48,13 +57,9 @@
 		};
 
 		// requests
-		app.reqres.setHandler('load:tiles:editor-form', function () {
-			return api.loadForm();
-		});
-
-		app.reqres.setHandler('load:tiles:editor-list', function () {
-			return api.loadList();
-		});
+		app.reqres.setHandler('load:tiles:editor-form', api.loadForm);
+		app.reqres.setHandler('load:tiles:editor-list', api.loadList);
+		app.reqres.setHandler('update:tiles:editor-add', api.addTile);
 	});
 
 	return application.WebUI.TilesEditor;

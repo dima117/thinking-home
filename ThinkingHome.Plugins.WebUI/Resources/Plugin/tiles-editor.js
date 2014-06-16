@@ -6,13 +6,20 @@
 
 		var api = {
 
+			addTile: function () {
+
+				var key = this.model.get('selectedKey');
+
+				app.request('update:tiles:editor-add', key).done(api.reloadList);
+			},
+
 			reloadForm: function () {
 
 				app.request('load:tiles:editor-form')
 					.done(function (formData) {
 
 						var form = new module.TilesEditorFormView({ model: formData });
-						//form.on('scripts:subscription:add', api.addSubscription);
+						form.on('scripts:tiles-editor:add', api.addTile);
 						layoutView.regionForm.show(form);
 					});
 			},

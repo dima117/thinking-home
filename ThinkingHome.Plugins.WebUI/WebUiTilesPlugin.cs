@@ -73,7 +73,9 @@ namespace ThinkingHome.Plugins.WebUI
 				.Select(el => new { id = el.Key, name = el.Value.Title })
 				.ToArray();
 
-			return new { available };
+			var selectedKey = available.Any() ? available.First().id : null;
+
+			return new { available, selectedKey };
 		}
 
 		[HttpCommand("/api/webui/tiles/editor-list")]
@@ -83,6 +85,23 @@ namespace ThinkingHome.Plugins.WebUI
 			{
 				var list = GetListModel(session, availableTiles);
 				return list;
+			}
+		}
+
+		[HttpCommand("/api/tiles/editor-add")]
+		public object AddTile(HttpRequestParams request)
+		{
+			var key = request.GetRequiredString("key");
+
+			using (var session = Context.OpenSession())
+			{
+				var guid = Guid.NewGuid();
+
+				var tile = new Tile { Id = guid, HandlerKey = key };
+				session.Save(tile);
+				session.Flush();
+
+				return guid;
 			}
 		}
 
@@ -103,12 +122,12 @@ namespace ThinkingHome.Plugins.WebUI
 				if (available.TryGetValue(obj.HandlerKey, out tile))
 				{
 					var model = new TileModel { id = obj.Id, title = tile.Title, wide = tile.IsWide };
-					
+
 					if (func != null)
 					{
 						func(obj.Id, tile, model);
 					}
-					
+
 					result.Add(model);
 				}
 			}
