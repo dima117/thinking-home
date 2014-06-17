@@ -50,15 +50,9 @@
 		};
 
 		// requests
-		app.reqres.setHandler('load:packages:all', function () {
-			return api.loadPackages();
-		});
-		app.reqres.setHandler('update:packages:install', function (packageId) {
-			return api.installPackage(packageId);
-		});
-		app.reqres.setHandler('update:packages:uninstall', function (packageId) {
-			return api.uninstallPackage(packageId);
-		});
+		app.reqres.setHandler('load:packages:all', api.loadPackages);
+		app.reqres.setHandler('update:packages:install', api.installPackage);
+		app.reqres.setHandler('update:packages:uninstall', api.uninstallPackage);
 	});
 
 	return application.Packages.List;

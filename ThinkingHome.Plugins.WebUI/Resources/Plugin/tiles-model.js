@@ -35,9 +35,7 @@
 		};
 		
 		// requests
-		app.reqres.setHandler('load:tiles:all', function () {
-			return api.loadTiles();
-		});
+		app.reqres.setHandler('load:tiles:all', api.loadTiles);
 	});
 
 	return application.WebUI.Tiles;
