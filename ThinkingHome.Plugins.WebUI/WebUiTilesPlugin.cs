@@ -105,6 +105,21 @@ namespace ThinkingHome.Plugins.WebUI
 			}
 		}
 
+		[HttpCommand("/api/tiles/editor-delete")]
+		public object DeleteTile(HttpRequestParams request)
+		{
+			var id = request.GetRequiredGuid("id");
+
+			using (var session = Context.OpenSession())
+			{
+				var tile = session.Load<Tile>(id);
+				session.Delete(tile);
+				session.Flush();
+			}
+
+			return null;
+		}
+
 		#endregion
 
 		#region helpers

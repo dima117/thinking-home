@@ -134,10 +134,15 @@ namespace ThinkingHome.Plugins.Scripts
 					.Select(x => new { id = x.Id, name = x.Name })
 					.ToArray();
 
+				var selectedEventAlias = events.Any() ? events.First().id : null;
+				var selectedScriptId = scripts.Any() ? (Guid?)scripts.First().id : null;
+
 				return new
 				{
 					eventList = events,
-					scriptList = scripts
+					scriptList = scripts,
+					selectedEventAlias,
+					selectedScriptId
 				};
 			}
 		}

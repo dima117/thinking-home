@@ -26,7 +26,7 @@
 				e.preventDefault();
 
 				this.updateModel();
-				this.trigger('scripts:tiles-editor:add');
+				this.trigger('webui:tiles-editor:add');
 			}
 		});
 		
@@ -39,6 +39,9 @@
 				if (this.model.get('wide')) {
 					this.$el.addClass('tile-double');
 				}
+			},
+			triggers: {
+				'click .js-delete-tile': 'webui:tiles-editor:delete'
 			}
 		});
 

@@ -13,13 +13,24 @@
 				app.request('update:tiles:editor-add', key).done(api.reloadList);
 			},
 
+			deleteTile: function (itemView) {
+
+				var title = itemView.model.get('title');
+
+				if (app.Common.utils.confirm('Delete the tile "{0}"?', title)) {
+
+					var id = itemView.model.get('id');
+					app.request('update:tiles:editor-delete', id).done(api.reloadList);
+				}
+			},
+
 			reloadForm: function () {
 
 				app.request('load:tiles:editor-form')
 					.done(function (formData) {
 
 						var form = new module.TilesEditorFormView({ model: formData });
-						form.on('scripts:tiles-editor:add', api.addTile);
+						form.on('webui:tiles-editor:add', api.addTile);
 						layoutView.regionForm.show(form);
 					});
 			},
@@ -30,7 +41,7 @@
 					.done(function (list) {
 
 						var view = new module.TilesEditorListView({ collection: list });
-						//view.on('itemview:scripts:subscription:delete', api.deleteSubscription);
+						view.on('itemview:webui:tiles-editor:delete', api.deleteTile);
 						layoutView.regionList.show(view);
 					});
 			}

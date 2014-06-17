@@ -33,13 +33,8 @@
 			module.SubscriptionView = marionette.ItemView.extend({
 				template: itemTemplate,
 				tagName: 'tr',
-				events: {
-					'click .js-delete-subscription': 'deleteSubscription'
-				},
-				deleteSubscription: function (e) {
-					
-					e.preventDefault();
-					this.trigger('scripts:subscription:delete');
+				triggers: {
+					'click .js-delete-subscription': 'scripts:subscription:delete'
 				}
 			});
 

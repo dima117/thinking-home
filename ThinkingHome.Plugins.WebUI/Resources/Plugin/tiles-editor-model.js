@@ -21,6 +21,13 @@
 				return rq.promise();
 			},
 
+			deleteTile: function (id) {
+
+				var rq = $.post('/api/tiles/editor-delete', { id: id });
+
+				return rq.promise();
+			},
+
 			loadForm: function () {
 
 				var defer = $.Deferred();
@@ -60,6 +67,7 @@
 		app.reqres.setHandler('load:tiles:editor-form', api.loadForm);
 		app.reqres.setHandler('load:tiles:editor-list', api.loadList);
 		app.reqres.setHandler('update:tiles:editor-add', api.addTile);
+		app.reqres.setHandler('update:tiles:editor-delete', api.deleteTile);
 	});
 
 	return application.WebUI.TilesEditor;
