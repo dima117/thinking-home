@@ -136,7 +136,7 @@ namespace ThinkingHome.Plugins.WebUI
 
 				if (available.TryGetValue(obj.HandlerKey, out tile))
 				{
-					var model = new TileModel { id = obj.Id, title = tile.Title, wide = tile.IsWide };
+					var model = new TileModel { id = obj.Id, title = tile.Title, wide = tile.IsWide, url = tile.Url };
 
 					if (func != null)
 					{

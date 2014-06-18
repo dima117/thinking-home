@@ -105,18 +105,19 @@ namespace ThinkingHome.Plugins.Tmp
 			Logger.Info("test2: {0}", id);
 		}
 
-		[Tile("0D03FD41-167A-4FFC-9F20-6ED51A3A2A84", "Tmp", "/api/alarm-clock/list")]
+		[Tile("0D03FD41-167A-4FFC-9F20-6ED51A3A2A84", "Tmp", "webapp/alarm-clock/list")]
 		public void TestTile(TileModel tile)
 		{
+			tile.className = "btn-danger";
 			tile.content = "Это тестовый контент!";
 		}
 
-		[Tile("E6467D12-283A-4B07-B807-2FA2A7555ED4", "Weather", "/api/alarm-clock/list")]
+		[Tile("E6467D12-283A-4B07-B807-2FA2A7555ED4", "Weather", "webapp/alarm-clock/list")]
 		public void TestWeatherTile(TileModel tile)
 		{
 			tile.content = "10:00 — 5°C\n16:00 —  6°C\n22:00 —  4°C\n04:00 —  3°C";
 		}
-		[Tile("1DF06D69-4603-49C8-AA96-FF77BC0EB6D2", "News", "/api/alarm-clock/list", IsWide = true)]
+		[Tile("1DF06D69-4603-49C8-AA96-FF77BC0EB6D2", "News", "webapp/alarm-clock/list", IsWide = true)]
 		public void TestNewsTile(TileModel tile)
 		{
 			tile.content = "NASA призвало Россию продлить сотрудничество по МКС\nНа спутнике Плутона мог существовать подземный океан";

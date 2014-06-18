@@ -5,12 +5,25 @@
 		module.TileView = marionette.ItemView.extend({
 			template: template,
 			tagName: 'a',
-			className: 'tile btn-primary',
-			onRender: function() {
+			className: 'tile',
+			onRender: function () {
+				
+				var className = this.model.get('className') || "btn-primary";
+				this.$el.addClass(className);
 
 				if (this.model.get('wide')) {
 					this.$el.addClass('tile-double');
 				}
+			},
+			events: {
+				'click': 'onTileClick'
+			},
+			onTileClick: function (e) {
+				e.preventDefault();
+				e.stopPropagation();
+
+				var path = this.model.get('url');
+				app.trigger("page:load", path);
 			}
 		});
 

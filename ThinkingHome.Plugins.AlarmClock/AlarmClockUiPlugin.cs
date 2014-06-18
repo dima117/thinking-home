@@ -175,7 +175,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 
 		#region tiles
 
-		[Tile("48AFCCC4-A3B1-41B3-B23A-2EA3DAFD6F55", "Alarm clock", "/api/alarm-clock/list")]
+		[Tile("48AFCCC4-A3B1-41B3-B23A-2EA3DAFD6F55", "Alarm clock", "webapp/alarm-clock/list")]
 		public void AlarmClockTile(TileModel tile)
 		{
 			tile.content = "Внимание!\nХРЮКАТА!";
