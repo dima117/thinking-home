@@ -105,17 +105,24 @@ namespace ThinkingHome.Plugins.AlarmClock
 			}
 		}
 
+		public static DateTime GetDateTime(AlarmTime time, DateTime now, DateTime lastAlarm)
+		{
+			var date = now.Date.AddHours(time.Hours).AddMinutes(time.Minutes);
+
+			if (date < lastAlarm || date.AddMinutes(5) < now )
+			{
+				date = date.AddDays(1);
+			}
+
+			return date;
+		}
+
 		private static bool CheckTime(AlarmTime time, DateTime now, DateTime lastAlarm)
 		{
 			// если прошло время звонка будильника
 			// и от этого времени не прошло 5 минут
 			// и будильник сегодня еще не звонил
-			var date = now.Date.AddHours(time.Hours).AddMinutes(time.Minutes);
-
-			if (date < lastAlarm)
-			{
-				date = date.AddDays(1);
-			}
+			var date = GetDateTime(time, now, lastAlarm);
 
 			return now > date && now < date.AddMinutes(5) && lastAlarm < date;
 		}
@@ -149,5 +156,18 @@ namespace ThinkingHome.Plugins.AlarmClock
 		}
 
 		#endregion
+
+		public DateTime[] GetNextAlarmTimes(DateTime now)
+		{
+			lock (lockObject)
+			{
+				LoadTimes();
+
+				return times
+					.Select(t => GetDateTime(t, now, lastAlarmTime))
+					.OrderBy(t => t)
+					.ToArray();
+			}
+		}
 	}
 }

@@ -178,7 +178,17 @@ namespace ThinkingHome.Plugins.AlarmClock
 		[Tile("48AFCCC4-A3B1-41B3-B23A-2EA3DAFD6F55", "Alarm clock", "webapp/alarm-clock/list")]
 		public void AlarmClockTile(TileModel tile)
 		{
-			tile.content = "Внимание!\nХРЮКАТА!";
+			var now = DateTime.Now;
+			var times = Context
+				.GetPlugin<AlarmClockPlugin>()
+				.GetNextAlarmTimes(now)
+				.Take(4);
+
+			var strTimes = times.Select(t => t.ToShortTimeString()).ToArray();
+
+			tile.content = strTimes.Any()
+				? string.Join(Environment.NewLine, strTimes)
+				: "There are no active alarms";
 		}
 
 		#endregion
