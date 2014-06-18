@@ -34,6 +34,11 @@ namespace ThinkingHome.Core.Plugins.Utils
 			return JsonConvert.DeserializeObject(json, type);
 		}
 
+		public static dynamic FromJson(string json)
+		{
+			return JsonConvert.DeserializeObject(json);
+		}
+
 		public static TResult GetValueOrDefault<T, TResult>(this T obj, Func<T, TResult> func) 
 			where T: class
 		{
