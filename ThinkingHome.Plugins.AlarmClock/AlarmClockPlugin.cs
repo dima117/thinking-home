@@ -124,7 +124,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 			// и будильник сегодня еще не звонил
 			var date = GetDateTime(time, now, lastAlarm);
 
-			return now > date && now < date.AddMinutes(5) && lastAlarm < date;
+			return lastAlarm < date && date < now;
 		}
 
 		private void Alarm(AlarmTime[] alarms)
