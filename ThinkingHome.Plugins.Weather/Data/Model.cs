@@ -13,6 +13,8 @@ namespace ThinkingHome.Plugins.Weather.Data
 
 	public class WeatherData
 	{
+		public virtual Guid Id { get; set; }
+
 		public virtual Location Location { get; set; }
 
 		public virtual DateTime Date { get; set; }
@@ -21,6 +23,11 @@ namespace ThinkingHome.Plugins.Weather.Data
 		/// Атмосферное давление
 		/// </summary>
 		public virtual decimal Pressure { get; set; }
+		
+		/// <summary>
+		/// Температура, С
+		/// </summary>
+		public virtual decimal Temperature { get; set; }
 		
 		/// <summary>
 		/// Влажность

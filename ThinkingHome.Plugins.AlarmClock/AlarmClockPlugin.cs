@@ -1,18 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.Diagnostics;
 using System.Linq;
 using System.Media;
 using NHibernate.Linq;
 using NHibernate.Mapping.ByCode;
 using ThinkingHome.Core.Plugins;
-using ThinkingHome.Core.Plugins.Utils;
 using ThinkingHome.Plugins.AlarmClock.Data;
-using ThinkingHome.Plugins.Listener;
-using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Scripts;
-using ThinkingHome.Plugins.Scripts.Data;
 using ThinkingHome.Plugins.Timer;
 
 namespace ThinkingHome.Plugins.AlarmClock
