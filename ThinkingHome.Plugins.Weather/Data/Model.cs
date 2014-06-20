@@ -9,6 +9,11 @@ namespace ThinkingHome.Plugins.Weather.Data
 		public virtual string Query { get; set; }
 
 		public virtual string DisplayName { get; set; }
+
+		public override string ToString()
+		{
+			return string.Format("{0} (q: {1})", DisplayName, Query);
+		}
 	}
 
 	public class WeatherData

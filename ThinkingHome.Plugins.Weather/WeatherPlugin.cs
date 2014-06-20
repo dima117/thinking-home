@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections;
-using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using NHibernate;
 using NHibernate.Linq;
 using NHibernate.Mapping.ByCode;
+using NLog;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Core.Plugins.Utils;
-using ThinkingHome.Plugins.Listener;
-using ThinkingHome.Plugins.Listener.Api;
+using ThinkingHome.Plugins.Timer;
 using ThinkingHome.Plugins.Weather.Data;
 
 namespace ThinkingHome.Plugins.Weather
@@ -17,6 +16,12 @@ namespace ThinkingHome.Plugins.Weather
 	[Plugin]
 	public class WeatherPlugin : Plugin
 	{
+		private const int UPDATE_PERIOD = 15;
+
+		private readonly object autoUpdateLockObject = new object();
+		private readonly object lockObject = new object();
+		private DateTime lastUpdate = DateTime.Now;	// инициализируем значением now, чтобы на начало обновляться при старте приложения
+
 		private const string SERVICE_URL_FORMAT = "http://api.openweathermap.org/data/2.5/forecast?q={0}&units=metric&APPID=9948774b7ea6673661f1bd773a48d23c";
 		private static readonly DateTime UnixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
@@ -31,20 +36,45 @@ namespace ThinkingHome.Plugins.Weather
 			mapper.Class<WeatherData>(cfg => cfg.Table("Weather_Data"));
 		}
 
-		private dynamic LoadForecast(string cityName)
-		{
-			string encodedCityName = WebUtility.UrlEncode(cityName);
-			string url = string.Format(SERVICE_URL_FORMAT, encodedCityName);
+		#region public
 
-			using (var client = new WebClient())
+		public void ReloadWeatherData()
+		{
+			lock (lockObject)
 			{
-				var json = client.DownloadString(url);
-				return Extensions.FromJson(json);
+				UpdateAllLocations();
 			}
 		}
 
-		[HttpCommand("/api/weather/test")]
-		public object GetAlarmList(HttpRequestParams request)
+		#endregion
+
+		#region events
+
+		[OnTimerElapsed]
+		public void OnTimerElapsed(DateTime now)
+		{
+			if (lastUpdate.AddMinutes(UPDATE_PERIOD) < now)
+			{
+				lock (autoUpdateLockObject)
+				{
+					if (lastUpdate.AddMinutes(UPDATE_PERIOD) < now)
+					{
+						Logger.Info("update all locations (last update {0})", lastUpdate);
+
+						ReloadWeatherData();
+						lastUpdate = now;
+
+						Logger.Info("update completed");
+					}
+				}
+			}
+		}
+
+		#endregion
+
+		#region loading
+
+		private void UpdateAllLocations()
 		{
 			using (var session = Context.OpenSession())
 			{
@@ -52,29 +82,65 @@ namespace ThinkingHome.Plugins.Weather
 
 				foreach (var location in locations)
 				{
-					var forecast = LoadForecast(location.Query);
-					var list = forecast.list as IEnumerable;
-
-					if (list != null)
-					{
-						foreach (dynamic item in list)
-						{
-							long seconds = item.dt;
-
-							var dataItem = GetWeatherData(seconds, session, location);
-							UpdateDataItem(dataItem, item);
-							session.Flush();
-						}
-					}
+					UpdateOneLocation(location, session);
 				}
-
-				session.Flush();
 			}
-
-			return null;
 		}
 
-		private static WeatherData GetWeatherData(long seconds, ISession session, Location location)
+		private void UpdateOneLocation(Location location, ISession session)
+		{
+			try
+			{
+				var forecast = LoadForecast(location.Query, Logger);
+				UpdateWeatherData(session, location, forecast, Logger);
+			}
+			catch (Exception ex)
+			{
+				string msg = string.Format("loading error (location {0})", location);
+				Logger.ErrorException(msg, ex);
+			}
+		}
+
+		private static dynamic LoadForecast(string query, Logger logger)
+		{
+			string encodedCityName = WebUtility.UrlEncode(query);
+			string url = string.Format(SERVICE_URL_FORMAT, encodedCityName);
+
+			logger.Info("send request: {0}", url);
+
+			using (var client = new WebClient())
+			{
+				var json = client.DownloadString(url);
+				logger.Info("complete");
+
+				return Extensions.FromJson(json);
+			}
+		}
+
+		private static void UpdateWeatherData(ISession session, Location location, dynamic forecast, Logger logger)
+		{
+			var list = forecast.list as IEnumerable;
+
+			int count = 0;
+
+			if (list != null)
+			{
+				foreach (dynamic item in list)
+				{
+					long seconds = item.dt;
+
+					var dataItem = GetWeatherDataItem(seconds, session, location);
+					UpdateWeatherDataItem(dataItem, item);
+					session.Flush();
+
+					count++;
+				}
+			}
+
+			logger.Info("updated {0} items", count);
+		}
+
+		private static WeatherData GetWeatherDataItem(long seconds, ISession session, Location location)
 		{
 			var date = DateTimeFromUnixTimestampSeconds(seconds);
 
@@ -91,7 +157,7 @@ namespace ThinkingHome.Plugins.Weather
 			return dataItem;
 		}
 
-		private static void UpdateDataItem(WeatherData dataItem, dynamic item)
+		private static void UpdateWeatherDataItem(WeatherData dataItem, dynamic item)
 		{
 			dataItem.Temperature = item.main.temp;
 			dataItem.Cloudiness = item.clouds.all;
@@ -113,5 +179,6 @@ namespace ThinkingHome.Plugins.Weather
 			}
 		}
 
+		#endregion
 	}
 }
