@@ -235,11 +235,6 @@ namespace ThinkingHome.Core.Infrastructure
 
 		private static void CopyTo(DirectoryInfo from, DirectoryInfo to)
 		{
-			if (from == null || !from.Exists || to == null || !to.Exists)
-			{
-				return;
-			}
-
 			foreach (FileInfo file in from.GetFiles())
 			{
 				string temppath = Path.Combine(to.FullName, file.Name);
