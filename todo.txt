@@ -27,3 +27,10 @@
 	- пути к папкам плагинов
 	- настройки плагинов
 - подумать над способами самодокументирования плагинов
+
+
+<i class="fa fa-sun-o"></i>
+<i class="fa fa-cloud"></i>
+<i class="fa fa-umbrella"></i>
+<i class="fa fa-bolt"></i>
+<i class="fa fa-asterisk"></i>
