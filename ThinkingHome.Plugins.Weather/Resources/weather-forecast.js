@@ -6,8 +6,16 @@
 
 		application.module('Weather.Forecast', function (module, app, backbone, marionette, $, _) {
 
+			var api = {
+				reload: function() {
+
+					var view = new module.WeatherForecastView();
+					app.setContentView(view);
+				}
+			};
+
 			module.start = function () {
-				
+				api.reload();
 			};
 
 		});
