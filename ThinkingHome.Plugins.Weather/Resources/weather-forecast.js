@@ -7,10 +7,18 @@
 		application.module('Weather.Forecast', function (module, app, backbone, marionette, $, _) {
 
 			var api = {
-				reload: function() {
+				reload: function () {
 
-					var view = new module.WeatherForecastView();
-					app.setContentView(view);
+					var rq = app.request('load:weather:forecast');
+
+					$.when(rq).done(function (collection) {
+
+						var view = new module.WeatherForecastView({
+							collection: collection
+						});
+						
+						app.setContentView(view);
+					});
 				}
 			};
 
