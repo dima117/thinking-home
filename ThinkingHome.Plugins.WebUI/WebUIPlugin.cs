@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Plugins.Listener;
 using ThinkingHome.Plugins.Listener.Api;
+using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.Listener.Handlers;
 using ThinkingHome.Plugins.WebUI.Attributes;
 using ThinkingHome.Plugins.WebUI.Model;
@@ -120,6 +122,12 @@ namespace ThinkingHome.Plugins.WebUI
 				.ToArray();
 
 			return list;
+		}
+
+		[HttpDynamicFile("/styles", "text/css")]
+		public byte[] LoadStylesBundle(HttpRequestParams request)
+		{
+			return Encoding.UTF8.GetBytes("хрюката запарасилась!");
 		}
 	}
 }

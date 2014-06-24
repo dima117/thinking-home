@@ -76,13 +76,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\DependencyResolver.cs" />
+    <Compile Include="Attributes\HttpDynamicFileAttribute.cs" />
     <Compile Include="CommonApiController.cs" />
     <Compile Include="Api\HttpRequestParams.cs" />
     <Compile Include="Handlers\ApiListenerHandler.cs" />
-    <Compile Include="Handlers\HttpResourceAttribute.cs" />
+    <Compile Include="Handlers\DynamicFileListenerHandler.cs" />
+    <Compile Include="Attributes\HttpResourceAttribute.cs" />
     <Compile Include="Handlers\ListenerHandler.cs" />
-    <Compile Include="Handlers\ResourceListenerHandler.cs" />
-    <Compile Include="HttpCommandAttribute.cs" />
+    <Compile Include="Handlers\ResourceFileListenerHandler.cs" />
+    <Compile Include="Attributes\HttpCommandAttribute.cs" />
     <Compile Include="ListenerPlugin.cs" />
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>

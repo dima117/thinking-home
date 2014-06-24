@@ -2,7 +2,7 @@
 using System.ComponentModel.Composition;
 using ThinkingHome.Plugins.Listener.Api;
 
-namespace ThinkingHome.Plugins.Listener
+namespace ThinkingHome.Plugins.Listener.Attributes
 {
 	public interface IHttpCommandAttribute
 	{

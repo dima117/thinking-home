@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Specialized;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
@@ -26,7 +27,7 @@ namespace ThinkingHome.Plugins.Listener
 		{
 			try
 			{
-				//Debugger.Launch();
+				// Debugger.Launch();
 				string localPath = Request.RequestUri.LocalPath;
 
 				logger.Info("execute action: {0};", localPath);

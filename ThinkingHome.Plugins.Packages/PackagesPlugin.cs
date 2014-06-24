@@ -3,6 +3,7 @@ using ThinkingHome.Core.Plugins;
 using ThinkingHome.Core.Plugins.HomePackages;
 using ThinkingHome.Plugins.Listener;
 using ThinkingHome.Plugins.Listener.Api;
+using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.Listener.Handlers;
 using ThinkingHome.Plugins.WebUI.Attributes;
 

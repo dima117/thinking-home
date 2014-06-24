@@ -1,5 +1,5 @@
 ﻿using System;
-using ThinkingHome.Plugins.Listener.Handlers;
+using ThinkingHome.Plugins.Listener.Attributes;
 
 namespace ThinkingHome.Plugins.WebUI.Attributes
 {
