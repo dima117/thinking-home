@@ -1,8 +1,9 @@
 ﻿define(
 	['app',
+		'common',
 		'webapp/scripts/script-list-model',
 		'webapp/scripts/script-list-view'],
-	function (application) {
+	function (application, commonModule) {
 
 		application.module('Scripts.List', function (module, app, backbone, marionette, $, _) {
 
@@ -15,7 +16,7 @@
 					app.request('update:scripts:run', scriptId).done(function () {
 
 						var name = view.model.get('name');
-						app.Common.utils.alert('The script "{0}" has been executed.', name);
+						commonModule.utils.alert('The script "{0}" has been executed.', name);
 					});
 				},
 				
@@ -23,7 +24,7 @@
 					
 					var scriptName = view.model.get('name');
 
-					if (app.Common.utils.confirm('Delete the script "{0}"?', scriptName)) {
+					if (commonModule.utils.confirm('Delete the script "{0}"?', scriptName)) {
 
 						var scriptId = view.model.get('id');
 						app.request('update:scripts:delete', scriptId).done(api.reload);

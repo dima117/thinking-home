@@ -1,8 +1,8 @@
 ﻿define(
-	['app',
+	['app', 'common',
 		'webapp/alarm-clock/list-model',
 		'webapp/alarm-clock/list-view'],
-	function (application) {
+	function (application, commonModule) {
 
 		application.module('AlarmClock.List', function (module, app, backbone, marionette, $, _) {
 
@@ -32,7 +32,7 @@
 
 					var name = itemView.model.get('name');
 
-					if (app.Common.utils.confirm('Delete the alarm "{0}"?', name)) {
+					if (commonModule.utils.confirm('Delete the alarm "{0}"?', name)) {
 
 						var id = itemView.model.get('id');
 						app.request('update:alarm-clock:delete', id).done(api.reload);
@@ -43,7 +43,7 @@
 
 					app.request('update:alarm-clock:stop').done(function() {
 
-						app.Common.utils.alert('All alarm sounds were stopped.');
+						commonModule.utils.alert('All alarm sounds were stopped.');
 					});
 				},
 				

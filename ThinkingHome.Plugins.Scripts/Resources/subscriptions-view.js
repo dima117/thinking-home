@@ -1,10 +1,10 @@
 ﻿define(
-	['app',
+	['app', 'common',
 		'tpl!webapp/scripts/subscriptions-layout.tpl',
 		'tpl!webapp/scripts/subscriptions-form.tpl',
 		'tpl!webapp/scripts/subscriptions-list.tpl',
 		'tpl!webapp/scripts/subscriptions-list-item.tpl'],
-	function (application, layoutTemplate, formTemplate, listTemplate, itemTemplate) {
+	function (application, commonModule, layoutTemplate, formTemplate, listTemplate, itemTemplate) {
 
 		application.module('Scripts.Subscriptions', function (module, app, backbone, marionette, $, _) {
 
@@ -16,7 +16,7 @@
 				}
 			});
 
-			module.SubscriptionFormView = app.Common.FormView.extend({
+			module.SubscriptionFormView = commonModule.FormView.extend({
 				template: formTemplate,
 				events: {
 					'click .js-btn-add-subscription': 'addSubscription'

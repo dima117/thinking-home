@@ -56,6 +56,16 @@
 					return window.confirm(msg);
 				}
 			};
+
+			module.LoadCss = function () {
+
+				for (var i = 0; i < arguments.length; i++) {
+
+					$('<link type="text/css" rel="stylesheet" />')
+						.attr('href', arguments[i])
+						.appendTo("body");
+				}
+			};
 		});
 
 		return application.Common;

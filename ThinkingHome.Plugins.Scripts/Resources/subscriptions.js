@@ -1,8 +1,8 @@
 ﻿define(
-	['app',
+	['app', 'common',
 		'webapp/scripts/subscriptions-model',
 		'webapp/scripts/subscriptions-view'],
-	function (application) {
+	function (application, commonModule) {
 
 		application.module('Scripts.Subscriptions', function (module, app, backbone, marionette, $, _) {
 
@@ -24,7 +24,7 @@
 					var eventAlias = itemView.model.get('eventAlias');
 					var scriptName = itemView.model.get('scriptName');
 
-					if (app.Common.utils.confirm('Delete the subscription?\n- event: "{0}"\n- script: "{1}"', eventAlias, scriptName)) {
+					if (commonModule.utils.confirm('Delete the subscription?\n- event: "{0}"\n- script: "{1}"', eventAlias, scriptName)) {
 
 						var subscriptionId = itemView.model.get('id');
 						app.request('update:scripts:subscription-delete', subscriptionId)

@@ -1,9 +1,9 @@
 ﻿define(
-	[	'app',
+	[	'app', 'common',
 		'tpl!webapp/webui/tiles-editor-layout.tpl',
 		'tpl!webapp/webui/tiles-editor-form.tpl',
 		'tpl!webapp/webui/tiles-editor-list-item.tpl'],
-	function (application, layoutTemplate, formTemplate, itemTemplate) {
+	function (application, commonModule, layoutTemplate, formTemplate, itemTemplate) {
 
 	application.module('WebUI.TilesEditor', function (module, app, backbone, marionette, $, _) {
 
@@ -15,7 +15,7 @@
 			}
 		});
 
-		module.TilesEditorFormView = app.Common.FormView.extend({
+		module.TilesEditorFormView = commonModule.FormView.extend({
 			template: formTemplate,
 			className: 'tiles-panel',
 			events: {

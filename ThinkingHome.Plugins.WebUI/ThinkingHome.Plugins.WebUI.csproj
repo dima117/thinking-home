@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\CssResourceAttribute.cs" />
     <Compile Include="Attributes\SectionType.cs" />
     <Compile Include="Attributes\AppSectionAttribute.cs" />
     <Compile Include="Attributes\JavaScriptResourceAttribute.cs" />
@@ -151,9 +152,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Vendor\js\codemirror-matchbrackets.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Vendor\css\codemirror.css" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Vendor\js\codemirror.js" />

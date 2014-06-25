@@ -1,13 +1,14 @@
 ﻿define(
 	['app',
+		'common',
 		'codemirror',
 		'tpl!webapp/scripts/script-editor.tpl'
 	],
-	function (application, codemirror, editorTemplate) {
+	function (application, commonModule, codemirror, editorTemplate) {
 	//
 		application.module('Scripts.Editor', function (module, app, backbone, marionette, $, _) {
 
-			module.ScriptEditorView = app.Common.FormView.extend({
+			module.ScriptEditorView = commonModule.FormView.extend({
 				template: editorTemplate,
 				onShow: function () {
 
