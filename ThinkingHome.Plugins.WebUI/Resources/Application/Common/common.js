@@ -67,7 +67,7 @@
 				}
 			};
 
-			module.LoadCss(cssFiles);
+			module.LoadCss.apply(null, cssFiles);
 		});
 
 		return application.Common;

@@ -67,6 +67,9 @@
   <ItemGroup>
     <None Include="packages.config" />
     <EmbeddedResource Include="Resources\weather-forecast.tpl" />
+    <EmbeddedResource Include="Resources\fonts\weathericons-regular-webfont.eot" />
+    <EmbeddedResource Include="Resources\fonts\weathericons-regular-webfont.ttf" />
+    <EmbeddedResource Include="Resources\fonts\weathericons-regular-webfont.woff" />
     <None Include="ThinkingHome.Plugins.Weather.nuspec">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -101,6 +104,10 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\weather-forecast.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\css\weather-icons.min.css" />
+    <EmbeddedResource Include="Resources\fonts\weathericons-regular-webfont.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
