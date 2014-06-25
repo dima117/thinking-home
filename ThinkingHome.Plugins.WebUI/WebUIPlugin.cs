@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using ThinkingHome.Core.Plugins;
+using ThinkingHome.Core.Plugins.Utils;
 using ThinkingHome.Plugins.Listener;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
@@ -89,6 +90,7 @@ namespace ThinkingHome.Plugins.WebUI
 	public class WebUIPlugin : Plugin
 	{
 		private readonly List<AppSectionAttribute> sections = new List<AppSectionAttribute>();
+		private readonly HashSet<string> cssFiles = new HashSet<string>(StringComparer.InvariantCultureIgnoreCase);
 		
 		public override void Init()
 		{
@@ -96,8 +98,20 @@ namespace ThinkingHome.Plugins.WebUI
 
 			foreach (var plugin in Context.GetAllPlugins())
 			{
-				var attributes = plugin.GetType().GetCustomAttributes<AppSectionAttribute>();
-				sections.AddRange(attributes);
+				var type = plugin.GetType();
+
+				// разделы
+				var sectionAttributes = type.GetCustomAttributes<AppSectionAttribute>();
+				sections.AddRange(sectionAttributes);
+
+				// стили
+				var cssResourceAttributes = type
+					.GetCustomAttributes<CssResourceAttribute>()
+					.Where(attr => attr.AutoLoad)
+					.ToArray();
+
+				var urls = cssResourceAttributes.Select(attr => attr.Url).ToArray();
+				cssFiles.UnionWith(urls);
 			}
 		}
 
@@ -123,10 +137,14 @@ namespace ThinkingHome.Plugins.WebUI
 			return list;
 		}
 
-		[HttpDynamicFile("/styles", "text/css")]
+		[HttpDynamicFile("/application/style-loader.js", "text/javascript")]
 		public byte[] LoadStylesBundle(HttpRequestParams request)
 		{
-			return Encoding.UTF8.GetBytes("хрюката запарасилась!");
+			const string cssLoaderFormat = "define(['common'], function (common) {{ common.LoadCss({0}); return null; }});";
+
+			string argumentsJson = cssFiles.ToJson("[]");
+			string content = string.Format(cssLoaderFormat, argumentsJson);
+			return Encoding.UTF8.GetBytes(content);
 		}
 	}
 }

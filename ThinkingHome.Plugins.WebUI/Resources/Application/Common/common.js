@@ -63,7 +63,7 @@
 
 					$('<link type="text/css" rel="stylesheet" />')
 						.attr('href', arguments[i])
-						.appendTo("body");
+						.appendTo("head");
 				}
 			};
 		});

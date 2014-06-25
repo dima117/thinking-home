@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ThinkingHome.Plugins.Listener.Attributes;
+﻿using ThinkingHome.Plugins.Listener.Attributes;
 
 namespace ThinkingHome.Plugins.WebUI.Attributes
 {
