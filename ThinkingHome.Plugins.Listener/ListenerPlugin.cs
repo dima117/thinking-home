@@ -21,9 +21,6 @@ namespace ThinkingHome.Plugins.Listener
 		[ImportMany("5D358D8E-2310-49FE-A660-FB3ED7003B4C")]
 		public Lazy<Func<HttpRequestParams, object>, IHttpCommandAttribute>[] RequestReceived { get; set; }
 
-		[ImportMany("B87D366E-4CE7-4442-A8FE-6A08F14C9736")]
-		public Lazy<Func<HttpRequestParams, byte[]>, IHttpDynamicFileAttribute>[] DynamicFileRequestReceived { get; set; }
-
 		public override void Init()
 		{
 			var handlers = RegisterHandlers();
@@ -59,15 +56,6 @@ namespace ThinkingHome.Plugins.Listener
 				handlers.Register(action.Metadata.Url, handler);
 			}
 
-			// регистрируем обработчики для динамически генерируемых файлов
-			foreach (var action in DynamicFileRequestReceived)
-			{
-				Logger.Info("Register HTTP handler (dynamic file): '{0}'", action.Metadata.Url);
-
-				var handler = new DynamicFileListenerHandler(action.Value, action.Metadata.ContentType);
-				handlers.Register(action.Metadata.Url, handler);
-			}
-
 			// регистрируем обработчики для ресурсов
 			foreach (Plugin plugin in Context.GetAllPlugins())
 			{
@@ -78,7 +66,7 @@ namespace ThinkingHome.Plugins.Listener
 				{
 					Logger.Info("Register HTTP handler (resource): '{0}'", attribute.Url);
 				
-					var resHandler = new ResourceFileListenerHandler(
+					var resHandler = new ResourceListenerHandler(
 						type.Assembly, attribute.ResourcePath, attribute.ContentType);
 
 					handlers.Register(attribute.Url, resHandler);

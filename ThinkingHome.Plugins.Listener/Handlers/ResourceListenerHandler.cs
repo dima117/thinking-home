@@ -7,7 +7,7 @@ using ThinkingHome.Plugins.Listener.Api;
 
 namespace ThinkingHome.Plugins.Listener.Handlers
 {
-	public class ResourceFileListenerHandler : ListenerHandler
+	public class ResourceListenerHandler : ListenerHandler
 	{
 		private readonly object lockObject = new object();
 		private WeakReference<byte[]> resourceReference;
@@ -16,7 +16,7 @@ namespace ThinkingHome.Plugins.Listener.Handlers
 		private readonly string path;
 		private readonly string contentType;
 
-		public ResourceFileListenerHandler(Assembly assembly, string path, string contentType)
+		public ResourceListenerHandler(Assembly assembly, string path, string contentType)
 		{
 			this.assembly = assembly;
 			this.path = path;
