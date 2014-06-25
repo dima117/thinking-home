@@ -3,7 +3,6 @@
 	paths: {
 		app: 'application/app',
 		common: 'application/common/common',
-		css: 'application/style-loader',
 
 		text: 'vendor/js/require-text',
 		json: 'vendor/js/require-json',
@@ -39,6 +38,6 @@
 	}
 });
 
-require(['app', 'common', 'bootstrap', 'css'], function (app) {
+require(['app', 'common', 'bootstrap'], function (app) {
 	app.start();
 });

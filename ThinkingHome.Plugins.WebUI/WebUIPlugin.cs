@@ -5,12 +5,9 @@ using System.Reflection;
 using System.Text;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Core.Plugins.Utils;
-using ThinkingHome.Plugins.Listener;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
-using ThinkingHome.Plugins.Listener.Handlers;
 using ThinkingHome.Plugins.WebUI.Attributes;
-using ThinkingHome.Plugins.WebUI.Model;
 
 namespace ThinkingHome.Plugins.WebUI
 {
@@ -139,14 +136,10 @@ namespace ThinkingHome.Plugins.WebUI
 			return list;
 		}
 
-		[HttpDynamicFile("/application/style-loader.js", "text/javascript")]
-		public byte[] LoadStylesBundle(HttpRequestParams request)
+		[HttpCommand("/api/webui/styles.json")]
+		public object LoadStylesBundle(HttpRequestParams request)
 		{
-			const string cssLoaderFormat = "define(['common'], function (common) {{ common.LoadCss({0}); return null; }});";
-
-			string argumentsJson = cssFiles.ToJson("[]");
-			string content = string.Format(cssLoaderFormat, argumentsJson);
-			return Encoding.UTF8.GetBytes(content);
+			return cssFiles;
 		}
 	}
 }

@@ -1,6 +1,6 @@
 ﻿define(
-	['app'],
-	function (application) {
+	['app', 'json!api/webui/styles.json'],
+	function (application, cssFiles) {
 
 		application.module('Common', function (module, app, backbone, marionette, $, _) {
 
@@ -66,6 +66,8 @@
 						.appendTo("head");
 				}
 			};
+
+			module.LoadCss(cssFiles);
 		});
 
 		return application.Common;
