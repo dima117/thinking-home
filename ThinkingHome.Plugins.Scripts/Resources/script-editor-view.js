@@ -2,14 +2,14 @@
 	['app',
 		'common',
 		'codemirror',
-		'tpl!webapp/scripts/script-editor.tpl'
+		'text!webapp/scripts/script-editor.tpl'
 	],
 	function (application, commonModule, codemirror, editorTemplate) {
 	//
 		application.module('Scripts.Editor', function (module, app, backbone, marionette, $, _) {
 
 			module.ScriptEditorView = commonModule.FormView.extend({
-				template: editorTemplate,
+				template: _.template(editorTemplate),
 				onShow: function () {
 
 					var textarea = this.$('.js-script-body')[0];

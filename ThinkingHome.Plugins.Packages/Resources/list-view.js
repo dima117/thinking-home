@@ -1,11 +1,13 @@
 ﻿define(
-	['app', 'tpl!webapp/packages/list.tpl', 'tpl!webapp/packages/list-item.tpl'],
+	[	'app',
+		'text!webapp/packages/list.tpl',
+		'text!webapp/packages/list-item.tpl'],
 	function (application, listTemplate, itemTemplate) {
 
 		application.module('Packages.List', function (module, app, backbone, marionette, $, _) {
 
 			module.PackageView = marionette.ItemView.extend({
-				template: itemTemplate,
+				template: _.template(itemTemplate),
 				events: {
 					'click .js-btn-install': 'btnInstallClick',
 					'click .js-btn-uninstall': 'btnUninstallClick'
@@ -32,7 +34,7 @@
 			});
 
 			module.PackageListView = marionette.CompositeView.extend({
-				template: listTemplate,
+				template: _.template(listTemplate),
 				itemView: module.PackageView,
 				itemViewContainer: '.js-list'
 			});

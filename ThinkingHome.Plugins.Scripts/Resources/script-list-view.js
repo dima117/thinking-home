@@ -1,11 +1,11 @@
 ﻿define(
-	['app', 'tpl!webapp/scripts/script-list.tpl', 'tpl!webapp/scripts/script-list-item.tpl'],
+	['app', 'text!webapp/scripts/script-list.tpl', 'text!webapp/scripts/script-list-item.tpl'],
 	function (application, listTemplate, itemTemplate) {
 
 		application.module('Scripts.List', function (module, app, backbone, marionette, $, _) {
 
 			module.ScriptView = marionette.ItemView.extend({
-				template: itemTemplate,
+				template: _.template(itemTemplate),
 				events: {
 					'click .js-btn-run': 'btnRunClick',
 					'click .js-btn-edit': 'btnEditClick',
@@ -26,7 +26,7 @@
 			});
 
 			module.ScriptListView = marionette.CompositeView.extend({
-				template: listTemplate,
+				template: _.template(listTemplate),
 				itemView: module.ScriptView,
 				itemViewContainer: '.js-list',
 				events: {

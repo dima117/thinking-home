@@ -5,7 +5,9 @@
 		common: 'application/common/common',
 		css: 'application/style-loader',
 
-		tpl: 'vendor/js/tpl.min',
+		text: 'vendor/js/require-text',
+		json: 'vendor/js/require-json',
+
 		json2: 'vendor/js/json2.min',
 		jquery: 'vendor/js/jquery.min',
 		underscore: 'vendor/js/underscore.min',

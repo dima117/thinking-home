@@ -135,9 +135,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Vendor\js\tpl.min.js" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\Plugin\section-list-common.js" />
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +182,10 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\Vendor\css\font-awesome.min.css" />
     <EmbeddedResource Include="Resources\Vendor\fonts\fontawesome-webfont.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Vendor\js\require-json.js" />
+    <EmbeddedResource Include="Resources\Vendor\js\require-text.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

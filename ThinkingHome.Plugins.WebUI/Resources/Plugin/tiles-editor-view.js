@@ -1,14 +1,14 @@
 ﻿define(
 	[	'app', 'common',
-		'tpl!webapp/webui/tiles-editor-layout.tpl',
-		'tpl!webapp/webui/tiles-editor-form.tpl',
-		'tpl!webapp/webui/tiles-editor-list-item.tpl'],
+		'text!webapp/webui/tiles-editor-layout.tpl',
+		'text!webapp/webui/tiles-editor-form.tpl',
+		'text!webapp/webui/tiles-editor-list-item.tpl'],
 	function (application, commonModule, layoutTemplate, formTemplate, itemTemplate) {
 
 	application.module('WebUI.TilesEditor', function (module, app, backbone, marionette, $, _) {
 
 		module.TilesEditorLayout = marionette.Layout.extend({
-			template: layoutTemplate,
+			template: _.template(layoutTemplate),
 			regions: {
 				regionForm: '#region-form',
 				regionList: '#region-list'
@@ -16,7 +16,7 @@
 		});
 
 		module.TilesEditorFormView = commonModule.FormView.extend({
-			template: formTemplate,
+			template: _.template(formTemplate),
 			className: 'tiles-panel',
 			events: {
 				'click .js-add-tile': 'onBtnAddTileClick'
@@ -31,7 +31,7 @@
 		});
 		
 		module.TilesEditorListItemView = marionette.ItemView.extend({
-			template: itemTemplate,
+			template: _.template(itemTemplate),
 			tagName: 'a',
 			className: 'tile btn-primary',
 			onRender: function () {

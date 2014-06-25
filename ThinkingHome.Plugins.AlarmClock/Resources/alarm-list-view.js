@@ -1,14 +1,14 @@
 ﻿define(
 	[
 		'app',
-		'tpl!webapp/alarm-clock/list.tpl',
-		'tpl!webapp/alarm-clock/list-item.tpl'],
+		'text!webapp/alarm-clock/list.tpl',
+		'text!webapp/alarm-clock/list-item.tpl'],
 	function (application, listTemplate, itemTemplate) {
 
 		application.module('AlarmClock.List', function (module, app, backbone, marionette, $, _) {
 
 			module.AlarmView = marionette.ItemView.extend({
-				template: itemTemplate,
+				template: _.template(itemTemplate),
 				onRender: function () {
 
 					var enabled = this.model.get('enabled');
@@ -32,7 +32,7 @@
 			});
 
 			module.AlarmListView = marionette.CompositeView.extend({
-				template: listTemplate,
+				template: _.template(listTemplate),
 				itemView: module.AlarmView,
 				itemViewContainer: '.js-list',
 				triggers: {

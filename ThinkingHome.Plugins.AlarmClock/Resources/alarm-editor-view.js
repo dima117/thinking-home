@@ -1,11 +1,13 @@
 ﻿define(
-	['app', 'common', 'tpl!webapp/alarm-clock/editor.tpl'],
+	[	'app', 
+		'common',
+		'text!webapp/alarm-clock/editor.tpl'],
 	function (application, commonModule, editorTemplate) {
 
 		application.module('AlarmClock.Editor', function (module, app, backbone, marionette, $, _) {
 
 			module.AlarmEditorView = commonModule.FormView.extend({
-				template: editorTemplate,
+				template: _.template(editorTemplate),
 				events: {
 					'click .js-btn-save': 'btnSaveClick',
 					'click .js-btn-cancel': 'btnCancelClick'

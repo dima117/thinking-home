@@ -1,11 +1,13 @@
 ﻿define(
-	['app', 'tpl!webapp/webui/section-list.tpl', 'tpl!webapp/webui/section-list-item.tpl'],
+	[	'app', 
+		'text!webapp/webui/section-list.tpl',
+		'text!webapp/webui/section-list-item.tpl'],
 	function (application, listTemplate, itemTemplate) {
 
 		application.module('WebUI.Sections', function (module, app, backbone, marionette, $, _) {
 
 			module.SectionView = marionette.ItemView.extend({
-				template: itemTemplate,
+				template: _.template(itemTemplate),
 				events: {
 					'click .js-section-link': 'sectionLinkClicked'
 				},
@@ -19,7 +21,7 @@
 			});
 
 			module.SectionListView = marionette.CompositeView.extend({
-				template: listTemplate,
+				template: _.template(listTemplate),
 				itemView: module.SectionView,
 				itemViewContainer: '.js-list',
 				
