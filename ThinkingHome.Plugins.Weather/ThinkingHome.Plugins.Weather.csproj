@@ -56,6 +56,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\ModelBuilder.cs" />
+    <Compile Include="Api\WeatherDataModel.cs" />
+    <Compile Include="Api\WeatherLocatioinModel.cs" />
     <Compile Include="Data\Migrations.cs" />
     <Compile Include="Data\Model.cs" />
     <Compile Include="WeatherPlugin.cs" />
@@ -70,6 +73,7 @@
     <EmbeddedResource Include="Resources\fonts\weathericons-regular-webfont.eot" />
     <EmbeddedResource Include="Resources\fonts\weathericons-regular-webfont.ttf" />
     <EmbeddedResource Include="Resources\fonts\weathericons-regular-webfont.woff" />
+    <EmbeddedResource Include="Resources\weather-forecast-item.tpl" />
     <None Include="ThinkingHome.Plugins.Weather.nuspec">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

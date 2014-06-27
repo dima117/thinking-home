@@ -2,8 +2,10 @@
 
 	application.module('Weather.Forecast', function (module, app, backbone, marionette, $, _) {
 
-		module.WeatherLocation = backbone.Model.extend();
-		module.WeatherLocationCollection = backbone.Model.extend();
+		module.WeatherLocation = backbone.Model.extend({});
+		module.WeatherLocationCollection = backbone.Collection.extend({
+			model: module.WeatherLocation
+		});
 
 		var api = {
 			loadList: function () {

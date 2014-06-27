@@ -1,9 +1,18 @@
-﻿define(['app', 'text!webapp/weather/forecast.tpl'], function (application, template) {
+﻿define([
+		'app',
+		'text!webapp/weather/forecast.tpl',
+		'text!webapp/weather/forecast-item.tpl'], function (application, template, itemTemplate) {
 
 	application.module('Weather.Forecast', function (module, app, backbone, marionette, $, _) {
 
-		module.WeatherForecastView = marionette.ItemView.extend({
-			template: _.template(template)
+		module.WeatherForecastItemView = marionette.ItemView.extend({
+			template: _.template(itemTemplate)
+		});
+		
+		module.WeatherForecastView = marionette.CompositeView.extend({
+			template: _.template(template),
+			itemView: module.WeatherForecastItemView,
+			itemViewContainer: '.js-list'
 		});
 
 	});

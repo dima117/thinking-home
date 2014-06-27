@@ -5,6 +5,7 @@ using NHibernate.Linq;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
+using ThinkingHome.Plugins.Weather.Api;
 using ThinkingHome.Plugins.Weather.Data;
 using ThinkingHome.Plugins.WebUI.Attributes;
 
@@ -14,6 +15,7 @@ namespace ThinkingHome.Plugins.Weather
 	[JavaScriptResource("/webapp/weather/forecast-model.js", "ThinkingHome.Plugins.Weather.Resources.weather-forecast-model.js")]
 	[JavaScriptResource("/webapp/weather/forecast-view.js", "ThinkingHome.Plugins.Weather.Resources.weather-forecast-view.js")]
 	[HttpResource("/webapp/weather/forecast.tpl", "ThinkingHome.Plugins.Weather.Resources.weather-forecast.tpl")]
+	[HttpResource("/webapp/weather/forecast-item.tpl", "ThinkingHome.Plugins.Weather.Resources.weather-forecast-item.tpl")]
 
 	// css
 	[CssResource("/webapp/weather/css/weather-icons.min.css", "ThinkingHome.Plugins.Weather.Resources.css.weather-icons.min.css", AutoLoad = true)]
@@ -29,44 +31,25 @@ namespace ThinkingHome.Plugins.Weather
 	public class WeatherUIPlugin : Plugin
 	{
 		[HttpCommand("/api/weather/all")]
-		public object GetAlarmList(HttpRequestParams request)
+		public object GetWeather(HttpRequestParams request)
 		{
 			using (var session = Context.OpenSession())
 			{
-				var date = DateTime.Now.AddHours(-3);
-				
-				var locations = session.Query<Location>().ToList();
-				var data = session.Query<WeatherData>().Where(d => d.Date > date).ToList();
+				var now = DateTime.Now;
+				var date = DateTime.Now.AddMinutes(-90);
 
-				var model = new List<object>();
+				var locations = session.Query<Location>().ToArray();
+				var data = session.Query<WeatherData>().Where(d => d.Date > date).ToArray();
+
+				var list = new List<WeatherLocatioinModel>();
 
 				foreach (var location in locations)
 				{
-					var dayly = data
-						.Where(d => d.Location.Id == location.Id)
-						.OrderBy(d => d.Date)
-						.Take(8)
-						.Select(d => new
-						{
-							time = d.Date.ToShortTimeString(),
-							temperature = d.Temperature,
-							pressure = d.Pressure,
-							humidity = d.Humidity,
-							weatherCode = d.WeatherCode,
-							weatherDescription = d.WeatherDescription
-						})
-						.ToArray();
-
-					var locationModel = new
-					{
-						locationName = location.DisplayName,
-						daylyForecast = dayly
-					};
-
-					model.Add(locationModel);
+					var locationModel = ModelBuilder.BuildLocatioinModel(now, location, data);
+					list.Add(locationModel);
 				}
 
-				return model;
+				return list;
 			}
 		}
 
