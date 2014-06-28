@@ -1,0 +1,8 @@
+﻿.weather-now {
+	font-size: 52px;
+}
+
+.weather-list {
+	font-size: 22px;
+	white-space: nowrap;
+}

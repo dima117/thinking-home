@@ -113,6 +113,9 @@
     <EmbeddedResource Include="Resources\css\weather-icons.min.css" />
     <EmbeddedResource Include="Resources\fonts\weathericons-regular-webfont.svg" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\css\weather-forecast.css" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
