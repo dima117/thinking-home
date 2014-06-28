@@ -2,12 +2,9 @@
 {
 	public class WeatherLocatioinModel
 	{
-		// ReSharper disable InconsistentNaming
-
-		public string displayName { get; set; }
-		public WeatherDataModel now { get; set; }
-		public WeatherDataModel[] today { get; set; }
-
-		// ReSharper restore InconsistentNaming
+		public string LocationName { get; set; }
+		public WeatherDataModel Now { get; set; }
+		public WeatherDataModel[] Today { get; set; }
+		public DailyWeatherDataModel[] Forecast { get; set; }
 	}
 }

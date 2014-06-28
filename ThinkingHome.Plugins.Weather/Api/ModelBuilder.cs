@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using ThinkingHome.Plugins.Weather.Data;
 
@@ -7,63 +6,70 @@ namespace ThinkingHome.Plugins.Weather.Api
 {
 	public static class ModelBuilder
 	{
-		public static WeatherDataModel CreateModel(DateTime date, WeatherData[] weatherData)
+		public static WeatherLocatioinModel LoadLocationWeatherData(
+			DateTime now, Location location, WeatherData[] locationData)
 		{
-			var data = weatherData.FirstOrDefault(d => d.Date == date);
-			return CreateModel(data);
-		}
+			var minDate = now.AddMinutes(-90);
+			var maxDate = now.AddMinutes(90);
 
-		public static WeatherDataModel CreateModel(WeatherData data)
-		{
-			if (data == null)
-			{
-				return null;
-			}
+			// погода на текущее время
+			var current = locationData.FirstOrDefault(d => d.Date > minDate && d.Date <= maxDate);
 
-			var model = new WeatherDataModel
-			{
-				date = data.Date.ToString("M"),
-				time = data.Date.ToShortTimeString(),
-				t = Convert.ToInt32(data.Temperature),
-				p = Convert.ToInt32(data.Pressure),
-				h = data.Humidity,
-				code = data.WeatherCode,
-				description = data.WeatherDescription
-			};
+			// погода на ближайшие сутки
+			var xxx = current != null ? current.Date : now;
+			var day = locationData
+						.Where(d => d.Date > xxx && d.Date <= xxx.AddDays(1))
+						.Where(FilterByHours)
+						.OrderBy(d => d.Date)
+						.Take(3)
+						.ToArray();
 
-			return model;
-		}
-
-		public static WeatherLocatioinModel BuildLocatioinModel(DateTime now, Location location, WeatherData[] data)
-		{
-			var locationData = data
-				.Where(d => d.Location.Id == location.Id)
-				.Where(d => d.Date > now.AddMinutes(-90))
-				.ToArray();
-
-			var date = locationData
-				.Select(d => new DateTime?(d.Date))
-				.FirstOrDefault(d => d <= now.AddMinutes(90)) ?? now;
-
-			var today = new List<WeatherDataModel>();
-			for (var i = 1; i <= 3; i++)
-			{
-				var d = CreateModel(date.AddHours(3 + i * 6), locationData);
-				if (d != null)
-				{
-					today.Add(d);
-				}
-			}
-
+			// прогноз на несколько дней
+			var forecast = locationData
+						.Where(d => d.Date.Date > now.Date)
+						.GroupBy(d => d.Date.Date)
+						.Take(3);
 
 			var model = new WeatherLocatioinModel
 			{
-				displayName = location.DisplayName,
-				now = CreateModel(date, locationData),
-				today = today.ToArray()
+				LocationName = location.DisplayName,
+				Now = CreateModel(current),
+				Today = day.Select(CreateModel).ToArray(),
+				Forecast = forecast.Select(CreateDailyModel).ToArray()
 			};
 
 			return model;
 		}
+
+		private static DailyWeatherDataModel CreateDailyModel(IGrouping<DateTime, WeatherData> obj)
+		{
+			return null;
+		}
+
+		private static WeatherDataModel CreateModel(WeatherData obj)
+		{
+			return new WeatherDataModel
+			{
+				DateTime = obj.Date,
+				Code = obj.WeatherCode,
+				Description = obj.WeatherDescription,
+				Temperature = Convert.ToInt32(obj.Temperature),
+				Pressure = Convert.ToInt32(obj.Pressure),
+				Humidity = obj.Humidity, 
+			};
+		}
+
+		#region private
+
+		private static bool FilterByHours(WeatherData data)
+		{
+			return data != null && (
+				data.Date.Hour == 3 ||
+				data.Date.Hour == 9 ||
+				data.Date.Hour == 15 ||
+				data.Date.Hour == 21);
+		}
+
+		#endregion
 	}
 }
