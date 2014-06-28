@@ -41,22 +41,56 @@ namespace ThinkingHome.Plugins.Weather.Api
 			return model;
 		}
 
-		private static DailyWeatherDataModel CreateDailyModel(IGrouping<DateTime, WeatherData> obj)
+		private static DailyWeatherDataModel CreateDailyModel(IGrouping<DateTime, WeatherData> gr)
 		{
-			return null;
+			if (gr == null)
+			{
+				return null;
+			}
+
+			var items = gr.ToArray();
+
+			if (!items.Any())
+			{
+				return null;
+			}
+
+			decimal minT = items.Min(d => d.Temperature);
+			decimal maxT = items.Max(d => d.Temperature);
+
+			decimal minP = items.Min(d => d.Pressure);
+			decimal maxP = items.Max(d => d.Pressure);
+
+			int minH = items.Min(d => d.Humidity);
+			int maxH = items.Max(d => d.Humidity);
+
+			return new DailyWeatherDataModel
+				{
+					DateTime = gr.Key,
+					MinTemperature = Convert.ToInt32(minT),
+					MaxTemperature = Convert.ToInt32(maxT),
+
+					MinPressure = Convert.ToInt32(minP),
+					MaxPressure = Convert.ToInt32(maxP),
+
+					MinHumidity = Convert.ToInt32(minH),
+					MaxHumidity = Convert.ToInt32(maxH)
+				};
 		}
 
 		private static WeatherDataModel CreateModel(WeatherData obj)
 		{
-			return new WeatherDataModel
-			{
-				DateTime = obj.Date,
-				Code = obj.WeatherCode,
-				Description = obj.WeatherDescription,
-				Temperature = Convert.ToInt32(obj.Temperature),
-				Pressure = Convert.ToInt32(obj.Pressure),
-				Humidity = obj.Humidity, 
-			};
+			return obj == null 
+				? null
+				: new WeatherDataModel
+						{
+							DateTime = obj.Date,
+							Code = obj.WeatherCode,
+							Description = obj.WeatherDescription,
+							Temperature = Convert.ToInt32(obj.Temperature),
+							Pressure = Convert.ToInt32(obj.Pressure),
+							Humidity = obj.Humidity, 
+						};
 		}
 
 		#region private

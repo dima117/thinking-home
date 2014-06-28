@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using NHibernate.Linq;
 using ThinkingHome.Core.Plugins;
@@ -31,6 +32,15 @@ namespace ThinkingHome.Plugins.Weather
 	[Plugin]
 	public class WeatherUIPlugin : Plugin
 	{
+		[HttpCommand("/api/weather/update")]
+		public object UpdateWeather(HttpRequestParams request)
+		{
+			Context.GetPlugin<WeatherPlugin>().ReloadWeatherData();
+
+			return null;
+		}
+
+
 		[HttpCommand("/api/weather/all")]
 		public object GetWeather(HttpRequestParams request)
 		{
@@ -70,7 +80,7 @@ namespace ThinkingHome.Plugins.Weather
 		{
 			return t1 == t2
 				? FormatTemperature(t1)
-				: string.Format("{0}..{1}", FormatTemperature(t1), FormatTemperature(t2));
+				: string.Format("{0} .. {1}", FormatTemperature(t1), FormatTemperature(t2));
 		}
 
 		private static string GetIconClass(string code)
@@ -139,7 +149,18 @@ namespace ThinkingHome.Plugins.Weather
 
 		private object BuildModel(DailyWeatherDataModel data)
 		{
-			return null;
+			return data == null
+				? null
+				: new
+				{
+					date = data.DateTime.ToString("M"),
+					time = data.DateTime.ToShortTimeString(),
+					t = FormatTemperatureRange(data.MinTemperature, data.MaxTemperature),
+					p = string.Format("{0} .. {1}", data.MinPressure, data.MaxPressure),
+					h = string.Format("{0} .. {1}", data.MinHumidity, data.MaxHumidity),
+					icon = GetIconClass(data.Code),
+					description = data.Description
+				};
 		}
 
 		private object BuildLocationModel(WeatherLocatioinModel data)
