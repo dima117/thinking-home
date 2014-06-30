@@ -42,11 +42,11 @@ namespace ThinkingHome.Plugins.Weather
 		{
 			var now = DateTime.Now;
 
-			WeatherLocatioinModel[] data2 = Context
+			WeatherLocatioinModel[] weatherData = Context
 				.GetPlugin<WeatherPlugin>()
 				.GetWeatherData(now);
 
-			return data2.Select(BuildLocationModel).ToArray();
+			return weatherData.Select(BuildLocationModel).ToArray();
 		}
 
 		#region private
