@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using NHibernate.Linq;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.Weather.Api;
-using ThinkingHome.Plugins.Weather.Data;
 using ThinkingHome.Plugins.WebUI.Attributes;
 
 namespace ThinkingHome.Plugins.Weather
@@ -45,27 +41,12 @@ namespace ThinkingHome.Plugins.Weather
 		public object GetWeather(HttpRequestParams request)
 		{
 			var now = DateTime.Now;
-			var list = new List<object>();
 
-			using (var session = Context.OpenSession())
-			{
-				var locations = session.Query<Location>().ToArray();
+			WeatherLocatioinModel[] data2 = Context
+				.GetPlugin<WeatherPlugin>()
+				.GetWeatherData(now);
 
-				var data = session.Query<WeatherData>()
-							.Where(d => d.Date >= now.Date)
-							.ToArray();
-
-				foreach (var location in locations)
-				{
-					var locationData = data.Where(d => d.Location.Id == location.Id).ToArray();
-
-					var locationDataModel = ModelBuilder.LoadLocationWeatherData(now, location, locationData);
-					var locationViewModel = BuildLocationModel(locationDataModel);
-					list.Add(locationViewModel);
-				}
-
-				return list;
-			}
+			return data2.Select(BuildLocationModel).ToArray();
 		}
 
 		#region private

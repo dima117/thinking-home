@@ -4,7 +4,7 @@ using ThinkingHome.Plugins.Weather.Data;
 
 namespace ThinkingHome.Plugins.Weather.Api
 {
-	public static class ModelBuilder
+	internal static class ModelBuilder
 	{
 		public static WeatherLocatioinModel LoadLocationWeatherData(
 			DateTime now, Location location, WeatherData[] locationData)
@@ -40,6 +40,8 @@ namespace ThinkingHome.Plugins.Weather.Api
 
 			return model;
 		}
+
+		#region private
 
 		private static DailyWeatherDataModel CreateDailyModel(IGrouping<DateTime, WeatherData> gr)
 		{
@@ -92,8 +94,6 @@ namespace ThinkingHome.Plugins.Weather.Api
 							Humidity = obj.Humidity, 
 						};
 		}
-
-		#region private
 
 		private static bool FilterByHours(WeatherData data)
 		{

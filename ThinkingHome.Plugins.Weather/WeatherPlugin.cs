@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using NHibernate;
@@ -9,6 +10,7 @@ using NLog;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Core.Plugins.Utils;
 using ThinkingHome.Plugins.Timer;
+using ThinkingHome.Plugins.Weather.Api;
 using ThinkingHome.Plugins.Weather.Data;
 
 namespace ThinkingHome.Plugins.Weather
@@ -180,5 +182,29 @@ namespace ThinkingHome.Plugins.Weather
 		}
 
 		#endregion
+
+		public WeatherLocatioinModel[] GetWeatherData(DateTime now)
+		{
+			var list = new List<WeatherLocatioinModel>();
+
+			using (var session = Context.OpenSession())
+			{
+				var locations = session.Query<Location>().ToArray();
+
+				var data = session.Query<WeatherData>()
+							.Where(d => d.Date >= now.Date)
+							.ToArray();
+
+				foreach (var location in locations)
+				{
+					var locationData = data.Where(d => d.Location.Id == location.Id).ToArray();
+
+					var model = ModelBuilder.LoadLocationWeatherData(now, location, locationData);
+					list.Add(model);
+				}
+			}
+
+			return list.ToArray();
+		}
 	}
 }
