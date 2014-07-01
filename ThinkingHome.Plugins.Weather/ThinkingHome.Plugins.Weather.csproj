@@ -75,6 +75,8 @@
     <EmbeddedResource Include="Resources\fonts\weathericons-regular-webfont.ttf" />
     <EmbeddedResource Include="Resources\fonts\weathericons-regular-webfont.woff" />
     <EmbeddedResource Include="Resources\weather-forecast-item.tpl" />
+    <EmbeddedResource Include="Resources\weather-data-item.tpl" />
+    <EmbeddedResource Include="Resources\weather-data-item-now.tpl" />
     <None Include="ThinkingHome.Plugins.Weather.nuspec">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

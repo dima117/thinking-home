@@ -13,6 +13,8 @@ namespace ThinkingHome.Plugins.Weather
 	[JavaScriptResource("/webapp/weather/forecast-view.js", "ThinkingHome.Plugins.Weather.Resources.weather-forecast-view.js")]
 	[HttpResource("/webapp/weather/forecast.tpl", "ThinkingHome.Plugins.Weather.Resources.weather-forecast.tpl")]
 	[HttpResource("/webapp/weather/forecast-item.tpl", "ThinkingHome.Plugins.Weather.Resources.weather-forecast-item.tpl")]
+	[HttpResource("/webapp/weather/data-item.tpl", "ThinkingHome.Plugins.Weather.Resources.weather-data-item.tpl")]
+	[HttpResource("/webapp/weather/data-item-now.tpl", "ThinkingHome.Plugins.Weather.Resources.weather-data-item-now.tpl")]
 
 	// css
 	[CssResource("/webapp/weather/css/weather-icons.min.css", "ThinkingHome.Plugins.Weather.Resources.css.weather-icons.min.css", AutoLoad = true)]
@@ -118,8 +120,7 @@ namespace ThinkingHome.Plugins.Weather
 				? null
 				: new
 					{
-						date = data.DateTime.ToString("M"),
-						time = data.DateTime.ToShortTimeString(),
+						when = data.DateTime.ToShortTimeString(),
 						t = FormatTemperature(data.Temperature),
 						p = data.Pressure,
 						h = data.Humidity,
@@ -134,8 +135,7 @@ namespace ThinkingHome.Plugins.Weather
 				? null
 				: new
 				{
-					date = data.DateTime.ToString("M"),
-					time = data.DateTime.ToShortTimeString(),
+					when = data.DateTime.ToString("M"),
 					t = FormatTemperatureRange(data.MinTemperature, data.MaxTemperature),
 					p = string.Format("{0} .. {1}", data.MinPressure, data.MaxPressure),
 					h = string.Format("{0} .. {1}", data.MinHumidity, data.MaxHumidity),

@@ -1,3 +1,3 @@
 ﻿<h1>Weather</h1>
-<div class="js-list"></div>
+<div class="js-weather-list"></div>
 
