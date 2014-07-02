@@ -57,6 +57,8 @@ namespace ThinkingHome.Plugins.Weather.Api
 				return null;
 			}
 
+			var first = items.OrderByDescending(item => item.WeatherCode).First();
+
 			decimal minT = items.Min(d => d.Temperature);
 			decimal maxT = items.Max(d => d.Temperature);
 
@@ -76,7 +78,9 @@ namespace ThinkingHome.Plugins.Weather.Api
 					MaxPressure = Convert.ToInt32(maxP),
 
 					MinHumidity = Convert.ToInt32(minH),
-					MaxHumidity = Convert.ToInt32(maxH)
+					MaxHumidity = Convert.ToInt32(maxH),
+					Code = first.WeatherCode,
+					Description = first.WeatherDescription
 				};
 		}
 
