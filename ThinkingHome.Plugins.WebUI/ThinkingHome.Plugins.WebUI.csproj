@@ -65,10 +65,11 @@
     <Compile Include="Attributes\SectionType.cs" />
     <Compile Include="Attributes\AppSectionAttribute.cs" />
     <Compile Include="Attributes\JavaScriptResourceAttribute.cs" />
-    <Compile Include="Attributes\TileAttribute.cs" />
+    <Compile Include="Tiles\TileAttribute.cs" />
     <Compile Include="Data\Migrations.cs" />
     <Compile Include="Data\Model.cs" />
     <Compile Include="Model\TileModel.cs" />
+    <Compile Include="Tiles\TileDefinition.cs" />
     <Compile Include="WebUIPlugin.cs" />
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>

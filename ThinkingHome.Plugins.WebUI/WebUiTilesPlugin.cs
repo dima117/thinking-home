@@ -14,6 +14,7 @@ using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.WebUI.Attributes;
 using ThinkingHome.Plugins.WebUI.Data;
 using ThinkingHome.Plugins.WebUI.Model;
+using ThinkingHome.Plugins.WebUI.Tiles;
 
 namespace ThinkingHome.Plugins.WebUI
 {
@@ -23,24 +24,24 @@ namespace ThinkingHome.Plugins.WebUI
 		private InternalDictionary<TileInfo> availableTiles;
 
 		[ImportMany("FA4F97A0-41A0-4A72-BEF3-6DB579D909F4")]
-		public Lazy<Action<TileModel>, ITileAttribute>[] TileHandlers { get; set; }
+		public Lazy<TileDefinition, ITileAttribute>[] TileDefinitions { get; set; }
 
 		public override void Init()
 		{
-			availableTiles = RegisterTiles(TileHandlers, Logger);
+			availableTiles = RegisterTiles(TileDefinitions, Logger);
 		}
 
-		private static InternalDictionary<TileInfo> RegisterTiles(Lazy<Action<TileModel>, ITileAttribute>[] handlers, Logger logger)
+		private static InternalDictionary<TileInfo> RegisterTiles(Lazy<TileDefinition, ITileAttribute>[] definitions, Logger logger)
 		{
 			var tiles = new InternalDictionary<TileInfo>();
 
 			// регистрируем обработчики для методов плагинов
-			foreach (var handler in handlers)
+			foreach (var definition in definitions)
 			{
-				logger.Info("Register TILE: '{0}'", handler.Metadata.Key);
+				logger.Info("Register TILE DEFINITION: '{0}'", definition.Metadata.Key);
 
-				var tileInfo = new TileInfo(handler.Metadata, handler.Value);
-				tiles.Register(handler.Metadata.Key, tileInfo);
+				var tileInfo = new TileInfo(definition.Metadata, definition.Value);
+				tiles.Register(definition.Metadata.Key, tileInfo);
 			}
 
 			return tiles;
@@ -59,7 +60,7 @@ namespace ThinkingHome.Plugins.WebUI
 		{
 			using (var session = Context.OpenSession())
 			{
-				return GetListModel(session, availableTiles, (id, info, model) => info.Handler(model));
+				return GetListModel(session, availableTiles, (id, info, model) => info.Definition.FillModel(model));
 			}
 		}
 
@@ -156,17 +157,17 @@ namespace ThinkingHome.Plugins.WebUI
 
 	internal class TileInfo
 	{
-		public TileInfo(ITileAttribute metadata, Action<TileModel> handler)
+		public TileInfo(ITileAttribute metadata, TileDefinition definition)
 		{
 			Title = metadata.Title;
 			Url = metadata.Url;
 			IsWide = metadata.IsWide;
-			Handler = handler;
+			Definition = definition;
 		}
 
 		public readonly string Title;
 		public readonly string Url;
 		public readonly bool IsWide;
-		public readonly Action<TileModel> Handler;
+		public readonly TileDefinition Definition;
 	}
 }
