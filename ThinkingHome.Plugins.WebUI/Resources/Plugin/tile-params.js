@@ -8,20 +8,16 @@
 
 			var api = {
 
-				reload: function () {
+				reload: function (id) {
 
-					var view = new module.TileParametersView();
+					app.request('load:tiles:params', id).done(function (model) {
 
-					app.setContentView(view);
+						var view = new module.TileParametersView({
+							model: model
+						});
 
-					//app.request('load:tiles:all').done(function (collection) {
-
-					//	var view = new module.TileCollectionView({
-					//		collection: collection
-					//	});
-
-					//	app.setContentView(view);
-					//});
+						app.setContentView(view);
+					});
 				}
 			};
 

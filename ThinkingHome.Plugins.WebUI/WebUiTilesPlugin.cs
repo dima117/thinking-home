@@ -141,6 +141,16 @@ namespace ThinkingHome.Plugins.WebUI
 
 		#endregion
 
+		#region tile params
+
+		[HttpCommand("/api/webui/tiles/params")]
+		public object GetTileParams(HttpRequestParams request)
+		{
+			return new { message = "хрюкатааа-а-а-а-а!!!"};
+		}
+
+		#endregion
+
 		#region helpers
 
 		private static TileModel[] GetListModel(ISession session, InternalDictionary<TileInfo> available, Action<Guid, TileInfo, TileModel> func = null)
