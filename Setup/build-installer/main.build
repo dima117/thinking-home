@@ -151,7 +151,7 @@
 			<folders>
 				<add
 					component-id="ServiceComponents"
-					path="${dist.service.dir}"
+					path="${path::get-full-path(dist.service.dir)}"
 					folder-id="SERVICEINSTALLFOLDER"
 					folder-name="service" />
 			</folders>
