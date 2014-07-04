@@ -6,13 +6,13 @@
 
 	<property name="base.version" value="2.0.0"/>
 	<property name="build.number" value="1377" unless="${property::exists('build.number')}" />
-
 	<property name="version" value="${base.version}.${build.number}"/>
 
 	<property name="build-configuration" value="Release"/>
-
 	<property name="dist.dir" value="..\dist"/>
-
+	<property name="nuget.path" value="..\..\.nuget\NuGet.exe"/>
+	
+	
 	<property name="dist.service.dir" value="${path::combine(dist.dir, 'service')}"/>
 	<property name="build.service.dir"
 		value="${path::combine('..\..\ThinkingHome.Service\bin\', build-configuration)}" />
@@ -112,7 +112,7 @@
 					</namespaces>
 				</xmlpoke>
 
-				<exec program="nuget">
+				<exec program="${nuget.path}">
 					<arg value="pack" />
 					<arg value="${path::combine(tmp.todir.name, tmp.dir.name)}.nuspec" />
 					<arg value="-OutputDirectory" />
