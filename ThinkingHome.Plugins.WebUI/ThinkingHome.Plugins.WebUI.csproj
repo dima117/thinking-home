@@ -87,6 +87,11 @@
       <Name>ThinkingHome.Plugins.Listener</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\ThinkingHome.Plugins.Storage\ThinkingHome.Plugins.Storage.csproj">
+      <Project>{6f5ad56f-b6f0-4b0c-a054-59c404483695}</Project>
+      <Name>ThinkingHome.Plugins.Storage</Name>
+      <Private>False</Private>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Application\index.html" />
@@ -187,6 +192,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\Vendor\js\require-json.js" />
     <EmbeddedResource Include="Resources\Vendor\js\require-text.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Plugin\tile-params.tpl" />
+    <EmbeddedResource Include="Resources\Plugin\tile-params-model.js" />
+    <EmbeddedResource Include="Resources\Plugin\tile-params-view.js" />
+    <EmbeddedResource Include="Resources\Plugin\tile-params.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

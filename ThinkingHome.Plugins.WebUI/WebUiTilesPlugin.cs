@@ -8,7 +8,6 @@ using NHibernate.Mapping.ByCode;
 using NLog;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Core.Plugins.Utils;
-using ThinkingHome.Plugins.Listener;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.WebUI.Attributes;
@@ -18,6 +17,24 @@ using ThinkingHome.Plugins.WebUI.Tiles;
 
 namespace ThinkingHome.Plugins.WebUI
 {
+	[JavaScriptResource("/webapp/webui/tiles-editor.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-editor.js")]
+	[JavaScriptResource("/webapp/webui/tiles-editor-view.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-editor-view.js")]
+	[JavaScriptResource("/webapp/webui/tiles-editor-model.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-editor-model.js")]
+	[HttpResource("/webapp/webui/tiles-editor-layout.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-editor-layout.tpl")]
+	[HttpResource("/webapp/webui/tiles-editor-form.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-editor-form.tpl")]
+	[HttpResource("/webapp/webui/tiles-editor-list-item.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-editor-list-item.tpl")]
+
+	[JavaScriptResource("/webapp/webui/tile-params.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tile-params.js")]
+	[JavaScriptResource("/webapp/webui/tile-params-view.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tile-params-view.js")]
+	[JavaScriptResource("/webapp/webui/tile-params-model.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tile-params-model.js")]
+	[HttpResource("/webapp/webui/tile-params.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tile-params.tpl")]
+	
+	[JavaScriptResource("/webapp/webui/tiles.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles.js")]
+	[JavaScriptResource("/webapp/webui/tiles-model.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-model.js")]
+	[JavaScriptResource("/webapp/webui/tiles-view.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-view.js")]
+	[HttpResource("/webapp/webui/tile.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tile.tpl")]
+
+
 	[Plugin]
 	public class WebUiTilesPlugin : Plugin
 	{

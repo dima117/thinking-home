@@ -15,6 +15,9 @@ namespace ThinkingHome.Plugins.WebUI
 
 	// js
 	[JavaScriptResource("/vendor/js/require.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.require.min.js")]
+	[JavaScriptResource("/vendor/js/require-text.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.require-text.js")]
+	[JavaScriptResource("/vendor/js/require-json.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.require-json.js")]
+
 	[JavaScriptResource("/vendor/js/json2.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.json2.min.js")]
 	[JavaScriptResource("/vendor/js/jquery.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.jquery.min.js")]
 	[JavaScriptResource("/vendor/js/underscore.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.underscore.min.js")]
@@ -22,9 +25,6 @@ namespace ThinkingHome.Plugins.WebUI
 	[JavaScriptResource("/vendor/js/backbone.marionette.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.marionette.min.js")]
 	[JavaScriptResource("/vendor/js/backbone.syphon.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.syphon.js")]
 	[JavaScriptResource("/vendor/js/bootstrap.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.bootstrap.min.js")]
-
-	[JavaScriptResource("/vendor/js/require-text.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.require-text.js")]
-	[JavaScriptResource("/vendor/js/require-json.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.require-json.js")]
 
 	[JavaScriptResource("/vendor/js/codemirror-all.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.codemirror-all.js")]
 	[JavaScriptResource("/vendor/js/codemirror.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.codemirror.js")]
@@ -68,18 +68,6 @@ namespace ThinkingHome.Plugins.WebUI
 	[JavaScriptResource("/webapp/webui/section-view.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.section-view.js")]
 	[HttpResource("/webapp/webui/section-list.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.section-list.tpl")]
 	[HttpResource("/webapp/webui/section-list-item.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.section-list-item.tpl")]
-
-	[JavaScriptResource("/webapp/webui/tiles-editor.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-editor.js")]
-	[JavaScriptResource("/webapp/webui/tiles-editor-view.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-editor-view.js")]
-	[JavaScriptResource("/webapp/webui/tiles-editor-model.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-editor-model.js")]
-	[HttpResource("/webapp/webui/tiles-editor-layout.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-editor-layout.tpl")]
-	[HttpResource("/webapp/webui/tiles-editor-form.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-editor-form.tpl")]
-	[HttpResource("/webapp/webui/tiles-editor-list-item.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-editor-list-item.tpl")]
-	
-	[JavaScriptResource("/webapp/webui/tiles.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles.js")]
-	[JavaScriptResource("/webapp/webui/tiles-model.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-model.js")]
-	[JavaScriptResource("/webapp/webui/tiles-view.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-view.js")]
-	[HttpResource("/webapp/webui/tile.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tile.tpl")]
 
 	#endregion
 
