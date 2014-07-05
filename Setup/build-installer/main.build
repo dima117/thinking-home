@@ -84,6 +84,17 @@
 			</fileset>
 		</copy>
 
+		<xmlpoke
+			file="${path::combine(dist.service.dir, 'ThinkingHome.Service.exe.config')}"
+			xpath="/configuration/appSettings/add[@key='pluginsRepository']/@value"
+			value="http://thinking-home.ru/system/nuget/" />
+
+		<xmlpoke
+			file="${path::combine(dist.service.dir, 'ThinkingHome.TestConsole.exe.config')}"
+			xpath="/configuration/appSettings/add[@key='pluginsRepository']/@value"
+			value="http://thinking-home.ru/system/nuget/" />
+
+
 		<delete dir="${path::combine(build.plugins.dir, 'ThinkingHome.Plugins.Speech')}" />
 
 		<echo message="## plugins" />
