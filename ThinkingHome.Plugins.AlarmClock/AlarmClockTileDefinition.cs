@@ -4,7 +4,7 @@ using ThinkingHome.Plugins.WebUI.Tiles;
 
 namespace ThinkingHome.Plugins.AlarmClock
 {
-	[Tile("48AFCCC4-A3B1-41B3-B23A-2EA3DAFD6F55")]
+	[Tile]
 	public class AlarmClockTileDefinition : TileDefinition
 	{
 		public override string Title

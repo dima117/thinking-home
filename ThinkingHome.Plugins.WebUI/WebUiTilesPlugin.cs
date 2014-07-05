@@ -41,22 +41,24 @@ namespace ThinkingHome.Plugins.WebUI
 		private InternalDictionary<TileDefinition> availableTiles;
 
 		[ImportMany("FA4F97A0-41A0-4A72-BEF3-6DB579D909F4")]
-		public Lazy<TileDefinition, ITileAttribute>[] TileDefinitions { get; set; }
+		public TileDefinition[] TileDefinitions { get; set; }
 
 		public override void Init()
 		{
 			availableTiles = RegisterTiles(TileDefinitions, Logger);
 		}
 
-		private static InternalDictionary<TileDefinition> RegisterTiles(Lazy<TileDefinition, ITileAttribute>[] definitions, Logger logger)
+		private static InternalDictionary<TileDefinition> RegisterTiles(TileDefinition[] definitions, Logger logger)
 		{
 			var tiles = new InternalDictionary<TileDefinition>();
 
 			// регистрируем обработчики для методов плагинов
 			foreach (var definition in definitions)
 			{
-				logger.Info("Register TILE DEFINITION: '{0}'", definition.Metadata.Key);
-				tiles.Register(definition.Metadata.Key, definition.Value);
+				var key = definition.GetType().FullName;
+
+				logger.Info("Register TILE DEFINITION: '{0}'", key);
+				tiles.Register(key, definition);
 			}
 
 			return tiles;

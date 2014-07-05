@@ -2,7 +2,7 @@
 
 namespace ThinkingHome.Plugins.Tmp.Tiles
 {
-	[Tile("E6467D12-283A-4B07-B807-2FA2A7555ED4")]
+	[Tile]
 	public class TestWeatherTileDefinition : TileDefinition
 	{
 		public override string Title
