@@ -28,7 +28,7 @@ namespace ThinkingHome.Plugins.WebUI
 	[JavaScriptResource("/webapp/webui/tile-params-view.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tile-params-view.js")]
 	[JavaScriptResource("/webapp/webui/tile-params-model.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tile-params-model.js")]
 	[HttpResource("/webapp/webui/tile-params.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tile-params.tpl")]
-	
+
 	[JavaScriptResource("/webapp/webui/tiles.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles.js")]
 	[JavaScriptResource("/webapp/webui/tiles-model.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-model.js")]
 	[JavaScriptResource("/webapp/webui/tiles-view.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-view.js")]
@@ -38,7 +38,7 @@ namespace ThinkingHome.Plugins.WebUI
 	[Plugin]
 	public class WebUiTilesPlugin : Plugin
 	{
-		private InternalDictionary<TileInfo> availableTiles;
+		private InternalDictionary<TileDefinition> availableTiles;
 
 		[ImportMany("FA4F97A0-41A0-4A72-BEF3-6DB579D909F4")]
 		public Lazy<TileDefinition, ITileAttribute>[] TileDefinitions { get; set; }
@@ -48,17 +48,15 @@ namespace ThinkingHome.Plugins.WebUI
 			availableTiles = RegisterTiles(TileDefinitions, Logger);
 		}
 
-		private static InternalDictionary<TileInfo> RegisterTiles(Lazy<TileDefinition, ITileAttribute>[] definitions, Logger logger)
+		private static InternalDictionary<TileDefinition> RegisterTiles(Lazy<TileDefinition, ITileAttribute>[] definitions, Logger logger)
 		{
-			var tiles = new InternalDictionary<TileInfo>();
+			var tiles = new InternalDictionary<TileDefinition>();
 
 			// регистрируем обработчики для методов плагинов
 			foreach (var definition in definitions)
 			{
 				logger.Info("Register TILE DEFINITION: '{0}'", definition.Metadata.Key);
-
-				var tileInfo = new TileInfo(definition.Metadata, definition.Value);
-				tiles.Register(definition.Metadata.Key, tileInfo);
+				tiles.Register(definition.Metadata.Key, definition.Value);
 			}
 
 			return tiles;
@@ -77,7 +75,7 @@ namespace ThinkingHome.Plugins.WebUI
 		{
 			using (var session = Context.OpenSession())
 			{
-				return GetListModel(session, availableTiles, (id, info, model) => info.Definition.FillModel(model));
+				return GetListModel(session, availableTiles, (id, info, model) => info.FillModel(model));
 			}
 		}
 
@@ -146,14 +144,55 @@ namespace ThinkingHome.Plugins.WebUI
 		[HttpCommand("/api/webui/tiles/params")]
 		public object GetTileParams(HttpRequestParams request)
 		{
-			return new { message = "хрюкатааа-а-а-а-а!!!"};
+			Guid id = request.GetRequiredGuid("id");
+
+			using (var session = Context.OpenSession())
+			{
+				var tile = session.Get<Tile>(id);
+
+				TileDefinition def;
+
+				if (availableTiles.TryGetValue(tile.HandlerKey, out def))
+				{
+					return def
+						.GetParameters()
+						.Select(CreateTileParameterModel)
+						.ToArray();
+				}
+			}
+
+			return null;
+		}
+
+		private object CreateTileParameterModel(TileParameter p)
+		{
+			return new
+			{
+				name = p.Name,
+				value = p.Value,
+				label = p.Label,
+				list = GetList(p.List)
+			};
+		}
+
+		// todo: переименовать
+		private object GetList(TileParameterValue[] list)
+		{
+			if (list == null)
+			{
+				return null;
+			}
+
+			return list
+				.Select(obj => new { id = obj.Value, text = obj.Label })
+				.ToArray();
 		}
 
 		#endregion
 
 		#region helpers
 
-		private static TileModel[] GetListModel(ISession session, InternalDictionary<TileInfo> available, Action<Guid, TileInfo, TileModel> func = null)
+		private static TileModel[] GetListModel(ISession session, InternalDictionary<TileDefinition> available, Action<Guid, TileDefinition, TileModel> func = null)
 		{
 			var result = new List<TileModel>();
 
@@ -161,7 +200,7 @@ namespace ThinkingHome.Plugins.WebUI
 
 			foreach (var obj in tiles)
 			{
-				TileInfo tile;
+				TileDefinition tile;
 
 				if (available.TryGetValue(obj.HandlerKey, out tile))
 				{
@@ -180,21 +219,5 @@ namespace ThinkingHome.Plugins.WebUI
 		}
 
 		#endregion
-	}
-
-	internal class TileInfo
-	{
-		public TileInfo(ITileAttribute metadata, TileDefinition definition)
-		{
-			Title = metadata.Title;
-			Url = metadata.Url;
-			IsWide = metadata.IsWide;
-			Definition = definition;
-		}
-
-		public readonly string Title;
-		public readonly string Url;
-		public readonly bool IsWide;
-		public readonly TileDefinition Definition;
 	}
 }

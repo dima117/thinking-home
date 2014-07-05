@@ -1,15 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ThinkingHome.Plugins.WebUI.Tiles;
 
 namespace ThinkingHome.Plugins.AlarmClock
 {
-	[Tile("48AFCCC4-A3B1-41B3-B23A-2EA3DAFD6F55", "Alarm clock", "webapp/alarm-clock/list")]
+	[Tile("48AFCCC4-A3B1-41B3-B23A-2EA3DAFD6F55")]
 	public class AlarmClockTileDefinition : TileDefinition
 	{
+		public override string Title
+		{
+			get { return "Alarm clock"; }
+		}
+
+		public override string Url
+		{
+			get { return "webapp/alarm-clock/list"; }
+		}
+
 		public override void FillModel(WebUI.Model.TileModel model)
 		{
 			var now = DateTime.Now;

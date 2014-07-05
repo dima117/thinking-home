@@ -31,6 +31,24 @@ namespace ThinkingHome.Plugins.WebUI.Tiles
 			get { return context; }
 		}
 
+		#region public
+
+		public abstract string Title { get; }
+
+		public abstract string Url { get; }
+
+		public virtual bool IsWide
+		{
+			get { return false; }
+		}
+
 		public abstract void FillModel(TileModel model);
+
+		public virtual TileParameter[] GetParameters()
+		{
+			return null;
+		}
+
+		#endregion
 	}
 }
