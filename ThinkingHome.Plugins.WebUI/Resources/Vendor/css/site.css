@@ -107,6 +107,10 @@ body {
 	text-decoration: none;
 }
 
+.tile-actions {
+	text-align: right;
+}
+
 .tile-content {
 	position: absolute;
 	white-space: pre-wrap;

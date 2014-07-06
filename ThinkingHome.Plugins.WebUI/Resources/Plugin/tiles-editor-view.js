@@ -41,7 +41,8 @@
 				}
 			},
 			triggers: {
-				'click .js-delete-tile': 'webui:tiles-editor:delete'
+				'click .js-tile-delete': 'webui:tiles-editor:delete',
+				'click .js-tile-params': 'webui:tiles-editor:params'
 			}
 		});
 

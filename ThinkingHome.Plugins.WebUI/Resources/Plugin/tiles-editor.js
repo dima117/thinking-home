@@ -26,6 +26,12 @@
 					}
 				},
 
+				editTileParameters: function (itemView) {
+
+					var id = itemView.model.get('id');
+					app.navigate('webapp/webui/tile-params', id);
+				},
+
 				reloadForm: function () {
 
 					app.request('load:tiles:editor-form')
@@ -44,6 +50,7 @@
 
 							var view = new module.TilesEditorListView({ collection: list });
 							view.on('itemview:webui:tiles-editor:delete', api.deleteTile);
+							view.on('itemview:webui:tiles-editor:params', api.editTileParameters);
 							layoutView.regionList.show(view);
 						});
 				}
