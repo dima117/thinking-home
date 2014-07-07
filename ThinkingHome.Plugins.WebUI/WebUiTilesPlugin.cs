@@ -158,7 +158,7 @@ namespace ThinkingHome.Plugins.WebUI
 				if (availableTiles.TryGetValue(tile.HandlerKey, out def))
 				{
 					return def
-						.GetParameters()
+						.GetParameters(id)
 						.Select(CreateTileParameterModel)
 						.ToArray();
 				}

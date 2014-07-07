@@ -64,7 +64,6 @@
   <ItemGroup>
     <Compile Include="Tiles\TestTileDefinition.cs" />
     <Compile Include="Tiles\TestNewsTileDefinition.cs" />
-    <Compile Include="Tiles\TestWeatherTileDefinition.cs" />
     <Compile Include="TmpPlugin.cs" />
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>

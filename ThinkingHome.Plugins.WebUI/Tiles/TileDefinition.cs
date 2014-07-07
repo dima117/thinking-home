@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.Composition;
+﻿using System;
+using System.ComponentModel.Composition;
 using ThinkingHome.Core.Plugins;
 using NLog;
 using ThinkingHome.Plugins.WebUI.Model;
@@ -44,9 +45,9 @@ namespace ThinkingHome.Plugins.WebUI.Tiles
 
 		public abstract void FillModel(TileModel model);
 
-		public virtual TileParameter[] GetParameters()
+		public virtual TileParameter[] GetParameters(Guid id)
 		{
-			return null;
+			return new TileParameter[0];
 		}
 
 		#endregion
