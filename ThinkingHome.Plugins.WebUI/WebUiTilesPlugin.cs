@@ -78,7 +78,7 @@ namespace ThinkingHome.Plugins.WebUI
 		{
 			using (var session = Context.OpenSession())
 			{
-				return GetListModel(session, availableTiles, (id, info, model) => info.FillModel(model));
+				return GetListModel(session, availableTiles, (id, def, model) => def.FillModel(model));
 			}
 		}
 
@@ -207,7 +207,7 @@ namespace ThinkingHome.Plugins.WebUI
 
 				if (available.TryGetValue(obj.HandlerKey, out tile))
 				{
-					var model = new TileModel { id = obj.Id, title = tile.Title, wide = tile.IsWide, url = tile.Url };
+					var model = new TileModel { id = obj.Id, title = tile.Title, wide = tile.IsWide, url = tile.Url, hasParams = tile.HasParameters };
 
 					if (func != null)
 					{

@@ -38,6 +38,11 @@ namespace ThinkingHome.Plugins.WebUI.Tiles
 
 		public abstract string Url { get; }
 
+		public virtual bool HasParameters
+		{
+			get { return false; }
+		}
+
 		public virtual bool IsWide
 		{
 			get { return false; }

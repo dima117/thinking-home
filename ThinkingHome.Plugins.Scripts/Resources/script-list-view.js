@@ -6,22 +6,10 @@
 
 			module.ScriptView = marionette.ItemView.extend({
 				template: _.template(itemTemplate),
-				events: {
-					'click .js-btn-run': 'btnRunClick',
-					'click .js-btn-edit': 'btnEditClick',
-					'click .js-btn-delete': 'btnDeleteClick'
-				},
-				btnRunClick: function (e) {
-					e.preventDefault();
-					this.trigger('scripts:run');
-				},
-				btnEditClick: function (e) {
-					e.preventDefault();
-					this.trigger('scripts:edit');
-				},
-				btnDeleteClick: function (e) {
-					e.preventDefault();
-					this.trigger('scripts:delete');
+				triggers: {
+					'click .js-btn-run': 'scripts:run',
+					'click .js-btn-edit': 'scripts:edit',
+					'click .js-btn-delete': 'scripts:delete'
 				}
 			});
 
@@ -29,12 +17,8 @@
 				template: _.template(listTemplate),
 				itemView: module.ScriptView,
 				itemViewContainer: '.js-list',
-				events: {
-					'click .js-add-script': 'btnAddClick'
-				},
-				btnAddClick: function (e) {
-					e.preventDefault();
-					this.trigger('scripts:add');
+				triggers: {
+					'click .js-add-script': 'scripts:add'
 				}
 			});
 		});

@@ -19,6 +19,11 @@ namespace ThinkingHome.Plugins.Weather
 			get { return "webapp/weather/forecast"; }
 		}
 
+		public override bool HasParameters
+		{
+			get { return true; }
+		}
+
 		public override void FillModel(WebUI.Model.TileModel model)
 		{
 			model.content = "10:00 — 5°C\n16:00 —  6°C\n22:00 —  4°C\n04:00 —  3°C";

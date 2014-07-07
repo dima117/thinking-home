@@ -8,9 +8,9 @@
 
 			module.PackageView = marionette.ItemView.extend({
 				template: _.template(itemTemplate),
-				events: {
-					'click .js-btn-install': 'btnInstallClick',
-					'click .js-btn-uninstall': 'btnUninstallClick'
+				triggers: {
+					'click .js-btn-install': 'packages:install',
+					'click .js-btn-uninstall': 'packages:uninstall'
 				},
 				onRender: function () {
 
@@ -22,14 +22,6 @@
 					} else {
 						this.$('.js-btn-uninstall').hide();
 					}
-				},
-				btnInstallClick: function (e) {
-					e.preventDefault();
-					this.trigger('packages:install');
-				},
-				btnUninstallClick: function (e) {
-					e.preventDefault();
-					this.trigger('packages:uninstall');
 				}
 			});
 

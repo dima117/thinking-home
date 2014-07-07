@@ -36,8 +36,15 @@
 			className: 'tile btn-primary',
 			onRender: function () {
 
-				if (this.model.get('wide')) {
+				var isWide = this.model.get('wide');
+				var hasParams = this.model.get('hasParams');
+
+				if (isWide) {
 					this.$el.addClass('tile-double');
+				}
+				
+				if (!hasParams) {
+					this.$('.js-tile-params').hide();
 				}
 			},
 			triggers: {
