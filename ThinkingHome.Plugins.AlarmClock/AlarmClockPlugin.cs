@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
-using System.Media;
 using NHibernate.Linq;
 using NHibernate.Mapping.ByCode;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Plugins.AlarmClock.Data;
+using ThinkingHome.Plugins.Audio;
 using ThinkingHome.Plugins.Scripts;
 using ThinkingHome.Plugins.Timer;
 
@@ -18,22 +18,10 @@ namespace ThinkingHome.Plugins.AlarmClock
 		private readonly object lockObject = new object();
 		private DateTime lastAlarmTime = DateTime.MinValue;
 		private List<AlarmTime> times;
-
-		private SoundPlayer player;
-
+	
 		public override void InitDbModel(ModelMapper mapper)
 		{
 			mapper.Class<AlarmTime>(cfg => cfg.Table("AlarmClock_AlarmTime"));
-		}
-
-		public override void StartPlugin()
-		{
-			player = new SoundPlayer(SoundResources.Ring02);
-		}
-
-		public override void StopPlugin()
-		{
-			player.Dispose();
 		}
 
 		#region public
@@ -50,7 +38,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 		public void StopAlarm()
 		{
 			Logger.Info("Stop all sounds");
-			player.Stop();
+			Context.GetPlugin<AudioPlugin>().Stop();
 		}
 
 		#endregion
@@ -129,7 +117,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 			if (alarms.Any(a => a.PlaySound))
 			{
 				Logger.Info("Play sound");
-				player.PlayLooping();
+				Context.GetPlugin<AudioPlugin>().Play(SoundResources.Ring02, true);
 			}
 
 			foreach (var alarm in alarms)

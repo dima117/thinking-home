@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Media;
 using System.Net.Mail;
 using System.Threading;
 using ThinkingHome.Core.Plugins;
@@ -8,8 +7,6 @@ using ThinkingHome.Plugins.AlarmClock;
 using ThinkingHome.Plugins.Audio;
 using ThinkingHome.Plugins.DlinkDCS930L;
 using ThinkingHome.Plugins.Scripts;
-using ThinkingHome.Plugins.WebUI.Attributes;
-using ThinkingHome.Plugins.WebUI.Model;
 
 namespace ThinkingHome.Plugins.Tmp
 {
@@ -71,9 +68,7 @@ namespace ThinkingHome.Plugins.Tmp
 		#endregion
 
 		#region sounds
-
-		private SoundPlayer doorBell;
-
+		
 		[ScriptCommand("playDoorBell")]
 		public void DoorBell()
 		{
