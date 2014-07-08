@@ -5,6 +5,7 @@ using System.Net.Mail;
 using System.Threading;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Plugins.AlarmClock;
+using ThinkingHome.Plugins.Audio;
 using ThinkingHome.Plugins.DlinkDCS930L;
 using ThinkingHome.Plugins.Scripts;
 using ThinkingHome.Plugins.WebUI.Attributes;
@@ -73,20 +74,16 @@ namespace ThinkingHome.Plugins.Tmp
 
 		private SoundPlayer doorBell;
 
-		public override void Start()
-		{
-			doorBell = new SoundPlayer(TmpResources.doorbell);
-		}
-
-		public override void Stop()
-		{
-			doorBell.Dispose();
-		}
-
 		[ScriptCommand("playDoorBell")]
 		public void DoorBell()
 		{
-			doorBell.Play();
+			Context.GetPlugin<AudioPlugin>().Play(TmpResources.doorbell, true);
+		}
+
+		[ScriptCommand("stopDoorBell")]
+		public void StopDoorBell()
+		{
+			Context.GetPlugin<AudioPlugin>().Stop();
 		}
 
 		#endregion
@@ -104,6 +101,8 @@ namespace ThinkingHome.Plugins.Tmp
 		{
 			Logger.Info("test2: {0}", id);
 		}
+
+
 
 		#endregion
 	}

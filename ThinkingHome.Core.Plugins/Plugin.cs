@@ -24,7 +24,7 @@ namespace ThinkingHome.Core.Plugins
 			logger = LogManager.GetLogger(GetType().FullName);
 		}
 
-		public virtual void Init()
+		public virtual void InitPlugin()
 		{
 
 		}
@@ -34,12 +34,12 @@ namespace ThinkingHome.Core.Plugins
 
 		}
 
-		public virtual void Start()
+		public virtual void StartPlugin()
 		{
 
 		}
 
-		public virtual void Stop()
+		public virtual void StopPlugin()
 		{
 
 		}

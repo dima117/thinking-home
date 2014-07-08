@@ -12,7 +12,7 @@ namespace ThinkingHome.Plugins.Timer
 
 		private System.Timers.Timer timer;
 
-		public override void Init()
+		public override void InitPlugin()
 		{
 			timer = new System.Timers.Timer(TIMER_INTERVAL);
 			timer.Elapsed += OnTimedEvent;
@@ -21,12 +21,12 @@ namespace ThinkingHome.Plugins.Timer
 		[ImportMany("E62C804C-B96B-4CA8-822E-B1725B363534")]
 		public Action<DateTime>[] OnEvent { get; set; }
 
-		public override void Start()
+		public override void StartPlugin()
 		{
 			timer.Enabled = true;
 		}
 
-		public override void Stop()
+		public override void StopPlugin()
 		{
 			timer.Enabled = false;
 		}

@@ -28,17 +28,17 @@ namespace ThinkingHome.Plugins.Speech
 
 		#region override
 
-		public override void Init()
+		public override void InitPlugin()
 		{
-			base.Init();
+			base.InitPlugin();
 
 			InitSpeechSynthesizer();
 			InitRecognitionEngine();
 		}
 
-		public override void Stop()
+		public override void StopPlugin()
 		{
-			base.Stop();
+			base.StopPlugin();
 
 			CloseSpeechSynthesizer();
 			CloseRecognitionEngine();

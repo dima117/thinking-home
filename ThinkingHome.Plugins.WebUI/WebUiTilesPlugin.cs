@@ -44,7 +44,7 @@ namespace ThinkingHome.Plugins.WebUI
 		[ImportMany("FA4F97A0-41A0-4A72-BEF3-6DB579D909F4")]
 		public TileDefinition[] TileDefinitions { get; set; }
 
-		public override void Init()
+		public override void InitPlugin()
 		{
 			availableTiles = RegisterTiles(TileDefinitions, Logger);
 		}

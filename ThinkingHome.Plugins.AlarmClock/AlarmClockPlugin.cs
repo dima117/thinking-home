@@ -26,12 +26,12 @@ namespace ThinkingHome.Plugins.AlarmClock
 			mapper.Class<AlarmTime>(cfg => cfg.Table("AlarmClock_AlarmTime"));
 		}
 
-		public override void Start()
+		public override void StartPlugin()
 		{
 			player = new SoundPlayer(SoundResources.Ring02);
 		}
 
-		public override void Stop()
+		public override void StopPlugin()
 		{
 			player.Dispose();
 		}

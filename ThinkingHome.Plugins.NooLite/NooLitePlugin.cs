@@ -12,7 +12,7 @@ namespace ThinkingHome.Plugins.NooLite
 	{
 		private readonly RX1164Adapter rx1164 = new RX1164Adapter();
 
-		public override void Init()
+		public override void InitPlugin()
 		{
 			rx1164.CommandReceived += rx1164_CommandReceived;
 		}
@@ -24,12 +24,12 @@ namespace ThinkingHome.Plugins.NooLite
 			this.RaiseScriptEvent(x => x.OnCommandReceivedForScripts, obj.Cmd, obj.Channel, obj.Data);
 		}
 
-		public override void Start()
+		public override void StartPlugin()
 		{
 			rx1164.OpenDevice();
 		}
 
-		public override void Stop()
+		public override void StopPlugin()
 		{
 			rx1164.Dispose();
 		}

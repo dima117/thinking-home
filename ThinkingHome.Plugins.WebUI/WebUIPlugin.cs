@@ -76,10 +76,10 @@ namespace ThinkingHome.Plugins.WebUI
 	{
 		private readonly List<AppSectionAttribute> sections = new List<AppSectionAttribute>();
 		private readonly HashSet<string> cssFiles = new HashSet<string>(StringComparer.InvariantCultureIgnoreCase);
-		
-		public override void Init()
+
+		public override void InitPlugin()
 		{
-			base.Init();
+			base.InitPlugin();
 
 			foreach (var plugin in Context.GetAllPlugins())
 			{

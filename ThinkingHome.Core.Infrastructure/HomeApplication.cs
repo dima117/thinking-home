@@ -109,7 +109,7 @@ namespace ThinkingHome.Core.Infrastructure
 				foreach (var plugin in context.GetAllPlugins())
 				{
 					logger.Info("init plugin: {0}", plugin.GetType().FullName);
-					plugin.Init();
+					plugin.InitPlugin();
 				}
 			}
 			catch (Exception ex)
@@ -126,7 +126,7 @@ namespace ThinkingHome.Core.Infrastructure
 				foreach (var plugin in context.GetAllPlugins())
 				{
 					logger.Info("start plugin {0}", plugin.GetType().FullName);
-					plugin.Start();
+					plugin.StartPlugin();
 				}
 
 				logger.Info("all plugins running");
@@ -145,7 +145,7 @@ namespace ThinkingHome.Core.Infrastructure
 				try
 				{
 					logger.Info("stop plugin {0}", plugin.GetType().FullName);
-					plugin.Stop();
+					plugin.StopPlugin();
 				}
 				catch (Exception ex)
 				{

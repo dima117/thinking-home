@@ -21,7 +21,7 @@ namespace ThinkingHome.Plugins.Listener
 		[ImportMany("5D358D8E-2310-49FE-A660-FB3ED7003B4C")]
 		public Lazy<Func<HttpRequestParams, object>, IHttpCommandAttribute>[] RequestReceived { get; set; }
 
-		public override void Init()
+		public override void InitPlugin()
 		{
 			var handlers = RegisterHandlers();
 			var dependencyResolver = new DependencyResolver(handlers, Logger);
@@ -31,14 +31,15 @@ namespace ThinkingHome.Plugins.Listener
 			server = new HttpSelfHostServer(config);
 		}
 
-		public override void Start()
+		public override void StartPlugin()
 		{
 			server.OpenAsync();
 		}
 
-		public override void Stop()
+		public override void StopPlugin()
 		{
 			server.Dispose();
+			server = null;
 		}
 
 		#region private

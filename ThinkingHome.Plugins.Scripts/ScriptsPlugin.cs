@@ -20,7 +20,7 @@ namespace ThinkingHome.Plugins.Scripts
 		private ScriptHost scriptHost;
 		private HashSet<string> scriptEvents;
 
-		public override void Init()
+		public override void InitPlugin()
 		{
 			var actions = RegisterScriptCommands();
 
