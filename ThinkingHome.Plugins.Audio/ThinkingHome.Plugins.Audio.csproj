@@ -54,8 +54,6 @@
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Internal\SoundPlayer.cs" />
-    <Compile Include="ISoundPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

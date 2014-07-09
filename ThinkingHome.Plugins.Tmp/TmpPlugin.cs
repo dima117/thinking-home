@@ -5,6 +5,7 @@ using System.Threading;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Plugins.AlarmClock;
 using ThinkingHome.Plugins.Audio;
+using ThinkingHome.Plugins.Audio.Internal;
 using ThinkingHome.Plugins.DlinkDCS930L;
 using ThinkingHome.Plugins.Scripts;
 
@@ -68,17 +69,33 @@ namespace ThinkingHome.Plugins.Tmp
 		#endregion
 
 		#region sounds
-		
+
+		private ILoopStream stream;
+		private readonly object lockObjectForSound = new object();
+
 		[ScriptCommand("playDoorBell")]
 		public void DoorBell()
 		{
-			Context.GetPlugin<AudioPlugin>().Play(TmpResources.doorbell, true);
+			lock (lockObjectForSound)
+			{
+				stream = Context.GetPlugin<AudioPlugin>().Play(TmpResources.doorbell, 3);
+			}
 		}
 
 		[ScriptCommand("stopDoorBell")]
 		public void StopDoorBell()
 		{
-			Context.GetPlugin<AudioPlugin>().Stop();
+			if (stream != null)
+			{
+				lock (lockObjectForSound)
+				{
+					if (stream != null)
+					{
+						stream.Stop();
+						stream = null;
+					}
+				}
+			}
 		}
 
 		#endregion

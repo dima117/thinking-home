@@ -117,7 +117,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 			if (alarms.Any(a => a.PlaySound))
 			{
 				Logger.Info("Play sound");
-				Context.GetPlugin<AudioPlugin>().Play(SoundResources.Ring02, true);
+				Context.GetPlugin<AudioPlugin>().Play(SoundResources.Ring02, 25);
 			}
 
 			foreach (var alarm in alarms)

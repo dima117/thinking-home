@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using NAudio.Wave;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Plugins.Audio.Internal;
@@ -27,24 +22,21 @@ namespace ThinkingHome.Plugins.Audio
 			waveOut = null;
 		}
 
-		public void Play(Stream stream, bool loop = false)
+		public ILoopStream Play(Stream stream, int loop = 0)
 		{
 			lock (lockObject)
 			{
-				if (waveOut.PlaybackState != PlaybackState.Stopped)
-				{
-					waveOut.Stop();
-				}
-
 				var reader = new WaveFileReader(stream);
 				var loopStream = new LoopStream(reader, loop);
-				waveOut = new WaveOut();
+				
 				waveOut.Init(loopStream);
 				waveOut.Play();
+
+				return loopStream;
 			}
 		}
 
-		public void Stop()
+		public void StopAllSound()
 		{
 			lock (lockObject)
 			{
