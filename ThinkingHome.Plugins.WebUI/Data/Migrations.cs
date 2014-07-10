@@ -6,7 +6,7 @@ using ECM7.Migrator.Framework;
 namespace ThinkingHome.Plugins.WebUI.Data
 {
 	[Migration(1)]
-	public class Migration01UserScriptTable : Migration
+	public class Migration01TilesTable : Migration
 	{
 		public override void Apply()
 		{
@@ -20,6 +20,21 @@ namespace ThinkingHome.Plugins.WebUI.Data
 		public override void Revert()
 		{
 			Database.RemoveTable("WebUI_Tile");
+		}
+	}
+	
+	[Migration(2)]
+	public class Migration02TileParameters : Migration
+	{
+		public override void Apply()
+		{
+			Database.AddColumn("WebUI_Tile", 
+				new Column("SerializedParameters", DbType.String.WithSize(int.MaxValue)));
+		}
+
+		public override void Revert()
+		{
+			Database.RemoveColumn("WebUI_Tile", "SerializedParameters");
 		}
 	}
 }

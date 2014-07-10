@@ -152,6 +152,7 @@ namespace ThinkingHome.Plugins.WebUI
 			using (var session = Context.OpenSession())
 			{
 				var tile = session.Get<Tile>(id);
+				var parameters = tile.GetParameters();
 
 				TileDefinition def;
 
@@ -159,7 +160,7 @@ namespace ThinkingHome.Plugins.WebUI
 				{
 					return def
 						.GetParameters(id)
-						.Select(CreateTileParameterModel)
+						.Select(x => CreateTileParameterModel(x, parameters))
 						.ToArray();
 				}
 			}
@@ -167,12 +168,12 @@ namespace ThinkingHome.Plugins.WebUI
 			return null;
 		}
 
-		private object CreateTileParameterModel(TileParameter p)
+		private object CreateTileParameterModel(TileParameter p, dynamic values)
 		{
 			return new
 			{
 				name = p.Name,
-				value = p.Value,
+				value = values[p.Name],
 				label = p.Label,
 				list = GetList(p.List)
 			};

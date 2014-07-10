@@ -7,7 +7,7 @@ using ThinkingHome.Plugins.WebUI.Tiles;
 namespace ThinkingHome.Plugins.Weather
 {
 	[Tile]
-	public class TestWeatherTileDefinition : TileDefinition
+	public class WeatherTileDefinition : TileDefinition
 	{
 		public override string Title
 		{
