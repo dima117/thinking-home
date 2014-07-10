@@ -7,6 +7,7 @@ using NHibernate.Mapping.ByCode;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Plugins.AlarmClock.Data;
 using ThinkingHome.Plugins.Audio;
+using ThinkingHome.Plugins.Audio.Internal;
 using ThinkingHome.Plugins.Scripts;
 using ThinkingHome.Plugins.Timer;
 
@@ -16,8 +17,10 @@ namespace ThinkingHome.Plugins.AlarmClock
 	public class AlarmClockPlugin : Plugin
 	{
 		private readonly object lockObject = new object();
+		private readonly object lockObjectForSound = new object();
 		private DateTime lastAlarmTime = DateTime.MinValue;
 		private List<AlarmTime> times;
+		private IPlayback playback;
 	
 		public override void InitDbModel(ModelMapper mapper)
 		{
@@ -35,10 +38,30 @@ namespace ThinkingHome.Plugins.AlarmClock
 			}
 		}
 
-		public void StopAlarm()
+		public void PlaySound()
 		{
-			Logger.Info("Stop all sounds");
-			Context.GetPlugin<AudioPlugin>().Stop();
+			lock (lockObjectForSound)
+			{
+				StopSound();
+
+				Logger.Info("Play sound");
+				playback = Context.GetPlugin<AudioPlugin>().Play(SoundResources.Ring02, 25);
+			}
+		}
+
+		public void StopSound()
+		{
+			
+
+			lock (lockObjectForSound)
+			{
+				if (playback != null)
+				{
+					Logger.Info("Stop all sounds");
+					playback.Stop();
+					playback = null;
+				}
+			}
 		}
 
 		#endregion
@@ -116,8 +139,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 
 			if (alarms.Any(a => a.PlaySound))
 			{
-				Logger.Info("Play sound");
-				Context.GetPlugin<AudioPlugin>().Play(SoundResources.Ring02, 25);
+				PlaySound();
 			}
 
 			foreach (var alarm in alarms)

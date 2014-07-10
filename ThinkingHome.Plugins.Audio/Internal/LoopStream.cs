@@ -1,8 +1,9 @@
 ﻿using NAudio.Wave;
+using NLog;
 
 namespace ThinkingHome.Plugins.Audio.Internal
 {
-	public interface ILoopStream
+	public interface IPlayback
 	{
 		void Stop();
 	}
@@ -10,13 +11,15 @@ namespace ThinkingHome.Plugins.Audio.Internal
 	/// <summary>
 	/// Stream for looping playback
 	/// </summary>
-	public class LoopStream : WaveStream, ILoopStream
+	public class LoopStream : WaveStream, IPlayback
 	{
+		private readonly Logger log;
 		private readonly WaveStream sourceStream;
-		private bool stop = false;
+		private bool stop;
 
-		public LoopStream(WaveStream sourceStream, int loop = 0)
+		public LoopStream(Logger log, WaveStream sourceStream, int loop = 1)
 		{
+			this.log = log;
 			this.sourceStream = sourceStream;
 			Loop = loop;
 		}
@@ -25,6 +28,7 @@ namespace ThinkingHome.Plugins.Audio.Internal
 
 		public void Stop()
 		{
+			log.Debug("stop sound request");
 			stop = true;
 		}
 
@@ -48,24 +52,26 @@ namespace ThinkingHome.Plugins.Audio.Internal
 		{
 			int totalBytesRead = 0;
 
-			while (totalBytesRead < count)
+			while (totalBytesRead < count && Loop > 0)
 			{
 				if (stop)
 				{
+					log.Debug("stop sound");
 					return 0;
 				}
 
 				int bytesRead = sourceStream.Read(buffer, offset + totalBytesRead, count - totalBytesRead);
-
+				
 				if (bytesRead == 0)
 				{
-					if (sourceStream.Position == 0 || (Loop--) <= 0)
+					if (sourceStream.Position == 0 && Loop <= 0)
 					{
-						// something wrong with the source stream
+						log.Debug("end of file");
 						break;
 					}
-					// loop
 
+					// loop
+					Loop--;
 					sourceStream.Position = 0;
 				}
 

@@ -94,7 +94,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 		[HttpCommand("/api/alarm-clock/stop")]
 		public object StopAlarm(HttpRequestParams request)
 		{
-			Context.GetPlugin<AlarmClockPlugin>().StopAlarm();
+			Context.GetPlugin<AlarmClockPlugin>().StopSound();
 			return null;
 		}
 

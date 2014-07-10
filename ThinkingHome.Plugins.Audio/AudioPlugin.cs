@@ -22,25 +22,17 @@ namespace ThinkingHome.Plugins.Audio
 			waveOut = null;
 		}
 
-		public ILoopStream Play(Stream stream, int loop = 0)
+		public IPlayback Play(Stream stream, int loop = 0)
 		{
 			lock (lockObject)
 			{
 				var reader = new WaveFileReader(stream);
-				var loopStream = new LoopStream(reader, loop);
+				var loopStream = new LoopStream(Logger, reader, loop);
 				
 				waveOut.Init(loopStream);
 				waveOut.Play();
 
 				return loopStream;
-			}
-		}
-
-		public void StopAllSound()
-		{
-			lock (lockObject)
-			{
-				waveOut.Stop();
 			}
 		}
 	}

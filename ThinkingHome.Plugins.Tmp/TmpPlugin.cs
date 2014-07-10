@@ -70,7 +70,7 @@ namespace ThinkingHome.Plugins.Tmp
 
 		#region sounds
 
-		private ILoopStream stream;
+		private IPlayback stream;
 		private readonly object lockObjectForSound = new object();
 
 		[ScriptCommand("playDoorBell")]
