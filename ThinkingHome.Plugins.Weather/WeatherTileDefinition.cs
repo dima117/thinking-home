@@ -29,7 +29,7 @@ namespace ThinkingHome.Plugins.Weather
 			model.content = "10:00 — 5°C\n16:00 —  6°C\n22:00 —  4°C\n04:00 —  3°C";
 		}
 
-		public override TileParameter[] GetParameters(Guid id)
+		public override TileParameter[] GetParameters()
 		{
 			using (var session = Context.OpenSession())
 			{

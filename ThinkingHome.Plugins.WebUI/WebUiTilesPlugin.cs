@@ -18,18 +18,6 @@ using ThinkingHome.Plugins.WebUI.Tiles;
 
 namespace ThinkingHome.Plugins.WebUI
 {
-	[AppSection("Tiles", SectionType.System, "/webapp/webui/tiles-editor.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-editor.js")]
-	[JavaScriptResource("/webapp/webui/tiles-editor-view.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-editor-view.js")]
-	[JavaScriptResource("/webapp/webui/tiles-editor-model.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-editor-model.js")]
-	[HttpResource("/webapp/webui/tiles-editor-layout.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-editor-layout.tpl")]
-	[HttpResource("/webapp/webui/tiles-editor-form.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-editor-form.tpl")]
-	[HttpResource("/webapp/webui/tiles-editor-list-item.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-editor-list-item.tpl")]
-
-	[JavaScriptResource("/webapp/webui/tile-params.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tile-params.js")]
-	[JavaScriptResource("/webapp/webui/tile-params-view.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tile-params-view.js")]
-	[JavaScriptResource("/webapp/webui/tile-params-model.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tile-params-model.js")]
-	[HttpResource("/webapp/webui/tile-params.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tile-params.tpl")]
-
 	[JavaScriptResource("/webapp/webui/tiles.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles.js")]
 	[JavaScriptResource("/webapp/webui/tiles-model.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-model.js")]
 	[JavaScriptResource("/webapp/webui/tiles-view.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-view.js")]
@@ -147,6 +135,8 @@ namespace ThinkingHome.Plugins.WebUI
 		[HttpCommand("/api/webui/tiles/params")]
 		public object GetTileParams(HttpRequestParams request)
 		{
+			Debugger.Launch();
+
 			Guid id = request.GetRequiredGuid("id");
 
 			using (var session = Context.OpenSession())
@@ -159,7 +149,7 @@ namespace ThinkingHome.Plugins.WebUI
 				if (availableTiles.TryGetValue(tile.HandlerKey, out def))
 				{
 					return def
-						.GetParameters(id)
+						.GetParameters()
 						.Select(x => CreateTileParameterModel(x, parameters))
 						.ToArray();
 				}

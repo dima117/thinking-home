@@ -50,7 +50,7 @@ namespace ThinkingHome.Plugins.WebUI.Tiles
 
 		public abstract void FillModel(TileModel model);
 
-		public virtual TileParameter[] GetParameters(Guid id)
+		public virtual TileParameter[] GetParameters()
 		{
 			return new TileParameter[0];
 		}
