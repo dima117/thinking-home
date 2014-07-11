@@ -1,9 +1,19 @@
 ﻿using System;
+using ThinkingHome.Plugins.WebUI.Tiles;
 
 namespace ThinkingHome.Plugins.WebUI.Model
 {
 	public class TileModel
 	{
+		public TileModel(Guid tileIid, TileDefinition def)
+		{
+			id = tileIid;
+			title = def.Title;
+			wide = def.IsWide;
+			url = def.Url;
+			hasParams = def.HasParameters;
+		}
+
 		// ReSharper disable InconsistentNaming
 		public Guid id = Guid.NewGuid();
 		public string title;

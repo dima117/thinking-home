@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.Diagnostics;
 using System.Linq;
-using NHibernate;
 using NHibernate.Linq;
 using NHibernate.Mapping.ByCode;
 using NLog;
@@ -41,7 +38,7 @@ namespace ThinkingHome.Plugins.WebUI
 		{
 			var tiles = new InternalDictionary<TileDefinition>();
 
-			// регистрируем обработчики для методов плагинов
+			// регистрируем типы плитки
 			foreach (var definition in definitions)
 			{
 				var key = definition.GetType().FullName;
@@ -66,150 +63,26 @@ namespace ThinkingHome.Plugins.WebUI
 		{
 			using (var session = Context.OpenSession())
 			{
-				return GetListModel(session, availableTiles, (id, def, model) => def.FillModel(model));
-			}
-		}
+				var result = new List<TileModel>();
 
-		#endregion
+				var tiles = session.Query<Tile>().ToList();
 
-		#region tiles editor
-
-		[HttpCommand("/api/webui/tiles/editor-form")]
-		public object LoadTilesEditorForm(HttpRequestParams request)
-		{
-			var available = availableTiles
-				.Select(el => new { id = el.Key, name = el.Value.Title })
-				.ToArray();
-
-			var selectedKey = available.Any() ? available.First().id : null;
-
-			return new { available, selectedKey };
-		}
-
-		[HttpCommand("/api/webui/tiles/editor-list")]
-		public object LoadTilesEditorList(HttpRequestParams request)
-		{
-			using (var session = Context.OpenSession())
-			{
-				var list = GetListModel(session, availableTiles);
-				return list;
-			}
-		}
-
-		[HttpCommand("/api/tiles/editor-add")]
-		public object AddTile(HttpRequestParams request)
-		{
-			var key = request.GetRequiredString("key");
-
-			using (var session = Context.OpenSession())
-			{
-				var guid = Guid.NewGuid();
-
-				var tile = new Tile { Id = guid, HandlerKey = key };
-				session.Save(tile);
-				session.Flush();
-
-				return guid;
-			}
-		}
-
-		[HttpCommand("/api/tiles/editor-delete")]
-		public object DeleteTile(HttpRequestParams request)
-		{
-			var id = request.GetRequiredGuid("id");
-
-			using (var session = Context.OpenSession())
-			{
-				var tile = session.Load<Tile>(id);
-				session.Delete(tile);
-				session.Flush();
-			}
-
-			return null;
-		}
-
-		#endregion
-
-		#region tile params
-
-		[HttpCommand("/api/webui/tiles/params")]
-		public object GetTileParams(HttpRequestParams request)
-		{
-			Debugger.Launch();
-
-			Guid id = request.GetRequiredGuid("id");
-
-			using (var session = Context.OpenSession())
-			{
-				var tile = session.Get<Tile>(id);
-				var parameters = tile.GetParameters();
-
-				TileDefinition def;
-
-				if (availableTiles.TryGetValue(tile.HandlerKey, out def))
+				foreach (var obj in tiles)
 				{
-					return def
-						.GetParameters()
-						.Select(x => CreateTileParameterModel(x, parameters))
-						.ToArray();
-				}
-			}
+					TileDefinition def;
 
-			return null;
-		}
-
-		private object CreateTileParameterModel(TileParameter p, dynamic values)
-		{
-			return new
-			{
-				name = p.Name,
-				value = values[p.Name],
-				label = p.Label,
-				list = GetList(p.List)
-			};
-		}
-
-		// todo: переименовать
-		private object GetList(TileParameterValue[] list)
-		{
-			if (list == null)
-			{
-				return null;
-			}
-
-			return list
-				.Select(obj => new { id = obj.Value, text = obj.Label })
-				.ToArray();
-		}
-
-		#endregion
-
-		#region helpers
-
-		private static TileModel[] GetListModel(ISession session, InternalDictionary<TileDefinition> available, Action<Guid, TileDefinition, TileModel> func = null)
-		{
-			var result = new List<TileModel>();
-
-			var tiles = session.Query<Tile>().ToList();
-
-			foreach (var obj in tiles)
-			{
-				TileDefinition tile;
-
-				if (available.TryGetValue(obj.HandlerKey, out tile))
-				{
-					var model = new TileModel { id = obj.Id, title = tile.Title, wide = tile.IsWide, url = tile.Url, hasParams = tile.HasParameters };
-
-					if (func != null)
+					if (availableTiles.TryGetValue(obj.HandlerKey, out def))
 					{
-						func(obj.Id, tile, model);
+						var model = new TileModel(obj.Id, def);
+
+						def.FillModel(model);
+
+						result.Add(model);
 					}
-
-					result.Add(model);
 				}
-			}
 
-			return result.ToArray();
+				return result.ToArray();
+			}
 		}
 
 		#endregion
