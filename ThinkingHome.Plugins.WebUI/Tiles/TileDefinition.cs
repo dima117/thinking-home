@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.Composition;
+﻿using System.ComponentModel.Composition;
 using ThinkingHome.Core.Plugins;
 using NLog;
 using ThinkingHome.Plugins.WebUI.Model;
@@ -38,23 +37,18 @@ namespace ThinkingHome.Plugins.WebUI.Tiles
 
 		public abstract string Url { get; }
 
-		public virtual bool HasParameters
-		{
-			get { return false; }
-		}
-
 		public virtual bool IsWide
 		{
 			get { return false; }
 		}
 
-		public abstract void FillModel(TileModel model);
-
-		public virtual TileParameter[] GetParameters()
-		{
-			return new TileParameter[0];
-		}
+		public abstract void FillModel(TileModel model, dynamic options);
 
 		#endregion
+
+		public virtual string ExecuteAction(object options)
+		{
+			return null;
+		}
 	}
 }

@@ -11,7 +11,6 @@ namespace ThinkingHome.Plugins.WebUI.Model
 			title = def.Title;
 			wide = def.IsWide;
 			url = def.Url;
-			hasParams = def.HasParameters;
 		}
 
 		// ReSharper disable InconsistentNaming
@@ -21,7 +20,6 @@ namespace ThinkingHome.Plugins.WebUI.Model
 		public string url;
 		public string content;
 		public string className;
-		public bool hasParams;
 		// ReSharper restore InconsistentNaming
 
 	}

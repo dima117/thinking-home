@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.Diagnostics;
 using System.Linq;
 using NHibernate.Linq;
 using NHibernate.Mapping.ByCode;
@@ -58,7 +59,7 @@ namespace ThinkingHome.Plugins.WebUI
 
 		#region tiles
 
-		[HttpCommand("/api/webui/tiles/all")]
+		[HttpCommand("/api/webui/tiles")]
 		public object GetTiles(HttpRequestParams request)
 		{
 			using (var session = Context.OpenSession())
@@ -74,8 +75,9 @@ namespace ThinkingHome.Plugins.WebUI
 					if (availableTiles.TryGetValue(obj.HandlerKey, out def))
 					{
 						var model = new TileModel(obj.Id, def);
+						var options = obj.GetParameters();
 
-						def.FillModel(model);
+						def.FillModel(model, options);
 
 						result.Add(model);
 					}
@@ -83,6 +85,41 @@ namespace ThinkingHome.Plugins.WebUI
 
 				return result.ToArray();
 			}
+		}
+
+		[HttpCommand("/api/webui/tiles/delete")]
+		public object DeleteTile(HttpRequestParams request)
+		{
+			var id = request.GetRequiredGuid("id");
+
+			using (var session = Context.OpenSession())
+			{
+				var tile = session.Load<Tile>(id);
+				session.Delete(tile);
+				session.Flush();
+			}
+
+			return null;
+		}
+
+		[HttpCommand("/api/webui/tiles/action")]
+		public object RunTileAction(HttpRequestParams request)
+		{
+			var id = request.GetRequiredGuid("id");
+
+			using (var session = Context.OpenSession())
+			{
+				var tile = session.Get<Tile>(id);
+				TileDefinition def;
+
+				if (availableTiles.TryGetValue(tile.HandlerKey, out def))
+				{
+					var options = tile.GetParameters();
+					return def.ExecuteAction(options);
+				}
+			}
+
+			return null;
 		}
 
 		#endregion

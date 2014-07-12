@@ -1,4 +1,5 @@
-﻿using ThinkingHome.Plugins.WebUI.Tiles;
+﻿using ThinkingHome.Plugins.WebUI.Model;
+using ThinkingHome.Plugins.WebUI.Tiles;
 
 namespace ThinkingHome.Plugins.Tmp.Tiles
 {
@@ -15,7 +16,7 @@ namespace ThinkingHome.Plugins.Tmp.Tiles
 			get { return "webapp/alarm-clock/list"; }
 		}
 
-		public override void FillModel(WebUI.Model.TileModel model)
+		public override void FillModel(TileModel model, dynamic options)
 		{
 			model.className = "btn-danger";
 			model.content = "This is a test";

@@ -18,15 +18,9 @@
 							this.$el.addClass('tile-double');
 						}
 					},
-					events: {
-						'click': 'onTileClick'
-					},
-					onTileClick: function (e) {
-						e.preventDefault();
-						e.stopPropagation();
-
-						var path = this.model.get('url');
-						app.trigger("page:load", path);
+					triggers: {
+						'click': 'webui:tile:click',
+						'click .js-tile-delete': 'webui:tile:delete'
 					}
 				});
 

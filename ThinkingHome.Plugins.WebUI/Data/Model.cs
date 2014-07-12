@@ -15,7 +15,8 @@ namespace ThinkingHome.Plugins.WebUI.Data
 
 		public virtual dynamic GetParameters()
 		{
-			return Extensions.FromJson(SerializedParameters);
+			var json = string.IsNullOrWhiteSpace(SerializedParameters) ? "{}" : SerializedParameters;
+			return Extensions.FromJson(json);
 		}
 
 		public virtual void SetParameters(object obj)

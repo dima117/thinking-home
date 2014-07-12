@@ -1,4 +1,5 @@
-﻿using ThinkingHome.Plugins.WebUI.Tiles;
+﻿using ThinkingHome.Plugins.WebUI.Model;
+using ThinkingHome.Plugins.WebUI.Tiles;
 
 namespace ThinkingHome.Plugins.Tmp.Tiles
 {
@@ -20,7 +21,7 @@ namespace ThinkingHome.Plugins.Tmp.Tiles
 			get { return true; }
 		}
 
-		public override void FillModel(WebUI.Model.TileModel model)
+		public override void FillModel(TileModel model, dynamic options)
 		{
 			model.content = "NASA призвало Россию продлить сотрудничество по МКС\nНа спутнике Плутона мог существовать подземный океан";
 		}

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using ThinkingHome.Plugins.WebUI.Model;
 using ThinkingHome.Plugins.WebUI.Tiles;
 
 namespace ThinkingHome.Plugins.AlarmClock
@@ -17,7 +18,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 			get { return "webapp/alarm-clock/list"; }
 		}
 
-		public override void FillModel(WebUI.Model.TileModel model)
+		public override void FillModel(TileModel model, dynamic options)
 		{
 			var now = DateTime.Now;
 			var times = Context

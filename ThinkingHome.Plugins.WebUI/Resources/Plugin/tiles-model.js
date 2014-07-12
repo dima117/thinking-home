@@ -16,11 +16,11 @@
 		});
 
 		var api = {
-			loadTiles: function () {
+			load: function () {
 
 				var defer = $.Deferred();
 
-				$.getJSON('/api/webui/tiles/all')
+				$.getJSON('/api/webui/tiles')
 					.done(function (tiles) {
 						var collection = new module.TileCollection(tiles);
 						defer.resolve(collection);
@@ -31,11 +31,23 @@
 					});
 
 				return defer.promise();
+			},
+			
+			del: function (id) {
+
+				return $.post('/api/webui/tiles/delete', { id: id }).promise();
+			},
+			
+			action: function (id) {
+
+				return $.post('/api/webui/tiles/action', { id: id }).promise();
 			}
 		};
 		
 		// requests
-		app.reqres.setHandler('load:tiles:all', api.loadTiles);
+		app.reqres.setHandler('load:tiles:all', api.load);
+		app.reqres.setHandler('update:tiles:delete', api.del);
+		app.reqres.setHandler('update:tiles:action', api.action);
 	});
 
 	return application.WebUI.Tiles;
