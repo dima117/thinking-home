@@ -74,6 +74,7 @@
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="ScriptsTileDefinition.cs" />
     <Compile Include="ScriptsUiPlugin.cs" />
   </ItemGroup>
   <ItemGroup>

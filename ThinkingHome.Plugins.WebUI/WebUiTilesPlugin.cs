@@ -62,6 +62,7 @@ namespace ThinkingHome.Plugins.WebUI
 		[HttpCommand("/api/webui/tiles")]
 		public object GetTiles(HttpRequestParams request)
 		{
+			
 			using (var session = Context.OpenSession())
 			{
 				var result = new List<TileModel>();
