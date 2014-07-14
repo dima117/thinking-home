@@ -19,9 +19,9 @@
 						commonModule.utils.alert('The script "{0}" has been executed.', name);
 					});
 				},
-				
+
 				deleteScript: function (view) {
-					
+
 					var scriptName = view.model.get('name');
 
 					if (commonModule.utils.confirm('Delete the script "{0}"?', scriptName)) {
@@ -29,6 +29,12 @@
 						var scriptId = view.model.get('id');
 						app.request('update:scripts:delete', scriptId).done(api.reload);
 					}
+				},
+
+				addScriptTile: function (view) {
+
+					var scriptId = view.model.get('id');
+					app.addTile('ThinkingHome.Plugins.Scripts.ScriptsTileDefinition', { id: scriptId });
 				},
 
 				addScript: function () {
@@ -52,6 +58,7 @@
 						view.on('itemview:scripts:edit', api.editScript);
 						view.on('itemview:scripts:run', api.runScript);
 						view.on('itemview:scripts:delete', api.deleteScript);
+						view.on('itemview:scripts:add-tile', api.addScriptTile);
 
 						app.setContentView(view);
 					});

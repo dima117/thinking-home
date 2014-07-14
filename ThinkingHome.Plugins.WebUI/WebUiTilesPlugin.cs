@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Diagnostics;
 using System.Linq;
@@ -57,12 +58,12 @@ namespace ThinkingHome.Plugins.WebUI
 		}
 
 
-		#region tiles
+		#region api
 
 		[HttpCommand("/api/webui/tiles")]
 		public object GetTiles(HttpRequestParams request)
 		{
-			
+
 			using (var session = Context.OpenSession())
 			{
 				var result = new List<TileModel>();
@@ -122,6 +123,44 @@ namespace ThinkingHome.Plugins.WebUI
 
 			return null;
 		}
+
+		[HttpCommand("/api/webui/tiles/add")]
+		public object AddTile(HttpRequestParams request)
+		{
+			var strDef = request.GetRequiredString("def");
+			var strOptions = request.GetString("options");
+
+			TileDefinition def;
+
+			if (!availableTiles.TryGetValue(strDef, out def))
+			{
+				throw new Exception(string.Format("invalid tile definition: {0}", strDef));
+			}
+			
+			using (var session = Context.OpenSession())
+			{
+				var lastTile = session.Query<Tile>()
+					.OrderByDescending(t => t.SortOrder)
+					.FirstOrDefault();
+
+				int sortOrder = lastTile == null ? 0 : lastTile.SortOrder + 1;
+
+
+				var tile = new Tile
+						   {
+							   Id = Guid.NewGuid(),
+							   HandlerKey = strDef,
+							   SortOrder = sortOrder,
+							   SerializedParameters = strOptions
+						   };
+
+				session.Save(tile);
+				session.Flush();
+			}
+
+			return null;
+		}
+
 
 		#endregion
 	}

@@ -11,7 +11,7 @@
 	},
 
 	app.navigate = function (route) {
-	
+
 		if (route) {
 
 			var args = Array.prototype.slice.call(arguments, 1);
@@ -22,6 +22,16 @@
 				backbone.history.navigate(route);
 			});
 		}
+	};
+
+	app.addTile = function (def, options) {
+
+		var optionsJson = JSON.stringify(options);
+
+		$.post('/api/webui/tiles/add', { def: def, options: optionsJson })
+			.done(function () {
+				app.navigate('tiles');
+			});
 	};
 
 	app.router = new marionette.AppRouter({

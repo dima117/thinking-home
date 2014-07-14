@@ -65,18 +65,18 @@ body {
  * Main content
  */
 
-.main {
+.th-main {
 	padding: 20px;
 }
 
 @media (min-width: 768px) {
-	.main {
+	.th-main {
 		padding-right: 40px;
 		padding-left: 40px;
 	}
 }
 
-.main .page-header {
+.th-main .page-header {
 	margin-top: 0;
 }
 
@@ -140,4 +140,10 @@ body {
 
 .input-short {
 	width: 74px;
+}
+
+.th-no-text-decoration, 
+.th-no-text-decoration:active, 
+.th-no-text-decoration:hover {
+	text-decoration: none;	
 }
