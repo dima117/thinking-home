@@ -7,6 +7,13 @@
 		application.module('Weather.Forecast', function (module, app, backbone, marionette, $, _) {
 
 			var api = {
+				
+				addWeatherTile: function (view) {
+
+					var locationId = view.model.get('id');
+					app.addTile('ThinkingHome.Plugins.Weather.WeatherTileDefinition', { cityId: locationId });
+				},
+				
 				reload: function () {
 
 					var rq = app.request('load:weather:forecast');
@@ -16,6 +23,8 @@
 						var view = new module.WeatherForecastView({
 							collection: collection
 						});
+
+						view.on('itemview:weather:add-tile', api.addWeatherTile);
 						
 						app.setContentView(view);
 					});

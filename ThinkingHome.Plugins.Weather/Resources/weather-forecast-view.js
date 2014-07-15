@@ -48,6 +48,9 @@
 					view: module.WeatherDataCollectionView,
 					container: '.js-weather-forecast'
 				}
+			},
+			triggers: {
+				'click .js-btn-add-tile': 'weather:add-tile'
 			}
 		});
 
