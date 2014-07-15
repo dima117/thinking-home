@@ -60,6 +60,7 @@
     <Compile Include="Api\ModelBuilder.cs" />
     <Compile Include="Api\WeatherDataModel.cs" />
     <Compile Include="Api\WeatherLocatioinModel.cs" />
+    <Compile Include="Api\WeatherUtils.cs" />
     <Compile Include="Data\Migrations.cs" />
     <Compile Include="Data\Model.cs" />
     <Compile Include="WeatherTileDefinition.cs" />

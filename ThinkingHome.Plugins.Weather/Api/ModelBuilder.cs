@@ -32,6 +32,7 @@ namespace ThinkingHome.Plugins.Weather.Api
 
 			var model = new WeatherLocatioinModel
 			{
+				LocationId = location.Id,
 				LocationName = location.DisplayName,
 				Now = CreateModel(current),
 				Today = day.Select(CreateModel).ToArray(),
