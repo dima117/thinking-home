@@ -17,11 +17,11 @@ using ThinkingHome.Plugins.WebUI.Tiles;
 
 namespace ThinkingHome.Plugins.WebUI
 {
-	[JavaScriptResource("/webapp/webui/tiles.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles.js")]
-	[JavaScriptResource("/webapp/webui/tiles-model.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-model.js")]
-	[JavaScriptResource("/webapp/webui/tiles-view.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tiles-view.js")]
-	[HttpResource("/webapp/webui/tile.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.tile.tpl")]
-
+	// webapp: tiles
+	[JavaScriptResource("/application/tiles/tiles.js", "ThinkingHome.Plugins.WebUI.Resources.Application.tiles.tiles.js")]
+	[JavaScriptResource("/application/tiles/tiles-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.tiles.tiles-view.js")]
+	[JavaScriptResource("/application/tiles/tiles-model.js", "ThinkingHome.Plugins.WebUI.Resources.Application.tiles.tiles-model.js")]
+	[HttpResource("/application/tiles/tile.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.tiles.tile.tpl")]
 
 	[Plugin]
 	public class WebUiTilesPlugin : Plugin

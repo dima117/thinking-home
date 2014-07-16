@@ -1,6 +1,6 @@
 ﻿define(
 	[	'app',
-		'text!webapp/webui/tile.tpl'],
+		'text!application/tiles/tile.tpl'],
 		function (application, template) {
 
 			application.module('WebUI.Tiles', function (module, app, backbone, marionette, $, _) {

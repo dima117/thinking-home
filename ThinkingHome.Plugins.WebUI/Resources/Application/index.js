@@ -16,7 +16,7 @@
 		bootstrap: 'vendor/js/bootstrap.min',
 		codemirror: 'vendor/js/codemirror-all',
 		
-		tiles:		'webapp/webui/tiles',
+		tiles:		'application/tiles/tiles',
 		apps:		'application/sections/user',
 		settings:	'application/sections/system'
 	},

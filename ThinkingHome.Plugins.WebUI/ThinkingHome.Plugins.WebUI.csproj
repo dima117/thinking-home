@@ -133,7 +133,7 @@
     <None Include="packages.config" />
     <EmbeddedResource Include="Resources\Application\sections\list.tpl" />
     <EmbeddedResource Include="Resources\Application\sections\list-item.tpl" />
-    <EmbeddedResource Include="Resources\Plugin\tile.tpl" />
+    <EmbeddedResource Include="Resources\Application\tiles\tile.tpl" />
     <EmbeddedResource Include="Resources\Vendor\fonts\fontawesome-webfont.eot" />
     <EmbeddedResource Include="Resources\Vendor\fonts\fontawesome-webfont.ttf" />
     <EmbeddedResource Include="Resources\Vendor\fonts\fontawesome-webfont.woff" />
@@ -173,9 +173,9 @@
     <EmbeddedResource Include="Resources\Application\sections\system.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Plugin\tiles.js" />
-    <EmbeddedResource Include="Resources\Plugin\tiles-model.js" />
-    <EmbeddedResource Include="Resources\Plugin\tiles-view.js" />
+    <EmbeddedResource Include="Resources\Application\tiles\tiles.js" />
+    <EmbeddedResource Include="Resources\Application\tiles\tiles-model.js" />
+    <EmbeddedResource Include="Resources\Application\tiles\tiles-view.js" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Vendor\css\font-awesome.min.css" />

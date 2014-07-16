@@ -1,10 +1,8 @@
 ﻿define(
-	['app', 'common', 'webapp/webui/tiles-model', 'webapp/webui/tiles-view'],
+	['app', 'common', 'application/tiles/tiles-model', 'application/tiles/tiles-view'],
 	function (application, commonModule) {
 
 		application.module('WebUI.Tiles', function (module, app, backbone, marionette, $, _) {
-
-
 
 			var api = {
 
