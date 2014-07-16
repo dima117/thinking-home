@@ -1,7 +1,7 @@
 ﻿define(
 	[	'app', 
-		'text!webapp/webui/section-list.tpl',
-		'text!webapp/webui/section-list-item.tpl'],
+		'text!application/sections/list.tpl',
+		'text!application/sections/list-item.tpl'],
 	function (application, listTemplate, itemTemplate) {
 
 		application.module('WebUI.Sections', function (module, app, backbone, marionette, $, _) {

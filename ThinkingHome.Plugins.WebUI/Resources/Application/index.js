@@ -2,7 +2,7 @@
 	baseUrl: '/',
 	paths: {
 		app: 'application/app',
-		common: 'application/common/common',
+		common: 'application/common',
 
 		text: 'vendor/js/require-text',
 		json: 'vendor/js/require-json',
@@ -16,10 +16,9 @@
 		bootstrap: 'vendor/js/bootstrap.min',
 		codemirror: 'vendor/js/codemirror-all',
 		
-		tiles: 'webapp/webui/tiles',
-		'tiles-editor': 'webapp/webui/tiles-editor',
-		apps: 'webapp/webui/section-list-common',
-		settings: 'webapp/webui/section-list-system'
+		tiles:		'webapp/webui/tiles',
+		apps:		'application/sections/user',
+		settings:	'application/sections/system'
 	},
 	shim: {
 		bootstrap: ['jquery'],

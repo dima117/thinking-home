@@ -57,17 +57,17 @@ namespace ThinkingHome.Plugins.WebUI
 	// webapp: main
 	[JavaScriptResource("/application/index.js", "ThinkingHome.Plugins.WebUI.Resources.Application.index.js")]
 	[JavaScriptResource("/application/app.js", "ThinkingHome.Plugins.WebUI.Resources.Application.app.js")]
+	[JavaScriptResource("/application/common.js", "ThinkingHome.Plugins.WebUI.Resources.Application.common.js")]
 
-	// webapp: common
-	[JavaScriptResource("/application/common/common.js", "ThinkingHome.Plugins.WebUI.Resources.Application.Common.common.js")]
+	// webapp: sections
+	[JavaScriptResource("/application/sections/system.js", "ThinkingHome.Plugins.WebUI.Resources.Application.sections.system.js")]
+	[JavaScriptResource("/application/sections/user.js", "ThinkingHome.Plugins.WebUI.Resources.Application.sections.user.js")]
 
-	// webapp: menu settings
-	[JavaScriptResource("/webapp/webui/section-list-common.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.section-list-common.js")]
-	[JavaScriptResource("/webapp/webui/section-list-system.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.section-list-system.js")]
-	[JavaScriptResource("/webapp/webui/section-model.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.section-model.js")]
-	[JavaScriptResource("/webapp/webui/section-view.js", "ThinkingHome.Plugins.WebUI.Resources.Plugin.section-view.js")]
-	[HttpResource("/webapp/webui/section-list.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.section-list.tpl")]
-	[HttpResource("/webapp/webui/section-list-item.tpl", "ThinkingHome.Plugins.WebUI.Resources.Plugin.section-list-item.tpl")]
+	[JavaScriptResource("/application/sections/list.js", "ThinkingHome.Plugins.WebUI.Resources.Application.sections.list.js")]
+	[JavaScriptResource("/application/sections/list-model.js", "ThinkingHome.Plugins.WebUI.Resources.Application.sections.list-model.js")]
+	[JavaScriptResource("/application/sections/list-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.sections.list-view.js")]
+	[HttpResource("/application/sections/list.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.sections.list.tpl")]
+	[HttpResource("/application/sections/list-item.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.sections.list-item.tpl")]
 
 	#endregion
 
