@@ -43,7 +43,7 @@ namespace ThinkingHome.Plugins.WebUI
 	[HttpResource("/vendor/fonts/glyphicons-halflings-regular.svg", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.glyphicons-halflings-regular.svg", "image/svg+xml")]
 	[HttpResource("/vendor/fonts/glyphicons-halflings-regular.ttf", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.glyphicons-halflings-regular.ttf", "application/x-font-truetype")]
 	[HttpResource("/vendor/fonts/glyphicons-halflings-regular.woff", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.glyphicons-halflings-regular.woff", "application/font-woff")]
-	
+
 	[HttpResource("/vendor/fonts/fontawesome-webfont.eot", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.fontawesome-webfont.eot", "application/vnd.ms-fontobject")]
 	[HttpResource("/vendor/fonts/fontawesome-webfont.svg", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.fontawesome-webfont.svg", "image/svg+xml")]
 	[HttpResource("/vendor/fonts/fontawesome-webfont.ttf", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.fontawesome-webfont.ttf", "application/x-font-truetype")]
@@ -59,7 +59,10 @@ namespace ThinkingHome.Plugins.WebUI
 	[JavaScriptResource("/application/app.js", "ThinkingHome.Plugins.WebUI.Resources.Application.app.js")]
 	[JavaScriptResource("/application/common.js", "ThinkingHome.Plugins.WebUI.Resources.Application.common.js")]
 	[JavaScriptResource("/application/common/sortable-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.common.sortable-view.js")]
-	
+	[JavaScriptResource("/application/common/complex-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.common.complex-view.js")]
+	[JavaScriptResource("/application/common/form-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.common.form-view.js")]
+	[JavaScriptResource("/application/common/utils.js", "ThinkingHome.Plugins.WebUI.Resources.Application.common.utils.js")]
+
 	// webapp: sections
 	[JavaScriptResource("/application/sections/system.js", "ThinkingHome.Plugins.WebUI.Resources.Application.sections.system.js")]
 	[JavaScriptResource("/application/sections/user.js", "ThinkingHome.Plugins.WebUI.Resources.Application.sections.user.js")]
