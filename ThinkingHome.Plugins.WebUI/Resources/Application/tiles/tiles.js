@@ -37,7 +37,8 @@
 
 					app.request('load:tiles:all').done(function (collection) {
 
-						var view = new module.TileCollectionView({
+						//var view = new module.TileCollectionView({
+						var view = new module.TileCollectionViewEditMode({
 							collection: collection
 						});
 

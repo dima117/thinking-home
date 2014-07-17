@@ -22,6 +22,7 @@ namespace ThinkingHome.Plugins.WebUI
 	[JavaScriptResource("/application/tiles/tiles-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.tiles.tiles-view.js")]
 	[JavaScriptResource("/application/tiles/tiles-model.js", "ThinkingHome.Plugins.WebUI.Resources.Application.tiles.tiles-model.js")]
 	[HttpResource("/application/tiles/tile.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.tiles.tile.tpl")]
+	[HttpResource("/application/tiles/tile-edit-mode.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.tiles.tile-edit-mode.tpl")]
 
 	[Plugin]
 	public class WebUiTilesPlugin : Plugin

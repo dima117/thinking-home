@@ -142,8 +142,34 @@ body {
 	width: 74px;
 }
 
-.th-no-text-decoration, 
-.th-no-text-decoration:active, 
+.th-no-text-decoration,
+.th-no-text-decoration:active,
 .th-no-text-decoration:hover {
-	text-decoration: none;	
+	text-decoration: none;
 }
+
+/*
+	Tiles edit mode
+*/
+
+[draggable=true] {
+	-khtml-user-drag: element;
+	-webkit-user-drag: element;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+}
+
+.sortable-view > .sortable-view-item {
+	position: relative;
+	cursor: move;
+}
+
+	.sortable-view > .sortable-view-item.over {
+		background-color: transparent;
+		border: 2px dashed #bbb;
+		border: 2px dashed rgba(0,0,0,0.3);
+	}
+
+		.sortable-view > .sortable-view-item.over > * {
+			visibility: hidden;
+		}

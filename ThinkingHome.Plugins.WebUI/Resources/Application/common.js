@@ -1,5 +1,5 @@
 ﻿define(
-	['app', 'json!api/webui/styles.json'],
+	['app', 'json!api/webui/styles.json', 'application/common/sortable-view'],
 	function (application, cssFiles) {
 
 		application.module('Common', function (module, app, backbone, marionette, $, _) {
