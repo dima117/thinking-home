@@ -1,13 +1,13 @@
 ﻿define(
 	[	'app', 'common',
 		'text!application/tiles/tile.tpl',
-		'text!application/tiles/tile-edit-mode.tpl'],
-		function (application, commonModule, template, templateEditMode) {
+		'text!application/tiles/tiles.tpl'],
+		function (application, commonModule, itemTemplate, listTemplate) {
 
 			application.module('WebUI.Tiles', function (module, app, backbone, marionette, $, _) {
 
 				module.TileView = marionette.ItemView.extend({
-					template: _.template(template),
+					template: _.template(itemTemplate),
 					tagName: 'a',
 					className: 'tile',
 					onRender: function () {
@@ -23,33 +23,12 @@
 						'click': 'webui:tile:click'
 					}
 				});
-				
-				module.TileViewEditMode = commonModule.SortableItemView.extend({
-					template: _.template(templateEditMode),
-					tagName: 'a',
-					className: 'tile btn-info',
-					onRender: function () {
-
-						commonModule.SortableItemView.prototype.onRender.call(this);
-						
-						if (this.model.get('wide')) {
-							this.$el.addClass('tile-double');
-						}
-					},
-					triggers: {
-						'click .js-tile-delete': 'webui:tile:delete'
-					}
-				});
 
 				// Collection View
-				module.TileCollectionViewEditMode = commonModule.SortableCollectionView.extend({
-					itemView: module.TileViewEditMode,
-					className: 'tiles'
-				});
-
-				module.TileCollectionView = marionette.CollectionView.extend({
+				module.TileCollectionView = marionette.CompositeView.extend({
+					template: _.template(listTemplate),
 					itemView: module.TileView,
-					className: 'tiles'
+					itemViewContainer: '.js-list'
 				});
 			});
 

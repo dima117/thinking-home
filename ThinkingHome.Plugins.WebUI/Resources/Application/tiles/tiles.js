@@ -6,17 +6,6 @@
 
 			var api = {
 
-				del: function (itemView) {
-
-					var title = itemView.model.get('title');
-
-					if (commonModule.utils.confirm('Delete the tile "{0}"?', title)) {
-
-						var id = itemView.model.get('id');
-						app.request('update:tiles:delete', id).done(api.reload);
-					}
-				},
-
 				open: function (itemView) {
 
 					var id = itemView.model.get('id');
@@ -37,12 +26,10 @@
 
 					app.request('load:tiles:all').done(function (collection) {
 
-						//var view = new module.TileCollectionView({
-						var view = new module.TileCollectionViewEditMode({
+						var view = new module.TileCollectionView({
 							collection: collection
 						});
 
-						view.on('itemview:webui:tile:delete', api.del);
 						view.on('itemview:webui:tile:click', api.open);
 
 						app.setContentView(view);

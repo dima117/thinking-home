@@ -16,9 +16,10 @@
 		bootstrap: 'vendor/js/bootstrap.min',
 		codemirror: 'vendor/js/codemirror-all',
 		
-		tiles:		'application/tiles/tiles',
-		apps:		'application/sections/user',
-		settings:	'application/sections/system'
+		tiles:				'application/tiles/tiles',
+		'tiles-edit-mode':	'application/tiles/tiles-edit-mode',
+		apps:				'application/sections/user',
+		settings:			'application/sections/system'
 	},
 	shim: {
 		bootstrap: ['jquery'],

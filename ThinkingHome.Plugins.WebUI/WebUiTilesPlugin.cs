@@ -22,8 +22,15 @@ namespace ThinkingHome.Plugins.WebUI
 	[JavaScriptResource("/application/tiles/tiles-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.tiles.tiles-view.js")]
 	[JavaScriptResource("/application/tiles/tiles-model.js", "ThinkingHome.Plugins.WebUI.Resources.Application.tiles.tiles-model.js")]
 	[HttpResource("/application/tiles/tile.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.tiles.tile.tpl")]
-	[HttpResource("/application/tiles/tile-edit-mode.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.tiles.tile-edit-mode.tpl")]
+	[HttpResource("/application/tiles/tiles.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.tiles.tiles.tpl")]
 
+	// webapp: tiles-edit-mode
+	[JavaScriptResource("/application/tiles/tiles-edit-mode.js", "ThinkingHome.Plugins.WebUI.Resources.Application.tiles.tiles-edit-mode.js")]
+	[JavaScriptResource("/application/tiles/tiles-edit-mode-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.tiles.tiles-edit-mode-view.js")]
+	[JavaScriptResource("/application/tiles/tiles-edit-mode-model.js", "ThinkingHome.Plugins.WebUI.Resources.Application.tiles.tiles-edit-mode-model.js")]
+	[HttpResource("/application/tiles/tile-edit-mode.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.tiles.tile-edit-mode.tpl")]
+	[HttpResource("/application/tiles/tiles-edit-mode.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.tiles.tiles-edit-mode.tpl")]
+	
 	[Plugin]
 	public class WebUiTilesPlugin : Plugin
 	{

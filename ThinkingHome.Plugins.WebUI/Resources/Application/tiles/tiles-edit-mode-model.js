@@ -1,6 +1,6 @@
 ﻿define(['app'], function (application) {
 
-	application.module('WebUI.Tiles', function (module, app, backbone, marionette, $, _) {
+	application.module('WebUI.TilesEditMode', function (module, app, backbone, marionette, $, _) {
 
 		module.Tile = backbone.Model.extend({
 			defaults: {
@@ -32,17 +32,17 @@
 
 				return defer.promise();
 			},
+			
+			del: function (id) {
 
-			action: function (id) {
-
-				return $.post('/api/webui/tiles/action', { id: id }).promise();
+				return $.post('/api/webui/tiles/delete', { id: id }).promise();
 			}
 		};
 		
 		// requests
-		app.reqres.setHandler('load:tiles:all', api.load);
-		app.reqres.setHandler('update:tiles:action', api.action);
+		app.reqres.setHandler('load:tiles:edit-mode-list', api.load);
+		app.reqres.setHandler('update:tiles:edit-mode-delete', api.del);
 	});
 
-	return application.WebUI.Tiles;
+	return application.WebUI.TilesEditMode;
 });
