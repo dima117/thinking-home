@@ -25,15 +25,10 @@
 
 				// Collection View
 				module.TileCollectionViewEditMode = commonModule.SortableCollectionView.extend({
+					template: _.template(listTemplate),
 					itemView: module.TileViewEditMode,
-					className: 'tiles'
+					itemViewContainer: '.js-list'
 				});
-
-				//module.TileCollectionView = marionette.CompositeView.extend({
-				//	template: _.template(listTemplate),
-				//	itemView: module.TileView,
-				//	itemViewContainer: '.js-list'
-				//});
 			});
 
 			return application.WebUI.TilesEditMode;

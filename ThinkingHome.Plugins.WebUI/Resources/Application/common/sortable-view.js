@@ -75,10 +75,11 @@ define(
 
 			});
 
-			module.SortableCollectionView = marionette.CollectionView.extend({
-
+			module.SortableCollectionView = marionette.CompositeView.extend({
+			
 				onRender: function () {
-					this.$el.addClass('sortable-view');
+					
+					this.$itemViewContainer.addClass('sortable-view');
 				},
 
 				itemView: module.SortableItemView,

@@ -164,12 +164,16 @@ body {
 	cursor: move;
 }
 
-	.sortable-view > .sortable-view-item.over {
-		background-color: transparent;
-		border: 2px dashed #bbb;
-		border: 2px dashed rgba(0,0,0,0.3);
+	.sortable-view > .sortable-view-item > .sortable-view-position-marker {
+		border-left: 2px dashed gray;
+		display: none;
+		float: left;
+		height: 100%;
+		left: -12px;
+		position: relative;
+		width: 1px;
 	}
 
-		.sortable-view > .sortable-view-item.over > * {
-			visibility: hidden;
-		}
+	.sortable-view > .sortable-view-item.over > .sortable-view-position-marker {
+		display: block;
+	}
