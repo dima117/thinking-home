@@ -36,12 +36,25 @@
 			del: function (id) {
 
 				return $.post('/api/webui/tiles/delete', { id: id }).promise();
+			},
+			
+			sort: function (collection) {
+
+				var ids = [];
+
+				_.each(collection, function(el) {
+					var id = el.get('id');
+					ids.push(id);
+				});
+
+				return $.post('/api/webui/tiles/sort', { data: ids }).promise();
 			}
 		};
 		
 		// requests
 		app.reqres.setHandler('load:tiles:edit-mode-list', api.load);
 		app.reqres.setHandler('update:tiles:edit-mode-delete', api.del);
+		app.reqres.setHandler('update:tiles:edit-mode-sort', api.sort);
 	});
 
 	return application.WebUI.TilesEditMode;

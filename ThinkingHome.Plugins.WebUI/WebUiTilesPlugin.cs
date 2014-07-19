@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using NHibernate.Linq;
 using NHibernate.Mapping.ByCode;
 using NLog;
@@ -64,7 +65,6 @@ namespace ThinkingHome.Plugins.WebUI
 		{
 			mapper.Class<Tile>(cfg => cfg.Table("WebUI_Tile"));
 		}
-
 
 		#region api
 
@@ -169,6 +169,31 @@ namespace ThinkingHome.Plugins.WebUI
 			return null;
 		}
 
+		[HttpCommand("/api/webui/tiles/sort")]
+		public object UpdateSortOrder(HttpRequestParams request)
+		{
+			var json = request.GetRequiredString("data");
+			var ids = Extensions.FromJson<Guid[]>(json);
+
+			using (var session = Context.OpenSession())
+			{
+				var tiles = session.Query<Tile>().ToList();
+
+				for (int i = 0; i < ids.Length; i++)
+				{
+					var tile = tiles.FirstOrDefault(t => t.Id == ids[i]);
+
+					if (tile != null)
+					{
+						tile.SortOrder = i;
+					} 
+				}
+
+				session.Flush();
+			}
+
+			return null;
+		}
 
 		#endregion
 	}
