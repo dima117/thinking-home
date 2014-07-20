@@ -172,8 +172,6 @@ namespace ThinkingHome.Plugins.WebUI
 		[HttpCommand("/api/webui/tiles/sort")]
 		public object UpdateSortOrder(HttpRequestParams request)
 		{
-			Debugger.Launch();
-
 			var json = request.GetRequiredString("data");
 			var ids = Extensions.FromJson<Guid[]>(json);
 
