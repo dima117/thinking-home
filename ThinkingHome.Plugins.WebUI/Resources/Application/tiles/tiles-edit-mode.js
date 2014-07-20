@@ -16,6 +16,12 @@
 						app.request('update:tiles:edit-mode-delete', id).done(api.reload);
 					}
 				},
+				
+				sort: function () {
+
+					var collection = this.collection;
+					app.request('update:tiles:edit-mode-sort', collection);
+				},
 
 				reload: function () {
 
@@ -25,6 +31,7 @@
 							collection: collection
 						});
 
+						view.on('webui:tile:sort', api.sort);
 						view.on('itemview:webui:tile:delete', api.del);
 						
 						app.setContentView(view);

@@ -42,12 +42,14 @@
 
 				var ids = [];
 
-				_.each(collection, function(el) {
+				collection.each(function(el) {
 					var id = el.get('id');
 					ids.push(id);
 				});
 
-				return $.post('/api/webui/tiles/sort', { data: ids }).promise();
+				var json = JSON.stringify(ids);
+
+				return $.post('/api/webui/tiles/sort', { data: json }).promise();
 			}
 		};
 		

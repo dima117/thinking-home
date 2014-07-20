@@ -76,7 +76,7 @@ namespace ThinkingHome.Plugins.WebUI
 			{
 				var result = new List<TileModel>();
 
-				var tiles = session.Query<Tile>().ToList();
+				var tiles = session.Query<Tile>().OrderBy(t => t.SortOrder).ToList();
 
 				foreach (var obj in tiles)
 				{
@@ -172,6 +172,8 @@ namespace ThinkingHome.Plugins.WebUI
 		[HttpCommand("/api/webui/tiles/sort")]
 		public object UpdateSortOrder(HttpRequestParams request)
 		{
+			Debugger.Launch();
+
 			var json = request.GetRequiredString("data");
 			var ids = Extensions.FromJson<Guid[]>(json);
 
