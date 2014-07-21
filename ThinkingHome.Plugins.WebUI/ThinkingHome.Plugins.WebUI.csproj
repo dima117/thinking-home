@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppSectionShortcutTileDefinition.cs" />
     <Compile Include="Attributes\CssResourceAttribute.cs" />
     <Compile Include="Attributes\SectionType.cs" />
     <Compile Include="Attributes\AppSectionAttribute.cs" />

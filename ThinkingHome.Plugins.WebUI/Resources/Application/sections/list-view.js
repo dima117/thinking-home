@@ -8,6 +8,9 @@
 
 			module.SectionView = marionette.ItemView.extend({
 				template: _.template(itemTemplate),
+				triggers: {
+					'click .js-btn-add-tile': 'sections:add-tile'
+				},
 				events: {
 					'click .js-section-link': 'sectionLinkClicked'
 				},

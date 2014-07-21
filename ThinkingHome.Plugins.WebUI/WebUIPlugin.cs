@@ -120,7 +120,14 @@ namespace ThinkingHome.Plugins.WebUI
 		{
 			var list = sections
 				.Where(section => section.Type == sectionType)
-				.Select(x => new { id = Guid.NewGuid(), name = x.Title, path = x.GetModulePath(), sortOrder = x.SortOrder })
+				.Select(x => new
+				{
+					id = Guid.NewGuid(),
+					name = x.Title,
+					path = x.GetModulePath(),
+					sortOrder = x.SortOrder,
+					tileDefKey = x.TileDefinitionKey
+				})
 				.ToArray();
 
 			return list;
