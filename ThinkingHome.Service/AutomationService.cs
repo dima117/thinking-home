@@ -1,5 +1,4 @@
-﻿using System.IO;
-using System.ServiceProcess;
+﻿using System.ServiceProcess;
 using ThinkingHome.Core.Infrastructure;
 
 namespace ThinkingHome.Service
@@ -12,9 +11,7 @@ namespace ThinkingHome.Service
 		{
 			InitializeComponent();
 
-			var path = typeof(Program).Assembly.Location;
-			var currentDirectory = Path.GetDirectoryName(path);
-			Directory.SetCurrentDirectory(currentDirectory);
+			HomeEnvironment.Init();
 
 			app = new HomeApplication();
 			app.Init();

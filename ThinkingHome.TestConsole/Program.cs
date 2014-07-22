@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using ThinkingHome.Core.Infrastructure;
 
 namespace ThinkingHome.TestConsole
@@ -13,10 +12,8 @@ namespace ThinkingHome.TestConsole
 		
 		private static void TestServer()
 		{
-			var path = typeof (Program).Assembly.Location;
-			var currentDirectory = Path.GetDirectoryName(path);
-			Directory.SetCurrentDirectory(currentDirectory);
-
+			HomeEnvironment.Init();
+			
 			var app = new HomeApplication();
 
 			app.Init();
