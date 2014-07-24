@@ -21,9 +21,7 @@
 
 	<property name="dist.plugins.dir" value="${path::combine(dist.service.dir, 'Plugins')}" />
 	<property name="build.plugins.dir" value="${path::combine('..\..\build', build-configuration)}" />
-
-	<property name="dac.dir" value="$..\data-access" />
-
+	
 	<property name="setup.service.dir" value="..\ThinkingHome.Service.Setup" />
 	<property name="msi.source.dir" value="..\msi"/>
 
@@ -75,12 +73,6 @@
 			<fileset basedir="${build.console.dir}">
 				<include name="**\ThinkingHome.TestConsole.exe"/>
 				<include name="**\ThinkingHome.TestConsole.exe.config"/>
-			</fileset>
-		</copy>
-
-		<copy todir="${dist.service.dir}">
-			<fileset basedir="${dac.dir}">
-				<include name="**\*.dll"/>
 			</fileset>
 		</copy>
 
