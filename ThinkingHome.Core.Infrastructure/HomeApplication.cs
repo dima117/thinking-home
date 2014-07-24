@@ -26,31 +26,12 @@ namespace ThinkingHome.Core.Infrastructure
 		[Import(typeof(IServiceContext))]
 		private ServiceContext context;
 
-		public HomeApplication()
-		{
-			AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
-		}
-
-		private Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
-		{
-			var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-
-			var assembly = assemblies.FirstOrDefault(a =>
-			{
-				var assemblyName = a.GetName();
-				return assemblyName.Name == args.Name || assemblyName.FullName == args.Name;
-			});
-
-			return assembly;
-		}
-
 		private static void InitSessionFactory(ServiceContext context)
 		{
 			var cfg = new Configuration();
 
 			var mapper = new ConventionModelMapper();
-
-
+			
 			mapper.BeforeMapClass +=
 				(inspector, type, map) =>
 				{
