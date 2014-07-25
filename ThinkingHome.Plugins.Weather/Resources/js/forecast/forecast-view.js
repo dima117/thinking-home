@@ -3,8 +3,8 @@
 		'common',
 		'text!webapp/weather/forecast.tpl',
 		'text!webapp/weather/forecast-item.tpl',
-		'text!webapp/weather/data-item.tpl',
-		'text!webapp/weather/data-item-now.tpl'
+		'text!webapp/weather/forecast-item-value.tpl',
+		'text!webapp/weather/forecast-item-value-now.tpl'
 ], function (application, commonModule, template, itemTemplate, dataItemTemplate, nowDataItemTemplate) {
 
 	application.module('Weather.Forecast', function (module, app, backbone, marionette, $, _) {
