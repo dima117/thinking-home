@@ -8,13 +8,24 @@ using ThinkingHome.Plugins.WebUI.Attributes;
 
 namespace ThinkingHome.Plugins.Weather
 {
-	[AppSection("Weather", SectionType.Common, "/webapp/weather/forecast.js", "ThinkingHome.Plugins.Weather.Resources.weather-forecast.js")]
-	[JavaScriptResource("/webapp/weather/forecast-model.js", "ThinkingHome.Plugins.Weather.Resources.weather-forecast-model.js")]
-	[JavaScriptResource("/webapp/weather/forecast-view.js", "ThinkingHome.Plugins.Weather.Resources.weather-forecast-view.js")]
-	[HttpResource("/webapp/weather/forecast.tpl", "ThinkingHome.Plugins.Weather.Resources.weather-forecast.tpl")]
-	[HttpResource("/webapp/weather/forecast-item.tpl", "ThinkingHome.Plugins.Weather.Resources.weather-forecast-item.tpl")]
-	[HttpResource("/webapp/weather/data-item.tpl", "ThinkingHome.Plugins.Weather.Resources.weather-data-item.tpl")]
-	[HttpResource("/webapp/weather/data-item-now.tpl", "ThinkingHome.Plugins.Weather.Resources.weather-data-item-now.tpl")]
+	// forecast
+	[AppSection("Weather", SectionType.Common, "/webapp/weather/forecast.js", "ThinkingHome.Plugins.Weather.Resources.js.forecast.weather-forecast.js")]
+	[JavaScriptResource("/webapp/weather/forecast-model.js", "ThinkingHome.Plugins.Weather.Resources.js.forecast.weather-forecast-model.js")]
+	[JavaScriptResource("/webapp/weather/forecast-view.js", "ThinkingHome.Plugins.Weather.Resources.js.forecast.weather-forecast-view.js")]
+
+	[HttpResource("/webapp/weather/forecast.tpl", "ThinkingHome.Plugins.Weather.Resources.js.forecast.weather-forecast.tpl")]
+	[HttpResource("/webapp/weather/forecast-item.tpl", "ThinkingHome.Plugins.Weather.Resources.js.forecast.weather-forecast-item.tpl")]
+	[HttpResource("/webapp/weather/data-item.tpl", "ThinkingHome.Plugins.Weather.Resources.js.forecast.weather-data-item.tpl")]
+	[HttpResource("/webapp/weather/data-item-now.tpl", "ThinkingHome.Plugins.Weather.Resources.js.forecast.weather-data-item-now.tpl")]
+
+	// settings
+	[AppSection("Weather locations", SectionType.System, "/webapp/weather/settings.js", "ThinkingHome.Plugins.Weather.Resources.js.settings.weather-settings.js")]
+	[JavaScriptResource("/webapp/weather/settings-model.js", "ThinkingHome.Plugins.Weather.Resources.js.settings.weather-settings-model.js")]
+	[JavaScriptResource("/webapp/weather/settings-view.js", "ThinkingHome.Plugins.Weather.Resources.js.settings.weather-settings-view.js")]
+
+	[HttpResource("/webapp/weather/settings-layout.tpl", "ThinkingHome.Plugins.Weather.Resources.js.settings.weather-settings-layout.tpl")]
+	[HttpResource("/webapp/weather/settings-item.tpl", "ThinkingHome.Plugins.Weather.Resources.js.settings.weather-settings-item.tpl")]
+	[HttpResource("/webapp/weather/settings-form.tpl", "ThinkingHome.Plugins.Weather.Resources.js.settings.weather-settings-form.tpl")]
 
 	// css
 	[CssResource("/webapp/weather/css/weather-icons.min.css", "ThinkingHome.Plugins.Weather.Resources.css.weather-icons.min.css", AutoLoad = true)]
