@@ -10,6 +10,20 @@
 
 			var api = {
 
+				addLocation: function() {
+					alert('add location');
+				},
+
+				reloadForm: function () {
+
+					//app.request('load:scripts:subscription-form')
+					//	.done(function (formData) {
+
+					var form = new module.WeatherSettingsFormView();//({ model: formData });
+					form.on('weather:location:add', api.addLocation);
+					layoutView.regionForm.show(form);
+					//});
+				}
 			};
 
 			module.start = function () {
@@ -18,7 +32,7 @@
 				layoutView = new module.WeatherSettingsLayout();
 				app.setContentView(layoutView);
 
-				// api.reloadForm();
+				api.reloadForm();
 				// api.reloadList();
 			};
 
