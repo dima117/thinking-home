@@ -1,7 +1,7 @@
 ﻿define(
 	['app',
-		'webapp/weather/settings-model',
-		'webapp/weather/settings-view'],
+		'webapp/weather/locations-model',
+		'webapp/weather/locations-view'],
 	function (application) {
 
 		application.module('Weather.Settings', function (module, app, backbone, marionette, $, _) {
@@ -14,6 +14,14 @@
 					alert('add location');
 				},
 
+				deleteLocation: function() {
+					alert('delete location');
+				},
+
+				updateLocation: function() {
+					alert('update location data');
+				},
+
 				reloadForm: function () {
 
 					//app.request('load:scripts:subscription-form')
@@ -23,6 +31,18 @@
 					form.on('weather:location:add', api.addLocation);
 					layoutView.regionForm.show(form);
 					//});
+				},
+				
+				reloadList: function () {
+
+					app.request('load:weather:locations')
+						.done(function (list) {
+
+							var view = new module.LocationListView({ collection: list });
+							view.on('itemview:weather:location:delete', api.deleteLocation);
+							view.on('itemview:weather:location:update', api.updateLocation);
+							layoutView.regionList.show(view);
+						});
 				}
 			};
 
@@ -33,7 +53,7 @@
 				app.setContentView(layoutView);
 
 				api.reloadForm();
-				// api.reloadList();
+				api.reloadList();
 			};
 
 		});

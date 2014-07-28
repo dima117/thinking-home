@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Linq;
+using NHibernate.Linq;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.Weather.Api;
+using ThinkingHome.Plugins.Weather.Data;
 using ThinkingHome.Plugins.WebUI.Attributes;
 
 namespace ThinkingHome.Plugins.Weather
@@ -19,13 +21,14 @@ namespace ThinkingHome.Plugins.Weather
 	[HttpResource("/webapp/weather/forecast-item-value-now.tpl", "ThinkingHome.Plugins.Weather.Resources.js.forecast.forecast-item-value-now.tpl")]
 
 	// settings
-	[AppSection("Weather locations", SectionType.System, "/webapp/weather/settings.js", "ThinkingHome.Plugins.Weather.Resources.js.settings.settings.js")]
-	[JavaScriptResource("/webapp/weather/settings-model.js", "ThinkingHome.Plugins.Weather.Resources.js.settings.settings-model.js")]
-	[JavaScriptResource("/webapp/weather/settings-view.js", "ThinkingHome.Plugins.Weather.Resources.js.settings.settings-view.js")]
+	[AppSection("Weather locations", SectionType.System, "/webapp/weather/locations.js", "ThinkingHome.Plugins.Weather.Resources.js.settings.locations.js")]
+	[JavaScriptResource("/webapp/weather/locations-model.js", "ThinkingHome.Plugins.Weather.Resources.js.settings.locations-model.js")]
+	[JavaScriptResource("/webapp/weather/locations-view.js", "ThinkingHome.Plugins.Weather.Resources.js.settings.locations-view.js")]
 
-	[HttpResource("/webapp/weather/settings-layout.tpl", "ThinkingHome.Plugins.Weather.Resources.js.settings.settings-layout.tpl")]
-	[HttpResource("/webapp/weather/settings-item.tpl", "ThinkingHome.Plugins.Weather.Resources.js.settings.settings-item.tpl")]
-	[HttpResource("/webapp/weather/settings-form.tpl", "ThinkingHome.Plugins.Weather.Resources.js.settings.settings-form.tpl")]
+	[HttpResource("/webapp/weather/locations-layout.tpl", "ThinkingHome.Plugins.Weather.Resources.js.settings.locations-layout.tpl")]
+	[HttpResource("/webapp/weather/locations-list.tpl", "ThinkingHome.Plugins.Weather.Resources.js.settings.locations-list.tpl")]
+	[HttpResource("/webapp/weather/locations-list-item.tpl", "ThinkingHome.Plugins.Weather.Resources.js.settings.locations-list-item.tpl")]
+	[HttpResource("/webapp/weather/locations-form.tpl", "ThinkingHome.Plugins.Weather.Resources.js.settings.locations-form.tpl")]
 
 	// css
 	[CssResource("/webapp/weather/css/weather-icons.min.css", "ThinkingHome.Plugins.Weather.Resources.css.weather-icons.min.css", AutoLoad = true)]
@@ -60,6 +63,28 @@ namespace ThinkingHome.Plugins.Weather
 				.GetWeatherData(now);
 
 			return weatherData.Select(BuildLocationModel).ToArray();
+		}
+
+		[HttpCommand("/api/weather/locations/list")]
+		public object GetLocations(HttpRequestParams request)
+		{
+			using (var session = Context.OpenSession())
+			{
+				var locations = session.Query<Location>()
+					.OrderBy(l => l.DisplayName)
+					.ToList();
+
+				var model = locations
+					.Select(l => new
+						{
+							id = l.Id,
+							displayName = l.DisplayName,
+							query = l.Query
+						})
+					.ToList();
+
+				return model;
+			}
 		}
 
 		#region private
