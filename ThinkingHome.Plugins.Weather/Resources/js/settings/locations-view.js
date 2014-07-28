@@ -36,6 +36,12 @@
 			triggers: {
 				'click .js-update-location': 'weather:location:update',
 				'click .js-delete-location': 'weather:location:delete'
+			},
+			showSpinner: function() {
+				this.$('.js-update-location-spin').removeClass('hidden');
+			},
+			hideSpinner: function () {
+				this.$('.js-update-location-spin').addClass('hidden');
 			}
 		});
 

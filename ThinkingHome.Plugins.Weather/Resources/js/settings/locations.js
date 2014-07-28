@@ -10,16 +10,24 @@
 
 			var api = {
 
-				addLocation: function() {
+				addLocation: function () {
 					alert('add location');
 				},
 
-				deleteLocation: function() {
+				deleteLocation: function () {
 					alert('delete location');
 				},
 
-				updateLocation: function() {
-					alert('update location data');
+				updateLocation: function (itemView) {
+
+					var locationId = itemView.model.get('id');
+
+					itemView.showSpinner();
+
+					app.request('update:weather:locations-update', locationId)
+						.done(function() {
+							itemView.hideSpinner();
+						});
 				},
 
 				reloadForm: function () {
@@ -32,7 +40,7 @@
 					layoutView.regionForm.show(form);
 					//});
 				},
-				
+
 				reloadList: function () {
 
 					app.request('load:weather:locations')

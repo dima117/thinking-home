@@ -45,12 +45,24 @@ namespace ThinkingHome.Plugins.Weather
 	public class WeatherUIPlugin : Plugin
 	{
 		[HttpCommand("/api/weather/update")]
-		public object UpdateWeather(HttpRequestParams request)
+		public object UpdateAllWeather(HttpRequestParams request)
 		{
 			Context.GetPlugin<WeatherPlugin>().ReloadWeatherData();
 
 			return null;
 		}
+
+		[HttpCommand("/api/weather/locations/update")]
+		public object UpdateLocationWeather(HttpRequestParams request)
+		{
+			var locationId = request.GetRequiredGuid("locationId");
+			Context.GetPlugin<WeatherPlugin>().ReloadWeatherData(locationId);
+
+			return null;
+		}
+
+
+
 
 
 		[HttpCommand("/api/weather/all")]

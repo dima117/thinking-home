@@ -44,7 +44,31 @@ namespace ThinkingHome.Plugins.Weather
 		{
 			lock (lockObject)
 			{
-				UpdateAllLocations();
+				using (var session = Context.OpenSession())
+				{
+					var locations = session.Query<Location>().ToList();
+
+					foreach (var location in locations)
+					{
+						UpdateOneLocation(location, session);
+					}
+				}
+			}
+		}
+
+		public void ReloadWeatherData(Guid locationId)
+		{
+			lock (lockObject)
+			{
+				using (var session = Context.OpenSession())
+				{
+					var location = session.Get<Location>(locationId);
+
+					if (location != null)
+					{
+						UpdateOneLocation(location, session);
+					}
+				}
 			}
 		}
 
@@ -75,19 +99,6 @@ namespace ThinkingHome.Plugins.Weather
 		#endregion
 
 		#region loading
-
-		private void UpdateAllLocations()
-		{
-			using (var session = Context.OpenSession())
-			{
-				var locations = session.Query<Location>().ToList();
-
-				foreach (var location in locations)
-				{
-					UpdateOneLocation(location, session);
-				}
-			}
-		}
 
 		private void UpdateOneLocation(Location location, ISession session)
 		{
