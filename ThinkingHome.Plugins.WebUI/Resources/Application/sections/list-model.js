@@ -53,8 +53,8 @@
 		};
 
 		// requests
-		app.reqres.setHandler('load:sections:common', api.loadCommonSections);
-		app.reqres.setHandler('load:sections:system', api.loadSystemSections);
+		app.reqres.setHandler('query:sections:common', api.loadCommonSections);
+		app.reqres.setHandler('query:sections:system', api.loadSystemSections);
 	});
 
 	return application.WebUI.Sections;

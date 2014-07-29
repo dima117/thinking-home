@@ -16,7 +16,7 @@
 				
 				reload: function () {
 
-					var rq = app.request('load:weather:forecast');
+					var rq = app.request('query:weather:forecast');
 
 					$.when(rq).done(function (collection) {
 

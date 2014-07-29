@@ -13,19 +13,19 @@
 					if (commonModule.utils.confirm('Delete the tile "{0}"?', title)) {
 
 						var id = itemView.model.get('id');
-						app.request('update:tiles:edit-mode-delete', id).done(api.reload);
+						app.request('cmd:tiles:edit-mode-delete', id).done(api.reload);
 					}
 				},
 				
 				sort: function () {
 
 					var collection = this.collection;
-					app.request('update:tiles:edit-mode-sort', collection);
+					app.request('cmd:tiles:edit-mode-sort', collection);
 				},
 
 				reload: function () {
 
-					app.request('load:tiles:edit-mode-list').done(function (collection) {
+					app.request('query:tiles:edit-mode-list').done(function (collection) {
 
 						var view = new module.TileCollectionViewEditMode({
 							collection: collection

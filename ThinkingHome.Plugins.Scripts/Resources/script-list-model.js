@@ -39,9 +39,9 @@
 		};
 
 		// requests
-		app.reqres.setHandler('load:scripts:list', api.loadScriptList);
-		app.reqres.setHandler('update:scripts:delete', api.deleteScript);
-		app.reqres.setHandler('update:scripts:run', api.runScript);
+		app.reqres.setHandler('query:scripts:list', api.loadScriptList);
+		app.reqres.setHandler('cmd:scripts:delete', api.deleteScript);
+		app.reqres.setHandler('cmd:scripts:run', api.runScript);
 	});
 
 	return application.Scripts.List;

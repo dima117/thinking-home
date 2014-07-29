@@ -74,7 +74,7 @@
 		};
 
 		// requests
-		app.reqres.setHandler('load:weather:forecast', api.loadList);
+		app.reqres.setHandler('query:weather:forecast', api.loadList);
 	});
 
 	return application.Weather.Forecast;

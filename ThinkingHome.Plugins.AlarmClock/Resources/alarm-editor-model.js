@@ -30,8 +30,8 @@
 		};
 
 		// requests
-		app.reqres.setHandler('load:alarm-clock:editor', api.loadEditor);
-		app.reqres.setHandler('update:alarm-clock:save', api.saveAlarm);
+		app.reqres.setHandler('query:alarm-clock:editor', api.loadEditor);
+		app.reqres.setHandler('cmd:alarm-clock:save', api.saveAlarm);
 	});
 
 	return application.AlarmClock.Editor;

@@ -15,7 +15,7 @@
 					var eventAlias = this.model.get('selectedEventAlias');
 					var scriptId = this.model.get('selectedScriptId');
 
-					app.request('update:scripts:subscription-add', eventAlias, scriptId)
+					app.request('cmd:scripts:subscription-add', eventAlias, scriptId)
 						.done(api.reloadList);
 				},
 
@@ -27,14 +27,14 @@
 					if (commonModule.utils.confirm('Delete the subscription?\n- event: "{0}"\n- script: "{1}"', eventAlias, scriptName)) {
 
 						var subscriptionId = itemView.model.get('id');
-						app.request('update:scripts:subscription-delete', subscriptionId)
+						app.request('cmd:scripts:subscription-delete', subscriptionId)
 							.done(api.reloadList);
 					}
 				},
 
 				reloadList: function () {
 
-					app.request('load:scripts:subscription-list')
+					app.request('query:scripts:subscription-list')
 						.done(function (list) {
 
 							var view = new module.SubscriptionListView({ collection: list });
@@ -45,7 +45,7 @@
 
 				reloadForm: function () {
 
-					app.request('load:scripts:subscription-form')
+					app.request('query:scripts:subscription-form')
 						.done(function (formData) {
 
 							var form = new module.SubscriptionFormView({ model: formData });

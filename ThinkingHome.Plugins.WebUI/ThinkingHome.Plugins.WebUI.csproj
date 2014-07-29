@@ -92,11 +92,6 @@
       <Name>ThinkingHome.Plugins.Listener</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\ThinkingHome.Plugins.Storage\ThinkingHome.Plugins.Storage.csproj">
-      <Project>{6f5ad56f-b6f0-4b0c-a054-59c404483695}</Project>
-      <Name>ThinkingHome.Plugins.Storage</Name>
-      <Private>False</Private>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Application\index.html" />

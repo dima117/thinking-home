@@ -44,6 +44,28 @@ namespace ThinkingHome.Plugins.Weather
 	[Plugin]
 	public class WeatherUIPlugin : Plugin
 	{
+		[HttpCommand("/api/weather/locations/add")]
+		public object AddLocation(HttpRequestParams request)
+		{
+			var displayName = request.GetRequiredString("displayName");
+			var query = request.GetRequiredString("query");
+
+			using (var session = Context.OpenSession())
+			{
+				var location = new Location
+							   {
+								   Id = Guid.NewGuid(),
+								   DisplayName = displayName,
+								   Query = query
+							   };
+
+				session.Save(location);
+				session.Flush();
+			}
+			
+			return null;
+		}
+
 		[HttpCommand("/api/weather/update")]
 		public object UpdateAllWeather(HttpRequestParams request)
 		{
@@ -60,10 +82,6 @@ namespace ThinkingHome.Plugins.Weather
 
 			return null;
 		}
-
-
-
-
 
 		[HttpCommand("/api/weather/all")]
 		public object GetWeather(HttpRequestParams request)

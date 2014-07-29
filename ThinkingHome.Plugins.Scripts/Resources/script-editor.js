@@ -24,13 +24,13 @@
 
 					this.model.set(data);
 
-					app.request('update:scripts:editor:save', this.model)
+					app.request('cmd:scripts:editor:save', this.model)
 						.done(api.redirectToList);
 				},
 
 				edit: function (scriptId) {
 
-					app.request('load:scripts:editor:load', scriptId)
+					app.request('query:scripts:editor:load', scriptId)
 						.done(api.createEditor);
 				},
 

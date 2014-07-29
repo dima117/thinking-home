@@ -68,10 +68,10 @@
 		};
 
 		// requests
-		app.reqres.setHandler('load:scripts:subscription-list', api.loadSubscriptions);
-		app.reqres.setHandler('load:scripts:subscription-form', api.loadFormData);
-		app.reqres.setHandler('update:scripts:subscription-add', api.addSubscription);
-		app.reqres.setHandler('update:scripts:subscription-delete', api.deleteSubscription);
+		app.reqres.setHandler('query:scripts:subscription-list', api.loadSubscriptions);
+		app.reqres.setHandler('query:scripts:subscription-form', api.loadFormData);
+		app.reqres.setHandler('cmd:scripts:subscription-add', api.addSubscription);
+		app.reqres.setHandler('cmd:scripts:subscription-delete', api.deleteSubscription);
 	});
 
 	return application.Scripts.Subscriptions;

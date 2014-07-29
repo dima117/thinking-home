@@ -40,8 +40,8 @@
 		};
 		
 		// requests
-		app.reqres.setHandler('load:tiles:all', api.load);
-		app.reqres.setHandler('update:tiles:action', api.action);
+		app.reqres.setHandler('query:tiles:all', api.load);
+		app.reqres.setHandler('cmd:tiles:action', api.action);
 	});
 
 	return application.WebUI.Tiles;

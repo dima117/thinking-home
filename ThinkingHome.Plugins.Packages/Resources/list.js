@@ -9,7 +9,7 @@
 				install: function (itemView) {
 					
 					var packageId = itemView.model.get('id');
-					var rq = app.request('update:packages:install', packageId);
+					var rq = app.request('cmd:packages:install', packageId);
 					
 					$.when(rq).done(api.reload);
 				},
@@ -17,14 +17,14 @@
 				uninstall: function (itemView) {
 					
 					var packageId = itemView.model.get('id');
-					var rq = app.request('update:packages:uninstall', packageId);
+					var rq = app.request('cmd:packages:uninstall', packageId);
 					
 					$.when(rq).done(api.reload);
 				},
 
 				reload: function() {
 
-					var rq = app.request('load:packages:all');
+					var rq = app.request('query:packages:all');
 					
 					$.when(rq).done(function (items) {
 

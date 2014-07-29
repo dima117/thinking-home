@@ -51,10 +51,10 @@
 		};
 
 		// requests
-		app.reqres.setHandler('load:alarm-clock:list', api.loadList);
-		app.reqres.setHandler('update:alarm-clock:set-state', api.setState);
-		app.reqres.setHandler('update:alarm-clock:stop', api.stopAlarm);
-		app.reqres.setHandler('update:alarm-clock:delete', api.deleteAlarm);
+		app.reqres.setHandler('query:alarm-clock:list', api.loadList);
+		app.reqres.setHandler('cmd:alarm-clock:set-state', api.setState);
+		app.reqres.setHandler('cmd:alarm-clock:stop', api.stopAlarm);
+		app.reqres.setHandler('cmd:alarm-clock:delete', api.deleteAlarm);
 	});
 
 	return application.AlarmClock.List;

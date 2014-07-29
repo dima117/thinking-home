@@ -45,8 +45,8 @@
 		};
 
 		// requests
-		app.reqres.setHandler('load:scripts:editor:load', api.loadScript);
-		app.reqres.setHandler('update:scripts:editor:save', api.saveScript);
+		app.reqres.setHandler('query:scripts:editor:load', api.loadScript);
+		app.reqres.setHandler('cmd:scripts:editor:save', api.saveScript);
 	});
 
 	return application.Scripts.Editor;

@@ -14,7 +14,7 @@
 					if (url) {
 						app.trigger("page:load", url);
 					} else {
-						app.request('update:tiles:action', id).done(api.done);
+						app.request('cmd:tiles:action', id).done(api.done);
 					}
 				},
 
@@ -24,7 +24,7 @@
 
 				reload: function () {
 
-					app.request('load:tiles:all').done(function (collection) {
+					app.request('query:tiles:all').done(function (collection) {
 
 						var view = new module.TileCollectionView({
 							collection: collection

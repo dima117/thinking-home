@@ -18,13 +18,13 @@
 				},
 				
 				edit: function (id) {
-					app.request('load:alarm-clock:editor', id).done(api.createEditor);
+					app.request('query:alarm-clock:editor', id).done(api.createEditor);
 				},
 
 				save: function () {
 
 					var model = this.model;
-					app.request('update:alarm-clock:save', model).done(api.redirectToList);
+					app.request('cmd:alarm-clock:save', model).done(api.redirectToList);
 				},
 				redirectToList: function () {
 					app.trigger('page:load', 'webapp/alarm-clock/list');

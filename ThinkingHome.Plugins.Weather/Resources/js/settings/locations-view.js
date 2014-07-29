@@ -25,7 +25,7 @@
 			addLocation: function (e) {
 				e.preventDefault();
 
-				//this.updateModel();
+				this.updateModel();
 				this.trigger('weather:location:add');
 			}
 		});

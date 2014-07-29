@@ -54,9 +54,9 @@
 		};
 		
 		// requests
-		app.reqres.setHandler('load:tiles:edit-mode-list', api.load);
-		app.reqres.setHandler('update:tiles:edit-mode-delete', api.del);
-		app.reqres.setHandler('update:tiles:edit-mode-sort', api.sort);
+		app.reqres.setHandler('query:tiles:edit-mode-list', api.load);
+		app.reqres.setHandler('cmd:tiles:edit-mode-delete', api.del);
+		app.reqres.setHandler('cmd:tiles:edit-mode-sort', api.sort);
 	});
 
 	return application.WebUI.TilesEditMode;

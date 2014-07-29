@@ -30,10 +30,11 @@
 				return defer.promise();
 			},
 			
-			addLocation: function (locationId) {
+			addLocation: function (displayName, query) {
 
 				var rq = $.post('/api/weather/locations/add', {
-					locationId: locationId
+					displayName: displayName,
+					query: query
 				});
 
 				return rq.promise();
@@ -59,10 +60,10 @@
 		};
 		
 		// requests
-		app.reqres.setHandler('load:weather:locations', api.loadLocations);
-		app.reqres.setHandler('update:weather:locations-add', api.addLocation);
-		app.reqres.setHandler('update:weather:locations-delete', api.deleteLocation);
-		app.reqres.setHandler('update:weather:locations-update', api.updateLocation);
+		app.reqres.setHandler('query:weather:locations', api.loadLocations);
+		app.reqres.setHandler('cmd:weather:locations-add', api.addLocation);
+		app.reqres.setHandler('cmd:weather:locations-delete', api.deleteLocation);
+		app.reqres.setHandler('cmd:weather:locations-update', api.updateLocation);
 	});
 
 	return application.Weather.Settings;

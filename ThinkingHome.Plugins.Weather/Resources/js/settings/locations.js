@@ -11,7 +11,15 @@
 			var api = {
 
 				addLocation: function () {
-					alert('add location');
+
+					var displayName = this.model.get('displayName');
+					var query = this.model.get('query');
+
+					if (displayName && query) {
+
+						app.request('cmd:weather:locations-add', displayName, query)
+							.done(api.reloadList);
+					}
 				},
 
 				deleteLocation: function () {
@@ -24,18 +32,20 @@
 
 					itemView.showSpinner();
 
-					app.request('update:weather:locations-update', locationId)
-						.done(function() {
+					app.request('cmd:weather:locations-update', locationId)
+						.done(function () {
 							itemView.hideSpinner();
 						});
 				},
 
 				reloadForm: function () {
 
-					//app.request('load:scripts:subscription-form')
+					//app.request('query:scripts:subscription-form')
 					//	.done(function (formData) {
 
-					var form = new module.WeatherSettingsFormView();//({ model: formData });
+					var formData = new module.Location();
+
+					var form = new module.WeatherSettingsFormView({ model: formData });
 					form.on('weather:location:add', api.addLocation);
 					layoutView.regionForm.show(form);
 					//});
@@ -43,7 +53,7 @@
 
 				reloadList: function () {
 
-					app.request('load:weather:locations')
+					app.request('query:weather:locations')
 						.done(function (list) {
 
 							var view = new module.LocationListView({ collection: list });

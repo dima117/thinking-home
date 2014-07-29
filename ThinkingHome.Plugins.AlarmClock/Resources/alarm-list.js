@@ -20,12 +20,12 @@
 				
 				enable: function (itemView) {
 					var id = itemView.model.get('id');
-					app.request('update:alarm-clock:set-state', id, true).done(api.reload);
+					app.request('cmd:alarm-clock:set-state', id, true).done(api.reload);
 				},
 				
 				disable: function (itemView) {
 					var id = itemView.model.get('id');
-					app.request('update:alarm-clock:set-state', id, false).done(api.reload);
+					app.request('cmd:alarm-clock:set-state', id, false).done(api.reload);
 				},
 
 				deleteAlarm: function (itemView) {
@@ -35,13 +35,13 @@
 					if (commonModule.utils.confirm('Delete the alarm "{0}"?', name)) {
 
 						var id = itemView.model.get('id');
-						app.request('update:alarm-clock:delete', id).done(api.reload);
+						app.request('cmd:alarm-clock:delete', id).done(api.reload);
 					}
 				},
 				
 				stopAllSounds: function () {
 
-					app.request('update:alarm-clock:stop').done(function() {
+					app.request('cmd:alarm-clock:stop').done(function() {
 
 						commonModule.utils.alert('All alarm sounds were stopped.');
 					});
@@ -49,7 +49,7 @@
 				
 				reload: function () {
 
-					var rq = app.request('load:alarm-clock:list');
+					var rq = app.request('query:alarm-clock:list');
 
 					$.when(rq).done(function (items) {
 
