@@ -66,6 +66,24 @@ namespace ThinkingHome.Plugins.Weather
 			return null;
 		}
 
+		[HttpCommand("/api/weather/locations/delete")]
+		public object DeleteLocation(HttpRequestParams request)
+		{
+			var locationId = request.GetRequiredGuid("locationId");
+			using (var session = Context.OpenSession())
+			{
+				var location = session.Get<Location>(locationId);
+
+				if (location != null)
+				{
+					session.Delete(location);
+					session.Flush();	
+				}
+			}
+
+			return null;
+		}
+
 		[HttpCommand("/api/weather/update")]
 		public object UpdateAllWeather(HttpRequestParams request)
 		{

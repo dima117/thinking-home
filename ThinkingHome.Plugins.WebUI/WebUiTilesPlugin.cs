@@ -85,9 +85,16 @@ namespace ThinkingHome.Plugins.WebUI
 					if (availableTiles.TryGetValue(obj.HandlerKey, out def))
 					{
 						var model = new TileModel(obj.Id, def);
-						var options = obj.GetParameters();
 
-						def.FillModel(model, options);
+						try
+						{
+							var options = obj.GetParameters();
+							def.FillModel(model, options);
+						}
+						catch (Exception ex)
+						{
+							model.content = ex.Message;
+						}
 
 						result.Add(model);
 					}

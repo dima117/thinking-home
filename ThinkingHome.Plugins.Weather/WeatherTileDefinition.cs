@@ -55,7 +55,7 @@ namespace ThinkingHome.Plugins.Weather
 			}
 			else
 			{
-				model.content = "Current weather is undefined";
+				throw new Exception("Current weather is undefined");
 			}
 			
 			// погода на завтра

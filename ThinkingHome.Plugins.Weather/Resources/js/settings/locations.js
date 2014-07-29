@@ -1,8 +1,8 @@
 ﻿define(
-	['app',
+	['app', 'common',
 		'webapp/weather/locations-model',
 		'webapp/weather/locations-view'],
-	function (application) {
+	function (application, commonModule) {
 
 		application.module('Weather.Settings', function (module, app, backbone, marionette, $, _) {
 
@@ -22,8 +22,17 @@
 					}
 				},
 
-				deleteLocation: function () {
-					alert('delete location');
+				deleteLocation: function (itemView) {
+
+					var displayName = itemView.model.get('displayName');
+
+					if (commonModule.utils.confirm('Delete the location "{0}" and all location data?', displayName)) {
+
+						var locationId = itemView.model.get('id');
+
+						app.request('cmd:weather:locations-delete', locationId)
+							.done(api.reloadList);
+					}
 				},
 
 				updateLocation: function (itemView) {
