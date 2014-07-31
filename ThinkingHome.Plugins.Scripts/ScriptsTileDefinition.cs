@@ -23,7 +23,8 @@ namespace ThinkingHome.Plugins.Scripts
 			try
 			{
 				UserScript script = GetScript(options);
-				model.title = string.Format("Run: {0}", script.Name);
+				model.content = script.Name;
+				model.className = "btn-primary th-tile-icon th-tile-icon-fa fa-rocket";
 			}
 			catch (Exception ex)
 			{

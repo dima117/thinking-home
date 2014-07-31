@@ -1,0 +1,12 @@
+﻿.th-tile-icon:before {
+    bottom: 14px;
+    font-size: 36px;
+    position: absolute;
+    right: 12px;
+	font-style: normal;
+    font-weight: normal;
+}
+
+.th-tile-icon-fa:before {
+    font-family: FontAwesome;
+}

@@ -32,6 +32,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 				? string.Join(Environment.NewLine, strTimes)
 				: "There are no active alarms";
 
+			model.className = "btn-primary th-tile-icon th-tile-icon-fa fa-bell";
 		}
 	}
 }

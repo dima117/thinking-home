@@ -51,7 +51,7 @@ namespace ThinkingHome.Plugins.Weather
 			{
 				string formattedNow = WeatherUtils.FormatTemperature(location.Now.Temperature);
 				model.content = string.Format("now: {0}°C", formattedNow);
-				model.className = "btn-primary weather-tile " + WeatherUtils.GetIconClass(location.Now.Code);
+				model.className = "btn-primary th-tile-icon th-tile-icon-wa " + WeatherUtils.GetIconClass(location.Now.Code);
 			}
 			else
 			{

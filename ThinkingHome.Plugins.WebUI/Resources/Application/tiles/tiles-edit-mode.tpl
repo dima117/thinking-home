@@ -3,4 +3,4 @@
 		<i class="glyphicon glyphicon-share"> </i> Return
 	</a>
 </div>
-<div class="tiles js-list"></div>
+<div class="th-tiles js-list"></div>
