@@ -1,3 +1,5 @@
+/*#region layout */
+
 body {
 	padding-top: 50px;
 }
@@ -11,6 +13,10 @@ body {
 	padding: 20px;
 }
 
+.th-main .page-header {
+	margin-top: 0;
+}
+
 @media (min-width: 768px) {
 	.th-main {
 		padding-right: 40px;
@@ -18,9 +24,9 @@ body {
 	}
 }
 
-.th-main .page-header {
-	margin-top: 0;
-}
+/*#endregion */
+
+/*#region tiles */
 
 .th-tiles {
 	padding-top: 15px;
@@ -28,7 +34,7 @@ body {
 	padding-right: -15px;
 }
 
-.tile {
+.th-tile {
 	width: 140px;
 	height: 120px;
 	margin-bottom: 6px;
@@ -41,36 +47,45 @@ body {
 	cursor: pointer;
 }
 
-.tile-double {
+	.th-tile, .th-tile:hover, .th-tile:focus {
+		text-decoration: none;
+	}
+
+.th-tile-double {
 	width: 290px;
 }
 
-.tile, .tile:hover, .tile:focus {
-	text-decoration: none;
-}
-
-.tile-actions {
+.th-tile-actions {
 	text-align: right;
 }
 
-.tile-content {
+.th-tile-content {
 	position: absolute;
 	white-space: pre-wrap;
 }
 
-.tile-title {
+.th-tile-title {
 	bottom: 2px;
 	position: absolute;
 	font-weight: bold;
 	white-space: nowrap;
 }
 
-.tiles-panel {
-	padding-top: 15px;
+.th-tile-icon:before {
+	bottom: 0;
+	font-size: 34px;
+	position: absolute;
+	right: 10px;
+	font-style: normal;
+	font-weight: normal;
+}
+
+.th-tile-icon-fa:before {
+	font-family: FontAwesome;
 }
 
 @media (max-width: 319px) {
-	.tile {
+	.th-tile {
 		width: 100%;
 	}
 
@@ -80,19 +95,9 @@ body {
 	}
 }
 
-.input-short {
-	width: 74px;
-}
+/*#endregion */
 
-.th-no-text-decoration,
-.th-no-text-decoration:active,
-.th-no-text-decoration:hover {
-	text-decoration: none;
-}
-
-/*
-	Tiles edit mode
-*/
+/*#region sortable view */
 
 [draggable=true] {
 	-khtml-user-drag: element;
@@ -119,3 +124,15 @@ body {
 	.sortable-view > .sortable-view-item.over > .sortable-view-position-marker {
 		display: block;
 	}
+
+/*#endregion */
+
+/*#region helpers */
+
+.th-no-text-decoration,
+.th-no-text-decoration:active,
+.th-no-text-decoration:hover {
+	text-decoration: none;
+}
+
+/*#endregion */

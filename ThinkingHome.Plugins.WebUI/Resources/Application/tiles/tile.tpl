@@ -1,2 +1,2 @@
-﻿<div class="tile-content"><%= content %></div>
-<div class="tile-title"><%= title %></div>
+﻿<div class="th-tile-content"><%= content %></div>
+<div class="th-tile-title"><%= title %></div>

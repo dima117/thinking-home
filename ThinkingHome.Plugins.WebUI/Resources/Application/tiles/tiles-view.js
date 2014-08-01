@@ -9,14 +9,14 @@
 				module.TileView = marionette.ItemView.extend({
 					template: _.template(itemTemplate),
 					tagName: 'a',
-					className: 'tile',
+					className: 'th-tile',
 					onRender: function () {
 
 						var className = this.model.get('className') || "btn-primary";
 						this.$el.addClass(className);
 
 						if (this.model.get('wide')) {
-							this.$el.addClass('tile-double');
+							this.$el.addClass('th-tile-double');
 						}
 					},
 					triggers: {

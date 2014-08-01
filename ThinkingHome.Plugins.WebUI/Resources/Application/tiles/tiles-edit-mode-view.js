@@ -9,13 +9,13 @@
 				module.TileViewEditMode = commonModule.SortableItemView.extend({
 					template: _.template(itemTemplate),
 					tagName: 'a',
-					className: 'tile btn-primary',
+					className: 'th-tile btn-primary',
 					onRender: function () {
 
 						commonModule.SortableItemView.prototype.onRender.call(this);
 
 						if (this.model.get('wide')) {
-							this.$el.addClass('tile-double');
+							this.$el.addClass('th-tile-double');
 						}
 					},
 					triggers: {
