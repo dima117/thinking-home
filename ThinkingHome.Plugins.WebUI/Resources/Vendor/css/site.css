@@ -24,6 +24,10 @@ body {
 	}
 }
 
+.th-datetime-panel {
+	margin-left: 30%;
+}
+
 /*#endregion */
 
 /*#region tiles */

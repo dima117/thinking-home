@@ -1,5 +1,5 @@
 define(
-	['app'],
+	['app', 'moment'],
 	function(application) {
 
 		application.module('Common', function (module, app, backbone, marionette, $, _) {
@@ -31,6 +31,20 @@ define(
 							.attr('href', arguments[i])
 							.appendTo("head");
 					}
+				},
+				displayCurrentTime: function(selector) {
+
+					var $el = $(selector);
+					
+					if ($el.length) {
+
+						return window.setInterval(function () {
+							
+							$el.text(moment().format('LT, ll'));
+						}, 2000);
+					}
+
+					return undefined;
 				}
 			};
 		});

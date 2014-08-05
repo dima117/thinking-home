@@ -14,6 +14,7 @@
 		marionette: 'vendor/js/backbone.marionette.min',
 		syphon: 'vendor/js/backbone.syphon',
 		bootstrap: 'vendor/js/bootstrap.min',
+		moment: 'vendor/js/moment.min',
 		codemirror: 'vendor/js/codemirror-all',
 		
 		tiles:				'application/tiles/tiles',
