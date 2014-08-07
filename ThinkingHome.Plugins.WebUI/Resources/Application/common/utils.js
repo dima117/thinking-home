@@ -35,13 +35,15 @@ define(
 				displayCurrentTime: function(selector) {
 
 					var $el = $(selector);
+					var fn = function() {
+
+						$el.text(moment().format('LT, ll'));
+					};
 					
 					if ($el.length) {
 
-						return window.setInterval(function () {
-							
-							$el.text(moment().format('LT, ll'));
-						}, 2000);
+						fn();
+						return window.setInterval(fn, 2000);
 					}
 
 					return undefined;
