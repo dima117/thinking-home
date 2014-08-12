@@ -44,18 +44,13 @@ namespace ThinkingHome.Plugins.NooLite
 		public void SetLevel(int channel, int level)
 		{
 			//Debugger.Launch();
-			SetLevel((byte)channel, (byte)level);
-		}
-
-		public void SetLevel(byte channel, byte level)
-		{
 			try
 			{
 				using (var adapter = new PC11XXAdapter())
 				{
 					if (adapter.OpenDevice())
 					{
-						adapter.SendCommand(PC11XXCommand.SetLevel, channel, level);
+						adapter.SendCommand(PC11XXCommand.SetLevel, (byte)channel, (byte)level);
 						Logger.Info("set level {0} in channel {1}", level, channel);
 					}
 					else
