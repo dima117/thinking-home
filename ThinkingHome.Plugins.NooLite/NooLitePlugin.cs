@@ -2,7 +2,7 @@
 using System.ComponentModel.Composition;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.NooLite;
-using ThinkingHome.NooLite.Common;
+using ThinkingHome.NooLite.ReceivedData;
 using ThinkingHome.Plugins.Scripts;
 
 namespace ThinkingHome.Plugins.NooLite
@@ -11,13 +11,15 @@ namespace ThinkingHome.Plugins.NooLite
 	public class NooLitePlugin : Plugin
 	{
 		private readonly RX1164Adapter rx1164 = new RX1164Adapter();
+		private readonly RX2164Adapter rx2164 = new RX2164Adapter();
 
 		public override void InitPlugin()
 		{
-			rx1164.CommandReceived += rx1164_CommandReceived;
+			rx1164.CommandReceived += rx_CommandReceived;
+			rx2164.CommandReceived += rx_CommandReceived;
 		}
 
-		void rx1164_CommandReceived(ReceivedCommandData obj)
+		void rx_CommandReceived(ReceivedCommandData obj)
 		{
 			Run(OnCommandReceivedForPlugins, x => x(obj.Cmd, obj.Channel, obj.Data));
 
@@ -27,11 +29,13 @@ namespace ThinkingHome.Plugins.NooLite
 		public override void StartPlugin()
 		{
 			rx1164.OpenDevice();
+			rx2164.OpenDevice();
 		}
 
 		public override void StopPlugin()
 		{
 			rx1164.Dispose();
+			rx2164.Dispose();
 		}
 
 		[ScriptEvent("noolite.commandReceived")]
