@@ -12,7 +12,7 @@ namespace ThinkingHome.Plugins.Scripts
 	{
 		public static void RaiseScriptEvent<TPlugin>(this TPlugin plugin,
 			Expression<Func<TPlugin, ScriptEventHandlerDelegate[]>> expression,
-			params object[] parameters) where TPlugin : Plugin
+			params object[] parameters) where TPlugin : PluginBase
 		{
 			var memberExpression = expression.Body as MemberExpression;
 			if (memberExpression == null)

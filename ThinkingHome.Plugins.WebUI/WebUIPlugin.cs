@@ -77,7 +77,7 @@ namespace ThinkingHome.Plugins.WebUI
 	#endregion
 
 	[Plugin]
-	public class WebUIPlugin : Plugin
+	public class WebUIPlugin : PluginBase
 	{
 		private readonly List<AppSectionAttribute> sections = new List<AppSectionAttribute>();
 		private readonly HashSet<string> cssFiles = new HashSet<string>(StringComparer.InvariantCultureIgnoreCase);

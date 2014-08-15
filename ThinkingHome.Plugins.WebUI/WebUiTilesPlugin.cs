@@ -33,7 +33,7 @@ namespace ThinkingHome.Plugins.WebUI
 	[HttpResource("/application/tiles/tiles-edit-mode.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.tiles.tiles-edit-mode.tpl")]
 	
 	[Plugin]
-	public class WebUiTilesPlugin : Plugin
+	public class WebUiTilesPlugin : PluginBase
 	{
 		private InternalDictionary<TileDefinition> availableTiles;
 

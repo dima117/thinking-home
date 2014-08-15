@@ -6,7 +6,7 @@ using ThinkingHome.Core.Plugins;
 namespace ThinkingHome.Plugins.Timer
 {
 	[Plugin]
-	public class TimerPlugin : Plugin
+	public class TimerPlugin : PluginBase
 	{
 		private const int TIMER_INTERVAL = 30000;
 

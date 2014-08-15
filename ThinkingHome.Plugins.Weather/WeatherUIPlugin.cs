@@ -42,7 +42,7 @@ namespace ThinkingHome.Plugins.Weather
 
 
 	[Plugin]
-	public class WeatherUIPlugin : Plugin
+	public class WeatherUIPlugin : PluginBase
 	{
 		[HttpCommand("/api/weather/locations/add")]
 		public object AddLocation(HttpRequestParams request)

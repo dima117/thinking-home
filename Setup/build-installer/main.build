@@ -11,8 +11,11 @@
 	<property name="build-configuration" value="Release"/>
 	<property name="dist.dir" value="..\dist"/>
 	<property name="nuget.path" value="..\..\.nuget\NuGet.exe"/>
-	
-	
+
+	<property name="dev.nuspec.dir" value="..\dev-nuspec"/>
+	<property name="dev.nupkg.dir" value="${path::combine(dist.dir, 'dev')}"/>
+
+
 	<property name="dist.service.dir" value="${path::combine(dist.dir, 'service')}"/>
 	<property name="build.service.dir"
 		value="${path::combine('..\..\ThinkingHome.Service\bin\', build-configuration)}" />
@@ -21,7 +24,7 @@
 
 	<property name="dist.plugins.dir" value="${path::combine(dist.service.dir, 'Plugins')}" />
 	<property name="build.plugins.dir" value="${path::combine('..\..\build', build-configuration)}" />
-	
+
 	<property name="setup.service.dir" value="..\ThinkingHome.Service.Setup" />
 	<property name="msi.source.dir" value="..\msi"/>
 
@@ -56,7 +59,7 @@
 
 		<delete dir="${dist.dir}" />
 		<mkdir dir="${dist.dir}" />
-
+		
 		<echo message="## service" />
 		<copy todir="${dist.dir}" file="..\..\License.rtf" />
 		<copy todir="${dist.dir}" file="${path::combine(build.service.dir, 'ThinkingHome.Service.exe')}" />
@@ -132,6 +135,36 @@
 
 	</target>
 
+	<target name="nuget" depends="dist" unless="${target::has-executed('nuget')}" >
+
+		<echo message="## dev nuget packages" />
+		<mkdir dir="${dev.nupkg.dir}" />
+
+		<foreach item="File" property="filename">
+			<in>
+				<items basedir="${dev.nuspec.dir}">
+					<include name="ThinkingHome.Core.Plugins.nuspec" />
+				</items>
+			</in>
+			<do>
+				<echo message="build package: ${filename}" />
+
+				<!-- update package version -->
+				<xmlpoke file="${filename}" xpath="/x:package/x:metadata/x:version" value="${version}">
+					<namespaces>
+						<namespace prefix="x" uri="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd" />
+					</namespaces>
+				</xmlpoke>
+
+				<exec program="${nuget.path}">
+					<arg value="pack" />
+					<arg value="${filename}" />
+					<arg value="-OutputDirectory" />
+					<arg value="${dev.nupkg.dir}" />
+				</exec>
+			</do>
+		</foreach>
+	</target>
 	<target name="configure" depends="dist" unless="${target::has-executed('configure')}" >
 
 		<!--<xmlpoke
@@ -171,6 +204,7 @@
 		<call target="set-version" />
 		<call target="compile" />
 		<call target="dist" />
+		<call target="nuget" />
 		<!--<call target="configure" />-->
 		<call target="msi" />
 	</target>

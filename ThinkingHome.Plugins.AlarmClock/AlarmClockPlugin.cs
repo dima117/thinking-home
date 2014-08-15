@@ -14,7 +14,7 @@ using ThinkingHome.Plugins.Timer;
 namespace ThinkingHome.Plugins.AlarmClock
 {
 	[Plugin]
-	public class AlarmClockPlugin : Plugin
+	public class AlarmClockPlugin : PluginBase
 	{
 		private readonly object lockObject = new object();
 		private readonly object lockObjectForSound = new object();

@@ -16,7 +16,7 @@ namespace ThinkingHome.Plugins.Packages
 	[HttpResource("/webapp/packages/list.tpl", "ThinkingHome.Plugins.Packages.Resources.list.tpl")]
 
 	[Plugin]
-	public class PackagesPlugin : Plugin
+	public class PackagesPlugin : PluginBase
 	{
 		#region api
 

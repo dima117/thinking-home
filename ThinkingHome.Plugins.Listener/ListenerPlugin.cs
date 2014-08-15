@@ -12,7 +12,7 @@ using ThinkingHome.Plugins.Listener.Handlers;
 namespace ThinkingHome.Plugins.Listener
 {
 	[Plugin]
-	public class ListenerPlugin : Plugin
+	public class ListenerPlugin : PluginBase
 	{
 		private const string BASE_URL_HTTP = "http://localhost:41831";
 
@@ -58,7 +58,7 @@ namespace ThinkingHome.Plugins.Listener
 			}
 
 			// регистрируем обработчики для ресурсов
-			foreach (Plugin plugin in Context.GetAllPlugins())
+			foreach (var plugin in Context.GetAllPlugins())
 			{
 				Type type = plugin.GetType();
 				var attributes = type.GetCustomAttributes<HttpResourceAttribute>();

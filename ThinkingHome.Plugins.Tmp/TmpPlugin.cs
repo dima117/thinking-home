@@ -13,7 +13,7 @@ using ThinkingHome.Plugins.Scripts;
 namespace ThinkingHome.Plugins.Tmp
 {
 	[Plugin]
-	public class TmpPlugin : Plugin
+	public class TmpPlugin : PluginBase
 	{
 		#region camera
 		[ScriptCommand("sendDCS930Image")]

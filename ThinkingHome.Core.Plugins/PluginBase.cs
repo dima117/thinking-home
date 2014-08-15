@@ -6,7 +6,7 @@ using NLog;
 
 namespace ThinkingHome.Core.Plugins
 {
-	public abstract class Plugin
+	public abstract class PluginBase
 	{
 		#region fields
 
@@ -19,7 +19,7 @@ namespace ThinkingHome.Core.Plugins
 
 		#region life cycle
 
-		protected Plugin()
+		protected PluginBase()
 		{
 			logger = LogManager.GetLogger(GetType().FullName);
 		}

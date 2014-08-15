@@ -9,9 +9,9 @@ namespace ThinkingHome.Core.Plugins
 	{
 		IHomePackageManager PackageManager { get; }
 
-		IReadOnlyCollection<Plugin> GetAllPlugins();
+		IReadOnlyCollection<PluginBase> GetAllPlugins();
 
-		T GetPlugin<T>() where T : Plugin;
+		T GetPlugin<T>() where T : PluginBase;
 
 		ISession OpenSession();
 	}

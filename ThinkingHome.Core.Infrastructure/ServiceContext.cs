@@ -14,15 +14,15 @@ namespace ThinkingHome.Core.Infrastructure
 		#region plugins
 
 		// todo: переопределить равенство - сравнивать по типу
-		[ImportMany(typeof(Plugin))]
-		protected HashSet<Plugin> Plugins { get; set; }
+		[ImportMany(typeof(PluginBase))]
+		protected HashSet<PluginBase> Plugins { get; set; }
 
-		public IReadOnlyCollection<Plugin> GetAllPlugins()
+		public IReadOnlyCollection<PluginBase> GetAllPlugins()
 		{
-			return new ReadOnlyCollection<Plugin>(Plugins.ToList());
+			return new ReadOnlyCollection<PluginBase>(Plugins.ToList());
 		}
 
-		public T GetPlugin<T>() where T : Plugin
+		public T GetPlugin<T>() where T : PluginBase
 		{
 			return Plugins.FirstOrDefault(p => p is T) as T;
 		}

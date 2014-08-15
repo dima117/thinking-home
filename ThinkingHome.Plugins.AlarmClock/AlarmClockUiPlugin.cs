@@ -28,7 +28,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 	[HttpResource("/webapp/alarm-clock/editor.tpl", "ThinkingHome.Plugins.AlarmClock.Resources.alarm-editor.tpl")]
 
 	[Plugin]
-	public class AlarmClockUiPlugin : Plugin
+	public class AlarmClockUiPlugin : PluginBase
 	{
 		#region api list
 

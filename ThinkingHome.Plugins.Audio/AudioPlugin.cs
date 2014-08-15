@@ -6,7 +6,7 @@ using ThinkingHome.Plugins.Audio.Internal;
 namespace ThinkingHome.Plugins.Audio
 {
 	[Plugin]
-	public class AudioPlugin : Plugin
+	public class AudioPlugin : PluginBase
 	{
 		private WaveOut waveOut;
 		private readonly object lockObject = new object();

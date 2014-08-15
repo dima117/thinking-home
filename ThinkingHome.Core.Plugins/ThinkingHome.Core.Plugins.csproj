@@ -52,7 +52,7 @@
     <Compile Include="HomePackages\HomePackageInfo.cs" />
     <Compile Include="HomePackages\IHomePackageManager.cs" />
     <Compile Include="IServiceContext.cs" />
-    <Compile Include="Plugin.cs" />
+    <Compile Include="PluginBase.cs" />
     <Compile Include="PluginAttribute.cs" />
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>

@@ -15,7 +15,7 @@ using ThinkingHome.Plugins.Speech.Data;
 namespace ThinkingHome.Plugins.Speech
 {
 	[Plugin]
-	public class SpeechPlugin : Plugin
+	public class SpeechPlugin : PluginBase
 	{
 		private SpeechSynthesizer speechSynthesizer;
 		private SpeechRecognitionEngine recognitionEngine;

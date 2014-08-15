@@ -16,7 +16,7 @@ using ThinkingHome.Plugins.Weather.Data;
 namespace ThinkingHome.Plugins.Weather
 {
 	[Plugin]
-	public class WeatherPlugin : Plugin
+	public class WeatherPlugin : PluginBase
 	{
 		private const int UPDATE_PERIOD = 15;
 

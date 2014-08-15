@@ -7,7 +7,7 @@ namespace ThinkingHome.Core.Plugins
 	public class PluginAttribute : ExportAttribute
 	{
 		public PluginAttribute()
-			: base(typeof(Plugin))
+			: base(typeof(PluginBase))
 		{
 		}
 	}

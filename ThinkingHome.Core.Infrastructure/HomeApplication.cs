@@ -163,7 +163,7 @@ namespace ThinkingHome.Core.Infrastructure
 			container.SatisfyImportsOnce(this);
 		}
 
-		private void UpdateDatabase(IDbConnection connection, Plugin plugin)
+		private void UpdateDatabase(IDbConnection connection, PluginBase plugin)
 		{
 			var assembly = plugin.GetType().Assembly;
 

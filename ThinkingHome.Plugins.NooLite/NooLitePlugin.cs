@@ -8,7 +8,7 @@ using ThinkingHome.Plugins.Scripts;
 namespace ThinkingHome.Plugins.NooLite
 {
 	[Plugin]
-	public class NooLitePlugin : Plugin
+	public class NooLitePlugin : PluginBase
 	{
 		private readonly RX1164Adapter rx1164 = new RX1164Adapter();
 		private readonly RX2164Adapter rx2164 = new RX2164Adapter();

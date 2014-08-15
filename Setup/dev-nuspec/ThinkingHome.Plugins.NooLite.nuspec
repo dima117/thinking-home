@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+	<metadata>
+		<version>1.0.0.0</version>
+		<authors>dima117</authors>
+		<owners>dima117</owners>
+		<licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+		<dependencies>
+			<dependency id="ThinkingHome.Plugins.Scripts" />
+		</dependencies>
+		<id>ThinkingHome.Plugins.NooLite</id>
+		<title>NooLite plugin</title>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>Wireless control of appliances using the nooLite system</description>
+		<summary>Wireless control of appliances using the nooLite system</summary>
+	</metadata>
+	<files>
+		<file src="HidLibrary.dll" target="HidLibrary.dll" />
+		<file src="ThinkingHome.NooLite.dll" target="ThinkingHome.NooLite.dll" />
+		<file src="ThinkingHome.Plugins.NooLite.dll" target="ThinkingHome.Plugins.NooLite.dll" />
+	</files>
+</package>

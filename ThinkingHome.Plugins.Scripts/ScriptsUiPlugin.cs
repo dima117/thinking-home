@@ -35,7 +35,7 @@ namespace ThinkingHome.Plugins.Scripts
 	[HttpResource("/webapp/scripts/script-editor.tpl", "ThinkingHome.Plugins.Scripts.Resources.script-editor.tpl")]
 
 	[Plugin]
-	public class ScriptsUiPlugin : Plugin
+	public class ScriptsUiPlugin : PluginBase
 	{
 		#region http scripts
 

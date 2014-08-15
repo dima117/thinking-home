@@ -15,7 +15,7 @@ using ThinkingHome.Plugins.Scripts.Data;
 namespace ThinkingHome.Plugins.Scripts
 {
 	[Plugin]
-	public class ScriptsPlugin : Plugin
+	public class ScriptsPlugin : PluginBase
 	{
 		private ScriptHost scriptHost;
 		private HashSet<string> scriptEvents;
@@ -40,7 +40,7 @@ namespace ThinkingHome.Plugins.Scripts
 			return actions;
 		}
 
-		private static HashSet<string> RegisterScriptEvents(IEnumerable<Plugin> plugins, Logger logger)
+		private static HashSet<string> RegisterScriptEvents(IEnumerable<PluginBase> plugins, Logger logger)
 		{
 			var scriptEvents = new HashSet<string>(StringComparer.CurrentCultureIgnoreCase);
 			
