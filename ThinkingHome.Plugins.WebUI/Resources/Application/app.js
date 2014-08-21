@@ -21,19 +21,40 @@
 			});
 	};
 
-	app.navigate = function (route) {
+	var api = {
+		parseParameters: function(queryString) {
+			
+			var result = [];
 
-		if (route) {
+			if (queryString !== null && queryString !== undefined) {
 
-			var args = Array.prototype.slice.call(arguments, 1);
+				var params = (queryString + '').split('/');
 
+				for (var i = 0; i < params.length; i++) {
+
+					var decodedValue = decodeURIComponent(params[i]);
+					result.push(decodedValue);
+				}
+			}
+
+			return result;
+		},
+
+		loadRoute: function(route, args) {
+			
 			require([route], function (obj) {
 
 				obj.start.apply(obj, args);
 
 				if (args && args.length) {
-					//encodeURIComponent('edg/fwegw/e&wegewg/we/g')
-					route += '?' + args.join('/');
+
+					var encoded = [];
+
+					for (var i = 0; i < args.length; i++) {
+						encoded.push(encodeURIComponent(args[i]));
+					}
+
+					route += '?' + encoded.join('/');
 				}
 
 				backbone.history.navigate(route);
@@ -41,17 +62,22 @@
 		}
 	};
 
+	app.navigate = function (route) {
+	
+		if (route) {
+
+			var args = Array.prototype.slice.call(arguments, 1);
+			api.loadRoute.call(this, route, args);
+		}
+	};
+
 	app.router = new marionette.AppRouter({
-		appRoutes: { '*path(?*args)': 'loadPage' },
+		appRoutes: { '*path': 'loadPage' },
 		controller: {
-			loadPage: function (route, args) {
+			loadPage: function (route, queryString) {
 
-				//decodeURIComponent("edg%2Ffwegw%2Fe%26wegewg%2Fwe%2Fg");
-				var x = args === null || args === undefined
-					? [route]
-					: [route].concat(args.split('/'));;
-
-				app.navigate.apply(this, x);
+				var args = api.parseParameters(queryString);
+				api.loadRoute.call(this, route, args);
 			}
 		}
 	});
