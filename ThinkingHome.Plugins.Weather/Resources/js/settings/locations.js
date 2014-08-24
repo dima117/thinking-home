@@ -22,28 +22,28 @@
 					}
 				},
 
-				deleteLocation: function (itemView) {
+				deleteLocation: function (childView) {
 
-					var displayName = itemView.model.get('displayName');
+					var displayName = childView.model.get('displayName');
 
 					if (commonModule.utils.confirm('Delete the location "{0}" and all location data?', displayName)) {
 
-						var locationId = itemView.model.get('id');
+						var locationId = childView.model.get('id');
 
 						app.request('cmd:weather:locations-delete', locationId)
 							.done(api.reloadList);
 					}
 				},
 
-				updateLocation: function (itemView) {
+				updateLocation: function (childView) {
 
-					var locationId = itemView.model.get('id');
+					var locationId = childView.model.get('id');
 
-					itemView.showSpinner();
+					childView.showSpinner();
 
 					app.request('cmd:weather:locations-update', locationId)
 						.done(function () {
-							itemView.hideSpinner();
+							childView.hideSpinner();
 						});
 				},
 
@@ -66,8 +66,8 @@
 						.done(function (list) {
 
 							var view = new module.LocationListView({ collection: list });
-							view.on('itemview:weather:location:delete', api.deleteLocation);
-							view.on('itemview:weather:location:update', api.updateLocation);
+							view.on('childview:weather:location:delete', api.deleteLocation);
+							view.on('childview:weather:location:update', api.updateLocation);
 							layoutView.regionList.show(view);
 						});
 				}

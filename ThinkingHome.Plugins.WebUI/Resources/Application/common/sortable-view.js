@@ -79,15 +79,15 @@ define(
 			
 				onRender: function () {
 					
-					this.$itemViewContainer.addClass('sortable-view');
+					this.$childViewContainer.addClass('sortable-view');
 				},
 
-				itemView: module.SortableItemView,
+				childView: module.SortableItemView,
 
 				overClass: 'over',
 
 				childEvents: {
-					'itemview:drop': 'onDropItem'
+					'childview:drop': 'onDropItem'
 				},
 
 				delegateEvents: function (events) {
@@ -95,23 +95,27 @@ define(
 					marionette.bindEntityEvents(this, this, marionette.getOption(this, 'childEvents'));
 				},
 
-				buildItemView: function (item, itemViewType, itemViewOptions) {
+				buildChildView: function (item, childViewType, childViewOptions) {
 					var options = _.extend({
 						model: item,
 						overClass: this.overClass,
 						parent: this
-					}, itemViewOptions);
+					}, childViewOptions);
 
-					return new itemViewType(options);
+					return new childViewType(options);
 				},
 
-				appendHtml: function (collectionView, itemView, index) {
-					var childrenContainer = collectionView.itemViewContainer ? collectionView.$(collectionView.itemViewContainer) : collectionView.$el;
+				appendHtml: function (collectionView, childView, index) {
+					var childrenContainer = collectionView.childViewContainer
+						? collectionView.$(collectionView.childViewContainer)
+						: collectionView.$el;
+
 					var children = childrenContainer.children();
+
 					if (children.size() <= index) {
-						childrenContainer.append(itemView.el);
+						childrenContainer.append(childView.el);
 					} else {
-						childrenContainer.children().eq(index).before(itemView.el);
+						childrenContainer.children().eq(index).before(childView.el);
 					}
 				},
 

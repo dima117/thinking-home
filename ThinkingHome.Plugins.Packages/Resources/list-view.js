@@ -27,8 +27,8 @@
 
 			module.PackageListView = marionette.CompositeView.extend({
 				template: _.template(listTemplate),
-				itemView: module.PackageView,
-				itemViewContainer: '.js-list'
+				childView: module.PackageView,
+				childViewContainer: '.js-list'
 			});
 		});
 

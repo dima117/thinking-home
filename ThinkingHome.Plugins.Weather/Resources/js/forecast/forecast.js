@@ -24,7 +24,7 @@
 							collection: collection
 						});
 
-						view.on('itemview:weather:add-tile', api.addWeatherTile);
+						view.on('childview:weather:add-tile', api.addWeatherTile);
 						
 						app.setContentView(view);
 					});

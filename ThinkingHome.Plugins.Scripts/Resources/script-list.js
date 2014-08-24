@@ -41,9 +41,9 @@
 
 					app.trigger('page:load', 'webapp/scripts/script-editor');
 				},
-				editScript: function (itemView) {
+				editScript: function (childView) {
 
-					var scriptId = itemView.model.get('id');
+					var scriptId = childView.model.get('id');
 					app.trigger('page:load', 'webapp/scripts/script-editor', scriptId);
 				},
 				reload: function () {
@@ -55,10 +55,10 @@
 						var view = new module.ScriptListView({ collection: items });
 
 						view.on('scripts:add', api.addScript);
-						view.on('itemview:scripts:edit', api.editScript);
-						view.on('itemview:scripts:run', api.runScript);
-						view.on('itemview:scripts:delete', api.deleteScript);
-						view.on('itemview:scripts:add-tile', api.addScriptTile);
+						view.on('childview:scripts:edit', api.editScript);
+						view.on('childview:scripts:run', api.runScript);
+						view.on('childview:scripts:delete', api.deleteScript);
+						view.on('childview:scripts:add-tile', api.addScriptTile);
 
 						app.setContentView(view);
 					});

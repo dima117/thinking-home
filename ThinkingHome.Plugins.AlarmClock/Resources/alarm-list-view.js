@@ -33,8 +33,8 @@
 
 			module.AlarmListView = marionette.CompositeView.extend({
 				template: _.template(listTemplate),
-				itemView: module.AlarmView,
-				itemViewContainer: '.js-list',
+				childView: module.AlarmView,
+				childViewContainer: '.js-list',
 				triggers: {
 					'click .js-btn-stop': 'alarm-clock:stop',
 					'click .js-btn-add': 'alarm-clock:add'

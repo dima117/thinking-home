@@ -8,7 +8,7 @@
 
 		application.module('Scripts.Subscriptions', function (module, app, backbone, marionette, $, _) {
 
-			module.SubscriptionLayout = marionette.Layout.extend({
+			module.SubscriptionLayout = marionette.LayoutView.extend({
 				template: _.template(layoutTemplate),
 				regions: {
 					regionForm: '#region-subscriptions-form',
@@ -40,8 +40,8 @@
 
 			module.SubscriptionListView = marionette.CompositeView.extend({
 				template: _.template(listTemplate),
-				itemView: module.SubscriptionView,
-				itemViewContainer: 'tbody'
+				childView: module.SubscriptionView,
+				childViewContainer: 'tbody'
 			});
 		});
 

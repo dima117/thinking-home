@@ -27,7 +27,7 @@
 		});
 
 		module.WeatherDataCollectionView = marionette.CollectionView.extend({
-			itemView: module.WeatherDataItemView,
+			childView: module.WeatherDataItemView,
 			tagName: 'ul',
 			className: 'list-unstyled weather-list'
 		});
@@ -56,8 +56,8 @@
 
 		module.WeatherForecastView = marionette.CompositeView.extend({
 			template: _.template(template),
-			itemView: module.WeatherForecastItemView,
-			itemViewContainer: '.js-weather-list'
+			childView: module.WeatherForecastItemView,
+			childViewContainer: '.js-weather-list'
 		});
 
 	});

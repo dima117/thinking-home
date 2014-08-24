@@ -16,8 +16,8 @@
 
 			module.ScriptListView = marionette.CompositeView.extend({
 				template: _.template(listTemplate),
-				itemView: module.ScriptView,
-				itemViewContainer: '.js-list',
+				childView: module.ScriptView,
+				childViewContainer: '.js-list',
 				triggers: {
 					'click .js-add-script': 'scripts:add'
 				}

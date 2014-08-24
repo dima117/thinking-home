@@ -84,7 +84,7 @@
 	
 	app.on('page:load', app.navigate);
 
-	app.on('initialize:after', function () {
+	app.on('start', function () {
 
 		if (backbone.history) {
 			backbone.history.start();

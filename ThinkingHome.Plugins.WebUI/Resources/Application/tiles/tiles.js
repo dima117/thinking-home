@@ -6,10 +6,10 @@
 
 			var api = {
 
-				open: function (itemView) {
+				open: function (childView) {
 
-					var id = itemView.model.get('id');
-					var url = itemView.model.get('url');
+					var id = childView.model.get('id');
+					var url = childView.model.get('url');
 
 					if (url) {
 						app.trigger("page:load", url);
@@ -30,7 +30,7 @@
 							collection: collection
 						});
 
-						view.on('itemview:webui:tile:click', api.open);
+						view.on('childview:webui:tile:click', api.open);
 
 						app.setContentView(view);
 					});

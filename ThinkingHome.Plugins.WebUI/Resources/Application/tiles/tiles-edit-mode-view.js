@@ -26,8 +26,8 @@
 				// Collection View
 				module.TileCollectionViewEditMode = commonModule.SortableCollectionView.extend({
 					template: _.template(listTemplate),
-					itemView: module.TileViewEditMode,
-					itemViewContainer: '.js-list',
+					childView: module.TileViewEditMode,
+					childViewContainer: '.js-list',
 					onDropItem: function () {
 						this.trigger('webui:tile:sort');
 					}

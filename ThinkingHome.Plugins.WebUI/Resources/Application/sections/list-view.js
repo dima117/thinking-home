@@ -25,8 +25,8 @@
 
 			module.SectionListView = marionette.CompositeView.extend({
 				template: _.template(listTemplate),
-				itemView: module.SectionView,
-				itemViewContainer: '.js-list',
+				childView: module.SectionView,
+				childViewContainer: '.js-list',
 				
 				onRender: function() {
 

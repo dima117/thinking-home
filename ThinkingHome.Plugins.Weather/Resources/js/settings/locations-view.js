@@ -9,7 +9,7 @@
 
 	application.module('Weather.Settings', function (module, app, backbone, marionette, $, _) {
 
-		module.WeatherSettingsLayout = marionette.Layout.extend({
+		module.WeatherSettingsLayout = marionette.LayoutView.extend({
 			template: _.template(layoutTemplate),
 			regions: {
 				regionForm: '#region-weather-locations-form',
@@ -47,8 +47,8 @@
 
 		module.LocationListView = marionette.CompositeView.extend({
 			template: _.template(listTemplate),
-			itemView: module.LocationView,
-			itemViewContainer: 'tbody'
+			childView: module.LocationView,
+			childViewContainer: 'tbody'
 		});
 		
 	});

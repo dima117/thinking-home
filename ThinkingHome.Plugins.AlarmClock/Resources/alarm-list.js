@@ -12,29 +12,29 @@
 					app.trigger('page:load', 'webapp/alarm-clock/editor');
 				},
 				
-				editAlarm: function (itemView) {
+				editAlarm: function (childView) {
 
-					var id = itemView.model.get('id');
+					var id = childView.model.get('id');
 					app.trigger('page:load', 'webapp/alarm-clock/editor', id);
 				},
 				
-				enable: function (itemView) {
-					var id = itemView.model.get('id');
+				enable: function (childView) {
+					var id = childView.model.get('id');
 					app.request('cmd:alarm-clock:set-state', id, true).done(api.reload);
 				},
 				
-				disable: function (itemView) {
-					var id = itemView.model.get('id');
+				disable: function (childView) {
+					var id = childView.model.get('id');
 					app.request('cmd:alarm-clock:set-state', id, false).done(api.reload);
 				},
 
-				deleteAlarm: function (itemView) {
+				deleteAlarm: function (childView) {
 
-					var name = itemView.model.get('name');
+					var name = childView.model.get('name');
 
 					if (commonModule.utils.confirm('Delete the alarm "{0}"?', name)) {
 
-						var id = itemView.model.get('id');
+						var id = childView.model.get('id');
 						app.request('cmd:alarm-clock:delete', id).done(api.reload);
 					}
 				},
@@ -57,10 +57,10 @@
 
 						view.on('alarm-clock:add', api.addAlarm);
 						view.on('alarm-clock:stop', api.stopAllSounds);
-						view.on('itemview:alarm-clock:enable', api.enable);
-						view.on('itemview:alarm-clock:disable', api.disable);
-						view.on('itemview:alarm-clock:edit', api.editAlarm);
-						view.on('itemview:alarm-clock:delete', api.deleteAlarm);
+						view.on('childview:alarm-clock:enable', api.enable);
+						view.on('childview:alarm-clock:disable', api.disable);
+						view.on('childview:alarm-clock:edit', api.editAlarm);
+						view.on('childview:alarm-clock:delete', api.deleteAlarm);
 						
 						app.setContentView(view);
 					});

@@ -27,8 +27,8 @@
 				// Collection View
 				module.TileCollectionView = marionette.CompositeView.extend({
 					template: _.template(listTemplate),
-					itemView: module.TileView,
-					itemViewContainer: '.js-list'
+					childView: module.TileView,
+					childViewContainer: '.js-list'
 				});
 			});
 

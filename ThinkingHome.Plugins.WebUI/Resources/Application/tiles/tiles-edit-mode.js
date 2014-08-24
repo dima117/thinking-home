@@ -6,13 +6,13 @@
 
 			var api = {
 
-				del: function (itemView) {
+				del: function (childView) {
 
-					var title = itemView.model.get('title');
+					var title = childView.model.get('title');
 
 					if (commonModule.utils.confirm('Delete the tile "{0}"?', title)) {
 
-						var id = itemView.model.get('id');
+						var id = childView.model.get('id');
 						app.request('cmd:tiles:edit-mode-delete', id).done(api.reload);
 					}
 				},
@@ -32,7 +32,7 @@
 						});
 
 						view.on('webui:tile:sort', api.sort);
-						view.on('itemview:webui:tile:delete', api.del);
+						view.on('childview:webui:tile:delete', api.del);
 						
 						app.setContentView(view);
 					});

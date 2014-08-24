@@ -6,17 +6,17 @@
 
 			var api = {
 				
-				install: function (itemView) {
+				install: function (childView) {
 					
-					var packageId = itemView.model.get('id');
+					var packageId = childView.model.get('id');
 					var rq = app.request('cmd:packages:install', packageId);
 					
 					$.when(rq).done(api.reload);
 				},
 
-				uninstall: function (itemView) {
+				uninstall: function (childView) {
 					
-					var packageId = itemView.model.get('id');
+					var packageId = childView.model.get('id');
 					var rq = app.request('cmd:packages:uninstall', packageId);
 					
 					$.when(rq).done(api.reload);
@@ -30,8 +30,8 @@
 
 						var view = new module.PackageListView({ collection: items });
 
-						view.on('itemview:packages:install', api.install);
-						view.on('itemview:packages:uninstall', api.uninstall);
+						view.on('childview:packages:install', api.install);
+						view.on('childview:packages:uninstall', api.uninstall);
 
 						app.setContentView(view);
 					});

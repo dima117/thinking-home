@@ -19,14 +19,14 @@
 						.done(api.reloadList);
 				},
 
-				deleteSubscription: function (itemView) {
+				deleteSubscription: function (childView) {
 
-					var eventAlias = itemView.model.get('eventAlias');
-					var scriptName = itemView.model.get('scriptName');
+					var eventAlias = childView.model.get('eventAlias');
+					var scriptName = childView.model.get('scriptName');
 
 					if (commonModule.utils.confirm('Delete the subscription?\n- event: "{0}"\n- script: "{1}"', eventAlias, scriptName)) {
 
-						var subscriptionId = itemView.model.get('id');
+						var subscriptionId = childView.model.get('id');
 						app.request('cmd:scripts:subscription-delete', subscriptionId)
 							.done(api.reloadList);
 					}
@@ -38,7 +38,7 @@
 						.done(function (list) {
 
 							var view = new module.SubscriptionListView({ collection: list });
-							view.on('itemview:scripts:subscription:delete', api.deleteSubscription);
+							view.on('childview:scripts:subscription:delete', api.deleteSubscription);
 							layoutView.regionList.show(view);
 						});
 				},
