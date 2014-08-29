@@ -23,7 +23,7 @@ namespace ThinkingHome.Plugins.Tmp
 			var bytes = GetImage(cameraIp, "admin", "");
 
 			var fileName = string.Format("{0:yyyyMMddHHmmss}.jpg", DateTime.Now);
-			var path = Path.Combine(@"D:\", fileName);
+			var path = Path.Combine(@"D:\images\", fileName);
 			File.WriteAllBytes(path, bytes);
 
 			Send(to, subject, fileName, bytes);

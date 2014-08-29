@@ -43,9 +43,15 @@ namespace ThinkingHome.Plugins.NooLite
 
 		[ImportMany("EB6000DD-79F1-408A-9325-4DCFFB1AD391")]
 		public Action<int, int, byte[]>[] OnCommandReceivedForPlugins { get; set; }
-		
+
 		[ScriptCommand("nooliteSetLevel")]
 		public void SetLevel(int channel, int level)
+		{
+			SendCommand((int)PC11XXCommand.SetLevel, channel, level);
+		}
+
+		[ScriptCommand("nooliteSendCommand")]
+		public void SendCommand(int command, int channel, int level)
 		{
 			//Debugger.Launch();
 			try
@@ -54,8 +60,9 @@ namespace ThinkingHome.Plugins.NooLite
 				{
 					if (adapter.OpenDevice())
 					{
-						adapter.SendCommand(PC11XXCommand.SetLevel, (byte)channel, (byte)level);
-						Logger.Info("set level {0} in channel {1}", level, channel);
+						var pc11XxCommand = (PC11XXCommand)command;
+						adapter.SendCommand(pc11XxCommand, (byte)channel, (byte)level);
+						Logger.Info("send command {0}: level {1} in channel {2}", pc11XxCommand, level, channel);
 					}
 					else
 					{
