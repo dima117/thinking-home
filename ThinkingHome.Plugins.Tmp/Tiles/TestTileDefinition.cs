@@ -6,18 +6,10 @@ namespace ThinkingHome.Plugins.Tmp.Tiles
 	[Tile]
 	public class TestTileDefinition : TileDefinition
 	{
-		public override string Title
-		{
-			get { return "Test"; }
-		}
-
-		public override string Url
-		{
-			get { return "webapp/alarm-clock/list"; }
-		}
-
 		public override void FillModel(TileModel model, dynamic options)
 		{
+			model.title = "Test";
+			model.url = "webapp/alarm-clock/list";
 			model.className = "btn-danger";
 			model.content = "This is a test";
 		}

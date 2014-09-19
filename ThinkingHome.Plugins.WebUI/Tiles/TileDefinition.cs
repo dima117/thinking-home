@@ -33,22 +33,13 @@ namespace ThinkingHome.Plugins.WebUI.Tiles
 
 		#region public
 
-		public abstract string Title { get; }
-
-		public abstract string Url { get; }
-
-		public virtual bool IsWide
-		{
-			get { return false; }
-		}
-
 		public abstract void FillModel(TileModel model, dynamic options);
-
-		#endregion
 
 		public virtual string ExecuteAction(object options)
 		{
 			return null;
 		}
+
+		#endregion
 	}
 }

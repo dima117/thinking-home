@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.Diagnostics;
 using System.Linq;
-using System.Threading;
 using NHibernate.Linq;
 using NHibernate.Mapping.ByCode;
 using NLog;
@@ -84,7 +82,7 @@ namespace ThinkingHome.Plugins.WebUI
 
 					if (availableTiles.TryGetValue(obj.HandlerKey, out def))
 					{
-						var model = new TileModel(obj.Id, def);
+						var model = new TileModel(obj.Id);
 
 						try
 						{

@@ -8,17 +8,15 @@ namespace ThinkingHome.Plugins.AlarmClock
 	[Tile]
 	public class AlarmClockTileDefinition : TileDefinition
 	{
-		public override string Title
-		{
-			get { return "Alarm clock"; }
-		}
-
-		public override string Url
-		{
-			get { return "webapp/alarm-clock/list"; }
-		}
-
 		public override void FillModel(TileModel model, dynamic options)
+		{
+			model.title = "Alarm clock";
+			model.url = "webapp/alarm-clock/list";
+			model.content = GetAlarmTileContent();
+			model.className = "btn-primary th-tile-icon th-tile-icon-fa fa-bell";
+		}
+
+		private string GetAlarmTileContent()
 		{
 			var now = DateTime.Now;
 			var times = Context
@@ -28,11 +26,10 @@ namespace ThinkingHome.Plugins.AlarmClock
 
 			var strTimes = times.Select(t => t.ToShortTimeString()).ToArray();
 
-			model.content = strTimes.Any()
+			var content = strTimes.Any()
 				? string.Join(Environment.NewLine, strTimes)
 				: "There are no active alarms";
-
-			model.className = "btn-primary th-tile-icon th-tile-icon-fa fa-bell";
+			return content;
 		}
 	}
 }

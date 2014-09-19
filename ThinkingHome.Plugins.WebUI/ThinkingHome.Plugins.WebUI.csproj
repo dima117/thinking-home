@@ -73,8 +73,6 @@
     <Compile Include="Data\Model.cs" />
     <Compile Include="Model\TileModel.cs" />
     <Compile Include="Tiles\TileDefinition.cs" />
-    <Compile Include="Tiles\TileParameter.cs" />
-    <Compile Include="Tiles\TileParameterValue.cs" />
     <Compile Include="WebUIPlugin.cs" />
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>

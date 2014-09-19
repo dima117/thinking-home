@@ -8,21 +8,13 @@ namespace ThinkingHome.Plugins.Scripts
 	[Tile]
 	public class ScriptsTileDefinition : TileDefinition
 	{
-		public override string Title
-		{
-			get { return "Run script"; }
-		}
-
-		public override string Url
-		{
-			get { return null; }
-		}
-
 		public override void FillModel(TileModel model, dynamic options)
 		{
 			try
 			{
 				UserScript script = GetScript(options);
+
+				model.title = "Run script";
 				model.content = script.Name;
 				model.className = "btn-primary th-tile-icon th-tile-icon-fa fa-rocket";
 			}

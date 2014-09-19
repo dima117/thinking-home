@@ -9,30 +9,24 @@ namespace ThinkingHome.Plugins.Weather
 	[Tile]
 	public class WeatherTileDefinition : TileDefinition
 	{
-		public override string Title
-		{
-			get { return "Weather"; }
-		}
-
-		public override string Url
-		{
-			get { return "webapp/weather/forecast"; }
-		}
-
 		public override void FillModel(TileModel model, dynamic options)
 		{
+			model.title = "Weather";
+			model.url = "webapp/weather/forecast";
+
 			string strCityId = options.cityId;
 
 			if (string.IsNullOrWhiteSpace(strCityId))
 			{
-				throw new Exception("Missing cityId parameter");
+				model.content = "Missing cityId parameter";
+				return;
 			}
 
 			Guid cityId;
-
 			if (!Guid.TryParse(strCityId, out cityId))
 			{
-				throw new Exception("CityId parameter must contain GUID value");
+				model.content = "CityId parameter must contain GUID value";
+				return;
 			}
 
 			var data = Context.GetPlugin<WeatherPlugin>().GetWeatherData(DateTime.Now);
@@ -41,22 +35,22 @@ namespace ThinkingHome.Plugins.Weather
 
 			if (location == null)
 			{
-				throw new Exception(string.Format("Location with id = {0} is not found", cityId));
+				model.content = string.Format("Location with id = {0} is not found", cityId);
+				return;
 			}
 
 			model.title = location.LocationName;
 
 			// текущая погода
-			if (location.Now != null)
+			if (location.Now == null)
 			{
-				string formattedNow = WeatherUtils.FormatTemperature(location.Now.Temperature);
-				model.content = string.Format("now: {0}°C", formattedNow);
-				model.className = "btn-primary th-tile-icon th-tile-icon-wa " + WeatherUtils.GetIconClass(location.Now.Code);
+				model.content = "Current weather is undefined";
+				return;
 			}
-			else
-			{
-				throw new Exception("Current weather is undefined");
-			}
+
+			string formattedNow = WeatherUtils.FormatTemperature(location.Now.Temperature);
+			model.content = string.Format("now: {0}°C", formattedNow);
+			model.className = "btn-primary th-tile-icon th-tile-icon-wa " + WeatherUtils.GetIconClass(location.Now.Code);
 			
 			// погода на завтра
 			var tomorrow = location.Forecast.FirstOrDefault();

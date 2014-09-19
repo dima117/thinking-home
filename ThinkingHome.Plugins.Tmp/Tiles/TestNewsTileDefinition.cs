@@ -6,23 +6,11 @@ namespace ThinkingHome.Plugins.Tmp.Tiles
 	[Tile]
 	public class TestNewsTileDefinition : TileDefinition
 	{
-		public override string Title
-		{
-			get { return "News"; }
-		}
-
-		public override string Url
-		{
-			get { return "webapp/alarm-clock/list"; }
-		}
-
-		public override bool IsWide
-		{
-			get { return true; }
-		}
-
 		public override void FillModel(TileModel model, dynamic options)
 		{
+			model.title = "News";
+			model.url = "webapp/alarm-clock/list";
+			model.wide = true;
 			model.content = "NASA призвало Россию продлить сотрудничество по МКС\nНа спутнике Плутона мог существовать подземный океан";
 		}
 	}

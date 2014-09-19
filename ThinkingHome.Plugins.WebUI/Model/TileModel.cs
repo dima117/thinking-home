@@ -1,16 +1,12 @@
 ﻿using System;
-using ThinkingHome.Plugins.WebUI.Tiles;
 
 namespace ThinkingHome.Plugins.WebUI.Model
 {
 	public class TileModel
 	{
-		public TileModel(Guid tileIid, TileDefinition def)
+		public TileModel(Guid tileIid)
 		{
 			id = tileIid;
-			title = def.Title;
-			wide = def.IsWide;
-			url = def.Url;
 		}
 
 		// ReSharper disable InconsistentNaming
@@ -21,6 +17,5 @@ namespace ThinkingHome.Plugins.WebUI.Model
 		public string content;
 		public string className;
 		// ReSharper restore InconsistentNaming
-
 	}
 }
