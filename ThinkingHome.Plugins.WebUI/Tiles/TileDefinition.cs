@@ -30,7 +30,7 @@ namespace ThinkingHome.Plugins.WebUI.Tiles
 		{
 			get { return context; }
 		}
-
+		
 		#region public
 
 		public abstract void FillModel(TileModel model, dynamic options);

@@ -8,7 +8,11 @@ using ThinkingHome.Core.Plugins;
 using ThinkingHome.Plugins.AlarmClock;
 using ThinkingHome.Plugins.Audio;
 using ThinkingHome.Plugins.Audio.Internal;
+using ThinkingHome.Plugins.Listener.Api;
+using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.Scripts;
+using ThinkingHome.Plugins.Tmp.Tiles;
+using ThinkingHome.Plugins.WebUI;
 
 namespace ThinkingHome.Plugins.Tmp
 {
@@ -140,7 +144,14 @@ namespace ThinkingHome.Plugins.Tmp
 			Logger.Info("test2: {0}", id);
 		}
 
+		[HttpCommand("/api/tmp/tiles/add")]
+		public object AddTile(HttpRequestParams request)
+		{
+			var xxx = request.GetInt32("value");
+			Context.GetPlugin<WebUiTilesPlugin>().AddTile<TestTileDefinition>(new { xxx });
 
+			return null;
+		}
 
 		#endregion
 	}

@@ -64,7 +64,7 @@ namespace ThinkingHome.Plugins.WebUI
 			mapper.Class<Tile>(cfg => cfg.Table("WebUI_Tile"));
 		}
 
-		#region api
+		#region http api
 
 		[HttpCommand("/api/webui/tiles")]
 		public object GetTiles(HttpRequestParams request)
@@ -143,33 +143,7 @@ namespace ThinkingHome.Plugins.WebUI
 			var strDef = request.GetRequiredString("def");
 			var strOptions = request.GetString("options");
 
-			TileDefinition def;
-
-			if (!availableTiles.TryGetValue(strDef, out def))
-			{
-				throw new Exception(string.Format("invalid tile definition: {0}", strDef));
-			}
-			
-			using (var session = Context.OpenSession())
-			{
-				var lastTile = session.Query<Tile>()
-					.OrderByDescending(t => t.SortOrder)
-					.FirstOrDefault();
-
-				int sortOrder = lastTile == null ? 0 : lastTile.SortOrder + 1;
-
-
-				var tile = new Tile
-						   {
-							   Id = Guid.NewGuid(),
-							   HandlerKey = strDef,
-							   SortOrder = sortOrder,
-							   SerializedParameters = strOptions
-						   };
-
-				session.Save(tile);
-				session.Flush();
-			}
+			AddTile(strDef, strOptions);
 
 			return null;
 		}
@@ -198,6 +172,52 @@ namespace ThinkingHome.Plugins.WebUI
 			}
 
 			return null;
+		}
+
+		#endregion
+
+		#region api
+
+		public void AddTile<TDef>(object options)
+		{
+			AddTile(typeof(TDef), options);
+		}
+
+		public void AddTile(Type defType, object options)
+		{
+			var key = defType.FullName;
+			var strOptions = options.ToJson();
+			AddTile(key, strOptions);
+		}
+
+		internal void AddTile(string key, string strOptions)
+		{
+			TileDefinition def;
+
+			if (!availableTiles.TryGetValue(key, out def))
+			{
+				throw new Exception(string.Format("invalid tile definition: {0}", key));
+			}
+
+			using (var session = Context.OpenSession())
+			{
+				var lastTile = session.Query<Tile>()
+					.OrderByDescending(t => t.SortOrder)
+					.FirstOrDefault();
+
+				int sortOrder = lastTile == null ? 0 : lastTile.SortOrder + 1;
+
+				var tile = new Tile
+				{
+					Id = Guid.NewGuid(),
+					HandlerKey = key,
+					SortOrder = sortOrder,
+					SerializedParameters = strOptions
+				};
+
+				session.Save(tile);
+				session.Flush();
+			}
 		}
 
 		#endregion

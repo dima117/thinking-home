@@ -8,7 +8,7 @@ namespace ThinkingHome.Plugins.Tmp.Tiles
 	{
 		public override void FillModel(TileModel model, dynamic options)
 		{
-			model.title = "Test";
+			model.title = "Test" + options.xxx;
 			model.url = "webapp/alarm-clock/list";
 			model.className = "btn-danger";
 			model.content = "This is a test";
