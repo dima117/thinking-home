@@ -19,7 +19,10 @@
 				},
 
 				done: function (message) {
-					alert(message || 'Done!');
+
+					if (message) {
+						alert(message);
+					}
 				},
 
 				reload: function () {

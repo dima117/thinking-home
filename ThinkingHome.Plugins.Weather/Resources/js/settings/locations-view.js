@@ -35,7 +35,8 @@
 			tagName: 'tr',
 			triggers: {
 				'click .js-update-location': 'weather:location:update',
-				'click .js-delete-location': 'weather:location:delete'
+				'click .js-delete-location': 'weather:location:delete',
+				'click .js-btn-add-tile': 'weather:location:add-tile'
 			},
 			showSpinner: function() {
 				this.$('.js-update-location-spin').removeClass('hidden');

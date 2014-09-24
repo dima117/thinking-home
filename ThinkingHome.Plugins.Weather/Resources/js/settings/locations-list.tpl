@@ -3,8 +3,7 @@
 		<tr>
 			<th>Display name</th>
 			<th>Query</th>
-			<th></th>
-			<th></th>
+			<th colspan="3"></th>
 		</tr>
 	</thead>
 	<tbody>
