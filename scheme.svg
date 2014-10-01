@@ -14,7 +14,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="drawing-1.svg.2014_01_23_21_31_56.0.svg"
+   sodipodi:docname="scheme.svg"
    inkscape:export-filename="C:\Users\dandr_000\Desktop\drawing-1.svg.2014_01_23_21_31_56.0.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
@@ -54,16 +54,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="296.68967"
-     inkscape:cy="811.84091"
+     inkscape:zoom="1.0956566"
+     inkscape:cx="128.29121"
+     inkscape:cy="940.72841"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1304"
-     inkscape:window-height="745"
+     inkscape:window-width="1825"
+     inkscape:window-height="1058"
      inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:window-y="13"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
@@ -81,459 +81,566 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <rect
+       style="fill:#78c6dc;fill-opacity:1;stroke:none"
+       id="rect4270"
+       width="313.47372"
+       height="146.85597"
+       x="418.1087"
+       y="29.528797"
+       rx="4.8329263"
+       ry="4.4056792" />
+    <path
+       style="fill:#666666;stroke:#666666;stroke-width:1.50489485;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.50489487, 3.00978972;stroke-dashoffset:0;marker-start:none;marker-mid:none;marker-end:none"
+       d="m 416.44292,109.17768 -29.35492,0"
+       id="path4506"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <rect
+       style="fill:#00ff00;fill-opacity:0;stroke:none"
+       id="rect3069"
+       width="62.861843"
+       height="72.465736"
+       x="425.4808"
+       y="141.7"
+       rx="4.8329263"
+       ry="4.8329263" />
+    <rect
+       style="fill:#87aade;stroke:none"
+       id="rect3065"
+       width="364.07483"
+       height="329.15158"
+       x="22.361126"
+       y="29.528797"
+       rx="4.8329263"
+       ry="4.8329263" />
+    <rect
+       style="fill:#f2f2f2;fill-opacity:0;stroke:none"
+       id="rect3067"
+       width="27.938595"
+       height="27.938595"
+       x="35.213558"
+       y="49.60965"
+       rx="4.8329263"
+       ry="4.8329263" />
     <g
-       id="g4026"
-       transform="matrix(1.6109755,0,0,1.6109755,-107.09866,-193.36929)">
+       id="g4053"
+       transform="matrix(1.6109755,0,0,1.6109755,-107.09866,-193.78612)">
       <rect
-         ry="2.7347896"
+         style="fill:#ffffff;fill-opacity:0.23529412;stroke:none"
+         id="rect3081"
+         width="93.758743"
+         height="117.6049"
+         x="90.713295"
+         y="212.78461"
          rx="3"
-         y="138.36218"
-         x="326.01822"
-         height="91.159653"
-         width="187"
-         id="rect4270"
-         style="fill:#87aade;fill-opacity:1;stroke:none" />
-      <path
-         sodipodi:nodetypes="cc"
-         inkscape:connector-curvature="0"
-         id="path4506"
-         d="m 324.9842,187.80358 -18.22183,0"
-         style="fill:#666666;stroke:#666666;stroke-width:0.93415129;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:0.93415131, 1.8683026;stroke-dashoffset:0;marker-start:none;marker-mid:none;marker-end:none" />
-      <rect
-         ry="3"
-         rx="3"
-         y="207.99155"
-         x="330.59439"
-         height="44.982517"
-         width="39.020981"
-         id="rect3069"
-         style="fill:#00ff00;fill-opacity:0;stroke:none" />
-      <rect
-         ry="3"
-         rx="3"
-         y="138.36218"
-         x="80.361115"
-         height="204.31818"
-         width="225.99651"
-         id="rect3065"
-         style="fill:#87aade;stroke:none" />
+         ry="3" />
       <g
-         transform="translate(0,-0.25874329)"
-         id="g3885">
-        <g
-           id="g2997"
-           transform="matrix(0.97624815,0,0,0.97624815,12.50471,1.5931449)">
-          <text
-             sodipodi:linespacing="125%"
-             id="text2987"
-             y="164.09296"
-             x="104.56554"
-             style="font-size:18px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-             xml:space="preserve"><tspan
-               style="font-size:18px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#ffffff;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-               y="164.09296"
-               x="104.56554"
-               id="tspan2989"
-               sodipodi:role="line">Сервис автоматизации</tspan></text>
-          <text
-             sodipodi:linespacing="125%"
-             id="text2991"
-             y="179.09993"
-             x="104.76573"
-             style="font-size:11px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:0.62745098;stroke:none;font-family:Sans"
-             xml:space="preserve"><tspan
-               y="179.09993"
-               x="104.76573"
-               id="tspan2993"
-               sodipodi:role="line"
-               style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#ffffff;fill-opacity:0.62745098;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light">.NET Windows service</tspan></text>
-        </g>
-        <path
-           inkscape:connector-curvature="0"
-           id="path3307"
-           d="m 99.438085,149.44842 0,1.05774 c -0.853011,0.0988 -1.675025,0.3164 -2.435997,0.64105 l -0.544894,-0.92952 -1.762892,1.02568 0.512841,0.92952 c -0.673077,0.5008 -1.29031,1.09345 -1.794945,1.76289 l -0.897472,-0.51284 -1.025683,1.79495 0.897473,0.51284 c -0.330884,0.7682 -0.57541,1.57223 -0.673104,2.436 l -0.993631,0 0,2.05135 1.025683,0 c 0.102768,0.84948 0.312788,1.67851 0.641052,2.436 l -0.897473,0.51285 1.025683,1.79494 0.929525,-0.54489 c 0.509243,0.67537 1.115579,1.29076 1.794945,1.79495 l -0.544894,0.92952 1.762892,1.02569 0.544894,-0.92953 c 0.760924,0.3268 1.583049,0.54151 2.435997,0.64105 l 0,1.05773 2.051365,0 0,-1.05773 c 0.85124,-0.0998 1.64441,-0.31485 2.40394,-0.64105 l 0.54489,0.92953 1.79496,-1.02569 -0.54489,-0.92952 c 0.67532,-0.50268 1.25612,-1.12286 1.76288,-1.79495 l 0.92953,0.54489 1.02568,-1.79494 -0.89747,-0.51285 c 0.32849,-0.75779 0.53822,-1.58612 0.64105,-2.436 l 1.05773,0 0,-2.05135 -1.02568,0 c -0.0972,-0.8592 -0.31305,-1.67127 -0.64105,-2.436 l 0.86542,-0.51284 -1.02568,-1.79495 -0.89747,0.51284 c -0.50719,-0.67281 -1.11772,-1.26052 -1.79494,-1.76289 l 0.54489,-0.92952 -1.79496,-1.02568 -0.51284,0.92952 c -0.76727,-0.3304 -1.57457,-0.54082 -2.43599,-0.64105 l 0,-1.05774 -2.051365,0 z m 1.025685,3.33347 c 3.48227,0 6.31436,2.87558 6.31436,6.41051 0,3.53495 -2.83209,6.41052 -6.31436,6.41052 -3.482276,0 -6.314362,-2.87557 -6.314362,-6.41052 0,-3.53493 2.832086,-6.41051 6.314362,-6.41051 z"
-           style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#ffffff;fill-opacity:0.31372549;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
-      </g>
-      <rect
-         ry="3"
-         rx="3"
-         y="150.82721"
-         x="88.339157"
-         height="17.342657"
-         width="17.342657"
-         id="rect3067"
-         style="fill:#f2f2f2;fill-opacity:0;stroke:none" />
-      <g
-         transform="translate(0,-0.25874329)"
-         id="g4053">
-        <rect
-           ry="3"
-           rx="3"
-           y="212.78461"
-           x="90.713295"
-           height="117.6049"
-           width="93.758743"
-           id="rect3081"
-           style="fill:#afc6e9;fill-opacity:0.58823529;stroke:none" />
-        <g
-           id="g3939">
-          <text
-             sodipodi:linespacing="125%"
-             id="text3007"
-             y="228.00417"
-             x="93.79174"
-             style="font-size:11px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#1e1e1e;fill-opacity:0.70588235;stroke:none;font-family:Sans"
-             xml:space="preserve"><tspan
-               style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.70588235;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-               y="228.00417"
-               x="93.79174"
-               id="tspan3009"
-               sodipodi:role="line">Core</tspan></text>
-          <text
-             sodipodi:linespacing="125%"
-             id="text3898"
-             y="241.76237"
-             x="94.251701"
-             style="font-size:9px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#1e1e1e;fill-opacity:1;stroke:none;font-family:Sans"
-             xml:space="preserve"><tspan
-               style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:1;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-               y="241.76237"
-               x="94.251701"
-               id="tspan3900"
-               sodipodi:role="line">инфраструктура для </tspan><tspan
-               id="tspan3902"
-               style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:1;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-               y="251.13737"
-               x="94.251701"
-               sodipodi:role="line">работы плагинов: </tspan><tspan
-               id="tspan3904"
-               style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:1;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-               y="260.51239"
-               x="94.251701"
-               sodipodi:role="line">логирование, доступ </tspan><tspan
-               id="tspan3924"
-               style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:1;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-               y="269.88739"
-               x="94.251701"
-               sodipodi:role="line">к системной БД,</tspan><tspan
-               id="tspan3906"
-               style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:1;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-               y="279.26239"
-               x="94.251701"
-               sodipodi:role="line">организация жизненного</tspan><tspan
-               id="tspan3908"
-               style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:1;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-               y="288.63739"
-               x="94.251701"
-               sodipodi:role="line">цикла плагинов и их</tspan><tspan
-               id="tspan3910"
-               style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:1;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-               y="298.01239"
-               x="94.251701"
-               sodipodi:role="line">взаимодействия</tspan></text>
-        </g>
-      </g>
-      <g
-         transform="translate(1.9999999,-0.25874329)"
-         id="g4069">
-        <rect
-           style="fill:#afc6e9;fill-opacity:0.58823529;stroke:none"
-           id="rect3081-1"
-           width="93.758743"
-           height="117.6049"
-           x="197.89886"
-           y="212.78461"
-           rx="3"
-           ry="3" />
-        <g
-           transform="translate(107.18641,0)"
-           id="g3939-0">
-          <text
-             sodipodi:linespacing="125%"
-             id="text3007-9"
-             y="228.00417"
-             x="93.79174"
-             style="font-size:11px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#1e1e1e;fill-opacity:0.70588235;stroke:none;font-family:Sans"
-             xml:space="preserve"><tspan
-               style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.70588235;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-               y="228.00417"
-               x="93.79174"
-               id="tspan3009-4"
-               sodipodi:role="line">Plugins</tspan></text>
-          <text
-             sodipodi:linespacing="125%"
-             id="text3898-8"
-             y="241.76237"
-             x="94.251701"
-             style="font-size:9px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#1e1e1e;fill-opacity:1;stroke:none;font-family:Sans"
-             xml:space="preserve"><tspan
-               id="tspan3910-7"
-               style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:1;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-               y="241.76237"
-               x="94.251701"
-               sodipodi:role="line">плагины генерируют </tspan><tspan
-               id="tspan4110"
-               style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:1;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-               y="251.13737"
-               x="94.251701"
-               sodipodi:role="line">события и занимаются </tspan><tspan
-               id="tspan4112"
-               style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:1;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-               y="260.51239"
-               x="94.251701"
-               sodipodi:role="line">их обработкой</tspan></text>
-        </g>
-      </g>
-      <text
-         sodipodi:linespacing="125%"
-         id="text3898-8-1"
-         y="190.96696"
-         x="90.369057"
-         style="font-size:9px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#1e1e1e;fill-opacity:0.78431373;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           id="tspan4146"
-           style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-           y="190.96696"
-           x="90.369057"
-           sodipodi:role="line">Работает постоянно и отвечает за обработку домашних </tspan><tspan
-           id="tspan4152"
-           style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-           y="200.34196"
-           x="90.369057"
-           sodipodi:role="line">событий. Сервис содержит ядро системы и систему плагинов.</tspan></text>
-      <g
-         transform="translate(-0.3348947,-3.5087238)"
-         id="g4182">
-        <rect
-           style="fill:#ffffff;fill-opacity:0.23529412;stroke:none"
-           id="rect4154"
-           width="62.081326"
-           height="22.047573"
-           x="206.55095"
-           y="270.25354"
-           rx="3.1078262"
-           ry="3" />
+         id="g3939">
         <text
            xml:space="preserve"
-           style="font-size:9px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#1e1e1e;fill-opacity:0.78431373;stroke:none;font-family:Sans"
-           x="211.31885"
-           y="279.60071"
-           id="text3898-8-1-7"
+           style="font-size:11px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#1e1e1e;fill-opacity:0.70588235;stroke:none;font-family:Sans"
+           x="93.79174"
+           y="228.00417"
+           id="text3007"
            sodipodi:linespacing="125%"><tspan
              sodipodi:role="line"
-             x="211.31885"
-             y="279.60071"
-             style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-             id="tspan4152-1">Plugin A</tspan></text>
-      </g>
-      <g
-         id="g4182-4"
-         transform="translate(-0.3348947,21.78567)">
-        <rect
-           style="fill:#ffffff;fill-opacity:0.23529412;stroke:none"
-           id="rect4154-2"
-           width="62.081326"
-           height="22.047573"
-           x="206.55095"
-           y="270.25354"
-           rx="3.1078262"
-           ry="3" />
+             id="tspan3009"
+             x="93.79174"
+             y="228.00417"
+             style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.70588235;font-family:Segoe UI;-inkscape-font-specification:Segoe UI">Core</tspan></text>
         <text
            xml:space="preserve"
-           style="font-size:9px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#1e1e1e;fill-opacity:0.78431373;stroke:none;font-family:Sans"
-           x="211.31885"
-           y="279.60071"
-           id="text3898-8-1-7-3"
+           style="font-size:9px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#1e1e1e;fill-opacity:1;stroke:none;font-family:Sans"
+           x="94.251701"
+           y="241.76237"
+           id="text3898"
            sodipodi:linespacing="125%"><tspan
              sodipodi:role="line"
-             x="211.31885"
-             y="279.60071"
-             style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-             id="tspan4152-1-2">Plugin B</tspan></text>
+             id="tspan3900"
+             x="94.251701"
+             y="241.76237"
+             style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:1;font-family:Segoe UI;-inkscape-font-specification:Segoe UI">инфраструктура для </tspan><tspan
+             sodipodi:role="line"
+             x="94.251701"
+             y="251.13737"
+             style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:1;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+             id="tspan3902">работы плагинов: </tspan><tspan
+             sodipodi:role="line"
+             x="94.251701"
+             y="260.51239"
+             style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:1;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+             id="tspan3904">логирование, доступ </tspan><tspan
+             sodipodi:role="line"
+             x="94.251701"
+             y="269.88739"
+             style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:1;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+             id="tspan3924">к системной БД,</tspan><tspan
+             sodipodi:role="line"
+             x="94.251701"
+             y="279.26239"
+             style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:1;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+             id="tspan3906">организация жизненного</tspan><tspan
+             sodipodi:role="line"
+             x="94.251701"
+             y="288.63739"
+             style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:1;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+             id="tspan3908">цикла плагинов и их</tspan><tspan
+             sodipodi:role="line"
+             x="94.251701"
+             y="298.01239"
+             style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:1;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+             id="tspan3910">взаимодействия</tspan></text>
       </g>
-      <g
-         transform="translate(1.5658238,-3.0513244)"
-         id="g4265">
-        <path
-           sodipodi:type="arc"
-           style="fill:#ffffff;fill-opacity:0.23529412;stroke:none"
-           id="path4214"
-           sodipodi:cx="212.65294"
-           sodipodi:cy="325.34225"
-           sodipodi:rx="2.0312183"
-           sodipodi:ry="2.0312183"
-           d="m 214.68416,325.34225 c 0,1.12182 -0.90941,2.03122 -2.03122,2.03122 -1.12181,0 -2.03122,-0.9094 -2.03122,-2.03122 0,-1.12181 0.90941,-2.03121 2.03122,-2.03121 1.12181,0 2.03122,0.9094 2.03122,2.03121 z"
-           transform="translate(2.8124556,-1.7187092)" />
-        <path
-           transform="translate(12.499806,-1.7187092)"
-           sodipodi:type="arc"
-           style="fill:#ffffff;fill-opacity:0.23529412;stroke:none"
-           id="path4214-2"
-           sodipodi:cx="212.65294"
-           sodipodi:cy="325.34225"
-           sodipodi:rx="2.0312183"
-           sodipodi:ry="2.0312183"
-           d="m 214.68416,325.34225 c 0,1.12182 -0.90941,2.03122 -2.03122,2.03122 -1.12181,0 -2.03122,-0.9094 -2.03122,-2.03122 0,-1.12181 0.90941,-2.03121 2.03122,-2.03121 1.12181,0 2.03122,0.9094 2.03122,2.03121 z" />
-        <path
-           transform="translate(22.187146,-1.7187092)"
-           sodipodi:type="arc"
-           style="fill:#ffffff;fill-opacity:0.23529412;stroke:none"
-           id="path4214-1"
-           sodipodi:cx="212.65294"
-           sodipodi:cy="325.34225"
-           sodipodi:rx="2.0312183"
-           sodipodi:ry="2.0312183"
-           d="m 214.68416,325.34225 c 0,1.12182 -0.90941,2.03122 -2.03122,2.03122 -1.12181,0 -2.03122,-0.9094 -2.03122,-2.03122 0,-1.12181 0.90941,-2.03121 2.03122,-2.03121 1.12181,0 2.03122,0.9094 2.03122,2.03121 z" />
-      </g>
-      <g
-         transform="translate(245.28671,0.12706345)"
-         id="g3885-6">
-        <g
-           id="g2997-8"
-           transform="matrix(0.97624815,0,0,0.97624815,12.50471,1.5931449)">
-          <text
-             sodipodi:linespacing="125%"
-             id="text2987-5"
-             y="164.09296"
-             x="104.56554"
-             style="font-size:18px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-             xml:space="preserve"><tspan
-               style="font-size:18px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#ffffff;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-               y="164.09296"
-               x="104.56554"
-               id="tspan2989-7"
-               sodipodi:role="line">Web UI</tspan></text>
-          <text
-             sodipodi:linespacing="125%"
-             id="text2991-6"
-             y="179.09993"
-             x="104.76573"
-             style="font-size:11px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:0.62745098;stroke:none;font-family:Sans"
-             xml:space="preserve"><tspan
-               y="179.09993"
-               x="104.76573"
-               id="tspan2993-1"
-               sodipodi:role="line"
-               style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#ffffff;fill-opacity:0.62745098;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light">ASP.NET MVC Application</tspan></text>
-        </g>
-        <path
-           id="path3284"
-           transform="translate(-245.28671,-0.12706345)"
-           d="m 345.3125,149.0625 c -0.0104,0.0112 -0.0209,0.02 -0.0312,0.0312 -5.34289,0.21369 -9.625,4.60488 -9.625,10 0,5.53146 4.4998,10 10.03125,10 5.53146,0 10.03125,-4.46854 10.03125,-10 0,-5.39088 -4.28632,-9.77989 -9.625,-10 -0.0103,-0.0112 -0.0209,-0.0201 -0.0312,-0.0312 l -0.0312,0.0312 c -0.11808,-0.004 -0.2247,-0.0312 -0.34375,-0.0312 -0.11545,0 -0.22924,0.0274 -0.34375,0.0312 l -0.0312,-0.0312 z m -1.125,1.25 c -1.09488,1.2746 -1.97702,2.47676 -2.65625,3.625 -0.66193,-0.27525 -1.47778,-0.61444 -2.3125,-0.96875 1.30001,-1.37425 3.01565,-2.33063 4.96875,-2.65625 z m 3,0 c 1.95879,0.33309 3.69614,1.30299 5,2.6875 -0.81854,0.40912 -1.60338,0.80634 -2.25,1.09375 -0.68477,-1.19658 -1.60067,-2.44661 -2.75,-3.78125 z m -1,0.40625 c 1.19304,1.36139 2.1317,2.6175 2.8125,3.78125 -1.09956,0.43279 -1.99172,0.65734 -2.8125,0.6875 l 0,-4.46875 z m -1,0.0312 0,4.375 c -0.77843,-0.10907 -1.65772,-0.36564 -2.71875,-0.78125 0.67285,-1.11133 1.58769,-2.30291 2.71875,-3.59375 z m -6.65625,3.03125 c 0.92052,0.39201 1.77193,0.75857 2.5,1.0625 -0.64118,1.28029 -0.99706,2.51473 -1.0625,3.75 l -3.15625,0 c 0.097,-1.8005 0.71241,-3.45491 1.71875,-4.8125 z m 14.3125,0 c 1.01268,1.35774 1.65229,3.01176 1.75,4.8125 l -3.21875,0 c -0.0624,-1.19631 -0.40216,-2.38794 -1,-3.625 0.72307,-0.3246 1.56062,-0.73514 2.46875,-1.1875 z m -10.875,1.4375 c 1.22131,0.4807 2.24929,0.79355 3.21875,0.90625 l 0,2.46875 -4.21875,0 c 0.0672,-1.07863 0.39487,-2.19437 1,-3.375 z m 7.5,0.15625 c 0.54888,1.12125 0.843,2.1886 0.90625,3.21875 l -4.1875,0 0,-2.40625 c 0.99422,-0.0317 2.049,-0.31757 3.28125,-0.8125 z m -12.65625,4.21875 3.1875,0 c 0.0851,1.10996 0.38063,2.22163 0.9375,3.34375 -0.7762,0.32532 -1.65594,0.70309 -2.65625,1.125 -0.87018,-1.28963 -1.37657,-2.81458 -1.46875,-4.46875 z m 4.15625,0 4.21875,0 0,1.96875 c -0.99454,0.11527 -2.04758,0.49815 -3.3125,1 -0.51176,-1.01613 -0.81938,-2.01006 -0.90625,-2.96875 z m 5.21875,0 4.1875,0 c -0.0811,0.91171 -0.35111,1.8502 -0.8125,2.8125 -1.27724,-0.52078 -2.35461,-0.81117 -3.375,-0.84375 l 0,-1.96875 z m 5.1875,0 3.21875,0 c -0.0928,1.65444 -0.62413,3.17894 -1.5,4.46875 -0.9906,-0.50002 -1.85201,-0.93128 -2.625,-1.28125 0.5124,-1.07049 0.8251,-2.1267 0.90625,-3.1875 z m -5.1875,2.96875 c 0.84339,0.0311 1.76269,0.26154 2.90625,0.71875 -0.6864,1.17002 -1.6491,2.40611 -2.90625,3.75 l 0,-4.46875 z m -1.0625,0.0312 c 0.0209,-0.003 0.0417,0.003 0.0625,0 l 0,4.40625 c -1.19272,-1.2756 -2.13156,-2.44532 -2.8125,-3.5625 1.07755,-0.42573 1.9655,-0.72581 2.75,-0.84375 z M 350,163.6875 c 0.71773,0.32115 1.52839,0.68888 2.46875,1.15625 -1.44193,1.68566 -3.4851,2.84212 -5.8125,3.09375 1.4273,-1.4982 2.55621,-2.89832 3.34375,-4.25 z m -8.5625,0.125 c 0.78292,1.31158 1.87096,2.67317 3.25,4.125 -2.30958,-0.24993 -4.31785,-1.39554 -5.75,-3.0625 0.93114,-0.39651 1.77945,-0.76177 2.5,-1.0625 z"
-           style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#ffffff;fill-opacity:0.31372549;stroke:none;stroke-width:0.99999994;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
-           inkscape:connector-curvature="0" />
-      </g>
-      <text
-         sodipodi:linespacing="125%"
-         id="text3898-8-1-9"
-         y="190.96696"
-         x="335.31885"
-         style="font-size:9px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#1e1e1e;fill-opacity:0.78431373;stroke:none;font-family:Sans"
-         xml:space="preserve"><tspan
-           id="tspan4152-7"
-           style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-           y="190.96696"
-           x="335.31885"
-           sodipodi:role="line">Предоставляет UI для работы с плагинами сервиса.</tspan><tspan
-           id="tspan3301"
-           style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-           y="200.34196"
-           x="335.31885"
-           sodipodi:role="line">С помощью этого web-приложения можно менять</tspan><tspan
-           id="tspan3303"
-           style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-           y="209.71696"
-           x="335.31885"
-           sodipodi:role="line">настройки плагинов и получать информацию</tspan><tspan
-           id="tspan3305"
-           style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-           y="219.09196"
-           x="335.31885"
-           sodipodi:role="line">от них.</tspan></text>
+    </g>
+    <g
+       id="g4069"
+       transform="matrix(1.6109755,0,0,1.6109755,-103.87671,-193.78612)">
       <rect
-         ry="3.1721067"
+         ry="3"
          rx="3"
-         y="236.94347"
-         x="326.01819"
-         height="105.73689"
-         width="187"
-         id="rect4270-9"
-         style="fill:#98a0a0;fill-opacity:0.8627451;stroke:none" />
+         y="212.78461"
+         x="197.89886"
+         height="117.6049"
+         width="93.758743"
+         id="rect3081-1"
+         style="fill:#ffffff;fill-opacity:0.23529412;stroke:none" />
       <g
-         transform="translate(245.28671,100.44524)"
-         id="g3885-6-5">
-        <g
-           id="g2997-8-4"
-           transform="matrix(0.97624815,0,0,0.97624815,-12.222423,-3.8013361)">
-          <text
-             sodipodi:linespacing="125%"
-             id="text2987-5-3"
-             y="164.09296"
+         id="g3939-0"
+         transform="translate(107.18641,0)">
+        <text
+           xml:space="preserve"
+           style="font-size:11px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#1e1e1e;fill-opacity:0.70588235;stroke:none;font-family:Sans"
+           x="93.79174"
+           y="228.00417"
+           id="text3007-9"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan3009-4"
+             x="93.79174"
+             y="228.00417"
+             style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.70588235;font-family:Segoe UI;-inkscape-font-specification:Segoe UI">Plugins</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:9px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#1e1e1e;fill-opacity:1;stroke:none;font-family:Sans"
+           x="94.251701"
+           y="241.76237"
+           id="text3898-8"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             x="94.251701"
+             y="241.76237"
+             style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:1;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+             id="tspan3910-7">плагины генерируют </tspan><tspan
+             sodipodi:role="line"
+             x="94.251701"
+             y="251.13737"
+             style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:1;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+             id="tspan4110">события и занимаются </tspan><tspan
+             sodipodi:role="line"
+             x="94.251701"
+             y="260.51239"
+             style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:1;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+             id="tspan4112">их обработкой</tspan></text>
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:14.4987793px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#1e1e1e;fill-opacity:0.78431373;stroke:none;font-family:Sans"
+       x="38.483677"
+       y="114.27381"
+       id="text3898-8-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="38.483677"
+         y="114.27381"
+         style="font-size:12.0823164px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+         id="tspan4146">Работает постоянно и отвечает за обработку домашних </tspan><tspan
+         sodipodi:role="line"
+         x="38.483677"
+         y="129.37671"
+         style="font-size:12.0823164px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+         id="tspan4152">событий. Сервис содержит ядро системы и систему плагинов.</tspan></text>
+    <g
+       id="g4182"
+       transform="matrix(1.6109755,0,0,1.6109755,-107.63817,-199.02176)">
+      <rect
+         ry="3"
+         rx="3.1078262"
+         y="270.25354"
+         x="206.55095"
+         height="22.047573"
+         width="62.081326"
+         id="rect4154"
+         style="fill:#ffffff;fill-opacity:0.3137255;stroke:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3898-8-1-7"
+         y="279.60071"
+         x="211.31885"
+         style="font-size:9px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#1e1e1e;fill-opacity:0.78431373;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           id="tspan4152-1"
+           style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+           y="279.60071"
+           x="211.31885"
+           sodipodi:role="line">Plugin A</tspan></text>
+    </g>
+    <g
+       transform="matrix(1.6109755,0,0,1.6109755,-107.63817,-158.27311)"
+       id="g4182-4">
+      <rect
+         ry="3"
+         rx="3.1078262"
+         y="270.25354"
+         x="206.55095"
+         height="22.047573"
+         width="62.081326"
+         id="rect4154-2"
+         style="fill:#ffffff;fill-opacity:0.3137255;stroke:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3898-8-1-7-3"
+         y="279.60071"
+         x="211.31885"
+         style="font-size:9px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#1e1e1e;fill-opacity:0.78431373;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           id="tspan4152-1-2"
+           style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+           y="279.60071"
+           x="211.31885"
+           sodipodi:role="line">Plugin B</tspan></text>
+    </g>
+    <g
+       id="g4265"
+       transform="matrix(1.6109755,0,0,1.6109755,-104.57616,-198.2849)">
+      <path
+         transform="translate(2.8124556,-1.7187092)"
+         d="m 214.68416,325.34225 c 0,1.12182 -0.90941,2.03122 -2.03122,2.03122 -1.12181,0 -2.03122,-0.9094 -2.03122,-2.03122 0,-1.12181 0.90941,-2.03121 2.03122,-2.03121 1.12181,0 2.03122,0.9094 2.03122,2.03121 z"
+         sodipodi:ry="2.0312183"
+         sodipodi:rx="2.0312183"
+         sodipodi:cy="325.34225"
+         sodipodi:cx="212.65294"
+         id="path4214"
+         style="fill:#ffffff;fill-opacity:0.3137255;stroke:none"
+         sodipodi:type="arc" />
+      <path
+         d="m 214.68416,325.34225 c 0,1.12182 -0.90941,2.03122 -2.03122,2.03122 -1.12181,0 -2.03122,-0.9094 -2.03122,-2.03122 0,-1.12181 0.90941,-2.03121 2.03122,-2.03121 1.12181,0 2.03122,0.9094 2.03122,2.03121 z"
+         sodipodi:ry="2.0312183"
+         sodipodi:rx="2.0312183"
+         sodipodi:cy="325.34225"
+         sodipodi:cx="212.65294"
+         id="path4214-2"
+         style="fill:#ffffff;fill-opacity:0.3137255;stroke:none"
+         sodipodi:type="arc"
+         transform="translate(12.499806,-1.7187092)" />
+      <path
+         d="m 214.68416,325.34225 c 0,1.12182 -0.90941,2.03122 -2.03122,2.03122 -1.12181,0 -2.03122,-0.9094 -2.03122,-2.03122 0,-1.12181 0.90941,-2.03121 2.03122,-2.03121 1.12181,0 2.03122,0.9094 2.03122,2.03121 z"
+         sodipodi:ry="2.0312183"
+         sodipodi:rx="2.0312183"
+         sodipodi:cy="325.34225"
+         sodipodi:cx="212.65294"
+         id="path4214-1"
+         style="fill:#ffffff;fill-opacity:0.3137255;stroke:none"
+         sodipodi:type="arc"
+         transform="translate(22.187146,-1.7187092)" />
+    </g>
+    <g
+       id="g3885-6"
+       transform="matrix(1.6109755,0,0,1.6109755,288.05222,-193.16459)">
+      <g
+         transform="matrix(0.97624815,0,0,0.97624815,12.50471,1.5931449)"
+         id="g2997-8">
+        <text
+           xml:space="preserve"
+           style="font-size:18px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+           x="104.56554"
+           y="164.09296"
+           id="text2987-5"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan2989-7"
              x="104.56554"
-             style="font-size:18px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-             xml:space="preserve"><tspan
-               style="font-size:18px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#ffffff;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-               y="164.09296"
-               x="104.56554"
-               id="tspan2989-7-1"
-               sodipodi:role="line">Окружающий мир</tspan></text>
-          <text
-             sodipodi:linespacing="125%"
-             id="text2991-6-2"
-             y="179.09993"
+             y="164.09296"
+             style="font-size:18px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#ffffff;font-family:Segoe UI;-inkscape-font-specification:Segoe UI">Окружающий мир</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:11px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:0.62745098;stroke:none;font-family:Sans"
+           x="104.76573"
+           y="179.09993"
+           id="text2991-6"
+           sodipodi:linespacing="125%"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#ffffff;fill-opacity:0.62745098;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+             sodipodi:role="line"
+             id="tspan2993-1"
              x="104.76573"
-             style="font-size:11px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:0.62745098;stroke:none;font-family:Sans"
-             xml:space="preserve"><tspan
-               y="179.09993"
-               x="104.76573"
-               id="tspan2993-1-3"
-               sodipodi:role="line"
-               style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#ffffff;fill-opacity:0.62745098;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light">датчики, домашние устройства </tspan><tspan
-               id="tspan3232"
-               y="192.84993"
-               x="104.76573"
-               sodipodi:role="line"
-               style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#ffffff;fill-opacity:0.62745098;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light">и Internet-сервисы</tspan></text>
-        </g>
+             y="179.09993">Internet-сервисы</tspan></text>
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:14.4987793px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#1e1e1e;fill-opacity:0.78431373;stroke:none;font-family:Sans"
+       x="433.0918"
+       y="114.27381"
+       id="text3898-8-1-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="433.0918"
+         y="114.27381"
+         style="font-size:12.0823164px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+         id="tspan4152-7">Предоставляет UI для работы с плагинами сервиса.</tspan><tspan
+         sodipodi:role="line"
+         x="433.0918"
+         y="129.37671"
+         style="font-size:12.0823164px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+         id="tspan3301">С помощью этого web-приложения можно менять</tspan><tspan
+         sodipodi:role="line"
+         x="433.0918"
+         y="144.4796"
+         style="font-size:12.0823164px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+         id="tspan3303">настройки плагинов и получать информацию</tspan><tspan
+         sodipodi:role="line"
+         x="433.0918"
+         y="159.5825"
+         style="font-size:12.0823164px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+         id="tspan3305">от них.</tspan></text>
+    <rect
+       style="fill:#87aade;fill-opacity:1;stroke:none"
+       id="rect4270-9"
+       width="312.75482"
+       height="170.33954"
+       x="418.10864"
+       y="188.34084"
+       rx="4.8329263"
+       ry="5.1101861" />
+    <g
+       id="g3885-6-5"
+       transform="matrix(1.6109755,0,0,1.6109755,328.40804,-31.554469)">
+      <g
+         transform="matrix(0.97624815,0,0,0.97624815,-12.222423,-3.8013361)"
+         id="g2997-8-4">
+        <text
+           xml:space="preserve"
+           style="font-size:15.26026535px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+           x="104.56554"
+           y="164.09296"
+           id="text2987-5-3"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan2989-7-1"
+             x="104.56554"
+             y="164.09296"
+             style="font-size:15.26026535px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#ffffff;font-family:Segoe UI;-inkscape-font-specification:Segoe UI">Домашние устройства</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:11px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:0.62745098;stroke:none;font-family:Sans"
+           x="104.76573"
+           y="179.09993"
+           id="text2991-6-2"
+           sodipodi:linespacing="125%"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#ffffff;fill-opacity:0.62745098;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+             sodipodi:role="line"
+             x="104.76573"
+             y="179.09993"
+             id="tspan3232">датчики, IP-камеры</tspan></text>
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:14.4987793px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#1e1e1e;fill-opacity:0.78431373;stroke:none;font-family:Sans"
+       x="433.09174"
+       y="285.54977"
+       id="text3898-8-1-9-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="433.09174"
+         y="285.54977"
+         style="font-size:12.0823164px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+         id="tspan4152-7-1">Плагины могут получать информацию от датчиков</tspan><tspan
+         sodipodi:role="line"
+         x="433.09174"
+         y="300.65265"
+         style="font-size:12.0823164px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+         id="tspan3234">и управлять домашними устройствами (например,</tspan><tspan
+         sodipodi:role="line"
+         x="433.09174"
+         y="315.75555"
+         style="font-size:12.0823164px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+         id="tspan3236">модулями nooLite или IP-камерой), а также взаимо-</tspan><tspan
+         sodipodi:role="line"
+         x="433.09174"
+         y="330.85846"
+         style="font-size:12.0823164px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+         id="tspan3238">действовать с Internet-сервисами (например, они </tspan><tspan
+         sodipodi:role="line"
+         x="433.09174"
+         y="345.96133"
+         style="font-size:12.0823164px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+         id="tspan3242">могут отправить e-mail или узнать прогноз погоды).</tspan></text>
+    <path
+       style="fill:#666666;stroke:#666666;stroke-width:1.50489485;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1.50489487, 3.00978972;stroke-dashoffset:0;marker-start:none;marker-mid:none;marker-end:none"
+       d="m 416.44292,277.23169 -29.35492,0"
+       id="path4506-1"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <g
+       id="g3295">
+      <g
+         transform="matrix(1.5727119,0,0,1.5727119,-86.953879,-191.2196)"
+         id="g2997">
+        <text
+           xml:space="preserve"
+           style="font-size:18px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+           x="104.56554"
+           y="164.09296"
+           id="text2987"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan2989"
+             x="104.56554"
+             y="164.09296"
+             style="font-size:18px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#ffffff;font-family:Segoe UI;-inkscape-font-specification:Segoe UI">Сервис автоматизации</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:11px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:0.62745098;stroke:none;font-family:Sans"
+           x="104.76573"
+           y="179.09993"
+           id="text2991"
+           sodipodi:linespacing="125%"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#ffffff;fill-opacity:0.62745098;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+             sodipodi:role="line"
+             id="tspan2993"
+             x="104.76573"
+             y="179.09993">.NET Windows service</tspan></text>
       </g>
       <text
          sodipodi:linespacing="125%"
-         id="text3898-8-1-9-4"
-         y="297.28513"
-         x="335.31882"
-         style="font-size:9px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#1e1e1e;fill-opacity:0.78431373;stroke:none;font-family:Sans"
+         id="text3165"
+         y="73.840477"
+         x="39.048683"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#f9f9f9;fill-opacity:1;stroke:none;font-family:FontAwesome;-inkscape-font-specification:FontAwesome"
          xml:space="preserve"><tspan
-           id="tspan4152-7-1"
-           style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-           y="297.28513"
-           x="335.31882"
-           sodipodi:role="line">Плагины могут получать информацию от датчиков</tspan><tspan
-           id="tspan3234"
-           style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-           y="306.66013"
-           x="335.31882"
-           sodipodi:role="line">и управлять домашними устройствами (например,</tspan><tspan
-           id="tspan3236"
-           style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-           y="316.03513"
-           x="335.31882"
-           sodipodi:role="line">модулями nooLite или IP-камерой), а также взаимо-</tspan><tspan
-           id="tspan3238"
-           style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-           y="325.41013"
-           x="335.31882"
-           sodipodi:role="line">действовать с Internet-сервисами (например, они </tspan><tspan
-           id="tspan3242"
-           style="font-size:7.5px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;fill:#1e1e1e;fill-opacity:0.78431373;font-family:Segoe UI Semilight;-inkscape-font-specification:Segoe UI Semilight Light"
-           y="334.78513"
-           x="335.31882"
-           sodipodi:role="line">могут отправить e-mail или узнать прогноз погоды).</tspan></text>
-      <path
-         sodipodi:nodetypes="cc"
-         inkscape:connector-curvature="0"
-         id="path4506-1"
-         d="m 324.9842,292.12175 -18.22183,0"
-         style="fill:#666666;stroke:#666666;stroke-width:0.93415129;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:0.93415131, 1.8683026;stroke-dashoffset:0;marker-start:none;marker-mid:none;marker-end:none" />
+           y="73.840477"
+           x="39.048683"
+           id="tspan3167"
+           sodipodi:role="line"></tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:FontAwesome;-inkscape-font-specification:FontAwesome"
+       x="-406"
+       y="34.362183"
+       id="text3169"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3171"
+         x="-406"
+         y="34.362183"></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#f2f2f2;fill-opacity:1;stroke:none;font-family:FontAwesome;-inkscape-font-specification:FontAwesome"
+       x="433.63541"
+       y="74.803108"
+       id="text3173"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3175"
+         x="433.63541"
+         y="74.803108"></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:FontAwesome;-inkscape-font-specification:FontAwesome"
+       x="-392"
+       y="-109.63782"
+       id="text3177"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3179"
+         x="-392"
+         y="-109.63782"></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:FontAwesome;-inkscape-font-specification:FontAwesome"
+       x="-356"
+       y="172.36218"
+       id="text3181"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3183"
+         x="-356"
+         y="172.36218"></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:FontAwesome;-inkscape-font-specification:FontAwesome"
+       x="-354"
+       y="32.362183"
+       id="text3185"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3187"
+         x="-354"
+         y="32.362183"></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:FontAwesome;-inkscape-font-specification:FontAwesome"
+       x="-260"
+       y="209.36218"
+       id="text3189"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3191"
+         x="-260"
+         y="209.36218"></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ececec;fill-opacity:1;stroke:none;font-family:FontAwesome;-inkscape-font-specification:FontAwesome"
+       x="433.63541"
+       y="225.41409"
+       id="text3193"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3195"
+         x="433.63541"
+         y="225.41409"></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:FontAwesome;-inkscape-font-specification:FontAwesome"
+       x="-256"
+       y="65.362183"
+       id="text3197"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3199"
+         x="-256"
+         y="65.362183"></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:FontAwesome;-inkscape-font-specification:FontAwesome"
+       x="-475"
+       y="-40.637817"
+       id="text3201"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3203"
+         x="-475"
+         y="-40.637817"></tspan></text>
+    <g
+       id="g3291"
+       transform="translate(394.58673,1.4378018)">
+      <rect
+         y="-79.187828"
+         x="39.548683"
+         height="50.323063"
+         width="58.230976"
+         id="rect3287"
+         style="fill:#ffffff;stroke:#800000;stroke-width:1" />
+      <rect
+         y="-65.528709"
+         x="79.258522"
+         height="19.410324"
+         width="101.36503"
+         id="rect3289"
+         style="fill:#ffffff;stroke:#800000" />
     </g>
   </g>
 </svg>
