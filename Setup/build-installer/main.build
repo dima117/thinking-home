@@ -146,6 +146,7 @@
 					<include name="ThinkingHome.Core.Plugins.nuspec" />
 					<include name="ThinkingHome.Plugins.Listener.nuspec" />
 					<include name="ThinkingHome.Plugins.WebUI.nuspec" />
+					<include name="ThinkingHome.Plugins.NooLite.nuspec" />
 				</items>
 			</in>
 			<do>

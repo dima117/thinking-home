@@ -58,6 +58,7 @@
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="OnMicroclimateDataReceivedAttribute.cs" />
     <Compile Include="OnRXCommandReceivedAttribute.cs" />
   </ItemGroup>
   <ItemGroup>

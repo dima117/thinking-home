@@ -10,6 +10,7 @@ using ThinkingHome.Plugins.Audio;
 using ThinkingHome.Plugins.Audio.Internal;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
+using ThinkingHome.Plugins.NooLite;
 using ThinkingHome.Plugins.Scripts;
 using ThinkingHome.Plugins.Tmp.Tiles;
 using ThinkingHome.Plugins.WebUI;
@@ -151,6 +152,12 @@ namespace ThinkingHome.Plugins.Tmp
 			Context.GetPlugin<WebUiTilesPlugin>().AddTile<TestTileDefinition>(new { xxx });
 
 			return null;
+		}
+
+		[OnMicroclimateDataReceived]
+		public void Eqwwegwegwegwe(int channel, decimal temperature, int humidity)
+		{
+			Logger.Info("Microclimate: c={0}, t={1}, h={2}", channel, temperature, humidity);
 		}
 
 		#endregion

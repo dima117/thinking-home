@@ -94,6 +94,11 @@
       <Project>{db321a2c-ff9c-48ef-80cf-d356a5d5f3a8}</Project>
       <Name>ThinkingHome.Plugins.Listener</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ThinkingHome.Plugins.NooLite\ThinkingHome.Plugins.NooLite.csproj">
+      <Project>{db949272-d96e-4dfc-9305-0dfc0deacef6}</Project>
+      <Name>ThinkingHome.Plugins.NooLite</Name>
+      <Private>False</Private>
+    </ProjectReference>
     <ProjectReference Include="..\ThinkingHome.Plugins.Scripts\ThinkingHome.Plugins.Scripts.csproj">
       <Project>{5dbb0362-36d7-49e8-9277-b212e3585e4b}</Project>
       <Name>ThinkingHome.Plugins.Scripts</Name>

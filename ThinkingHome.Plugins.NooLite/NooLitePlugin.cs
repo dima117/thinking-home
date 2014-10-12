@@ -17,6 +17,14 @@ namespace ThinkingHome.Plugins.NooLite
 		{
 			rx1164.CommandReceived += rx_CommandReceived;
 			rx2164.CommandReceived += rx_CommandReceived;
+			rx2164.MicroclimateDataReceived += rx2164_MicroclimateDataReceived;
+		}
+
+		void rx2164_MicroclimateDataReceived(MicroclimateReceivedCommandData obj)
+		{
+			Run(OnMicroclimateDataReceivedForPlugins, x => x(obj.Channel, obj.Temperature, obj.Humidity));
+
+			this.RaiseScriptEvent(x => x.OnMicroclimateDataReceivedForScripts, obj.Channel, obj.Temperature, obj.Humidity);
 		}
 
 		void rx_CommandReceived(ReceivedCommandData obj)
@@ -43,6 +51,12 @@ namespace ThinkingHome.Plugins.NooLite
 
 		[ImportMany("EB6000DD-79F1-408A-9325-4DCFFB1AD391")]
 		public Action<int, int, byte[]>[] OnCommandReceivedForPlugins { get; set; }
+
+		[ScriptEvent("noolite.microclimateDataReceived")]
+		public ScriptEventHandlerDelegate[] OnMicroclimateDataReceivedForScripts { get; set; }
+
+		[ImportMany("A40F6290-A9C5-439B-9CDF-32656F8D1C65")]
+		public Action<int, decimal, int>[] OnMicroclimateDataReceivedForPlugins { get; set; }
 
 		[ScriptCommand("nooliteSetLevel")]
 		public void SetLevel(int channel, int level)
