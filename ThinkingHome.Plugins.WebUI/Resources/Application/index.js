@@ -16,6 +16,7 @@
 		bootstrap: 'vendor/js/bootstrap.min',
 		moment: 'vendor/js/moment.min',
 		codemirror: 'vendor/js/codemirror-all',
+		chart: 'vendor/js/chart',
 		
 		tiles:				'application/tiles/tiles',
 		'tiles-edit-mode':	'application/tiles/tiles-edit-mode',

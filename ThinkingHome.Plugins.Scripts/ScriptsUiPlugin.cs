@@ -9,10 +9,6 @@ using ThinkingHome.Plugins.WebUI.Attributes;
 
 namespace ThinkingHome.Plugins.Scripts
 {
-	// css
-	[CssResource("/webapp/scripts/codemirror.css", "ThinkingHome.Plugins.Scripts.Resources.codemirror.css", AutoLoad = true)]
-
-
 	// script list
 	[AppSection("Event handlers", SectionType.System, "/webapp/scripts/subscriptions.js", "ThinkingHome.Plugins.Scripts.Resources.subscriptions.js")]
 	[JavaScriptResource("/webapp/scripts/subscriptions-model.js", "ThinkingHome.Plugins.Scripts.Resources.subscriptions-model.js")]
