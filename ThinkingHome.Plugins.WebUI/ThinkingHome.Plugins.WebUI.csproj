@@ -206,10 +206,10 @@
     <EmbeddedResource Include="Resources\Vendor\js\moment.min.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Vendor\js\chart.min.js" />
+    <EmbeddedResource Include="Resources\Vendor\css\codemirror.css" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Vendor\css\codemirror.css" />
+    <EmbeddedResource Include="Resources\Vendor\js\highcharts.min.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

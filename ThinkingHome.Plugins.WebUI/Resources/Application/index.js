@@ -16,7 +16,7 @@
 		bootstrap: 'vendor/js/bootstrap.min',
 		moment: 'vendor/js/moment.min',
 		codemirror: 'vendor/js/codemirror-all',
-		chart: 'vendor/js/chart',
+		highcharts: 'vendor/js/highcharts.min',
 		
 		tiles:				'application/tiles/tiles',
 		'tiles-edit-mode':	'application/tiles/tiles-edit-mode',
@@ -36,6 +36,9 @@
 		marionette: {
 			deps: ['backbone', 'syphon'],
 			exports: 'Marionette'
+		},
+		highcharts: {
+			exports: 'Highcharts'
 		}
 	}
 });
