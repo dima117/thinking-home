@@ -19,7 +19,7 @@
 					e.stopPropagation();
 
 					var path = this.model.get('path');
-					app.trigger("page:load", path);
+					app.navigate(path);
 				}
 			});
 

@@ -6,7 +6,7 @@
 		regionContent: "#region-page-content"
 	});
 
-	app.setContentView = function(view) {
+	app.setContentView = function (view) {
 		app.regionContent.show(view);
 	};
 
@@ -22,8 +22,8 @@
 	};
 
 	var api = {
-		parseParameters: function(queryString) {
-			
+		parseParameters: function (queryString) {
+
 			var result = [];
 
 			if (queryString !== null && queryString !== undefined) {
@@ -40,35 +40,40 @@
 			return result;
 		},
 
-		loadRoute: function(route, args) {
-			
-			require([route], function (obj) {
+		loadRoute: function (route, args) {
 
-				obj.start.apply(obj, args);
+			if (route) {
 
-				if (args && args.length) {
+				require([route], function (obj) {
 
-					var encoded = [];
+					obj.start.apply(obj, args);
 
-					for (var i = 0; i < args.length; i++) {
-						encoded.push(encodeURIComponent(args[i]));
+					if (args && args.length) {
+
+						var encoded = [];
+
+						for (var i = 0; i < args.length; i++) {
+							encoded.push(encodeURIComponent(args[i]));
+						}
+
+						route += '?' + encoded.join('/');
 					}
 
-					route += '?' + encoded.join('/');
-				}
-
-				backbone.history.navigate(route);
-			});
+					backbone.history.navigate(route);
+				});
+			}
 		}
 	};
 
 	app.navigate = function (route) {
-	
-		if (route) {
 
-			var args = Array.prototype.slice.call(arguments, 1);
-			api.loadRoute.call(this, route, args);
-		}
+		var args = Array.prototype.slice.call(arguments, 1);
+		api.loadRoute.call(this, route, args);
+	};
+
+	app.loadPath = function (route, args) {
+
+		api.loadRoute.call(this, route, args);
 	};
 
 	app.router = new marionette.AppRouter({
@@ -81,8 +86,6 @@
 			}
 		}
 	});
-	
-	app.on('page:load', app.navigate);
 
 	app.on('start', function () {
 

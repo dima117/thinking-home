@@ -9,13 +9,13 @@
 			var api = {
 
 				addAlarm: function() {
-					app.trigger('page:load', 'webapp/alarm-clock/editor');
+					app.navigate('webapp/alarm-clock/editor');
 				},
 				
 				editAlarm: function (childView) {
 
 					var id = childView.model.get('id');
-					app.trigger('page:load', 'webapp/alarm-clock/editor', id);
+					app.navigate('webapp/alarm-clock/editor', id);
 				},
 				
 				enable: function (childView) {

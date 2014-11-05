@@ -39,12 +39,12 @@
 
 				addScript: function () {
 
-					app.trigger('page:load', 'webapp/scripts/script-editor');
+					app.navigate('webapp/scripts/script-editor');
 				},
 				editScript: function (childView) {
 
 					var scriptId = childView.model.get('id');
-					app.trigger('page:load', 'webapp/scripts/script-editor', scriptId);
+					app.navigate('webapp/scripts/script-editor', scriptId);
 				},
 				reload: function () {
 

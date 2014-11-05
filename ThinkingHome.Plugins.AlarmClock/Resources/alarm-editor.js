@@ -27,7 +27,7 @@
 					app.request('cmd:alarm-clock:save', model).done(api.redirectToList);
 				},
 				redirectToList: function () {
-					app.trigger('page:load', 'webapp/alarm-clock/list');
+					app.navigate('webapp/alarm-clock/list');
 				}
 			};
 

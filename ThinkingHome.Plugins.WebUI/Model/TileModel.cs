@@ -14,6 +14,7 @@ namespace ThinkingHome.Plugins.WebUI.Model
 		public string title;
 		public bool wide;
 		public string url;
+		public object[] parameters;
 		public string content;
 		public string className;
 		// ReSharper restore InconsistentNaming

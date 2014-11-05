@@ -17,7 +17,7 @@
 				},
 
 				redirectToList: function () {
-					app.trigger('page:load', 'webapp/scripts/script-list');
+					app.navigate('webapp/scripts/script-list');
 				},
 
 				save: function (data) {

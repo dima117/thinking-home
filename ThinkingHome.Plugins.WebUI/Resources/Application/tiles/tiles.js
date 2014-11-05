@@ -12,7 +12,10 @@
 					var url = childView.model.get('url');
 
 					if (url) {
-						app.trigger("page:load", url);
+
+						var args = childView.model.get('parameters');
+						app.loadPath(url, args);
+
 					} else {
 						app.request('cmd:tiles:action', id).done(api.done);
 					}
