@@ -40,6 +40,7 @@
     </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Speech, Version=11.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -48,6 +49,7 @@
     </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\packages\NHibernate.4.0.1.4000\lib\net40\NHibernate.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="NLog">
       <HintPath>..\packages\NLog.2.0.1.2\lib\net45\NLog.dll</HintPath>
@@ -79,6 +81,7 @@
     <ProjectReference Include="..\ThinkingHome.Plugins.Listener\ThinkingHome.Plugins.Listener.csproj">
       <Project>{db321a2c-ff9c-48ef-80cf-d356a5d5f3a8}</Project>
       <Name>ThinkingHome.Plugins.Listener</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\ThinkingHome.Plugins.Scripts\ThinkingHome.Plugins.Scripts.csproj">
       <Project>{5dbb0362-36d7-49e8-9277-b212e3585e4b}</Project>
