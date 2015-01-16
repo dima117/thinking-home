@@ -8,11 +8,11 @@ namespace ThinkingHome.Plugins.OneWire.Attributes
 {
     public class SensorTypeAttribute : Attribute
     {
-        private byte _sensorType;
+        private byte sensorType;
 
-        public SensorTypeAttribute(byte sensorType)
+        public SensorTypeAttribute(byte sensType)
         {
-            _sensorType = sensorType;
+            sensorType = sensType;
         }
 
         public override bool Match(object obj)
@@ -20,7 +20,7 @@ namespace ThinkingHome.Plugins.OneWire.Attributes
             if (obj == null)
                 return false;
 
-            return (byte)obj == _sensorType;
+            return (byte)obj == sensorType;
         } 
     }
 }

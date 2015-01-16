@@ -23,15 +23,10 @@ namespace ThinkingHome.Plugins.OneWire.Sensors
         public const byte RESOLUTION_9_BIT = (byte)0x1F;
         #endregion
 
-        #region Fields
-        readonly byte[] _address;
-        #endregion
-
         #region Constructors
         public SensorDS18B20(byte[] address, OneWireAdapter adapter)
             :base(address, adapter)
         {
-            _address = address;
         }
         #endregion
 
@@ -80,7 +75,7 @@ namespace ThinkingHome.Plugins.OneWire.Sensors
             byte[] result_block;
 
             // select the device
-            if (Adapter.SelectDevice(_address, 0))
+            if (Adapter.SelectDevice(Address, 0))
             {
                 // create a block to send that reads the scratchpad
                 byte[] send_block = new byte[10];
@@ -137,7 +132,7 @@ namespace ThinkingHome.Plugins.OneWire.Sensors
             readfirstbuffer = ReadScratchpad();
 
             // second, let's copy the scratchpad.
-            if (Adapter.SelectDevice(_address, 0))
+            if (Adapter.SelectDevice(Address, 0))
             {
 
                 // apply the power delivery
@@ -181,7 +176,7 @@ namespace ThinkingHome.Plugins.OneWire.Sensors
             byte[] scratchBuff;
 
             // select the device
-            if (Adapter.SelectDevice(_address, 0))
+            if (Adapter.SelectDevice(Address, 0))
             {
 
                 // send the Recall E-squared memory command
@@ -209,7 +204,7 @@ namespace ThinkingHome.Plugins.OneWire.Sensors
             writeBuffer[3] = data[2];
 
             // send command block to device
-            if (Adapter.SelectDevice(_address, 0))
+            if (Adapter.SelectDevice(Address, 0))
             {
                 //_adapter.DataBlock(writeBuffer, 0, writeBuffer.Length);
                 Adapter.DataBlock(writeBuffer);
@@ -233,7 +228,7 @@ namespace ThinkingHome.Plugins.OneWire.Sensors
             int msDelay = 750;   // in milliseconds
 
             // select the device
-            if (Adapter.SelectDevice(_address, 0))
+            if (Adapter.SelectDevice(Address, 0))
             {
 
                 // Setup Power Delivery

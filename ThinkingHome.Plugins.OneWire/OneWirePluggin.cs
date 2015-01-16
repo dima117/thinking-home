@@ -13,17 +13,17 @@ namespace ThinkingHome.Plugins.OneWire
 	[Plugin]
 	public class OneWirePluggin : PluginBase
 	{
-		private OneWireAdapter _adapter;
-        private Type[] _oneWireSensorTypes;
+		private OneWireAdapter adapter;
+        private Type[] oneWireSensorTypes;
 
 		public override void InitPlugin()
 		{
 			//Debugger.Launch();
 			base.InitPlugin();
 
-            _adapter = new OneWireAdapter(OneWireAdapterConfiguration.Default);
+            adapter = new OneWireAdapter(OneWireAdapterConfiguration.Default);
 
-            _oneWireSensorTypes = GetSensorsTypes();
+            oneWireSensorTypes = GetSensorsTypes();
 		}
 
 		public override void StartPlugin()
@@ -36,8 +36,8 @@ namespace ThinkingHome.Plugins.OneWire
 		{
 			base.StopPlugin();
 
-			_adapter.Dispose();
-			_adapter = null;
+			adapter.Dispose();
+			adapter = null;
 		}
 
 		public OneWireDevice[] GetDevices()
@@ -45,18 +45,18 @@ namespace ThinkingHome.Plugins.OneWire
 			// 1. получаем список устройств через адаптер
 			// 2. парсим типы устройств, для неизвестных создаем экземпляр базового класса
 
-            var listAddress = _adapter.FindAddress();
+            var listAddress = adapter.FindAddress();
 
             List<OneWireDevice> list = new List<OneWireDevice>();
 
             foreach (var addr in listAddress)
             {
-                foreach (var sensorType in _oneWireSensorTypes)
+                foreach (var sensorType in oneWireSensorTypes)
                 {
                     var attr = sensorType.GetCustomAttribute<SensorTypeAttribute>(true);
                     if (attr != null && attr.Match(addr[0]))
                     {
-                        var device = Activator.CreateInstance(sensorType, new object[] { addr, _adapter }) as OneWireDevice;
+                        var device = Activator.CreateInstance(sensorType, new object[] { addr, adapter }) as OneWireDevice;
                         list.Add(device);
                     }
                 }
