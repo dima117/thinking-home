@@ -2,9 +2,6 @@
 using DalSemi.OneWire.Adapter;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ThinkingHome.Plugins.OneWire
 {
@@ -13,12 +10,9 @@ namespace ThinkingHome.Plugins.OneWire
 		readonly object lockObject = new object();
         readonly PortAdapter adapter;
 
-        OneWireAdapterConfiguration Config { get; set; }
-
         public OneWireAdapter(OneWireAdapterConfiguration config)
         {
-            Config = config;
-            adapter = AccessProvider.GetAdapter(Config.AdapterName, Config.PortName);
+			adapter = AccessProvider.GetAdapter(config.AdapterName, config.PortName);
         }
 
 		public void DataBlock(byte[] buf)
@@ -71,7 +65,7 @@ namespace ThinkingHome.Plugins.OneWire
         /// <returns></returns>
         public byte[][] FindAddress(int family = 0)
         {            
-            var _listAddress = new List<byte[]>();
+            var listAddress = new List<byte[]>();
 
             try
             {
@@ -92,13 +86,13 @@ namespace ThinkingHome.Plugins.OneWire
                 // get the first 1-Wire device's address
                 // keep in mind the first device is not necessarily the first 
                 // device physically located on the network.
-                byte[] address = new byte[8];
+                var address = new byte[8];
 
                 if (adapter.GetFirstDevice(address, 0))
                 {
                     do
                     {
-                        _listAddress.Add(address);
+                        listAddress.Add(address);
                         address = new byte[8];
                     }
                     while (adapter.GetNextDevice(address, 0));
@@ -109,7 +103,7 @@ namespace ThinkingHome.Plugins.OneWire
                 adapter.EndExclusive();
             }
 
-            return _listAddress.ToArray();
+            return listAddress.ToArray();
         }
     }
 }
