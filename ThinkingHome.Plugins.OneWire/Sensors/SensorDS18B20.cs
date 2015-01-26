@@ -31,10 +31,12 @@ namespace ThinkingHome.Plugins.OneWire.Sensors
         #endregion
 
         #region Override
+
         public override string DeviceName
 		{
 			get { return "DS18B20 temperature sensor"; }
 		}
+
         public override byte DeviceType
         {
             get
@@ -42,6 +44,7 @@ namespace ThinkingHome.Plugins.OneWire.Sensors
                 return 0x28;
             }
         }
+
         #endregion
 
         #region Methods sensor
