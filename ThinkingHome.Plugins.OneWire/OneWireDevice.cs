@@ -6,10 +6,10 @@ namespace ThinkingHome.Plugins.OneWire
 
 		public OneWireAdapter Adapter { get; private set; }
 
-		public virtual byte DeviceType
-		{
-			get { return 0; }
-		}
+        public virtual byte DeviceType
+        {
+            get { return Address == null || Address.Length == 0 ? (byte)0 : Address[0]; }
+        }
 
 		public virtual string DeviceName
 		{

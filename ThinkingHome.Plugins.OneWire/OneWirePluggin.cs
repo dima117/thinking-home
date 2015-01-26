@@ -42,26 +42,34 @@ namespace ThinkingHome.Plugins.OneWire
 
 		public OneWireDevice[] GetDevices()
 		{
-			// 1. получаем список устройств через адаптер
-			// 2. парсим типы устройств, для неизвестных создаем экземпляр базового класса
-
             var listAddress = adapter.FindAddress();
 
             List<OneWireDevice> list = new List<OneWireDevice>();
 
             foreach (var addr in listAddress)
             {
+                var device = default(OneWireDevice);
+
                 foreach (var sensorType in oneWireSensorTypes)
                 {
                     var attr = sensorType.GetCustomAttribute<SensorTypeAttribute>(true);
+
                     if (attr != null && attr.Match(addr[0]))
                     {
-                        var device = Activator.CreateInstance(sensorType, new object[] { addr, adapter }) as OneWireDevice;
+                        device = Activator.CreateInstance(sensorType, new object[] { addr, adapter }) as OneWireDevice;
+
                         list.Add(device);
                     }
                 }
+            
+                //if unknown sensor then create OneWireDevice
+                if (device == null)
+                {
+                    list.Add(new OneWireDevice(addr, adapter));
+                }
             }
 
+            
             return list.ToArray();
 		}
 

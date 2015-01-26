@@ -2,6 +2,7 @@
 using ThinkingHome.Core.Infrastructure;
 using ThinkingHome.Plugins.OneWire;
 using ThinkingHome.Plugins.OneWire.Sensors;
+using System.Linq;
 
 namespace ThinkingHome.TestConsole
 {
@@ -38,16 +39,26 @@ namespace ThinkingHome.TestConsole
 
             var devices = plugin.GetDevices();
 
-            foreach(var d in devices)
+            Console.WriteLine("Find sensors:\r\n");
+
+            foreach (var d in devices)
             {
                 Console.WriteLine("{0} - {1}", d.DeviceName, d.DeviceType);
+            }
+            
+            Console.WriteLine("\r\nTemperature sensors 5 iterations:\r\n");
+            
+            var temperatureSesors = devices.Where(p => p is TemperatureSensorBase)
+                                           .Cast<TemperatureSensorBase>();
 
-                var tpr = d as TemperatureSensorBase;
-                if (tpr != null)
+            for (int i = 0; i < 5; i++)
+            {
+                foreach (var tpr in temperatureSesors)
                 {
                     Console.WriteLine("Temperature: {0}", tpr.GetTemperature());
                 }
             }
+            
 
             Console.ReadLine();
 
