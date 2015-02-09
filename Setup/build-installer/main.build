@@ -14,6 +14,7 @@
 
 	<property name="dev.nuspec.dir" value="..\dev-nuspec"/>
 	<property name="dev.nupkg.dir" value="${path::combine(dist.dir, 'dev')}"/>
+	<property name="sys.nupkg.dir" value="${path::combine(dist.dir, 'packages')}"/>
 
 
 	<property name="dist.service.dir" value="${path::combine(dist.dir, 'service')}"/>
@@ -79,18 +80,31 @@
 			</fileset>
 		</copy>
 
+		<!-- configure plugins repository -->
 		<xmlpoke
 			file="${path::combine(dist.service.dir, 'ThinkingHome.Service.exe.config')}"
 			xpath="/configuration/appSettings/add[@key='pluginsRepository']/@value"
-			value="http://thinking-home.ru/system/nuget/" />
+			value="http://plugins.thinking-home.ru/api/v2/" />
 
 		<xmlpoke
 			file="${path::combine(dist.service.dir, 'ThinkingHome.TestConsole.exe.config')}"
 			xpath="/configuration/appSettings/add[@key='pluginsRepository']/@value"
-			value="http://thinking-home.ru/system/nuget/" />
+			value="http://plugins.thinking-home.ru/api/v2/" />
+
+		<!-- configure plugins folder -->
+		<xmlpoke
+			file="${path::combine(dist.service.dir, 'ThinkingHome.Service.exe.config')}"
+			xpath="/configuration/appSettings/add[@key='pluginsFolder']/@value"
+			value="Plugins" />
+
+		<xmlpoke
+			file="${path::combine(dist.service.dir, 'ThinkingHome.TestConsole.exe.config')}"
+			xpath="/configuration/appSettings/add[@key='pluginsFolder']/@value"
+			value="Plugins" />
 
 
 		<delete dir="${path::combine(build.plugins.dir, 'ThinkingHome.Plugins.Speech')}" />
+		<delete dir="${path::combine(build.plugins.dir, 'ThinkingHome.Plugins.OneWire')}" />
 
 		<echo message="## plugins" />
 		<foreach item="Folder" in="${build.plugins.dir}" property="foldername">
@@ -133,6 +147,14 @@
 			</do>
 		</foreach>
 
+		<echo message="## system nuget packages" />
+		<mkdir dir="${sys.nupkg.dir}" />
+		<copy todir="${sys.nupkg.dir}" flatten="true"  >
+			<fileset basedir="${dist.plugins.dir}">
+				<include name="**/*.nupkg" />
+			</fileset>
+		</copy>
+
 	</target>
 
 	<target name="nuget" depends="dist" unless="${target::has-executed('nuget')}" >
@@ -147,6 +169,10 @@
 					<include name="ThinkingHome.Plugins.Listener.nuspec" />
 					<include name="ThinkingHome.Plugins.WebUI.nuspec" />
 					<include name="ThinkingHome.Plugins.NooLite.nuspec" />
+
+					<include name="ThinkingHome.Plugins.Audio.nuspec" />
+					<include name="ThinkingHome.Plugins.Scripts.nuspec" />
+					<include name="ThinkingHome.Plugins.Timer.nuspec" />
 				</items>
 			</in>
 			<do>

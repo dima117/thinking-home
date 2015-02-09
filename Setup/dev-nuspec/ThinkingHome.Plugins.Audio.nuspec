@@ -1,13 +1,14 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
-    <version>1.0.0.0</version>
+    <version>2.0.0.48</version>
     <authors>dima117</authors>
     <owners>dima117</owners>
     <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
-    <!--<dependencies>
-      <dependency id="NLog" version="2.0.1.2" />
-    </dependencies>-->
+    <dependencies>
+      <dependency id="ThinkingHome.Core.Plugins" />
+      <dependency id="NAudio" version="1.7.1" />
+    </dependencies>
     <id>ThinkingHome.Plugins.Audio</id>
     <title>Play audio</title>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -15,7 +16,6 @@
     <summary>Other functions</summary>
   </metadata>
   <files>
-    <file src="ThinkingHome.Plugins.Audio.dll" target="ThinkingHome.Plugins.Audio.dll" />
-    <file src="NAudio.dll" target="NAudio.dll" />
+    <file src="..\..\build\Release\ThinkingHome.Plugins.Audio\ThinkingHome.Plugins.Audio.dll" target="lib\net45\ThinkingHome.Plugins.Audio.dll" />
   </files>
 </package>
