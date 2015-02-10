@@ -15,7 +15,7 @@ namespace ThinkingHome.Plugins.Scripts
 				UserScript script = GetScript(options);
 
 				model.title = script.Name;
-				model.content = "Run the sctipt\r\n" + script.Name;
+				model.content = "Run the script\r\n" + script.Name;
 				model.className = "btn-primary th-tile-icon th-tile-icon-fa fa-rocket";
 			}
 			catch (Exception ex)
