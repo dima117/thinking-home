@@ -18,7 +18,7 @@
 		moment: 'vendor/js/moment.min',
 		codemirror: 'vendor/js/codemirror-all',
 		highcharts: 'vendor/js/highcharts.min',
-		
+
 		tiles:				'application/tiles/tiles',
 		'tiles-edit-mode':	'application/tiles/tiles-edit-mode',
 		apps:				'application/sections/user',

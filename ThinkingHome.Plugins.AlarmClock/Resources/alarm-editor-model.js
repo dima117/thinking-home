@@ -1,38 +1,35 @@
-﻿define(['app'], function (application) {
+﻿define(['lib'], function (lib) {
 
-	application.module('AlarmClock.Editor', function (module, app, backbone, marionette, $, _) {
+	// entities
+	var alarmEditorModel = lib.backbone.Model.extend();
 
-		// entities
-		module.AlarmEditorModel = backbone.Model.extend();
+	// api
+	var api = {
 
-		// api
-		var api = {
+		loadEditorData: function (id) {
 
-			loadEditor: function (id) {
-			
-				var defer = $.Deferred();
+			var defer = lib.$.Deferred();
 
-				$.getJSON('/api/alarm-clock/editor', { id: id })
-					.done(function (alarm) {
-						var model = new module.AlarmEditorModel(alarm);
-						defer.resolve(model);
-					})
-					.fail(function () {
-						defer.resolve(undefined);
-					});
+			lib.$.getJSON('/api/alarm-clock/editor', { id: id })
+				.done(function (alarm) {
+					var model = new alarmEditorModel(alarm);
+					defer.resolve(model);
+				})
+				.fail(function () {
+					defer.resolve(undefined);
+				});
 
-				return defer.promise();
-			},
-			saveAlarm: function (model) {
+			return defer.promise();
+		},
+		saveAlarm: function (model) {
 
-				return $.post('/api/alarm-clock/save', model.toJSON()).promise();
-			}
-		};
+			return lib.$.post('/api/alarm-clock/save', model.toJSON()).promise();
+		}
+	};
 
-		// requests
-		app.reqres.setHandler('query:alarm-clock:editor', api.loadEditor);
-		app.reqres.setHandler('cmd:alarm-clock:save', api.saveAlarm);
-	});
-
-	return application.AlarmClock.Editor;
+	return {
+		model: alarmEditorModel,
+		loadEditorData: api.loadEditorData,
+		saveAlarm: api.saveAlarm
+	};
 });
