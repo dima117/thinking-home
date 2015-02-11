@@ -1,8 +1,8 @@
 ﻿using System;
 using ThinkingHome.Core.Infrastructure;
-using ThinkingHome.Plugins.OneWire;
-using ThinkingHome.Plugins.OneWire.Sensors;
-using System.Linq;
+//using ThinkingHome.Plugins.OneWire;
+//using ThinkingHome.Plugins.OneWire.Sensors;
+//using System.Linq;
 
 namespace ThinkingHome.TestConsole
 {
@@ -10,8 +10,8 @@ namespace ThinkingHome.TestConsole
 	{
 		private static void Main()
 		{
-			//TestServer();
-            TestOneWire();
+			TestServer();
+			//TestOneWire();
 		}
 		
 		private static void TestServer()
@@ -31,7 +31,7 @@ namespace ThinkingHome.TestConsole
         
         private static void TestOneWire()
         {
-            var plugin = new OneWirePluggin();
+            /*var plugin = new OneWirePluggin();
 
             plugin.InitPlugin();
 
@@ -62,7 +62,7 @@ namespace ThinkingHome.TestConsole
 
             Console.ReadLine();
 
-            plugin.StopPlugin();
+            plugin.StopPlugin();*/
         }
 	}
 }

@@ -118,10 +118,6 @@
       <Project>{a344c63b-b956-4781-8558-0a3846c840e3}</Project>
       <Name>ThinkingHome.Core.Plugins</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ThinkingHome.Plugins.OneWire\ThinkingHome.Plugins.OneWire.csproj">
-      <Project>{fdec6c64-d643-4ce1-ba7a-cef4fe7e97b8}</Project>
-      <Name>ThinkingHome.Plugins.OneWire</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

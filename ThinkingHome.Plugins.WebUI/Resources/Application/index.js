@@ -3,6 +3,7 @@
 	paths: {
 		app: 'application/app',
 		common: 'application/common',
+		lib: 'application/lib',
 
 		text: 'vendor/js/require-text',
 		json: 'vendor/js/require-json',
