@@ -2,7 +2,7 @@
 	['app', 'common',
 		'webapp/alarm-clock/list-model',
 		'webapp/alarm-clock/list-view'],
-	function (application, commonModule) {
+	function (application, commonModule, models) {
 
 		application.module('AlarmClock.List', function (module, app, backbone, marionette, $, _) {
 
@@ -20,12 +20,12 @@
 				
 				enable: function (childView) {
 					var id = childView.model.get('id');
-					app.request('cmd:alarm-clock:set-state', id, true).done(api.reload);
+					models.setState(id, true).done(api.reload);
 				},
 				
 				disable: function (childView) {
 					var id = childView.model.get('id');
-					app.request('cmd:alarm-clock:set-state', id, false).done(api.reload);
+					models.setState(id, false).done(api.reload);
 				},
 
 				deleteAlarm: function (childView) {
@@ -35,13 +35,13 @@
 					if (commonModule.utils.confirm('Delete the alarm "{0}"?', name)) {
 
 						var id = childView.model.get('id');
-						app.request('cmd:alarm-clock:delete', id).done(api.reload);
+						models.deleteAlarm(id).done(api.reload);
 					}
 				},
 				
 				stopAllSounds: function () {
 
-					app.request('cmd:alarm-clock:stop').done(function() {
+					models.stopAlarm().done(function() {
 
 						commonModule.utils.alert('All alarm sounds were stopped.');
 					});
@@ -49,9 +49,7 @@
 				
 				reload: function () {
 
-					var rq = app.request('query:alarm-clock:list');
-
-					$.when(rq).done(function (items) {
+					models.loadList().done(function (items) {
 
 						var view = new module.AlarmListView({ collection: items });
 
