@@ -1,29 +1,27 @@
 ﻿define(
-	[	'app', 
-		'common',
-		'text!webapp/alarm-clock/editor.tpl'],
-	function (application, commonModule, editorTemplate) {
+	['lib', 'common', 'text!webapp/alarm-clock/editor.tpl'],
+	function (lib, common, editorTemplate) {
 
-		application.module('AlarmClock.Editor', function (module, app, backbone, marionette, $, _) {
+		var alarmEditorView = common.FormView.extend({
 
-			module.AlarmEditorView = commonModule.FormView.extend({
-				template: _.template(editorTemplate),
-				events: {
-					'click .js-btn-save': 'btnSaveClick',
-					'click .js-btn-cancel': 'btnCancelClick'
-				},
-				btnSaveClick: function (e) {
-					e.preventDefault();
+			template: lib._.template(editorTemplate),
+			events: {
+				'click .js-btn-save': 'btnSaveClick',
+				'click .js-btn-cancel': 'btnCancelClick'
+			},
+			btnSaveClick: function (e) {
+				e.preventDefault();
 
-					this.updateModel();
-					this.trigger('alarm-clock:editor:save');
-				},
-				btnCancelClick: function (e) {
-					e.preventDefault();
-					this.trigger('alarm-clock:editor:cancel');
-				}
-			});
+				this.updateModel();
+				this.trigger('alarm-clock:editor:save');
+			},
+			btnCancelClick: function (e) {
+				e.preventDefault();
+				this.trigger('alarm-clock:editor:cancel');
+			}
 		});
 
-		return application.AlarmClock.Editor;
+		return {
+			AlarmEditorView: alarmEditorView
+		};
 	});

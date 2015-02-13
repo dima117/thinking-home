@@ -2,14 +2,14 @@
 	['app',
 		'webapp/alarm-clock/editor-model',
 		'webapp/alarm-clock/editor-view'],
-	function (application, models) {
+	function (application, models, views) {
 
 		application.module('AlarmClock.Editor', function (module, app, backbone, marionette, $, _) {
 
 			var api = {
 				createEditor: function (model) {
 
-					var view = new module.AlarmEditorView({ model: model });
+					var view = new views.AlarmEditorView({ model: model });
 
 					view.on('alarm-clock:editor:save', api.save);
 					view.on('alarm-clock:editor:cancel', api.redirectToList);

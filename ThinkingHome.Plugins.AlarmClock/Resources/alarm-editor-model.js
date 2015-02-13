@@ -28,7 +28,7 @@
 	};
 
 	return {
-		model: alarmEditorModel,
+		AlarmEditorModel: alarmEditorModel,
 		loadEditorData: api.loadEditorData,
 		saveAlarm: api.saveAlarm
 	};
