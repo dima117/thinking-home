@@ -2,7 +2,7 @@
 	['app', 'common',
 		'webapp/alarm-clock/list-model',
 		'webapp/alarm-clock/list-view'],
-	function (application, commonModule, models) {
+	function (application, commonModule, models, views) {
 
 		application.module('AlarmClock.List', function (module, app, backbone, marionette, $, _) {
 
@@ -51,7 +51,7 @@
 
 					models.loadList().done(function (items) {
 
-						var view = new module.AlarmListView({ collection: items });
+						var view = new views.AlarmListView({ collection: items });
 
 						view.on('alarm-clock:add', api.addAlarm);
 						view.on('alarm-clock:stop', api.stopAllSounds);

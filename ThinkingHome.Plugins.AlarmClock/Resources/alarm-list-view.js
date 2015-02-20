@@ -1,46 +1,49 @@
 ﻿define(
 	[
-		'app',
+		'app', 'lib',
 		'text!webapp/alarm-clock/list.tpl',
 		'text!webapp/alarm-clock/list-item.tpl'],
-	function (application, listTemplate, itemTemplate) {
+	function (application, lib, listTemplate, itemTemplate) {
 
-		application.module('AlarmClock.List', function (module, app, backbone, marionette, $, _) {
+		//application.module('AlarmClock.List', function (module, app, backbone, marionette, $, _) {
 
-			module.AlarmView = marionette.ItemView.extend({
-				template: _.template(itemTemplate),
-				onRender: function () {
+		var alarmView = lib.marionette.ItemView.extend({
+			template: lib._.template(itemTemplate),
+			onRender: function () {
 
-					var enabled = this.model.get('enabled');
-					var scriptId = this.model.get('scriptId');
+				var enabled = this.model.get('enabled');
+				var scriptId = this.model.get('scriptId');
 
-					this.$el.toggleClass('bg-success', enabled);
-					this.$('.js-btn-enable').toggleClass('hidden', enabled);
-					this.$('.js-btn-disable').toggleClass('hidden', !enabled);
-					
-					this.$('.js-play-sound').toggleClass('hidden', !!scriptId);
-					this.$('.js-run-script').toggleClass('hidden', !scriptId);
-					
+				this.$el.toggleClass('bg-success', enabled);
+				this.$('.js-btn-enable').toggleClass('hidden', enabled);
+				this.$('.js-btn-disable').toggleClass('hidden', !enabled);
 
-				},
-				triggers: {
-					'click .js-btn-enable': 'alarm-clock:enable',
-					'click .js-btn-disable': 'alarm-clock:disable',
-					'click .js-btn-edit': 'alarm-clock:edit',
-					'click .js-btn-delete': 'alarm-clock:delete'
-				}
-			});
+				this.$('.js-play-sound').toggleClass('hidden', !!scriptId);
+				this.$('.js-run-script').toggleClass('hidden', !scriptId);
 
-			module.AlarmListView = marionette.CompositeView.extend({
-				template: _.template(listTemplate),
-				childView: module.AlarmView,
-				childViewContainer: '.js-list',
-				triggers: {
-					'click .js-btn-stop': 'alarm-clock:stop',
-					'click .js-btn-add': 'alarm-clock:add'
-				}
-			});
+
+			},
+			triggers: {
+				'click .js-btn-enable': 'alarm-clock:enable',
+				'click .js-btn-disable': 'alarm-clock:disable',
+				'click .js-btn-edit': 'alarm-clock:edit',
+				'click .js-btn-delete': 'alarm-clock:delete'
+			}
 		});
 
-		return application.AlarmClock.List;
+		var alarmListView = lib.marionette.CompositeView.extend({
+			template: lib._.template(listTemplate),
+			childView: alarmView,
+			childViewContainer: '.js-list',
+			triggers: {
+				'click .js-btn-stop': 'alarm-clock:stop',
+				'click .js-btn-add': 'alarm-clock:add'
+			}
+		});
+
+
+		return {
+			AlarmView: alarmView,
+			AlarmListView: alarmListView
+		};
 	});
