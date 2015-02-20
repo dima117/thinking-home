@@ -5,8 +5,6 @@
 		'text!webapp/alarm-clock/list-item.tpl'],
 	function (application, lib, listTemplate, itemTemplate) {
 
-		//application.module('AlarmClock.List', function (module, app, backbone, marionette, $, _) {
-
 		var alarmView = lib.marionette.ItemView.extend({
 			template: lib._.template(itemTemplate),
 			onRender: function () {
