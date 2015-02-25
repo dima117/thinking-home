@@ -129,16 +129,3 @@ define(
 		return application.Common;
 	});
 
-/*
-define(
-	['app'],
-	function(application) {
-
-		application.module('Common', function (module, app, backbone, marionette, $, _) {
-			
-
-		});
-		
-		return application.Common;
-	});*/
-

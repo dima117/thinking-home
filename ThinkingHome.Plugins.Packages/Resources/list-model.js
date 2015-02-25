@@ -1,59 +1,56 @@
-﻿define(['app'], function (application) {
+﻿define(['lib'], function (lib) {
 
-	application.module('Packages.List', function (module, app, backbone, marionette, $, _) {
+	// entities
+	var packageModel = lib.backbone.Model.extend({});
 
-		// entities
-		module.Package = backbone.Model.extend({
-			urlRoot: 'api/packages/list'
-		});
-
-		module.PackageCollection = backbone.Collection.extend({
-			url: 'api/packages/list',
-			model: module.Package,
-			comparator: 'id'
-		});
-
-		// api
-		var api = {
-
-			loadPackages: function () {
-
-				var defer = $.Deferred();
-
-				var packages = new module.PackageCollection();
-
-				packages.fetch({
-					success: function (list) {
-						defer.resolve(list);
-					},
-					error: function () {
-						defer.resolve(undefined);
-					}
-				});
-
-				return defer.promise();
-			},
-			
-			installPackage: function (packageId) {
-			
-				var rq = $.post('/api/packages/install', { packageId: packageId });
-
-				return rq.promise();
-			},
-			
-			uninstallPackage: function (packageId) {
-			
-				var rq = $.post('/api/packages/uninstall', { packageId: packageId });
-
-				return rq.promise();
-			}
-		};
-
-		// requests
-		app.reqres.setHandler('query:packages:all', api.loadPackages);
-		app.reqres.setHandler('cmd:packages:install', api.installPackage);
-		app.reqres.setHandler('cmd:packages:uninstall', api.uninstallPackage);
+	var packageCollection = lib.backbone.Collection.extend({
+		model: packageModel,
+		comparator: 'id'
 	});
 
-	return application.Packages.List;
+	// api
+	var api = {
+
+		loadPackages: function () {
+
+			var defer = lib.$.Deferred();
+
+			lib.$.getJSON('/api/packages/list')
+				.done(function (items) {
+					var collection = new packageCollection(items);
+					defer.resolve(collection);
+				})
+				.fail(function () {
+
+					defer.resolve(undefined);
+				});
+
+			return defer.promise();
+		},
+
+		installPackage: function (packageId) {
+
+			var rq = lib.$.post('/api/packages/install', { packageId: packageId });
+
+			return rq.promise();
+		},
+
+		uninstallPackage: function (packageId) {
+
+			var rq = lib.$.post('/api/packages/uninstall', { packageId: packageId });
+
+			return rq.promise();
+		}
+	};
+
+	return {
+		// entities
+		Package: packageModel,
+		PackageCollection: packageCollection,
+
+		// requests
+		loadPackages: api.loadPackages,
+		installPackage: api.installPackage,
+		uninstallPackage: api.uninstallPackage
+	};
 });
