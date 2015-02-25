@@ -1,6 +1,6 @@
 ﻿define(
 	['app', 'webapp/packages/list-model', 'webapp/packages/list-view'],
-	function (application, models) {
+	function (application, models, views) {
 
 		application.module('Packages.List', function (module, app, backbone, marionette, $, _) {
 
@@ -23,7 +23,7 @@
 					models.loadPackages()
 						.done(function (items) {
 
-							var view = new module.PackageListView({ collection: items });
+							var view = new views.PackageListView({ collection: items });
 
 							view.on('childview:packages:install', api.install);
 							view.on('childview:packages:uninstall', api.uninstall);

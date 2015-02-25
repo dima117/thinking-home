@@ -1,9 +1,9 @@
 ﻿define(
 	[
-		'app', 'lib',
+		'lib',
 		'text!webapp/alarm-clock/list.tpl',
 		'text!webapp/alarm-clock/list-item.tpl'],
-	function (application, lib, listTemplate, itemTemplate) {
+	function (lib, listTemplate, itemTemplate) {
 
 		var alarmView = lib.marionette.ItemView.extend({
 			template: lib._.template(itemTemplate),
