@@ -1,6 +1,6 @@
 ﻿define(
 	['app', 'webapp/scripts/script-editor-model', 'webapp/scripts/script-editor-view'],
-	function (application) {
+	function (application, models) {
 
 		application.module('Scripts.Editor', function (module, app, backbone, marionette, $, _) {
 
@@ -24,14 +24,12 @@
 
 					this.model.set(data);
 
-					app.request('cmd:scripts:editor:save', this.model)
-						.done(api.redirectToList);
+					models.saveScript(this.model).done(api.redirectToList);
 				},
 
 				edit: function (scriptId) {
 
-					app.request('query:scripts:editor:load', scriptId)
-						.done(api.createEditor);
+					models.loadScript(scriptId).done(api.createEditor);
 				},
 
 				add: function () {
@@ -40,7 +38,7 @@
 
 					if (name) {
 
-						var model = new module.ScriptData({ name: name });
+						var model = new models.ScriptData({ name: name });
 						api.createEditor(model);
 					}
 				}
