@@ -2,58 +2,54 @@
 	['app', 'webapp/scripts/script-editor-model', 'webapp/scripts/script-editor-view'],
 	function (application, models, views) {
 
-		application.module('Scripts.Editor', function (module, app, backbone, marionette, $, _) {
+		var api = {
 
-			var api = {
+			createEditor: function (model) {
 
-				createEditor: function (model) {
+				var view = new views.ScriptEditorView({ model: model });
 
-					var view = new views.ScriptEditorView({ model: model });
+				view.on('scripts:editor:cancel', api.redirectToList);
+				view.on('scripts:editor:save', api.save);
 
-					view.on('scripts:editor:cancel', api.redirectToList);
-					view.on('scripts:editor:save', api.save);
+				application.setContentView(view);
+			},
 
-					app.setContentView(view);
-				},
+			redirectToList: function () {
+				application.navigate('webapp/scripts/script-list');
+			},
 
-				redirectToList: function () {
-					app.navigate('webapp/scripts/script-list');
-				},
+			save: function (data) {
 
-				save: function (data) {
+				this.model.set(data);
 
-					this.model.set(data);
+				models.saveScript(this.model).done(api.redirectToList);
+			},
 
-					models.saveScript(this.model).done(api.redirectToList);
-				},
+			edit: function (scriptId) {
 
-				edit: function (scriptId) {
+				models.loadScript(scriptId).done(api.createEditor);
+			},
 
-					models.loadScript(scriptId).done(api.createEditor);
-				},
+			add: function () {
 
-				add: function () {
+				var name = window.prompt('Enter script name:', '');
 
-					var name = window.prompt('Enter script name:', '');
+				if (name) {
 
-					if (name) {
-
-						var model = new models.ScriptData({ name: name });
-						api.createEditor(model);
-					}
+					var model = new models.ScriptData({ name: name });
+					api.createEditor(model);
 				}
-			};
+			}
+		};
 
-			module.start = function (scriptId) {
+		return {
+			start: function (scriptId) {
 
 				if (scriptId) {
 					api.edit(scriptId);
 				} else {
 					api.add();
 				}
-			};
-
-		});
-
-		return application.Scripts.Editor;
+			}
+		};
 	});
