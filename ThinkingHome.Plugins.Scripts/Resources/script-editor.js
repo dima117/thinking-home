@@ -1,6 +1,6 @@
 ﻿define(
 	['app', 'webapp/scripts/script-editor-model', 'webapp/scripts/script-editor-view'],
-	function (application, models) {
+	function (application, models, views) {
 
 		application.module('Scripts.Editor', function (module, app, backbone, marionette, $, _) {
 
@@ -8,7 +8,7 @@
 
 				createEditor: function (model) {
 
-					var view = new module.ScriptEditorView({ model: model });
+					var view = new views.ScriptEditorView({ model: model });
 
 					view.on('scripts:editor:cancel', api.redirectToList);
 					view.on('scripts:editor:save', api.save);
