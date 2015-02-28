@@ -2,7 +2,7 @@
 	['app', 'common',
 		'webapp/scripts/subscriptions-model',
 		'webapp/scripts/subscriptions-view'],
-	function (application, commonModule, models) {
+	function (application, commonModule, models, views) {
 
 		application.module('Scripts.Subscriptions', function (module, app, backbone, marionette, $, _) {
 
@@ -35,7 +35,7 @@
 					models.loadSubscriptions()
 						.done(function (list) {
 
-							var view = new module.SubscriptionListView({ collection: list });
+							var view = new views.SubscriptionListView({ collection: list });
 							view.on('childview:scripts:subscription:delete', api.deleteSubscription);
 							layoutView.regionList.show(view);
 						});
@@ -46,7 +46,7 @@
 					models.loadFormData()
 						.done(function (formData) {
 
-							var form = new module.SubscriptionFormView({ model: formData });
+							var form = new views.SubscriptionFormView({ model: formData });
 							form.on('scripts:subscription:add', api.addSubscription);
 							layoutView.regionForm.show(form);
 						});
@@ -56,7 +56,7 @@
 			module.start = function () {
 
 				// init layout
-				layoutView = new module.SubscriptionLayout();
+				layoutView = new views.SubscriptionLayout();
 				app.setContentView(layoutView);
 
 				api.reloadForm();
