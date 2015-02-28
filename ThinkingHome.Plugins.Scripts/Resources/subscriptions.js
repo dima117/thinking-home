@@ -2,7 +2,7 @@
 	['app', 'common',
 		'webapp/scripts/subscriptions-model',
 		'webapp/scripts/subscriptions-view'],
-	function (application, commonModule) {
+	function (application, commonModule, models) {
 
 		application.module('Scripts.Subscriptions', function (module, app, backbone, marionette, $, _) {
 
@@ -15,8 +15,7 @@
 					var eventAlias = this.model.get('selectedEventAlias');
 					var scriptId = this.model.get('selectedScriptId');
 
-					app.request('cmd:scripts:subscription-add', eventAlias, scriptId)
-						.done(api.reloadList);
+					models.addSubscription(eventAlias, scriptId).done(api.reloadList);
 				},
 
 				deleteSubscription: function (childView) {
@@ -27,14 +26,13 @@
 					if (commonModule.utils.confirm('Delete the subscription?\n- event: "{0}"\n- script: "{1}"', eventAlias, scriptName)) {
 
 						var subscriptionId = childView.model.get('id');
-						app.request('cmd:scripts:subscription-delete', subscriptionId)
-							.done(api.reloadList);
+						models.deleteSubscription(subscriptionId).done(api.reloadList);
 					}
 				},
 
 				reloadList: function () {
 
-					app.request('query:scripts:subscription-list')
+					models.loadSubscriptions()
 						.done(function (list) {
 
 							var view = new module.SubscriptionListView({ collection: list });
@@ -45,7 +43,7 @@
 
 				reloadForm: function () {
 
-					app.request('query:scripts:subscription-form')
+					models.loadFormData()
 						.done(function (formData) {
 
 							var form = new module.SubscriptionFormView({ model: formData });
