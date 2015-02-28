@@ -3,7 +3,7 @@
 		'common',
 		'webapp/scripts/script-list-model',
 		'webapp/scripts/script-list-view'],
-	function (application, commonModule) {
+	function (application, commonModule, models) {
 
 		application.module('Scripts.List', function (module, app, backbone, marionette, $, _) {
 
@@ -13,7 +13,7 @@
 
 					var scriptId = view.model.get('id');
 
-					app.request('cmd:scripts:run', scriptId).done(function () {
+					models.runScript(scriptId).done(function () {
 
 						var name = view.model.get('name');
 						commonModule.utils.alert('The script "{0}" has been executed.', name);
@@ -27,7 +27,8 @@
 					if (commonModule.utils.confirm('Delete the script "{0}"?', scriptName)) {
 
 						var scriptId = view.model.get('id');
-						app.request('cmd:scripts:delete', scriptId).done(api.reload);
+
+						models.deleteScript(scriptId).done(api.reload);
 					}
 				},
 
@@ -48,20 +49,19 @@
 				},
 				reload: function () {
 
-					var rq = app.request('query:scripts:list');
+					models.loadScriptList()
+						.done(function (items) {
 
-					$.when(rq).done(function (items) {
+							var view = new module.ScriptListView({ collection: items });
 
-						var view = new module.ScriptListView({ collection: items });
+							view.on('scripts:add', api.addScript);
+							view.on('childview:scripts:edit', api.editScript);
+							view.on('childview:scripts:run', api.runScript);
+							view.on('childview:scripts:delete', api.deleteScript);
+							view.on('childview:scripts:add-tile', api.addScriptTile);
 
-						view.on('scripts:add', api.addScript);
-						view.on('childview:scripts:edit', api.editScript);
-						view.on('childview:scripts:run', api.runScript);
-						view.on('childview:scripts:delete', api.deleteScript);
-						view.on('childview:scripts:add-tile', api.addScriptTile);
-
-						app.setContentView(view);
-					});
+							app.setContentView(view);
+						});
 				}
 			};
 

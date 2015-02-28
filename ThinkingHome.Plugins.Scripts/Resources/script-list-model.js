@@ -1,48 +1,50 @@
-﻿define(['app'], function (application) {
+﻿define(['lib'], function (lib) {
 
-	application.module('Scripts.List', function (module, app, backbone, marionette, $, _) {
+	// entities
+	var scriptListItem = lib.backbone.Model.extend();
 
-		// entities
-		module.ScriptListItem = backbone.Model.extend();
-
-		module.ScriptCollection = backbone.Collection.extend({
-			model: module.ScriptListItem
-		});
-
-		// api
-		var api = {
-
-			loadScriptList: function () {
-
-				var defer = $.Deferred();
-
-				$.getJSON('/api/scripts/list')
-					.done(function (items) {
-						var collection = new module.ScriptCollection(items);
-						defer.resolve(collection);
-					})
-					.fail(function () {
-
-						defer.resolve(undefined);
-					});
-
-				return defer.promise();
-			},
-
-			runScript: function (scriptId) {
-				return $.post('/api/scripts/run', { scriptId: scriptId }).promise();
-			},
-
-			deleteScript: function (scriptId) {
-				return $.post('/api/scripts/delete', { scriptId: scriptId }).promise();
-			}
-		};
-
-		// requests
-		app.reqres.setHandler('query:scripts:list', api.loadScriptList);
-		app.reqres.setHandler('cmd:scripts:delete', api.deleteScript);
-		app.reqres.setHandler('cmd:scripts:run', api.runScript);
+	var scriptCollection = lib.backbone.Collection.extend({
+		model: scriptListItem
 	});
 
-	return application.Scripts.List;
+	// api
+	var api = {
+
+		loadScriptList: function () {
+
+			var defer = lib.$.Deferred();
+
+			lib.$.getJSON('/api/scripts/list')
+				.done(function (items) {
+					var collection = new scriptCollection(items);
+					defer.resolve(collection);
+				})
+				.fail(function () {
+
+					defer.resolve(undefined);
+				});
+
+			return defer.promise();
+		},
+
+		runScript: function (scriptId) {
+			return lib.$.post('/api/scripts/run', { scriptId: scriptId }).promise();
+		},
+
+		deleteScript: function (scriptId) {
+			return lib.$.post('/api/scripts/delete', { scriptId: scriptId }).promise();
+		}
+	};
+
+	return {
+
+		// entities
+		ScriptListItem: scriptListItem,
+		ScriptCollection: scriptCollection,
+
+		// requests
+		loadScriptList: api.loadScriptList,
+		deleteScript: api.deleteScript,
+		runScript: api.runScript
+	};
 });

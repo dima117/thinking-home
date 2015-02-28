@@ -1,7 +1,7 @@
 ﻿define(['lib'], function (lib) {
 
 	// entities
-	var packageModel = lib.backbone.Model.extend({});
+	var packageModel = lib.backbone.Model.extend();
 
 	var packageCollection = lib.backbone.Collection.extend({
 		model: packageModel,
