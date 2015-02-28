@@ -3,7 +3,7 @@
 		'common',
 		'webapp/scripts/script-list-model',
 		'webapp/scripts/script-list-view'],
-	function (application, commonModule, models) {
+	function (application, commonModule, models, views) {
 
 		application.module('Scripts.List', function (module, app, backbone, marionette, $, _) {
 
@@ -52,7 +52,7 @@
 					models.loadScriptList()
 						.done(function (items) {
 
-							var view = new module.ScriptListView({ collection: items });
+							var view = new views.ScriptListView({ collection: items });
 
 							view.on('scripts:add', api.addScript);
 							view.on('childview:scripts:edit', api.editScript);
