@@ -3,73 +3,68 @@
 		'common',
 		'webapp/scripts/script-list-model',
 		'webapp/scripts/script-list-view'],
-	function (application, commonModule, models, views) {
+	function (application, common, models, views) {
 
-		application.module('Scripts.List', function (module, app, backbone, marionette, $, _) {
+		var api = {
+			runScript: function (view) {
 
-			var api = {
+				var scriptId = view.model.get('id');
 
-				runScript: function (view) {
+				models.runScript(scriptId).done(function () {
 
-					var scriptId = view.model.get('id');
+					var name = view.model.get('name');
+					common.utils.alert('The script "{0}" has been executed.', name);
+				});
+			},
 
-					models.runScript(scriptId).done(function () {
+			deleteScript: function (view) {
 
-						var name = view.model.get('name');
-						commonModule.utils.alert('The script "{0}" has been executed.', name);
-					});
-				},
+				var scriptName = view.model.get('name');
 
-				deleteScript: function (view) {
-
-					var scriptName = view.model.get('name');
-
-					if (commonModule.utils.confirm('Delete the script "{0}"?', scriptName)) {
-
-						var scriptId = view.model.get('id');
-
-						models.deleteScript(scriptId).done(api.reload);
-					}
-				},
-
-				addScriptTile: function (view) {
+				if (common.utils.confirm('Delete the script "{0}"?', scriptName)) {
 
 					var scriptId = view.model.get('id');
-					app.addTile('ThinkingHome.Plugins.Scripts.ScriptsTileDefinition', { id: scriptId });
-				},
 
-				addScript: function () {
-
-					app.navigate('webapp/scripts/script-editor');
-				},
-				editScript: function (childView) {
-
-					var scriptId = childView.model.get('id');
-					app.navigate('webapp/scripts/script-editor', scriptId);
-				},
-				reload: function () {
-
-					models.loadScriptList()
-						.done(function (items) {
-
-							var view = new views.ScriptListView({ collection: items });
-
-							view.on('scripts:add', api.addScript);
-							view.on('childview:scripts:edit', api.editScript);
-							view.on('childview:scripts:run', api.runScript);
-							view.on('childview:scripts:delete', api.deleteScript);
-							view.on('childview:scripts:add-tile', api.addScriptTile);
-
-							app.setContentView(view);
-						});
+					models.deleteScript(scriptId).done(api.reload);
 				}
-			};
+			},
 
-			module.start = function () {
+			addScriptTile: function (view) {
+
+				var scriptId = view.model.get('id');
+				application.addTile('ThinkingHome.Plugins.Scripts.ScriptsTileDefinition', { id: scriptId });
+			},
+
+			addScript: function () {
+
+				application.navigate('webapp/scripts/script-editor');
+			},
+			editScript: function (childView) {
+
+				var scriptId = childView.model.get('id');
+				application.navigate('webapp/scripts/script-editor', scriptId);
+			},
+			reload: function () {
+
+				models.loadScriptList()
+					.done(function (items) {
+
+						var view = new views.ScriptListView({ collection: items });
+
+						view.on('scripts:add', api.addScript);
+						view.on('childview:scripts:edit', api.editScript);
+						view.on('childview:scripts:run', api.runScript);
+						view.on('childview:scripts:delete', api.deleteScript);
+						view.on('childview:scripts:add-tile', api.addScriptTile);
+
+						application.setContentView(view);
+					});
+			}
+		};
+
+		return {
+			start: function () {
 				api.reload();
-			};
-
-		});
-
-		return application.Scripts.List;
+			}
+		};
 	});
