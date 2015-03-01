@@ -1,43 +1,40 @@
-﻿define(['app'], function (application) {
+﻿define(['lib'], function (lib) {
 
-	application.module('Weather.Forecast', function (module, app, backbone, marionette, $, _) {
+	// entities
+	var weatherData = lib.backbone.Model.extend();
 
-		module.WeatherData = backbone.Model.extend({
-			
-		});
-		
-		module.WeatherDataCollection = backbone.Collection.extend({
-			model: module.WeatherData
-		});
+	var weatherDataCollection = lib.backbone.Collection.extend({
+		model: weatherData
+	});
 
-		module.WeatherLocation = backbone.Model.extend({
-			
-			initialize: function () {
-				
-				var now = this.get('now');
-				if (now) {
-					this.set('now', new module.WeatherData(now));
-				}
+	var weatherLocation = lib.backbone.Model.extend({
 
-				var day = this.get('day');
-				if (day) {
-					this.set('day', new module.WeatherDataCollection(day));
-				}
-				
-				var forecast = this.get('forecast');
-				if (forecast) {
-					this.set('forecast', new module.WeatherDataCollection(forecast));
-				}
-			},
+		initialize: function () {
 
-			toJSON: function () {
-				
-			var json = Backbone.Model.prototype.toJSON.apply(this, arguments);
+			var now = this.get('now');
+			if (now) {
+				this.set('now', new weatherData(now));
+			}
+
+			var day = this.get('day');
+			if (day) {
+				this.set('day', new weatherDataCollection(day));
+			}
+
+			var forecast = this.get('forecast');
+			if (forecast) {
+				this.set('forecast', new weatherDataCollection(forecast));
+			}
+		},
+
+		toJSON: function () {
+
+			var json = lib.backbone.Model.prototype.toJSON.apply(this, arguments);
 
 			if (json.now) {
 				json.now = json.now.toJSON();
 			}
-				
+
 			if (json.day) {
 				json.day = json.day.toJSON();
 			}
@@ -48,34 +45,41 @@
 
 			return json;
 		}
-		});
-		
-		module.WeatherLocationCollection = backbone.Collection.extend({
-			model: module.WeatherLocation
-		});
-
-		var api = {
-			loadList: function () {
-
-				var defer = $.Deferred();
-
-				$.getJSON('/api/weather/all')
-					.done(function (locations) {
-						var collection = new module.WeatherLocationCollection(locations);
-						defer.resolve(collection);
-					})
-					.fail(function () {
-
-						defer.resolve(undefined);
-					});
-
-				return defer.promise();
-			},
-		};
-
-		// requests
-		app.reqres.setHandler('query:weather:forecast', api.loadList);
 	});
 
-	return application.Weather.Forecast;
+	var weatherLocationCollection = lib.backbone.Collection.extend({
+		model: weatherLocation
+	});
+
+	var api = {
+		loadList: function () {
+
+			var defer = lib.$.Deferred();
+
+			lib.$.getJSON('/api/weather/all')
+				.done(function (locations) {
+
+					var collection = new weatherLocationCollection(locations);
+					defer.resolve(collection);
+				})
+				.fail(function () {
+
+					defer.resolve(undefined);
+				});
+
+			return defer.promise();
+		},
+	};
+
+	return {
+
+		// entities
+		WeatherData: weatherData,
+		WeatherDataCollection: weatherDataCollection,
+		WeatherLocation: weatherLocation,
+		WeatherLocationCollection: weatherLocationCollection,
+
+		// requests
+		loadList: api.loadList
+	};
 });
