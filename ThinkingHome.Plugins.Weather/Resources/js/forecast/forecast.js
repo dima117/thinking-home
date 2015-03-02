@@ -2,7 +2,7 @@
 	['app',
 		'webapp/weather/forecast-model',
 		'webapp/weather/forecast-view'],
-	function (application, models) {
+	function (application, models, views) {
 
 		application.module('Weather.Forecast', function (module, app, backbone, marionette, $, _) {
 
@@ -19,7 +19,7 @@
 					models.loadList()
 						.done(function (collection) {
 
-							var view = new module.WeatherForecastView({
+							var view = new views.WeatherForecastView({
 								collection: collection
 							});
 
