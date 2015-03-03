@@ -4,37 +4,33 @@
 		'webapp/weather/forecast-view'],
 	function (application, models, views) {
 
-		application.module('Weather.Forecast', function (module, app, backbone, marionette, $, _) {
+		var api = {
+			addWeatherTile: function (view) {
 
-			var api = {
+				var locationId = view.model.get('id');
+				application.addTile('ThinkingHome.Plugins.Weather.WeatherTileDefinition', { cityId: locationId });
+			},
 
-				addWeatherTile: function (view) {
+			reload: function () {
 
-					var locationId = view.model.get('id');
-					app.addTile('ThinkingHome.Plugins.Weather.WeatherTileDefinition', { cityId: locationId });
-				},
+				models.loadList()
+					.done(function (collection) {
 
-				reload: function () {
-
-					models.loadList()
-						.done(function (collection) {
-
-							var view = new views.WeatherForecastView({
-								collection: collection
-							});
-
-							view.on('childview:weather:add-tile', api.addWeatherTile);
-
-							app.setContentView(view);
+						var view = new views.WeatherForecastView({
+							collection: collection
 						});
-				}
-			};
 
-			module.start = function () {
+						view.on('childview:weather:add-tile', api.addWeatherTile);
+
+						application.setContentView(view);
+					});
+			}
+		};
+
+		return {
+			start: function () {
+
 				api.reload();
-			};
-
-		});
-
-		return application.Weather.Forecast;
+			}
+		};
 	});
