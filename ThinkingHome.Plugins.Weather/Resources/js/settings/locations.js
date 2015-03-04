@@ -2,7 +2,7 @@
 	['app', 'common',
 		'webapp/weather/locations-model',
 		'webapp/weather/locations-view'],
-	function (application, commonModule) {
+	function (application, commonModule, models) {
 
 		application.module('Weather.Settings', function (module, app, backbone, marionette, $, _) {
 
@@ -23,8 +23,7 @@
 
 					if (displayName && query) {
 
-						app.request('cmd:weather:locations-add', displayName, query)
-							.done(api.reloadList);
+						models.addLocation(displayName, query).done(api.reloadList);
 					}
 				},
 
@@ -36,8 +35,7 @@
 
 						var locationId = childView.model.get('id');
 
-						app.request('cmd:weather:locations-delete', locationId)
-							.done(api.reloadList);
+						models.deleteLocation(locationId).done(api.reloadList);
 					}
 				},
 
@@ -47,7 +45,7 @@
 
 					childView.showSpinner();
 
-					app.request('cmd:weather:locations-update', locationId)
+					models.updateLocation(locationId)
 						.done(function () {
 							childView.hideSpinner();
 						});
@@ -55,20 +53,16 @@
 
 				reloadForm: function () {
 
-					//app.request('query:scripts:subscription-form')
-					//	.done(function (formData) {
-
-					var formData = new module.Location();
+					var formData = new models.Location();
 
 					var form = new module.WeatherSettingsFormView({ model: formData });
 					form.on('weather:location:add', api.addLocation);
 					layoutView.regionForm.show(form);
-					//});
 				},
 
 				reloadList: function () {
 
-					app.request('query:weather:locations')
+					models.loadLocations()
 						.done(function (list) {
 
 							var view = new module.LocationListView({ collection: list });

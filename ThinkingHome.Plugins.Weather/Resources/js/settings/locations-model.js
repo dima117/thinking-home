@@ -1,70 +1,62 @@
-﻿define(['app'], function (application) {
+﻿define(['lib'], function (lib) {
 
-	application.module('Weather.Settings', function (module, app, backbone, marionette, $, _) {
+	// entities
+	var location = lib.backbone.Model.extend();
 
-		// entities
-		module.FormData = backbone.Model.extend();
-
-		module.Location = backbone.Model.extend();
-
-		module.LocationCollection = backbone.Collection.extend({
-			model: module.Location
-		});
-		
-		// api
-		var api = {
-			
-			loadLocations: function () {
-
-				var defer = $.Deferred();
-
-				$.getJSON('/api/weather/locations/list')
-					.done(function (locations) {
-						var collection = new module.LocationCollection(locations);
-						defer.resolve(collection);
-					})
-					.fail(function () {
-						defer.resolve(undefined);
-					});
-
-				return defer.promise();
-			},
-			
-			addLocation: function (displayName, query) {
-
-				var rq = $.post('/api/weather/locations/add', {
-					displayName: displayName,
-					query: query
-				});
-
-				return rq.promise();
-			},
-			
-			deleteLocation: function (locationId) {
-
-				var rq = $.post('/api/weather/locations/delete', {
-					locationId: locationId
-				});
-
-				return rq.promise();
-			},
-			
-			updateLocation: function (locationId) {
-
-				var rq = $.post('/api/weather/locations/update', {
-					locationId: locationId
-				});
-
-				return rq.promise();
-			}
-		};
-		
-		// requests
-		app.reqres.setHandler('query:weather:locations', api.loadLocations);
-		app.reqres.setHandler('cmd:weather:locations-add', api.addLocation);
-		app.reqres.setHandler('cmd:weather:locations-delete', api.deleteLocation);
-		app.reqres.setHandler('cmd:weather:locations-update', api.updateLocation);
+	var locationCollection = lib.backbone.Collection.extend({
+		model: location
 	});
 
-	return application.Weather.Settings;
+	// api
+	var api = {
+
+		loadLocations: function () {
+
+			var defer = lib.$.Deferred();
+
+			lib.$.getJSON('/api/weather/locations/list')
+				.done(function (locations) {
+					var collection = new locationCollection(locations);
+					defer.resolve(collection);
+				})
+				.fail(function () {
+					defer.resolve(undefined);
+				});
+
+			return defer.promise();
+		},
+
+		addLocation: function (displayName, query) {
+
+			var rq = lib.$.post('/api/weather/locations/add', {
+				displayName: displayName,
+				query: query
+			});
+
+			return rq.promise();
+		},
+
+		deleteLocation: function (locationId) {
+
+			return lib.$.post('/api/weather/locations/delete', { locationId: locationId }).promise();
+		},
+
+		updateLocation: function (locationId) {
+
+			return lib.$.post('/api/weather/locations/update', { locationId: locationId }).promise();
+		}
+	};
+
+	return {
+
+		// entities
+		Location: location,
+		LocationCollection: locationCollection,
+
+		// requests
+		loadLocations: api.loadLocations,
+		addLocation: api.addLocation,
+		deleteLocation: api.deleteLocation,
+		updateLocation: api.updateLocation
+	};
 });
