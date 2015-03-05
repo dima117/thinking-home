@@ -2,7 +2,7 @@
 	['app', 'common',
 		'webapp/weather/locations-model',
 		'webapp/weather/locations-view'],
-	function (application, commonModule, models) {
+	function (application, common, models, views) {
 
 		application.module('Weather.Settings', function (module, app, backbone, marionette, $, _) {
 
@@ -31,7 +31,7 @@
 
 					var displayName = childView.model.get('displayName');
 
-					if (commonModule.utils.confirm('Delete the location "{0}" and all location data?', displayName)) {
+					if (common.utils.confirm('Delete the location "{0}" and all location data?', displayName)) {
 
 						var locationId = childView.model.get('id');
 
@@ -55,7 +55,7 @@
 
 					var formData = new models.Location();
 
-					var form = new module.WeatherSettingsFormView({ model: formData });
+					var form = new views.WeatherSettingsFormView({ model: formData });
 					form.on('weather:location:add', api.addLocation);
 					layoutView.regionForm.show(form);
 				},
@@ -65,7 +65,7 @@
 					models.loadLocations()
 						.done(function (list) {
 
-							var view = new module.LocationListView({ collection: list });
+							var view = new views.LocationListView({ collection: list });
 							view.on('childview:weather:location:delete', api.deleteLocation);
 							view.on('childview:weather:location:update', api.updateLocation);
 							view.on('childview:weather:location:add-tile', api.addWeatherTile);
@@ -78,7 +78,7 @@
 			module.start = function () {
 
 				// init layout
-				layoutView = new module.WeatherSettingsLayout();
+				layoutView = new views.WeatherSettingsLayout();
 				app.setContentView(layoutView);
 
 				api.reloadForm();
