@@ -5,7 +5,7 @@
 		application.module('WebUI.SystemSections', function (module, app, backbone, marionette, $, _) {
 
 			module.start = function () {
-				sections.api.reload('query:sections:system', 'System pages');
+				sections.api.reload('loadSystemSections', 'System pages');
 			};
 		});
 

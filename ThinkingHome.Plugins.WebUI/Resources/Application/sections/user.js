@@ -5,7 +5,7 @@
 		application.module('WebUI.UserSections', function (module, app, backbone, marionette, $, _) {
 
 			module.start = function () {
-				sections.api.reload('query:sections:common', 'Common pages');
+				sections.api.reload('loadCommonSections', 'Common pages');
 			};
 		});
 

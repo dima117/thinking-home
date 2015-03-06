@@ -1,6 +1,6 @@
 ﻿define(
 	['app', 'application/sections/list-model', 'application/sections/list-view'],
-	function (application) {
+	function (application, models) {
 
 		application.module('WebUI.Sections', function (module, app, backbone, marionette, $, _) {
 
@@ -23,7 +23,7 @@
 
 				reload: function (requestName, pageTitle) {
 
-					app.request(requestName).done(function (items) {
+					models[requestName]().done(function (items) {
 
 						var view = new module.SectionListView({ collection: items, title: pageTitle });
 						view.on('childview:sections:add-tile', api.addTile);
