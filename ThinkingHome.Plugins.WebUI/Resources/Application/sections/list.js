@@ -1,6 +1,6 @@
 ﻿define(
 	['app', 'application/sections/list-model', 'application/sections/list-view'],
-	function (application, models) {
+	function (application, models, views) {
 
 		application.module('WebUI.Sections', function (module, app, backbone, marionette, $, _) {
 
@@ -21,12 +21,19 @@
 					app.addTile(def, data);
 				},
 
+				navigate: function (childView) {
+
+					var path = childView.model.get('path');
+					app.navigate(path);
+				},
+
 				reload: function (requestName, pageTitle) {
 
 					models[requestName]().done(function (items) {
 
-						var view = new module.SectionListView({ collection: items, title: pageTitle });
+						var view = new views.SectionListView({ collection: items, title: pageTitle });
 						view.on('childview:sections:add-tile', api.addTile);
+						view.on('childview:sections:navigate', api.navigate);
 
 						app.setContentView(view);
 					});

@@ -1,41 +1,32 @@
 ﻿define(
-	[	'app', 
+	['lib',
 		'text!application/sections/list.tpl',
 		'text!application/sections/list-item.tpl'],
-	function (application, listTemplate, itemTemplate) {
+	function (lib, listTemplate, itemTemplate) {
 
-		application.module('WebUI.Sections', function (module, app, backbone, marionette, $, _) {
-
-			module.SectionView = marionette.ItemView.extend({
-				template: _.template(itemTemplate),
-				triggers: {
-					'click .js-btn-add-tile': 'sections:add-tile'
-				},
-				events: {
-					'click .js-section-link': 'sectionLinkClicked'
-				},
-				sectionLinkClicked: function(e) {
-					e.preventDefault();
-					e.stopPropagation();
-
-					var path = this.model.get('path');
-					app.navigate(path);
-				}
-			});
-
-			module.SectionListView = marionette.CompositeView.extend({
-				template: _.template(listTemplate),
-				childView: module.SectionView,
-				childViewContainer: '.js-list',
-				
-				onRender: function() {
-
-					if (this.options.title) {
-						this.$('.js-title').text(this.options.title);
-					}
-				}
-			});
+		var sectionView = lib.marionette.ItemView.extend({
+			template: lib._.template(itemTemplate),
+			triggers: {
+				'click .js-btn-add-tile': 'sections:add-tile',
+				'click .js-section-link': 'sections:navigate'
+			}
 		});
 
-		return application.WebUI.Sections;
+		var sectionListView = lib.marionette.CompositeView.extend({
+			template: lib._.template(listTemplate),
+			childView: sectionView,
+			childViewContainer: '.js-list',
+
+			onRender: function () {
+
+				if (this.options.title) {
+					this.$('.js-title').text(this.options.title);
+				}
+			}
+		});
+
+		return {
+			SectionView: sectionView,
+			SectionListView: sectionListView
+		};
 	});
