@@ -1,6 +1,6 @@
 ﻿define(
-	['app', 'common', 'application/tiles/tiles-model', 'application/tiles/tiles-view'],
-	function (application, commonModule) {
+	['app', 'application/tiles/tiles-model', 'application/tiles/tiles-view'],
+	function (application, models) {
 
 		application.module('WebUI.Tiles', function (module, app, backbone, marionette, $, _) {
 
@@ -17,20 +17,22 @@
 						app.loadPath(url, args);
 
 					} else {
-						app.request('cmd:tiles:action', id).done(api.done);
+
+						models.action(id).done(api.done);
 					}
 				},
 
 				done: function (message) {
 
 					if (message) {
+
 						alert(message);
 					}
 				},
 
 				reload: function () {
 
-					app.request('query:tiles:all').done(function (collection) {
+					models.load().done(function (collection) {
 
 						var view = new module.TileCollectionView({
 							collection: collection
