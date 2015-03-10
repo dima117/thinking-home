@@ -1,6 +1,6 @@
 ﻿define(
 	['app', 'application/tiles/tiles-model', 'application/tiles/tiles-view'],
-	function (application, models) {
+	function (application, models, views) {
 
 		application.module('WebUI.Tiles', function (module, app, backbone, marionette, $, _) {
 
@@ -34,7 +34,7 @@
 
 					models.load().done(function (collection) {
 
-						var view = new module.TileCollectionView({
+						var view = new views.TileCollectionView({
 							collection: collection
 						});
 
