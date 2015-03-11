@@ -1,6 +1,6 @@
 ﻿define(
 	['app', 'common', 'application/tiles/tiles-edit-mode-model', 'application/tiles/tiles-edit-mode-view'],
-	function (application, commonModule) {
+	function (application, commonModule, models) {
 
 		application.module('WebUI.TilesEditMode', function (module, app, backbone, marionette, $, _) {
 
@@ -13,19 +13,19 @@
 					if (commonModule.utils.confirm('Delete the tile "{0}"?', title)) {
 
 						var id = childView.model.get('id');
-						app.request('cmd:tiles:edit-mode-delete', id).done(api.reload);
+						models.remove(id).done(api.reload);
 					}
 				},
 				
 				sort: function () {
 
 					var collection = this.collection;
-					app.request('cmd:tiles:edit-mode-sort', collection);
+					models.saveOrder(collection);
 				},
 
 				reload: function () {
 
-					app.request('query:tiles:edit-mode-list').done(function (collection) {
+					models.load().done(function (collection) {
 
 						var view = new module.TileCollectionViewEditMode({
 							collection: collection
