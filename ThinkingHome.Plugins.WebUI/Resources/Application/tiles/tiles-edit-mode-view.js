@@ -1,38 +1,39 @@
 ﻿define(
-	['app', 'common',
+	['lib', 'common',
 		'text!application/tiles/tile-edit-mode.tpl',
 		'text!application/tiles/tiles-edit-mode.tpl'],
-		function (application, commonModule, itemTemplate, listTemplate) {
+		function (lib, common, itemTemplate, listTemplate) {
 
-			application.module('WebUI.TilesEditMode', function (module, app, backbone, marionette, $, _) {
+			var tileViewEditMode = common.SortableItemView.extend({
+				template: lib._.template(itemTemplate),
+				tagName: 'a',
+				className: 'th-tile btn-primary',
+				onRender: function () {
 
-				module.TileViewEditMode = commonModule.SortableItemView.extend({
-					template: _.template(itemTemplate),
-					tagName: 'a',
-					className: 'th-tile btn-primary',
-					onRender: function () {
+					common.SortableItemView.prototype.onRender.call(this);
 
-						commonModule.SortableItemView.prototype.onRender.call(this);
+					if (this.model.get('wide')) {
 
-						if (this.model.get('wide')) {
-							this.$el.addClass('th-tile-double');
-						}
-					},
-					triggers: {
-						'click .js-tile-delete': 'webui:tile:delete'
+						this.$el.addClass('th-tile-double');
 					}
-				});
-
-				// Collection View
-				module.TileCollectionViewEditMode = commonModule.SortableCollectionView.extend({
-					template: _.template(listTemplate),
-					childView: module.TileViewEditMode,
-					childViewContainer: '.js-list',
-					onDropItem: function () {
-						this.trigger('webui:tile:sort');
-					}
-				});
+				},
+				triggers: {
+					'click .js-tile-delete': 'webui:tile:delete'
+				}
 			});
 
-			return application.WebUI.TilesEditMode;
+			// Collection View
+			var tileCollectionViewEditMode = common.SortableCollectionView.extend({
+				template: lib._.template(listTemplate),
+				childView: tileViewEditMode,
+				childViewContainer: '.js-list',
+				onDropItem: function () {
+					this.trigger('webui:tile:sort');
+				}
+			});
+			
+			return {
+				TileViewEditMode: tileViewEditMode,
+				TileCollectionViewEditMode: tileCollectionViewEditMode
+			};
 		});
