@@ -7,23 +7,16 @@
 	'application/common/utils'],
 	function (application, cssFiles, complexView, formView, sortableView, utils) {
 
-		var commonModule = {
+		var common = {
 			ComplexView: complexView,
 			FormView: formView,
 			SortableItemView: sortableView.SortableItemView,
-			SortableCollectionView: sortableView.SortableCollectionView
+			SortableCollectionView: sortableView.SortableCollectionView,
+			utils: utils
 		};
 
-		application.Common.ComplexView = complexView;
-		application.Common.FormView = formView;
-		application.Common.SortableItemView = sortableView.SortableItemView;
-		application.Common.SortableCollectionView = sortableView.SortableCollectionView;
+		utils.loadCss.apply(null, cssFiles);
+		utils.displayCurrentTime('.js-cur-time');
 
-		application.module('Common', function (module, app, backbone, marionette, $, _) {
-
-			module.utils.loadCss.apply(null, cssFiles);
-			module.utils.displayCurrentTime('.js-cur-time');
-		});
-
-		return application.Common;
+		return common;
 	});
