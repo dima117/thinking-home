@@ -2,16 +2,18 @@
 	'app',
 	'json!api/webui/styles.json',
 	'application/common/complex-view',
-	'application/common/sortable-view',
 	'application/common/form-view',
+	'application/common/sortable-view',
 	'application/common/utils'],
-	function (application, cssFiles, complexView, sortableView, formView, utils) {
+	function (application, cssFiles, complexView, formView, sortableView, utils) {
 
 		var commonModule = {
-			ComplexView: complexView
+			ComplexView: complexView,
+			FormView: formView
 		};
 
 		application.Common.ComplexView = complexView;
+		application.Common.FormView = formView;
 
 		application.module('Common', function (module, app, backbone, marionette, $, _) {
 
