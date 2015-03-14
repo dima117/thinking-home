@@ -58,6 +58,7 @@ namespace ThinkingHome.Plugins.WebUI
 
 	// html
 	[HttpResource("/", "ThinkingHome.Plugins.WebUI.Resources.Application.index.html", "text/html")]
+	[HttpResource("/favicon.ico", "ThinkingHome.Plugins.WebUI.Resources.Application.favicon.ico", "image/x-icon")]
 
 	// webapp: main
 	[JavaScriptResource("/application/index.js", "ThinkingHome.Plugins.WebUI.Resources.Application.index.js")]
