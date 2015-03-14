@@ -9,11 +9,15 @@
 
 		var commonModule = {
 			ComplexView: complexView,
-			FormView: formView
+			FormView: formView,
+			SortableItemView: sortableView.SortableItemView,
+			SortableCollectionView: sortableView.SortableCollectionView
 		};
 
 		application.Common.ComplexView = complexView;
 		application.Common.FormView = formView;
+		application.Common.SortableItemView = sortableView.SortableItemView;
+		application.Common.SortableCollectionView = sortableView.SortableCollectionView;
 
 		application.module('Common', function (module, app, backbone, marionette, $, _) {
 
