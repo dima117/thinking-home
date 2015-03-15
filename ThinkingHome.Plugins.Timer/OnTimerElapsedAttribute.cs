@@ -3,7 +3,6 @@ using System.ComponentModel.Composition;
 
 namespace ThinkingHome.Plugins.Timer
 {
-
 	[AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
 	public class OnTimerElapsedAttribute : ExportAttribute
 	{

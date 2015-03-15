@@ -12,6 +12,7 @@ using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.NooLite;
 using ThinkingHome.Plugins.Scripts;
+using ThinkingHome.Plugins.Timer;
 using ThinkingHome.Plugins.Tmp.Tiles;
 using ThinkingHome.Plugins.WebUI;
 
@@ -158,6 +159,24 @@ namespace ThinkingHome.Plugins.Tmp
 		public void Eqwwegwegwegwe(int channel, decimal temperature, int humidity)
 		{
 			Logger.Info("Microclimate: c={0}, t={1}, h={2}", channel, temperature, humidity);
+		}
+
+		[RunPeriodically(1)]
+		public void EveryMinute(DateTime now)
+		{
+			Logger.Info("run: [EveryMinute] at {0}", now);
+		}
+
+		[RunPeriodically(5)]
+		public void EveryFiveMinutes(DateTime now)
+		{
+			Logger.Info("run: [EveryFiveMinutes] at {0}", now);
+		}
+
+		[RunPeriodically(10)]
+		public void EveryTenMinutes(DateTime now)
+		{
+			Logger.Info("run: [EveryTenMinutes] at {0}", now);
 		}
 
 		#endregion

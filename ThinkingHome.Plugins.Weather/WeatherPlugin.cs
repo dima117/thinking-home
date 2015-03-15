@@ -22,7 +22,7 @@ namespace ThinkingHome.Plugins.Weather
 
 		private readonly object autoUpdateLockObject = new object();
 		private readonly object lockObject = new object();
-		private DateTime lastUpdate = DateTime.Now;	// инициализируем значением now, чтобы на начало обновляться при старте приложения
+		private DateTime lastUpdate = DateTime.Now;	// инициализируем значением now, чтобы не начало обновляться при старте приложения
 
 		private const string SERVICE_URL_FORMAT = "http://api.openweathermap.org/data/2.5/forecast?q={0}&units=metric&APPID=9948774b7ea6673661f1bd773a48d23c";
 		private static readonly DateTime UnixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
