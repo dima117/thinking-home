@@ -85,7 +85,7 @@ namespace ThinkingHome.Plugins.Timer
 
 			Logger.Info("interval: {0} minutes, random offset: {1} minutes", metadata.Interval, offset);
 
-			var handler = new PeriodicalActionState(action, metadata.Interval, lastRun);
+			var handler = new PeriodicalActionState(action, metadata.Interval, lastRun, Logger);
 			periodicalHandlers.Add(handler);
 		}
 
