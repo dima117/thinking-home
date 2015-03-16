@@ -10,6 +10,7 @@ using NLog;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Core.Plugins.Utils;
 using ThinkingHome.Plugins.Timer;
+using ThinkingHome.Plugins.Timer.Attributes;
 using ThinkingHome.Plugins.Weather.Api;
 using ThinkingHome.Plugins.Weather.Data;
 

@@ -13,6 +13,7 @@ using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.NooLite;
 using ThinkingHome.Plugins.Scripts;
 using ThinkingHome.Plugins.Timer;
+using ThinkingHome.Plugins.Timer.Attributes;
 using ThinkingHome.Plugins.Tmp.Tiles;
 using ThinkingHome.Plugins.WebUI;
 

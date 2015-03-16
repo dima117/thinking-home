@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.Composition;
 
-namespace ThinkingHome.Plugins.Timer
+namespace ThinkingHome.Plugins.Timer.Attributes
 {
 	public interface IRunPeriodicallyAttribute
 	{

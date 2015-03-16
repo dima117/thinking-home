@@ -2,10 +2,12 @@
 using System.Threading.Tasks;
 using NLog;
 
-namespace ThinkingHome.Plugins.Timer
+namespace ThinkingHome.Plugins.Timer.Internal
 {
 	public class PeriodicalActionState
 	{
+		private static readonly Random random = new Random();
+
 		private DateTime lastRun;
 		private readonly Logger logger;
 
@@ -13,12 +15,26 @@ namespace ThinkingHome.Plugins.Timer
 		private readonly Action<DateTime> action;
 		private readonly int interval;
 
-		public PeriodicalActionState(Action<DateTime> action, int interval, DateTime lastRun, Logger logger)
+		public PeriodicalActionState(Action<DateTime> action, int interval, DateTime now, Logger logger)
 		{
-			this.action = action;
+			logger.Info("register periodical action: {0} ({1})", action.Method, action.Method.DeclaringType);
+
+			// validation
+			if (interval < 1)
+			{
+				throw new Exception(string.Format("wrong interval: {0} min", interval));
+			}
+
+			// offset
+			int offset = random.Next(interval);
+			logger.Info("interval: {0} minutes, random offset: {1} minutes", interval, offset);
+
+			// set fields
 			this.interval = interval;
-			this.lastRun = lastRun;
+			this.action = action;
 			this.logger = logger;
+
+			lastRun = now.AddMinutes(offset - interval);
 		}
 
 		public void TryToExecute(DateTime now)

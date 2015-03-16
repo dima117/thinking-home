@@ -9,7 +9,7 @@ using ThinkingHome.Plugins.AlarmClock.Data;
 using ThinkingHome.Plugins.Audio;
 using ThinkingHome.Plugins.Audio.Internal;
 using ThinkingHome.Plugins.Scripts;
-using ThinkingHome.Plugins.Timer;
+using ThinkingHome.Plugins.Timer.Attributes;
 
 namespace ThinkingHome.Plugins.AlarmClock
 {

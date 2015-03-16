@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Timers;
 using ThinkingHome.Core.Plugins;
+using ThinkingHome.Plugins.Timer.Attributes;
+using ThinkingHome.Plugins.Timer.Internal;
 
 namespace ThinkingHome.Plugins.Timer
 {
 	[Plugin]
 	public class TimerPlugin : PluginBase
 	{
-		private static readonly Random random = new Random();
-
 		private const int TIMER_INTERVAL = 30000;
-
 		private System.Timers.Timer timer;
-		private readonly List<PeriodicalActionState> periodicalHandlers = new List<PeriodicalActionState>();
 
 		#region handlers
 
@@ -23,6 +21,8 @@ namespace ThinkingHome.Plugins.Timer
 
 		[ImportMany("38A9F1A7-63A4-4688-8089-31F4ED4A9A61")]
 		public Lazy<Action<DateTime>, IRunPeriodicallyAttribute>[] PeriodicalActions { get; set; }
+
+		private readonly List<PeriodicalActionState> periodicalHandlers = new List<PeriodicalActionState>();
 
 		#endregion
 
@@ -48,8 +48,13 @@ namespace ThinkingHome.Plugins.Timer
 		{
 			var now = DateTime.Now;
 
-			TryToExecurePeriodicalHandlers(now);
+			// periodical actions
+			foreach (var handler in periodicalHandlers)
+			{
+				handler.TryToExecute(now);
+			}
 
+			// timer event
 			Run(OnEvent, x => x(now));
 		}
 
@@ -64,37 +69,9 @@ namespace ThinkingHome.Plugins.Timer
 
 			foreach (var action in PeriodicalActions)
 			{
-				RegisterAction(action.Value, action.Metadata, now);
-			}
-		}
+				var handler = new PeriodicalActionState(action.Value, action.Metadata.Interval, now, Logger);
 
-		private void RegisterAction(Action<DateTime> action, IRunPeriodicallyAttribute metadata, DateTime now)
-		{
-			Logger.Info("register periodical action: {0} ({1})", action.Method, action.Method.DeclaringType);
-
-			if (metadata.Interval < 1)
-			{
-				string msg = string.Format("wrong interval: {0}", metadata.Interval);
-
-				Logger.Error(msg);
-				throw new Exception(msg);
-			}
-
-			int offset = random.Next(metadata.Interval);
-			var lastRun = now.AddMinutes(offset - metadata.Interval);
-
-			Logger.Info("interval: {0} minutes, random offset: {1} minutes", metadata.Interval, offset);
-
-			var handler = new PeriodicalActionState(action, metadata.Interval, lastRun, Logger);
-			periodicalHandlers.Add(handler);
-		}
-
-		private void TryToExecurePeriodicalHandlers(DateTime now)
-		{
-			foreach (var handler in periodicalHandlers)
-			{
-				// todo: продумать обработку исключений и многопоточность
-				handler.TryToExecute(now);	
+				periodicalHandlers.Add(handler);
 			}
 		}
 
