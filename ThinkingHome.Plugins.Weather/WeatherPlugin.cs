@@ -9,7 +9,6 @@ using NHibernate.Mapping.ByCode;
 using NLog;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Core.Plugins.Utils;
-using ThinkingHome.Plugins.Timer;
 using ThinkingHome.Plugins.Timer.Attributes;
 using ThinkingHome.Plugins.Weather.Api;
 using ThinkingHome.Plugins.Weather.Data;
@@ -19,18 +18,15 @@ namespace ThinkingHome.Plugins.Weather
 	[Plugin]
 	public class WeatherPlugin : PluginBase
 	{
-		private const int UPDATE_PERIOD = 15;
-
-		private readonly object autoUpdateLockObject = new object();
+		private const int UPDATE_PERIOD = 20;
 		private readonly object lockObject = new object();
-		private DateTime lastUpdate = DateTime.Now;	// инициализируем значением now, чтобы не начало обновляться при старте приложения
 
 		private const string SERVICE_URL_FORMAT = "http://api.openweathermap.org/data/2.5/forecast?q={0}&units=metric&APPID=9948774b7ea6673661f1bd773a48d23c";
-		private static readonly DateTime UnixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+		private static readonly DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
 		public static DateTime DateTimeFromUnixTimestampSeconds(long seconds)
 		{
-			return UnixEpoch.AddSeconds(seconds);
+			return unixEpoch.AddSeconds(seconds);
 		}
 
 		public override void InitDbModel(ModelMapper mapper)
@@ -77,24 +73,14 @@ namespace ThinkingHome.Plugins.Weather
 
 		#region events
 
-		[OnTimerElapsed]
-		public void OnTimerElapsed(DateTime now)
+		[RunPeriodically(UPDATE_PERIOD)]
+		public void AutomaticUpdate(DateTime now)
 		{
-			if (lastUpdate.AddMinutes(UPDATE_PERIOD) < now)
-			{
-				lock (autoUpdateLockObject)
-				{
-					if (lastUpdate.AddMinutes(UPDATE_PERIOD) < now)
-					{
-						Logger.Info("update all locations (last update {0})", lastUpdate);
+			Logger.Info("automatic update all locations");
 
-						ReloadWeatherData();
-						lastUpdate = now;
+			ReloadWeatherData();
 
-						Logger.Info("update completed");
-					}
-				}
-			}
+			Logger.Info("update completed");
 		}
 
 		#endregion
