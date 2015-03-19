@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace ThinkingHome.Plugins.EventLog.Data
 {
-	public class EventLogItem
+	public interface ILogItemData
+	{
+		LogItem LogItem { get; set; }
+	}
+
+	public class LogItem
 	{
 		public virtual Guid Id { get; set; }
 
