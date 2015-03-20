@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\Event.cs" />
+    <Compile Include="Data\Migrations.cs" />
     <Compile Include="Data\Model.cs" />
     <Compile Include="EventLogPlugin.cs" />
     <Compile Include="..\AssemblyInfo.cs">

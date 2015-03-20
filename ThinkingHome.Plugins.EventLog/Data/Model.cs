@@ -17,4 +17,13 @@ namespace ThinkingHome.Plugins.EventLog.Data
 
 		public virtual DateTime Timestamp { get; set; }
 	}
+
+	public class LogItemData : ILogItemData
+	{
+		public virtual Guid Id { get; set; }
+
+		public virtual LogItem LogItem { get; set; }
+
+		public  virtual string Data { get; set; }
+	}
 }
