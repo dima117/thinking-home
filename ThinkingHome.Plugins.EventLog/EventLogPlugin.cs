@@ -14,18 +14,18 @@ namespace ThinkingHome.Plugins.EventLog
 	[Plugin]
 	public class EventLogPlugin : PluginBase
 	{
+		private Dictionary<string, Guid> tagAliases = new Dictionary<string, Guid>();
+
 		/*
 		 *	todo: план работ
-			3 таблицы: события, данные событий, метки событий
-		 *  событие: id и timestamp
+			3 таблицы: события, данные событий (*), метки событий
+		 *  событие: id, timestamp, data
 		 *  данные событий - таблицы плагинов с полем-ссылкой на событие (можно прикреплять коллекцию объектов к одному событию)
-		 *  метки: GUID
-		 *  общий класс данных (с единственным строковым полем)
-		 *  в плагине регистр имен меток (заполняется динамически или атрибутами)
+		 *  тэги: GUID + alias
 	 
 		 * 
 		 * команды:
-		 *		- записать событие с данными и метками (как вариант, разнести добавление данных и меток по времени)
+		 *		- записать событие с данными и метками и строкой данных
 		 *		- получить события: фильтр по времени, фильтр по типу данных, фильтр по меткам
 		 *			(события за период, события со всеми заданными метками, последнее событие - через linq,
 		 *			последнее событие за последний период (например, час), объекты данных с такими же фильтрами)
@@ -36,37 +36,48 @@ namespace ThinkingHome.Plugins.EventLog
 		 * todo: продумать примеры использования!!
 		 * host.executeMethod("saveEvent", ["time", "test"], "example event data");
 		 * 
-		 * var event1 = Context.GetPlugin<EventLogPlugin>().SaveEvent("label1", "label2");
-		 * var event2 = Context.GetPlugin<EventLogPlugin>().SaveEvent(data, "label1", "label2");
+		 * var eventLog = Context.GetPlugin<EventLogPlugin>();
 		 * 
-		 * event1.AddLabel(new Guid("8CFA5FCF-ED95-448A-B2D5-21196ECCD7FA"))
-		 * event2.AddEventData(myObj)
-		*/
+		 * var event1 = eventLog.AddEvent(data, "label1", "label2");
+		 *
+		 * var myData = new MyDataType { LogItem: event1 } 
+		 * session.Save(myData);
+		 * 
+		 */
+
 		public override void InitDbModel(ModelMapper mapper)
 		{
 			base.InitDbModel(mapper);
 			mapper.Class<LogItem>(cfg => cfg.Table("EventLog_LogItem"));
 		}
 
-		public LogItem SaveEvent<TEventData>(ISession session, TEventData data = null)
-			where TEventData : class, ILogItemData
+		private LogItem AddEventInternal(ISession session, string data, string[] tags)
 		{
 			var now = DateTime.Now;
 
-			var item = new LogItem { Id = Guid.NewGuid(), Timestamp = now };
-			session.Save(item);
-
-			if (data != null)
+			var item = new LogItem
 			{
-				data.LogItem = item;
-				session.Save(data);
-			}
+				Id = Guid.NewGuid(), 
+				Timestamp = now,
+				Data = data
+			};
 
-			session.Flush();
+			session.Save(item);
 
 			return item;
 		}
 
+		public LogItem AddEvent(string data, params string[] tags)
+		{
+			using (var session = Context.OpenSession())
+			{
+				return AddEventInternal(session, data, tags);
+			}
+		}
 
+		public LogItem AddEvent(ISession session, string data, params string[] tags)
+		{
+			return AddEventInternal(session,data, tags);
+		}
 	}
 }
