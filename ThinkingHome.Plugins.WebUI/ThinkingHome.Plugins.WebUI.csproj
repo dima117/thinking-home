@@ -132,6 +132,7 @@
     <EmbeddedResource Include="Resources\Application\tiles\tile-edit-mode.tpl" />
     <EmbeddedResource Include="Resources\Application\tiles\tiles.tpl" />
     <EmbeddedResource Include="Resources\Application\tiles\tiles-edit-mode.tpl" />
+    <EmbeddedResource Include="Resources\Vendor\js\chart.min.js.map" />
     <None Include="ThinkingHome.Plugins.WebUI.nuspec">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -211,13 +212,13 @@
     <EmbeddedResource Include="Resources\Vendor\css\codemirror.css" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Vendor\js\highcharts.min.js" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\Application\lib.js" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Application\favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Vendor\js\chart.min.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

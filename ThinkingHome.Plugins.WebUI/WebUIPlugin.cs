@@ -33,7 +33,8 @@ namespace ThinkingHome.Plugins.WebUI
 	[JavaScriptResource("/vendor/js/codemirror-closebrackets.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.codemirror-closebrackets.js")]
 	[JavaScriptResource("/vendor/js/codemirror-matchbrackets.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.codemirror-matchbrackets.js")]
 
-	[JavaScriptResource("/vendor/js/highcharts.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.highcharts.min.js")]
+	[JavaScriptResource("/vendor/js/chart.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.chart.min.js")]
+	[JavaScriptResource("/vendor/js/chart.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.chart.min.js.map")]
 
 
 	// css
