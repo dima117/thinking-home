@@ -1,0 +1,32 @@
+﻿.mc-sensor-list {
+	padding-top: 16px;
+}
+
+.mc-sensor-panel {
+	width: 210px;
+	height: 110px;
+	float: left;
+	margin: 0 8px 8px 0;
+	background-color: #e2e2e2;
+	padding: 8px;
+	text-align: left;
+}
+
+.mc-sensor-data-t {
+	font-size: 48px;
+	color: #666666;
+	margin-right: 80px;
+}
+
+.mc-sensor-data-addon {
+	float: right;
+	width: 72px; 
+}
+
+.mc-sensor-no-data {
+	color: #a52a2a;
+}
+
+.mc-form-add-sensor {
+	margin: 12px 0;
+}
