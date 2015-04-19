@@ -1,26 +1,25 @@
 ﻿define(
 	['app', 'marionette', 'backbone', 'underscore',
-		'webapp/microclimate/details-view',
-		'webapp/microclimate/details-model'
+		'webapp/microclimate/details-model',
+		'webapp/microclimate/details-view'
 	],
-	function (application, marionette, backbone, _, views) {
+	function (application, marionette, backbone, _, models, views) {
 
 		var api = {
-			details: function(id) {
+			details: function (id) {
 
-				var rq = application.request('query:microclimate:details', id);
+				models.loadDetails(id)
+					.done(function (model) {
 
-				$.when(rq).done(function (model) {
+						var view = new views.SensorDetails({
+							model: model
+						});
 
-					var view = new views.SensorDetails({
-						model: model
+						view.on('show:sensor:list', api.goBack);
+						application.setContentView(view);
 					});
-
-					view.on('show:sensor:list', api.goBack);
-					application.setContentView(view);
-				});
 			},
-			goBack: function() {
+			goBack: function () {
 				application.navigate('webapp/microclimate/index');
 			}
 		};

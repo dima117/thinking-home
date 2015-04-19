@@ -1,19 +1,18 @@
-﻿define(
-	['app', 'marionette', 'backbone', 'underscore'],
-	function (application, marionette, backbone, _) {
+﻿define(['lib'],
+	function (lib) {
 
 		var api = {
 			loadDetails: function (id) {
 
-				var defer = $.Deferred();
+				var defer = lib.$.Deferred();
 
-				$.getJSON('/api/microclimate/sensors/details', { id: id })
+				lib.$.getJSON('/api/microclimate/sensors/details', { id: id })
 					.done(function (data) {
 
-						var model = new backbone.Model(data);
+						var model = new lib.backbone.Model(data);
 						defer.resolve(model);
 					})
-					.fail(function() {
+					.fail(function () {
 
 						defer.resolve(undefined);
 					});
@@ -21,9 +20,6 @@
 				return defer.promise();
 			}
 		};
-
-		// requests
-		application.reqres.setHandler('query:microclimate:details', api.loadDetails);
 
 		return api;
 	});
