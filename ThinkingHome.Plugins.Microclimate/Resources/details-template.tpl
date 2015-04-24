@@ -6,20 +6,20 @@
 	<%= displayName %>
 </h1>
 <div class="row">
-	<div class="col-md-6">
+	<div class="js-temperature-panel">
 		<p class="help-block">
 			Temperature
 		</p>
 		<div>
-			<canvas class="js-chart-temperature" width="320" height="140"></canvas>
+			<canvas class="js-temperature-chart" width="320" height="100"></canvas>
 		</div>
 	</div>
-	<div class="col-md-6">
+	<div class="js-humidity-panel">
 		<div>
 			<p class="help-block">
 				Humidity
 			</p>
-			<canvas class="js-chart-humidity" width="320" height="140"></canvas>
+			<canvas class="js-humidity-chart" width="320" height="100"></canvas>
 		</div>
 	</div>
 </div>

@@ -26,7 +26,7 @@
 				return { tdataset: tdataset, hdataset: hdataset };
 			},
 
-			build: function (view) {
+			build: function (view, showHumidity) {
 
 				var data = api.prepareData(view.model);
 				var options = {
@@ -34,7 +34,7 @@
 					responsive: true
 				};
 
-				var ctxt = view.$('.js-chart-temperature').get(0).getContext("2d");
+				var ctxt = view.ui.tChart.get(0).getContext("2d");
 				tchart = new Chart(ctxt).Scatter([
 					{
 						label: 'Temperature',
@@ -42,9 +42,9 @@
 						data: data.tdataset
 					}], _.extend(options, { scaleLabel: "<%=value%>°C" }));
 
-				if (view.model.get('showHumidity')) {
+				if (showHumidity) {
 
-					var ctxh = view.$('.js-chart-humidity').get(0).getContext("2d");
+					var ctxh = view.ui.hChart.get(0).getContext("2d");
 					hchart = new Chart(ctxh).Scatter([
 						{
 							label: 'Humidity',
