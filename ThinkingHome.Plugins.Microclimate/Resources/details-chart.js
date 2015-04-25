@@ -1,6 +1,5 @@
-﻿define(
-	['app', 'marionette', 'backbone', 'underscore', 'chart'],
-	function (application, marionette, backbone, _, chartjs) {
+﻿define(['lib'],
+	function (lib) {
 
 		var tchart = undefined,
 			hchart = undefined;
@@ -12,15 +11,15 @@
 					data = model.get('data');
 
 				if (data && data.length) {
-					_.each(data, function (el) {
+					lib._.each(data, function (el) {
 
 						var timestamp = new Date(el.d).getTime();
 						tdataset.push({ x: timestamp, y: el.t });
 						hdataset.push({ x: timestamp, y: el.h });
 					});
 
-					tdataset = _.sortBy(tdataset, function (el) { return el.x; });
-					hdataset = _.sortBy(hdataset, function (el) { return el.x; });
+					tdataset = lib._.sortBy(tdataset, function (el) { return el.x; });
+					hdataset = lib._.sortBy(hdataset, function (el) { return el.x; });
 				}
 
 				return { tdataset: tdataset, hdataset: hdataset };
@@ -35,28 +34,33 @@
 				};
 
 				var ctxt = view.ui.tChart.get(0).getContext("2d");
-				tchart = new Chart(ctxt).Scatter([
+				tchart = new lib.Chart(ctxt).Scatter([
 					{
 						label: 'Temperature',
 						strokeColor: '#428bca',
 						data: data.tdataset
-					}], _.extend(options, { scaleLabel: "<%=value%>°C" }));
+					}], lib._.extend(options, { scaleLabel: "<%=value%>°C" }));
 
 				if (showHumidity) {
 
 					var ctxh = view.ui.hChart.get(0).getContext("2d");
-					hchart = new Chart(ctxh).Scatter([
+					hchart = new lib.Chart(ctxh).Scatter([
 						{
 							label: 'Humidity',
 							strokeColor: '#d9534f',
 							data: data.hdataset
-						}], _.extend(options, { scaleLabel: "<%=value%>%" }));
+						}], lib._.extend(options, { scaleLabel: "<%=value%>%" }));
 				}
 			}
 		};
 
 		return {
 			build: api.build,
-			getChart: function () { return chart; }
+			getCharts: function () {
+				return {
+					t: tchart,
+					h: hchart
+				};
+			}
 		};
 	});
