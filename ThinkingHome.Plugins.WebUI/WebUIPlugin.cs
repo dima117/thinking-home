@@ -20,9 +20,16 @@ namespace ThinkingHome.Plugins.WebUI
 
 	[JavaScriptResource("/vendor/js/json2.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.json2.min.js")]
 	[JavaScriptResource("/vendor/js/jquery.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.jquery.min.js")]
+	
 	[JavaScriptResource("/vendor/js/underscore.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.underscore.min.js")]
+	[JavaScriptResource("/vendor/js/underscore.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.underscore.min.js.map")]
+	
 	[JavaScriptResource("/vendor/js/backbone.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.min.js")]
+	[JavaScriptResource("/vendor/js/backbone.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.min.js.map")]
+
 	[JavaScriptResource("/vendor/js/backbone.marionette.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.marionette.min.js")]
+	[JavaScriptResource("/vendor/js/backbone.marionette.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.marionette.min.js.map")]
+	
 	[JavaScriptResource("/vendor/js/backbone.syphon.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.syphon.js")]
 	[JavaScriptResource("/vendor/js/bootstrap.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.bootstrap.min.js")]
 	[JavaScriptResource("/vendor/js/moment.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.moment.min.js")]
