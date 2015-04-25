@@ -1,9 +1,7 @@
-﻿define(
-	['app', 'marionette', 'backbone', 'underscore',
+﻿define(['app',
 		'webapp/microclimate/details-model',
-		'webapp/microclimate/details-view'
-	],
-	function (application, marionette, backbone, _, models, views) {
+		'webapp/microclimate/details-view'],
+	function (application, models, views) {
 
 		var api = {
 			details: function (id) {
@@ -24,9 +22,7 @@
 			}
 		};
 
-		var module = {
+		return {
 			start: api.details
 		};
-
-		return module;
 	});
