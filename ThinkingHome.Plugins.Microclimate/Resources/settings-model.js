@@ -1,11 +1,11 @@
 ﻿define(
-	['app', 'marionette', 'backbone', 'underscore'],
-	function (application, marionette, backbone, _) {
+	['lib'],
+	function (lib) {
 
 		var api = {
 			addSensor: function (displayName, channel, showHumidity) {
 
-				var rq = $.post('/api/microclimate/sensors/add', {
+				var rq = lib.$.post('/api/microclimate/sensors/add', {
 					displayName: displayName,
 					channel: channel,
 					showHumidity: showHumidity
@@ -16,18 +16,18 @@
 
 			deleteSensor: function(id) {
 
-				var rq = $.post('/api/microclimate/sensors/delete', { id: id });
+				var rq = lib.$.post('/api/microclimate/sensors/delete', { id: id });
 				return rq.promise();
 			},
 
 			loadSensorTable: function() {
 
-				var defer = $.Deferred();
+				var defer = lib.$.Deferred();
 
-				$.getJSON('/api/microclimate/sensors/table')
+				lib.$.getJSON('/api/microclimate/sensors/table')
 					.done(function (items) {
 
-						var collection = new backbone.Collection(items);
+						var collection = new lib.backbone.Collection(items);
 						defer.resolve(collection);
 					})
 					.fail(function() {
@@ -39,10 +39,9 @@
 			}
 		};
 
-		// requests
-		application.reqres.setHandler('query:microclimate:sensor:table', api.loadSensorTable);
-		application.reqres.setHandler('cmd:microclimate:sensor:add', api.addSensor);
-		application.reqres.setHandler('cmd:microclimate:sensor:delete', api.deleteSensor);
-
-		return api;
+		return {
+			loadSensorTable: api.loadSensorTable,
+			addSensor: api.addSensor,
+			deleteSensor: api.deleteSensor
+		};
 	});

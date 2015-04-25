@@ -1,9 +1,8 @@
 ﻿define(
 	['app', 'common', 'marionette', 'backbone', 'underscore',
-		'webapp/microclimate/settings-view',
-		'webapp/microclimate/settings-model'
-	],
-	function (application, commonModule, marionette, backbone, _, views) {
+		'webapp/microclimate/settings-model',
+		'webapp/microclimate/settings-view'],
+	function (application, commonModule, marionette, backbone, _, models, views) {
 
 		var api = {
 			addSensor: function () {
@@ -14,8 +13,7 @@
 
 				if (displayName) {
 
-					application
-						.request('cmd:microclimate:sensor:add', displayName, channel, showHumidity)
+					models.addSensor(displayName, channel, showHumidity)
 						.done(api.loadSettings);
 
 				}
@@ -26,32 +24,30 @@
 				application.addTile('ThinkingHome.Plugins.Microclimate.MicroclimateTileDefinition', { id: sensorId });
 			},
 			deleteSensor: function (childView) {
-				
+
 				var displayName = childView.model.get('displayName');
 
 				if (commonModule.utils.confirm('Delete the sensor "{0}" and all related data?', displayName)) {
 
 					var id = childView.model.get('id');
 
-					application.request('cmd:microclimate:sensor:delete', id)
-						.done(api.loadSettings);
+					models.deleteSensor(id).done(api.loadSettings);
 				}
 			},
 			loadSettings: function () {
 
-				var rq = application.request('query:microclimate:sensor:table');
+				models.loadSensorTable()
+					.done(function (collection) {
 
-				$.when(rq).done(function (collection) {
+						var view = new views.SensorTable({
+							collection: collection
+						});
 
-					var view = new views.SensorTable({
-						collection: collection
+						view.on('add:sensor', api.addSensor);
+						view.on('childview:delete:sensor', api.deleteSensor);
+						view.on('childview:add:sensor:tile', api.addSensorTile);
+						application.setContentView(view);
 					});
-
-					view.on('add:sensor', api.addSensor);
-					view.on('childview:delete:sensor', api.deleteSensor);
-					view.on('childview:add:sensor:tile', api.addSensorTile);
-					application.setContentView(view);
-				});
 			}
 		};
 
