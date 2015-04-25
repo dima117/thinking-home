@@ -1,12 +1,13 @@
 ﻿define(
-	['app', 'marionette', 'backbone', 'underscore',
+	[
+		'lib',
 		'webapp/microclimate/details-chart',			// модуль для рисования графиков температуры/влажности
 		'text!webapp/microclimate/details-template.tpl'	// шаблон для страницы подробной информации
 	],
-	function (application, marionette, backbone, _, detailsСhart, tmplDetails) {
+	function (lib, detailsСhart, tmplDetails) {
 
-		var sensorDetailsView = marionette.ItemView.extend({
-			template: _.template(tmplDetails),
+		var sensorDetailsView = lib.marionette.ItemView.extend({
+			template: lib._.template(tmplDetails),
 			ui: {
 				tPanel: ".js-temperature-panel",
 				hPanel: ".js-humidity-panel",
