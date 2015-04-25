@@ -1,9 +1,9 @@
 ﻿define(
 	['app', 'marionette', 'backbone', 'underscore',
-		'webapp/microclimate/index-view',
-		'webapp/microclimate/index-model'
+		'webapp/microclimate/index-model',
+		'webapp/microclimate/index-view'
 	],
-	function (application, marionette, backbone, _, views) {
+	function (application, marionette, backbone, _, models, views) {
 
 		var api = {
 			details: function(view) {
@@ -13,9 +13,7 @@
 			},
 			list: function() {
 
-				var rq = application.request('query:microclimate:sensors');
-
-				$.when(rq).done(function (collection) {
+				models.loadSensors().done(function (collection) {
 
 					var view = new views.SensorList({
 						collection: collection

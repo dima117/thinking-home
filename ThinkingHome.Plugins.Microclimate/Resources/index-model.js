@@ -1,16 +1,16 @@
 ﻿define(
-	['app', 'marionette', 'backbone', 'underscore'],
-	function (application, marionette, backbone, _) {
+	['lib'],
+	function (lib) {
 
 		var api = {
 			loadSensors: function() {
 
-				var defer = $.Deferred();
+				var defer = lib.$.Deferred();
 
-				$.getJSON('/api/microclimate/sensors/list')
+				lib.$.getJSON('/api/microclimate/sensors/list')
 					.done(function (items) {
 
-						var collection = new backbone.Collection(items);
+						var collection = new lib.backbone.Collection(items);
 						defer.resolve(collection);
 					})
 					.fail(function() {
@@ -22,8 +22,7 @@
 			}
 		};
 
-		// requests
-		application.reqres.setHandler('query:microclimate:sensors', api.loadSensors);
-
-		return api;
+		return {
+			loadSensors: api.loadSensors
+		};
 	});
