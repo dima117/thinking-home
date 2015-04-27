@@ -1,8 +1,7 @@
-﻿define(
-	['app', 'common', 'marionette', 'backbone', 'underscore',
+﻿define(['app', 'common',
 		'webapp/microclimate/settings-model',
 		'webapp/microclimate/settings-view'],
-	function (application, commonModule, marionette, backbone, _, models, views) {
+	function (application, common, models, views) {
 
 		var api = {
 			addSensor: function () {
@@ -15,7 +14,6 @@
 
 					models.addSensor(displayName, channel, showHumidity)
 						.done(api.loadSettings);
-
 				}
 			},
 			addSensorTile: function (view) {
@@ -27,7 +25,7 @@
 
 				var displayName = childView.model.get('displayName');
 
-				if (commonModule.utils.confirm('Delete the sensor "{0}" and all related data?', displayName)) {
+				if (common.utils.confirm('Delete the sensor "{0}" and all related data?', displayName)) {
 
 					var id = childView.model.get('id');
 
@@ -51,8 +49,7 @@
 			}
 		};
 
-		var module = {
+		return {
 			start: api.loadSettings
 		};
-		return module;
 	});
