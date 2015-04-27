@@ -1,19 +1,11 @@
 ﻿define([
-	'app',
-	'marionette',
-	'backbone',
-	'underscore',
-	'text!webapp/microclimate/settings.tpl'
-],
-	function (application, marionette, backbone, _, tmplSettings) {
+	'lib',
+	'text!webapp/microclimate/settings.tpl',
+	'text!webapp/microclimate/settings-row.tpl'],
+	function (lib, tmplSettings, tmplSettingsRow) {
 
-		var sensorTableRowView = marionette.ItemView.extend({
-			template: _.template(
-				'<td><%= displayName %></td>' +
-				'<td class="col-md-1"><%= channel %></td>' +
-				'<td class="col-md-1"><%= showHumidity %></td>' +
-				'<td class="col-md-1"><a class="js-btn-add-tile" href="#">add tile <i class="fa fa-external-link-square th-no-text-decoration"></i></a></td>' +
-				'<td class="col-md-1"><a class="js-delete-sensor" href="#">delete</a></td>'),
+		var sensorTableRowView = lib.marionette.ItemView.extend({
+			template: lib._.template(tmplSettingsRow),
 			tagName: 'tr',
 			triggers: {
 				'click .js-delete-sensor': 'delete:sensor',
@@ -21,8 +13,8 @@
 			}
 		});
 
-		var sensorTableView = marionette.CompositeView.extend({
-			template: _.template(tmplSettings),
+		var sensorTableView = lib.marionette.CompositeView.extend({
+			template: lib._.template(tmplSettings),
 			childView: sensorTableRowView,
 			childViewContainer: 'tbody',
 			ui: {

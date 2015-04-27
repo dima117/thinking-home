@@ -87,6 +87,7 @@
     <EmbeddedResource Include="Resources\item-template.tpl" />
     <EmbeddedResource Include="Resources\list-template.tpl" />
     <EmbeddedResource Include="Resources\settings.tpl" />
+    <EmbeddedResource Include="Resources\settings-row.tpl" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ThinkingHome.Core.Plugins\ThinkingHome.Core.Plugins.csproj">
