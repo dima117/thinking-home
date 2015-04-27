@@ -70,7 +70,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\details-chart.js" />
     <EmbeddedResource Include="Resources\details-model.js" />
     <EmbeddedResource Include="Resources\details-view.js" />
     <EmbeddedResource Include="Resources\details.js" />

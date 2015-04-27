@@ -24,7 +24,6 @@ namespace ThinkingHome.Plugins.Microclimate
 	[JavaScriptResource("/webapp/microclimate/details.js", "ThinkingHome.Plugins.Microclimate.Resources.details.js")]
 	[JavaScriptResource("/webapp/microclimate/details-view.js", "ThinkingHome.Plugins.Microclimate.Resources.details-view.js")]
 	[JavaScriptResource("/webapp/microclimate/details-model.js", "ThinkingHome.Plugins.Microclimate.Resources.details-model.js")]
-	[JavaScriptResource("/webapp/microclimate/details-chart.js", "ThinkingHome.Plugins.Microclimate.Resources.details-chart.js")]
 
 	[AppSection("Microclimate sensors", SectionType.System, "/webapp/microclimate/settings.js", "ThinkingHome.Plugins.Microclimate.Resources.settings.js")]
 	[JavaScriptResource("/webapp/microclimate/settings-view.js", "ThinkingHome.Plugins.Microclimate.Resources.settings-view.js")]
