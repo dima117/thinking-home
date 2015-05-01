@@ -41,12 +41,8 @@ namespace ThinkingHome.Plugins.Listener
 
 				if (handlers.TryGetValue(path, out handler))
 				{
-					var response = handler.ProcessRequest(request);
-
 					//var message = string.Format("handler for url '{0}' is not found", localPath);
-					var tcs = new TaskCompletionSource<object>();
-					tcs.SetResult(response);
-					return tcs.Task;
+					return handler.ProcessRequest(request);
 				}
 			}
 			catch (Exception ex)
