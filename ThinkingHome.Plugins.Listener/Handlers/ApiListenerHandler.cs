@@ -1,12 +1,13 @@
 ﻿using System;
-using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
+using Microsoft.Owin;
 using Newtonsoft.Json;
 using ThinkingHome.Plugins.Listener.Api;
 
 namespace ThinkingHome.Plugins.Listener.Handlers
 {
-	public class ApiListenerHandler : ListenerHandler
+	public class ApiListenerHandler : IListenerHandler
 	{
 		private readonly Func<HttpRequestParams, object> action;
 
@@ -20,19 +21,32 @@ namespace ThinkingHome.Plugins.Listener.Handlers
 			this.action = action;
 		}
 
-		public override bool CacheResponse
+		public Task ProcessRequest(OwinRequest request)
 		{
-			get { return false; }
+			var parameters = GetRequestParams(request);
+			var result = action(parameters);
+			var json = JsonConvert.SerializeObject(result);
+			var jsonBytes = Encoding.UTF8.GetBytes(json);
+
+			var response = new OwinResponse(request.Environment)
+			{
+				ContentType = "application/json",
+				ContentLength = jsonBytes.Length
+			};
+
+			// todo: disable cache + encoding header
+			//response.Headers.CacheControl = new CacheControlHeaderValue { NoStore = true, NoCache = true };
+			//response.Headers.Pragma.Add(new NameValueHeaderValue("no-cache"));
+
+			return response.WriteAsync(jsonBytes);
 		}
 
-		public override HttpContent GetContent(HttpRequestParams parameters)
+		private static HttpRequestParams GetRequestParams(OwinRequest request)
 		{
-			object result = action(parameters);
-			string json = JsonConvert.SerializeObject(result);
+			var task = request.ReadFormAsync();
+			task.Wait();
 
-			HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
-
-			return content;
+			return new HttpRequestParams(request.Query, task.Result);
 		}
 	}
 }

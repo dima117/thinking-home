@@ -1,23 +1,23 @@
 ﻿using System;
-using System.Collections.Specialized;
+using Microsoft.Owin;
 
 namespace ThinkingHome.Plugins.Listener.Api
 {
 	public class HttpRequestParams
 	{
-		public readonly NameValueCollection UrlData;
-		public readonly NameValueCollection FormData;
+		public readonly IReadableStringCollection urlData;
+		public readonly IFormCollection formData;
 
-		public HttpRequestParams(NameValueCollection urlData, NameValueCollection formData)
+		public HttpRequestParams(IReadableStringCollection urlData, IFormCollection formData)
 		{
-			UrlData = urlData;
-			FormData = formData;
+			this.urlData = urlData;
+			this.formData = formData;
 		}
 
 		public string GetString(string name)
 		{
-			var urlValue = UrlData.Get(name);
-			var formValue = FormData.Get(name);
+			var urlValue = urlData.Get(name);
+			var formValue = formData.Get(name);
 
 			if (string.IsNullOrWhiteSpace(urlValue))
 			{

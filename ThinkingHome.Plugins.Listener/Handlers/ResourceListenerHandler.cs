@@ -1,13 +1,12 @@
 ﻿using System;
 using System.IO;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Reflection;
-using ThinkingHome.Plugins.Listener.Api;
+using System.Threading.Tasks;
+using Microsoft.Owin;
 
 namespace ThinkingHome.Plugins.Listener.Handlers
 {
-	public class ResourceListenerHandler : ListenerHandler
+	public class ResourceListenerHandler : IListenerHandler
 	{
 		private readonly object lockObject = new object();
 		private WeakReference<byte[]> resourceReference;
@@ -23,14 +22,17 @@ namespace ThinkingHome.Plugins.Listener.Handlers
 			this.contentType = contentType;
 		}
 
-		public override HttpContent GetContent(HttpRequestParams parameters)
+		public Task ProcessRequest(OwinRequest request)
 		{
-			var resource = PrepareResource();
+			byte[] resource = PrepareResource();
 
-			var content = new ByteArrayContent(resource);
-			content.Headers.ContentType = new MediaTypeHeaderValue(contentType);
+			var response = new OwinResponse(request.Environment)
+			{
+				ContentType = contentType,
+				ContentLength = resource.Length
+			};
 
-			return content;
+			return response.WriteAsync(resource);
 		}
 
 		private byte[] PrepareResource()

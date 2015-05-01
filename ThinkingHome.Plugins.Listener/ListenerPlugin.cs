@@ -1,8 +1,9 @@
 ﻿using System;
 using System.ComponentModel.Composition;
+using System.Diagnostics;
 using System.Reflection;
-using System.Web.Http;
-using System.Web.Http.SelfHost;
+using Owin;
+using Microsoft.Owin.Hosting;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Core.Plugins.Utils;
 using ThinkingHome.Plugins.Listener.Api;
@@ -16,24 +17,28 @@ namespace ThinkingHome.Plugins.Listener
 	{
 		private const string BASE_URL_HTTP = "http://localhost:41831";
 
-		private HttpSelfHostServer server;
+		private IDisposable server;
+		private InternalDictionary<IListenerHandler> registeredHandlers;
 
 		[ImportMany("5D358D8E-2310-49FE-A660-FB3ED7003B4C")]
 		public Lazy<Func<HttpRequestParams, object>, IHttpCommandAttribute>[] RequestReceived { get; set; }
 
 		public override void InitPlugin()
 		{
-			var handlers = RegisterHandlers();
-			var dependencyResolver = new DependencyResolver(handlers, Logger);
-
-			var config = BuildConfiguration(dependencyResolver);
-
-			server = new HttpSelfHostServer(config);
+			Debugger.Launch();
+			registeredHandlers = RegisterHandlers();
 		}
 
 		public override void StartPlugin()
 		{
-			server.OpenAsync();
+			server = WebApp.Start(BASE_URL_HTTP, ConfigureModules);
+		}
+
+		private void ConfigureModules(IAppBuilder appBuilder)
+		{
+			appBuilder
+				.Use<ListenerModule>(registeredHandlers, Logger)
+				.UseErrorPage();
 		}
 
 		public override void StopPlugin()
@@ -44,9 +49,9 @@ namespace ThinkingHome.Plugins.Listener
 
 		#region private
 
-		private InternalDictionary<ListenerHandler> RegisterHandlers()
+		private InternalDictionary<IListenerHandler> RegisterHandlers()
 		{
-			var handlers = new InternalDictionary<ListenerHandler>();
+			var handlers = new InternalDictionary<IListenerHandler>();
 
 			// регистрируем обработчики для методов плагинов
 			foreach (var action in RequestReceived)
@@ -75,20 +80,6 @@ namespace ThinkingHome.Plugins.Listener
 			}
 
 			return handlers;
-		}
-
-		private HttpSelfHostConfiguration BuildConfiguration(DependencyResolver dependencyResolver)
-		{
-			var config = new HttpSelfHostConfiguration(BASE_URL_HTTP)
-			{
-				DependencyResolver = dependencyResolver
-			};
-
-			var defaults = new { controller = "Common", action = "Index" };
-
-			config.Routes.MapHttpRoute("Global", "{*url}", defaults);
-
-			return config;
 		}
 
 		#endregion
