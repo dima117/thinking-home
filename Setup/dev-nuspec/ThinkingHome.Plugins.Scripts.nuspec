@@ -1,21 +1,23 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
-  <metadata>
-    <version>2.0.0.48</version>
-    <authors>dima117</authors>
-    <owners>dima117</owners>
-    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
-    <dependencies>
-      <dependency id="ThinkingHome.Core.Plugins" />
-      <dependency id="ClearScript.V8" version="5.3.7.0" />
-    </dependencies>
-    <id>ThinkingHome.Plugins.Scripts</id>
-    <title>Scripts plugin</title>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Custom scripts support</description>
-    <summary>Custom scripts support</summary>
-  </metadata>
-  <files>
-    <file src="..\..\build\Release\ThinkingHome.Plugins.Scripts\ThinkingHome.Plugins.Scripts.dll" target="lib\net45\ThinkingHome.Plugins.Scripts.dll" />
-  </files>
+	<metadata>
+		<version>2.0.0.48</version>
+		<authors>dima117</authors>
+		<owners>dima117</owners>
+		<licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+		<dependencies>
+			<dependency id="ThinkingHome.Core.Plugins" />
+			<dependency id="ThinkingHome.Plugins.Listener" />
+			<dependency id="ThinkingHome.Plugins.WebUI" />
+			<dependency id="ClearScript.V8" version="5.3.7.0" />
+		</dependencies>
+		<id>ThinkingHome.Plugins.Scripts</id>
+		<title>Scripts plugin</title>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>Custom scripts support</description>
+		<summary>Custom scripts support</summary>
+	</metadata>
+	<files>
+		<file src="..\..\build\Release\ThinkingHome.Plugins.Scripts\ThinkingHome.Plugins.Scripts.dll" target="lib\net45\ThinkingHome.Plugins.Scripts.dll" />
+	</files>
 </package>

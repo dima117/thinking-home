@@ -1,23 +1,27 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
-  <metadata>
-    <version>2.0.0.48</version>
-    <authors>dima117</authors>
-    <owners>dima117</owners>
-    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
-    <dependencies>
-      <dependency id="ThinkingHome.Core.Plugins" />
-      <dependency id="Microsoft.AspNet.WebApi.Client" version="5.0.0" />
-      <dependency id="Microsoft.AspNet.WebApi.Core" version="5.0.0" />
-      <dependency id="Microsoft.AspNet.WebApi.SelfHost" version="5.0.0" />
-    </dependencies>
-    <id>ThinkingHome.Plugins.Listener</id>
-    <title>HTTP Listener plugin</title>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Transmit HTTP-requests to other plug-ins</description>
-    <summary>Transmit HTTP-requests to other plug-ins</summary>
-  </metadata>
-  <files>
-    <file src="..\..\build\Release\ThinkingHome.Plugins.Listener\ThinkingHome.Plugins.Listener.dll" target="lib\net45\ThinkingHome.Plugins.Listener.dll" />
-  </files>
+	<metadata>
+		<version>2.0.0.48</version>
+		<authors>dima117</authors>
+		<owners>dima117</owners>
+		<licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+		<dependencies>
+			<dependency id="Owin" version="1.0" />
+			<dependency id="Owin.Types" version="0.8.5" />
+			<dependency id="Microsoft.Owin" version="3.0.1" />
+			<dependency id="Microsoft.Owin.Diagnostics" version="3.0.1" />
+			<dependency id="Microsoft.Owin.Host.HttpListener" version="3.0.1" />
+			<dependency id="Microsoft.Owin.Hosting" version="3.0.1" />
+			<dependency id="Microsoft.Owin.SelfHost" version="3.0.1" />
+			<dependency id="ThinkingHome.Core.Plugins" />
+		</dependencies>
+		<id>ThinkingHome.Plugins.Listener</id>
+		<title>HTTP Listener plugin</title>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>Transmit HTTP-requests to other plug-ins</description>
+		<summary>Transmit HTTP-requests to other plug-ins</summary>
+	</metadata>
+	<files>
+		<file src="..\..\build\Release\ThinkingHome.Plugins.Listener\ThinkingHome.Plugins.Listener.dll" target="lib\net45\ThinkingHome.Plugins.Listener.dll" />
+	</files>
 </package>

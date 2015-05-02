@@ -6,8 +6,8 @@
 		<owners>dima117</owners>
 		<licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
 		<!--<dependencies>
-      <dependency id="NLog" version="2.0.1.2" />
-    </dependencies>-->
+		  <dependency id="NLog" version="2.0.1.2" />
+		</dependencies>-->
 		<id>ThinkingHome.Plugins.Listener</id>
 		<title>HTTP Listener plugin</title>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
