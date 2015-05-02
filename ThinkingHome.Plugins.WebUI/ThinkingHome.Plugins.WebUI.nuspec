@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
-  <metadata>
-    <version>1.0.0.0</version>
-    <authors>dima117</authors>
-    <owners>dima117</owners>
-    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
-    <dependencies>
-      <dependency id="ThinkingHome.Plugins.Listener" />
-    </dependencies>
-    <id>ThinkingHome.Plugins.WebUI</id>
-    <title>WebUI plugin</title>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Web ui</description>
-    <summary>web ui</summary>
-  </metadata>
-  <files>
-    <file src="ThinkingHome.Plugins.WebUI.dll" target="ThinkingHome.Plugins.WebUI.dll" />
-  </files>
+	<metadata>
+		<version>1.0.0.0</version>
+		<authors>dima117</authors>
+		<owners>dima117</owners>
+		<licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+		<dependencies>
+			<dependency id="ThinkingHome.Plugins.Listener" />
+		</dependencies>
+		<id>ThinkingHome.Plugins.WebUI</id>
+		<title>WebUI plugin</title>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>Web ui</description>
+		<summary>web ui</summary>
+	</metadata>
+	<files>
+		<file src="ThinkingHome.Plugins.WebUI.dll" target="ThinkingHome.Plugins.WebUI.dll" />
+	</files>
 </package>

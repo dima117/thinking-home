@@ -7,15 +7,16 @@
 		<licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
 		<dependencies>
 			<dependency id="ThinkingHome.Plugins.Listener" />
+			<dependency id="ThinkingHome.Plugins.NooLite" />
 			<dependency id="ThinkingHome.Plugins.WebUI" />
 		</dependencies>
-		<id>ThinkingHome.Plugins.Packages</id>
-		<title>Packages plugin</title>
+		<id>ThinkingHome.Plugins.Microclimate</id>
+		<title>Microclimate plugin</title>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
-		<description>Install plugins from remote repository</description>
-		<summary>Install plugins from remote repository</summary>
+		<description>Other functions</description>
+		<summary>Display microclimate parameters</summary>
 	</metadata>
 	<files>
-		<file src="ThinkingHome.Plugins.Packages.dll" target="ThinkingHome.Plugins.Packages.dll" />
+		<file src="ThinkingHome.Plugins.Microclimate.dll" target="ThinkingHome.Plugins.Microclimate.dll" />
 	</files>
 </package>

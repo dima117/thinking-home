@@ -5,18 +5,19 @@
 		<authors>dima117</authors>
 		<owners>dima117</owners>
 		<licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
-		<dependencies>
-			<dependency id="ThinkingHome.Plugins.Timer" />
-			<dependency id="ThinkingHome.Plugins.Listener" />
-			<dependency id="ThinkingHome.Plugins.WebUI" />
-		</dependencies>
-		<id>ThinkingHome.Plugins.Weather</id>
-		<title>Weather forecast</title>
+		<!--<dependencies>
+		  <dependency id="ThinkingHome.Plugins.Listener" />
+		  <dependency id="ThinkingHome.Plugins.Scripts" />
+		  <dependency id="ThinkingHome.Plugins.WebUI" />
+		</dependencies>-->
+		<id>ThinkingHome.Plugins.OneWire</id>
+		<title>OneWire plugin</title>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>Other functions</description>
 		<summary>Other functions</summary>
 	</metadata>
 	<files>
-		<file src="ThinkingHome.Plugins.Weather.dll" target="ThinkingHome.Plugins.Weather.dll" />
+		<file src="OneWireLinkLayer.dll" target="OneWireLinkLayer.dll" />
+		<file src="ThinkingHome.Plugins.OneWire.dll" target="ThinkingHome.Plugins.OneWire.dll" />
 	</files>
 </package>

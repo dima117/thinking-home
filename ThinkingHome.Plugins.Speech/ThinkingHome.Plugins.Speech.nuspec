@@ -16,7 +16,7 @@
 		<summary>Install plugins from remote repository</summary>
 	</metadata>
 	<files>
-		<file src="ThinkingHome.Plugins.Speech.dll" target="ThinkingHome.Plugins.Speech.dll" />
 		<file src="Microsoft.Speech.dll" target="Microsoft.Speech.dll" />
+		<file src="ThinkingHome.Plugins.Speech.dll" target="ThinkingHome.Plugins.Speech.dll" />
 	</files>
 </package>

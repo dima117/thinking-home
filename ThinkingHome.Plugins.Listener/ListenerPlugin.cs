@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.Composition;
-using System.Diagnostics;
 using System.Reflection;
 using Owin;
 using Microsoft.Owin.Hosting;
@@ -25,7 +24,6 @@ namespace ThinkingHome.Plugins.Listener
 
 		public override void InitPlugin()
 		{
-			Debugger.Launch();
 			registeredHandlers = RegisterHandlers();
 		}
 

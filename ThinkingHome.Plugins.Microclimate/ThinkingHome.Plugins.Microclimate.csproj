@@ -88,6 +88,9 @@
     <EmbeddedResource Include="Resources\list-template.tpl" />
     <EmbeddedResource Include="Resources\settings.tpl" />
     <EmbeddedResource Include="Resources\settings-row.tpl" />
+    <None Include="ThinkingHome.Plugins.Microclimate.nuspec">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ThinkingHome.Core.Plugins\ThinkingHome.Core.Plugins.csproj">
