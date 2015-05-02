@@ -30,13 +30,14 @@ namespace ThinkingHome.Plugins.Listener.Handlers
 
 			var response = new OwinResponse(request.Environment)
 			{
-				ContentType = "application/json",
+				Headers =
+				{
+					{"Cache-Control", new []{"no-store", "no-cache"}},
+					{"Pragma", new []{"no-cache"}}
+				},
+				ContentType = "application/json;charset=utf-8",
 				ContentLength = jsonBytes.Length
 			};
-
-			// todo: disable cache + encoding header
-			//response.Headers.CacheControl = new CacheControlHeaderValue { NoStore = true, NoCache = true };
-			//response.Headers.Pragma.Add(new NameValueHeaderValue("no-cache"));
 
 			return response.WriteAsync(jsonBytes);
 		}
