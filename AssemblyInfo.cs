@@ -13,6 +13,6 @@ using System.Runtime.InteropServices;
 
 [assembly: AssemblyVersionAttribute("2.0.0.48")]
 [assembly: AssemblyFileVersionAttribute("2.0.0.48")]
-[assembly: AssemblyCopyrightAttribute("Copyright © 2013-2014 Thinking-Home.RU")]
+[assembly: AssemblyCopyrightAttribute("Copyright © 2013-2015 Thinking-Home.RU")]
 [assembly: AssemblyProductAttribute("ThinkingHome.Service")]
 

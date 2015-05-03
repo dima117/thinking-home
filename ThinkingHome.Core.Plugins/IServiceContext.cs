@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using NHibernate;
 using ThinkingHome.Core.Plugins.HomePackages;
 

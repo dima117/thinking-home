@@ -2,7 +2,8 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
   xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
   xmlns:fire="http://schemas.microsoft.com/wix/FirewallExtension">
-	<Product Id="*" Name="ThinkingHome.Service" Language="1033" Version="1.0.0.0" Manufacturer="Thinking-Home.RU" UpgradeCode="48dc066c-97cc-4512-8fa3-52bbe195e075">
+	<Product Id="*" Name="ThinkingHome.Service" Language="1033" Version="1.0.0.0" 
+		Manufacturer="Thinking-Home.RU" UpgradeCode="48dc066c-97cc-4512-8fa3-52bbe195e075">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 		<Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
 

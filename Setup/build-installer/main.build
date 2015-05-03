@@ -41,7 +41,7 @@
 			<attributes>
 				<attribute type="AssemblyVersionAttribute" value="${version}" />
 				<attribute type="AssemblyFileVersionAttribute" value="${version}" />
-				<attribute type="AssemblyCopyrightAttribute" value="Copyright © 2013-2014 Thinking-Home.RU" />
+				<attribute type="AssemblyCopyrightAttribute" value="Copyright © 2013-2015 Thinking-Home.RU" />
 				<attribute type="AssemblyProductAttribute" value="ThinkingHome.Service" />
 			</attributes>
 		</asminfo>
