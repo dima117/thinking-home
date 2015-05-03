@@ -14,7 +14,7 @@ namespace ThinkingHome.Plugins.Listener
 	[Plugin]
 	public class ListenerPlugin : PluginBase
 	{
-		private const string BASE_URL_HTTP = "http://localhost:41831";
+		private const string BASE_URL_HTTP = "http://+:41831";
 
 		private IDisposable server;
 		private InternalDictionary<IListenerHandler> registeredHandlers;
