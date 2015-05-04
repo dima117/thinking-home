@@ -324,6 +324,14 @@ div.CodeMirror-cursors {
 /* Help users use markselection to safely style text background */
 span.CodeMirror-selectedtext { background: none; }
 
+/* FOOLSCREEN*/
+
+.CodeMirror-fullscreen {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  height: auto;
+  z-index: 9999;
+}
 
 
 /* Taken from the popular Visual Studio Vibrant Ink Schema */
@@ -360,7 +368,7 @@ span.CodeMirror-selectedtext { background: none; }
 
 
 /* DARK THEME*/
-.cm-s-bootstrap-dark.CodeMirror { background: #1e1e1e; color: #d4d4d4; border: none; }
+.cm-s-bootstrap-dark.CodeMirror { background: #1e1e1e; color: #d4d4d4; border: none;}
 .cm-s-bootstrap-dark .CodeMirror-selected { background: #264F78 !important; }
 .cm-s-bootstrap-dark .CodeMirror-matchingbracket { font-weight: bold; }
 

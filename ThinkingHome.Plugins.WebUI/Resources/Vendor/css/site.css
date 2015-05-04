@@ -37,6 +37,10 @@ body {
 	border-color: #ccc;
 }
 
+.help-block {
+	color: #bbb;
+}
+
 /*#endregion */
 
 /*#region tiles */
@@ -161,6 +165,10 @@ body {
 .th-no-text-decoration:active,
 .th-no-text-decoration:hover {
 	text-decoration: none;
+}
+
+.th-margin-bottom-6 {
+	margin-bottom: 6px;
 }
 
 /*#endregion */
