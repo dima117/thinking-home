@@ -27,6 +27,15 @@ body {
 .th-datetime-panel {
 	margin-left: 27%;
 }
+/*#endregion */
+
+/*#region buttons */
+
+.btn-default:hover {
+	color: #294C69;
+	background-color: #ccc;
+	border-color: #ccc;
+}
 
 /*#endregion */
 
