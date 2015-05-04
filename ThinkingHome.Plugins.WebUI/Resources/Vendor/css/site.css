@@ -1,7 +1,7 @@
 /*#region layout */
 
 body {
-	padding-top: 50px;
+	padding-top: 64px;
 }
 
 .sub-header {
@@ -13,9 +13,9 @@ body {
 	padding: 20px;
 }
 
-.th-main .page-header {
-	margin-top: 0;
-}
+	.th-main .page-header {
+		margin-top: 0;
+	}
 
 @media (min-width: 768px) {
 	.th-main {
@@ -25,7 +25,7 @@ body {
 }
 
 .th-datetime-panel {
-	margin-left: 30%;
+	margin-left: 27%;
 }
 
 /*#endregion */
@@ -39,13 +39,13 @@ body {
 }
 
 .th-tile {
-	width: 140px;
-	height: 120px;
+	width: 160px;
+	height: 130px;
 	margin-bottom: 6px;
 	margin-right: 10px;
 	display: inline-block;
-	-ms-border-radius: 4px;
-	border-radius: 4px;
+	-ms-border-radius: 3px;
+	border-radius: 3px;
 	padding: 2px 6px;
 	position: relative;
 	cursor: pointer;
@@ -56,7 +56,7 @@ body {
 	}
 
 .th-tile-double {
-	width: 290px;
+	width: 330px;
 }
 
 .th-tile-actions {
@@ -71,21 +71,36 @@ body {
 .th-tile-title {
 	bottom: 2px;
 	position: absolute;
-	font-weight: bold;
 	white-space: nowrap;
+	font-size: 120%;
 }
 
 .th-tile-icon:before {
 	bottom: 0;
-	font-size: 34px;
+	font-size: 32px;
 	position: absolute;
-	right: 10px;
+	right: 6px;
 	font-style: normal;
 	font-weight: normal;
 }
 
 .th-tile-icon-fa:before {
 	font-family: FontAwesome;
+}
+
+@media (max-width: 371px) {
+	.th-tile {
+		width: 140px;
+		height: 120px;
+	}
+
+	.th-tile-double {
+		width: 290px;
+	}
+
+	.th-tile-title {
+		font-size: 110%;
+	}
 }
 
 @media (max-width: 319px) {

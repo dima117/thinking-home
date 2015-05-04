@@ -137,6 +137,7 @@
     <EmbeddedResource Include="Resources\Vendor\js\backbone.marionette.min.js.map" />
     <EmbeddedResource Include="Resources\Vendor\js\backbone.min.js.map" />
     <EmbeddedResource Include="Resources\Vendor\js\underscore.min.js.map" />
+    <EmbeddedResource Include="Resources\Vendor\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="ThinkingHome.Plugins.WebUI.nuspec">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
