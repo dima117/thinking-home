@@ -14,7 +14,7 @@
 
 				this.cm = codemirror.fromTextArea(textarea, {
 					mode: 'javascript',
-					theme: 'bootstrap',
+					theme: 'bootstrap-dark',
 					lineNumbers: true,
 					styleActiveLine: true,
 					matchBrackets: true
