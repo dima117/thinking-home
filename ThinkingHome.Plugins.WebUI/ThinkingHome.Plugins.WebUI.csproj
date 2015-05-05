@@ -124,6 +124,9 @@
     <EmbeddedResource Include="..\jslibs\chart.min.js.map">
       <Link>Resources\Vendor\js\chart.min.js.map</Link>
     </EmbeddedResource>
+    <EmbeddedResource Include="..\jslibs\chart.scatter.min.js.map">
+      <Link>Resources\Vendor\js\chart.scatter.min.js.map</Link>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <EmbeddedResource Include="Resources\Application\sections\list.tpl" />
     <EmbeddedResource Include="Resources\Application\sections\list-item.tpl" />
@@ -223,12 +226,15 @@
     <EmbeddedResource Include="Resources\Application\favicon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Vendor\js\codemirror-fullscreen.js" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="..\jslibs\chart.min.js">
       <Link>Resources\Vendor\js\chart.min.js</Link>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Vendor\js\codemirror-fullscreen.js" />
+    <EmbeddedResource Include="..\jslibs\chart.scatter.min.js">
+      <Link>Resources\Vendor\js\chart.scatter.min.js</Link>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

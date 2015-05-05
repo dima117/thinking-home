@@ -1,5 +1,13 @@
 ﻿define(
-	['marionette', 'backbone', 'underscore', 'jquery', 'json2', 'chart'],
+	[
+		'marionette',
+		'backbone',
+		'underscore',
+		'jquery',
+		'json2',
+		'chart',
+		'chart.scatter'
+	],
 	function (marionette, backbone, underscore, jquery, json2, chartjs) {
 
 		return {

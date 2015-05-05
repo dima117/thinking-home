@@ -77,6 +77,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jslibs", "jslibs", "{EDA7C1
 		jslibs\chart.js = jslibs\chart.js
 		jslibs\chart.min.js = jslibs\chart.min.js
 		jslibs\chart.min.js.map = jslibs\chart.min.js.map
+		jslibs\chart.scatter.js = jslibs\chart.scatter.js
+		jslibs\chart.scatter.min.js = jslibs\chart.scatter.min.js
+		jslibs\chart.scatter.min.js.map = jslibs\chart.scatter.min.js.map
 	EndProjectSection
 EndProject
 Global

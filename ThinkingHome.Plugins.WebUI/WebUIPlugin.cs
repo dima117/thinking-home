@@ -22,13 +22,13 @@ namespace ThinkingHome.Plugins.WebUI
 	[JavaScriptResource("/vendor/js/jquery.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.jquery.min.js")]
 	
 	[JavaScriptResource("/vendor/js/underscore.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.underscore.min.js")]
-	[JavaScriptResource("/vendor/js/underscore.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.underscore.min.js.map")]
+	[HttpResource("/vendor/js/underscore.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.underscore.min.js.map", "application/json")]
 	
 	[JavaScriptResource("/vendor/js/backbone.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.min.js")]
-	[JavaScriptResource("/vendor/js/backbone.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.min.js.map")]
+	[HttpResource("/vendor/js/backbone.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.min.js.map", "application/json")]
 
 	[JavaScriptResource("/vendor/js/backbone.marionette.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.marionette.min.js")]
-	[JavaScriptResource("/vendor/js/backbone.marionette.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.marionette.min.js.map")]
+	[HttpResource("/vendor/js/backbone.marionette.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.marionette.min.js.map", "application/json")]
 	
 	[JavaScriptResource("/vendor/js/backbone.syphon.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.syphon.js")]
 	[JavaScriptResource("/vendor/js/bootstrap.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.bootstrap.min.js")]
@@ -42,7 +42,9 @@ namespace ThinkingHome.Plugins.WebUI
 	[JavaScriptResource("/vendor/js/codemirror-fullscreen.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.codemirror-fullscreen.js")]
 
 	[JavaScriptResource("/vendor/js/chart.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.chart.min.js")]
-	[JavaScriptResource("/vendor/js/chart.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.chart.min.js.map")]
+	[HttpResource("/vendor/js/chart.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.chart.min.js.map", "application/json")]
+	[JavaScriptResource("/vendor/js/chart.scatter.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.chart.scatter.min.js")]
+	[HttpResource("/vendor/js/chart.scatter.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.chart.scatter.min.js.map", "application/json")]
 
 
 	// css

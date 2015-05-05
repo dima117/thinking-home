@@ -18,6 +18,7 @@
 		moment: 'vendor/js/moment.min',
 		codemirror: 'vendor/js/codemirror-all',
 		chart: 'vendor/js/chart.min',
+		'chart.scatter': 'vendor/js/chart.scatter.min',
 
 		tiles:				'application/tiles/tiles',
 		'tiles-edit-mode':	'application/tiles/tiles-edit-mode',
@@ -37,6 +38,11 @@
 		marionette: {
 			deps: ['backbone', 'syphon'],
 			exports: 'Marionette'
+		}
+	},
+	map: {
+		'chart.scatter': {
+			'Chart': 'chart'
 		}
 	}
 });
