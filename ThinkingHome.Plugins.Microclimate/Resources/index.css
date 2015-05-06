@@ -20,7 +20,7 @@
 
 .mc-sensor-data-addon {
 	float: right;
-	width: 72px; 
+	width: 72px;
 }
 
 .mc-sensor-no-data {
@@ -29,4 +29,21 @@
 
 .mc-form-add-sensor {
 	margin: 12px 0;
+}
+
+.scatter-legend-marker {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	-ms-border-radius: 7px;
+	border-radius: 7px;
+	vertical-align: middle;
+	margin-right: 8px;
+}
+
+.scatter-legend li {
+	display: block;
+	list-style: none;
+	width: 120px;
+	margin: 0 auto;
 }

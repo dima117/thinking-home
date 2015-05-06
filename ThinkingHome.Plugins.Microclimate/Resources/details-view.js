@@ -29,6 +29,14 @@
 
 			chartOptions: {
 				scaleType: "date",
+				scaleFontFamily: "'Segoe UI','HelveticaNeue-Light',sans-serif",
+				scaleFontColor: "#bbb",
+				scaleGridLineColor: "rgba(255,255,255,.1)",
+				scaleLineColor: "rgba(255,255,255,.2)",
+				tooltipCornerRadius: 3,
+				tooltipFillColor: "rgba(255,255,255,0.85)",
+				tooltipFontColor: "#294C69",
+				tooltipFontFamily: "'Segoe UI','HelveticaNeue-Light',sans-serif",
 				responsive: true
 			},
 
@@ -40,8 +48,12 @@
 					{
 						label: title,
 						strokeColor: color,
+						pointStrokeColor: "#294C69",
 						data: points
 					}], options);
+
+				var legend = chart.generateLegend();
+				lib.$(legend).insertAfter(el);
 
 				return chart;
 			},
@@ -71,12 +83,12 @@
 				var data = this.buildChartData();
 
 				this.tchart = this.initChart(
-					this.ui.tChart, 'Temperature', '<%=value%>°C', '#428bca', data.tdataset);
+					this.ui.tChart, 'Temperature', '<%=value%>°C', '#689fcd', data.tdataset);
 
 				if (showHumidity) {
 
 					this.hchart = this.initChart(
-						this.ui.hChart, 'Humidity', '<%=value%>%', '#d9534f', data.hdataset);
+						this.ui.hChart, 'Humidity', '<%=value%>%', '#f66', data.hdataset);
 				}
 			},
 
