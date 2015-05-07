@@ -9,6 +9,7 @@
 			tagName: 'tr',
 			triggers: {
 				'click .js-delete-sensor': 'delete:sensor',
+				'click .js-btn-details': 'show:sensor:details',
 				'click .js-btn-add-tile': 'add:sensor:tile'
 			}
 		});

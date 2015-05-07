@@ -16,6 +16,11 @@
 						.done(api.loadSettings);
 				}
 			},
+			showSensorDetails: function(view) {
+				
+				var sensorId = view.model.get('id');
+				application.navigate('webapp/microclimate/details', sensorId);
+			},
 			addSensorTile: function (view) {
 
 				var sensorId = view.model.get('id');
@@ -43,6 +48,7 @@
 
 						view.on('add:sensor', api.addSensor);
 						view.on('childview:delete:sensor', api.deleteSensor);
+						view.on('childview:show:sensor:details', api.showSensorDetails);
 						view.on('childview:add:sensor:tile', api.addSensorTile);
 						application.setContentView(view);
 					});
