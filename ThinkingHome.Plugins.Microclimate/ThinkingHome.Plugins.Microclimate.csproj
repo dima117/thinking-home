@@ -73,10 +73,7 @@
     <EmbeddedResource Include="Resources\details-model.js" />
     <EmbeddedResource Include="Resources\details-view.js" />
     <EmbeddedResource Include="Resources\details.js" />
-    <EmbeddedResource Include="Resources\index-model.js" />
-    <EmbeddedResource Include="Resources\index-view.js" />
-    <EmbeddedResource Include="Resources\index.css" />
-    <EmbeddedResource Include="Resources\index.js" />
+    <EmbeddedResource Include="Resources\microclimate.css" />
     <EmbeddedResource Include="Resources\settings-model.js" />
     <EmbeddedResource Include="Resources\settings-view.js" />
     <EmbeddedResource Include="Resources\settings.js" />
@@ -84,8 +81,6 @@
   <ItemGroup>
     <None Include="packages.config" />
     <EmbeddedResource Include="Resources\details-template.tpl" />
-    <EmbeddedResource Include="Resources\item-template.tpl" />
-    <EmbeddedResource Include="Resources\list-template.tpl" />
     <EmbeddedResource Include="Resources\settings.tpl" />
     <EmbeddedResource Include="Resources\settings-row.tpl" />
     <None Include="ThinkingHome.Plugins.Microclimate.nuspec">

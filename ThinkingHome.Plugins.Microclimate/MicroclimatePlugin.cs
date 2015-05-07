@@ -17,24 +17,19 @@ using ThinkingHome.Plugins.WebUI.Attributes;
 namespace ThinkingHome.Plugins.Microclimate
 {
 	[Plugin]
-	[AppSection("Microclimate", SectionType.Common, "/webapp/microclimate/index.js", "ThinkingHome.Plugins.Microclimate.Resources.index.js")]
-	[JavaScriptResource("/webapp/microclimate/index-view.js", "ThinkingHome.Plugins.Microclimate.Resources.index-view.js")]
-	[JavaScriptResource("/webapp/microclimate/index-model.js", "ThinkingHome.Plugins.Microclimate.Resources.index-model.js")]
-
-	[JavaScriptResource("/webapp/microclimate/details.js", "ThinkingHome.Plugins.Microclimate.Resources.details.js")]
-	[JavaScriptResource("/webapp/microclimate/details-view.js", "ThinkingHome.Plugins.Microclimate.Resources.details-view.js")]
-	[JavaScriptResource("/webapp/microclimate/details-model.js", "ThinkingHome.Plugins.Microclimate.Resources.details-model.js")]
 
 	[AppSection("Microclimate sensors", SectionType.System, "/webapp/microclimate/settings.js", "ThinkingHome.Plugins.Microclimate.Resources.settings.js")]
 	[JavaScriptResource("/webapp/microclimate/settings-view.js", "ThinkingHome.Plugins.Microclimate.Resources.settings-view.js")]
 	[JavaScriptResource("/webapp/microclimate/settings-model.js", "ThinkingHome.Plugins.Microclimate.Resources.settings-model.js")]
 
+	[JavaScriptResource("/webapp/microclimate/details.js", "ThinkingHome.Plugins.Microclimate.Resources.details.js")]
+	[JavaScriptResource("/webapp/microclimate/details-view.js", "ThinkingHome.Plugins.Microclimate.Resources.details-view.js")]
+	[JavaScriptResource("/webapp/microclimate/details-model.js", "ThinkingHome.Plugins.Microclimate.Resources.details-model.js")]
+
 	[HttpResource("/webapp/microclimate/details-template.tpl", "ThinkingHome.Plugins.Microclimate.Resources.details-template.tpl")]
-	[HttpResource("/webapp/microclimate/item-template.tpl", "ThinkingHome.Plugins.Microclimate.Resources.item-template.tpl")]
-	[HttpResource("/webapp/microclimate/list-template.tpl", "ThinkingHome.Plugins.Microclimate.Resources.list-template.tpl")]
 	[HttpResource("/webapp/microclimate/settings.tpl", "ThinkingHome.Plugins.Microclimate.Resources.settings.tpl")]
 	[HttpResource("/webapp/microclimate/settings-row.tpl", "ThinkingHome.Plugins.Microclimate.Resources.settings-row.tpl")]
-	[CssResource("/webapp/microclimate/index.css", "ThinkingHome.Plugins.Microclimate.Resources.index.css", AutoLoad = true)]
+	[CssResource("/webapp/microclimate/microclimate.css", "ThinkingHome.Plugins.Microclimate.Resources.microclimate.css", AutoLoad = true)]
 	
 	public class MicroclimatePlugin : PluginBase
 	{
@@ -97,29 +92,6 @@ namespace ThinkingHome.Plugins.Microclimate
 						channel = s.Channel,
 						showHumidity = s.ShowHumidity ? "Yes" : "No"
 					})
-					.ToList();
-
-				return model;
-			}
-		}
-
-		[HttpCommand("/api/microclimate/sensors/list")]
-		public object GetSensorList(HttpRequestParams request)
-		{
-			var now = DateTime.Now;
-			var from = now.AddHours(-PERIOD);
-
-			using (var session = Context.OpenSession())
-			{
-				var data = session.Query<TemperatureData>()
-					.Where(d => d.CurrentDate > from)
-					.ToList();
-
-				var sensors = session.Query<TemperatureSensor>().ToList();
-
-				var model = sensors
-					.GroupJoin(data, s => s.Id, d => d.Sensor.Id, (s, d) => new { s, d })
-					.Select(x => CreateSensorListItemModel(x.s, x.d.OrderByDescending(d => d.CurrentDate).FirstOrDefault(), now))
 					.ToList();
 
 				return model;
@@ -201,17 +173,6 @@ namespace ThinkingHome.Plugins.Microclimate
 				displayName = sensor.DisplayName,
 				showHumidity = sensor.ShowHumidity,
 				data = gr.Select(d => CreateDataModel(d, now)).ToArray()
-			};
-		}
-
-		private object CreateSensorListItemModel(TemperatureSensor sensor, TemperatureData gr, DateTime now)
-		{
-			return new
-			{
-				id = sensor.Id,
-				displayName = sensor.DisplayName,
-				showHumidity = sensor.ShowHumidity,
-				data = CreateDataModel(gr, now)
 			};
 		}
 
