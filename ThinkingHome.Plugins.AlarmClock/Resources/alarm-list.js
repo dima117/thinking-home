@@ -26,17 +26,6 @@
 				models.setState(id, false).done(api.reload);
 			},
 
-			deleteAlarm: function (childView) {
-
-				var name = childView.model.get('name');
-
-				if (common.utils.confirm('Delete the alarm "{0}"?', name)) {
-
-					var id = childView.model.get('id');
-					models.deleteAlarm(id).done(api.reload);
-				}
-			},
-
 			stopAllSounds: function () {
 
 				models.stopAlarm().done(function () {
@@ -56,7 +45,6 @@
 					view.on('childview:alarm-clock:enable', api.enable);
 					view.on('childview:alarm-clock:disable', api.disable);
 					view.on('childview:alarm-clock:edit', api.editAlarm);
-					view.on('childview:alarm-clock:delete', api.deleteAlarm);
 
 					application.setContentView(view);
 				});

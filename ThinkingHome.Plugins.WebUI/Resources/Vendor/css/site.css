@@ -177,5 +177,12 @@ body {
 .th-margin-bottom-16 {
 	margin-bottom: 16px;
 }
+.th-margin-bottom-32 {
+	margin-bottom: 32px;
+}
+
+.th-btn-width-96 {
+	width: 96px;
+}
 
 /*#endregion */

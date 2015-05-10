@@ -38,10 +38,6 @@
 
 			return lib.$.post('/api/alarm-clock/set-state', { id: id, enabled: enabled }).promise();
 		},
-		deleteAlarm: function (id) {
-
-			return lib.$.post('/api/alarm-clock/delete', { id: id }).promise();
-		},
 		stopAlarm: function () {
 
 			return lib.$.post('/api/alarm-clock/stop').promise();
@@ -56,7 +52,6 @@
 		// requests
 		loadList: api.loadList,
 		setState: api.setState,
-		stopAlarm: api.stopAlarm,
-		deleteAlarm: api.deleteAlarm
+		stopAlarm: api.stopAlarm
 	};
 });

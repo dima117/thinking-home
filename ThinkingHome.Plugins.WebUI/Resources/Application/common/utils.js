@@ -48,6 +48,50 @@ define(
 			}
 		};
 
+		// switchers
+		lib.$.fn.stateSwitcher = function () {
+
+			var onEnter = function () {
+
+				var $el = lib.$(this),
+					data = $el.data("state-switcher-params");
+
+				$el.removeClass(data.stateClass)
+				.addClass(data.actionClass)
+				.text(data.actionText);
+			},
+			onLeave = function () {
+
+				var $el = lib.$(this),
+					data = $el.data("state-switcher-params");
+
+				$el.removeClass(data.actionClass)
+					.addClass(data.stateClass)
+					.text(data.stateText);
+			};
+
+			return this.each(function (index, el) {
+
+				var $el = lib.$(el);
+
+				if ($el.data("state-switcher-params")) {
+
+					$el.unbind("mouseenter", onEnter);
+					$el.unbind("mouseleave", onLeave);
+				}
+
+				var data =
+				{
+					stateText: $el.text(),
+					stateClass: $el.data("state-class"),
+					actionText: $el.data("action-text"),
+					actionClass: $el.data("action-class")
+				};
+
+				$el.data("state-switcher-params", data).addClass(data.stateClass);
+				$el.hover(onEnter, onLeave);
+			});
+		};
 
 		return utils;
 	});
