@@ -24,12 +24,17 @@
 		saveAlarm: function (model) {
 
 			return lib.$.post('/api/alarm-clock/save', model.toJSON()).promise();
+		},
+		deleteAlarm: function (id) {
+
+			return lib.$.post('/api/alarm-clock/delete', { id: id }).promise();
 		}
 	};
 
 	return {
 		AlarmEditorModel: alarmEditorModel,
 		loadEditorData: api.loadEditorData,
-		saveAlarm: api.saveAlarm
+		saveAlarm: api.saveAlarm,
+		deleteAlarm: api.deleteAlarm
 	};
 });
