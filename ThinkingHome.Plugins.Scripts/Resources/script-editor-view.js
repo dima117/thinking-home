@@ -31,25 +31,29 @@
 				'click @ui.btnFullscreen': 'btnFullscreenEditing',
 				'click @ui.btnExitFullscreen': 'btnExitFullscreenEditing'
 			},
+			toogleFuulscreen: function(flag) {
+				
+				if (flag == undefined) {
+					flag = !this.cm.getOption("fullScreen");
+				}
+
+				this.cm.setOption("fullScreen", flag);
+				this.ui.editorPanel.toggleClass("CodeMirror-panel-fullscreen", flag);
+				this.ui.btnFullscreen.toggleClass("hidden", flag);
+				this.ui.btnExitFullscreen.toggleClass("hidden", !flag);
+			},
+
 			btnFullscreenEditing: function(e) {
 
 				e.stopPropagation();
 				e.preventDefault();
-
-				this.cm.setOption("fullScreen", true);
-				this.ui.editorPanel.addClass("CodeMirror-panel-fullscreen");
-				this.ui.btnFullscreen.addClass("hidden");
-				this.ui.btnExitFullscreen.removeClass("hidden");
+				this.toogleFuulscreen(true);
 			},
 			btnExitFullscreenEditing: function (e) {
 
 				e.stopPropagation();
 				e.preventDefault();
-
-				this.cm.setOption("fullScreen", false);
-				this.ui.editorPanel.removeClass("CodeMirror-panel-fullscreen");
-				this.ui.btnFullscreen.removeClass("hidden");
-				this.ui.btnExitFullscreen.addClass("hidden");
+				this.toogleFuulscreen(false);
 			},
 			btnSaveClick: function (e) {
 				e.preventDefault();
