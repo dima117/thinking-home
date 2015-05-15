@@ -1,8 +1,49 @@
-/*#region layout */
+
+
+
+/*#region bootstrap */
 
 body {
 	padding-top: 64px;
 }
+
+.btn-default:hover {
+	color: #294C69;
+	background-color: #ccc;
+	border-color: #ccc;
+}
+
+input, select, textarea {
+	border-width: 0 0 0 4px;	
+}
+
+input:focus, select:focus, textarea:focus {
+	-webkit-box-shadow: none !important;
+	-ms-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+label {
+	font-weight: normal;
+}
+
+.help-block {
+	color: #bbb;
+}
+
+.panel, .panel-heading {
+	border-width: 0;
+}
+
+.well {
+	-webkit-box-shadow: none;
+	-ms-box-shadow: none;
+	box-shadow: none;
+}
+
+/*#endregion */
+
+/*#region layout */
 
 .sub-header {
 	padding-bottom: 10px;
@@ -27,20 +68,6 @@ body {
 .th-datetime-panel {
 	margin-left: 27%;
 }
-/*#endregion */
-
-/*#region buttons */
-
-.btn-default:hover {
-	color: #294C69;
-	background-color: #ccc;
-	border-color: #ccc;
-}
-
-.help-block {
-	color: #bbb;
-}
-
 /*#endregion */
 
 /*#region tiles */

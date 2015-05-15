@@ -17,18 +17,19 @@
 					theme: 'bootstrap-dark',
 					lineNumbers: true,
 					styleActiveLine: true,
-					matchBrackets: true,
-					extraKeys: {
-						"Esc": function (cm) {
-							if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
-						}
-					}
+					matchBrackets: true
 				});
+			},
+			ui: {
+				editorPanel: '.js-editor-panel',
+				btnFullscreen: '.js-full-screen',
+				btnExitFullscreen: '.js-exit-full-screen'
 			},
 			events: {
 				'click .js-btn-save': 'btnSaveClick',
 				'click .js-btn-cancel': 'btnCancelClick',
-				'click .js-full-screen-editing': 'btnFullscreenEditing'
+				'click @ui.btnFullscreen': 'btnFullscreenEditing',
+				'click @ui.btnExitFullscreen': 'btnExitFullscreenEditing'
 			},
 			btnFullscreenEditing: function(e) {
 
@@ -36,6 +37,19 @@
 				e.preventDefault();
 
 				this.cm.setOption("fullScreen", true);
+				this.ui.editorPanel.addClass("CodeMirror-panel-fullscreen");
+				this.ui.btnFullscreen.addClass("hidden");
+				this.ui.btnExitFullscreen.removeClass("hidden");
+			},
+			btnExitFullscreenEditing: function (e) {
+
+				e.stopPropagation();
+				e.preventDefault();
+
+				this.cm.setOption("fullScreen", false);
+				this.ui.editorPanel.removeClass("CodeMirror-panel-fullscreen");
+				this.ui.btnFullscreen.removeClass("hidden");
+				this.ui.btnExitFullscreen.addClass("hidden");
 			},
 			btnSaveClick: function (e) {
 				e.preventDefault();
