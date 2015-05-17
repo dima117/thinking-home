@@ -2,109 +2,109 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <Fragment>
     <ComponentGroup Id="ProductComponents">
-      <Component Id="ComponentB3ED3E62104B4FADBB3B6CF2ED6B3530" Guid="b3ed3e62-104b-4fad-bb3b-6cf2ed6b3530" DiskId="1" Directory="SERVICEINSTALLFOLDER">
-        <File Id="FILE_CB93AF140F6743AF88DEBD3D7648064E" Source="D:\projects\thinking-home\Setup\dist\service\ECM7.Migrator.dll" />
-        <File Id="FILE_8B20A807E99E459094844B6E0D5CA434" Source="D:\projects\thinking-home\Setup\dist\service\ECM7.Migrator.Framework.dll" />
-        <File Id="FILE_7948D4B267684C31AEC03A905F0A0F77" Source="D:\projects\thinking-home\Setup\dist\service\ECM7.Migrator.Providers.SqlServer.dll" />
-        <File Id="FILE_66941D289BB54F6AAF98D2DF1977D667" Source="D:\projects\thinking-home\Setup\dist\service\home.sdf" />
-        <File Id="FILE_E5105ADA9ED345AA80A61A80F5898DA2" Source="D:\projects\thinking-home\Setup\dist\service\Iesi.Collections.dll" />
-        <File Id="FILE_2BFF0427F603424789D4A5669F2AE7EE" Source="D:\projects\thinking-home\Setup\dist\service\Microsoft.Web.XmlTransform.dll" />
-        <File Id="FILE_2A466BC929B944469825EFF386DA9DC3" Source="D:\projects\thinking-home\Setup\dist\service\Newtonsoft.Json.dll" />
-        <File Id="FILE_63C6E941B40C45E5B6D370323F17D6A0" Source="D:\projects\thinking-home\Setup\dist\service\NHibernate.dll" />
-        <File Id="FILE_962C0E4077CE46E781102D3A4C2710A1" Source="D:\projects\thinking-home\Setup\dist\service\NLog.config" />
-        <File Id="FILE_9D67E61A2BE7426CAED0BB4904EFFDC8" Source="D:\projects\thinking-home\Setup\dist\service\NLog.dll" />
-        <File Id="FILE_B214B32EA1D04CF0AB4F48956CBA9E0A" Source="D:\projects\thinking-home\Setup\dist\service\NuGet.Core.dll" />
-        <File Id="FILE_9E5459003B03485596BEAEBC5F954B31" Source="D:\projects\thinking-home\Setup\dist\service\System.Data.SqlServerCe.dll" />
-        <File Id="FILE_443FE54C951A4A38BB5F3207000F707A" Source="D:\projects\thinking-home\Setup\dist\service\ThinkingHome.Core.Infrastructure.dll" />
-        <File Id="FILE_4A40F8EA765E44EDA7817D0974F5BAA6" Source="D:\projects\thinking-home\Setup\dist\service\ThinkingHome.Core.Plugins.dll" />
-        <File Id="FILE_FD71037C18CF481B9F4655CE316FAA24" Source="D:\projects\thinking-home\Setup\dist\service\ThinkingHome.Service.exe.config" />
-        <File Id="FILE_7A8E13849133482FBA03DF1558315CBD" Source="D:\projects\thinking-home\Setup\dist\service\ThinkingHome.TestConsole.exe" />
-        <File Id="FILE_F576205ADDF442F39B13866641E403AE" Source="D:\projects\thinking-home\Setup\dist\service\ThinkingHome.TestConsole.exe.config" />
+      <Component Id="ComponentB5B7B8D64F074C7CA6E88C8FB9477666" Guid="b5b7b8d6-4f07-4c7c-a6e8-8c8fb9477666" DiskId="1" Directory="SERVICEINSTALLFOLDER">
+        <File Id="FILE_AF953A769926428EB88EDFDDB461BACC" Source="D:\projects\thinking-home\Setup\dist\service\ECM7.Migrator.dll" />
+        <File Id="FILE_32243629C8DD4572A2E45B65FF7C58A0" Source="D:\projects\thinking-home\Setup\dist\service\ECM7.Migrator.Framework.dll" />
+        <File Id="FILE_5E3D154437994746B8D8C03B5423F599" Source="D:\projects\thinking-home\Setup\dist\service\ECM7.Migrator.Providers.SqlServer.dll" />
+        <File Id="FILE_CE7B0E4A04F14365A14A0B05019F9FE7" Source="D:\projects\thinking-home\Setup\dist\service\home.sdf" />
+        <File Id="FILE_6A220A445E854FD79329371B56ADE0C8" Source="D:\projects\thinking-home\Setup\dist\service\Iesi.Collections.dll" />
+        <File Id="FILE_C422216B929E4BBE8010BB97D5015B6F" Source="D:\projects\thinking-home\Setup\dist\service\Microsoft.Web.XmlTransform.dll" />
+        <File Id="FILE_A36A44EB15EB47B09C44FC76098516DC" Source="D:\projects\thinking-home\Setup\dist\service\Newtonsoft.Json.dll" />
+        <File Id="FILE_96B0903B91F04047AC7565287AE774BD" Source="D:\projects\thinking-home\Setup\dist\service\NHibernate.dll" />
+        <File Id="FILE_3E21F11850B8443ABC65E249C80994C3" Source="D:\projects\thinking-home\Setup\dist\service\NLog.config" />
+        <File Id="FILE_9ADCFFA0527744D8A5030DDA3A7C6B6A" Source="D:\projects\thinking-home\Setup\dist\service\NLog.dll" />
+        <File Id="FILE_2B38EADA87FB451CA2A5E704B4DABB86" Source="D:\projects\thinking-home\Setup\dist\service\NuGet.Core.dll" />
+        <File Id="FILE_2AA8156B34BE42A78DF6E6F1EB9A967B" Source="D:\projects\thinking-home\Setup\dist\service\System.Data.SqlServerCe.dll" />
+        <File Id="FILE_CD71B5207E4C4E4BB9B4039075676E9A" Source="D:\projects\thinking-home\Setup\dist\service\ThinkingHome.Core.Infrastructure.dll" />
+        <File Id="FILE_1F4504F466E9473185265AE31887C114" Source="D:\projects\thinking-home\Setup\dist\service\ThinkingHome.Core.Plugins.dll" />
+        <File Id="FILE_3F495FFB8A994E5A95ACC4E48C514292" Source="D:\projects\thinking-home\Setup\dist\service\ThinkingHome.Service.exe.config" />
+        <File Id="FILE_6983354F0876426498829C292CC31962" Source="D:\projects\thinking-home\Setup\dist\service\ThinkingHome.TestConsole.exe" />
+        <File Id="FILE_27DBEDCAC48641D2911EEA31B46A7ADE" Source="D:\projects\thinking-home\Setup\dist\service\ThinkingHome.TestConsole.exe.config" />
       </Component>
-      <Component Id="Component5D3B47764CEB4D18B8EF8509927F14AF" Guid="5d3b4776-4ceb-4d18-b8ef-8509927f14af" DiskId="1" Directory="FOLDER_FD540457EF704F55B698010EC1996098">
-        <File Id="FILE_BF1AA767FACC41CBA2B827B1B2E1CFD6" Source="D:\projects\thinking-home\Setup\dist\service\amd64\sqlceca40.dll" />
-        <File Id="FILE_5FDC9D0FDF62448EBC51124752E6FFDF" Source="D:\projects\thinking-home\Setup\dist\service\amd64\sqlcecompact40.dll" />
-        <File Id="FILE_4AF43DA381EF44BF9F919CF7CF10F540" Source="D:\projects\thinking-home\Setup\dist\service\amd64\sqlceer40EN.dll" />
-        <File Id="FILE_75FCA6ED01BB41399670E9438DC75FC4" Source="D:\projects\thinking-home\Setup\dist\service\amd64\sqlceme40.dll" />
-        <File Id="FILE_61310A8FC0D94F14910CB2275DD15C23" Source="D:\projects\thinking-home\Setup\dist\service\amd64\sqlceqp40.dll" />
-        <File Id="FILE_38153D40E7F54D2EAF51FBB8783389EC" Source="D:\projects\thinking-home\Setup\dist\service\amd64\sqlcese40.dll" />
+      <Component Id="Component5EB777AE2ED043508AA77693464FDBB8" Guid="5eb777ae-2ed0-4350-8aa7-7693464fdbb8" DiskId="1" Directory="FOLDER_BACE3076FA064FB29CA5D7F09596DC89">
+        <File Id="FILE_0017B512E1AB426A8089DC1FC499E479" Source="D:\projects\thinking-home\Setup\dist\service\amd64\sqlceca40.dll" />
+        <File Id="FILE_755C3CBB4F0D42FA8E43A8F253980D43" Source="D:\projects\thinking-home\Setup\dist\service\amd64\sqlcecompact40.dll" />
+        <File Id="FILE_A060A7A0F778431BB9C41F4201A985BB" Source="D:\projects\thinking-home\Setup\dist\service\amd64\sqlceer40EN.dll" />
+        <File Id="FILE_E4AA45FBED6E44B09545E3CAD732CC45" Source="D:\projects\thinking-home\Setup\dist\service\amd64\sqlceme40.dll" />
+        <File Id="FILE_71BD97967EAA4783BD669906BCD37E52" Source="D:\projects\thinking-home\Setup\dist\service\amd64\sqlceqp40.dll" />
+        <File Id="FILE_E708576BF0A44A8BBE48A9A7AB79880C" Source="D:\projects\thinking-home\Setup\dist\service\amd64\sqlcese40.dll" />
       </Component>
-      <Component Id="ComponentAA745865913F466B9A1CE82A73704CD6" Guid="aa745865-913f-466b-9a1c-e82a73704cd6" DiskId="1" Directory="FOLDER_E0DAFEE1887C49A38FBBE324F95282AA">
-        <File Id="FILE_A027E4A5851849A1B2C9E7F40E6471AC" Source="D:\projects\thinking-home\Setup\dist\service\amd64\Microsoft.VC90.CRT\msvcr90.dll" />
+      <Component Id="ComponentDD49E9DB640640B081B1EC21E408A518" Guid="dd49e9db-6406-40b0-81b1-ec21e408a518" DiskId="1" Directory="FOLDER_5F8060413DAE483982879F1D436E3BD6">
+        <File Id="FILE_9E107F5BEDC64C8BA48CD8684363B3F1" Source="D:\projects\thinking-home\Setup\dist\service\amd64\Microsoft.VC90.CRT\msvcr90.dll" />
       </Component>
-      <Component Id="ComponentFD67CAC6F712462CAC268B7168C008E7" Guid="fd67cac6-f712-462c-ac26-8b7168c008e7" DiskId="1" Directory="FOLDER_5982DC6D5B11421AA52FA00A873447C0">
-        <File Id="FILE_40C459F3FC2144FAA9C702BA92325513" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.AlarmClock.2.0.0.48\ThinkingHome.Plugins.AlarmClock.2.0.0.48.nupkg" />
-        <File Id="FILE_2D75C025761D4C3D8BE1CD7FDE22C96C" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.AlarmClock.2.0.0.48\ThinkingHome.Plugins.AlarmClock.dll" />
+      <Component Id="ComponentDFBD2018063C43FC87E93598937D4DA4" Guid="dfbd2018-063c-43fc-87e9-3598937d4da4" DiskId="1" Directory="FOLDER_0379E0066DA743C68916478CEB107F78">
+        <File Id="FILE_2DB268CD091644D1A362355CD36D927C" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.AlarmClock.2.0.0.48\ThinkingHome.Plugins.AlarmClock.2.0.0.48.nupkg" />
+        <File Id="FILE_96513DFC96894F1F8B817444B8FAC726" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.AlarmClock.2.0.0.48\ThinkingHome.Plugins.AlarmClock.dll" />
       </Component>
-      <Component Id="Component9B902ED8EF7644C4BEAD0FA5524783C2" Guid="9b902ed8-ef76-44c4-bead-0fa5524783c2" DiskId="1" Directory="FOLDER_521CF68B5B9F4D5BBD62F04E87AA160A">
-        <File Id="FILE_B758DC17273F45369871CDEB95DA2D83" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Audio.2.0.0.48\NAudio.dll" />
-        <File Id="FILE_419D5F849A5D4B30A527AE5F1EC7B184" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Audio.2.0.0.48\NAudio.xml" />
-        <File Id="FILE_C821B979B3B146BCB32968DED583B56B" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Audio.2.0.0.48\ThinkingHome.Plugins.Audio.2.0.0.48.nupkg" />
-        <File Id="FILE_571E231BA63B4CEAAF71DB0BE3CF58A1" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Audio.2.0.0.48\ThinkingHome.Plugins.Audio.dll" />
+      <Component Id="Component79297E656F324979827D55826F94734D" Guid="79297e65-6f32-4979-827d-55826f94734d" DiskId="1" Directory="FOLDER_A38681939CC345E6981C910BD7168942">
+        <File Id="FILE_F459602BFC2C4F2D97C7E85DE482C988" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Audio.2.0.0.48\NAudio.dll" />
+        <File Id="FILE_9536155291A046A6B4D7E9E61370DED0" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Audio.2.0.0.48\NAudio.xml" />
+        <File Id="FILE_A5B11CE877A849ECB9A2DF03474FC022" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Audio.2.0.0.48\ThinkingHome.Plugins.Audio.2.0.0.48.nupkg" />
+        <File Id="FILE_265185C830F542CB8E786D0F42174CCD" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Audio.2.0.0.48\ThinkingHome.Plugins.Audio.dll" />
       </Component>
-      <Component Id="Component8E92AE61444E4D5AB5EECA749A2FF5D9" Guid="8e92ae61-444e-4d5a-b5ee-ca749a2ff5d9" DiskId="1" Directory="FOLDER_DD24C0E27752445EA320FFCBF8AA8AC9">
-        <File Id="FILE_307202DACB344EEE9FF5E5140BD354C6" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.48\Microsoft.Owin.Diagnostics.dll" />
-        <File Id="FILE_6D083C4D8A264BB2A45BBCBB95395ECD" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.48\Microsoft.Owin.Diagnostics.xml" />
-        <File Id="FILE_5894B5C15D95426CB8C594D3641411AD" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.48\Microsoft.Owin.dll" />
-        <File Id="FILE_B2830715A0114BAA8EBD2C08DAD9084F" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.48\Microsoft.Owin.Host.HttpListener.dll" />
-        <File Id="FILE_D313726191BC40EDA8C9CB9BA323F8F8" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.48\Microsoft.Owin.Host.HttpListener.xml" />
-        <File Id="FILE_E3AEA769F5C742ABB100CEC7CF079785" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.48\Microsoft.Owin.Hosting.dll" />
-        <File Id="FILE_05CCC85BB1F640C79368EACE10EE8BB7" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.48\Microsoft.Owin.Hosting.xml" />
-        <File Id="FILE_EEB9A93756484458BF80707BE1DD9C4D" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.48\Microsoft.Owin.xml" />
-        <File Id="FILE_B72FE34F0C854F9E8AB587D79EC1DBC0" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.48\Owin.dll" />
-        <File Id="FILE_308FBE73AEFA46208CAA7667936B2712" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.48\Owin.Types.dll" />
-        <File Id="FILE_C48AA1F349B54313B6F6F3B4541C75E5" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.48\ThinkingHome.Plugins.Listener.2.0.0.48.nupkg" />
-        <File Id="FILE_FC9860B0F0194941BC9BFADA1D266A35" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.48\ThinkingHome.Plugins.Listener.dll" />
+      <Component Id="Component92942C61B2E94578A59EC5B2264418CA" Guid="92942c61-b2e9-4578-a59e-c5b2264418ca" DiskId="1" Directory="FOLDER_F467D5AC9A91412D9BD1F60EB04E9124">
+        <File Id="FILE_8DD653F5A3B84D769A067B59FB38AD02" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.48\Microsoft.Owin.Diagnostics.dll" />
+        <File Id="FILE_FCF2841FE91B45AB80B36D1FA670BBC9" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.48\Microsoft.Owin.Diagnostics.xml" />
+        <File Id="FILE_736B546560F74AF8933C190B3788D655" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.48\Microsoft.Owin.dll" />
+        <File Id="FILE_3A3445AD63BE46C0B0642A98AA0FB4F5" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.48\Microsoft.Owin.Host.HttpListener.dll" />
+        <File Id="FILE_FE03545D038E416A81D1D69B35A5B135" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.48\Microsoft.Owin.Host.HttpListener.xml" />
+        <File Id="FILE_6FEA2EC09CFB482BA628B1F47548CB52" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.48\Microsoft.Owin.Hosting.dll" />
+        <File Id="FILE_2E100A66A6ED42E58FB2B8D2188321B8" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.48\Microsoft.Owin.Hosting.xml" />
+        <File Id="FILE_DB0F04E1193D41F4B50E219281DD7AC4" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.48\Microsoft.Owin.xml" />
+        <File Id="FILE_FFC57A5F6CD84EB59EB4F47597EBFB73" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.48\Owin.dll" />
+        <File Id="FILE_835CE7F0D4BC4E609DF1F56BF5217B86" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.48\Owin.Types.dll" />
+        <File Id="FILE_7047DFC1B0F147F8BBE44F2EFABE4033" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.48\ThinkingHome.Plugins.Listener.2.0.0.48.nupkg" />
+        <File Id="FILE_B124C8D0BA0A44D484ECADA301BC0FFD" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.48\ThinkingHome.Plugins.Listener.dll" />
       </Component>
-      <Component Id="ComponentF6382325BBF14D7E810B4F33060F19AE" Guid="f6382325-bbf1-4d7e-810b-4f33060f19ae" DiskId="1" Directory="FOLDER_AACD063469F844BFB81E4D782F3EC967">
-        <File Id="FILE_FF064B0E93AC49E291D9ECE66DB472ED" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Microclimate.2.0.0.48\ThinkingHome.Plugins.Microclimate.2.0.0.48.nupkg" />
-        <File Id="FILE_2CC663E91881420EBD91E6007589FB67" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Microclimate.2.0.0.48\ThinkingHome.Plugins.Microclimate.dll" />
+      <Component Id="Component54D4042A8FC04E3AAD10F1A7F923033A" Guid="54d4042a-8fc0-4e3a-ad10-f1a7f923033a" DiskId="1" Directory="FOLDER_303B7DB367EB4F4FB8D6BFC5F67677EF">
+        <File Id="FILE_BE34AFD759FD4EE6B56F8974C723DFF0" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Microclimate.2.0.0.48\ThinkingHome.Plugins.Microclimate.2.0.0.48.nupkg" />
+        <File Id="FILE_7CCBB671677A44E19A3AF9C94826FC12" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Microclimate.2.0.0.48\ThinkingHome.Plugins.Microclimate.dll" />
       </Component>
-      <Component Id="Component4B4681EA0C0C4AB78F3ACCB6782D39F7" Guid="4b4681ea-0c0c-4ab7-8f3a-ccb6782d39f7" DiskId="1" Directory="FOLDER_41849A8F0B55478E8B8D2FEBBFDEC373">
-        <File Id="FILE_D426FD8A626D4B58BBD3AAA621851361" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooLite.2.0.0.48\HidLibrary.dll" />
-        <File Id="FILE_5ADB2B81557349DEBC4F092EB5616B2D" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooLite.2.0.0.48\ThinkingHome.NooLite.dll" />
-        <File Id="FILE_E8C4B84886544182922B73EFAE4B8569" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooLite.2.0.0.48\ThinkingHome.Plugins.NooLite.2.0.0.48.nupkg" />
-        <File Id="FILE_0B97E85714CD4A1987EF31A7466A873D" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooLite.2.0.0.48\ThinkingHome.Plugins.NooLite.dll" />
+      <Component Id="Component772B22D096FC43F6A15180977AEA1DB4" Guid="772b22d0-96fc-43f6-a151-80977aea1db4" DiskId="1" Directory="FOLDER_45F4B6FCD9284337A23E08789E195A54">
+        <File Id="FILE_A9F296268FB949CFA087AD51A74D7AD9" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooLite.2.0.0.48\HidLibrary.dll" />
+        <File Id="FILE_37D68B9A552A48B8AC3D282CB0F2827D" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooLite.2.0.0.48\ThinkingHome.NooLite.dll" />
+        <File Id="FILE_5943127D830045D7BB6D802E1C4847F8" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooLite.2.0.0.48\ThinkingHome.Plugins.NooLite.2.0.0.48.nupkg" />
+        <File Id="FILE_E04B709013464B5D8F7E1A0AB2BB6FBE" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooLite.2.0.0.48\ThinkingHome.Plugins.NooLite.dll" />
       </Component>
-      <Component Id="Component302CE68209B04161B329B2ACD2E7FCA1" Guid="302ce682-09b0-4161-b329-b2acd2e7fca1" DiskId="1" Directory="FOLDER_F6884AEEFF424E88A2B9B3812F41C763">
-        <File Id="FILE_47BE96F4BC6D48A4AFE2C014D7CBEC8F" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Packages.2.0.0.48\ThinkingHome.Plugins.Packages.2.0.0.48.nupkg" />
-        <File Id="FILE_6EFE1DDC6A0E4BFAB16E337A4AD1DF4B" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Packages.2.0.0.48\ThinkingHome.Plugins.Packages.dll" />
+      <Component Id="Component83AB57FCDE0B4B3BB55E9B691464A12F" Guid="83ab57fc-de0b-4b3b-b55e-9b691464a12f" DiskId="1" Directory="FOLDER_5CBBA1C10ADC401CAB003CD854649B1F">
+        <File Id="FILE_BB5B6B8EDB1C433A9849921E895B82BB" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Packages.2.0.0.48\ThinkingHome.Plugins.Packages.2.0.0.48.nupkg" />
+        <File Id="FILE_0DEA4642F8EC48DABA075B4EF81888EE" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Packages.2.0.0.48\ThinkingHome.Plugins.Packages.dll" />
       </Component>
-      <Component Id="ComponentDAC3BD5B750B4E11A19F8D4BF0C3A198" Guid="dac3bd5b-750b-4e11-a19f-8d4bf0c3a198" DiskId="1" Directory="FOLDER_2AD9D264B98C4DED99BFB16D0D4550F3">
-        <File Id="FILE_34C652D44A0A4C0CB8241CDB096CF97B" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.48\ClearScript.dll" />
-        <File Id="FILE_F88CE5383E47441489E5C78469ED0279" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.48\ClearScriptV8-32.dll" />
-        <File Id="FILE_3FBEC9493DA141E2BDB3EB1A3C5D1F75" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.48\ClearScriptV8-64.dll" />
-        <File Id="FILE_A6EFD50789A643ABBE18E62E6F8D4DF1" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.48\ThinkingHome.Plugins.Scripts.2.0.0.48.nupkg" />
-        <File Id="FILE_2DF4655BA0994A8B950B7531D0775731" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.48\ThinkingHome.Plugins.Scripts.dll" />
-        <File Id="FILE_EF8BD50D40064E8EAA9BC04E1B6931D1" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.48\v8-ia32.dll" />
-        <File Id="FILE_CAA0559E035B4148BAA6B9D5E8CC15E3" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.48\v8-x64.dll" />
+      <Component Id="ComponentE647296EB5444F4B93B6FAAA250B24D7" Guid="e647296e-b544-4f4b-93b6-faaa250b24d7" DiskId="1" Directory="FOLDER_1928AFDB61FB4457835282B5167D3DDC">
+        <File Id="FILE_5478729F4FD04F2D898335CAE9257BC8" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.48\ClearScript.dll" />
+        <File Id="FILE_3C91957A7FA14637B73CF58B088F610C" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.48\ClearScriptV8-32.dll" />
+        <File Id="FILE_D1C704C3AA374C0EB2AD47E91DF1A51F" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.48\ClearScriptV8-64.dll" />
+        <File Id="FILE_7317A6248BB943DBA1C11FCB02366295" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.48\ThinkingHome.Plugins.Scripts.2.0.0.48.nupkg" />
+        <File Id="FILE_51F9FA6031B8476EB32010CBB1AA31FE" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.48\ThinkingHome.Plugins.Scripts.dll" />
+        <File Id="FILE_434A8B3283BA4DAABFD484B9C9AA2B45" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.48\v8-ia32.dll" />
+        <File Id="FILE_3B44C7640D3843308F11B6137DFAA560" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.48\v8-x64.dll" />
       </Component>
-      <Component Id="ComponentE435DB20E6A446AAA02735FDD7B1F6E3" Guid="e435db20-e6a4-46aa-a027-35fdd7b1f6e3" DiskId="1" Directory="FOLDER_18B4BBDFC596480FB4E0A815E2E1192C">
-        <File Id="FILE_24DE1F99B6554047975AA748C356073F" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Timer.2.0.0.48\ThinkingHome.Plugins.Timer.2.0.0.48.nupkg" />
-        <File Id="FILE_95787BF0904049ABBACBA52FAC3257FA" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Timer.2.0.0.48\ThinkingHome.Plugins.Timer.dll" />
+      <Component Id="ComponentF5FDC81601D34086AFA2AA1CE96C3E89" Guid="f5fdc816-01d3-4086-afa2-aa1ce96c3e89" DiskId="1" Directory="FOLDER_CFBC6502F93144EFB36B64F46036EC23">
+        <File Id="FILE_4F35C4204C6247F098FAA225D3A5B429" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Timer.2.0.0.48\ThinkingHome.Plugins.Timer.2.0.0.48.nupkg" />
+        <File Id="FILE_2A51D9B3143C475DBB313A2D8421F257" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Timer.2.0.0.48\ThinkingHome.Plugins.Timer.dll" />
       </Component>
-      <Component Id="Component105ACD5EF581470BBC3F145E743CE1F7" Guid="105acd5e-f581-470b-bc3f-145e743ce1f7" DiskId="1" Directory="FOLDER_EDFBBA54C04A44AF83975BA61430F0C1">
-        <File Id="FILE_6DD33E5736794F7FB42FB99B236C4D1D" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Tmp.2.0.0.48\ThinkingHome.Plugins.Tmp.2.0.0.48.nupkg" />
-        <File Id="FILE_E16450F4DFF844B9A646224F4A4C6DFC" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Tmp.2.0.0.48\ThinkingHome.Plugins.Tmp.dll" />
+      <Component Id="Component3994241847124AE791E98A15B8509115" Guid="39942418-4712-4ae7-91e9-8a15b8509115" DiskId="1" Directory="FOLDER_7702F24306BF4D6CBDA6B6D22EAD70E4">
+        <File Id="FILE_62C0D73AE1344ECCBC479E4957E56C42" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Tmp.2.0.0.48\ThinkingHome.Plugins.Tmp.2.0.0.48.nupkg" />
+        <File Id="FILE_3D04D51BFEC54152A966139FFBC96FB6" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Tmp.2.0.0.48\ThinkingHome.Plugins.Tmp.dll" />
       </Component>
-      <Component Id="ComponentE7A1941BB3024819BD6AA1295C71D8E1" Guid="e7a1941b-b302-4819-bd6a-a1295c71d8e1" DiskId="1" Directory="FOLDER_40609355F4884551853B6CFBDCDE73ED">
-        <File Id="FILE_392541999AEE4BA1A8878C5DAD234E1C" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Weather.2.0.0.48\ThinkingHome.Plugins.Weather.2.0.0.48.nupkg" />
-        <File Id="FILE_2F69E16DA2E94565B5E428384423663D" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Weather.2.0.0.48\ThinkingHome.Plugins.Weather.dll" />
+      <Component Id="Component8BEA971F84594EE1B522826AE2CC8035" Guid="8bea971f-8459-4ee1-b522-826ae2cc8035" DiskId="1" Directory="FOLDER_0BDC8ADA720B4437B29A95B130C53A3B">
+        <File Id="FILE_E0BB5298150044DDADBB9454DEE8A40A" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Weather.2.0.0.48\ThinkingHome.Plugins.Weather.2.0.0.48.nupkg" />
+        <File Id="FILE_C568EA5B8D7048BEB19C873DA3FD858D" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Weather.2.0.0.48\ThinkingHome.Plugins.Weather.dll" />
       </Component>
-      <Component Id="Component7F07323526394AD1AA8A9699F80781C0" Guid="7f073235-2639-4ad1-aa8a-9699f80781c0" DiskId="1" Directory="FOLDER_B6A464560A7A4E99A57C0F2A5DCF8C21">
-        <File Id="FILE_9740B0F7A2E84E7D89FBC51C2CB5F325" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.WebUI.2.0.0.48\ThinkingHome.Plugins.WebUI.2.0.0.48.nupkg" />
-        <File Id="FILE_3ED854F4D7E74834BAEA49FC65ED848F" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.WebUI.2.0.0.48\ThinkingHome.Plugins.WebUI.dll" />
+      <Component Id="Component821985EE21DE413E81123B90F0D793CA" Guid="821985ee-21de-413e-8112-3b90f0d793ca" DiskId="1" Directory="FOLDER_2302F8D5DCCB4F228BEA0579DF702780">
+        <File Id="FILE_96E2695CD19E444E89C4B121F4609F36" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.WebUI.2.0.0.48\ThinkingHome.Plugins.WebUI.2.0.0.48.nupkg" />
+        <File Id="FILE_831AB6B83C264D649020B8EC24189FD2" Source="D:\projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.WebUI.2.0.0.48\ThinkingHome.Plugins.WebUI.dll" />
       </Component>
-      <Component Id="Component93F1D9D8A69D469793D5910635082E94" Guid="93f1d9d8-a69d-4697-93d5-910635082e94" DiskId="1" Directory="FOLDER_8ED72EF7CC914F45B7799EAF0621825D">
-        <File Id="FILE_BD74759014334E9A8BCF3BE40F2C8EE7" Source="D:\projects\thinking-home\Setup\dist\service\x86\sqlceca40.dll" />
-        <File Id="FILE_77519DF06D594ED0BAA73E4914CEFD9A" Source="D:\projects\thinking-home\Setup\dist\service\x86\sqlcecompact40.dll" />
-        <File Id="FILE_09405F39989E4335A59ED449724971FA" Source="D:\projects\thinking-home\Setup\dist\service\x86\sqlceer40EN.dll" />
-        <File Id="FILE_578DC1DF15C44F5BA54FED80CF9E3C51" Source="D:\projects\thinking-home\Setup\dist\service\x86\sqlceme40.dll" />
-        <File Id="FILE_D1A1098B71FB46C884D7DB2AE96D65C3" Source="D:\projects\thinking-home\Setup\dist\service\x86\sqlceqp40.dll" />
-        <File Id="FILE_ACCA9D6567FA46DF91D597781E317807" Source="D:\projects\thinking-home\Setup\dist\service\x86\sqlcese40.dll" />
+      <Component Id="ComponentAE336B4A49D3487AA68F861B1D310D96" Guid="ae336b4a-49d3-487a-a68f-861b1d310d96" DiskId="1" Directory="FOLDER_76DD3B7ABDCD49739B3A7B6179C227FE">
+        <File Id="FILE_D366F43580674AA598A33B825144EBD7" Source="D:\projects\thinking-home\Setup\dist\service\x86\sqlceca40.dll" />
+        <File Id="FILE_566081FDE1A44A56BB59C01D4FDCDAC2" Source="D:\projects\thinking-home\Setup\dist\service\x86\sqlcecompact40.dll" />
+        <File Id="FILE_4883266AED0C42C2873E3BFF36E7F470" Source="D:\projects\thinking-home\Setup\dist\service\x86\sqlceer40EN.dll" />
+        <File Id="FILE_B8F2D92A61AB4D6FA20EC76AADA27684" Source="D:\projects\thinking-home\Setup\dist\service\x86\sqlceme40.dll" />
+        <File Id="FILE_86A57180DCD74592880E1AFF9329EC3D" Source="D:\projects\thinking-home\Setup\dist\service\x86\sqlceqp40.dll" />
+        <File Id="FILE_8858539558B644269D286427E8EAE234" Source="D:\projects\thinking-home\Setup\dist\service\x86\sqlcese40.dll" />
       </Component>
-      <Component Id="ComponentAE4F25127BA147F5B9DF598FD9BF7944" Guid="ae4f2512-7ba1-47f5-b9df-598fd9bf7944" DiskId="1" Directory="FOLDER_CCB499E79734463CBFE12316ABDB8F90">
-        <File Id="FILE_3E17D3C519F94CA6A0F2BBC95FD6F89C" Source="D:\projects\thinking-home\Setup\dist\service\x86\Microsoft.VC90.CRT\msvcr90.dll" />
+      <Component Id="Component443E44EF7AEF450B883B4E2554FA4C93" Guid="443e44ef-7aef-450b-883b-4e2554fa4c93" DiskId="1" Directory="FOLDER_5124E87B35EA4775A73BD718C4005628">
+        <File Id="FILE_C99255BB5E484AC3AFC4A53C6F29767B" Source="D:\projects\thinking-home\Setup\dist\service\x86\Microsoft.VC90.CRT\msvcr90.dll" />
       </Component>
     </ComponentGroup>
   </Fragment>

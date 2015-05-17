@@ -36,7 +36,7 @@ namespace ThinkingHome.Plugins.Listener
 		{
 			appBuilder
 				.Use<ListenerModule>(registeredHandlers, Logger)
-				.UseErrorPage();
+				.Use<Error404Module>();
 		}
 
 		public override void StopPlugin()

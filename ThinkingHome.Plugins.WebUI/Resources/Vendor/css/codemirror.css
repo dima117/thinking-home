@@ -382,7 +382,7 @@ span.CodeMirror-selectedtext { background: none; }
 
 .cm-s-bootstrap-dark .CodeMirror-gutters { background: #252526; border-right: none; }
 .cm-s-bootstrap-dark .CodeMirror-linenumber { color: #5a5a5a; }
-.cm-s-bootstrap-dark .CodeMirror-cursor { border-left: 1px solid #333 !important; }
+.cm-s-bootstrap-dark .CodeMirror-cursor { border-left: 2px solid #ccc !important; }
 
 
 .cm-s-bootstrap-dark .cm-keyword {  color: #569CD6; font-weight: normal; }

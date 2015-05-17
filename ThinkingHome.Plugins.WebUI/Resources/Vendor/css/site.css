@@ -5,6 +5,7 @@
 
 body {
 	padding-top: 64px;
+	font-weight: 300;
 }
 
 .btn-default:hover {
@@ -13,13 +14,11 @@ body {
 	border-color: #ccc;
 }
 
-input, select, textarea {
-	border-width: 0 !important;
+.form-control {
+	border-width: 0 !important;	
 }
 
-.navbar-default input,
-.navbar-default select,
-.navbar-default textarea {
+.navbar-default .form-control {
 	background-color: #356288;
 }
 
@@ -31,33 +30,43 @@ input, select, textarea {
 	color: white;
 }
 
-	.form-control:focus::-webkit-input-placeholder {
-		color: #aac7de;
-	}
+.form-control:focus::-webkit-input-placeholder {
+    color: #aac7de;
+}
 
-	.form-control:focus:-moz-placeholder {
-		color: #aac7de;
-	}
+.form-control:focus:-moz-placeholder {
+    color: #aac7de;
+}
 
-	.form-control:focus::-moz-placeholder {
-		color: #aac7de;
-	}
+.form-control:focus::-moz-placeholder {
+    color: #aac7de;
+}
 
-	.form-control:focus:-ms-input-placeholder {
-		color: #aac7de;
-	}
+.form-control:focus:-ms-input-placeholder {
+    color: #aac7de;
+}
 
-.pager li > a:hover {
+a.list-group-item:hover .list-group-item-heading {
 	color: #294C69;
 }
 
-.pager .disabled > a {
+a.list-group-item:hover {
+	color: #294C69;
+}
+
+.pager li>a:hover {
+	color: #294C69;
+}
+
+.pager .disabled>a {
 	border-color: #999;
 }
 
+
+
 .label,
 .control-label {
-	font-weight: 200;
+	font-weight: 200;	
 }
 
 .help-block {
@@ -68,11 +77,18 @@ input, select, textarea {
 	border-width: 0;
 }
 
+.modal-header,
+.modal-footer {
+	background-color: #213e56;
+}
+
+
 .well {
 	-webkit-box-shadow: none;
 	-ms-box-shadow: none;
 	box-shadow: none;
 }
+
 /*#endregion */
 
 /*#region layout */
@@ -246,8 +262,8 @@ input, select, textarea {
 	width: 96px;
 }
 
-.th-btn-width-112 {
-	width: 112px;
+.th-btn-width-120 {
+	width: 120px;
 }
 
 /*#endregion */
