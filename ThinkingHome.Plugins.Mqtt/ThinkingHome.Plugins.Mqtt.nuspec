@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+	<metadata>
+		<version>1.0.0.0</version>
+		<authors>dima117</authors>
+		<owners>dima117</owners>
+		<licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+		<!--<dependencies>
+			<dependency id="ThinkingHome.Plugins.Scripts" />
+		</dependencies>-->
+		<id>ThinkingHome.Plugins.Mqtt</id>
+		<title>Mqtt plugin</title>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>MQTT client for M2M communication</description>
+		<summary>MQTT client for M2M communication</summary>
+	</metadata>
+	<files>
+		<file src="M2Mqtt.dll" target="M2Mqtt.dll" />
+		<file src="ThinkingHome.Plugins.Mqtt.dll" target="ThinkingHome.Plugins.Mqtt.dll" />
+	</files>
+</package>
