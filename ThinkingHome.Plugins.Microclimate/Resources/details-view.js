@@ -67,9 +67,6 @@
 				tChart: ".js-temperature-chart",
 				hChart: ".js-humidity-chart"
 			},
-			triggers: {
-				'click .js-show-list': 'show:sensor:list'
-			},
 			onShow: function () {
 
 				var showHumidity = this.model.get('showHumidity'),

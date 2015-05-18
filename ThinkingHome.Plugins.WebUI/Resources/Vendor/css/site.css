@@ -114,7 +114,11 @@ a.list-group-item:hover {
 }
 
 .th-datetime-panel {
-	margin-left: 27%;
+	text-align: center;
+	width: 220px;
+	left: 50%;
+	margin-left: -110px;
+	position: absolute;
 }
 /*#endregion */
 

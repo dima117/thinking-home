@@ -13,12 +13,8 @@
 							model: model
 						});
 
-						view.on('show:sensor:list', api.goBack);
 						application.setContentView(view);
 					});
-			},
-			goBack: function () {
-				application.navigate('webapp/microclimate/index');
 			}
 		};
 
