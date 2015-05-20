@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Configuration;
+using System.Diagnostics;
+using System.Text;
 using ECM7.Migrator.Framework;
 using ThinkingHome.Core.Plugins;
 using uPLibrary.Networking.M2Mqtt;
@@ -55,7 +57,7 @@ namespace ThinkingHome.Plugins.Mqtt
 
 		public override void InitPlugin()
 		{
-			base.InitPlugin();
+			Debugger.Launch();
 
 			bool isValidSettings = true;
 
@@ -83,7 +85,7 @@ namespace ThinkingHome.Plugins.Mqtt
 
 		void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
 		{
-			throw new NotImplementedException();
+			Logger.Info("mqtt client {0}: message received\ntopic: {1}, message: {2}", ((MqttClient)sender).ClientId, e.Topic, Encoding.UTF8.GetString(e.Message));
 		}
 
 		void client_ConnectionClosed(object sender, EventArgs e)
@@ -93,8 +95,6 @@ namespace ThinkingHome.Plugins.Mqtt
 
 		public override void StartPlugin()
 		{
-			base.StartPlugin();
-
 			if (client != null)
 			{
 				var clientId = Guid.NewGuid().ToString();
