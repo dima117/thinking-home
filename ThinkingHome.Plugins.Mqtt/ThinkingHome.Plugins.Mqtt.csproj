@@ -82,6 +82,7 @@
     <ProjectReference Include="..\ThinkingHome.Plugins.Timer\ThinkingHome.Plugins.Timer.csproj">
       <Project>{bf7ba7fa-7bda-40a8-8b1e-bc70fe9b791e}</Project>
       <Name>ThinkingHome.Plugins.Timer</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
