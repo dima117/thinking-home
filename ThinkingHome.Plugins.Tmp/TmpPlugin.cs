@@ -163,24 +163,30 @@ namespace ThinkingHome.Plugins.Tmp
 		}
 
 		[RunPeriodically(1)]
-		public void EveryMinute(DateTime now)
+		public void EveryMinute()
 		{
+			DateTime now = DateTime.Now;
+
 			Logger.Info("run: [EveryMinute] at {0}", now);
 			Thread.Sleep(120000);
 			Logger.Info("complete: [EveryMinute] at {0}", now);
 		}
 
 		[RunPeriodically(5)]
-		public void EveryFiveMinutes(DateTime now)
+		public void EveryFiveMinutes()
 		{
+			DateTime now = DateTime.Now;
+
 			Logger.Info("run: [EveryFiveMinutes] at {0}", now);
 			Thread.Sleep(320000);
 			Logger.Info("complete: [EveryFiveMinutes] at {0}", now);
 		}
 
 		[RunPeriodically(10)]
-		public void EveryTenMinutes(DateTime now)
+		public void EveryTenMinutes()
 		{
+			DateTime now = DateTime.Now;
+
 			Logger.Info("run: [EveryTenMinutes] at {0}", now);
 			Thread.Sleep(50000);
 			Logger.Info("complete: [EveryTenMinutes] at {0}", now);

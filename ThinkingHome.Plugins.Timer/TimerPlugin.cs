@@ -20,7 +20,7 @@ namespace ThinkingHome.Plugins.Timer
 		public Action<DateTime>[] OnEvent { get; set; }
 
 		[ImportMany("38A9F1A7-63A4-4688-8089-31F4ED4A9A61")]
-		public Lazy<Action<DateTime>, IRunPeriodicallyAttribute>[] PeriodicalActions { get; set; }
+		public Lazy<Action, IRunPeriodicallyAttribute>[] PeriodicalActions { get; set; }
 
 		private readonly List<PeriodicalActionState> periodicalHandlers = new List<PeriodicalActionState>();
 

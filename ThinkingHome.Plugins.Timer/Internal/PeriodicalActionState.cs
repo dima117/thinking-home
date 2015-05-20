@@ -12,10 +12,10 @@ namespace ThinkingHome.Plugins.Timer.Internal
 		private readonly Logger logger;
 
 		private readonly object lockObject = new object(); 
-		private readonly Action<DateTime> action;
+		private readonly Action action;
 		private readonly int interval;
 
-		public PeriodicalActionState(Action<DateTime> action, int interval, DateTime now, Logger logger)
+		public PeriodicalActionState(Action action, int interval, DateTime now, Logger logger)
 		{
 			logger.Info("register periodical action: {0} ({1})", action.Method, action.Method.DeclaringType);
 
@@ -55,7 +55,7 @@ namespace ThinkingHome.Plugins.Timer.Internal
 							try
 							{
 								logger.Info("run periodical task {0}", taskInfo);
-								action(now);
+								action();
 								logger.Info("task is completed: {0}", taskInfo);
 							}
 							catch (Exception ex)

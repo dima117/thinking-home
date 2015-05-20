@@ -74,7 +74,7 @@ namespace ThinkingHome.Plugins.Weather
 		#region events
 
 		[RunPeriodically(UPDATE_PERIOD)]
-		public void AutomaticUpdate(DateTime now)
+		public void AutomaticUpdate()
 		{
 			Logger.Info("automatic update all locations");
 

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Text;
 using ECM7.Migrator.Framework;
 using ThinkingHome.Core.Plugins;
+using ThinkingHome.Plugins.Timer.Attributes;
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
 
@@ -51,13 +52,17 @@ namespace ThinkingHome.Plugins.Mqtt
 
 		#endregion
 
+		private readonly object lockObject = new object();
+
 		private MqttClient client;
+
+		private bool enabled;
 
 		private const string SETTINGS_MESSAGE_FORMAT = "{0} is required but it is not specified - check the \"{1}\" parameter";
 
 		public override void InitPlugin()
 		{
-			Debugger.Launch();
+			//Debugger.Launch();
 
 			bool isValidSettings = true;
 
@@ -95,22 +100,45 @@ namespace ThinkingHome.Plugins.Mqtt
 
 		public override void StartPlugin()
 		{
-			if (client != null)
+			enabled = true;
+
+			ReConnect();
+		}
+
+		[RunPeriodically(1)]
+		private void ReConnect()
+		{
+			if (client != null && !client.IsConnected && enabled)
 			{
-				var clientId = Guid.NewGuid().ToString();
-
-				if (string.IsNullOrWhiteSpace(Login) || string.IsNullOrWhiteSpace(Password))
+				lock (lockObject)
 				{
-					Logger.Info("connect to mqtt broker using clientId: {0}", clientId);
-					client.Connect(clientId);
-				}
-				else
-				{
-					Logger.Info("connect to mqtt broker using clientId: {0}, login: {1}", clientId, Login);
-					client.Connect(clientId, Login, Password);
-				}
+					if (client != null && !client.IsConnected && enabled)
+					{
+						try
+						{
+							var clientId = Guid.NewGuid().ToString();
 
-				client.Subscribe(new[] { Path }, new[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE });
+							Logger.Info("connect to mqtt broker using clientId: {0}", clientId);
+
+							if (string.IsNullOrWhiteSpace(Login) || string.IsNullOrWhiteSpace(Password))
+							{
+								client.Connect(clientId);
+							}
+							else
+							{
+								client.Connect(clientId, Login, Password);
+							}
+
+							Logger.Info("subscribe to channel: {0}", Path);
+							client.Subscribe(new[] { Path }, new[] { MqttMsgBase.QOS_LEVEL_AT_MOST_ONCE });
+
+						}
+						catch (Exception ex)
+						{
+							Logger.WarnException("connection failed", ex);
+						}
+					}
+				}
 			}
 		}
 
