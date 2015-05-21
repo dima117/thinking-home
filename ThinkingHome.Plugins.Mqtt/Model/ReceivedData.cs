@@ -9,5 +9,7 @@ namespace ThinkingHome.Plugins.Mqtt.Model
 		public virtual string Path { get; set; }
 
 		public virtual DateTime Timestamp { get; set; }
+
+		public virtual string Message { get; set; }
 	}
 }

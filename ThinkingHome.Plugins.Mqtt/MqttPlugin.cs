@@ -111,6 +111,7 @@ namespace ThinkingHome.Plugins.Mqtt
 						};
 
 				entity.Timestamp = DateTime.Now;
+				entity.Message = Convert.ToBase64String(e.Message);
 
 				session.Save(entity);
 				session.Flush();

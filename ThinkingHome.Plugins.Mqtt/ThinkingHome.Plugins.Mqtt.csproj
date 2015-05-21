@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Migrations\Migration01_ReceivedData.cs" />
+    <Compile Include="Migrations\Migration02_ReceivedDataMessage.cs" />
     <Compile Include="Model\ReceivedData.cs" />
     <Compile Include="MqttPlugin.cs" />
     <Compile Include="..\AssemblyInfo.cs">
