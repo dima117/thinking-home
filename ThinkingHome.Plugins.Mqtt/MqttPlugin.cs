@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Configuration;
 using System.Diagnostics;
+using System.Linq;
 using System.Text;
 using ECM7.Migrator.Framework;
+using NHibernate.Linq;
+using NHibernate.Mapping.ByCode;
 using ThinkingHome.Core.Plugins;
+using ThinkingHome.Plugins.Mqtt.Model;
 using ThinkingHome.Plugins.Timer.Attributes;
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
@@ -60,6 +64,11 @@ namespace ThinkingHome.Plugins.Mqtt
 
 		private const string SETTINGS_MESSAGE_FORMAT = "{0} is required but it is not specified - check the \"{1}\" parameter";
 
+		public override void InitDbModel(ModelMapper mapper)
+		{
+			mapper.Class<ReceivedData>(cfg => cfg.Table("Mqtt_ReceivedData"));
+		}
+
 		public override void InitPlugin()
 		{
 			//Debugger.Launch();
@@ -91,6 +100,21 @@ namespace ThinkingHome.Plugins.Mqtt
 		void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
 		{
 			Logger.Info("mqtt client {0}: message received\ntopic: {1}, message: {2}", ((MqttClient)sender).ClientId, e.Topic, Encoding.UTF8.GetString(e.Message));
+
+			using (var session = Context.OpenSession())
+			{
+				var entity = session.Query<ReceivedData>().FirstOrDefault(x => x.Path == e.Topic) 
+					?? new ReceivedData
+						{
+							Id = Guid.NewGuid(),
+							Path = e.Topic
+						};
+
+				entity.Timestamp = DateTime.Now;
+
+				session.Save(entity);
+				session.Flush();
+			}
 		}
 
 		void client_ConnectionClosed(object sender, EventArgs e)

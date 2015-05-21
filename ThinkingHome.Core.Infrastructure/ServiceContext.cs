@@ -46,6 +46,11 @@ namespace ThinkingHome.Core.Infrastructure
 			return sessionFactory.OpenSession();
 		}
 
+		public IStatelessSession OpenStatelessSession()
+		{
+			return sessionFactory.OpenStatelessSession();
+		}
+
 		#endregion
 	}
 }
