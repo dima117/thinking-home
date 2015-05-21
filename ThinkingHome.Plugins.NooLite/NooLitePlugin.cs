@@ -4,6 +4,7 @@ using ThinkingHome.Core.Plugins;
 using ThinkingHome.NooLite;
 using ThinkingHome.NooLite.ReceivedData;
 using ThinkingHome.Plugins.Scripts;
+using ThinkingHome.Plugins.Timer.Attributes;
 
 namespace ThinkingHome.Plugins.NooLite
 {
@@ -12,7 +13,10 @@ namespace ThinkingHome.Plugins.NooLite
 	{
 		private readonly RX1164Adapter rx1164 = new RX1164Adapter();
 		private readonly RX2164Adapter rx2164 = new RX2164Adapter();
-		private readonly object pc11XxLock = new object();
+		private readonly object pcLock = new object();
+		private readonly object rxLock = new object();
+		
+		private bool enabled;
 
 		public override void InitPlugin()
 		{
@@ -37,14 +41,44 @@ namespace ThinkingHome.Plugins.NooLite
 
 		public override void StartPlugin()
 		{
-			rx1164.OpenDevice();
-			rx2164.OpenDevice();
+			enabled = true;
+			ReConnectRx();
 		}
 
 		public override void StopPlugin()
 		{
 			rx1164.Dispose();
 			rx2164.Dispose();
+		}
+
+		[RunPeriodically(1)]
+		private void ReConnectRx()
+		{
+			if (enabled && (!rx1164.IsConnected || !rx2164.IsConnected))
+			{
+				lock (rxLock)
+				{
+					if (!rx1164.IsConnected)
+					{
+						Logger.Info("try to connect rx1164 adapter");
+						
+						if (!rx1164.OpenDevice())
+						{
+							Logger.Warn("rx1164: connection failed");
+						}
+					}
+
+					if (!rx2164.IsConnected)
+					{
+						Logger.Info("try to connect rx2164 adapter");
+
+						if (!rx2164.OpenDevice())
+						{
+							Logger.Warn("rx2164: connection failed");
+						}
+					}	
+				}
+			}
 		}
 
 		[ScriptEvent("noolite.commandReceived")]
@@ -70,7 +104,7 @@ namespace ThinkingHome.Plugins.NooLite
 		{
 			//Debugger.Launch();
 
-			lock (pc11XxLock)
+			lock (pcLock)
 			{
 				try
 				{
@@ -100,7 +134,7 @@ namespace ThinkingHome.Plugins.NooLite
 		{
 			//Debugger.Launch();
 
-			lock (pc11XxLock)
+			lock (pcLock)
 			{
 				try
 				{

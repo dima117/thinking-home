@@ -1,22 +1,23 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
-  <metadata>
-    <version>2.0.0.48</version>
-    <authors>dima117</authors>
-    <owners>dima117</owners>
-    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
-    <dependencies>
-      <dependency id="ThinkingHome.Core.Plugins" />
-      <dependency id="ThinkingHome.Plugins.Scripts" />
-      <dependency id="NooLiteDotNet" />
-    </dependencies>
-    <id>ThinkingHome.Plugins.NooLite</id>
-    <title>NooLite plugin</title>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Wireless control of appliances using the nooLite system</description>
-    <summary>Wireless control of appliances using the nooLite system</summary>
-  </metadata>
-  <files>
-    <file src="..\..\build\Release\ThinkingHome.Plugins.NooLite\ThinkingHome.Plugins.NooLite.dll" target="lib\net45\ThinkingHome.Plugins.NooLite.dll" />
-  </files>
+	<metadata>
+		<version>2.0.0.48</version>
+		<authors>dima117</authors>
+		<owners>dima117</owners>
+		<licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+		<dependencies>
+			<dependency id="ThinkingHome.Plugins.Timer" />
+			<dependency id="ThinkingHome.Core.Plugins" />
+			<dependency id="ThinkingHome.Plugins.Scripts" />
+			<dependency id="NooLiteDotNet" />
+		</dependencies>
+		<id>ThinkingHome.Plugins.NooLite</id>
+		<title>NooLite plugin</title>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>Wireless control of appliances using the nooLite system</description>
+		<summary>Wireless control of appliances using the nooLite system</summary>
+	</metadata>
+	<files>
+		<file src="..\..\build\Release\ThinkingHome.Plugins.NooLite\ThinkingHome.Plugins.NooLite.dll" target="lib\net45\ThinkingHome.Plugins.NooLite.dll" />
+	</files>
 </package>

@@ -5,9 +5,9 @@
 		<authors>dima117</authors>
 		<owners>dima117</owners>
 		<licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
-		<!--<dependencies>
-			<dependency id="ThinkingHome.Plugins.Scripts" />
-		</dependencies>-->
+		<dependencies>
+			<dependency id="ThinkingHome.Plugins.Timer" />
+		</dependencies>
 		<id>ThinkingHome.Plugins.Mqtt</id>
 		<title>Mqtt plugin</title>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>

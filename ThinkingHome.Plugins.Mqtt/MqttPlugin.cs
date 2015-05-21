@@ -135,7 +135,7 @@ namespace ThinkingHome.Plugins.Mqtt
 						}
 						catch (Exception ex)
 						{
-							Logger.WarnException("connection failed", ex);
+							Logger.WarnException("mqtt: connection failed", ex);
 						}
 					}
 				}
