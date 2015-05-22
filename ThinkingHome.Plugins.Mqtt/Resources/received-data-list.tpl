@@ -15,6 +15,9 @@
 					<%=path%>
 				</dd>
 			</dl>
+			<p>
+				<a href="#" class="btn btn-default js-reload">Reload</a>
+			</p>
 		</div>
 		<div class="col-md-12">
 			<h2>Messages</h2>

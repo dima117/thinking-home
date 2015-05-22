@@ -14,7 +14,7 @@
 			childView: messageListItemView,
 			childViewContainer: 'tbody',
 			triggers: {
-				'click .js-reload-messages': 'reload:messages'
+				'click .js-reload': 'reload:messages'
 			}
 		});
 
