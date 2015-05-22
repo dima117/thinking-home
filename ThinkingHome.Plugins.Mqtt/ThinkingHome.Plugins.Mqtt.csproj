@@ -69,9 +69,12 @@
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="MqttUiPlugin.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <EmbeddedResource Include="Resources\received-data-list-item.tpl" />
+    <EmbeddedResource Include="Resources\received-data-list.tpl" />
     <None Include="ThinkingHome.Plugins.Mqtt.nuspec">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -82,11 +85,26 @@
       <Name>ThinkingHome.Core.Plugins</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\ThinkingHome.Plugins.Listener\ThinkingHome.Plugins.Listener.csproj">
+      <Project>{db321a2c-ff9c-48ef-80cf-d356a5d5f3a8}</Project>
+      <Name>ThinkingHome.Plugins.Listener</Name>
+      <Private>False</Private>
+    </ProjectReference>
     <ProjectReference Include="..\ThinkingHome.Plugins.Timer\ThinkingHome.Plugins.Timer.csproj">
       <Project>{bf7ba7fa-7bda-40a8-8b1e-bc70fe9b791e}</Project>
       <Name>ThinkingHome.Plugins.Timer</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\ThinkingHome.Plugins.WebUI\ThinkingHome.Plugins.WebUI.csproj">
+      <Project>{5a1778f2-f2dd-4d46-89fd-83864ca6d1a0}</Project>
+      <Name>ThinkingHome.Plugins.WebUI</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\received-data-model.js" />
+    <EmbeddedResource Include="Resources\received-data-view.js" />
+    <EmbeddedResource Include="Resources\received-data.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

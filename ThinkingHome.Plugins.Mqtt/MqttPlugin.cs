@@ -23,12 +23,12 @@ namespace ThinkingHome.Plugins.Mqtt
 
 		private const int DEFAULT_PORT = 1883;
 
-		private string Host
+		public static string Host
 		{
 			get { return ConfigurationManager.AppSettings["Mqtt.Host"]; }
 		}
 
-		private int Port
+		public static int Port
 		{
 			get
 			{
@@ -39,17 +39,17 @@ namespace ThinkingHome.Plugins.Mqtt
 			}
 		}
 
-		private string Login
+		public static string Login
 		{
 			get { return ConfigurationManager.AppSettings["Mqtt.Login"]; }
 		}
 
-		private string Password
+		public static string Password
 		{
 			get { return ConfigurationManager.AppSettings["Mqtt.Password"]; }
 		}
 
-		private string Path
+		public static string Path
 		{
 			get { return ConfigurationManager.AppSettings["Mqtt.Path"]; }
 		}

@@ -270,4 +270,11 @@ a.list-group-item:hover {
 	width: 120px;
 }
 
+.th-word-break {
+	-moz-word-break: break-all;
+	-o-word-break: break-all;
+	-ms-word-break: break-all;
+	word-break: break-all;
+}
+
 /*#endregion */
