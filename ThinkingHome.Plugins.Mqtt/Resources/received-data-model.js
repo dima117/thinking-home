@@ -20,6 +20,12 @@
 					});
 
 				return defer.promise();
+			},
+
+			deleteMessage: function (id) {
+
+				var rq = lib.$.post('/api/mqtt/messages/delete', { id: id });
+				return rq.promise();
 			}
 		};
 

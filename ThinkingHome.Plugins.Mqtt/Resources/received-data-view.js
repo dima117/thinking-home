@@ -6,7 +6,10 @@
 
 		var messageListItemView = lib.marionette.ItemView.extend({
 			template: lib._.template(tmplListItem),
-			tagName: 'tr'
+			tagName: 'tr',
+			triggers: {
+				'click .js-delete': 'delete:message'
+			}
 		});
 
 		var messageListView = lib.marionette.CompositeView.extend({

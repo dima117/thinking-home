@@ -44,5 +44,27 @@ namespace ThinkingHome.Plugins.Mqtt
 				return new { info, messages };
 			}
 		}
+
+		[HttpCommand("/api/mqtt/messages/delete")]
+		public object DeleteMessage(HttpRequestParams request)
+		{
+			var id = request.GetRequiredGuid("id");
+			
+			using (var session = Context.OpenSession())
+			{
+				var message = session.Load<ReceivedData>(id);
+
+				if (message != null)
+				{
+					Logger.Debug("delete mqtt message: path={0}", message.Path);
+					
+					session.Delete(message);
+					session.Flush();
+				}
+			}
+
+			return null;
+		}
+
 	}
 }

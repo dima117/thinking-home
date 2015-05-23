@@ -26,7 +26,7 @@
 					<tr>
 						<th>path</th>
 						<th>updated</th>
-						<th>message</th>
+						<th colspan="2">message</th>
 					</tr>
 				</thead>
 				<tbody></tbody>
