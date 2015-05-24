@@ -4,10 +4,12 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using ECM7.Migrator.Framework;
+using NHibernate;
 using NHibernate.Linq;
 using NHibernate.Mapping.ByCode;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Plugins.Mqtt.Model;
+using ThinkingHome.Plugins.Scripts;
 using ThinkingHome.Plugins.Timer.Attributes;
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
@@ -56,6 +58,8 @@ namespace ThinkingHome.Plugins.Mqtt
 
 		#endregion
 
+		#region messages
+
 		private readonly object lockObject = new object();
 
 		private MqttClient client;
@@ -103,7 +107,7 @@ namespace ThinkingHome.Plugins.Mqtt
 
 			using (var session = Context.OpenSession())
 			{
-				var entity = session.Query<ReceivedData>().FirstOrDefault(x => x.Path == e.Topic) 
+				var entity = session.Query<ReceivedData>().FirstOrDefault(x => x.Path == e.Topic)
 					?? new ReceivedData
 						{
 							Id = Guid.NewGuid(),
@@ -172,6 +176,77 @@ namespace ThinkingHome.Plugins.Mqtt
 			Logger.Info("disconnect mqtt client: id {0}", client.ClientId);
 			client.Disconnect();
 			base.StopPlugin();
+		}
+
+		#endregion
+
+		#region api
+
+		[ScriptCommand("mqttReadMessage")]
+		public MqttMessage ScriptReadMessage(string path)
+		{
+			return Read(path);
+		}
+
+
+		public MqttMessage Read(string path, ISession session = null)
+		{
+			if (session == null)
+			{
+				using (session = Context.OpenSession())
+				{
+					return Read(path, session);
+				}
+			}
+
+			var message = session
+				.Query<ReceivedData>()
+				.FirstOrDefault(m => m.Path == path);
+
+			return message == null
+				? null
+				: CreateMqttMessage(message);
+		}
+
+		private MqttMessage CreateMqttMessage(ReceivedData message)
+		{
+			byte[] data;
+
+			try
+			{
+				data = Convert.FromBase64String(message.Message);
+			}
+			catch (Exception ex)
+			{
+				data = null;
+				Logger.WarnException("incorrect MQTT message", ex);
+			}
+
+			return new MqttMessage
+			{
+				path = message.Path,
+				timestamp = message.Timestamp,
+				message = data
+			};
+		}
+
+		#endregion
+
+		public class MqttMessage
+		{
+			public string path;
+			public DateTime timestamp;
+			public byte[] message;
+
+			public string GetUtf8String()
+			{
+				return Encoding.UTF8.GetString(message ?? new byte[0]);
+			}
+
+			public string GetBase64String()
+			{
+				return Encoding.UTF8.GetString(message ?? new byte[0]);
+			}
 		}
 	}
 }

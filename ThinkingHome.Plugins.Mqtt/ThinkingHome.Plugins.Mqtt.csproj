@@ -90,6 +90,11 @@
       <Name>ThinkingHome.Plugins.Listener</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\ThinkingHome.Plugins.Scripts\ThinkingHome.Plugins.Scripts.csproj">
+      <Project>{5dbb0362-36d7-49e8-9277-b212e3585e4b}</Project>
+      <Name>ThinkingHome.Plugins.Scripts</Name>
+      <Private>False</Private>
+    </ProjectReference>
     <ProjectReference Include="..\ThinkingHome.Plugins.Timer\ThinkingHome.Plugins.Timer.csproj">
       <Project>{bf7ba7fa-7bda-40a8-8b1e-bc70fe9b791e}</Project>
       <Name>ThinkingHome.Plugins.Timer</Name>

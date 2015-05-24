@@ -13,7 +13,5 @@ namespace ThinkingHome.Core.Plugins
 		T GetPlugin<T>() where T : PluginBase;
 
 		ISession OpenSession();
-
-		IStatelessSession OpenStatelessSession();
 	}
 }
