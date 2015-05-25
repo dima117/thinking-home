@@ -58,11 +58,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MicroclimateData.cs" />
     <Compile Include="MicroclimatePlugin.cs" />
     <Compile Include="MicroclimateTileDefinition.cs" />
     <Compile Include="Migrations\Migration01_TemperatureSensor.cs" />
     <Compile Include="Migrations\Migration02_TemperatureData.cs" />
     <Compile Include="Migrations\Migration03_TemperatureDataCurrentDate.cs" />
+    <Compile Include="Migrations\Migration04_SensorCurrentData.cs" />
     <Compile Include="Model\TemperatureData.cs" />
     <Compile Include="Model\TemperatureSensor.cs" />
     <Compile Include="..\AssemblyInfo.cs">
@@ -101,6 +103,11 @@
     <ProjectReference Include="..\ThinkingHome.Plugins.NooLite\ThinkingHome.Plugins.NooLite.csproj">
       <Project>{db949272-d96e-4dfc-9305-0dfc0deacef6}</Project>
       <Name>ThinkingHome.Plugins.NooLite</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\ThinkingHome.Plugins.Scripts\ThinkingHome.Plugins.Scripts.csproj">
+      <Project>{5dbb0362-36d7-49e8-9277-b212e3585e4b}</Project>
+      <Name>ThinkingHome.Plugins.Scripts</Name>
       <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\ThinkingHome.Plugins.WebUI\ThinkingHome.Plugins.WebUI.csproj">

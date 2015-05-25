@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using ECM7.Migrator.Framework;
+using NHibernate;
 using NHibernate.Linq;
 using NHibernate.Mapping.ByCode;
 using ThinkingHome.Core.Plugins;
@@ -10,6 +11,7 @@ using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.Microclimate.Model;
 using ThinkingHome.Plugins.NooLite;
+using ThinkingHome.Plugins.Scripts;
 using ThinkingHome.Plugins.WebUI.Attributes;
 
 [assembly: MigrationAssembly("ThinkingHome.Plugins.Microclimate")]
@@ -48,7 +50,7 @@ namespace ThinkingHome.Plugins.Microclimate
 
 			Logger.Debug("microclimate data received: c={0}, t={1}, h={2}", channel, temperature, humidity);
 
-			using (var session = Context.OpenSession())
+			using (ISession session = Context.OpenSession())
 			{
 				var sensors = session
 					.Query<TemperatureSensor>()
@@ -59,21 +61,68 @@ namespace ThinkingHome.Plugins.Microclimate
 
 				foreach (var sensor in sensors)
 				{
+					var intTemperature = Convert.ToInt32(temperature);
+
+					sensor.CurrentTemperature = intTemperature;
+					sensor.CurrentHumidity = humidity;
+					sensor.Timestamp = now;
+
 					var data = new TemperatureData
 					{
 						Id = Guid.NewGuid(),
 						CurrentDate = now,
-						Temperature = Convert.ToInt32(temperature),
+						Temperature = intTemperature,
 						Humidity = humidity,
 						Sensor = sensor
 					};
 
+					session.Save(sensor);
 					session.Save(data);
 				}
 
 				session.Flush();
 			}
 		}
+
+		#region api: read
+
+		[ScriptCommand("microclimateReadData")]
+		public MicroclimateData ScriptRead(int channel)
+		{
+			return Read(channel);
+		}
+
+		public MicroclimateData Read(int channel, ISession session = null)
+		{
+			if (session == null)
+			{
+				using (session = Context.OpenSession())
+				{
+					return Read(channel, session);
+				}
+			}
+
+			var sensor = session
+				.Query<TemperatureSensor>()
+				.FirstOrDefault(m => m.Channel == channel);
+
+			return sensor == null
+				? null
+				: CreateMicroclimateData(sensor);
+		}
+
+		private MicroclimateData CreateMicroclimateData(TemperatureSensor sensor)
+		{
+			return new MicroclimateData
+			{
+				channel = sensor.Channel,
+				temperature = sensor.CurrentTemperature,
+				humidity = sensor.ShowHumidity ? sensor.CurrentHumidity : (int?)null,
+				timestamp = sensor.Timestamp
+			};
+		}
+
+		#endregion
 
 		#region api
 
@@ -134,7 +183,8 @@ namespace ThinkingHome.Plugins.Microclimate
 					Id = Guid.NewGuid(),
 					Channel = channel,
 					DisplayName = displayName,
-					ShowHumidity = showHumidity
+					ShowHumidity = showHumidity,
+					Timestamp = DateTime.Now
 				};
 
 				session.Save(sensor);

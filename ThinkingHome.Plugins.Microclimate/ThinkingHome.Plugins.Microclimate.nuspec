@@ -8,6 +8,7 @@
 		<dependencies>
 			<dependency id="ThinkingHome.Plugins.Listener" />
 			<dependency id="ThinkingHome.Plugins.NooLite" />
+			<dependency id="ThinkingHome.Plugins.Scripts" />
 			<dependency id="ThinkingHome.Plugins.WebUI" />
 		</dependencies>
 		<id>ThinkingHome.Plugins.Microclimate</id>

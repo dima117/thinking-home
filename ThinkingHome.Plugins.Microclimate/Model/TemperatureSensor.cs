@@ -11,5 +11,11 @@ namespace ThinkingHome.Plugins.Microclimate.Model
 		public virtual string DisplayName { get; set; }
 
 		public virtual bool ShowHumidity { get; set; }
+
+		public virtual DateTime Timestamp { get; set; }
+
+		public virtual int CurrentTemperature { get; set; }
+
+		public virtual int CurrentHumidity { get; set; }
 	}
 }
