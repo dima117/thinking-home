@@ -180,14 +180,13 @@ namespace ThinkingHome.Plugins.Mqtt
 
 		#endregion
 
-		#region api
+		#region api: read
 
 		[ScriptCommand("mqttReadMessage")]
 		public MqttMessage ScriptReadMessage(string path)
 		{
 			return Read(path);
 		}
-
 
 		public MqttMessage Read(string path, ISession session = null)
 		{
@@ -228,6 +227,49 @@ namespace ThinkingHome.Plugins.Mqtt
 				timestamp = message.Timestamp,
 				message = data
 			};
+		}
+
+		#endregion
+
+		#region api: send
+
+		[ScriptCommand("mqttSendMessage")]
+		public bool ScriptSendMessage(string path, string message)
+		{
+			return Send(path, message);
+		}
+
+		public bool Send(string path, string message)
+		{
+			return Send(path, Encoding.UTF8.GetBytes(message));
+		}
+
+		public bool Send(string path, byte[] message)
+		{
+			Logger.Info("send MQTT message: path={0}", path);
+
+			if (client != null && client.IsConnected)
+			{
+				lock (lockObject)
+				{
+					if (client != null && client.IsConnected)
+					{
+						try
+						{
+							client.Publish(path, message ?? new byte[0]);
+							return true;
+						}
+						catch (Exception ex)
+						{
+							Logger.ErrorException("MQTT publishing failed", ex);
+							return false;
+						}
+					}
+				}
+			}
+
+			Logger.Warn("MQTT client is disconnected");
+			return false;
 		}
 
 		#endregion
