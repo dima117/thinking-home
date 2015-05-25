@@ -96,6 +96,11 @@
       <Name>ThinkingHome.Plugins.Listener</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\ThinkingHome.Plugins.Mqtt\ThinkingHome.Plugins.Mqtt.csproj">
+      <Project>{60ab3954-7bd0-40a2-aa74-c0e1d815d780}</Project>
+      <Name>ThinkingHome.Plugins.Mqtt</Name>
+      <Private>False</Private>
+    </ProjectReference>
     <ProjectReference Include="..\ThinkingHome.Plugins.NooLite\ThinkingHome.Plugins.NooLite.csproj">
       <Project>{db949272-d96e-4dfc-9305-0dfc0deacef6}</Project>
       <Name>ThinkingHome.Plugins.NooLite</Name>

@@ -65,11 +65,13 @@
     <Compile Include="Migrations\Migration01_ReceivedData.cs" />
     <Compile Include="Migrations\Migration02_ReceivedDataMessage.cs" />
     <Compile Include="Model\ReceivedData.cs" />
+    <Compile Include="MqttMessage.cs" />
     <Compile Include="MqttPlugin.cs" />
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="MqttUiPlugin.cs" />
+    <Compile Include="OnMqttMessageReceivedAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

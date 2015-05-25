@@ -10,6 +10,7 @@ using ThinkingHome.Plugins.Audio;
 using ThinkingHome.Plugins.Audio.Internal;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
+using ThinkingHome.Plugins.Mqtt;
 using ThinkingHome.Plugins.NooLite;
 using ThinkingHome.Plugins.Scripts;
 using ThinkingHome.Plugins.Timer;
@@ -190,6 +191,16 @@ namespace ThinkingHome.Plugins.Tmp
 			Logger.Info("run: [EveryTenMinutes] at {0}", now);
 			Thread.Sleep(50000);
 			Logger.Info("complete: [EveryTenMinutes] at {0}", now);
+		}
+
+		#endregion
+
+		#region mqtt events
+
+		[OnMqttMessageReceived]
+		public void MqttTest(MqttMessage message)
+		{
+			Logger.Debug("TMP: new mqtt message {{ path: \"{0}\", data: \"{1}\" }}", message.path, message.GetUtf8String());
 		}
 
 		#endregion

@@ -1,6 +1,6 @@
 ﻿using System;
+using System.ComponentModel.Composition;
 using System.Configuration;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using ECM7.Migrator.Framework;
@@ -119,6 +119,12 @@ namespace ThinkingHome.Plugins.Mqtt
 
 				session.Save(entity);
 				session.Flush();
+
+				// events
+				var message = CreateMqttMessage(entity);
+				Run(OnMessageReceivedForPlugins, x => x(message));
+
+				this.RaiseScriptEvent(x => x.OnMessageReceivedForScripts, message.path);
 			}
 		}
 
@@ -177,6 +183,16 @@ namespace ThinkingHome.Plugins.Mqtt
 			client.Disconnect();
 			base.StopPlugin();
 		}
+
+		#endregion
+
+		#region events
+
+		[ScriptEvent("mqtt.messageReceived")]
+		public ScriptEventHandlerDelegate[] OnMessageReceivedForScripts { get; set; }
+
+		[ImportMany("25DD679C-BB4E-449A-BFB8-42CC877CC32C")]
+		public Action<MqttMessage>[] OnMessageReceivedForPlugins { get; set; }
 
 		#endregion
 
@@ -273,22 +289,5 @@ namespace ThinkingHome.Plugins.Mqtt
 		}
 
 		#endregion
-
-		public class MqttMessage
-		{
-			public string path;
-			public DateTime timestamp;
-			public byte[] message;
-
-			public string GetUtf8String()
-			{
-				return Encoding.UTF8.GetString(message ?? new byte[0]);
-			}
-
-			public string GetBase64String()
-			{
-				return Encoding.UTF8.GetString(message ?? new byte[0]);
-			}
-		}
 	}
 }
