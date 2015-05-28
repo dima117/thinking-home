@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ECM7.Migrator.Framework;
 using NHibernate;
 using NHibernate.Linq;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.UniUI.Model;
+
+[assembly: MigrationAssembly("ThinkingHome.Plugins.UniUI")]
 
 namespace ThinkingHome.Plugins.UniUI
 {
