@@ -1,115 +1,117 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using ECM7.Migrator.Framework;
-using NHibernate;
 using NHibernate.Linq;
+using NHibernate.Mapping.ByCode;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.UniUI.Model;
+using ThinkingHome.Plugins.WebUI.Attributes;
 
 [assembly: MigrationAssembly("ThinkingHome.Plugins.UniUI")]
 
 namespace ThinkingHome.Plugins.UniUI
 {
 	[Plugin]
+
+	[AppSection("Dashboard list", SectionType.System, "/webapp/uniui/settings/dashboard-list.js", "ThinkingHome.Plugins.UniUI.Resources.Settings.dashboard-list.js")]
+	//[JavaScriptResource("/webapp/uniui/settings/dashboard-list-view.js", "ThinkingHome.Plugins.UniUI.Resources.Settings.dashboard-list-view.js")]
+	//[JavaScriptResource("/webapp/uniui/settings/dashboard-list-model.js", "ThinkingHome.Plugins.UniUI.Resources.Settings.dashboard-list-model.js")]
+	//[HttpResource("/application/tiles/tile.tpl", "ThinkingHome.Plugins.UniUI.Resources.Settings.dashboard-list.tpl")]
+	//[HttpResource("/application/tiles/tile.tpl", "ThinkingHome.Plugins.UniUI.Resources.Settings.layout.tpl")]
+
 	public class UniUiPlugin : PluginBase
 	{
-		[HttpCommand("/api/uniui/dashboard/list")]
-		public object GetList(HttpRequestParams request)
+		public override void InitDbModel(ModelMapper mapper)
 		{
-			Guid? id = request.GetGuid("id");
-
-			using (var session = Context.OpenSession())
-			{
-				var list = LoadDashboardList(session);
-				var selected = list.FirstOrDefault(d => d.Id == id)
-							   ?? list.FirstOrDefault();
-
-				var elements = LoadDashboardElements(selected, session);
-
-				var listModel = CreateListModel(list, selected);
-				var elementsModel = CreateElementsModel(selected, elements);
-
-				return new
-				{
-					list = listModel,
-					elements = elementsModel
-				};
-			}
+			mapper.Class<Dashboard>(cfg => cfg.Table("UniUI_Dashboard"));
+			mapper.Class<Widget>(cfg => cfg.Table("UniUI_Widget"));
+			mapper.Class<WidgetParameter>(cfg => cfg.Table("UniUI_WidgetParameter"));
 		}
 
-		[HttpCommand("/api/uniui/dashboard/elements")]
-		public object GetElements(HttpRequestParams request)
-		{
-			Guid id = request.GetRequiredGuid("id");
+		#region dashboard api
 
+		[HttpCommand("/api/uniui/dashboard/list")]
+		public object GetDashboardList(HttpRequestParams request)
+		{
 			using (var session = Context.OpenSession())
 			{
-				var selected = session.Query<Dashboard>().Single(x => x.Id == id);
-				var elements = LoadDashboardElements(selected, session);
-				var model = CreateElementsModel(selected, elements);
+				var list = session.Query<Dashboard>().ToList();
+
+				var model = list
+					.Select(x => new
+					{
+						id = x.Id,
+						title = x.Title,
+						sortOrder = x.SortOrder
+					})
+					.ToList();
 
 				return model;
 			}
 		}
 
-		#region database
-
-		private static List<Dashboard> LoadDashboardList(ISession session)
+		[HttpCommand("/api/uniui/dashboard/add")]
+		public object AddDashboard(HttpRequestParams request)
 		{
-			return session.Query<Dashboard>()
-				.OrderBy(x => x.SortOrder)
-				.ToList();
-		}
+			string title = request.GetRequiredString("title");
 
-		private List<DashboardElement> LoadDashboardElements(Dashboard selected, ISession session)
-		{
-			return session.Query<DashboardElement>()
-				.Where(el => el.Dashboard == selected)
-				.OrderBy(el => el.SortOrder)
-				.ToList();
-		}
-
-		#endregion
-
-		#region build model
-
-		private object CreateListModel(List<Dashboard> list, Dashboard selected)
-		{
-			return list
-				.Select(x => new
-					{
-						id = x.Id,
-						title = x.Title,
-						selected = selected != null && x.Id == selected.Id
-					})
-				.ToList();
-		}
-
-		private object CreateElementsModel(Dashboard selected, List<DashboardElement> elements)
-		{
-			if (selected == null)
+			using (var session = Context.OpenSession())
 			{
-				return null;
+				var dashboard = new Dashboard
+				{
+					Id = Guid.NewGuid(),
+					Title = title,
+					SortOrder = int.MaxValue
+				};
+
+				session.Save(dashboard);
+				session.Flush();
+
+				return dashboard.Id;
+			}
+		}
+
+		[HttpCommand("/api/uniui/dashboard/rename")]
+		public object RenameDashboard(HttpRequestParams request)
+		{
+			Guid id = request.GetRequiredGuid("id");
+			string title = request.GetRequiredString("title");
+
+			using (var session = Context.OpenSession())
+			{
+				var dashboard = session.Get<Dashboard>(id);
+
+				if (dashboard != null)
+				{
+					dashboard.Title = title;
+
+					session.Save(dashboard);
+					session.Flush();
+				}
 			}
 
-			var list = elements
-				.Select(el => new
-					{
-						id = el.Id,
-						type = el.TypeAlias,
-						data = el.GetParameters()
-					})
-				.ToList();
+			return null;
+		}
 
-			return new
+		[HttpCommand("/api/uniui/dashboard/delete")]
+		public object DeleteDashboard(HttpRequestParams request)
+		{
+			Guid id = request.GetRequiredGuid("id");
+
+			using (var session = Context.OpenSession())
 			{
-				id = selected.Id,
-				title = selected.Title,
-				elements = list
-			};
+				var dashboard = session.Get<Dashboard>(id);
+
+				if (dashboard != null)
+				{
+					session.Delete(dashboard);
+					session.Flush();
+				}
+			}
+
+			return null;
 		}
 
 		#endregion
