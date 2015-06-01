@@ -28,9 +28,9 @@
 				return rq.promise();
 			},
 
-			renameDashboard: function (id, tite) {
+			renameDashboard: function (id, title) {
 
-				var rq = lib.$.post('/api/uniui/dashboard/rename', { id: id, tite: tite });
+				var rq = lib.$.post('/api/uniui/dashboard/rename', { id: id, title: title });
 
 				return rq.promise();
 			},

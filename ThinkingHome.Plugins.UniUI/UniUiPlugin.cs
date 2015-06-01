@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using ECM7.Migrator.Framework;
 using NHibernate.Linq;

@@ -5,7 +5,13 @@
 	function (lib, listTemplate, listItemTemplate) {
 
 		var listItemView = lib.marionette.ItemView.extend({
-			template: lib._.template(listItemTemplate)
+			template: lib._.template(listItemTemplate),
+			triggers: {
+				"click .js-move-up": "dashboard:move:up",
+				"click .js-move-down": "dashboard:move:down",
+				"click .js-rename": "dashboard:rename",
+				"click .js-delete": "dashboard:delete"
+			}
 		});
 
 		var listView = lib.marionette.CompositeView.extend({
