@@ -6,6 +6,22 @@
 
 		var api = {
 
+			moveUp: function (childView) {
+				
+				var id = childView.model.get("id");
+				models.moveDashboard(id, true).done(api.loadDashboardList);
+
+				childView.mute();
+			},
+
+			moveDown: function (childView) {
+
+				var id = childView.model.get("id");
+				models.moveDashboard(id, false).done(api.loadDashboardList);
+
+				childView.mute();
+			},
+
 			renameDashboard: function (childView) {
 
 				var id = childView.model.get("id"),
@@ -17,6 +33,7 @@
 					models.renameDashboard(id, newTitle).done(api.loadDashboardList);
 				}
 			},
+
 			deleteDashboard: function (childView) {
 
 				var id = childView.model.get("id"),
@@ -39,6 +56,8 @@
 
 						view.on("childview:dashboard:rename", api.renameDashboard);
 						view.on("childview:dashboard:delete", api.deleteDashboard);
+						view.on("childview:dashboard:move:up", api.moveUp);
+						view.on("childview:dashboard:move:down", api.moveDown);
 
 						application.setContentView(view);
 					});

@@ -15,7 +15,7 @@ body {
 }
 
 .form-control {
-	border-width: 0 !important;	
+	border-width: 0 !important;
 }
 
 .navbar-default .form-control {
@@ -30,21 +30,21 @@ body {
 	color: white;
 }
 
-.form-control:focus::-webkit-input-placeholder {
-    color: #aac7de;
-}
+	.form-control:focus::-webkit-input-placeholder {
+		color: #aac7de;
+	}
 
-.form-control:focus:-moz-placeholder {
-    color: #aac7de;
-}
+	.form-control:focus:-moz-placeholder {
+		color: #aac7de;
+	}
 
-.form-control:focus::-moz-placeholder {
-    color: #aac7de;
-}
+	.form-control:focus::-moz-placeholder {
+		color: #aac7de;
+	}
 
-.form-control:focus:-ms-input-placeholder {
-    color: #aac7de;
-}
+	.form-control:focus:-ms-input-placeholder {
+		color: #aac7de;
+	}
 
 a.list-group-item:hover .list-group-item-heading {
 	color: #294C69;
@@ -54,11 +54,11 @@ a.list-group-item:hover {
 	color: #294C69;
 }
 
-.pager li>a:hover {
+.pager li > a:hover {
 	color: #294C69;
 }
 
-.pager .disabled>a {
+.pager .disabled > a {
 	border-color: #999;
 }
 
@@ -66,7 +66,7 @@ a.list-group-item:hover {
 
 .label,
 .control-label {
-	font-weight: 200;	
+	font-weight: 200;
 }
 
 .help-block {
@@ -275,6 +275,11 @@ a.list-group-item:hover {
 	-o-word-break: break-all;
 	-ms-word-break: break-all;
 	word-break: break-all;
+}
+
+.th-block-muted,
+.th-block-muted * {
+	color: #999 !important;
 }
 
 /*#endregion */

@@ -11,6 +11,10 @@
 				"click .js-move-down": "dashboard:move:down",
 				"click .js-rename": "dashboard:rename",
 				"click .js-delete": "dashboard:delete"
+			},
+			mute: function () {
+
+				this.$el.addClass("th-block-muted");
 			}
 		});
 

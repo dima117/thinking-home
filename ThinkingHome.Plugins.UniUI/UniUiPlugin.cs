@@ -115,6 +115,41 @@ namespace ThinkingHome.Plugins.UniUI
 			return null;
 		}
 
+		[HttpCommand("/api/uniui/dashboard/move")]
+		public object MoveDashboard(HttpRequestParams request)
+		{
+			Guid id = request.GetRequiredGuid("id");
+			bool moveUp = request.GetRequiredBool("up");
+
+			using (var session = Context.OpenSession())
+			{
+				var list = session.Query<Dashboard>().OrderBy(d => d.SortOrder).ToList();
+				var index = list.FindIndex(d => d.Id == id);
+
+				if (index >= 0)
+				{
+					var otherIndex = moveUp ? index - 1 : index + 1;
+
+					if (otherIndex >= 0 && otherIndex < list.Count)
+					{
+						var tmp = list[otherIndex];
+						list[otherIndex] = list[index];
+						list[index] = tmp;
+
+						for (int i = 0; i < list.Count; i++)
+						{
+							list[i].SortOrder = i;
+							session.Save(list[i]);
+						}
+
+						session.Flush();
+					}
+				}
+			}
+
+			return null;
+		}
+
 		#endregion
 	}
 }
