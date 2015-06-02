@@ -22,6 +22,12 @@ namespace ThinkingHome.Plugins.UniUI
 	[HttpResource("/webapp/uniui/settings/dashboard-list.tpl", "ThinkingHome.Plugins.UniUI.Resources.Settings.dashboard-list.tpl")]
 	[HttpResource("/webapp/uniui/settings/dashboard-list-item.tpl", "ThinkingHome.Plugins.UniUI.Resources.Settings.dashboard-list-item.tpl")]
 
+	[JavaScriptResource("/webapp/uniui/settings/dashboard-info.js", "ThinkingHome.Plugins.UniUI.Resources.Settings.dashboard-info.js")]
+	[JavaScriptResource("/webapp/uniui/settings/dashboard-info-view.js", "ThinkingHome.Plugins.UniUI.Resources.Settings.dashboard-info-view.js")]
+	[JavaScriptResource("/webapp/uniui/settings/dashboard-info-model.js", "ThinkingHome.Plugins.UniUI.Resources.Settings.dashboard-info-model.js")]
+	[HttpResource("/webapp/uniui/settings/dashboard-info.tpl", "ThinkingHome.Plugins.UniUI.Resources.Settings.dashboard-info.tpl")]
+	[HttpResource("/webapp/uniui/settings/dashboard-info-widget.tpl", "ThinkingHome.Plugins.UniUI.Resources.Settings.dashboard-info-widget.tpl")]
+
 	public class UniUiPlugin : PluginBase
 	{
 		public override void InitDbModel(ModelMapper mapper)
@@ -148,6 +154,40 @@ namespace ThinkingHome.Plugins.UniUI
 			}
 
 			return null;
+		}
+
+		#endregion
+
+		#region widget api
+
+		[HttpCommand("/api/uniui/dashboard/info")]
+		public object GetDashboardInfo(HttpRequestParams request)
+		{
+			Guid dashboardId = request.GetRequiredGuid("id");
+
+			using (var session = Context.OpenSession())
+			{
+				var dashboard = session.Get<Dashboard>(dashboardId);
+				var list = session.Query<Widget>().Where(w => w.Dashboard.Id == dashboardId);
+
+				var info = new
+				{
+					id = dashboard.Id,
+					title = dashboard.Title,
+					sortOrder = dashboard.SortOrder
+				};
+
+				var widgets = list
+					.Select(w => new
+					{
+						id = w.Id,
+						type = w.TypeAlias,
+						sortOrder = w.SortOrder
+					})
+					.ToList();
+
+				return new { info, widgets };
+			}
 		}
 
 		#endregion
