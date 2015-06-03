@@ -64,6 +64,11 @@
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Widgets\WidgetAttribute.cs" />
+    <Compile Include="Widgets\IWidgetDefinition.cs" />
+    <Compile Include="Widgets\WidgetParameterMetaData.cs" />
+    <Compile Include="Widgets\WidgetParameterType.cs" />
+    <Compile Include="Widgets\WidgetSelectItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

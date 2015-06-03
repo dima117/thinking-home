@@ -10,6 +10,7 @@
 			<dependency id="ThinkingHome.Plugins.NooLite" />
 			<dependency id="ThinkingHome.Plugins.Scripts" />
 			<dependency id="ThinkingHome.Plugins.WebUI" />
+			<dependency id="ThinkingHome.Plugins.UniUI" />
 		</dependencies>
 		<id>ThinkingHome.Plugins.Microclimate</id>
 		<title>Microclimate plugin</title>
