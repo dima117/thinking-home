@@ -1,13 +1,15 @@
 ﻿using System;
-using System.Diagnostics;
+using System.ComponentModel.Composition;
 using System.Linq;
 using ECM7.Migrator.Framework;
 using NHibernate.Linq;
 using NHibernate.Mapping.ByCode;
 using ThinkingHome.Core.Plugins;
+using ThinkingHome.Core.Plugins.Utils;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.UniUI.Model;
+using ThinkingHome.Plugins.UniUI.Widgets;
 using ThinkingHome.Plugins.WebUI.Attributes;
 
 [assembly: MigrationAssembly("ThinkingHome.Plugins.UniUI")]
@@ -36,6 +38,24 @@ namespace ThinkingHome.Plugins.UniUI
 			mapper.Class<Widget>(cfg => cfg.Table("UniUI_Widget"));
 			mapper.Class<WidgetParameter>(cfg => cfg.Table("UniUI_WidgetParameter"));
 		}
+
+		#region available widgets
+
+		private readonly InternalDictionary<IWidgetDefinition> definitions = new InternalDictionary<IWidgetDefinition>();
+
+		[ImportMany("ABD9D425-5836-4DC5-88B6-222CD7A658CA")]
+		public Lazy<IWidgetDefinition, IWidgetAttribute>[] WidgetDefinitions { get; set; }
+
+		public override void InitPlugin()
+		{
+			foreach (var def in WidgetDefinitions)
+			{
+				Logger.Info("Register UI widget : '{0}'", def.Metadata.TypeAlias);
+				definitions.Register(def.Metadata.TypeAlias, def.Value);
+			}
+		}
+
+		#endregion
 
 		#region dashboard api
 

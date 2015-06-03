@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using NHibernate;
+using NHibernate.Linq;
 using NLog;
 using ThinkingHome.Plugins.Microclimate.Model;
 using ThinkingHome.Plugins.UniUI.Model;
@@ -7,15 +9,14 @@ using ThinkingHome.Plugins.UniUI.Widgets;
 
 namespace ThinkingHome.Plugins.Microclimate
 {
-	// todo: поменять ключ параметра на Guid
-	// todo: добавить alias для типа виджета в атрибут
-
-	[Widget]
+	[Widget("microclimate-sensor")]
 	public class MicroclimateWidgetDefinition : IWidgetDefinition
 	{
+		private static readonly Guid sensorIdKey = new Guid("1099AD53-9CA1-44F7-A871-BCD773C50D7F");
+
 		public object GetWidgetData(Widget widget, WidgetParameter[] parameters, ISession session, Logger logger)
 		{
-			var sensorId = parameters.First(p => p.Key == "sensorId").ValueGuid;
+			var sensorId = parameters.First(p => p.Key == sensorIdKey).ValueGuid;
 			var sensor = session.Get<TemperatureSensor>(sensorId);
 
 			return new
@@ -28,7 +29,20 @@ namespace ThinkingHome.Plugins.Microclimate
 
 		public WidgetParameterMetaData[] GetWidgetMetaData(ISession session, Logger logger)
 		{
-			throw new System.NotImplementedException();
+			var sensors = session
+				.Query<TemperatureSensor>()
+				.Select(s => new WidgetSelectItem(s.Id.ToString(), s.DisplayName))
+				.ToArray();
+
+			var sensorIdParameter = new WidgetParameterMetaData
+			{
+				DisplayName = "Sensor",
+				Key = sensorIdKey,
+				Type = WidgetParameterType.Guid,
+				Items = sensors
+			};
+
+			return new[] { sensorIdParameter };
 		}
 	}
 }
