@@ -16,14 +16,15 @@ namespace ThinkingHome.Plugins.Microclimate
 
 		public object GetWidgetData(Widget widget, WidgetParameter[] parameters, ISession session, Logger logger)
 		{
-			var sensorId = parameters.First(p => p.Key == sensorIdKey).ValueGuid;
+			var sensorId = parameters.First(p => p.ParameterKey == sensorIdKey).ValueGuid;
 			var sensor = session.Get<TemperatureSensor>(sensorId);
+			var humidity = sensor.ShowHumidity ? sensor.CurrentHumidity : (int?) null;
 
 			return new
 			{
+				timestamp = sensor.Timestamp,
 				t = sensor.CurrentTemperature,
-				h = sensor.ShowHumidity ? sensor.CurrentHumidity : (int?)null,
-				timestamp = sensor.Timestamp
+				h = humidity
 			};
 		}
 

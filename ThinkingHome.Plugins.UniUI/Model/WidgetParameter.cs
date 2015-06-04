@@ -8,7 +8,7 @@ namespace ThinkingHome.Plugins.UniUI.Model
 
 		public virtual Widget Widget { get; set; }
 
-		public virtual Guid Key { get; set; }
+		public virtual Guid ParameterKey { get; set; }
 
 		public virtual Guid? ValueGuid { get; set; }
 

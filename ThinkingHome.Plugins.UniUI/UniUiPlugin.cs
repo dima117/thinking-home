@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.Diagnostics;
 using System.Linq;
 using ECM7.Migrator.Framework;
+using NHibernate;
 using NHibernate.Linq;
+using NHibernate.Mapping;
 using NHibernate.Mapping.ByCode;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Core.Plugins.Utils;
@@ -187,27 +191,73 @@ namespace ThinkingHome.Plugins.UniUI
 
 			using (var session = Context.OpenSession())
 			{
-				var dashboard = session.Get<Dashboard>(dashboardId);
-				var list = session.Query<Widget>().Where(w => w.Dashboard.Id == dashboardId);
-
-				var info = new
-				{
-					id = dashboard.Id,
-					title = dashboard.Title,
-					sortOrder = dashboard.SortOrder
-				};
-
-				var widgets = list
-					.Select(w => new
-					{
-						id = w.Id,
-						type = w.TypeAlias,
-						sortOrder = w.SortOrder
-					})
-					.ToList();
+				var info = GetDashboardInfoModel(dashboardId, session);
+				var widgets = GetWidgetListModel(dashboardId, session);
 
 				return new { info, widgets };
 			}
+		}
+
+		#endregion
+
+		// todo: добавить для ВИДЖЕТА поле displayName
+		// todo: добавить обработку ошибок!!!!!!!
+		/*
+		 *	- в БД неизвестный тип виджета
+		 *  - не хватает параметров для отображения
+		 *  - ошибка в бизнес-логике виджета
+		 *  - нет рабочего стола с заданным ID
+		 */
+
+		#region private
+
+		private object GetDashboardInfoModel(Guid dashboardId, ISession session)
+		{
+			var dashboard = session.Get<Dashboard>(dashboardId);
+
+			var model = new
+			{
+				id = dashboard.Id,
+				title = dashboard.Title,
+				sortOrder = dashboard.SortOrder
+			};
+
+			return model;
+		}
+
+		private object[] GetWidgetListModel(Guid dashboardId, ISession session)
+		{
+			var widgets = session.Query<Widget>()
+				.Where(w => w.Dashboard.Id == dashboardId)
+				.ToArray();
+			
+			var parameters = session.Query<WidgetParameter>()
+				.Where(p => p.Widget.Dashboard.Id == dashboardId)
+				.ToArray();
+
+			var list = new List<object>();
+
+			foreach (var widget in widgets)
+			{
+				if (definitions.ContainsKey(widget.TypeAlias))
+				{
+					var def = definitions[widget.TypeAlias];
+					var widgetParams = parameters.Where(p => p.Widget.Id == widget.Id).ToArray();
+					var data = def.GetWidgetData(widget, widgetParams, session, Logger);
+
+					var model = new
+					{
+						id = widget.Id,
+						type = widget.TypeAlias,
+						sortOrder = widget.SortOrder,
+						data
+					};
+
+					list.Add(model);
+				}
+			}
+
+			return list.ToArray();
 		}
 
 		#endregion
