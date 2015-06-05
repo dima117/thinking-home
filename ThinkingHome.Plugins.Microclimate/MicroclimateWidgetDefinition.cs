@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using NHibernate;
 using NHibernate.Linq;
 using NLog;
@@ -12,11 +11,12 @@ namespace ThinkingHome.Plugins.Microclimate
 	[Widget("microclimate-sensor")]
 	public class MicroclimateWidgetDefinition : IWidgetDefinition
 	{
-		private static readonly Guid sensorIdKey = new Guid("1099AD53-9CA1-44F7-A871-BCD773C50D7F");
+		private const string PARAM_SENSOR_ID = "sensor-id";
+		private const string PARAM_SENSOR_ID_DISPLAY_NAME = "Sensor";
 
 		public object GetWidgetData(Widget widget, WidgetParameter[] parameters, ISession session, Logger logger)
 		{
-			var sensorId = parameters.First(p => p.ParameterKey == sensorIdKey).ValueGuid;
+			var sensorId = parameters.First(p => p.Name == PARAM_SENSOR_ID).ValueGuid;
 			var sensor = session.Get<TemperatureSensor>(sensorId);
 			var humidity = sensor.ShowHumidity ? sensor.CurrentHumidity : (int?) null;
 
@@ -37,8 +37,8 @@ namespace ThinkingHome.Plugins.Microclimate
 
 			var sensorIdParameter = new WidgetParameterMetaData
 			{
-				DisplayName = "Sensor",
-				Key = sensorIdKey,
+				Name = PARAM_SENSOR_ID,
+				DisplayName = PARAM_SENSOR_ID_DISPLAY_NAME,
 				Type = WidgetParameterType.Guid,
 				Items = sensors
 			};

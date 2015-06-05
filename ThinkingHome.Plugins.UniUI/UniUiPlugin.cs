@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.Diagnostics;
 using System.Linq;
 using ECM7.Migrator.Framework;
 using NHibernate;
 using NHibernate.Linq;
-using NHibernate.Mapping;
 using NHibernate.Mapping.ByCode;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Core.Plugins.Utils;
@@ -200,20 +198,11 @@ namespace ThinkingHome.Plugins.UniUI
 
 		#endregion
 
-		// todo: добавить для ВИДЖЕТА поле displayName
-		// todo: добавить обработку ошибок!!!!!!!
-		/*
-		 *	- в БД неизвестный тип виджета
-		 *  - не хватает параметров для отображения
-		 *  - ошибка в бизнес-логике виджета
-		 *  - нет рабочего стола с заданным ID
-		 */
-
 		#region private
 
 		private object GetDashboardInfoModel(Guid dashboardId, ISession session)
 		{
-			var dashboard = session.Get<Dashboard>(dashboardId);
+			var dashboard = session.Query<Dashboard>().First(x => x.Id == dashboardId);
 
 			var model = new
 			{
@@ -227,37 +216,71 @@ namespace ThinkingHome.Plugins.UniUI
 
 		private object[] GetWidgetListModel(Guid dashboardId, ISession session)
 		{
-			var widgets = session.Query<Widget>()
+			var allWidgets = session.Query<Widget>()
 				.Where(w => w.Dashboard.Id == dashboardId)
 				.ToArray();
-			
-			var parameters = session.Query<WidgetParameter>()
+
+			var allParameters = session.Query<WidgetParameter>()
 				.Where(p => p.Widget.Dashboard.Id == dashboardId)
 				.ToArray();
 
 			var list = new List<object>();
 
-			foreach (var widget in widgets)
+			foreach (var widget in allWidgets)
 			{
-				if (definitions.ContainsKey(widget.TypeAlias))
-				{
-					var def = definitions[widget.TypeAlias];
-					var widgetParams = parameters.Where(p => p.Widget.Id == widget.Id).ToArray();
-					var data = def.GetWidgetData(widget, widgetParams, session, Logger);
+				var widgetParams = allParameters.Where(p => p.Widget.Id == widget.Id).ToArray();
 
-					var model = new
-					{
-						id = widget.Id,
-						type = widget.TypeAlias,
-						sortOrder = widget.SortOrder,
-						data
-					};
-
-					list.Add(model);
-				}
+				var model = GetWidgetModel(session, widget, widgetParams);
+				list.Add(model);
 			}
 
 			return list.ToArray();
+		}
+
+		private object GetWidgetModel(ISession session, Widget widget, WidgetParameter[] widgetParams)
+		{	
+			if (!definitions.ContainsKey(widget.TypeAlias))
+			{
+				var exceptionWidget = CreateExceptionWidget("Widget \"{0}\" has an invalid type \"{1}\"", widget);
+				return exceptionWidget;
+			}
+
+			try
+			{
+				var def = definitions[widget.TypeAlias];
+				var data = def.GetWidgetData(widget, widgetParams, session, Logger);
+
+				var model = new
+				{
+					id = widget.Id,
+					type = widget.TypeAlias,
+					displayName = widget.DisplayName,
+					sortOrder = widget.SortOrder,
+					data
+				};
+
+				return model;
+			}
+			catch (Exception ex)
+			{
+				var exceptionWidget = CreateExceptionWidget(ex.Message, widget);
+				return exceptionWidget;
+			}
+		}
+
+		private object CreateExceptionWidget(string message, Widget problem)
+		{
+			var msg = string.Format(message, problem.DisplayName, problem.TypeAlias);
+
+			Logger.Warn(msg);
+
+			return new
+			{
+				id = problem.Id,
+				type = "exception",
+				displayName = msg,
+				sortOrder = problem.SortOrder
+			};
 		}
 
 		#endregion
