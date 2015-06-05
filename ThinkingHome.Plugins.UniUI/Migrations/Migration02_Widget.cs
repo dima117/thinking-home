@@ -13,6 +13,7 @@ namespace ThinkingHome.Plugins.UniUI.Migrations
 				new Column("Id", DbType.Guid, ColumnProperty.PrimaryKey, "newid()"),
 				new Column("DashboardId", DbType.Guid, ColumnProperty.NotNull),
 				new Column("TypeAlias", DbType.String, ColumnProperty.NotNull),
+				new Column("DisplayName", DbType.String, ColumnProperty.NotNull),
 				new Column("SortOrder", DbType.Int32, ColumnProperty.NotNull, 0)
 			);
 

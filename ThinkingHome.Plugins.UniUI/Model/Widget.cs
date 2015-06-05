@@ -9,6 +9,8 @@ namespace ThinkingHome.Plugins.UniUI.Model
 		public virtual Dashboard Dashboard { get; set; }
 
 		public virtual string TypeAlias { get; set; }
+		
+		public virtual string DisplayName { get; set; }
 
 		public virtual int SortOrder { get; set; }
 	}
