@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.Diagnostics;
 using System.Linq;
 using ECM7.Migrator.Framework;
 using NHibernate;
@@ -196,6 +197,74 @@ namespace ThinkingHome.Plugins.UniUI
 			}
 		}
 
+		[HttpCommand("/api/uniui/widget/info")]
+		public object GetWidgetInfo(HttpRequestParams request)
+		{
+			Debugger.Launch();
+			// todo: нужен рефакторинг
+			Guid widgetId = request.GetRequiredGuid("id");
+
+			using (var session = Context.OpenSession())
+			{
+				var widget = session.Query<Widget>().Single(x => x.Id == widgetId);
+				var widgetParams = session
+					.Query<WidgetParameter>()
+					.Where(x => x.Widget.Id == widgetId)
+					.ToList();
+
+				var def = definitions[widget.TypeAlias];
+
+				var metaParams = def.GetWidgetMetaData(session, Logger);
+
+				var list = new List<object>();
+
+				foreach (var obj in metaParams)
+				{
+					object value = null;
+
+					WidgetParameter p = widgetParams.FirstOrDefault(wp => wp.Name == obj.Name);
+
+					if (p != null)
+					{
+						switch (obj.Type)
+						{
+							case WidgetParameterType.Guid:
+								value = p.ValueGuid;
+								break;
+							case WidgetParameterType.Int32:
+								value = p.ValueInt;
+								break;
+							case WidgetParameterType.String:
+								value = p.ValueString;
+								break;
+						}
+					}
+
+					var items = obj.Items.Select(i => new { id = i.Id, diaplsyName = i.DisplayName }).ToArray();
+
+					var parameterModel = new
+					{
+						name = obj.Name,
+						displayName = obj.DisplayName,
+						type = obj.Type.ToString().ToLower(),
+						value,
+						items
+					};
+
+					list.Add(parameterModel);
+				}
+
+				return new
+				{
+					id = widget.Id,
+					dashboardId = widget.Dashboard.Id,
+					type = widget.TypeAlias,
+					displayName = widget.DisplayName,
+					parameters = list.ToArray()
+				};
+			}
+		}
+
 		#endregion
 
 		#region private
@@ -238,7 +307,7 @@ namespace ThinkingHome.Plugins.UniUI
 		}
 
 		private object GetWidgetModel(ISession session, Widget widget, WidgetParameter[] widgetParams)
-		{	
+		{
 			if (!definitions.ContainsKey(widget.TypeAlias))
 			{
 				var exceptionWidget = CreateExceptionWidget("Widget \"{0}\" has an invalid type \"{1}\"", widget);
