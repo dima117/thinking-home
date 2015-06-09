@@ -13,7 +13,7 @@ namespace ThinkingHome.Plugins.UniUI
 	{
 		#region public
 
-		[HttpCommand("/api/uniui/editor/create")]
+		[HttpCommand("/api/uniui/widget/create")]
 		public object EditorCreateWidget(HttpRequestParams request)
 		{
 			var dashboardId = request.GetRequiredGuid("dashboard");
@@ -27,7 +27,7 @@ namespace ThinkingHome.Plugins.UniUI
 			}
 		}
 
-		[HttpCommand("/api/uniui/editor/open")]
+		[HttpCommand("/api/uniui/widget/edit")]
 		public object EditorOpenWidget(HttpRequestParams request)
 		{
 			var id = request.GetRequiredGuid("id");
