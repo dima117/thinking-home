@@ -14,11 +14,16 @@ namespace ThinkingHome.Plugins.Microclimate
 		private const string PARAM_SENSOR_ID = "sensor-id";
 		private const string PARAM_SENSOR_ID_DISPLAY_NAME = "Sensor";
 
+		public string DisplayName
+		{
+			get { return "Microclimate sensor"; }
+		}
+
 		public object GetWidgetData(Widget widget, WidgetParameter[] parameters, ISession session, Logger logger)
 		{
 			var sensorId = parameters.First(p => p.Name == PARAM_SENSOR_ID).ValueGuid;
 			var sensor = session.Get<TemperatureSensor>(sensorId);
-			var humidity = sensor.ShowHumidity ? sensor.CurrentHumidity : (int?) null;
+			var humidity = sensor.ShowHumidity ? sensor.CurrentHumidity : (int?)null;
 
 			return new
 			{

@@ -6,14 +6,14 @@
 
 		var api = {
 
-			loadDashboardInfo: function(id) {
+			openEditor: function(id) {
 
-				models.loadDashboardInfo(id)
+				models.editWidget(id)
 					.done(function(data) {
 
-						var view = new views.DashboardInfoView({
+						var view = new views.WidgetEditorView({
 							model: data.info,
-							collection: data.widgets
+							collection: data.fields
 						});
 
 						api.view = view;
@@ -23,6 +23,6 @@
 		};
 
 		return {
-			start: api.loadDashboardInfo
+			start: api.openEditor
 		};
 	});

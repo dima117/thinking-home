@@ -6,11 +6,21 @@ using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.UniUI.Model;
 using ThinkingHome.Plugins.UniUI.Widgets;
+using ThinkingHome.Plugins.WebUI.Attributes;
 
 namespace ThinkingHome.Plugins.UniUI
 {
+	[JavaScriptResource("/webapp/uniui/settings/widget-editor.js", "ThinkingHome.Plugins.UniUI.Resources.Settings.widget-editor.js")]
+	[JavaScriptResource("/webapp/uniui/settings/widget-editor-view.js", "ThinkingHome.Plugins.UniUI.Resources.Settings.widget-editor-view.js")]
+	[JavaScriptResource("/webapp/uniui/settings/widget-editor-model.js", "ThinkingHome.Plugins.UniUI.Resources.Settings.widget-editor-model.js")]
+	[HttpResource("/webapp/uniui/settings/widget-editor.tpl", "ThinkingHome.Plugins.UniUI.Resources.Settings.widget-editor.tpl")]
+	[HttpResource("/webapp/uniui/settings/widget-editor-field.tpl", "ThinkingHome.Plugins.UniUI.Resources.Settings.widget-editor-field.tpl")]
+
 	public partial class UniUiPlugin
 	{
+		// todo: переименовать parameters => fields
+		// todo: разбить ui блоки (список рабочих столов, список виджетов, редактор) на .cs файлы
+
 		#region public
 
 		[HttpCommand("/api/uniui/widget/create")]
@@ -23,7 +33,11 @@ namespace ThinkingHome.Plugins.UniUI
 			{
 				var model = GetEditorModel(type, dashboardId, session);
 
-				return model;
+				return new
+				{
+					info = model.Item1,
+					fields = model.Item2
+				};
 			}
 		}
 
@@ -44,7 +58,11 @@ namespace ThinkingHome.Plugins.UniUI
 
 				FillEditorModel(model, widget, parameters);
 
-				return model;
+				return new
+				{
+					info = model.Item1,
+					fields = model.Item2
+				};
 			}
 		}
 
@@ -52,7 +70,7 @@ namespace ThinkingHome.Plugins.UniUI
 
 		#region private methods
 
-		private EditorModel GetEditorModel(string type, Guid dashboardId, ISession session)
+		private Tuple<EditorModel, EditorParameterModel[]> GetEditorModel(string type, Guid dashboardId, ISession session)
 		{
 			if (!definitions.ContainsKey(type))
 			{
@@ -68,12 +86,12 @@ namespace ThinkingHome.Plugins.UniUI
 
 			var model = new EditorModel
 			{
+				typeDisplayName = def.DisplayName,
 				dashboardId = dashboardId,
-				type = type,
-				parameters = parameters
+				type = type
 			};
 
-			return model;
+			return new Tuple<EditorModel, EditorParameterModel[]>(model, parameters);
 		}
 
 		private EditorParameterModel GetEditorParameterModel(WidgetParameterMetaData parameter)
@@ -97,14 +115,14 @@ namespace ThinkingHome.Plugins.UniUI
 			return pmodel;
 		}
 
-		private void FillEditorModel(EditorModel model, Widget widget, WidgetParameter[] parameters)
+		private void FillEditorModel(Tuple<EditorModel, EditorParameterModel[]> model, Widget widget, WidgetParameter[] parameters)
 		{
-			model.id = widget.Id;
-			model.displayName = widget.DisplayName;
+			model.Item1.id = widget.Id;
+			model.Item1.displayName = widget.DisplayName;
 
 			foreach (var parameter in parameters)
 			{
-				var pmodel = model.parameters.FirstOrDefault(p => p.name == parameter.Name);
+				var pmodel = model.Item2.FirstOrDefault(p => p.name == parameter.Name);
 
 				if (pmodel != null)
 				{
@@ -131,10 +149,10 @@ namespace ThinkingHome.Plugins.UniUI
 		private class EditorModel
 		{
 			public Guid? id;
-			public Guid dashboardId;
-			public string type;
 			public string displayName;
-			public EditorParameterModel[] parameters;
+			public string typeDisplayName;
+			public string type;
+			public Guid dashboardId;
 		}
 
 		private class EditorParameterModel

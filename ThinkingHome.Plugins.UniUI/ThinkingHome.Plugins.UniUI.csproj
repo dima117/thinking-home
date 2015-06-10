@@ -79,6 +79,7 @@
     <EmbeddedResource Include="Resources\Settings\dashboard-info.tpl" />
     <EmbeddedResource Include="Resources\Settings\dashboard-list-item.tpl" />
     <EmbeddedResource Include="Resources\Settings\widget-editor.tpl" />
+    <EmbeddedResource Include="Resources\Settings\widget-editor-field.tpl" />
     <None Include="ThinkingHome.Plugins.UniUI.nuspec">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
