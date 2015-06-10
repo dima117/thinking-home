@@ -54,6 +54,7 @@
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UniUiPlugin.DashboardList.cs" />
     <Compile Include="Migrations\Migration03_WidgetParameter.cs" />
     <Compile Include="Migrations\Migration01_Dashboard.cs" />
     <Compile Include="Migrations\Migration02_Widget.cs" />
@@ -65,6 +66,7 @@
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="UniUiPlugin.WidgetEditor.cs" />
+    <Compile Include="UniUiPlugin.DashboardInfo.cs" />
     <Compile Include="Widgets\WidgetAttribute.cs" />
     <Compile Include="Widgets\IWidgetDefinition.cs" />
     <Compile Include="Widgets\WidgetParameterMetaData.cs" />

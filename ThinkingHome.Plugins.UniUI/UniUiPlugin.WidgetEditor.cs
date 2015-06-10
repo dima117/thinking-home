@@ -18,9 +18,6 @@ namespace ThinkingHome.Plugins.UniUI
 
 	public partial class UniUiPlugin
 	{
-		// todo: переименовать parameters => fields
-		// todo: разбить ui блоки (список рабочих столов, список виджетов, редактор) на .cs файлы
-
 		#region public
 
 		[HttpCommand("/api/uniui/widget/create")]
