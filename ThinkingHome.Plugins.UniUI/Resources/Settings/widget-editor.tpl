@@ -7,7 +7,7 @@
 			<label>
 				Display name
 			</label>
-			<input name="displayName" class="form-control" />
+			<input name="displayName" class="form-control js-display-name" />
 		</div>
 		<div class="js-fields"></div>
 	</form>

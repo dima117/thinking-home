@@ -37,7 +37,7 @@ namespace ThinkingHome.Plugins.Microclimate
 		{
 			var sensors = session
 				.Query<TemperatureSensor>()
-				.Select(s => new WidgetSelectItem(s.Id.ToString(), s.DisplayName))
+				.Select(s => new WidgetSelectItem(s.Id, s.DisplayName))
 				.ToArray();
 
 			var sensorIdParameter = new WidgetParameterMetaData

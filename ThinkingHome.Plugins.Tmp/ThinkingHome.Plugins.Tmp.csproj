@@ -32,6 +32,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\packages\NHibernate.4.0.1.4000\lib\net40\NHibernate.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="NLog">
       <HintPath>..\packages\NLog.3.2.1\lib\net45\NLog.dll</HintPath>
       <Private>False</Private>
@@ -63,6 +71,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tiles\AviaWidget.cs" />
     <Compile Include="Tiles\TestTileDefinition.cs" />
     <Compile Include="Tiles\TestNewsTileDefinition.cs" />
     <Compile Include="TmpPlugin.cs" />
@@ -114,6 +123,11 @@
     <ProjectReference Include="..\ThinkingHome.Plugins.Timer\ThinkingHome.Plugins.Timer.csproj">
       <Project>{BF7BA7FA-7BDA-40A8-8B1E-BC70FE9B791E}</Project>
       <Name>ThinkingHome.Plugins.Timer</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\ThinkingHome.Plugins.UniUI\ThinkingHome.Plugins.UniUI.csproj">
+      <Project>{5B191430-85F0-423A-A60E-8F171AE73D5C}</Project>
+      <Name>ThinkingHome.Plugins.UniUI</Name>
       <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\ThinkingHome.Plugins.WebUI\ThinkingHome.Plugins.WebUI.csproj">

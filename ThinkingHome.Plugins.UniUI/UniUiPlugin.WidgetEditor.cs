@@ -65,7 +65,7 @@ namespace ThinkingHome.Plugins.UniUI
 
 		#endregion
 
-		#region private methods
+		#region private: methods
 
 		private Tuple<EditorModel, EditorParameterModel[]> GetEditorModel(string type, Guid dashboardId, ISession session)
 		{
@@ -96,7 +96,7 @@ namespace ThinkingHome.Plugins.UniUI
 			var items = parameter.Items == null
 				? null
 				: parameter.Items
-					.Select(i => new { id = i.Id, diaplsyName = i.DisplayName })
+					.Select(i => new { id = i.Id, displayName = i.DisplayName })
 					.ToArray();
 
 			var ptype = parameter.Type.ToString().ToLower();
