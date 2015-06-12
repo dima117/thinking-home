@@ -69,12 +69,12 @@ namespace ThinkingHome.Plugins.UniUI
 
 		private Tuple<EditorModel, EditorParameterModel[]> GetEditorModel(string type, Guid dashboardId, ISession session)
 		{
-			if (!definitions.ContainsKey(type))
+			if (!defs.ContainsKey(type))
 			{
 				throw new Exception(string.Format("invalid widget type {0}", type));
 			}
 
-			var def = definitions[type];
+			var def = defs[type];
 
 			var parameters = def
 						.GetWidgetMetaData(session, Logger)

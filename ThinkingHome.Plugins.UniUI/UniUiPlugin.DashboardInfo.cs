@@ -54,59 +54,27 @@ namespace ThinkingHome.Plugins.UniUI
 				.Where(w => w.Dashboard.Id == dashboardId)
 				.ToArray();
 
-			var allParameters = session.Query<WidgetParameter>()
-				.Where(p => p.Widget.Dashboard.Id == dashboardId)
-				.ToArray();
-
 			var list = new List<object>();
 
 			foreach (var widget in allWidgets)
 			{
-				var widgetParams = allParameters.Where(p => p.Widget.Id == widget.Id).ToArray();
+				var typeDisplayName = defs.ContainsKey(widget.TypeAlias)
+					? defs[widget.TypeAlias].DisplayName
+					: string.Format("Unknown ({0})", widget.TypeAlias);
 
-				var model = GetWidgetModel(session, widget, widgetParams);
-
-				if (model != null)
+				var model = new
 				{
-					list.Add(model);
-				}
+					id = widget.Id,
+					type = widget.TypeAlias,
+					displayName = widget.DisplayName,
+					typeDisplayName = typeDisplayName,
+					sortOrder = widget.SortOrder
+				};
+
+				list.Add(model);
 			}
 
 			return list.ToArray();
-		}
-
-		private object GetWidgetModel(ISession session, Widget widget, WidgetParameter[] widgetParams)
-		{
-			if (definitions.ContainsKey(widget.TypeAlias))
-			{
-				try
-				{
-					var def = definitions[widget.TypeAlias];
-					var data = def.GetWidgetData(widget, widgetParams, session, Logger);
-
-					var model = new
-					{
-						id = widget.Id,
-						type = widget.TypeAlias,
-						displayName = widget.DisplayName,
-						sortOrder = widget.SortOrder,
-						data
-					};
-
-					return model;
-				}
-				catch (Exception ex)
-				{
-					var message = string.Format("Widget model error (widget id: {0})", widget.Id);
-					Logger.ErrorException(message, ex);
-				}
-			}
-			else
-			{
-				Logger.Error("Unknown widget type {0} (widget id: {1})", widget.TypeAlias, widget.Id);
-			}
-
-			return null;
 		}
 
 		#endregion

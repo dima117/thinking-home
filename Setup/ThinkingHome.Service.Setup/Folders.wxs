@@ -3,25 +3,26 @@
   <Fragment>
     <DirectoryRef Id="INSTALLFOLDER">
       <Directory Id="SERVICEINSTALLFOLDER" Name="service">
-        <Directory Id="FOLDER_001852F8415648019FED9B54EA10E219" Name="amd64">
-          <Directory Id="FOLDER_711A274F02B349A4BBB16DC283253EF3" Name="Microsoft.VC90.CRT" />
+        <Directory Id="FOLDER_E5857ED8B48E447C8D3FC133BA538168" Name="amd64">
+          <Directory Id="FOLDER_9E668F8F9D444AADACD5EF222CA1E354" Name="Microsoft.VC90.CRT" />
         </Directory>
-        <Directory Id="FOLDER_E7062B854FF5406FB4D12CD0C8FD07BA" Name="Plugins">
-          <Directory Id="FOLDER_0BD84AE9D39E476CB0AFBEE6C5FC1B16" Name="ThinkingHome.Plugins.AlarmClock.2.0.0.48" />
-          <Directory Id="FOLDER_37ECBAC0BC084D8083E93108D4033DCD" Name="ThinkingHome.Plugins.Audio.2.0.0.48" />
-          <Directory Id="FOLDER_25134F61D1D4427D8ED11E30809FA00B" Name="ThinkingHome.Plugins.Listener.2.0.0.48" />
-          <Directory Id="FOLDER_240614127B024687AB3ACDA1B2A7B30A" Name="ThinkingHome.Plugins.Microclimate.2.0.0.48" />
-          <Directory Id="FOLDER_741B4BC058EA4BBEBE4842189EE22BB6" Name="ThinkingHome.Plugins.Mqtt.2.0.0.48" />
-          <Directory Id="FOLDER_3BFBA07198B84D18BD72558251B967A1" Name="ThinkingHome.Plugins.NooLite.2.0.0.48" />
-          <Directory Id="FOLDER_FDCBBC8D15364017AE612185AE2BA078" Name="ThinkingHome.Plugins.Packages.2.0.0.48" />
-          <Directory Id="FOLDER_F1D08DB10F8E4CC69BCE95692B1721CF" Name="ThinkingHome.Plugins.Scripts.2.0.0.48" />
-          <Directory Id="FOLDER_C7804C785F3C46DEBF882B4CA326117C" Name="ThinkingHome.Plugins.Timer.2.0.0.48" />
-          <Directory Id="FOLDER_CE718F86F537475095D2651D31F7696C" Name="ThinkingHome.Plugins.Tmp.2.0.0.48" />
-          <Directory Id="FOLDER_47606B9BF1CF4FCFA83E817EF52FE80C" Name="ThinkingHome.Plugins.Weather.2.0.0.48" />
-          <Directory Id="FOLDER_4CD2AC09CA904CD587588F3CCAC2B323" Name="ThinkingHome.Plugins.WebUI.2.0.0.48" />
+        <Directory Id="FOLDER_042643A288F748C4A51598C791CC4D44" Name="Plugins">
+          <Directory Id="FOLDER_87CFDF6810864D4F9212D0BB9DC7E478" Name="ThinkingHome.Plugins.AlarmClock.2.0.0.48" />
+          <Directory Id="FOLDER_22EAB6042A6B484BBB62CDE1487308EB" Name="ThinkingHome.Plugins.Audio.2.0.0.48" />
+          <Directory Id="FOLDER_4D01348D18CB41CBA707BFE17E54EDD6" Name="ThinkingHome.Plugins.Listener.2.0.0.48" />
+          <Directory Id="FOLDER_55125C2F641B412C85960CBFCCAC13AE" Name="ThinkingHome.Plugins.Microclimate.2.0.0.48" />
+          <Directory Id="FOLDER_1AA8855AFB524468B2556E52E9D6D849" Name="ThinkingHome.Plugins.Mqtt.2.0.0.48" />
+          <Directory Id="FOLDER_FE52E158DF874C1CA3AEC0167EB47EF0" Name="ThinkingHome.Plugins.NooLite.2.0.0.48" />
+          <Directory Id="FOLDER_650210C847CF40D8BF2097E4414B02A3" Name="ThinkingHome.Plugins.Packages.2.0.0.48" />
+          <Directory Id="FOLDER_2EB9619EDF7B4A51B37A7241C801C551" Name="ThinkingHome.Plugins.Scripts.2.0.0.48" />
+          <Directory Id="FOLDER_56E8E27E8BA94E8B8D22C57D442568A9" Name="ThinkingHome.Plugins.Timer.2.0.0.48" />
+          <Directory Id="FOLDER_5E7506585952490CB22785C36F731451" Name="ThinkingHome.Plugins.Tmp.2.0.0.48" />
+          <Directory Id="FOLDER_02129B739D8C4AFAAAF4D83B15249179" Name="ThinkingHome.Plugins.UniUI.2.0.0.48" />
+          <Directory Id="FOLDER_ABD0FFC021484E79A67EC1D71AE9C1F5" Name="ThinkingHome.Plugins.Weather.2.0.0.48" />
+          <Directory Id="FOLDER_75A9C7C5CB5C440FA8493EAFF0D6B407" Name="ThinkingHome.Plugins.WebUI.2.0.0.48" />
         </Directory>
-        <Directory Id="FOLDER_1374D5EEA3D64844922837C1E0366B0F" Name="x86">
-          <Directory Id="FOLDER_F6D12AAD42CE414BA08F7741ADE87129" Name="Microsoft.VC90.CRT" />
+        <Directory Id="FOLDER_F8DE5342C99846D7B602DED0AF39FEC2" Name="x86">
+          <Directory Id="FOLDER_255DD323767248F7BE377B2B036724CE" Name="Microsoft.VC90.CRT" />
         </Directory>
       </Directory>
     </DirectoryRef>

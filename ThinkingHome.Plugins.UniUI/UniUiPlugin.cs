@@ -21,7 +21,7 @@ namespace ThinkingHome.Plugins.UniUI
 			mapper.Class<WidgetParameter>(cfg => cfg.Table("UniUI_WidgetParameter"));
 		}
 
-		private readonly InternalDictionary<IWidgetDefinition> definitions = new InternalDictionary<IWidgetDefinition>();
+		private readonly InternalDictionary<IWidgetDefinition> defs = new InternalDictionary<IWidgetDefinition>();
 
 		[ImportMany("ABD9D425-5836-4DC5-88B6-222CD7A658CA")]
 		public Lazy<IWidgetDefinition, IWidgetAttribute>[] WidgetDefinitions { get; set; }
@@ -31,7 +31,7 @@ namespace ThinkingHome.Plugins.UniUI
 			foreach (var def in WidgetDefinitions)
 			{
 				Logger.Info("Register UI widget : '{0}'", def.Metadata.TypeAlias);
-				definitions.Register(def.Metadata.TypeAlias, def.Value);
+				defs.Register(def.Metadata.TypeAlias, def.Value);
 			}
 		}
 	}
