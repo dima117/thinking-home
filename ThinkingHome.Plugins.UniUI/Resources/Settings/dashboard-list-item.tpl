@@ -1,7 +1,7 @@
 ﻿<div class="row">
 	<div class="col-md-5">
 		<h4>
-			<a href="#">
+			<a href="#" class="js-open-dashboard">
 				<%=title%>
 			</a>
 		</h4>

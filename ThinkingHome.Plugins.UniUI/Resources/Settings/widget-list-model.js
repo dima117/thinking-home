@@ -7,11 +7,11 @@
 		});
 
 		var api = {
-			loadDashboardInfo: function (id) {
+			loadWidgetList: function (id) {
 
 				var defer = lib.$.Deferred();
 
-				lib.$.getJSON('/api/uniui/dashboard/info', { id: id })
+				lib.$.getJSON('/api/uniui/widget/list', { id: id })
 					.done(function (data) {
 
 						var info = new lib.backbone.Model(data.info),
@@ -29,6 +29,6 @@
 		};
 
 		return {
-			loadDashboardInfo: api.loadDashboardInfo
+			loadWidgetList: api.loadWidgetList
 		};
 	});

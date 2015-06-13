@@ -66,7 +66,7 @@
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="UniUiPlugin.WidgetEditor.cs" />
-    <Compile Include="UniUiPlugin.DashboardInfo.cs" />
+    <Compile Include="UniUiPlugin.WidgetList.cs" />
     <Compile Include="Widgets\WidgetAttribute.cs" />
     <Compile Include="Widgets\IWidgetDefinition.cs" />
     <Compile Include="Widgets\WidgetParameterMetaData.cs" />
@@ -77,8 +77,8 @@
     <None Include="app.config" />
     <None Include="packages.config" />
     <EmbeddedResource Include="Resources\Settings\dashboard-list.tpl" />
-    <EmbeddedResource Include="Resources\Settings\dashboard-info-widget.tpl" />
-    <EmbeddedResource Include="Resources\Settings\dashboard-info.tpl" />
+    <EmbeddedResource Include="Resources\Settings\widget-list-item.tpl" />
+    <EmbeddedResource Include="Resources\Settings\widget-list.tpl" />
     <EmbeddedResource Include="Resources\Settings\dashboard-list-item.tpl" />
     <EmbeddedResource Include="Resources\Settings\widget-editor.tpl" />
     <EmbeddedResource Include="Resources\Settings\widget-editor-field.tpl" />
@@ -113,13 +113,13 @@
     <EmbeddedResource Include="Resources\Settings\dashboard-list-view.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Settings\dashboard-info.js" />
+    <EmbeddedResource Include="Resources\Settings\widget-list.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Settings\dashboard-info-model.js" />
+    <EmbeddedResource Include="Resources\Settings\widget-list-model.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Settings\dashboard-info-view.js" />
+    <EmbeddedResource Include="Resources\Settings\widget-list-view.js" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Settings\widget-editor-model.js" />

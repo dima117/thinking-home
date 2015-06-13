@@ -6,6 +6,13 @@
 
 		var api = {
 
+
+
+			openDashboard: function (childView) {
+				
+				var id = childView.model.get("id");
+				application.navigate('webapp/uniui/settings/widget-list', id);
+			},
 			moveUp: function (childView) {
 				
 				var id = childView.model.get("id");
@@ -54,6 +61,7 @@
 							collection: list
 						});
 
+						view.on("childview:dashboard:open", api.openDashboard);
 						view.on("childview:dashboard:rename", api.renameDashboard);
 						view.on("childview:dashboard:delete", api.deleteDashboard);
 						view.on("childview:dashboard:move:up", api.moveUp);

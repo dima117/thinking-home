@@ -10,22 +10,22 @@ using ThinkingHome.Plugins.WebUI.Attributes;
 
 namespace ThinkingHome.Plugins.UniUI
 {
-	[JavaScriptResource("/webapp/uniui/settings/dashboard-info.js", "ThinkingHome.Plugins.UniUI.Resources.Settings.dashboard-info.js")]
-	[JavaScriptResource("/webapp/uniui/settings/dashboard-info-view.js", "ThinkingHome.Plugins.UniUI.Resources.Settings.dashboard-info-view.js")]
-	[JavaScriptResource("/webapp/uniui/settings/dashboard-info-model.js", "ThinkingHome.Plugins.UniUI.Resources.Settings.dashboard-info-model.js")]
-	[HttpResource("/webapp/uniui/settings/dashboard-info.tpl", "ThinkingHome.Plugins.UniUI.Resources.Settings.dashboard-info.tpl")]
-	[HttpResource("/webapp/uniui/settings/dashboard-info-widget.tpl", "ThinkingHome.Plugins.UniUI.Resources.Settings.dashboard-info-widget.tpl")]
+	[JavaScriptResource("/webapp/uniui/settings/widget-list.js", "ThinkingHome.Plugins.UniUI.Resources.Settings.widget-list.js")]
+	[JavaScriptResource("/webapp/uniui/settings/widget-list-view.js", "ThinkingHome.Plugins.UniUI.Resources.Settings.widget-list-view.js")]
+	[JavaScriptResource("/webapp/uniui/settings/widget-list-model.js", "ThinkingHome.Plugins.UniUI.Resources.Settings.widget-list-model.js")]
+	[HttpResource("/webapp/uniui/settings/widget-list.tpl", "ThinkingHome.Plugins.UniUI.Resources.Settings.widget-list.tpl")]
+	[HttpResource("/webapp/uniui/settings/widget-list-item.tpl", "ThinkingHome.Plugins.UniUI.Resources.Settings.widget-list-item.tpl")]
 
 	public partial class UniUiPlugin
 	{
-		[HttpCommand("/api/uniui/dashboard/info")]
-		public object GetDashboardInfo(HttpRequestParams request)
+		[HttpCommand("/api/uniui/widget/list")]
+		public object GetWidgetList(HttpRequestParams request)
 		{
 			Guid dashboardId = request.GetRequiredGuid("id");
 
 			using (var session = Context.OpenSession())
 			{
-				var info = GetDashboardInfoModel(dashboardId, session);
+				var info = GetDashboardModel(dashboardId, session);
 				var widgets = GetWidgetListModel(dashboardId, session);
 
 				return new { info, widgets };
@@ -34,7 +34,7 @@ namespace ThinkingHome.Plugins.UniUI
 
 		#region private
 
-		private object GetDashboardInfoModel(Guid dashboardId, ISession session)
+		private object GetDashboardModel(Guid dashboardId, ISession session)
 		{
 			var dashboard = session.Query<Dashboard>().First(x => x.Id == dashboardId);
 
