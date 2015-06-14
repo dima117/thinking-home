@@ -6,23 +6,39 @@
 
 		var api = {
 
-			openEditor: function(id) {
+			initEditor: function (data) {
 
-				models.editWidget(id)
-					.done(function(data) {
+				var view = new views.WidgetEditorView({
+					model: data.info,
+					collection: data.fields
+				});
 
-						var view = new views.WidgetEditorView({
-							model: data.info,
-							collection: data.fields
-						});
+				api.view = view;
+				application.setContentView(view);
+			},
 
-						api.view = view;
-						application.setContentView(view);
-					});
+			createWidget: function (dashboardId, type) {
+
+				models.createWidget(dashboardId, type).done(api.initEditor);
+			},
+
+			editWidget: function (id) {
+
+				models.editWidget(id).done(api.initEditor);
 			}
 		};
 
 		return {
-			start: api.openEditor
+			start: function (action, id, type) {
+
+				switch (action) {
+					case "create":
+						api.createWidget(id, type);
+						break;
+					case "edit":
+						api.editWidget(id);
+						break;
+				}
+			}
 		};
 	});

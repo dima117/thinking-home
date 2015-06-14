@@ -5,7 +5,10 @@
 	function (lib, listTemplate, widgetTemplate) {
 
 		var widgetView = lib.marionette.ItemView.extend({
-			template: lib._.template(widgetTemplate)
+			template: lib._.template(widgetTemplate),
+			triggers: {
+				"click .js-edit-widget": "widget:edit"
+			}
 		});
 
 		var listView = lib.marionette.CompositeView.extend({

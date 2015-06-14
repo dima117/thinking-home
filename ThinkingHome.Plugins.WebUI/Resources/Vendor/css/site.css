@@ -254,6 +254,10 @@ a.list-group-item:hover {
 	margin-bottom: 8px;
 }
 
+.th-margin-top-16 {
+	margin-top: 16px;
+}
+
 .th-margin-bottom-16 {
 	margin-bottom: 16px;
 }

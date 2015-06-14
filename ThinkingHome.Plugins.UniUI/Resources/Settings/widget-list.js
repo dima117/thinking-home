@@ -6,6 +6,13 @@
 
 		var api = {
 
+			editWidget: function(view) {
+
+				var id = view.model.get("id");
+
+				application.navigate('webapp/uniui/settings/widget-editor', "edit", id);
+			},
+
 			openDashboardList: function () {
 
 				application.navigate('webapp/uniui/settings/dashboard-list');
@@ -22,6 +29,7 @@
 						});
 
 						view.on("open:dashboard:list", api.openDashboardList);
+						view.on("childview:widget:edit", api.editWidget);
 
 						api.view = view;
 						application.setContentView(view);
