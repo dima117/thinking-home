@@ -28,7 +28,8 @@ namespace ThinkingHome.Plugins.UniUI
 
 			using (var session = Context.OpenSession())
 			{
-				var model = GetEditorModel(type, dashboardId, session);
+				var dashboard = session.Query<Dashboard>().Single(x => x.Id == dashboardId);
+				var model = GetEditorModel(type, dashboard.Id, dashboard.Title, session);
 
 				return new
 				{
@@ -45,9 +46,11 @@ namespace ThinkingHome.Plugins.UniUI
 
 			using (var session = Context.OpenSession())
 			{
-				var widget = session.Query<Widget>().Single(x => x.Id == id);
+				var widget = session.Query<Widget>()
+								.Fetch(a => a.Dashboard)
+								.Single(x => x.Id == id);
 
-				var model = GetEditorModel(widget.TypeAlias, widget.Dashboard.Id, session);
+				var model = GetEditorModel(widget.TypeAlias, widget.Dashboard.Id, widget.Dashboard.Title, session);
 
 				var parameters = session.Query<WidgetParameter>()
 					.Where(x => x.Widget.Id == id)
@@ -67,7 +70,8 @@ namespace ThinkingHome.Plugins.UniUI
 
 		#region private: methods
 
-		private Tuple<EditorModel, EditorParameterModel[]> GetEditorModel(string type, Guid dashboardId, ISession session)
+		private Tuple<EditorModel, EditorParameterModel[]> GetEditorModel(
+			string type, Guid dashboardId, string dashboardTitle, ISession session)
 		{
 			if (!defs.ContainsKey(type))
 			{
@@ -85,6 +89,7 @@ namespace ThinkingHome.Plugins.UniUI
 			{
 				typeDisplayName = def.DisplayName,
 				dashboardId = dashboardId,
+				dashboardTitle = dashboardTitle,
 				type = type
 			};
 
@@ -150,6 +155,7 @@ namespace ThinkingHome.Plugins.UniUI
 			public string typeDisplayName;
 			public string type;
 			public Guid dashboardId;
+			public string dashboardTitle;
 		}
 
 		private class EditorParameterModel

@@ -37,7 +37,11 @@
 			ui: {
 				displayName: ".js-display-name"
 			},
-			onRender: function() {
+			triggers: {
+				"click .js-dashboard-list": "open:dashboard:list",
+				"click .js-dashboard": "open:dashboard"
+			},
+			onRender: function () {
 
 				var displayName = this.model.get("displayName");
 				this.ui.displayName.val(displayName);

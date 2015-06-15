@@ -6,8 +6,6 @@
 
 		var api = {
 
-
-
 			openDashboard: function (childView) {
 				
 				var id = childView.model.get("id");

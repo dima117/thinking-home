@@ -1,7 +1,17 @@
 ﻿<div>
-	<h1>
-		<%=typeDisplayName%>
-	</h1>
+	<ul class="breadcrumb th-margin-top-16">
+		<li>
+			<a href="#" class="js-dashboard-list">Dashboard list</a>
+		</li>
+		<li>
+			<a href="#" class="js-dashboard">
+				<%=dashboardTitle%>
+			</a>
+		</li>
+		<li class="active">
+			<%=typeDisplayName%>
+		</li>
+	</ul>
 	<form>
 		<div class="form-group">
 			<label>
