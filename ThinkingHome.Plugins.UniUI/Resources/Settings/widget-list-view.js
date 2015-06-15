@@ -17,6 +17,25 @@
 			childViewContainer: '.js-list',
 			triggers: {
 				"click .js-dashboard-list": "open:dashboard:list"
+			},
+			ui: {
+				typeSelector: ".js-widget-type"
+			},
+			onRender: function() {
+				
+				var types = this.model.get("types");
+
+				// build select list
+				if (types && types.length) {
+
+					for (var i = 0; i < types.length; i++) {
+
+						lib.$("<option></option>")
+							.text(types[i].displayName)
+							.attr("value", types[i].id)
+							.appendTo(this.ui.typeSelector);
+					}
+				}
 			}
 		});
 

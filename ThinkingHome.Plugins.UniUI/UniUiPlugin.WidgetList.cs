@@ -6,6 +6,7 @@ using NHibernate.Linq;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.UniUI.Model;
+using ThinkingHome.Plugins.UniUI.Widgets;
 using ThinkingHome.Plugins.WebUI.Attributes;
 
 namespace ThinkingHome.Plugins.UniUI
@@ -38,11 +39,16 @@ namespace ThinkingHome.Plugins.UniUI
 		{
 			var dashboard = session.Query<Dashboard>().First(x => x.Id == dashboardId);
 
+			var types = defs
+				.Select(x => new { id = x.Key, displayName = x.Value.DisplayName })
+				.ToArray();
+
 			var model = new
 			{
 				id = dashboard.Id,
 				title = dashboard.Title,
-				sortOrder = dashboard.SortOrder
+				sortOrder = dashboard.SortOrder,
+				types
 			};
 
 			return model;
@@ -52,7 +58,7 @@ namespace ThinkingHome.Plugins.UniUI
 		{
 			var allWidgets = session.Query<Widget>()
 				.Where(w => w.Dashboard.Id == dashboardId)
-				.ToArray();
+				.ToArray();	
 
 			var list = new List<object>();
 
