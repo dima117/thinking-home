@@ -101,7 +101,7 @@ namespace ThinkingHome.Plugins.UniUI
 			var items = parameter.Items == null
 				? null
 				: parameter.Items
-					.Select(i => new { id = i.Id, displayName = i.DisplayName })
+					.Select(i => new { id = i.Id, name = i.DisplayName })
 					.ToArray();
 
 			var ptype = parameter.Type.ToString().ToLower();

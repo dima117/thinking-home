@@ -13,14 +13,17 @@ define(
 
 				return s;
 			},
+
 			alert: function () {
 				var msg = utils.formatString.apply(null, arguments);
 				window.alert(msg);
 			},
+
 			confirm: function () {
 				var msg = utils.formatString.apply(null, arguments);
 				return window.confirm(msg);
 			},
+
 			loadCss: function () {
 
 				for (var i = 0; i < arguments.length; i++) {
@@ -30,6 +33,7 @@ define(
 						.appendTo("head");
 				}
 			},
+
 			displayCurrentTime: function (selector) {
 
 				var $el = lib.$(selector);
@@ -45,6 +49,22 @@ define(
 				}
 
 				return undefined;
+			},
+
+			addListItems: function(select, items, options) {
+
+				var opt = lib._.extend({
+					text: 'name',
+					value: 'id'
+				}, options);
+
+				lib._.each(items, function (item) {
+
+					var val = item[opt.value],
+						text = item[opt.text];
+
+					lib.$('<option />').val(val).text(text).appendTo(select);
+				});
 			}
 		};
 

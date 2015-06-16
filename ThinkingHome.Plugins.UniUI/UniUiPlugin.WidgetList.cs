@@ -40,7 +40,7 @@ namespace ThinkingHome.Plugins.UniUI
 			var dashboard = session.Query<Dashboard>().First(x => x.Id == dashboardId);
 
 			var types = defs
-				.Select(x => new { id = x.Key, displayName = x.Value.DisplayName })
+				.Select(x => new { id = x.Key, name = x.Value.DisplayName })
 				.ToArray();
 
 			var model = new

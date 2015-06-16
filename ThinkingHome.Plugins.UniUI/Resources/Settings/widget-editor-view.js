@@ -1,8 +1,9 @@
 ﻿define([
 	'lib',
+	'common',
 	'text!webapp/uniui/settings/widget-editor.tpl',
 	'text!webapp/uniui/settings/widget-editor-field.tpl'],
-	function (lib, editorTemplate, fieldTemplate) {
+	function (lib, common, editorTemplate, fieldTemplate) {
 
 		var fieldView = lib.marionette.ItemView.extend({
 			template: lib._.template(fieldTemplate),
@@ -11,19 +12,9 @@
 			},
 			onRender: function () {
 
+				// add items
 				var items = this.model.get("items");
-
-				// build select list
-				if (items && items.length) {
-
-					for (var i = 0; i < items.length; i++) {
-
-						lib.$("<option></option>")
-							.text(items[i].displayName)
-							.attr("value", items[i].id)
-							.appendTo(this.ui.field);
-					}
-				}
+				common.utils.addListItems(this.ui.field, items);
 
 				// set value
 				var value = this.model.get("value");

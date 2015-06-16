@@ -1,8 +1,9 @@
 ﻿define([
 	'lib',
+	'common',
 	'text!webapp/uniui/settings/widget-list.tpl',
 	'text!webapp/uniui/settings/widget-list-item.tpl'],
-	function (lib, listTemplate, widgetTemplate) {
+	function (lib, common, listTemplate, widgetTemplate) {
 
 		var widgetView = lib.marionette.ItemView.extend({
 			template: lib._.template(widgetTemplate),
@@ -22,20 +23,10 @@
 				typeSelector: ".js-widget-type"
 			},
 			onRender: function() {
-				
+
+				// add items
 				var types = this.model.get("types");
-
-				// build select list
-				if (types && types.length) {
-
-					for (var i = 0; i < types.length; i++) {
-
-						lib.$("<option></option>")
-							.text(types[i].displayName)
-							.attr("value", types[i].id)
-							.appendTo(this.ui.typeSelector);
-					}
-				}
+				common.utils.addListItems(this.ui.typeSelector, types);
 			}
 		});
 
