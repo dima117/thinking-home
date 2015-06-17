@@ -23,6 +23,6 @@
 	</form>
 	<div>
 		<a href="#" class="btn btn-primary">Save</a>
-		<a href="#" class="btn btn-default">Cancel</a>
+		<a href="#" class="btn btn-default js-cancel">Cancel</a>
 	</div>
 </div>

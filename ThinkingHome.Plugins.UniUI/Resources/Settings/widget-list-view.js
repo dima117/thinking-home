@@ -17,7 +17,8 @@
 			childView: widgetView,
 			childViewContainer: '.js-list',
 			triggers: {
-				"click .js-dashboard-list": "open:dashboard:list"
+				"click .js-dashboard-list": "open:dashboard:list",
+				"click .js-create-widget": "widget:create"
 			},
 			ui: {
 				typeSelector: ".js-widget-type"

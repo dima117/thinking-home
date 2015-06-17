@@ -6,6 +6,14 @@
 
 		var api = {
 
+			createWidget: function() {
+
+				var id = this.model.get("id"),
+					type = this.ui.typeSelector.val();
+
+				application.navigate('webapp/uniui/settings/widget-editor', "create", id, type);
+			},
+
 			editWidget: function(view) {
 
 				var id = view.model.get("id");
@@ -28,8 +36,9 @@
 							collection: data.widgets
 						});
 
-						view.on("open:dashboard:list", api.openDashboardList);
+						view.on("widget:create", api.createWidget);
 						view.on("childview:widget:edit", api.editWidget);
+						view.on("open:dashboard:list", api.openDashboardList);
 
 						api.view = view;
 						application.setContentView(view);

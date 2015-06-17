@@ -30,7 +30,8 @@
 			},
 			triggers: {
 				"click .js-dashboard-list": "open:dashboard:list",
-				"click .js-dashboard": "open:dashboard"
+				"click .js-dashboard": "open:dashboard",
+				"click .js-cancel": "open:dashboard"
 			},
 			onRender: function () {
 
