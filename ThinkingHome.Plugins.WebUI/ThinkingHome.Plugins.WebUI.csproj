@@ -237,7 +237,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Application\application.js" />
+    <EmbeddedResource Include="Resources\Application\application.js" />
+    <EmbeddedResource Include="Resources\Application\layout.js" />
+    <EmbeddedResource Include="Resources\Application\router.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
