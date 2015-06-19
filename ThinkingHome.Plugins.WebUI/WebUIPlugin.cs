@@ -74,7 +74,6 @@ namespace ThinkingHome.Plugins.WebUI
 
 	// webapp: main
 	[JavaScriptResource("/application/index.js", "ThinkingHome.Plugins.WebUI.Resources.Application.index.js")]
-	[JavaScriptResource("/application/app.js", "ThinkingHome.Plugins.WebUI.Resources.Application.app.js")]
 	[JavaScriptResource("/application/common.js", "ThinkingHome.Plugins.WebUI.Resources.Application.common.js")]
 	[JavaScriptResource("/application/lib.js", "ThinkingHome.Plugins.WebUI.Resources.Application.lib.js")]
 

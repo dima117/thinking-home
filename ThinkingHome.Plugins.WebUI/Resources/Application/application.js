@@ -7,8 +7,7 @@
 	});
 
 	app.layout = new layout({
-		template: '#layout-template',
-		el: '#hrukata-container'
+		template: '#layout-template'
 	});
 
 	app.on('start', function () {
@@ -17,17 +16,9 @@
 		app.router.start();
 	});
 
-
-
-
-
-
-	app.addRegions({
-		regionContent: "#region-page-content"
-	});
-
 	app.setContentView = function (view) {
-		app.regionContent.show(view);
+
+		app.layout.getRegion('content').show(view);
 	};
 
 	app.addTile = function (def, options) {

@@ -118,9 +118,6 @@
     <EmbeddedResource Include="Resources\Vendor\js\json2.min.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Application\app.js" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="..\jslibs\chart.min.js.map">
       <Link>Resources\Vendor\js\chart.min.js.map</Link>
     </EmbeddedResource>
