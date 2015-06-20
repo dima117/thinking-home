@@ -4,6 +4,13 @@
 		el: 'body',
 		regions: {
 			content: ".js-region-content"
+		},
+		events: {
+			"click .js-nav-link": "hideMenu"
+		},
+		hideMenu: function() {
+
+			this.$(".js-navbar-collapse").collapse('hide');
 		}
 	});
 
