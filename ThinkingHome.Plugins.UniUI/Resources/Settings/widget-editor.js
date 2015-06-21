@@ -6,6 +6,12 @@
 
 		var api = {
 
+			saveWidget: function() {
+
+				var data = this.getData();
+				alert(data);
+			},
+
 			openDashboardList: function() {
 
 				application.navigate('webapp/uniui/settings/dashboard-list');
@@ -24,6 +30,7 @@
 					collection: data.fields
 				});
 
+				view.on("save:widget", api.saveWidget);
 				view.on("open:dashboard", api.openDashboard);
 				view.on("open:dashboard:list", api.openDashboardList);
 

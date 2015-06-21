@@ -22,7 +22,7 @@
 		<div class="js-fields"></div>
 	</form>
 	<div>
-		<a href="#" class="btn btn-primary">Save</a>
+		<a href="#" class="btn btn-primary js-save">Save</a>
 		<a href="#" class="btn btn-default js-cancel">Cancel</a>
 	</div>
 </div>

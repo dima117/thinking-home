@@ -21,6 +21,7 @@
 				this.ui.field.val(value);
 			}
 		});
+
 		var editorView = lib.marionette.CompositeView.extend({
 			template: lib._.template(editorTemplate),
 			childView: fieldView,
@@ -31,12 +32,18 @@
 			triggers: {
 				"click .js-dashboard-list": "open:dashboard:list",
 				"click .js-dashboard": "open:dashboard",
-				"click .js-cancel": "open:dashboard"
+				"click .js-cancel": "open:dashboard",
+				"click .js-save": "save:widget"
 			},
 			onRender: function () {
 
 				var displayName = this.model.get("displayName");
 				this.ui.displayName.val(displayName);
+			},
+			getData: function() {
+
+				var data = lib.syphon.serialize(this);
+				return data;
 			}
 		});
 

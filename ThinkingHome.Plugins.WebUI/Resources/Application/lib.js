@@ -5,10 +5,11 @@
 		'underscore',
 		'jquery',
 		'json2',
+		'syphon',
 		'chart',
 		'chart.scatter'
 	],
-	function (marionette, backbone, underscore, jquery, json2, chartjs) {
+	function (marionette, backbone, underscore, jquery, json2, syphon, chartjs) {
 
 		return {
 			marionette: marionette,
@@ -16,6 +17,7 @@
 			_: underscore,
 			$: jquery,
 			json2: json2,
-			Chart: chartjs
+			Chart: chartjs,
+			syphon: syphon
 		};
 	});
