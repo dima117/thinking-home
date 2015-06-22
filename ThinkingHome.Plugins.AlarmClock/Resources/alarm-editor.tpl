@@ -39,7 +39,7 @@
 				<label>
 					Action
 				</label>
-				<select name="scriptId" data-items-field="scripts" class="form-control">
+				<select name="scriptId" class="form-control js-script-list">
 					<option value="">&lt;PLAY SOUND&gt;</option>
 				</select>
 			</div>

@@ -22,7 +22,7 @@
 
 			save: function () {
 
-				var model = this.model;
+				var model = this.model.toJSON();
 				models.saveAlarm(model).done(api.redirectToList);
 			},
 			deleteAlarm: function() {

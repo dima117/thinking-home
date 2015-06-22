@@ -23,7 +23,7 @@
 		},
 		saveAlarm: function (model) {
 
-			return lib.$.post('/api/alarm-clock/save', model.toJSON()).promise();
+			return lib.$.post('/api/alarm-clock/save', model).promise();
 		},
 		deleteAlarm: function (id) {
 

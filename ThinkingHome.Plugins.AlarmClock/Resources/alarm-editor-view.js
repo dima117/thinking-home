@@ -2,11 +2,23 @@
 	['lib', 'common', 'text!webapp/alarm-clock/editor.tpl'],
 	function (lib, common, editorTemplate) {
 
-		var alarmEditorView = common.FormView.extend({
+		var alarmEditorView = lib.marionette.ItemView.extend({
 
 			template: lib._.template(editorTemplate),
-			onShow: function() {
+			ui: {
+				scriptList: '.js-script-list'
+			},
+			onRender: function () {
 
+				var data = this.serializeData();
+
+				// add items
+				common.utils.addListItems(this.ui.scriptList, data.scripts);
+
+				// set selected values
+				lib.syphon.deserialize(this, data);
+
+				// btn delete
 				var hasId = !!this.model.get("id");
 				this.$(".js-btn-delete").toggle(hasId);
 			},
@@ -18,7 +30,9 @@
 			btnSaveClick: function (e) {
 				e.preventDefault();
 
-				this.updateModel();
+				var data = lib.syphon.serialize(this);
+				this.model.set(data);
+
 				this.trigger('alarm-clock:editor:save');
 			},
 			btnCancelClick: function (e) {
