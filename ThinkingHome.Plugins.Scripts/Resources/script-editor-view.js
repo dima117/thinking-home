@@ -1,13 +1,17 @@
 ﻿define(
 	['lib',
-		'common',
 		'codemirror',
 		'text!webapp/scripts/script-editor.tpl'
 	],
-	function (lib, common, codemirror, editorTemplate) {
+	function (lib, codemirror, editorTemplate) {
 
-		var scriptEditorView = common.FormView.extend({
+		var scriptEditorView = lib.marionette.ItemView.extend({
 			template: lib._.template(editorTemplate),
+			onRender: function () {
+
+				var data = this.serializeData();
+				lib.syphon.deserialize(this, data);
+			},
 			onShow: function () {
 
 				var textarea = this.$('.js-script-body')[0];
@@ -31,8 +35,8 @@
 				'click @ui.btnFullscreen': 'btnFullscreenEditing',
 				'click @ui.btnExitFullscreen': 'btnExitFullscreenEditing'
 			},
-			toogleFuulscreen: function(flag) {
-				
+			toogleFuulscreen: function (flag) {
+
 				if (flag == undefined) {
 					flag = !this.cm.getOption("fullScreen");
 				}
@@ -43,7 +47,7 @@
 				this.ui.btnExitFullscreen.toggleClass("hidden", !flag);
 			},
 
-			btnFullscreenEditing: function(e) {
+			btnFullscreenEditing: function (e) {
 
 				e.stopPropagation();
 				e.preventDefault();
@@ -59,7 +63,7 @@
 				e.preventDefault();
 
 				this.cm.save();
-				var data = lib.backbone.Syphon.serialize(this);
+				var data = lib.syphon.serialize(this);
 				this.trigger('scripts:editor:save', data);
 			},
 			btnCancelClick: function (e) {
