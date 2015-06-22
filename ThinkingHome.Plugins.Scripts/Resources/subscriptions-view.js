@@ -14,16 +14,30 @@
 			}
 		});
 
-		var subscriptionFormView = common.FormView.extend({
+		var subscriptionFormView = lib.marionette.ItemView.extend({
 			template: lib._.template(formTemplate),
+			ui: {
+				eventList: '.js-event-list',
+				scriptList: '.js-script-list'
+			},
+			onRender: function () {
+
+				// add items
+				var data = this.serializeData();
+				common.utils.addListItems(this.ui.eventList, data.eventList);
+				common.utils.addListItems(this.ui.scriptList, data.scriptList);
+
+				// set selected values
+				lib.syphon.deserialize(this, data);
+			},
 			events: {
 				'click .js-btn-add-subscription': 'addSubscription'
 			},
 			addSubscription: function (e) {
 				e.preventDefault();
 
-				this.updateModel();
-				this.trigger('scripts:subscription:add');
+				var data = lib.syphon.serialize(this);
+				this.trigger('scripts:subscription:add', data);
 			}
 		});
 

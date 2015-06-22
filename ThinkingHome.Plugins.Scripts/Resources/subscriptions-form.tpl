@@ -3,13 +3,13 @@
 		<label>
 			Event type
 		</label>
-		<select name="selectedEventAlias" data-items-field="eventList" class="form-control" />
+		<select name="selectedEventAlias" class="form-control js-event-list" />
 	</div>
 	<div class="form-group">
 		<label>
 			Script
 		</label>
-		<select name="selectedScriptId" data-items-field="scriptList" class="form-control" />
+		<select name="selectedScriptId" class="form-control js-script-list" />
 
 	</div>
 	<input type="button" class="btn btn-primary js-btn-add-subscription" value="Add subscription" />

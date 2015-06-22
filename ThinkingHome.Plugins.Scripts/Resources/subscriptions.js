@@ -8,12 +8,10 @@
 
 		var api = {
 
-			addSubscription: function () {
+			addSubscription: function (data) {
 
-				var eventAlias = this.model.get('selectedEventAlias');
-				var scriptId = this.model.get('selectedScriptId');
-
-				models.addSubscription(eventAlias, scriptId).done(api.reloadList);
+				models.addSubscription(data.selectedEventAlias, data.selectedScriptId)
+					.done(api.reloadList);
 			},
 
 			deleteSubscription: function (childView) {
