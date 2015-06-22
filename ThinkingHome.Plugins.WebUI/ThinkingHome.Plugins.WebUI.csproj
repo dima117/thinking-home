@@ -193,9 +193,6 @@
     <EmbeddedResource Include="Resources\Application\common\sortable-view.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Application\common\form-view.js" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\Application\common\complex-view.js" />
   </ItemGroup>
   <ItemGroup>

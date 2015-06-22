@@ -1,11 +1,10 @@
 ﻿define([
 		'lib',
-		'common',
 		'text!webapp/weather/locations-layout.tpl',
 		'text!webapp/weather/locations-form.tpl',
 		'text!webapp/weather/locations-list.tpl',
 		'text!webapp/weather/locations-list-item.tpl'
-], function (lib, common, layoutTemplate, formTemplate, listTemplate, itemTemplate) {
+], function (lib, layoutTemplate, formTemplate, listTemplate, itemTemplate) {
 
 	var weatherSettingsLayout = lib.marionette.LayoutView.extend({
 		template: lib._.template(layoutTemplate),
@@ -15,7 +14,7 @@
 		}
 	});
 
-	var weatherSettingsFormView = common.FormView.extend({
+	var weatherSettingsFormView = lib.marionette.ItemView.extend({
 		template: lib._.template(formTemplate),
 		events: {
 			'click .js-btn-add-location': 'addLocation'
@@ -23,8 +22,8 @@
 		addLocation: function (e) {
 			e.preventDefault();
 
-			this.updateModel();
-			this.trigger('weather:location:add');
+			var data = lib.syphon.serialize(this);
+			this.trigger('weather:location:add', data);
 		}
 	});
 

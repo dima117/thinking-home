@@ -85,7 +85,6 @@ namespace ThinkingHome.Plugins.WebUI
 
 	[JavaScriptResource("/application/common/sortable-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.common.sortable-view.js")]
 	[JavaScriptResource("/application/common/complex-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.common.complex-view.js")]
-	[JavaScriptResource("/application/common/form-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.common.form-view.js")]
 	[JavaScriptResource("/application/common/utils.js", "ThinkingHome.Plugins.WebUI.Resources.Application.common.utils.js")]
 
 	// webapp: sections

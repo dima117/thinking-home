@@ -1,5 +1,6 @@
 ﻿define(['lib', 'application/router', 'application/layout'], function (lib, router, layout) {
 
+	// init
 	var app = new lib.marionette.Application();
 
 	app.router = new router({
@@ -10,15 +11,23 @@
 		template: '#layout-template'
 	});
 
+	// start
 	app.on('start', function () {
 
-		app.layout.render();
-		app.router.start();
+		this.layout.render();
+		this.router.start();
 	});
 
-	app.setContentView = function (view) {
+	// shortcuts
+	app.setContentView = function(view) {
 
-		app.layout.getRegion('content').show(view);
+		this.layout.setContentView(view);
+	};
+
+	app.navigate = function (route) {
+
+		var args = Array.prototype.slice.call(arguments, 1);
+		app.router.navigate(route, args);
 	};
 
 	app.addTile = function (def, options) {
@@ -29,12 +38,6 @@
 			.done(function () {
 				app.router.navigate('tiles');
 			});
-	};
-
-	app.navigate = function (route) {
-
-		var args = Array.prototype.slice.call(arguments, 1);
-		app.router.navigate(route, args);
 	};
 
 	app.loadPath = function (route, args) {

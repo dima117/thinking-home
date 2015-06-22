@@ -11,9 +11,12 @@
 		hideMenu: function() {
 
 			this.$(".js-navbar-collapse").collapse('hide');
+		},
+		setContentView: function (view) {
+
+			this.getRegion('content').show(view);
 		}
 	});
-
 
 	return rootLayout;
 });

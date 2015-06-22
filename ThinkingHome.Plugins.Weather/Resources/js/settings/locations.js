@@ -14,14 +14,11 @@
 				application.addTile('ThinkingHome.Plugins.Weather.WeatherTileDefinition', { cityId: locationId });
 			},
 
-			addLocation: function () {
+			addLocation: function (data) {
 
-				var displayName = this.model.get('displayName');
-				var query = this.model.get('query');
+				if (data.displayName && data.query) {
 
-				if (displayName && query) {
-
-					models.addLocation(displayName, query).done(api.reloadList);
+					models.addLocation(data.displayName, data.query).done(api.reloadList);
 				}
 			},
 
