@@ -8,7 +8,9 @@
 
 			saveWidget: function() {
 
+				// data
 				var data = this.model.toJSON();
+				data.displayName = this.ui.displayName.val();
 
 				// fields
 				var fields = this.getData();

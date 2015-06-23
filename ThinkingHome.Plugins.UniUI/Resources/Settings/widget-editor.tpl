@@ -12,14 +12,14 @@
 			<%=typeDisplayName%>
 		</li>
 	</ul>
-	<form>
-		<div class="form-group">
-			<label>
-				Display name
-			</label>
-			<input name="displayName" class="form-control js-display-name" />
-		</div>
-		<div class="js-fields"></div>
+
+	<div class="form-group">
+		<label>
+			Display name
+		</label>
+		<input class="form-control js-display-name" />
+	</div>
+	<form class="js-fields">
 	</form>
 	<div>
 		<a href="#" class="btn btn-primary js-save">Save</a>

@@ -45,6 +45,11 @@ namespace ThinkingHome.Plugins.Tmp.Tiles
 				new WidgetParameterMetaData
 				{
 					DisplayName = "Notes", Name = "notes", Type = WidgetParameterType.String
+				},
+
+				new WidgetParameterMetaData
+				{
+					DisplayName = "Display name", Name = "displayName", Type = WidgetParameterType.String
 				}
 			};
 		}
