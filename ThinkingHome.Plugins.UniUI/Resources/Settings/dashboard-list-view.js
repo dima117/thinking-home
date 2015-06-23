@@ -7,15 +7,8 @@
 		var listItemView = lib.marionette.ItemView.extend({
 			template: lib._.template(listItemTemplate),
 			triggers: {
-				"click .js-open-dashboard": "dashboard:open",
-				"click .js-move-up": "dashboard:move:up",
-				"click .js-move-down": "dashboard:move:down",
-				"click .js-rename": "dashboard:rename",
-				"click .js-delete": "dashboard:delete"
-			},
-			mute: function () {
-
-				this.$el.addClass("th-block-muted");
+				'click .js-open-dashboard': 'dashboard:open',
+				'click .js-delete': 'dashboard:delete'
 			}
 		});
 
@@ -23,6 +16,9 @@
 			template: lib._.template(listTemplate),
 			childView: listItemView,
 			childViewContainer: '.js-list',
+			triggers: {
+				'click .js-create-dashboard': 'dashboard:create'
+			}
 		});
 
 		return {

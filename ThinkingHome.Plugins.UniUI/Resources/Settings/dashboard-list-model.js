@@ -25,23 +25,9 @@
 				return defer.promise();
 			},
 
-			addDashboard: function (tite) {
+			createDashboard: function (title) {
 
-				var rq = lib.$.post('/api/uniui/dashboard/add', {tite: tite});
-
-				return rq.promise();
-			},
-
-			renameDashboard: function (id, title) {
-
-				var rq = lib.$.post('/api/uniui/dashboard/rename', { id: id, title: title });
-
-				return rq.promise();
-			},
-
-			moveDashboard: function (id, up) {
-
-				var rq = lib.$.post('/api/uniui/dashboard/move', { id: id, up: up });
+				var rq = lib.$.post('/api/uniui/dashboard/create', { title: title });
 
 				return rq.promise();
 			},
@@ -55,9 +41,7 @@
 
 		return {
 			loadDashboardList: api.loadDashboardList,
-			addDashboard: api.addDashboard,
-			renameDashboard: api.renameDashboard,
-			moveDashboard: api.moveDashboard,
+			createDashboard: api.createDashboard,
 			deleteDashboard: api.deleteDashboard
 		};
 	});
