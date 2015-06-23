@@ -1,15 +1,20 @@
-﻿define(['app', 'common',
+﻿define(['app', 'lib', 'common',
 		'webapp/uniui/settings/widget-editor-model.js',
 		'webapp/uniui/settings/widget-editor-view.js'
 ],
-	function (application, common, models, views) {
+	function (application, lib, common, models, views) {
 
 		var api = {
 
 			saveWidget: function() {
 
-				var data = this.getData();
-				alert(data);
+				var data = this.model.toJSON();
+
+				// fields
+				var fields = this.getData();
+				data.json = lib.json2.stringify(fields);
+
+				models.saveWidget(data).done(api.openDashboard.bind(this));
 			},
 
 			openDashboardList: function() {

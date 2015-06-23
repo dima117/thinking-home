@@ -38,6 +38,9 @@
 		marionette: {
 			deps: ['backbone', 'syphon'],
 			exports: 'Marionette'
+		},
+		json2: {
+			exports: 'JSON'
 		}
 	},
 	map: {

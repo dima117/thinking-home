@@ -66,6 +66,12 @@ namespace ThinkingHome.Plugins.UniUI
 			}
 		}
 
+		[HttpCommand("/api/uniui/widget/save")]
+		public object EditorSaveWidget(HttpRequestParams request)
+		{
+			return null;
+		}
+
 		#endregion
 
 		#region private: methods

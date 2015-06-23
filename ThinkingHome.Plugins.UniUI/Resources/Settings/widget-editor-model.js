@@ -42,11 +42,19 @@
 					});
 
 				return defer.promise();
+			},
+
+			saveWidget: function (data) {
+
+				var rq = lib.$.post('/api/uniui/widget/save', data);
+
+				return rq.promise();
 			}
 		};
 
 		return {
 			createWidget: api.createWidget,
-			editWidget: api.editWidget
+			editWidget: api.editWidget,
+			saveWidget: api.saveWidget
 		};
 	});
