@@ -40,7 +40,6 @@
 						view.on("childview:widget:edit", api.editWidget);
 						view.on("open:dashboard:list", api.openDashboardList);
 
-						api.view = view;
 						application.setContentView(view);
 					});
 			}

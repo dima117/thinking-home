@@ -59,4 +59,23 @@ namespace ThinkingHome.Plugins.Tmp.Tiles
 			return null;
 		}
 	}
+
+	[Widget("empty-widget")]
+	public class EmptyWidget : IWidgetDefinition
+	{
+		public string DisplayName
+		{
+			get { return "Empty widget (with no fields)"; }
+		}
+
+		public object GetWidgetData(Widget widget, WidgetParameter[] parameters, ISession session, Logger logger)
+		{
+			return null;
+		}
+
+		public WidgetParameterMetaData[] GetWidgetMetaData(ISession session, Logger logger)
+		{
+			return null;
+		}
+	}
 }

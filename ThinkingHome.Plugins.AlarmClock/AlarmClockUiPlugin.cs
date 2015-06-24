@@ -47,8 +47,8 @@ namespace ThinkingHome.Plugins.AlarmClock
 						hours = alarm.Hours,
 						minutes = alarm.Minutes,
 						enabled = alarm.Enabled,
-						scriptId = alarm.UserScript.GetValueOrDefault(obj => (Guid?)obj.Id),
-						scriptName = alarm.UserScript.GetValueOrDefault(obj => obj.Name)
+						scriptId = alarm.UserScript.GetPropertyOrDefault(obj => (Guid?)obj.Id),
+						scriptName = alarm.UserScript.GetPropertyOrDefault(obj => obj.Name)
 					})
 					.ToArray();
 
@@ -158,7 +158,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 						alarm.Hours,
 						alarm.Minutes,
 						alarm.Enabled,
-						alarm.UserScript.GetValueOrDefault(obj => (Guid?)obj.Id)
+						alarm.UserScript.GetPropertyOrDefault(obj => (Guid?)obj.Id)
 					);
 				}
 

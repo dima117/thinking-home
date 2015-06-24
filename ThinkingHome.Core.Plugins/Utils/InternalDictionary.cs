@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace ThinkingHome.Core.Plugins.Utils
 {
 	public class InternalDictionary<T> : Dictionary<string, T>
-		where T: class
+		where T : class
 	{
 		private readonly object lockObject = new object();
 
@@ -30,6 +30,11 @@ namespace ThinkingHome.Core.Plugins.Utils
 
 				Add(key, obj);
 			}
+		}
+
+		public T GetValueOrDefault(string key, T defaultValue = default (T))
+		{
+			return ContainsKey(key) ? this[key] : defaultValue;
 		}
 	}
 }

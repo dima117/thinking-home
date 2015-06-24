@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using NHibernate;
 using NHibernate.Linq;
+using NHibernate.Util;
+using ThinkingHome.Core.Plugins.Utils;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.UniUI.Model;
@@ -69,7 +73,112 @@ namespace ThinkingHome.Plugins.UniUI
 		[HttpCommand("/api/uniui/widget/save")]
 		public object EditorSaveWidget(HttpRequestParams request)
 		{
+			using (var session = Context.OpenSession())
+			{
+				using (var tran = session.BeginTransaction())
+				{
+					try
+					{
+						var widget = SaveWidget(request, session);
+
+						SaveWidgetFields(widget, request, session);
+
+						tran.Commit();
+					}
+					catch
+					{
+						tran.Rollback();
+						throw;
+					}
+				}
+			}
+
 			return null;
+		}
+
+		private void SaveWidgetFields(Widget widget, HttpRequestParams request, ISession session)
+		{
+			var def = defs.GetValueOrDefault(widget.TypeAlias);
+
+			if (def != null)
+			{
+				session.Query<WidgetParameter>()
+					.Where(p => p.Widget.Id == widget.Id)
+					.ForEach(session.Delete);
+
+				session.Flush();
+
+				var fields = def.GetWidgetMetaData(session, Logger);
+
+				var json = request.GetRequiredString("json");
+				var values = Extensions.FromJson<Dictionary<string, string>>(json);
+
+				foreach (var field in fields)
+				{
+					if (values.ContainsKey(field.Name))
+					{
+						var value = values[field.Name];
+
+						var p = new WidgetParameter
+						{
+							Id = Guid.NewGuid(),
+							Widget = widget,
+							Name = field.Name
+						};
+
+						switch (field.Type)
+						{
+							case WidgetParameterType.String:
+								p.ValueString = value;
+								break;
+							case WidgetParameterType.Guid:
+								p.ValueGuid = Guid.Parse(value);
+								break;
+							case WidgetParameterType.Int32:
+								p.ValueInt = int.Parse(value);
+								break;
+						}
+
+						session.Save(p);
+					}
+				}
+
+				session.Flush();
+			}
+		}
+
+		private Widget SaveWidget(HttpRequestParams request, ISession session)
+		{
+			var id = request.GetGuid("id");
+
+			var widget = id.HasValue
+				? session.Query<Widget>().Single(x => x.Id == id)
+				: CreateWidget(request, session);
+
+			widget.DisplayName = request.GetString("displayName") ?? string.Empty;
+
+			session.Save(widget);
+			session.Flush();
+
+			return widget;
+		}
+
+		private Widget CreateWidget(HttpRequestParams request, ISession session)
+		{
+			var type = request.GetRequiredString("type");
+			var dashboardId = request.GetRequiredGuid("dashboardId");
+
+			var dashboard = session.Query<Dashboard>().Single(x => x.Id == dashboardId);
+
+			var created = new Widget
+			{
+				Id = Guid.NewGuid(),
+				Dashboard = dashboard,
+				TypeAlias = type,
+				SortOrder = int.MaxValue
+			};
+
+			return created;
 		}
 
 		#endregion
@@ -86,8 +195,9 @@ namespace ThinkingHome.Plugins.UniUI
 
 			var def = defs[type];
 
-			var parameters = def
-						.GetWidgetMetaData(session, Logger)
+			var metaData = def.GetWidgetMetaData(session, Logger) ?? new WidgetParameterMetaData[0];
+
+			var parameters = metaData
 						.Select(GetEditorParameterModel)
 						.ToArray();
 

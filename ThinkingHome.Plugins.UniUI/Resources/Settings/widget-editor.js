@@ -41,7 +41,6 @@
 				view.on("open:dashboard", api.openDashboard);
 				view.on("open:dashboard:list", api.openDashboardList);
 
-				api.view = view;
 				application.setContentView(view);
 			},
 

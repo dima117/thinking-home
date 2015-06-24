@@ -38,7 +38,7 @@ namespace ThinkingHome.Core.Plugins.Utils
 			return JsonConvert.DeserializeObject(json);
 		}
 
-		public static TResult GetValueOrDefault<T, TResult>(this T obj, Func<T, TResult> func) 
+		public static TResult GetPropertyOrDefault<T, TResult>(this T obj, Func<T, TResult> func) 
 			where T: class
 		{
 			return obj == null ? default(TResult) : func(obj);
