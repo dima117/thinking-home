@@ -31,10 +31,5 @@ namespace ThinkingHome.Core.Plugins.Utils
 				Add(key, obj);
 			}
 		}
-
-		public T GetValueOrDefault(string key, T defaultValue = default (T))
-		{
-			return ContainsKey(key) ? this[key] : defaultValue;
-		}
 	}
 }

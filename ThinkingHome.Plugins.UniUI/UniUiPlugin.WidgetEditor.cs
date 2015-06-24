@@ -115,36 +115,38 @@ namespace ThinkingHome.Plugins.UniUI
 
 				foreach (var field in fields)
 				{
-					if (values.ContainsKey(field.Name))
-					{
-						var value = values[field.Name];
+					var value = values.GetValueOrDefault(field.Name);
 
-						var p = new WidgetParameter
-						{
-							Id = Guid.NewGuid(),
-							Widget = widget,
-							Name = field.Name
-						};
-
-						switch (field.Type)
-						{
-							case WidgetParameterType.String:
-								p.ValueString = value;
-								break;
-							case WidgetParameterType.Guid:
-								p.ValueGuid = Guid.Parse(value);
-								break;
-							case WidgetParameterType.Int32:
-								p.ValueInt = int.Parse(value);
-								break;
-						}
-
-						session.Save(p);
-					}
+					CreateParameter(session, widget, field, value);
 				}
 
 				session.Flush();
 			}
+		}
+
+		private static void CreateParameter(ISession session, Widget widget, WidgetParameterMetaData field, string value)
+		{
+			var p = new WidgetParameter
+			{
+				Id = Guid.NewGuid(),
+				Widget = widget,
+				Name = field.Name
+			};
+
+			switch (field.Type)
+			{
+				case WidgetParameterType.String:
+					p.ValueString = value;
+					break;
+				case WidgetParameterType.Guid:
+					p.ValueGuid = value.ParseGuid();
+					break;
+				case WidgetParameterType.Int32:
+					p.ValueInt = value.ParseInt();
+					break;
+			}
+
+			session.Save(p);
 		}
 
 		private Widget SaveWidget(HttpRequestParams request, ISession session)

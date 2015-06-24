@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Owin;
+using ThinkingHome.Core.Plugins.Utils;
 
 namespace ThinkingHome.Plugins.Listener.Api
 {
@@ -34,41 +35,17 @@ namespace ThinkingHome.Plugins.Listener.Api
 
 		public int? GetInt32(string name)
 		{
-			var stringValue = GetString(name);
-			int result;
-
-			if (int.TryParse(stringValue, out result))
-			{
-				return result;
-			}
-
-			return null;
+			return GetString(name).ParseInt();
 		}
 
 		public Guid? GetGuid(string name)
 		{
-			var stringValue = GetString(name);
-			Guid result;
-
-			if (Guid.TryParse(stringValue, out result))
-			{
-				return result;
-			}
-
-			return null;
+			return GetString(name).ParseGuid();
 		}
 
 		public bool? GetBool(string name)
 		{
-			var stringValue = GetString(name);
-			bool result;
-
-			if (bool.TryParse(stringValue, out result))
-			{
-				return result;
-			}
-
-			return null;
+			return GetString(name).ParseBool();
 		}
 
 		public string GetRequiredString(string name)

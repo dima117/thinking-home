@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace ThinkingHome.Core.Plugins.Utils
 {
 	public static class Extensions
 	{
+		#region json
+
 		/// <summary>
 		/// Сериализация в JSON
 		/// </summary>
@@ -38,8 +42,56 @@ namespace ThinkingHome.Core.Plugins.Utils
 			return JsonConvert.DeserializeObject(json);
 		}
 
-		public static TResult GetPropertyOrDefault<T, TResult>(this T obj, Func<T, TResult> func) 
-			where T: class
+		#endregion
+
+		#region parse
+
+		public static int? ParseInt(this string stringValue)
+		{
+			int result;
+
+			if (int.TryParse(stringValue, out result))
+			{
+				return result;
+			}
+
+			return null;
+		}
+
+		public static Guid? ParseGuid(this string stringValue)
+		{
+			Guid result;
+
+			if (Guid.TryParse(stringValue, out result))
+			{
+				return result;
+			}
+
+			return null;
+		}
+
+		public static bool? ParseBool(this string stringValue)
+		{
+			bool result;
+
+			if (bool.TryParse(stringValue, out result))
+			{
+				return result;
+			}
+
+			return null;
+		}
+
+		#endregion
+
+		public static TResult GetValueOrDefault<TKey, TResult>(
+			this IDictionary<TKey, TResult> dic, TKey key, TResult defaultValue = default (TResult))
+		{
+			return dic.ContainsKey(key) ? dic[key] : defaultValue;
+		}
+
+		public static TResult GetPropertyOrDefault<T, TResult>(this T obj, Func<T, TResult> func)
+			where T : class
 		{
 			return obj == null ? default(TResult) : func(obj);
 		}
