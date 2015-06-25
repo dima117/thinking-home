@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using NHibernate;
 using NHibernate.Linq;
@@ -96,6 +95,44 @@ namespace ThinkingHome.Plugins.UniUI
 			return null;
 		}
 
+		#endregion
+
+		#region private: save
+
+		private Widget SaveWidget(HttpRequestParams request, ISession session)
+		{
+			var id = request.GetGuid("id");
+
+			var widget = id.HasValue
+				? session.Query<Widget>().Single(x => x.Id == id)
+				: CreateWidget(request, session);
+
+			widget.DisplayName = request.GetString("displayName") ?? string.Empty;
+
+			session.Save(widget);
+			session.Flush();
+
+			return widget;
+		}
+
+		private Widget CreateWidget(HttpRequestParams request, ISession session)
+		{
+			var type = request.GetRequiredString("type");
+			var dashboardId = request.GetRequiredGuid("dashboardId");
+
+			var dashboard = session.Query<Dashboard>().Single(x => x.Id == dashboardId);
+
+			var created = new Widget
+			{
+				Id = Guid.NewGuid(),
+				Dashboard = dashboard,
+				TypeAlias = type,
+				SortOrder = int.MaxValue
+			};
+
+			return created;
+		}
+
 		private void SaveWidgetFields(Widget widget, HttpRequestParams request, ISession session)
 		{
 			var def = defs.GetValueOrDefault(widget.TypeAlias);
@@ -149,43 +186,9 @@ namespace ThinkingHome.Plugins.UniUI
 			session.Save(p);
 		}
 
-		private Widget SaveWidget(HttpRequestParams request, ISession session)
-		{
-			var id = request.GetGuid("id");
-
-			var widget = id.HasValue
-				? session.Query<Widget>().Single(x => x.Id == id)
-				: CreateWidget(request, session);
-
-			widget.DisplayName = request.GetString("displayName") ?? string.Empty;
-
-			session.Save(widget);
-			session.Flush();
-
-			return widget;
-		}
-
-		private Widget CreateWidget(HttpRequestParams request, ISession session)
-		{
-			var type = request.GetRequiredString("type");
-			var dashboardId = request.GetRequiredGuid("dashboardId");
-
-			var dashboard = session.Query<Dashboard>().Single(x => x.Id == dashboardId);
-
-			var created = new Widget
-			{
-				Id = Guid.NewGuid(),
-				Dashboard = dashboard,
-				TypeAlias = type,
-				SortOrder = int.MaxValue
-			};
-
-			return created;
-		}
-
 		#endregion
 
-		#region private: methods
+		#region private: load
 
 		private Tuple<EditorModel, EditorParameterModel[]> GetEditorModel(
 			string type, Guid dashboardId, string dashboardTitle, ISession session)

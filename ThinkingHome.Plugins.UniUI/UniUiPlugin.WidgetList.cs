@@ -6,7 +6,6 @@ using NHibernate.Linq;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.UniUI.Model;
-using ThinkingHome.Plugins.UniUI.Widgets;
 using ThinkingHome.Plugins.WebUI.Attributes;
 
 namespace ThinkingHome.Plugins.UniUI
@@ -37,7 +36,7 @@ namespace ThinkingHome.Plugins.UniUI
 
 		private object GetDashboardModel(Guid dashboardId, ISession session)
 		{
-			var dashboard = session.Query<Dashboard>().First(x => x.Id == dashboardId);
+			var dashboard = session.Query<Dashboard>().Single(x => x.Id == dashboardId);
 
 			var types = defs
 				.Select(x => new { id = x.Key, name = x.Value.DisplayName })
@@ -47,7 +46,6 @@ namespace ThinkingHome.Plugins.UniUI
 			{
 				id = dashboard.Id,
 				title = dashboard.Title,
-				sortOrder = dashboard.SortOrder,
 				types
 			};
 
@@ -73,8 +71,8 @@ namespace ThinkingHome.Plugins.UniUI
 					id = widget.Id,
 					type = widget.TypeAlias,
 					displayName = widget.DisplayName,
-					typeDisplayName = typeDisplayName,
-					sortOrder = widget.SortOrder
+					sortOrder = widget.SortOrder,
+					typeDisplayName
 				};
 
 				list.Add(model);
