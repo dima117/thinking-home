@@ -49,12 +49,20 @@
 				var rq = lib.$.post('/api/uniui/widget/save', data);
 
 				return rq.promise();
+			},
+
+			deleteWidget: function (id) {
+
+				var rq = lib.$.post('/api/uniui/widget/delete', { id: id });
+
+				return rq.promise();
 			}
 		};
 
 		return {
 			createWidget: api.createWidget,
 			editWidget: api.editWidget,
-			saveWidget: api.saveWidget
+			saveWidget: api.saveWidget,
+			deleteWidget: api.deleteWidget
 		};
 	});

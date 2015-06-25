@@ -22,6 +22,7 @@
 	<form class="js-fields">
 	</form>
 	<div>
+		<a href="#" class="btn btn-danger pull-right js-delete">Delete widget</a>
 		<a href="#" class="btn btn-primary js-save">Save</a>
 		<a href="#" class="btn btn-default js-cancel">Cancel</a>
 	</div>

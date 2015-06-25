@@ -95,6 +95,25 @@ namespace ThinkingHome.Plugins.UniUI
 			return null;
 		}
 
+		[HttpCommand("/api/uniui/widget/delete")]
+		public object EditorDeleteWidget(HttpRequestParams request)
+		{
+			Guid id = request.GetRequiredGuid("id");
+
+			using (var session = Context.OpenSession())
+			{
+				var widget = session.Get<Widget>(id);
+
+				if (widget != null)
+				{
+					session.Delete(widget);
+					session.Flush();
+				}
+			}
+
+			return null;
+		}
+
 		#endregion
 
 		#region private: save

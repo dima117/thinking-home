@@ -19,6 +19,17 @@
 				models.saveWidget(data).done(api.openDashboard.bind(this));
 			},
 
+			deleteWidget: function () {
+
+				var id = this.model.get("id"),
+					displayName = this.ui.displayName.val();
+
+				if (common.utils.confirm('Do you want to delete the widget "{0}"?', displayName)) {
+
+					models.deleteWidget(id).done(api.openDashboard.bind(this));
+				}
+			},
+
 			openDashboardList: function() {
 
 				application.navigate('webapp/uniui/settings/dashboard-list');
@@ -38,6 +49,7 @@
 				});
 
 				view.on("save:widget", api.saveWidget);
+				view.on("delete:widget", api.deleteWidget);
 				view.on("open:dashboard", api.openDashboard);
 				view.on("open:dashboard:list", api.openDashboardList);
 
