@@ -124,13 +124,21 @@ a.list-group-item:hover {
 	top: 0;
 	left: 0;
 	bottom: 0;
-	width: 200px;
+	width: 210px;
 	background-color: #182c3d;
 	overflow-y: auto;
 }
 
 .th-side-panel+.th-container {
-	left: 200px;
+	left: 210px;
+}
+
+.nav-menu > li.active > a, 
+.nav-menu > li.active > a:hover, 
+.nav-menu > li.active > a:focus {
+  color: rgb(226, 226, 226);
+  background-color: #11202B;
+  cursor: default;
 }
 
 /*#endregion */
