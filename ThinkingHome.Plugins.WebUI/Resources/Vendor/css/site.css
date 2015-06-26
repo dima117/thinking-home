@@ -101,6 +101,38 @@ a.list-group-item:hover {
 	position: absolute;
 }
 
+.th-content {
+	position: fixed;
+	top: 64px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: auto;
+}
+
+.th-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow-y: auto;	
+}
+
+.th-side-panel {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 200px;
+	background-color: #182c3d;
+	overflow-y: auto;
+}
+
+.th-side-panel+.th-container {
+	left: 200px;
+}
+
 /*#endregion */
 
 /*#region tiles */
