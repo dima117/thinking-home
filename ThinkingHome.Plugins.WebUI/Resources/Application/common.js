@@ -14,7 +14,6 @@
 		};
 
 		utils.loadCss.apply(null, cssFiles);
-		utils.displayCurrentTime('.js-cur-time');
-
+		
 		return common;
 	});
