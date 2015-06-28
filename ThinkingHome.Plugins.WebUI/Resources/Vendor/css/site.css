@@ -133,6 +133,17 @@ a.list-group-item:hover {
 	left: 210px;
 }
 
+@media (max-width: 767px) {
+	
+	.th-side-panel {
+		display: none;
+	}
+
+	.th-side-panel+.th-container {
+		left: 0;
+	}
+}
+
 .nav-menu > li.active > a, 
 .nav-menu > li.active > a:hover, 
 .nav-menu > li.active > a:focus {

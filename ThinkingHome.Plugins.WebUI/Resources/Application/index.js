@@ -21,6 +21,7 @@
 		'chart.scatter': 'vendor/js/chart.scatter.min',
 
 		tiles:				'application/tiles/tiles',
+		dashboard:			'webapp/uniui/ui/dashboard',
 		'tiles-edit-mode':	'application/tiles/tiles-edit-mode',
 		apps:				'application/sections/user',
 		settings:			'application/sections/system'
