@@ -12,10 +12,7 @@ using ThinkingHome.Plugins.WebUI.Attributes;
 namespace ThinkingHome.Plugins.AlarmClock
 {
 	// list
-	[AppSection("Alarms", SectionType.Common, 
-		"/webapp/alarm-clock/list.js", 
-		"ThinkingHome.Plugins.AlarmClock.Resources.alarm-list.js",
-		TileDefinitionKey = "ThinkingHome.Plugins.AlarmClock.AlarmClockTileDefinition")]
+	[AppSection("Alarms", SectionType.Common, "/webapp/alarm-clock/list.js", "ThinkingHome.Plugins.AlarmClock.Resources.alarm-list.js")]
 	[JavaScriptResource("/webapp/alarm-clock/list-model.js", "ThinkingHome.Plugins.AlarmClock.Resources.alarm-list-model.js")]
 	[JavaScriptResource("/webapp/alarm-clock/list-view.js", "ThinkingHome.Plugins.AlarmClock.Resources.alarm-list-view.js")]
 	[HttpResource("/webapp/alarm-clock/list.tpl", "ThinkingHome.Plugins.AlarmClock.Resources.alarm-list.tpl")]

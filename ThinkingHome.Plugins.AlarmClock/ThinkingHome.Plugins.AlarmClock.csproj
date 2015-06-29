@@ -61,7 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlarmClockPlugin.cs" />
-    <Compile Include="AlarmClockTileDefinition.cs" />
     <Compile Include="AlarmClockUiPlugin.cs" />
     <Compile Include="Data\Migrations.cs" />
     <Compile Include="Data\Model.cs" />
