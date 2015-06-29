@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ThinkingHome.Plugins.UniUI.Widgets
+﻿namespace ThinkingHome.Plugins.UniUI.Widgets
 {
 	public class WidgetParameterMetaData
 	{

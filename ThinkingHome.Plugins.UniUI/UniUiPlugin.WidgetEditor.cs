@@ -9,16 +9,9 @@ using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.UniUI.Model;
 using ThinkingHome.Plugins.UniUI.Widgets;
-using ThinkingHome.Plugins.WebUI.Attributes;
 
 namespace ThinkingHome.Plugins.UniUI
 {
-	[JavaScriptResource("/webapp/uniui/settings/widget-editor.js", "ThinkingHome.Plugins.UniUI.Resources.Settings.widget-editor.js")]
-	[JavaScriptResource("/webapp/uniui/settings/widget-editor-view.js", "ThinkingHome.Plugins.UniUI.Resources.Settings.widget-editor-view.js")]
-	[JavaScriptResource("/webapp/uniui/settings/widget-editor-model.js", "ThinkingHome.Plugins.UniUI.Resources.Settings.widget-editor-model.js")]
-	[HttpResource("/webapp/uniui/settings/widget-editor.tpl", "ThinkingHome.Plugins.UniUI.Resources.Settings.widget-editor.tpl")]
-	[HttpResource("/webapp/uniui/settings/widget-editor-field.tpl", "ThinkingHome.Plugins.UniUI.Resources.Settings.widget-editor-field.tpl")]
-
 	public partial class UniUiPlugin
 	{
 		#region public

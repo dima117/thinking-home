@@ -77,19 +77,9 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <EmbeddedResource Include="Resources\Settings\dashboard-list.tpl" />
-    <EmbeddedResource Include="Resources\Settings\widget-list-item.tpl" />
-    <EmbeddedResource Include="Resources\Settings\widget-list.tpl" />
-    <EmbeddedResource Include="Resources\Settings\dashboard-list-item.tpl" />
-    <EmbeddedResource Include="Resources\Settings\widget-editor.tpl" />
-    <EmbeddedResource Include="Resources\Settings\widget-editor-field.tpl" />
-    <EmbeddedResource Include="Resources\UI\dashboard.tpl" />
     <None Include="ThinkingHome.Plugins.UniUI.nuspec">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Settings\dashboard-list-model.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ThinkingHome.Core.Plugins\ThinkingHome.Core.Plugins.csproj">
@@ -102,44 +92,6 @@
       <Name>ThinkingHome.Plugins.Listener</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\ThinkingHome.Plugins.WebUI\ThinkingHome.Plugins.WebUI.csproj">
-      <Project>{5a1778f2-f2dd-4d46-89fd-83864ca6d1a0}</Project>
-      <Name>ThinkingHome.Plugins.WebUI</Name>
-      <Private>False</Private>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Settings\dashboard-list.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Settings\dashboard-list-view.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Settings\widget-list.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Settings\widget-list-model.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Settings\widget-list-view.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Settings\widget-editor-model.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Settings\widget-editor-view.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Settings\widget-editor.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\UI\dashboard-model.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\UI\dashboard-view.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\UI\dashboard.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

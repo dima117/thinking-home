@@ -6,16 +6,9 @@ using NHibernate.Linq;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.UniUI.Model;
-using ThinkingHome.Plugins.WebUI.Attributes;
 
 namespace ThinkingHome.Plugins.UniUI
 {
-	[JavaScriptResource("/webapp/uniui/settings/widget-list.js", "ThinkingHome.Plugins.UniUI.Resources.Settings.widget-list.js")]
-	[JavaScriptResource("/webapp/uniui/settings/widget-list-view.js", "ThinkingHome.Plugins.UniUI.Resources.Settings.widget-list-view.js")]
-	[JavaScriptResource("/webapp/uniui/settings/widget-list-model.js", "ThinkingHome.Plugins.UniUI.Resources.Settings.widget-list-model.js")]
-	[HttpResource("/webapp/uniui/settings/widget-list.tpl", "ThinkingHome.Plugins.UniUI.Resources.Settings.widget-list.tpl")]
-	[HttpResource("/webapp/uniui/settings/widget-list-item.tpl", "ThinkingHome.Plugins.UniUI.Resources.Settings.widget-list-item.tpl")]
-
 	public partial class UniUiPlugin
 	{
 		[HttpCommand("/api/uniui/widget/list")]
