@@ -29,12 +29,6 @@
 				}
 			},
 
-			addScriptTile: function (view) {
-
-				var scriptId = view.model.get('id');
-				application.addTile('ThinkingHome.Plugins.Scripts.ScriptsTileDefinition', { id: scriptId });
-			},
-
 			addScript: function () {
 
 				application.navigate('webapp/scripts/script-editor');
@@ -55,7 +49,6 @@
 						view.on('childview:scripts:edit', api.editScript);
 						view.on('childview:scripts:run', api.runScript);
 						view.on('childview:scripts:delete', api.deleteScript);
-						view.on('childview:scripts:add-tile', api.addScriptTile);
 
 						application.setContentView(view);
 					});

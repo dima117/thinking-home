@@ -7,8 +7,7 @@
 			triggers: {
 				'click .js-btn-run': 'scripts:run',
 				'click .js-btn-edit': 'scripts:edit',
-				'click .js-btn-delete': 'scripts:delete',
-				'click .js-btn-add-tile': 'scripts:add-tile'
+				'click .js-btn-delete': 'scripts:delete'
 			}
 		});
 
