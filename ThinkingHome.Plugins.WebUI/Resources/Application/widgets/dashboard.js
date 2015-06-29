@@ -1,6 +1,6 @@
 ﻿define(['app', 'common',
-		'webapp/uniui/ui/dashboard-model.js',
-		'webapp/uniui/ui/dashboard-view.js'
+		'application/dashboard-model.js',
+		'application/dashboard-view.js'
 ],
 	function (application, common, models, views) {
 

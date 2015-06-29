@@ -1,8 +1,8 @@
 ﻿define([
 	'lib',
 	'common',
-	'text!webapp/uniui/settings/widget-list.tpl',
-	'text!webapp/uniui/settings/widget-list-item.tpl'],
+	'text!application/settings/widget-list.tpl',
+	'text!application/settings/widget-list-item.tpl'],
 	function (lib, common, listTemplate, widgetTemplate) {
 
 		var widgetView = lib.marionette.ItemView.extend({

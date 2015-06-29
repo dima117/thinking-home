@@ -1,7 +1,7 @@
 ﻿define([
 	'lib',
-	'text!webapp/uniui/settings/dashboard-list.tpl',
-	'text!webapp/uniui/settings/dashboard-list-item.tpl'],
+	'text!application/settings/dashboard-list.tpl',
+	'text!application/settings/dashboard-list-item.tpl'],
 	function (lib, listTemplate, listItemTemplate) {
 
 		var listItemView = lib.marionette.ItemView.extend({

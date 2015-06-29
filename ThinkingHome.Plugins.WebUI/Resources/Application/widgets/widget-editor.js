@@ -1,6 +1,6 @@
 ﻿define(['app', 'lib', 'common',
-		'webapp/uniui/settings/widget-editor-model.js',
-		'webapp/uniui/settings/widget-editor-view.js'
+		'application/settings/widget-editor-model.js',
+		'application/settings/widget-editor-view.js'
 ],
 	function (application, lib, common, models, views) {
 
@@ -32,13 +32,13 @@
 
 			openDashboardList: function() {
 
-				application.navigate('webapp/uniui/settings/dashboard-list');
+				application.navigate('application/settings/dashboard-list');
 			},
 
 			openDashboard: function () {
 
 				var id = this.model.get("dashboardId");
-				application.navigate('webapp/uniui/settings/widget-list', id);
+				application.navigate('application/settings/widget-list', id);
 			},
 
 			initEditor: function (data) {

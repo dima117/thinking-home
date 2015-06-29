@@ -1,6 +1,6 @@
 ﻿define(['app', 'common',
-		'webapp/uniui/settings/dashboard-list-model.js',
-		'webapp/uniui/settings/dashboard-list-view.js'
+		'application/settings/dashboard-list-model.js',
+		'application/settings/dashboard-list-view.js'
 ],
 	function (application, common, models, views) {
 
@@ -9,7 +9,7 @@
 			openDashboard: function (childView) {
 				
 				var id = childView.model.get("id");
-				application.navigate('webapp/uniui/settings/widget-list', id);
+				application.navigate('application/settings/widget-list', id);
 			},
 
 			createDashboard: function () {

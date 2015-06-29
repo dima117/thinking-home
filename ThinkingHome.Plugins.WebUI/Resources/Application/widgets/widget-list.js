@@ -1,6 +1,6 @@
 ﻿define(['app', 'common',
-		'webapp/uniui/settings/widget-list-model.js',
-		'webapp/uniui/settings/widget-list-view.js'
+		'application/settings/widget-list-model.js',
+		'application/settings/widget-list-view.js'
 ],
 	function (application, common, models, views) {
 
@@ -11,19 +11,19 @@
 				var id = this.model.get("id"),
 					type = this.ui.typeSelector.val();
 
-				application.navigate('webapp/uniui/settings/widget-editor', "create", id, type);
+				application.navigate('application/settings/widget-editor', "create", id, type);
 			},
 
 			editWidget: function(view) {
 
 				var id = view.model.get("id");
 
-				application.navigate('webapp/uniui/settings/widget-editor', "edit", id);
+				application.navigate('application/settings/widget-editor', "edit", id);
 			},
 
 			openDashboardList: function () {
 
-				application.navigate('webapp/uniui/settings/dashboard-list');
+				application.navigate('application/settings/dashboard-list');
 			},
 
 			loadWidgetList: function (id) {

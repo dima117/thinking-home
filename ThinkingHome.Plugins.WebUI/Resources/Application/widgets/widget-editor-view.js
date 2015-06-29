@@ -1,8 +1,8 @@
 ﻿define([
 	'lib',
 	'common',
-	'text!webapp/uniui/settings/widget-editor.tpl',
-	'text!webapp/uniui/settings/widget-editor-field.tpl'],
+	'text!application/settings/widget-editor.tpl',
+	'text!application/settings/widget-editor-field.tpl'],
 	function (lib, common, editorTemplate, fieldTemplate) {
 
 		var fieldView = lib.marionette.ItemView.extend({

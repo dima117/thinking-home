@@ -1,6 +1,6 @@
 ﻿define([
 	'lib',
-	'text!webapp/uniui/ui/dashboard.tpl'],
+	'text!application/dashboard.tpl'],
 	function (lib, dashboardTemplate) {
 
 		var dashboardView = lib.marionette.ItemView.extend({
