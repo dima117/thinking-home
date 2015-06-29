@@ -33,7 +33,7 @@
 					<th>display name</th>
 					<th>channel</th>
 					<th>show humidity</th>
-					<th colspan="3"></th>
+					<th colspan="2"></th>
 				</tr>
 			</thead>
 			<tbody></tbody>

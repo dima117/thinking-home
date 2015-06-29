@@ -60,7 +60,6 @@
   <ItemGroup>
     <Compile Include="MicroclimateData.cs" />
     <Compile Include="MicroclimatePlugin.cs" />
-    <Compile Include="MicroclimateTileDefinition.cs" />
     <Compile Include="MicroclimateWidgetDefinition.cs" />
     <Compile Include="Migrations\Migration01_TemperatureSensor.cs" />
     <Compile Include="Migrations\Migration02_TemperatureData.cs" />
