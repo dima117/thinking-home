@@ -3,10 +3,10 @@ using NLog;
 using ThinkingHome.Plugins.UniUI.Model;
 using ThinkingHome.Plugins.UniUI.Widgets;
 
-namespace ThinkingHome.Plugins.Tmp.Tiles
+namespace ThinkingHome.Plugins.Tmp
 {
 	[Widget("avia-form")]
-	public class AviaWidget : IWidgetDefinition
+	public class AviaWidgetDefinition : IWidgetDefinition
 	{
 		public string DisplayName
 		{

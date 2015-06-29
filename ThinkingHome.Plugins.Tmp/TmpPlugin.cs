@@ -8,15 +8,10 @@ using ThinkingHome.Core.Plugins;
 using ThinkingHome.Plugins.AlarmClock;
 using ThinkingHome.Plugins.Audio;
 using ThinkingHome.Plugins.Audio.Internal;
-using ThinkingHome.Plugins.Listener.Api;
-using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.Mqtt;
 using ThinkingHome.Plugins.NooLite;
 using ThinkingHome.Plugins.Scripts;
-using ThinkingHome.Plugins.Timer;
 using ThinkingHome.Plugins.Timer.Attributes;
-using ThinkingHome.Plugins.Tmp.Tiles;
-using ThinkingHome.Plugins.WebUI;
 
 namespace ThinkingHome.Plugins.Tmp
 {
@@ -146,15 +141,6 @@ namespace ThinkingHome.Plugins.Tmp
 		public void Asfafasfasg2(Guid id)
 		{
 			Logger.Info("test2: {0}", id);
-		}
-
-		[HttpCommand("/api/tmp/tiles/add")]
-		public object AddTile(HttpRequestParams request)
-		{
-			var xxx = request.GetInt32("value");
-			Context.GetPlugin<WebUiTilesPlugin>().AddTile<TestTileDefinition>(new { xxx });
-
-			return null;
 		}
 
 		[OnMicroclimateDataReceived]

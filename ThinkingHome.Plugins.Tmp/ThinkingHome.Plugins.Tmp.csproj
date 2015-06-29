@@ -71,9 +71,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tiles\AviaWidget.cs" />
-    <Compile Include="Tiles\TestTileDefinition.cs" />
-    <Compile Include="Tiles\TestNewsTileDefinition.cs" />
+    <Compile Include="AviaWidgetDefinition.cs" />
     <Compile Include="TmpPlugin.cs" />
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
