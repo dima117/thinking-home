@@ -5,11 +5,6 @@
 	function (application, models, views) {
 
 		var api = {
-			addWeatherTile: function (view) {
-
-				var locationId = view.model.get('id');
-				application.addTile('ThinkingHome.Plugins.Weather.WeatherTileDefinition', { cityId: locationId });
-			},
 
 			reload: function () {
 
@@ -19,9 +14,7 @@
 						var view = new views.WeatherForecastView({
 							collection: collection
 						});
-
-						view.on('childview:weather:add-tile', api.addWeatherTile);
-
+						
 						application.setContentView(view);
 					});
 			}

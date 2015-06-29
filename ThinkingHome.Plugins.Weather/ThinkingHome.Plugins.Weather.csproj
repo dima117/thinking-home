@@ -67,7 +67,6 @@
     <Compile Include="Api\WeatherUtils.cs" />
     <Compile Include="Data\Migrations.cs" />
     <Compile Include="Data\Model.cs" />
-    <Compile Include="WeatherTileDefinition.cs" />
     <Compile Include="WeatherPlugin.cs" />
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>

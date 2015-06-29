@@ -8,12 +8,6 @@
 
 		var api = {
 
-			addWeatherTile: function (view) {
-
-				var locationId = view.model.get('id');
-				application.addTile('ThinkingHome.Plugins.Weather.WeatherTileDefinition', { cityId: locationId });
-			},
-
 			addLocation: function (data) {
 
 				if (data.displayName && data.query) {
@@ -63,7 +57,6 @@
 						var view = new views.LocationListView({ collection: list });
 						view.on('childview:weather:location:delete', api.deleteLocation);
 						view.on('childview:weather:location:update', api.updateLocation);
-						view.on('childview:weather:location:add-tile', api.addWeatherTile);
 
 						layoutView.regionList.show(view);
 					});
