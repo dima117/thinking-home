@@ -182,7 +182,7 @@
     <EmbeddedResource Include="Resources\Application\sections\user.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Application\common\utils.js" />
+    <EmbeddedResource Include="Resources\Application\utils.js" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Vendor\js\moment.min.js" />

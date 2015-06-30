@@ -83,7 +83,7 @@ namespace ThinkingHome.Plugins.WebUI
 	[JavaScriptResource("/application/router.js", "ThinkingHome.Plugins.WebUI.Resources.Application.router.js")]
 
 
-	[JavaScriptResource("/application/common/utils.js", "ThinkingHome.Plugins.WebUI.Resources.Application.common.utils.js")]
+	[JavaScriptResource("/application/utils.js", "ThinkingHome.Plugins.WebUI.Resources.Application.utils.js")]
 
 	// webapp: sections
 	[JavaScriptResource("/application/sections/system.js", "ThinkingHome.Plugins.WebUI.Resources.Application.sections.system.js")]
