@@ -25,27 +25,42 @@
 	});
 
 	var weatherDataCollectionView = lib.marionette.CollectionView.extend({
-		childView: weatherDataItemView,
-		tagName: 'ul',
-		className: 'list-unstyled weather-list'
+		childView: weatherDataItemView
 	});
 
 
-	var weatherForecastItemView = common.ComplexView.extend({
+	var weatherForecastItemView = lib.marionette.ItemView.extend({
 		template: lib._.template(itemTemplate),
-		parts: {
-			now: {
-				view: weatherNowDataItemView,
-				container: '.js-weather-now'
-			},
-			day: {
-				view: weatherDataCollectionView,
-				container: '.js-weather-day'
-			},
-			forecast: {
-				view: weatherDataCollectionView,
-				container: '.js-weather-forecast'
-			}
+		ui: {
+			now: '.js-weather-now',
+			day: '.js-weather-day',
+			forecast: '.js-weather-forecast'
+		},
+		onRender: function() {
+			
+			// now
+			var viewNow = new weatherNowDataItemView({
+				model: this.model.get('now'),
+				el: this.ui.now
+			});
+
+			viewNow.render();
+
+			// day
+			var viewDay = new weatherDataCollectionView({
+				collection: this.model.get('day'),
+				el: this.ui.day
+			});
+
+			viewDay.render();
+
+			// forecast
+			var viewForecast = new weatherDataCollectionView({
+				collection: this.model.get('forecast'),
+				el: this.ui.forecast
+			});
+
+			viewForecast.render();
 		}
 	});
 

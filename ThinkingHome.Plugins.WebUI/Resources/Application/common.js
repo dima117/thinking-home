@@ -1,12 +1,10 @@
 ﻿define([
 	'app',
 	'json!api/webui/styles.json',
-	'application/common/complex-view',
 	'application/common/utils'],
-	function (application, cssFiles, complexView, utils) {
+	function (application, cssFiles, utils) {
 
 		var common = {
-			ComplexView: complexView,
 			utils: utils
 		};
 

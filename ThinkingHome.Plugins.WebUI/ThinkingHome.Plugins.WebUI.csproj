@@ -182,9 +182,6 @@
     <EmbeddedResource Include="Resources\Application\sections\user.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Application\common\complex-view.js" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\Application\common\utils.js" />
   </ItemGroup>
   <ItemGroup>
