@@ -60,21 +60,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppSectionShortcutTileDefinition.cs" />
     <Compile Include="Attributes\CssResourceAttribute.cs" />
     <Compile Include="Attributes\SectionType.cs" />
     <Compile Include="Attributes\AppSectionAttribute.cs" />
     <Compile Include="Attributes\JavaScriptResourceAttribute.cs" />
-    <Compile Include="Tiles\TileAttribute.cs" />
-    <Compile Include="Data\Migrations.cs" />
-    <Compile Include="Data\Model.cs" />
-    <Compile Include="Model\TileModel.cs" />
-    <Compile Include="Tiles\TileDefinition.cs" />
     <Compile Include="WebUIPlugin.cs" />
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="WebUiTilesPlugin.cs" />
     <Compile Include="WebUiWidgetPlugin.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -128,13 +121,9 @@
     <None Include="packages.config" />
     <EmbeddedResource Include="Resources\Application\sections\list.tpl" />
     <EmbeddedResource Include="Resources\Application\sections\list-item.tpl" />
-    <EmbeddedResource Include="Resources\Application\tiles\tile.tpl" />
     <EmbeddedResource Include="Resources\Vendor\fonts\fontawesome-webfont.eot" />
     <EmbeddedResource Include="Resources\Vendor\fonts\fontawesome-webfont.ttf" />
     <EmbeddedResource Include="Resources\Vendor\fonts\fontawesome-webfont.woff" />
-    <EmbeddedResource Include="Resources\Application\tiles\tile-edit-mode.tpl" />
-    <EmbeddedResource Include="Resources\Application\tiles\tiles.tpl" />
-    <EmbeddedResource Include="Resources\Application\tiles\tiles-edit-mode.tpl" />
     <EmbeddedResource Include="Resources\Vendor\js\backbone.marionette.min.js.map" />
     <EmbeddedResource Include="Resources\Vendor\js\backbone.min.js.map" />
     <EmbeddedResource Include="Resources\Vendor\js\underscore.min.js.map" />
@@ -182,11 +171,6 @@
     <EmbeddedResource Include="Resources\Application\sections\system.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Application\tiles\tiles.js" />
-    <EmbeddedResource Include="Resources\Application\tiles\tiles-model.js" />
-    <EmbeddedResource Include="Resources\Application\tiles\tiles-view.js" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\Vendor\css\font-awesome.min.css" />
     <EmbeddedResource Include="Resources\Vendor\fonts\fontawesome-webfont.svg" />
   </ItemGroup>
@@ -198,22 +182,10 @@
     <EmbeddedResource Include="Resources\Application\sections\user.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Application\common\sortable-view.js" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\Application\common\complex-view.js" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Application\common\utils.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Application\tiles\tiles-edit-mode-model.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Application\tiles\tiles-edit-mode-view.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Application\tiles\tiles-edit-mode.js" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Vendor\js\moment.min.js" />

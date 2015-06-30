@@ -20,9 +20,7 @@
 		chart: 'vendor/js/chart.min',
 		'chart.scatter': 'vendor/js/chart.scatter.min',
 
-		tiles:				'application/tiles/tiles',
 		dashboard:			'application/dashboard',
-		'tiles-edit-mode':	'application/tiles/tiles-edit-mode',
 		apps:				'application/sections/user',
 		settings:			'application/sections/system'
 	},

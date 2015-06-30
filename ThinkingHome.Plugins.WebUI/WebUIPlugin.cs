@@ -83,7 +83,6 @@ namespace ThinkingHome.Plugins.WebUI
 	[JavaScriptResource("/application/router.js", "ThinkingHome.Plugins.WebUI.Resources.Application.router.js")]
 
 
-	[JavaScriptResource("/application/common/sortable-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.common.sortable-view.js")]
 	[JavaScriptResource("/application/common/complex-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.common.complex-view.js")]
 	[JavaScriptResource("/application/common/utils.js", "ThinkingHome.Plugins.WebUI.Resources.Application.common.utils.js")]
 
@@ -149,8 +148,7 @@ namespace ThinkingHome.Plugins.WebUI
 					id = Guid.NewGuid(),
 					name = x.Title,
 					path = x.GetModulePath(),
-					sortOrder = x.SortOrder,
-					tileDefKey = x.TileDefinitionKey
+					sortOrder = x.SortOrder
 				})
 				.ToArray();
 

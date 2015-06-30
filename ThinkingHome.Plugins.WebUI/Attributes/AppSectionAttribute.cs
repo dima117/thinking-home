@@ -8,8 +8,6 @@ namespace ThinkingHome.Plugins.WebUI.Attributes
 
 		public SectionType Type { get; set; }
 
-		public string TileDefinitionKey { get; set; }
-
 		public AppSectionAttribute(string title, SectionType sectionType, string url, string resourcePath)
 			: base(url, resourcePath)
 		{

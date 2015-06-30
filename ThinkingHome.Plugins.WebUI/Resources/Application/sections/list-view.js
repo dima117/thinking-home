@@ -7,7 +7,6 @@
 		var sectionView = lib.marionette.ItemView.extend({
 			template: lib._.template(itemTemplate),
 			triggers: {
-				'click .js-btn-add-tile': 'sections:add-tile',
 				'click .js-section-link': 'sections:navigate'
 			}
 		});
