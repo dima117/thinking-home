@@ -3,7 +3,7 @@
 	'json!api/webui/styles.json',
 	'application/common/complex-view',
 	'application/common/utils'],
-	function (application, cssFiles, complexView, sortableView, utils) {
+	function (application, cssFiles, complexView, utils) {
 
 		var common = {
 			ComplexView: complexView,
