@@ -1,9 +1,9 @@
 ﻿define(
 	['app',
-		'common',
+		'lib',
 		'webapp/scripts/script-list-model',
 		'webapp/scripts/script-list-view'],
-	function (application, common, models, views) {
+	function (application, lib, models, views) {
 
 		var api = {
 			runScript: function (view) {
@@ -13,7 +13,7 @@
 				models.runScript(scriptId).done(function () {
 
 					var name = view.model.get('name');
-					common.utils.alert('The script "{0}" has been executed.', name);
+					lib.utils.alert('The script "{0}" has been executed.', name);
 				});
 			},
 
@@ -21,7 +21,7 @@
 
 				var scriptName = view.model.get('name');
 
-				if (common.utils.confirm('Delete the script "{0}"?', scriptName)) {
+				if (lib.utils.confirm('Delete the script "{0}"?', scriptName)) {
 
 					var scriptId = view.model.get('id');
 

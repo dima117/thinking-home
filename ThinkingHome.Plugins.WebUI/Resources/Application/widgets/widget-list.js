@@ -1,8 +1,8 @@
-﻿define(['app', 'common',
+﻿define(['app',
 		'application/settings/widget-list-model.js',
 		'application/settings/widget-list-view.js'
 ],
-	function (application, common, models, views) {
+	function (application, models, views) {
 
 		var api = {
 

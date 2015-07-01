@@ -1,4 +1,9 @@
-﻿define(['lib', 'application/router', 'application/layout'], function (lib, router, layout) {
+﻿define([
+	'lib',
+	'application/router',
+	'application/layout',
+	'json!api/webui/styles.json'],
+	function (lib, router, layout, cssFiles) {
 
 	// init
 	var app = new lib.marionette.Application();
@@ -16,6 +21,8 @@
 
 		this.layout.render();
 		this.router.start();
+
+		lib.utils.loadCss.apply(null, cssFiles);
 	});
 
 	// shortcuts

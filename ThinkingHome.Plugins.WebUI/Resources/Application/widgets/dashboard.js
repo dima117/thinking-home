@@ -1,8 +1,8 @@
-﻿define(['app', 'common',
+﻿define(['app',
 		'application/dashboard-model.js',
 		'application/dashboard-view.js'
 ],
-	function (application, common, models, views) {
+	function (application, models, views) {
 
 		var api = {
 

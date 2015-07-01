@@ -1,8 +1,8 @@
 ﻿define(
-	['app', 'common',
+	['app', 'lib',
 		'webapp/scripts/subscriptions-model',
 		'webapp/scripts/subscriptions-view'],
-	function (application, common, models, views) {
+	function (application, lib, models, views) {
 
 		var layoutView;
 
@@ -19,7 +19,7 @@
 				var eventAlias = childView.model.get('eventAlias');
 				var scriptName = childView.model.get('scriptName');
 
-				if (common.utils.confirm('Delete the subscription?\n- event: "{0}"\n- script: "{1}"', eventAlias, scriptName)) {
+				if (lib.utils.confirm('Delete the subscription?\n- event: "{0}"\n- script: "{1}"', eventAlias, scriptName)) {
 
 					var subscriptionId = childView.model.get('id');
 					models.deleteSubscription(subscriptionId).done(api.reloadList);

@@ -1,8 +1,8 @@
 ﻿define(
-	['app', 'common',
+	['app', 'lib',
 		'webapp/weather/locations-model',
 		'webapp/weather/locations-view'],
-	function (application, common, models, views) {
+	function (application, lib, models, views) {
 
 		var layoutView;
 
@@ -20,7 +20,7 @@
 
 				var displayName = childView.model.get('displayName');
 
-				if (common.utils.confirm('Delete the location "{0}" and all location data?', displayName)) {
+				if (lib.utils.confirm('Delete the location "{0}" and all location data?', displayName)) {
 
 					var locationId = childView.model.get('id');
 

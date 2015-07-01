@@ -2,7 +2,6 @@
 	baseUrl: '/',
 	paths: {
 		app: 'application/application',
-		common: 'application/common',
 		lib: 'application/lib',
 
 		text: 'vendor/js/require-text',
@@ -49,6 +48,6 @@
 	}
 });
 
-require(['app', 'common', 'bootstrap'], function (app) {
+require(['app', 'bootstrap'], function (app) {
 	app.start();
 });

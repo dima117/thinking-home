@@ -1,9 +1,8 @@
 ﻿define([
 	'lib',
-	'common',
 	'text!application/settings/widget-list.tpl',
 	'text!application/settings/widget-list-item.tpl'],
-	function (lib, common, listTemplate, widgetTemplate) {
+	function (lib, listTemplate, widgetTemplate) {
 
 		var widgetView = lib.marionette.ItemView.extend({
 			template: lib._.template(widgetTemplate),
@@ -27,7 +26,7 @@
 
 				// add items
 				var types = this.model.get("types");
-				common.utils.addListItems(this.ui.typeSelector, types);
+				lib.utils.addListItems(this.ui.typeSelector, types);
 			}
 		});
 

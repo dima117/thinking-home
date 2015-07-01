@@ -1,7 +1,7 @@
-﻿define(['app', 'common',
+﻿define(['app', 'lib',
 		'webapp/microclimate/settings-model',
 		'webapp/microclimate/settings-view'],
-	function (application, common, models, views) {
+	function (application, lib, models, views) {
 
 		var api = {
 			addSensor: function () {
@@ -25,7 +25,7 @@
 
 				var displayName = childView.model.get('displayName');
 
-				if (common.utils.confirm('Delete the sensor "{0}" and all related data?', displayName)) {
+				if (lib.utils.confirm('Delete the sensor "{0}" and all related data?', displayName)) {
 
 					var id = childView.model.get('id');
 

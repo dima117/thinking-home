@@ -1,8 +1,8 @@
-﻿define(['app', 'common',
+﻿define(['app', 'lib',
 		'application/settings/dashboard-list-model.js',
 		'application/settings/dashboard-list-view.js'
 ],
-	function (application, common, models, views) {
+	function (application, lib, models, views) {
 
 		var api = {
 
@@ -27,7 +27,7 @@
 				var id = childView.model.get('id'),
 					title = childView.model.get('title');
 
-				if (common.utils.confirm('Do you want to delete the dashboard "{0}"?', title)) {
+				if (lib.utils.confirm('Do you want to delete the dashboard "{0}"?', title)) {
 
 					models.deleteDashboard(id).done(api.loadDashboardList);
 				}

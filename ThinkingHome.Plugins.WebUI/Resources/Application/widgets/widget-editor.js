@@ -1,8 +1,8 @@
-﻿define(['app', 'lib', 'common',
+﻿define(['app', 'lib',
 		'application/settings/widget-editor-model.js',
 		'application/settings/widget-editor-view.js'
 ],
-	function (application, lib, common, models, views) {
+	function (application, lib, models, views) {
 
 		var api = {
 
@@ -24,7 +24,7 @@
 				var id = this.model.get("id"),
 					displayName = this.ui.displayName.val();
 
-				if (common.utils.confirm('Do you want to delete the widget "{0}"?', displayName)) {
+				if (lib.utils.confirm('Do you want to delete the widget "{0}"?', displayName)) {
 
 					models.deleteWidget(id).done(api.openDashboard.bind(this));
 				}

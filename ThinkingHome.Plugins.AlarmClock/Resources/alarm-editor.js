@@ -1,7 +1,7 @@
-﻿define(['app', 'common',
+﻿define(['app', 'lib',
 		'webapp/alarm-clock/editor-model',
 		'webapp/alarm-clock/editor-view'],
-	function (application, common, models, views) {
+	function (application, lib, models, views) {
 
 		var api = {
 			createEditor: function (model) {
@@ -29,7 +29,7 @@
 				
 				var name = this.model.get('name');
 
-				if (common.utils.confirm('Do you want to delete the alarm?', name)) {
+				if (lib.utils.confirm('Do you want to delete the alarm?', name)) {
 
 					var id = this.model.get('id');
 					models.deleteAlarm(id).done(api.redirectToList);

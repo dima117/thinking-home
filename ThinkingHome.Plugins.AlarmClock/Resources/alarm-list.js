@@ -1,8 +1,8 @@
 ﻿define(
-	['app', 'common',
+	['app', 'lib',
 		'webapp/alarm-clock/list-model',
 		'webapp/alarm-clock/list-view'],
-	function (application, common, models, views) {
+	function (application, lib, models, views) {
 
 		var api = {
 
@@ -30,7 +30,7 @@
 
 				models.stopAlarm().done(function () {
 
-					common.utils.alert('All alarm sounds were stopped.');
+					lib.utils.alert('All alarm sounds were stopped.');
 				});
 			},
 

@@ -162,9 +162,6 @@
     <EmbeddedResource Include="Resources\Vendor\js\codemirror-all.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Application\common.js" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\Vendor\js\backbone.syphon.js" />
   </ItemGroup>
   <ItemGroup>
@@ -180,9 +177,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Application\sections\user.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Application\utils.js" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Vendor\js\moment.min.js" />

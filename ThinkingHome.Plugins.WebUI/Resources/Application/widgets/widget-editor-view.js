@@ -1,9 +1,8 @@
 ﻿define([
 	'lib',
-	'common',
 	'text!application/settings/widget-editor.tpl',
 	'text!application/settings/widget-editor-field.tpl'],
-	function (lib, common, editorTemplate, fieldTemplate) {
+	function (lib, editorTemplate, fieldTemplate) {
 
 		var fieldView = lib.marionette.ItemView.extend({
 			template: lib._.template(fieldTemplate),
@@ -14,7 +13,7 @@
 
 				// add items
 				var items = this.model.get("items");
-				common.utils.addListItems(this.ui.field, items);
+				lib.utils.addListItems(this.ui.field, items);
 
 				// set value
 				var value = this.model.get("value");

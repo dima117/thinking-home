@@ -1,11 +1,10 @@
 ﻿define([
 		'lib',
-		'common',
 		'text!webapp/weather/forecast.tpl',
 		'text!webapp/weather/forecast-item.tpl',
 		'text!webapp/weather/forecast-item-value.tpl',
 		'text!webapp/weather/forecast-item-value-now.tpl'
-], function (lib, common, template, itemTemplate, dataItemTemplate, nowDataItemTemplate) {
+], function (lib, template, itemTemplate, dataItemTemplate, nowDataItemTemplate) {
 
 	// погода на текущий момент
 	var weatherNowDataItemView = lib.marionette.ItemView.extend({

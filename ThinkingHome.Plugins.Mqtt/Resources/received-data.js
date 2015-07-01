@@ -1,7 +1,7 @@
-﻿define(['app', 'common',
+﻿define(['app', 'lib',
 		'webapp/mqtt/received-data-model',
 		'webapp/mqtt/received-data-view'],
-	function (application, common, models, views) {
+	function (application, lib, models, views) {
 
 		var api = {
 			reloadMessages: function () {
@@ -19,7 +19,7 @@
 
 				var path = childView.model.get("path");
 
-				if (common.utils.confirm('Do you want to delete saved message?\n"{0}"', path)) {
+				if (lib.utils.confirm('Do you want to delete saved message?\n"{0}"', path)) {
 
 					var id = childView.model.get('id');
 

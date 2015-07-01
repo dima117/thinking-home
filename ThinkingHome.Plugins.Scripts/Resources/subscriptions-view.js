@@ -1,10 +1,10 @@
 ﻿define(
-	['lib', 'common',
+	['lib',
 		'text!webapp/scripts/subscriptions-layout.tpl',
 		'text!webapp/scripts/subscriptions-form.tpl',
 		'text!webapp/scripts/subscriptions-list.tpl',
 		'text!webapp/scripts/subscriptions-list-item.tpl'],
-	function (lib, common, layoutTemplate, formTemplate, listTemplate, itemTemplate) {
+	function (lib, layoutTemplate, formTemplate, listTemplate, itemTemplate) {
 
 		var subscriptionLayout = lib.marionette.LayoutView.extend({
 			template: lib._.template(layoutTemplate),
@@ -24,8 +24,8 @@
 
 				// add items
 				var data = this.serializeData();
-				common.utils.addListItems(this.ui.eventList, data.eventList);
-				common.utils.addListItems(this.ui.scriptList, data.scriptList);
+				lib.utils.addListItems(this.ui.eventList, data.eventList);
+				lib.utils.addListItems(this.ui.scriptList, data.scriptList);
 
 				// set selected values
 				lib.syphon.deserialize(this, data);

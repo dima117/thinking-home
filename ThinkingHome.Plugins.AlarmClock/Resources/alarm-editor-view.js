@@ -1,6 +1,6 @@
 ﻿define(
-	['lib', 'common', 'text!webapp/alarm-clock/editor.tpl'],
-	function (lib, common, editorTemplate) {
+	['lib', 'text!webapp/alarm-clock/editor.tpl'],
+	function (lib, editorTemplate) {
 
 		var alarmEditorView = lib.marionette.ItemView.extend({
 
@@ -13,7 +13,7 @@
 				var data = this.serializeData();
 
 				// add items
-				common.utils.addListItems(this.ui.scriptList, data.scripts);
+				lib.utils.addListItems(this.ui.scriptList, data.scripts);
 
 				// set selected values
 				lib.syphon.deserialize(this, data);
