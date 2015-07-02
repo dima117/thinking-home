@@ -8,15 +8,18 @@
 
 			load: function () {
 
-				var view = new views.DashboardView();
+				var layout = new views.LayoutView();
+				application.setContentView(layout);
 
-				application.setContentView(view);
+				models.loadDashboardList()
+					.done(function (list) {
 
-				//models.loadDashboard()
-				//	.done(function () {
+						var nav = new views.NavPanelView({
+							collection: list
+						});
 
-
-				//	});
+						layout.getRegion('nav').show(nav);
+					});
 			}
 		};
 

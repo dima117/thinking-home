@@ -7,6 +7,7 @@
 		<licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
 		<dependencies>
 			<dependency id="ThinkingHome.Plugins.Listener" />
+			<dependency id="ThinkingHome.Plugins.UniUI" />
 		</dependencies>
 		<id>ThinkingHome.Plugins.WebUI</id>
 		<title>WebUI plugin</title>

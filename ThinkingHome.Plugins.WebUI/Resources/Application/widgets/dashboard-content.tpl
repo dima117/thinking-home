@@ -1,0 +1,3 @@
+﻿<p>
+	widget list
+</p>
