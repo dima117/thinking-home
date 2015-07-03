@@ -55,7 +55,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="UniUiPlugin.Dashboard.cs" />
-    <Compile Include="UniUiPlugin.DashboardList.cs" />
     <Compile Include="Migrations\Migration03_WidgetParameter.cs" />
     <Compile Include="Migrations\Migration01_Dashboard.cs" />
     <Compile Include="Migrations\Migration02_Widget.cs" />
