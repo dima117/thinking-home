@@ -5,7 +5,20 @@
 
 		var navItemView = lib.marionette.ItemView.extend({
 			template: lib._.template('<a href="#"><%=title%></a>'),
-			tagName: 'li'
+			tagName: 'li',
+			initialize: function () {
+
+				this.listenTo(this.model, "change:active", this.updateState);
+			},
+			onRender: function () {
+
+				this.updateState();
+			},
+			updateState: function() {
+
+				var isActive = this.model.get("active");
+				this.$el.toggleClass("active", isActive);
+			}
 		});
 
 		var navPanelView = lib.marionette.CollectionView.extend({

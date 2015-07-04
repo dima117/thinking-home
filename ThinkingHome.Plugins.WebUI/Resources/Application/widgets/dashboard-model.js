@@ -54,6 +54,7 @@
 		};
 
 		return {
-			loadDashboardList: api.loadDashboardList
+			loadDashboardList: api.loadDashboardList,
+			loadDashboardDetails: api.loadDashboardDetails
 		};
 	});

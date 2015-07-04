@@ -6,7 +6,23 @@
 
 		var api = {
 
-			load: function () {
+			setSelectedItem: function (id, list) {
+
+				var el = list.get(id) || list.first();
+
+				if (el) {
+
+					el.set('active', true);
+
+					models.loadDashboardDetails(el.id)
+						.done(function (widgets) {
+
+							alert(1);
+						});
+				}
+			},
+
+			load: function (id) {
 
 				var layout = new views.LayoutView();
 				application.setContentView(layout);
@@ -19,6 +35,8 @@
 						});
 
 						layout.getRegion('nav').show(nav);
+
+						api.setSelectedItem(id, list);
 					});
 			}
 		};
