@@ -10,14 +10,13 @@
 
 				this.listenTo(this.model, "change:active", this.updateState);
 			},
-			onRender: function () {
-
-				this.updateState();
-			},
 			updateState: function() {
 
 				var isActive = this.model.get("active");
 				this.$el.toggleClass("active", isActive);
+			},
+			triggers: {
+				"click a": "nav:select"
 			}
 		});
 

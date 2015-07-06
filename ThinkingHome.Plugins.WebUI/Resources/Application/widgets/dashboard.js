@@ -12,6 +12,8 @@
 
 				if (el) {
 
+					list.clearSelection();
+						
 					el.set('active', true);
 
 					models.loadDashboardDetails(el.id)
@@ -32,6 +34,12 @@
 
 						var nav = new views.NavPanelView({
 							collection: list
+						});
+
+						nav.on("childview:nav:select", function (view) {
+
+							var electedId = view.model.get("id");
+							api.setSelectedItem(electedId, list);
 						});
 
 						layout.getRegion('nav').show(nav);

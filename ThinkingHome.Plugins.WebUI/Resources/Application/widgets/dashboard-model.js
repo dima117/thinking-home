@@ -10,7 +10,13 @@
 
 		var dashboardList = lib.backbone.Collection.extend({
 			model: dashboardListItem,
-			comparator: 'sortOrder'
+			comparator: 'sortOrder',
+			clearSelection: function () {
+
+				this.each(function (x) {
+					x.set('active', false);
+				});
+			}
 		});
 
 		var api = {
