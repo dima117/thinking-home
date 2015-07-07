@@ -18,18 +18,11 @@ namespace ThinkingHome.Plugins.UniUI
 		{
 			using (var session = Context.OpenSession())
 			{
-				var list = session.Query<Dashboard>().ToList();
+				var allDashboards = session.Query<Dashboard>().ToArray();
 
-				var model = list
-					.Select(x => new
-					{
-						id = x.Id,
-						title = x.Title,
-						sortOrder = x.SortOrder
-					})
-					.ToList();
+				var list = GetDashboardListModel(allDashboards);
 
-				return model;
+				return list;
 			}
 		}
 
@@ -76,22 +69,54 @@ namespace ThinkingHome.Plugins.UniUI
 		[HttpCommand("/api/uniui/dashboard/details")]
 		public object GetDashboardDetails(HttpRequestParams request)
 		{
-			Guid dashboardId = request.GetRequiredGuid("id");
+			Guid? id = request.GetGuid("id");
 
 			using (var session = Context.OpenSession())
 			{
-				var allWidgets = session.Query<Widget>()
-						.Where(w => w.Dashboard.Id == dashboardId)
+				var allDashboards = session.Query<Dashboard>().ToArray();
+
+				if (allDashboards.Any())
+				{
+					var selected = id.HasValue
+						? allDashboards.Single(d => d.Id == id.Value)
+						: allDashboards.First();
+
+					var dashboardList = GetDashboardListModel(allDashboards, selected.Id);
+
+					var allWidgets = session.Query<Widget>()
+						.Where(w => w.Dashboard.Id == selected.Id)
 						.ToArray();
 
-				var allParameters = session.Query<WidgetParameter>()
-						.Where(w => w.Widget.Dashboard.Id == dashboardId)
-						.ToArray();
+					var allParameters = session.Query<WidgetParameter>()
+							.Where(w => w.Widget.Dashboard.Id == selected.Id)
+							.ToArray();
 
-				var list = GetWidgetListModel(allWidgets, allParameters, session);
+					var widgetList = GetWidgetListModel(allWidgets, allParameters, session);
 
-				return list;
+					return new
+					{
+						dashboards = dashboardList,
+						widgets = widgetList
+					};
+				}
+
+				return null;
 			}
+		}
+
+		private object[] GetDashboardListModel(Dashboard[] allDashboards, Guid? activeId = null)
+		{
+			var model = allDashboards
+					.Select(x => (object)new
+					{
+						id = x.Id,
+						title = x.Title,
+						sortOrder = x.SortOrder,
+						active = activeId == x.Id
+					})
+					.ToArray();
+
+			return model;
 		}
 
 		private object[] GetWidgetListModel(Widget[] allWidgets, WidgetParameter[] allParameters, ISession session)

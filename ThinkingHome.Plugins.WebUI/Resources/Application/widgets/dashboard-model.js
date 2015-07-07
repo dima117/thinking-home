@@ -2,42 +2,7 @@
 	['lib'],
 	function (lib) {
 
-		var dashboardListItem = lib.backbone.Model.extend({
-			defaults: {
-				active: false
-			}
-		});
-
-		var dashboardList = lib.backbone.Collection.extend({
-			model: dashboardListItem,
-			comparator: 'sortOrder',
-			clearSelection: function () {
-
-				this.each(function (x) {
-					x.set('active', false);
-				});
-			}
-		});
-
 		var api = {
-			loadDashboardList: function () {
-
-				var defer = lib.$.Deferred();
-
-				lib.$.getJSON('/api/uniui/dashboard/list')
-					.done(function (data) {
-
-						var list = new dashboardList(data);
-
-						defer.resolve(list);
-					})
-					.fail(function () {
-
-						defer.resolve(undefined);
-					});
-
-				return defer.promise();
-			},
 
 			loadDashboardDetails: function (id) {
 
@@ -46,9 +11,18 @@
 				lib.$.getJSON('/api/uniui/dashboard/details', { id: id })
 					.done(function (data) {
 
-						var list = new lib.backbone.Collection(data);
+						if (data) {
 
-						defer.resolve(list);
+							var dashboards = new lib.backbone.Collection(data.dashboards);
+							var widgets = new lib.backbone.Collection(data.widgets);
+
+							defer.resolve({
+								dashboards: dashboards,
+								widgets: widgets
+							});
+						}
+
+						defer.resolve(undefined);
 					})
 					.fail(function () {
 
@@ -60,7 +34,6 @@
 		};
 
 		return {
-			loadDashboardList: api.loadDashboardList,
 			loadDashboardDetails: api.loadDashboardDetails
 		};
 	});
