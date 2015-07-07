@@ -18,6 +18,11 @@
 					var layout = new views.LayoutView();
 					application.setContentView(layout);
 
+					var menu = new views.MenuView({
+						collection: details.dashboards
+					});
+
+					layout.getRegion('menu').show(menu);
 				} else {
 
 					var empty = new views.EmptyView();
