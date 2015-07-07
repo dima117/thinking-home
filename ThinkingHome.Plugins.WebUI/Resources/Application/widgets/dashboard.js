@@ -11,8 +11,14 @@
 				models.loadDetails(id).done(api.displayDetails);
 			},
 
+			select: function (item) {
+
+				var id = item.model.get('id');
+				application.navigate('dashboard', id);
+			},
+
 			displayDetails: function (details) {
-				
+
 				if (details) {
 
 					var layout = new views.LayoutView();
@@ -21,6 +27,8 @@
 					var menu = new views.MenuView({
 						collection: details.dashboards
 					});
+
+					menu.on('childview:dashboard:select', api.select);
 
 					layout.getRegion('menu').show(menu);
 				} else {

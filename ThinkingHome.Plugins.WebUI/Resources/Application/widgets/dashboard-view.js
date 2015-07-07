@@ -23,6 +23,9 @@
 
 				var isActive = this.model.get("active");
 				this.$el.toggleClass("active", isActive);
+			},
+			triggers: {
+				"click a": "dashboard:select"
 			}
 		});
 
