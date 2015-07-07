@@ -4,7 +4,7 @@
 
 		var api = {
 
-			loadDashboardDetails: function (id) {
+			loadDetails: function (id) {
 
 				var defer = lib.$.Deferred();
 
@@ -34,6 +34,6 @@
 		};
 
 		return {
-			loadDashboardDetails: api.loadDashboardDetails
+			loadDetails: api.loadDetails
 		};
 	});

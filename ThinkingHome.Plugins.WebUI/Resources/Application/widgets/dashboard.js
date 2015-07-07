@@ -8,29 +8,21 @@
 
 			load: function (id) {
 
-				var empty = new views.EmptyView();
-				application.setContentView(empty);
+				models.loadDetails(id).done(api.displayDetails);
+			},
 
-				var layout = new views.LayoutView();
-				application.setContentView(layout);
+			displayDetails: function (details) {
+				
+				if (details) {
 
-				//models.loadDashboardList()
-				//	.done(function (list) {
+					var layout = new views.LayoutView();
+					application.setContentView(layout);
 
-				//		var nav = new views.NavPanelView({
-				//			collection: list
-				//		});
+				} else {
 
-				//		nav.on("childview:nav:select", function (view) {
-
-				//			var electedId = view.model.get("id");
-				//			api.setSelectedItem(electedId, list);
-				//		});
-
-				//		layout.getRegion('nav').show(nav);
-
-				//		api.setSelectedItem(id, list);
-				//	});
+					var empty = new views.EmptyView();
+					application.setContentView(empty);
+				}
 			}
 		};
 
