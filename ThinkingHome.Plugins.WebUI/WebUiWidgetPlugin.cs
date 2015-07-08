@@ -29,7 +29,7 @@ namespace ThinkingHome.Plugins.WebUI
 	[JavaScriptResource("/application/dashboard-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.dashboard-view.js")]
 	[JavaScriptResource("/application/dashboard-model.js", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.dashboard-model.js")]
 	[HttpResource("/application/dashboard-layout.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.dashboard-layout.tpl")]
-	[HttpResource("/application/dashboard-content.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.dashboard-content.tpl")]
+	[HttpResource("/application/dashboard-widget.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.dashboard-widget.tpl")]
 	[HttpResource("/application/dashboard-nothing.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.dashboard-nothing.tpl")]
 
 	[Plugin]

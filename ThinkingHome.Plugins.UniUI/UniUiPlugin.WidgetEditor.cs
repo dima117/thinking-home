@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using NHibernate;
 using NHibernate.Linq;
@@ -157,7 +158,8 @@ namespace ThinkingHome.Plugins.UniUI
 
 				session.Flush();
 
-				var fields = def.GetWidgetMetaData(session, Logger);
+				var fields = def.GetWidgetMetaData(session, Logger) 
+					?? new WidgetParameterMetaData[0];
 
 				var json = request.GetRequiredString("json");
 				var values = Extensions.FromJson<Dictionary<string, string>>(json);
@@ -212,7 +214,8 @@ namespace ThinkingHome.Plugins.UniUI
 
 			var def = defs[type];
 
-			var metaData = def.GetWidgetMetaData(session, Logger) ?? new WidgetParameterMetaData[0];
+			var metaData = def.GetWidgetMetaData(session, Logger) 
+				?? new WidgetParameterMetaData[0];
 
 			var parameters = metaData
 						.Select(GetEditorParameterModel)
