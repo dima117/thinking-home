@@ -21,9 +21,11 @@
 
 				if (details) {
 
+					// layout
 					var layout = new views.LayoutView();
 					application.setContentView(layout);
 
+					// menu
 					var menu = new views.MenuView({
 						collection: details.dashboards
 					});
@@ -31,6 +33,14 @@
 					menu.on('childview:dashboard:select', api.select);
 
 					layout.getRegion('menu').show(menu);
+
+					// widgets
+					var widgetList = new views.WidgetListView({
+						collection: details.widgets
+					});
+
+					layout.getRegion('content').show(widgetList);
+
 				} else {
 
 					var empty = new views.EmptyView();

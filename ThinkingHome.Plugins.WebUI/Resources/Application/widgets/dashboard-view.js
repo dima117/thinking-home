@@ -1,8 +1,9 @@
 ﻿define([
 	'lib',
 	'text!application/dashboard-nothing.tpl',
-	'text!application/dashboard-layout.tpl'],
-	function (lib, emptyTemplate, layoutTemplate) {
+	'text!application/dashboard-layout.tpl',
+	'text!application/dashboard-widget.tpl'],
+	function (lib, emptyTemplate, layoutTemplate, widgetTemplate) {
 
 		var emptyView = lib.marionette.ItemView.extend({
 			template: lib._.template(emptyTemplate)
@@ -11,8 +12,8 @@
 		var layoutView = lib.marionette.LayoutView.extend({
 			template: lib._.template(layoutTemplate),
 			regions: {
-				menu: ".js-menu",
-				content: ".js-content"
+				menu: '.js-menu',
+				content: '.js-content'
 			}
 		});
 
@@ -35,9 +36,20 @@
 			tagName: 'ul'
 		});
 
+		var widgetView = lib.marionette.ItemView.extend({
+			template: lib._.template(widgetTemplate),
+			className: 'row'
+		});
+
+		var widgetListView = lib.marionette.CollectionView.extend({
+			childView: widgetView,
+			className: 'container-fluid'
+		});
+
 		return {
 			EmptyView: emptyView,
 			LayoutView: layoutView,
-			MenuView: menuView
+			MenuView: menuView,
+			WidgetListView: widgetListView
 		};
 	});
