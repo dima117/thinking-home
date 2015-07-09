@@ -6,11 +6,12 @@
 		'jquery',
 		'json2',
 		'syphon',
+		'handlebars',
 		'moment',
 		'chart',
 		'chart.scatter'
 	],
-	function (marionette, backbone, underscore, jquery, json2, syphon, moment, chartjs) {
+	function (marionette, backbone, underscore, jquery, json2, syphon, handlebars, moment, chartjs) {
 
 		var utils = {
 			formatString: function () {
@@ -132,6 +133,7 @@
 			json2: json2,
 			Chart: chartjs,
 			syphon: syphon,
+			handlebars: handlebars,
 			moment: moment,
 			utils: utils
 		};

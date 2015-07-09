@@ -10,7 +10,7 @@
 		});
 
 		var layoutView = lib.marionette.LayoutView.extend({
-			template: lib._.template(layoutTemplate),
+			template: lib.handlebars.compile(layoutTemplate),
 			regions: {
 				menu: '.js-menu',
 				content: '.js-content'

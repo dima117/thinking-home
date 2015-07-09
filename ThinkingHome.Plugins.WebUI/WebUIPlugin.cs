@@ -33,6 +33,7 @@ namespace ThinkingHome.Plugins.WebUI
 	[JavaScriptResource("/vendor/js/backbone.syphon.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.syphon.js")]
 	[JavaScriptResource("/vendor/js/bootstrap.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.bootstrap.min.js")]
 	[JavaScriptResource("/vendor/js/moment.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.moment.min.js")]
+	[JavaScriptResource("/vendor/js/handlebars.amd.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.handlebars.amd.min.js")]
 
 	[JavaScriptResource("/vendor/js/codemirror-all.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.codemirror-all.js")]
 	[JavaScriptResource("/vendor/js/codemirror.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.codemirror.js")]

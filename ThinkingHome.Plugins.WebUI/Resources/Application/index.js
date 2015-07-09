@@ -16,6 +16,7 @@
 		bootstrap: 'vendor/js/bootstrap.min',
 		moment: 'vendor/js/moment.min',
 		codemirror: 'vendor/js/codemirror-all',
+		handlebars: 'vendor/js/handlebars.amd.min',
 		chart: 'vendor/js/chart.min',
 		'chart.scatter': 'vendor/js/chart.scatter.min',
 
