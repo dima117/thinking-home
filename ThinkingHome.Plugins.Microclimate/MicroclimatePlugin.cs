@@ -32,7 +32,8 @@ namespace ThinkingHome.Plugins.Microclimate
 	[HttpResource("/webapp/microclimate/settings.tpl", "ThinkingHome.Plugins.Microclimate.Resources.settings.tpl")]
 	[HttpResource("/webapp/microclimate/settings-row.tpl", "ThinkingHome.Plugins.Microclimate.Resources.settings-row.tpl")]
 	[CssResource("/webapp/microclimate/microclimate.css", "ThinkingHome.Plugins.Microclimate.Resources.microclimate.css", AutoLoad = true)]
-	
+
+	[WebWidget("microclimate-sensor", "/widgets/microclimate-sensor.js", "ThinkingHome.Plugins.Microclimate.Resources.ui.microclimate-sensor.js")]
 	public class MicroclimatePlugin : PluginBase
 	{
 		public const int PERIOD = 36;	// in hours
