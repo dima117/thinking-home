@@ -1,8 +1,9 @@
 ﻿define(['app',
 		'application/dashboard-model.js',
-		'application/dashboard-view.js'
+		'application/dashboard-view.js',
+		'json!api/webui/widgets.json'
 ],
-	function (application, models, views) {
+	function (application, models, views, widgetTypes) {
 
 		var api = {
 
@@ -22,7 +23,7 @@
 				if (details) {
 
 					// layout
-					var layout = new views.LayoutView();
+					var layout = new views.LayoutView({ model: details.widgets });
 					application.setContentView(layout);
 
 					// menu
@@ -35,13 +36,22 @@
 					layout.getRegion('menu').show(menu);
 
 					// widgets
-					details.widgets.each(function(el) {
-						
-						var widgetView = new views.WidgetView({
-							model: el
-						});
+					details.widgets.each(function (widget) {
 
-						layout.getRegion('content').attachView(widgetView);
+						var type = widget.get("type"),
+							widgetId = widget.get("id");
+						
+
+						var path = widgetTypes[type];
+
+						if (path) {
+
+							require([path], function (widgetModule) {
+
+								var region = layout.addRegion(widgetId, "#" + widgetId);
+								widgetModule.show(widget, region);
+							});
+						}
 					});
 
 				} else {

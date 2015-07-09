@@ -128,7 +128,7 @@ namespace ThinkingHome.Plugins.WebUI
 
 				foreach (var widget in webWidgetAttributes)
 				{
-					widgets.Add(widget.Type, widget.Url);
+					widgets.Add(widget.Type, widget.GetModulePath());
 				}
 			}
 		}
