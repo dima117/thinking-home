@@ -25,12 +25,12 @@ namespace ThinkingHome.Plugins.WebUI
 	[HttpResource("/application/settings/widget-editor-field.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.widget-editor-field.tpl")]
 
 	// dashboard
-	[JavaScriptResource("/application/dashboard.js", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.dashboard.js")]
-	[JavaScriptResource("/application/dashboard-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.dashboard-view.js")]
-	[JavaScriptResource("/application/dashboard-model.js", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.dashboard-model.js")]
-	[HttpResource("/application/dashboard-layout.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.dashboard-layout.tpl")]
-	[HttpResource("/application/dashboard-widget.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.dashboard-widget.tpl")]
-	[HttpResource("/application/dashboard-nothing.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.dashboard-nothing.tpl")]
+	[JavaScriptResource("/application/dashboard.js", "ThinkingHome.Plugins.WebUI.Resources.Application.dashboard.dashboard.js")]
+	[JavaScriptResource("/application/dashboard-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.dashboard.dashboard-view.js")]
+	[JavaScriptResource("/application/dashboard-model.js", "ThinkingHome.Plugins.WebUI.Resources.Application.dashboard.dashboard-model.js")]
+	[HttpResource("/application/dashboard-layout.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.dashboard.dashboard-layout.tpl")]
+	[HttpResource("/application/dashboard-widget.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.dashboard.dashboard-widget.tpl")]
+	[HttpResource("/application/dashboard-nothing.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.dashboard.dashboard-nothing.tpl")]
 
 	[Plugin]
 	public class WebUiWidgetPlugin : PluginBase

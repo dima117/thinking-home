@@ -41,15 +41,10 @@
 			className: 'row'
 		});
 
-		var widgetListView = lib.marionette.CollectionView.extend({
-			childView: widgetView,
-			className: 'container-fluid'
-		});
-
 		return {
 			EmptyView: emptyView,
 			LayoutView: layoutView,
 			MenuView: menuView,
-			WidgetListView: widgetListView
+			WidgetView: widgetView
 		};
 	});

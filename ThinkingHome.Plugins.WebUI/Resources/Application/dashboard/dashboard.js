@@ -35,11 +35,14 @@
 					layout.getRegion('menu').show(menu);
 
 					// widgets
-					var widgetList = new views.WidgetListView({
-						collection: details.widgets
-					});
+					details.widgets.each(function(el) {
+						
+						var widgetView = new views.WidgetView({
+							model: el
+						});
 
-					layout.getRegion('content').show(widgetList);
+						layout.getRegion('content').attachView(widgetView);
+					});
 
 				} else {
 

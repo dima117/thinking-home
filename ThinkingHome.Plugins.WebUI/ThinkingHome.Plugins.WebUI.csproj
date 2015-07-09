@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\WebWidgetAttribute.cs" />
     <Compile Include="Attributes\CssResourceAttribute.cs" />
     <Compile Include="Attributes\SectionType.cs" />
     <Compile Include="Attributes\AppSectionAttribute.cs" />
@@ -134,9 +135,9 @@
     <EmbeddedResource Include="Resources\Application\widgets\widget-editor.tpl" />
     <EmbeddedResource Include="Resources\Application\widgets\widget-list-item.tpl" />
     <EmbeddedResource Include="Resources\Application\widgets\widget-list.tpl" />
-    <EmbeddedResource Include="Resources\Application\widgets\dashboard-layout.tpl" />
-    <EmbeddedResource Include="Resources\Application\widgets\dashboard-widget.tpl" />
-    <EmbeddedResource Include="Resources\Application\widgets\dashboard-nothing.tpl" />
+    <EmbeddedResource Include="Resources\Application\dashboard\dashboard-layout.tpl" />
+    <EmbeddedResource Include="Resources\Application\dashboard\dashboard-widget.tpl" />
+    <EmbeddedResource Include="Resources\Application\dashboard\dashboard-nothing.tpl" />
     <None Include="ThinkingHome.Plugins.WebUI.nuspec">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -236,13 +237,13 @@
     <EmbeddedResource Include="Resources\Application\widgets\widget-list.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Application\widgets\dashboard-model.js" />
+    <EmbeddedResource Include="Resources\Application\dashboard\dashboard-model.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Application\widgets\dashboard-view.js" />
+    <EmbeddedResource Include="Resources\Application\dashboard\dashboard-view.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Application\widgets\dashboard.js" />
+    <EmbeddedResource Include="Resources\Application\dashboard\dashboard.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
