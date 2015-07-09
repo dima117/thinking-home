@@ -12,10 +12,13 @@ using ThinkingHome.Plugins.Mqtt;
 using ThinkingHome.Plugins.NooLite;
 using ThinkingHome.Plugins.Scripts;
 using ThinkingHome.Plugins.Timer.Attributes;
+using ThinkingHome.Plugins.WebUI.Attributes;
 
 namespace ThinkingHome.Plugins.Tmp
 {
 	[Plugin]
+
+	[WebWidget("empty-widget", "/widgets/empty-widget.js", "ThinkingHome.Plugins.Tmp.Resources.ui.empty-widget.js")]
 	public class TmpPlugin : PluginBase
 	{
 		#region camera

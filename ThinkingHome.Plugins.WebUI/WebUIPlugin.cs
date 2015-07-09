@@ -119,6 +119,8 @@ namespace ThinkingHome.Plugins.WebUI
 
 				var urls = cssResourceAttributes.Select(attr => attr.Url).ToArray();
 				cssFiles.UnionWith(urls);
+
+				// виджеты
 			}
 		}
 
