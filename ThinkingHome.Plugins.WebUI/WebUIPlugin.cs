@@ -98,6 +98,7 @@ namespace ThinkingHome.Plugins.WebUI
 	{
 		private readonly List<AppSectionAttribute> sections = new List<AppSectionAttribute>();
 		private readonly HashSet<string> cssFiles = new HashSet<string>(StringComparer.InvariantCultureIgnoreCase);
+		private readonly Dictionary<string, string> widgets = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
 
 		public override void InitPlugin()
 		{
@@ -121,6 +122,14 @@ namespace ThinkingHome.Plugins.WebUI
 				cssFiles.UnionWith(urls);
 
 				// виджеты
+				var webWidgetAttributes = type
+					.GetCustomAttributes<WebWidgetAttribute>()
+					.ToArray();
+
+				foreach (var widget in webWidgetAttributes)
+				{
+					widgets.Add(widget.Type, widget.Url);
+				}
 			}
 		}
 
@@ -153,9 +162,15 @@ namespace ThinkingHome.Plugins.WebUI
 		}
 
 		[HttpCommand("/api/webui/styles.json")]
-		public object LoadStylesBundle(HttpRequestParams request)
+		public object LoadStyles(HttpRequestParams request)
 		{
 			return cssFiles;
+		}
+
+		[HttpCommand("/api/webui/widgets.json")]
+		public object LoadWidgets(HttpRequestParams request)
+		{
+			return widgets;
 		}
 	}
 }
