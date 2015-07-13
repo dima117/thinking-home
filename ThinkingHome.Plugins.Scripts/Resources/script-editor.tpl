@@ -1,6 +1,6 @@
 ﻿<form>
 	<h1>
-		<%= name %>
+		{{name}}
 	</h1>
 	<p>
 		<input type="button" value="Save" class="btn btn-primary js-btn-save" />&nbsp;

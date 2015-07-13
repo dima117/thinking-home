@@ -1,4 +1,4 @@
-﻿<h3><%= name %></h3>
+﻿<h3>{{name}}</h3>
 <p>
 	<button type="button" class="btn btn-default btn-xs js-btn-run">Run manually</button>&nbsp;
 	<button type="button" class="btn btn-default btn-xs js-btn-edit">Edit</button>&nbsp;

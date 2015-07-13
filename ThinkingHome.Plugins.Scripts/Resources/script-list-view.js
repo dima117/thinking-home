@@ -3,7 +3,7 @@
 	function (lib, listTemplate, itemTemplate) {
 
 		var scriptView = lib.marionette.ItemView.extend({
-			template: lib._.template(itemTemplate),
+			template: lib.handlebars.compile(itemTemplate),
 			triggers: {
 				'click .js-btn-run': 'scripts:run',
 				'click .js-btn-edit': 'scripts:edit',
@@ -12,7 +12,7 @@
 		});
 
 		var scriptListView = lib.marionette.CompositeView.extend({
-			template: lib._.template(listTemplate),
+			template: lib.handlebars.compile(listTemplate),
 			childView: scriptView,
 			childViewContainer: '.js-list',
 			triggers: {

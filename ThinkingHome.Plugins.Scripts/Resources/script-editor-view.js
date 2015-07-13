@@ -6,7 +6,7 @@
 	function (lib, codemirror, editorTemplate) {
 
 		var scriptEditorView = lib.marionette.ItemView.extend({
-			template: lib._.template(editorTemplate),
+			template: lib.handlebars.compile(editorTemplate),
 			onRender: function () {
 
 				var data = this.serializeData();
