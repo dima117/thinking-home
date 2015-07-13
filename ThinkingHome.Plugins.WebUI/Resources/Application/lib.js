@@ -125,6 +125,19 @@
 		};
 
 
+		// handlebars helpers
+		handlebars.registerHelper('range', function (from, to, incr, options) {
+
+			var out = '', i;
+
+			for (i = from; i < to; i += incr) {
+
+				out += options.fn(i);
+			}
+
+			return out;
+		});
+
 		return {
 			marionette: marionette,
 			backbone: backbone,

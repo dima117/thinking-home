@@ -7,7 +7,7 @@
 	function (lib, layoutTemplate, formTemplate, listTemplate, itemTemplate) {
 
 		var subscriptionLayout = lib.marionette.LayoutView.extend({
-			template: lib._.template(layoutTemplate),
+			template: lib.handlebars.compile(layoutTemplate),
 			regions: {
 				regionForm: '#region-subscriptions-form',
 				regionList: '#region-subscriptions-list'
@@ -15,7 +15,7 @@
 		});
 
 		var subscriptionFormView = lib.marionette.ItemView.extend({
-			template: lib._.template(formTemplate),
+			template: lib.handlebars.compile(formTemplate),
 			ui: {
 				eventList: '.js-event-list',
 				scriptList: '.js-script-list'
@@ -43,7 +43,7 @@
 
 
 		var subscriptionView = lib.marionette.ItemView.extend({
-			template: lib._.template(itemTemplate),
+			template: lib.handlebars.compile(itemTemplate),
 			tagName: 'tr',
 			triggers: {
 				'click .js-delete-subscription': 'scripts:subscription:delete'
@@ -51,7 +51,7 @@
 		});
 
 		var subscriptionListView = lib.marionette.CompositeView.extend({
-			template: lib._.template(listTemplate),
+			template: lib.handlebars.compile(listTemplate),
 			childView: subscriptionView,
 			childViewContainer: 'tbody'
 		});
