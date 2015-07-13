@@ -5,7 +5,7 @@
 	function (lib, listTemplate, itemTemplate) {
 
 		var packageView = lib.marionette.ItemView.extend({
-			template: lib._.template(itemTemplate),
+			template: lib.handlebars.compile(itemTemplate),
 			triggers: {
 				'click .js-btn-install': 'packages:install',
 				'click .js-btn-uninstall': 'packages:uninstall'
@@ -27,7 +27,7 @@
 		});
 
 		var packageListView = lib.marionette.CompositeView.extend({
-			template: lib._.template(listTemplate),
+			template: lib.handlebars.compile(listTemplate),
 			childView: packageView,
 			childViewContainer: '.js-list'
 		});

@@ -1,7 +1,7 @@
 ﻿<div class="th-margin-bottom-32">
-	<h3><%= id %></h3>
+	<h3>{{id}}</h3>
 	<p>
-		<%= description %>
+		{{description}}
 	</p>
 	<p>
 		<a href="#" 
