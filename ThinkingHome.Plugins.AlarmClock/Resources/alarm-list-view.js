@@ -6,19 +6,13 @@
 	function (lib, listTemplate, itemTemplate) {
 
 		var alarmView = lib.marionette.ItemView.extend({
-			template: lib._.template(itemTemplate),
+			template: lib.handlebars.compile(itemTemplate),
 			onRender: function () {
 
 				var enabled = this.model.get('enabled');
-				var scriptId = this.model.get('scriptId');
 
 				this.$('.js-btn-enable').toggleClass('hidden', enabled).stateSwitcher();
 				this.$('.js-btn-disable').toggleClass('hidden', !enabled).stateSwitcher();
-
-				this.$('.js-play-sound').toggleClass('hidden', !!scriptId);
-				this.$('.js-run-script').toggleClass('hidden', !scriptId);
-
-
 			},
 			triggers: {
 				'click .js-btn-enable': 'alarm-clock:enable',
@@ -28,7 +22,7 @@
 		});
 
 		var alarmListView = lib.marionette.CompositeView.extend({
-			template: lib._.template(listTemplate),
+			template: lib.handlebars.compile(listTemplate),
 			childView: alarmView,
 			childViewContainer: '.js-list',
 			triggers: {
