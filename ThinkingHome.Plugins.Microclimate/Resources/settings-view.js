@@ -5,7 +5,7 @@
 	function (lib, tmplSettings, tmplSettingsRow) {
 
 		var sensorTableRowView = lib.marionette.ItemView.extend({
-			template: lib._.template(tmplSettingsRow),
+			template: lib.handlebars.compile(tmplSettingsRow),
 			tagName: 'tr',
 			triggers: {
 				'click .js-delete-sensor': 'delete:sensor',
@@ -14,7 +14,7 @@
 		});
 
 		var sensorTableView = lib.marionette.CompositeView.extend({
-			template: lib._.template(tmplSettings),
+			template: lib.handlebars.compile(tmplSettings),
 			childView: sensorTableRowView,
 			childViewContainer: 'tbody',
 			ui: {

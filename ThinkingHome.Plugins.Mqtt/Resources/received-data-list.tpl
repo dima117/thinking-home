@@ -7,13 +7,9 @@
 			<h2>Connection</h2>
 			<dl>
 				<dt>host</dt>
-				<dd>
-					<%=host%>:<%=port%>
-				</dd>
+				<dd>{{host}}:{{port}}</dd>
 				<dt>path</dt>
-				<dd>
-					<%=path%>
-				</dd>
+				<dd>{{path}}</dd>
 			</dl>
 			<p>
 				<a href="#" class="btn btn-default js-reload">Reload</a>

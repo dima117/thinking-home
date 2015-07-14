@@ -1,11 +1,11 @@
 ﻿<td>
-	<%= path %>
+	{{path}}
 </td>
 <td>
-	<%= timestamp %>
+	{{timestamp}}
 </td>
 <td class="th-word-break">
-	<%= message %>
+	{{message}}
 </td>
 <td class="col-md-1">
 	<a href="#" class="js-delete">

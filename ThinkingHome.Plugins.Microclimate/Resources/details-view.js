@@ -60,7 +60,7 @@
 
 			// #endregion
 
-			template: lib._.template(tmplDetails),
+			template: lib.handlebars.compile(tmplDetails),
 			ui: {
 				tPanel: ".js-temperature-panel",
 				hPanel: ".js-humidity-panel",
