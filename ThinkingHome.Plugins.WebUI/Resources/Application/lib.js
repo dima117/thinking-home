@@ -125,7 +125,7 @@
 		};
 
 
-		// handlebars helpers
+		//#region handlebars helpers
 		handlebars.registerHelper('range', function (from, to, incr, options) {
 
 			var out = '', i;
@@ -137,6 +137,16 @@
 
 			return out;
 		});
+
+		handlebars.registerHelper('pad', function (value, length) {
+
+			value = value + '';
+			length = length || 0;
+
+			return (Array(length + 1).join('0') + value).slice(-length);
+		});
+
+		//#endregion
 
 		return {
 			marionette: marionette,

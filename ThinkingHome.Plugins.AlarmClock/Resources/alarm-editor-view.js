@@ -4,7 +4,7 @@
 
 		var alarmEditorView = lib.marionette.ItemView.extend({
 
-			template: lib._.template(editorTemplate),
+			template: lib.handlebars.compile(editorTemplate),
 			ui: {
 				scriptList: '.js-script-list'
 			},

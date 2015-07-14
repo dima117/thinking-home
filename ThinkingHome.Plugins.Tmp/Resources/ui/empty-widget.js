@@ -1,7 +1,7 @@
 ﻿define(['lib'], function(lib) {
 
 	var emptyWidgetView = lib.marionette.ItemView.extend({
-		template: lib._.template('<h3><%=displayName%></h3><p>хри-хри<p>'),
+		template: lib.handlebars.compile('<h3>{{displayName}}</h3><p>click me<p>'),
 		triggers: {
 			"click p": "p:click"
 		}
