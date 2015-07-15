@@ -8,7 +8,7 @@
 
 	// погода на текущий момент
 	var weatherNowDataItemView = lib.marionette.ItemView.extend({
-		template: lib._.template(nowDataItemTemplate),
+		template: lib.handlebars.compile(nowDataItemTemplate),
 		onRender: function () {
 
 			var cssClass = this.model.get('icon');
@@ -19,7 +19,7 @@
 
 	// прогноз погоды
 	var weatherDataItemView = weatherNowDataItemView.extend({
-		template: lib._.template(dataItemTemplate),
+		template: lib.handlebars.compile(dataItemTemplate),
 		tagName: 'li'
 	});
 
@@ -29,7 +29,7 @@
 
 
 	var weatherForecastItemView = lib.marionette.ItemView.extend({
-		template: lib._.template(itemTemplate),
+		template: lib.handlebars.compile(itemTemplate),
 		ui: {
 			now: '.js-weather-now',
 			day: '.js-weather-day',
@@ -64,7 +64,7 @@
 	});
 
 	var weatherForecastView = lib.marionette.CompositeView.extend({
-		template: lib._.template(template),
+		template: lib.handlebars.compile(template),
 		childView: weatherForecastItemView,
 		childViewContainer: '.js-weather-list'
 	});

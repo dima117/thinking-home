@@ -1,1 +1,1 @@
-﻿<i class="wi js-weather-icon"></i>&nbsp;<%= t %>&deg;C
+﻿<i class="wi js-weather-icon"></i>&nbsp;{{t}}&deg;C

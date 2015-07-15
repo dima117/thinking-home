@@ -7,7 +7,7 @@
 ], function (lib, layoutTemplate, formTemplate, listTemplate, itemTemplate) {
 
 	var weatherSettingsLayout = lib.marionette.LayoutView.extend({
-		template: lib._.template(layoutTemplate),
+		template: lib.handlebars.compile(layoutTemplate),
 		regions: {
 			regionForm: '#region-weather-locations-form',
 			regionList: '#region-weather-locations-list'
@@ -15,7 +15,7 @@
 	});
 
 	var weatherSettingsFormView = lib.marionette.ItemView.extend({
-		template: lib._.template(formTemplate),
+		template: lib.handlebars.compile(formTemplate),
 		events: {
 			'click .js-btn-add-location': 'addLocation'
 		},
@@ -28,7 +28,7 @@
 	});
 
 	var locationView = lib.marionette.ItemView.extend({
-		template: lib._.template(itemTemplate),
+		template: lib.handlebars.compile(itemTemplate),
 		tagName: 'tr',
 		triggers: {
 			'click .js-update-location': 'weather:location:update',
@@ -43,7 +43,7 @@
 	});
 
 	var locationListView = lib.marionette.CompositeView.extend({
-		template: lib._.template(listTemplate),
+		template: lib.handlebars.compile(listTemplate),
 		childView: locationView,
 		childViewContainer: 'tbody'
 	});
