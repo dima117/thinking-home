@@ -2,7 +2,7 @@
 	<div class="col-md-5">
 		<h4>
 			<a href="#" class="js-open-dashboard">
-				<%=title%>
+				{{title}}
 			</a>
 			<a href="#">
 				<i class="fa fa-times js-delete"></i>

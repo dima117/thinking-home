@@ -5,7 +5,7 @@
 	function (lib, listTemplate, listItemTemplate) {
 
 		var listItemView = lib.marionette.ItemView.extend({
-			template: lib._.template(listItemTemplate),
+			template: lib.handlebars.compile(listItemTemplate),
 			triggers: {
 				'click .js-open-dashboard': 'dashboard:open',
 				'click .js-delete': 'dashboard:delete'
@@ -13,7 +13,7 @@
 		});
 
 		var listView = lib.marionette.CompositeView.extend({
-			template: lib._.template(listTemplate),
+			template: lib.handlebars.compile(listTemplate),
 			childView: listItemView,
 			childViewContainer: '.js-list',
 			triggers: {

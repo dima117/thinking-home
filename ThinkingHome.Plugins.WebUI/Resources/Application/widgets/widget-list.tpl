@@ -4,7 +4,7 @@
 			<a href="#" class="js-dashboard-list">Dashboard list</a>
 		</li>
 		<li class="active">
-			<%=title%>
+			{{title}}
 		</li>
 	</ul>
 	<form class="form-inline">

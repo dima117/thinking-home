@@ -5,14 +5,14 @@
 	function (lib, listTemplate, itemTemplate) {
 
 		var sectionView = lib.marionette.ItemView.extend({
-			template: lib._.template(itemTemplate),
+			template: lib.handlebars.compile(itemTemplate),
 			triggers: {
 				'click .js-section-link': 'sections:navigate'
 			}
 		});
 
 		var sectionListView = lib.marionette.CompositeView.extend({
-			template: lib._.template(listTemplate),
+			template: lib.handlebars.compile(listTemplate),
 			childView: sectionView,
 			childViewContainer: '.js-list',
 

@@ -5,14 +5,14 @@
 	function (lib, listTemplate, widgetTemplate) {
 
 		var widgetView = lib.marionette.ItemView.extend({
-			template: lib._.template(widgetTemplate),
+			template: lib.handlebars.compile(widgetTemplate),
 			triggers: {
 				"click .js-edit-widget": "widget:edit"
 			}
 		});
 
 		var listView = lib.marionette.CompositeView.extend({
-			template: lib._.template(listTemplate),
+			template: lib.handlebars.compile(listTemplate),
 			childView: widgetView,
 			childViewContainer: '.js-list',
 			triggers: {

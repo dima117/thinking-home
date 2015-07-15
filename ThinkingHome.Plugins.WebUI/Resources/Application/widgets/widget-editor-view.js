@@ -5,7 +5,7 @@
 	function (lib, editorTemplate, fieldTemplate) {
 
 		var fieldView = lib.marionette.ItemView.extend({
-			template: lib._.template(fieldTemplate),
+			template: lib.handlebars.compile(fieldTemplate),
 			ui: {
 				field: ".js-field"
 			},
@@ -22,7 +22,7 @@
 		});
 
 		var editorView = lib.marionette.CompositeView.extend({
-			template: lib._.template(editorTemplate),
+			template: lib.handlebars.compile(editorTemplate),
 			childView: fieldView,
 			childViewContainer: ".js-fields",
 			ui: {

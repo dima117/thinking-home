@@ -5,11 +5,11 @@
 		</li>
 		<li>
 			<a href="#" class="js-dashboard">
-				<%=dashboardTitle%>
+				{{dashboardTitle}}
 			</a>
 		</li>
 		<li class="active">
-			<%=typeDisplayName%>
+			{{typeDisplayName}}
 		</li>
 	</ul>
 
