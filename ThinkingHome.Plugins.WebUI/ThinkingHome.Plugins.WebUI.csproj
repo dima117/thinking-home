@@ -136,7 +136,6 @@
     <EmbeddedResource Include="Resources\Application\widgets\widget-list-item.tpl" />
     <EmbeddedResource Include="Resources\Application\widgets\widget-list.tpl" />
     <EmbeddedResource Include="Resources\Application\dashboard\dashboard-layout.tpl" />
-    <EmbeddedResource Include="Resources\Application\dashboard\dashboard-widget.tpl" />
     <EmbeddedResource Include="Resources\Application\dashboard\dashboard-nothing.tpl" />
     <None Include="ThinkingHome.Plugins.WebUI.nuspec">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

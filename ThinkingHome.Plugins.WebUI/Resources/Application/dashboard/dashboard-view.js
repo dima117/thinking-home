@@ -1,12 +1,11 @@
 ﻿define([
 	'lib',
 	'text!application/dashboard-nothing.tpl',
-	'text!application/dashboard-layout.tpl',
-	'text!application/dashboard-widget.tpl'],
-	function (lib, emptyTemplate, layoutTemplate, widgetTemplate) {
+	'text!application/dashboard-layout.tpl'],
+	function (lib, emptyTemplate, layoutTemplate) {
 
 		var emptyView = lib.marionette.ItemView.extend({
-			template: lib._.template(emptyTemplate)
+			template: lib.handlebars.compile(emptyTemplate)
 		});
 
 		var layoutView = lib.marionette.LayoutView.extend({
@@ -18,7 +17,7 @@
 		});
 
 		var menuItemView = lib.marionette.ItemView.extend({
-			template: lib._.template('<a href="#"><%=title%></a>'),
+			template: lib.handlebars.compile('<a href="#">{{title}}</a>'),
 			tagName: 'li',
 			onRender: function () {
 
@@ -36,15 +35,9 @@
 			tagName: 'ul'
 		});
 
-		var widgetView = lib.marionette.ItemView.extend({
-			template: lib._.template(widgetTemplate),
-			className: 'row'
-		});
-
 		return {
 			EmptyView: emptyView,
 			LayoutView: layoutView,
-			MenuView: menuView,
-			WidgetView: widgetView
+			MenuView: menuView
 		};
 	});
