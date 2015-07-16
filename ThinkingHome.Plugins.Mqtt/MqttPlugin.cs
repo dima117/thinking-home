@@ -180,7 +180,12 @@ namespace ThinkingHome.Plugins.Mqtt
 		public override void StopPlugin()
 		{
 			Logger.Info("disconnect mqtt client: id {0}", client.ClientId);
-			client.Disconnect();
+
+			if (client.IsConnected)
+			{
+				client.Disconnect();
+			}
+
 			base.StopPlugin();
 		}
 
