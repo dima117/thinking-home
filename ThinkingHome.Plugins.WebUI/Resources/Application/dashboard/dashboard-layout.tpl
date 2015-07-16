@@ -1,7 +1,7 @@
-﻿<div class="th-side-panel js-menu"></div>
-<div class="th-container container-fluid">
+﻿<div class="th-side-panel th-dashboard-list js-menu"></div>
+<div class="th-container th-widget-container">
 	{{#each this}}
-	<div id="{{id}}">
+	<div id="{{id}}" class="th-dashboard-widget">
 		<p class="text-muted">{{displayName}}...</p>
 	</div>
 	{{/each}}

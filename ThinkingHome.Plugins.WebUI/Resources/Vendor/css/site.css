@@ -116,7 +116,7 @@ a.list-group-item:hover {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	overflow-y: auto;	
+	overflow-y: auto;
 }
 
 .th-side-panel {
@@ -125,31 +125,52 @@ a.list-group-item:hover {
 	left: 0;
 	bottom: 0;
 	width: 210px;
-	background-color: #182c3d;
 	overflow-y: auto;
 }
 
-.th-side-panel+.th-container {
-	left: 210px;
-}
+	.th-side-panel + .th-container {
+		left: 210px;
+	}
 
 @media (max-width: 767px) {
-	
+
 	.th-side-panel {
 		display: none;
 	}
 
-	.th-side-panel+.th-container {
-		left: 0;
-	}
+		.th-side-panel + .th-container {
+			left: 0;
+		}
 }
 
-.nav-menu > li.active > a, 
-.nav-menu > li.active > a:hover, 
+.nav-menu > li.active > a,
+.nav-menu > li.active > a:hover,
 .nav-menu > li.active > a:focus {
-  color: rgb(226, 226, 226);
-  background-color: #11202B;
-  cursor: default;
+	color: rgb(226, 226, 226);
+	background-color: #11202B;
+	cursor: default;
+}
+
+/*#endregion */
+
+/*#region widgets*/
+
+.th-dashboard-list {
+	background-color: #182c3d;
+}
+
+.th-widget-container {
+	background-color: #444;
+}
+
+.th-dashboard-widget {
+  background-color: rgb(48, 89, 123);
+  display: block;
+  height: 180px;
+  width: 270px;
+  overflow: hidden;
+  margin: 1px 0 0 1px;
+  float: left;
 }
 
 /*#endregion */
