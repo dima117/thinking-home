@@ -160,17 +160,35 @@ a.list-group-item:hover {
 }
 
 .th-widget-container {
-	background-color: #444;
+	padding: 4px 3px;
 }
 
 .th-dashboard-widget {
-  background-color: rgb(48, 89, 123);
-  display: block;
-  height: 180px;
-  width: 270px;
-  overflow: hidden;
-  margin: 1px 0 0 1px;
-  float: left;
+	background-color: #30597B;
+	display: table;
+	height: 180px;
+	width: 270px;
+	overflow: hidden;
+	margin: 4px;
+	float: left;
+	-ms-border-radius: 2px;
+	border-radius: 2px;
+}
+
+.th-dashboard-widget-block {
+	display: table-cell;
+	padding: 4px;
+}
+
+.th-dashboard-widget-block-title {
+	color: #ffffff;
+	color: rgba(255, 255,255,0.5);
+	text-align: center;
+	display: block;
+	line-height: 170%;
+	border-bottom: 1px solid #ffffff;
+	border-bottom: 1px solid rgba(255, 255,255,0.12);
+	margin: -4px 0 4px 0;
 }
 
 /*#endregion */
