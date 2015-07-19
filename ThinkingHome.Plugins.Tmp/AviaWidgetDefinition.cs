@@ -78,4 +78,36 @@ namespace ThinkingHome.Plugins.Tmp
 			return null;
 		}
 	}
+
+	[Widget("noolite-on-off")]
+	public class NooliteSwitcherWidget : IWidgetDefinition
+	{
+		public string DisplayName
+		{
+			get { return "nooLite (ON/OFF)"; }
+		}
+
+		public object GetWidgetData(Widget widget, WidgetParameter[] parameters, ISession session, Logger logger)
+		{
+			return null;
+		}
+
+		public WidgetParameterMetaData[] GetWidgetMetaData(ISession session, Logger logger)
+		{
+			var fldChannel = new WidgetParameterMetaData
+			{
+				DisplayName = "Channel",
+				Name = "channel",
+				Type = WidgetParameterType.Int32,
+				Items = new WidgetSelectItem[32]
+			};
+
+			for (var i = 0; i < 32; i++)
+			{
+				fldChannel.Items[i] = new WidgetSelectItem(i, i.ToString());
+			}
+
+			return new[] { fldChannel };
+		}
+	}
 }

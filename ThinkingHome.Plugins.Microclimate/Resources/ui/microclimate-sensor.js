@@ -2,9 +2,9 @@
 
 	var widgetView = lib.marionette.ItemView.extend({
 		template: lib.handlebars.compile(
-			'<div class="th-dashboard-widget-block">' +
-				'<div class="th-dashboard-widget-block-title">{{displayName}}</div>' +
-				'<div class="th-dashboard-widget-block-content">' +
+			'<div class="th-widget-block th-pointer btn-primary">' +
+				'<div class="th-widget-block-title">{{displayName}}</div>' +
+				'<div class="th-widget-block-content">' +
 					'{{#with data}}' +
 					'<div class="row">' +
 						'<div class="col-xs-6">{{t}}&deg;C</div>' +
@@ -13,7 +13,7 @@
 					'{{/with}}' +
 				'</div>' +
 			'</div>'),
-		className: 'th-dashboard-widget-container'
+		className: 'th-widget-container'
 	});
 
 	return {
