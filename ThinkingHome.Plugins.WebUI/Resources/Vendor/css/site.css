@@ -159,18 +159,22 @@ a.list-group-item:hover {
 	background-color: #182c3d;
 }
 
-.th-widget-container {
+.th-dashboard-container {
 	padding: 4px 3px;
 }
 
 .th-dashboard-widget {
-	background-color: #30597B;
-	display: table;
 	height: 180px;
 	width: 270px;
-	overflow: hidden;
 	margin: 4px;
 	float: left;
+}
+
+.th-dashboard-widget-container {
+	display: table;
+	height: 100%;
+	width: 100%;
+	background-color: #30597B;
 	-ms-border-radius: 2px;
 	border-radius: 2px;
 }
@@ -178,17 +182,21 @@ a.list-group-item:hover {
 .th-dashboard-widget-block {
 	display: table-cell;
 	padding: 4px;
+	overflow: hidden;
 }
 
 .th-dashboard-widget-block-title {
+	display: block;
+	margin: -4px 0 4px 0;
+	text-align: center;
+	line-height: 170%;
 	color: #ffffff;
 	color: rgba(255, 255,255,0.5);
-	text-align: center;
-	display: block;
-	line-height: 170%;
 	border-bottom: 1px solid #ffffff;
 	border-bottom: 1px solid rgba(255, 255,255,0.12);
-	margin: -4px 0 4px 0;
+}
+
+.th-dashboard-widget-block-content {
 }
 
 /*#endregion */

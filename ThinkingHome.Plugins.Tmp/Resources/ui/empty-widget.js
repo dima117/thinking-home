@@ -1,23 +1,29 @@
-﻿define(['lib'], function(lib) {
+﻿define(['lib'], function (lib) {
 
 	var emptyWidgetView = lib.marionette.ItemView.extend({
-		template: lib.handlebars.compile('<div class="th-dashboard-widget-block-title">{{displayName}}</div><p>click me<p>'),
-		className: 'th-dashboard-widget-block',
+		template: lib.handlebars.compile(
+			'<div class="th-dashboard-widget-block">' +
+				'<div class="th-dashboard-widget-block-title">{{displayName}}</div>' +
+				'<div class="th-dashboard-widget-block-content">' +
+					'<a href="#" class="btn btn-default">click me</a>' +
+				'</div>'+
+			'</div>'),
+		className: 'th-dashboard-widget-container',
 		triggers: {
-			"click p": "p:click"
+			"click .btn": "btn:click"
 		}
 	});
 
-	var clickHandler = function() {
+	var clickHandler = function () {
 
 		alert(1);
 	};
 
 	return {
-		show: function(model, region) {
+		show: function (model, region) {
 
 			var view = new emptyWidgetView({ model: model });
-			view.on("p:click", clickHandler);
+			view.on("btn:click", clickHandler);
 
 			region.show(view);
 		}
