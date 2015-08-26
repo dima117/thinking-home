@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+<<<<<<< HEAD
 using System.ComponentModel.Composition;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Core.Plugins.Utils;
@@ -11,6 +12,10 @@ using ThinkingHome.Plugins.UniUI.Widgets;
 using ThinkingHome.Plugins.WebUI.Attributes;
 using NHibernate;
 using NLog;
+=======
+using ThinkingHome.Core.Plugins;
+using ThinkingHome.Plugins.WebUI.Attributes;
+>>>>>>> NooUI-plugin-(2nd-copy)
 
 namespace ThinkingHome.Plugins.NooUI
 {
@@ -20,6 +25,7 @@ namespace ThinkingHome.Plugins.NooUI
     {
 
     }
+<<<<<<< HEAD
     
     
      /*  [Widget("NooUISwitherWidget")]
@@ -54,3 +60,6 @@ namespace ThinkingHome.Plugins.NooUI
             }
         }/**/
 }
+=======
+}
+>>>>>>> NooUI-plugin-(2nd-copy)

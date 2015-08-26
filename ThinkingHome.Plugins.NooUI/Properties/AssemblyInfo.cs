@@ -20,7 +20,11 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
+<<<<<<< HEAD
 [assembly: Guid("a99b8c73-5452-49a5-8694-b8c6db91b12a")]
+=======
+[assembly: Guid("fad5b980-f9e9-478c-a0de-648adfab24f1")]
+>>>>>>> NooUI-plugin-(2nd-copy)
 
 // Version information for an assembly consists of the following four values:
 //

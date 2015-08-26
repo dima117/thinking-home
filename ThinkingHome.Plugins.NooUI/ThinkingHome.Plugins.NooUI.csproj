@@ -4,7 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+<<<<<<< HEAD
     <ProjectGuid>{3B058A70-C928-4F24-8207-5260816BFF7E}</ProjectGuid>
+=======
+    <ProjectGuid>{57001846-873E-4996-A74D-56AA1F7DDD0F}</ProjectGuid>
+>>>>>>> NooUI-plugin-(2nd-copy)
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ThinkingHome.Plugins.NooUI</RootNamespace>
@@ -18,7 +22,11 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
+<<<<<<< HEAD
     <OutputPath>..\build\Debug\ThinkingHome.Plugins.NooUI\</OutputPath>
+=======
+    <OutputPath>..\build\Debug\Plugins\ThinkingHome.Plugins.NooUI\</OutputPath>
+>>>>>>> NooUI-plugin-(2nd-copy)
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -26,7 +34,11 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
+<<<<<<< HEAD
     <OutputPath>..\build\Release\ThinkingHome.Plugins.NooUI\</OutputPath>
+=======
+    <OutputPath>..\build\Release\Plugins\ThinkingHome.Plugins.NooUI\</OutputPath>
+>>>>>>> NooUI-plugin-(2nd-copy)
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -37,6 +49,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="NHibernate">
+<<<<<<< HEAD
       <HintPath>..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
       <Private>False</Private>
     </Reference>
@@ -52,6 +65,39 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+=======
+      <HintPath>..\packages\NHibernate.4.0.1.4000\lib\net40\NHibernate.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.3.2.1\lib\net45\NLog.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>False</Private>
+    </Reference>
+>>>>>>> NooUI-plugin-(2nd-copy)
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NooUIPlugin.cs" />
@@ -83,7 +129,10 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+<<<<<<< HEAD
   <ItemGroup />
+=======
+>>>>>>> NooUI-plugin-(2nd-copy)
   <ItemGroup>
     <Content Include="Resources\ui\NooUISwitcherWidget.js" />
   </ItemGroup>
