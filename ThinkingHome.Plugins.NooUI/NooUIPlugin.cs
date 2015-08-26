@@ -20,9 +20,9 @@ namespace ThinkingHome.Plugins.NooUI
     {
 
     }
-
     
-        [Widget("NooUISwitherWidget")]
+    
+     /*  [Widget("NooUISwitherWidget")]
         public class NooUISwitcherWidget : IWidgetDefinition
         {
             public string DisplayName
