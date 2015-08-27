@@ -8,13 +8,23 @@ using ThinkingHome.Core.Plugins.Utils;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.Listener.Handlers;
+using System.Configuration;
 
 namespace ThinkingHome.Plugins.Listener
 {
 	[Plugin]
 	public class ListenerPlugin : PluginBase
 	{
-		private const string BASE_URL_HTTP = "http://+:41831";
+		private const string BASE_URL_HTTP_FORMAT = "http://+:{0}";
+        
+        private static string BaseUrl 
+        {
+            get 
+            {
+                var port = ConfigurationManager.AppSettings["Listner.Port"] ?? "41831";
+                return string.Format(BASE_URL_HTTP_FORMAT, port);
+            }
+        }
 
 		private IDisposable server;
 		private InternalDictionary<IListenerHandler> registeredHandlers;
@@ -29,7 +39,7 @@ namespace ThinkingHome.Plugins.Listener
 
 		public override void StartPlugin()
 		{
-			server = WebApp.Start(BASE_URL_HTTP, ConfigureModules);
+			server = WebApp.Start(BaseUrl, ConfigureModules);
 		}
 
 		private void ConfigureModules(IAppBuilder appBuilder)
