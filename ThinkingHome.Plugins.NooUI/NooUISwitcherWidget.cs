@@ -8,10 +8,7 @@ using System.Threading.Tasks;
 using ThinkingHome.Plugins.UniUI.Model;
 using ThinkingHome.Plugins.UniUI.Widgets;
 
-<<<<<<< HEAD
-=======
 
->>>>>>> NooUI-plugin-(2nd-copy)
 namespace ThinkingHome.Plugins.NooUI
 {
     [Widget("NooUISwitherWidget")]
@@ -45,8 +42,4 @@ namespace ThinkingHome.Plugins.NooUI
             return new[] { fldChannel };
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> NooUI-plugin-(2nd-copy)
