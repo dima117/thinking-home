@@ -1,25 +1,28 @@
 ﻿define(['lib'], function (lib) {
 
-	var nooUISwitcherWidgetView = lib.marionette.ItemView.extend({
+	var nooUIWidgetView = lib.marionette.ItemView.extend({
 		template: lib.handlebars.compile(
 			'<div class="th-widget-block th-pointer btn-primary">' +
 				'<div class="th-widget-block-title">{{displayName}}</div>' +
 				'<div class="th-widget-block-content">' +
-					'<a href="#on" class="btn btn-default">ON</a>' +
-					'<a href="#off" class="btn btn-default">OFF</a>' +
+					'<a href="#" class="th-widget-block th-pointer btn btn-default nooBtn" style="width: 135px; height: 140px;">On</a>' +
+					'<a href="#" class="th-widget-block th-pointer btn btn-default nooBtn" style="width: 50%;   height: 140px;">Off</a>' +
 				'</div>' +
 			'</div>'),
 		className: 'th-widget-container',
 		triggers: {
-			"click .btn": "btn:click"
+			"click .nooBtn": "btn:click"
 		}
 	});
 
+	var clickHandler = function () {
+		alert('Хри!');
+	};
 
 	return {
 		show: function (model, region) {
 
-			var view = new nooUISwitcherWidgetView({ model: model });
+			var view = new nooUIWidgetView({ model: model });
 			view.on("btn:click", clickHandler);
 
 			region.show(view);
