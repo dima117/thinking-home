@@ -58,7 +58,7 @@
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="NooUIPlugin.cs" />
-    <Compile Include="NooUISwitcherWidget.cs" />
+    <Compile Include="SwitcherWidgetDefinition.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ThinkingHome.Core.Plugins\ThinkingHome.Core.Plugins.csproj">
@@ -86,7 +86,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\ui\NooUISwitcherWidget.js" />
+    <EmbeddedResource Include="Resources\ui\switcher-widget.js" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

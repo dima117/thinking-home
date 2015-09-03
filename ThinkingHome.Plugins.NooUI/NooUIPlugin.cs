@@ -12,7 +12,7 @@ using NLog;
 namespace ThinkingHome.Plugins.NooUI
 {
     [Plugin]
-	[WebWidget("NooUISwitcherWidget", "/widgets/NooUISwitcherWidget.js", "ThinkingHome.Plugins.NooUI.Resources.ui.NooUISwitcherWidget.js")]
+	[WebWidget("SwitcherWidget", "/widgets/nooui/switcher-widget.js", "ThinkingHome.Plugins.NooUI.Resources.ui.switcher-widget.js")]
 	class NooUIPlugin : PluginBase
     {
 
