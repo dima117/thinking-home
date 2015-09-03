@@ -10,8 +10,8 @@ using NLog;
 
 namespace ThinkingHome.Plugins.NooUI
 {
-    [Widget("NooUISwitcherWidget")]
-    class NooUISwitcherWidget : IWidgetDefinition
+    [Widget("SwitcherWidget")]
+    class SwitcherWidgetDefinition : IWidgetDefinition
     {
         public string DisplayName
         {
