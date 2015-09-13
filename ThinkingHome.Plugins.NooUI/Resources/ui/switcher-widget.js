@@ -2,11 +2,11 @@
 
 	var SwitcherWidgetView = lib.marionette.ItemView.extend({
 		template: lib.handlebars.compile(
-			'<div class="th-widget-block btn-primary">' +
+			'<div class="th-widget-block nooui-widget">' +
 				'<div class="th-widget-block-title">{{displayName}}</div>' +
 				'<div class="th-widget-block-content btn-group-justified">' +
-					'<a href="#" class="th-widget-block th-pointer btn btn-default js-btn-on"  style="height: 140px;">On</a>' +
-					'<a href="#" class="th-widget-block th-pointer btn btn-default js-btn-off" style="height: 140px;">Off</a>' +
+					'<a href="#" class="btn btn-default nooui-button js-btn-on">  On</a>' +
+					'<a href="#" class="btn btn-default nooui-button js-btn-off"> Off</a>' +
 				'</div>' +
 			'</div>'),
 		className: 'th-widget-container',
@@ -17,12 +17,13 @@
 	});
 
 	var switcherOn  = function () {
-		alert('On');
-		console.log(this);
+		var req = $.getJSON('/api/noolite?ch=' + this.model.get('data') + '&cmd=on');
+		//console.log(req);
 	};
 
-	var switcherOff = function () {
-		alert('Off');
+	var switcherOff = function (args) {
+		var req = $.getJSON('/api/noolite?ch=' + this.model.get('data') + '&cmd=off');
+		//console.log(req);
 	};
 
 	return {

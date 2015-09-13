@@ -8,37 +8,40 @@ using ThinkingHome.Plugins.UniUI.Widgets;
 using NHibernate;
 using NLog;
 
+// TODO: вынести адрес api в доступное для настройки пользователем место.
+
 namespace ThinkingHome.Plugins.NooUI
 {
-    [Widget("SwitcherWidget")]
-    class SwitcherWidgetDefinition : IWidgetDefinition
-    {
-        public string DisplayName
-        {
-            get { return "NooUI Switcher"; }
-        }
+	[Widget("nooui-switcher")]
+	class SwitcherWidgetDefinition : IWidgetDefinition
+	{
+		public string DisplayName
+		{
+			get { return "NooUI Switcher"; }
+		}
 
-        public object GetWidgetData(Widget widget, WidgetParameter[] parameters, ISession session, Logger logger)
-        {
-            return null;
-        }
+		public object GetWidgetData(Widget widget, WidgetParameter[] parameters, ISession session, Logger logger)
+		{
+			var channel = parameters.First(p => p.Name == "channel").ValueInt;
+			return channel;
+		}
 
-        public WidgetParameterMetaData[] GetWidgetMetaData(ISession session, Logger logger)
-        {
-            var fldChannel = new WidgetParameterMetaData
-            {
-                DisplayName = "Channel",
-                Name = "channel",
-                Type = WidgetParameterType.Int32,
-                Items = new WidgetSelectItem[32]
-            };
+		public WidgetParameterMetaData[] GetWidgetMetaData(ISession session, Logger logger)
+		{
+			var fldChannel = new WidgetParameterMetaData
+			{
+				DisplayName = "Channel",
+				Name = "channel",
+				Type = WidgetParameterType.Int32,
+				Items = new WidgetSelectItem[32]
+			};
 
-            for (var i = 0; i < 32; i++)
-            {
-                fldChannel.Items[i] = new WidgetSelectItem(i, i.ToString());
-            }
+			for (var i = 0; i < 32; i++)
+			{
+				fldChannel.Items[i] = new WidgetSelectItem(i, i.ToString());
+			}
 
-            return new[] { fldChannel };
-        }
-    }
+			return new[] { fldChannel };
+		}
+	}
 }
