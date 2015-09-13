@@ -6,7 +6,7 @@ namespace ThinkingHome.Plugins.UniUI.Model
 	{
 		public virtual Guid Id { get; set; }
 
-		public virtual Dashboard Dashboard { get; set; }
+		public virtual Panel Panel { get; set; }
 
 		public virtual string TypeAlias { get; set; }
 		

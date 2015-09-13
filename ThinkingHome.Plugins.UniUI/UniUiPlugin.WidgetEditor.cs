@@ -20,13 +20,13 @@ namespace ThinkingHome.Plugins.UniUI
 		[HttpCommand("/api/uniui/widget/create")]
 		public object EditorCreateWidget(HttpRequestParams request)
 		{
-			var dashboardId = request.GetRequiredGuid("dashboard");
+			var panelId = request.GetRequiredGuid("panel");
 			var type = request.GetRequiredString("type");
 
 			using (var session = Context.OpenSession())
 			{
-				var dashboard = session.Query<Dashboard>().Single(x => x.Id == dashboardId);
-				var model = GetEditorModel(type, dashboard.Id, dashboard.Title, session);
+				var panel = session.Query<Panel>().Single(x => x.Id == panelId);
+				var model = GetEditorModel(type, panel.Id, panel.Title, session);
 
 				return new
 				{
@@ -44,10 +44,10 @@ namespace ThinkingHome.Plugins.UniUI
 			using (var session = Context.OpenSession())
 			{
 				var widget = session.Query<Widget>()
-								.Fetch(a => a.Dashboard)
-								.Single(x => x.Id == id);
+					.Fetch(a => a.Panel)
+					.Single(x => x.Id == id);
 
-				var model = GetEditorModel(widget.TypeAlias, widget.Dashboard.Id, widget.Dashboard.Title, session);
+				var model = GetEditorModel(widget.TypeAlias, widget.Panel.Id, widget.Panel.Title, session);
 
 				var parameters = session.Query<WidgetParameter>()
 					.Where(x => x.Widget.Id == id)
@@ -120,7 +120,7 @@ namespace ThinkingHome.Plugins.UniUI
 				? session.Query<Widget>().Single(x => x.Id == id)
 				: CreateWidget(request, session);
 
-			widget.DisplayName = request.GetString("displayName") ?? string.Empty;
+			widget.DisplayName = request.GetString("displayName") ?? "noname";
 
 			session.Save(widget);
 			session.Flush();
@@ -131,14 +131,14 @@ namespace ThinkingHome.Plugins.UniUI
 		private Widget CreateWidget(HttpRequestParams request, ISession session)
 		{
 			var type = request.GetRequiredString("type");
-			var dashboardId = request.GetRequiredGuid("dashboardId");
+			var panelId = request.GetRequiredGuid("panelId");
 
-			var dashboard = session.Query<Dashboard>().Single(x => x.Id == dashboardId);
+			var panel = session.Query<Panel>().Single(x => x.Id == panelId);
 
 			var created = new Widget
 			{
 				Id = Guid.NewGuid(),
-				Dashboard = dashboard,
+				Panel = panel,
 				TypeAlias = type,
 				SortOrder = int.MaxValue
 			};
@@ -205,7 +205,7 @@ namespace ThinkingHome.Plugins.UniUI
 		#region private: load
 
 		private Tuple<EditorModel, EditorParameterModel[]> GetEditorModel(
-			string type, Guid dashboardId, string dashboardTitle, ISession session)
+			string type, Guid panelId, string panelTitle, ISession session)
 		{
 			if (!defs.ContainsKey(type))
 			{
@@ -224,8 +224,8 @@ namespace ThinkingHome.Plugins.UniUI
 			var model = new EditorModel
 			{
 				typeDisplayName = def.DisplayName,
-				dashboardId = dashboardId,
-				dashboardTitle = dashboardTitle,
+				panelId = panelId,
+				panelTitle = panelTitle,
 				type = type
 			};
 
@@ -290,8 +290,8 @@ namespace ThinkingHome.Plugins.UniUI
 			public string displayName;
 			public string typeDisplayName;
 			public string type;
-			public Guid dashboardId;
-			public string dashboardTitle;
+			public Guid panelId;
+			public string panelTitle;
 		}
 
 		private class EditorParameterModel
