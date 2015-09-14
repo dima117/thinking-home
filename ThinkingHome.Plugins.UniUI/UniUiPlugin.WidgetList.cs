@@ -53,6 +53,27 @@ namespace ThinkingHome.Plugins.UniUI
 			}
 		}
 
+		[HttpCommand("/api/uniui/panel/rename")]
+		public object RenamePanel(HttpRequestParams request)
+		{
+			Guid id = request.GetRequiredGuid("id");
+			string title = request.GetRequiredString("title");
+
+			using (var session = Context.OpenSession())
+			{
+				var panel = session.Get<Panel>(id);
+
+				if (panel != null)
+				{
+					panel.Title = title;
+					session.Save(panel);
+					session.Flush();
+				}
+			}
+
+			return null;
+		}
+
 		[HttpCommand("/api/uniui/panel/delete")]
 		public object DeletePanel(HttpRequestParams request)
 		{

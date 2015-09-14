@@ -2,22 +2,48 @@
 	['lib'],
 	function (lib) {
 
+		var panelCollection = lib.backbone.Collection.extend({
+			comparator: "sortOrder"
+		});
+
 		var widgetCollection = lib.backbone.Collection.extend({
 			comparator: "sortOrder"
 		});
 
 		var api = {
-			loadWidgetList: function (id) {
+			createPanel: function (dashboardId, title) {
+
+				var rq = lib.$.post('/api/uniui/panel/create', {
+					dashboard: dashboardId,
+					title: title
+				});
+
+				return rq.promise();
+			},
+
+			renamePanel: function (id, title) {
+
+				var rq = lib.$.post('/api/uniui/panel/rename', { id: id, title: title });
+				return rq.promise();
+			},
+
+			deletePanel: function (id) {
+
+				var rq = lib.$.post('/api/uniui/panel/delete', { id: id });
+				return rq.promise();
+			},
+
+			loadPanels: function (id) {
 
 				var defer = lib.$.Deferred();
 
-				lib.$.getJSON('/api/uniui/widget/list', { id: id })
+				lib.$.getJSON('/api/uniui/panel/list', { id: id })
 					.done(function (data) {
 
 						var info = new lib.backbone.Model(data.info),
-							widgets = new widgetCollection(data.widgets);
+							panels = new panelCollection(data.panels);
 
-						defer.resolve({ info: info, widgets: widgets });
+						defer.resolve({ info: info, panels: panels });
 					})
 					.fail(function () {
 
@@ -29,6 +55,9 @@
 		};
 
 		return {
-			loadWidgetList: api.loadWidgetList
+			loadPanels: api.loadPanels,
+			createPanel: api.createPanel,
+			renamePanel: api.renamePanel,
+			deletePanel: api.deletePanel
 		};
 	});

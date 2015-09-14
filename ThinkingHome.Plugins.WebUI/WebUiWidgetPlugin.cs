@@ -14,8 +14,9 @@ namespace ThinkingHome.Plugins.WebUI
 	[JavaScriptResource("/application/settings/widget-list.js", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.widget-list.js")]
 	[JavaScriptResource("/application/settings/widget-list-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.widget-list-view.js")]
 	[JavaScriptResource("/application/settings/widget-list-model.js", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.widget-list-model.js")]
-	[HttpResource("/application/settings/widget-list.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.widget-list.tpl")]
+	[HttpResource("/application/settings/panel-list.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.panel-list.tpl")]
 	[HttpResource("/application/settings/widget-list-item.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.widget-list-item.tpl")]
+	[HttpResource("/application/settings/panel-list-item.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.panel-list-item.tpl")]
 
 	// widget editor
 	[JavaScriptResource("/application/settings/widget-editor.js", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.widget-editor.js")]
