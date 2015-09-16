@@ -1,12 +1,22 @@
 ﻿define(
 	['lib'],
 	function (lib) {
-
-		var panelCollection = lib.backbone.Collection.extend({
+		
+		var widgetCollection = lib.backbone.Collection.extend({
 			comparator: "sortOrder"
 		});
 
-		var widgetCollection = lib.backbone.Collection.extend({
+		var panelModel = lib.backbone.Model.extend({
+			initialize: function () {
+				var widgets = this.get('widgets');
+				this.set({
+					'widgets': new widgetCollection(widgets)
+				});
+			}
+		});
+
+		var panelCollection = lib.backbone.Collection.extend({
+			model: panelModel,
 			comparator: "sortOrder"
 		});
 

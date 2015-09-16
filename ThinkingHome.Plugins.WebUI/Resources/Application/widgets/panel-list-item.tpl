@@ -8,6 +8,14 @@
 		<h3 class="panel-title">{{title}}</h3>
 	</div>
 	<div class="panel-body">
-		Panel content
+		<!--<div class="th-toolbar">
+			<div class="th-toolbar-inner">
+				<select id="widget-type" class="js-new-widget-type" />
+				<a href="#" class="btn btn-default">Create</a>
+				<a href="#" class="btn btn-link">Cancel</a>
+			</div>
+		</div>-->
+		<div class="js-widget-list">
+		</div>
 	</div>
 </div>
