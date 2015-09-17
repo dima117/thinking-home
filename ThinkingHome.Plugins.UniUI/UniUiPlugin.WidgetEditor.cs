@@ -25,8 +25,8 @@ namespace ThinkingHome.Plugins.UniUI
 
 			using (var session = Context.OpenSession())
 			{
-				var panel = session.Query<Panel>().Single(x => x.Id == panelId);
-				var model = GetEditorModel(type, panel.Id, panel.Title, session);
+				var panel = session.Query<Panel>().Fetch(p => p.Dashboard).Single(x => x.Id == panelId);
+				var model = GetEditorModel(type, panel, session);
 
 				return new
 				{
@@ -45,9 +45,10 @@ namespace ThinkingHome.Plugins.UniUI
 			{
 				var widget = session.Query<Widget>()
 					.Fetch(a => a.Panel)
+					.ThenFetch(p => p.Dashboard)
 					.Single(x => x.Id == id);
 
-				var model = GetEditorModel(widget.TypeAlias, widget.Panel.Id, widget.Panel.Title, session);
+				var model = GetEditorModel(widget.TypeAlias, widget.Panel, session);
 
 				var parameters = session.Query<WidgetParameter>()
 					.Where(x => x.Widget.Id == id)
@@ -205,7 +206,7 @@ namespace ThinkingHome.Plugins.UniUI
 		#region private: load
 
 		private Tuple<EditorModel, EditorParameterModel[]> GetEditorModel(
-			string type, Guid panelId, string panelTitle, ISession session)
+			string type, Panel panel, ISession session)
 		{
 			if (!defs.ContainsKey(type))
 			{
@@ -224,8 +225,10 @@ namespace ThinkingHome.Plugins.UniUI
 			var model = new EditorModel
 			{
 				typeDisplayName = def.DisplayName,
-				panelId = panelId,
-				panelTitle = panelTitle,
+				panelId = panel.Id,
+				panelTitle = panel.Title,
+				dashboardId = panel.Dashboard.Id,
+				dashboardTitle = panel.Dashboard.Title,
 				type = type
 			};
 
@@ -292,6 +295,8 @@ namespace ThinkingHome.Plugins.UniUI
 			public string type;
 			public Guid panelId;
 			public string panelTitle;
+			public Guid dashboardId;
+			public string dashboardTitle;
 		}
 
 		private class EditorParameterModel

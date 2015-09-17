@@ -6,20 +6,20 @@
 
 		var api = {
 
-			//createWidget: function () {
+			createWidget: function (childView) {
 
-			//	var id = this.model.get("id"),
-			//		type = this.ui.typeSelector.val();
+				var id = childView.model.get("id"),
+					type = childView.ui.typeSelector.val();
 
-			//	application.navigate('application/settings/widget-editor', "create", id, type);
-			//},
+				application.navigate('application/settings/widget-editor', "create", id, type);
+			},
 
-			//editWidget: function (view) {
+			editWidget: function (panelView, widgetView) {
 
-			//	var id = view.model.get("id");
+				var id = widgetView.model.get("id");
 
-			//	application.navigate('application/settings/widget-editor', "edit", id);
-			//},
+				application.navigate('application/settings/widget-editor', "edit", id);
+			},
 
 			openDashboardList: function () {
 
@@ -80,6 +80,8 @@
 						});
 
 						view.on("panel:create", api.createPanel);
+						view.on("childview:widget:create", api.createWidget);
+						view.on('childview:widget:edit', api.editWidget);
 						view.on("childview:panel:rename", api.renamePanel);
 						view.on("childview:panel:delete", api.deletePanel);
 						view.on("open:dashboard:list", api.openDashboardList);
