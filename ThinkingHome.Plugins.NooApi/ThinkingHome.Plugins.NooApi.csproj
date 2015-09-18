@@ -46,9 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Commands\api.cs" />
     <Compile Include="NooApiPlugin.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ThinkingHome.Core.Plugins\ThinkingHome.Core.Plugins.csproj">

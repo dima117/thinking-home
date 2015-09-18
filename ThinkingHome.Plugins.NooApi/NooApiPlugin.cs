@@ -12,6 +12,7 @@ using ThinkingHome.Plugins.NooLite;
 
 /* TODO:
  * Вынести адрес API в конфиг, если возможно
+ * Обработать знак и пределы чисел
  */
 
 
@@ -21,38 +22,36 @@ namespace ThinkingHome.Plugins.NooApi
 	class NooApiPlugin : PluginBase
 	{
 		#region api
-		object moLock = new object(); // Проверить, нужно ли его освободить
+		object moLock = new object();
 
 		[HttpCommand("/api/noolite")]
 		public object GetChannel(HttpRequestParams request)
 		{
-			int? bright  = request.GetInt32("br");
-			int? channel = request.GetInt32("ch");
+			int? channel = request.GetRequiredInt32("ch");
 			int? cmdnum = request.GetInt32("cmd");
 			string cmd = request.GetString("cmd");
 
-			if (channel == null)
-				return "ERROR - channel not set";
-
 			// Парсим команду, выходим если ничего не нашлось.
 			APICommand command;
-			try
+			if (cmdnum != null)
 			{
-				command = (APICommand)Enum.Parse(typeof(APICommand), cmd, true);
-				if (cmdnum != null)
+				if (!Enum.IsDefined(typeof(APICommand), cmdnum))
+					throw new NullReferenceException("ERROR - Unrecognized command");
+				command = (APICommand)cmdnum;
+			}
+			else
+			{
+				try
 				{
-					if (!Enum.IsDefined(typeof(APICommand), cmdnum))
-						return "ERROR - Unrecognized command";
-					command = (APICommand)cmdnum;
+					command = (APICommand)Enum.Parse(typeof(APICommand), cmd, true);
+				}
+				catch
+				{
+					throw new NullReferenceException("ERROR - Unrecognized command");
 				}
 			}
-			catch
-			{
-				return "ERROR - Unrecognized command";
-			}
 
 
-			var NooLite = new ThinkingHome.Plugins.NooLite.NooLitePlugin(); // Проверить, нужно ли его освободить
 			switch (command)
 			{
 				// Команды без дополнительных аргументов
@@ -67,30 +66,59 @@ namespace ThinkingHome.Plugins.NooApi
 				case APICommand.RegStop:
 				case APICommand.Bind:
 				case APICommand.UnBind:
+				case APICommand.RollColor:
+				case APICommand.SwitchColor:
+				case APICommand.SwitchMode:
+				case APICommand.SwitchSpeed:
 					Logger.Debug("nooAPI {1} command received, channel = {0}", channel, Enum.GetName(typeof(APICommand), command));
 					if (channel != null)
 						lock (moLock)
 						{
-							NooLite.SendCommand((int)command, (int)channel, 0);
+							Context.GetPlugin<NooLitePlugin>().SendCommand((int)command, (int)channel, 0);
 						}
 					return "OK";
 
-				// Установка яркости (формат в процентах)
+				// Установка яркости (формат в процентах и через аргументы d0, d1, d2)
 				case APICommand.Set:
-					Logger.Debug("nooAPI Set command received, channel = {0}, value = {1}", channel, bright);
-					if (channel != null && bright != null)
+					Logger.Debug("nooAPI Set command received, channel = {0}", channel);
+					int? brightness = request.GetInt32("br");
+					if (brightness != null)
 						lock (moLock)
 						{
-							int value = (int)(155*bright/100);
-							NooLite.SendCommand((int)APICommand.Set, (int)channel, value);
+							int value = (int)(155*brightness/100);
+							Context.GetPlugin<NooLitePlugin>().SendCommand((int)APICommand.Set, (int)channel, value);
 						}
+					else
+					{
+						int? format = request.GetRequiredInt32("fmt");
+						switch (format)
+						{
+							case 1:
+								int data = request.GetRequiredInt32("d0");
+								lock (moLock)
+								{
+									Context.GetPlugin<NooLitePlugin>().SendCommand((int)APICommand.Set, (int)channel, data);
+								}
+								break;
+							case 3:
+								int d0 = request.GetRequiredInt32("d0");
+								int d1 = request.GetRequiredInt32("d1");
+								int d2 = request.GetRequiredInt32("d2");
+								lock (moLock)
+								{
+									Context.GetPlugin<NooLitePlugin>().SendLedCommand((int)APICommand.Set, (int)channel, d0, d1, d2);
+								}
+								break;
+							default:
+								throw new NullReferenceException("Incorrect format value");
+						}
+					}
 					return "OK";
 
 				default:
 					return "UNSUPPORTED";
 			}
 		}
-
 		#endregion
 	}
 }
