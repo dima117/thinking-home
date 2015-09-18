@@ -16,6 +16,10 @@ namespace ThinkingHome.Plugins.NooApi.Commands
 		UnBind = 9,       // отвязка
 		RegStop = 10,     // остановить регулировку
 		Bind = 15,        // привязка
+		RollColor = 16,   // включить плавный перебор цвета, выключается командой 10
+		SwitchColor = 17, // переключить цвет
+		SwitchMode = 18,  // переключить режим работы
+		SwitchSpeed = 19, // переключить скорость эффекта в режиме работы
 	}
 }
 
