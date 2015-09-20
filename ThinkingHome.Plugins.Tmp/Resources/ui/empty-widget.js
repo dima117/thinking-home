@@ -2,13 +2,7 @@
 
 	var emptyWidgetView = lib.marionette.ItemView.extend({
 		template: lib.handlebars.compile(
-			'<div class="th-widget-block th-pointer btn-primary">' +
-				'<div class="th-widget-block-title">{{displayName}}</div>' +
-				'<div class="th-widget-block-content">' +
-					'<a href="#" class="btn btn-default">click me</a>' +
-				'</div>'+
-			'</div>'),
-		className: 'th-widget-container',
+			'{{displayName}} <a href="#" class="btn btn-default">click me</a>'),
 		triggers: {
 			"click .btn": "btn:click"
 		}
