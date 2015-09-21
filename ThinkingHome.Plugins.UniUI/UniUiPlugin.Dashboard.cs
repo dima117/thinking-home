@@ -83,20 +83,24 @@ namespace ThinkingHome.Plugins.UniUI
 
 					var dashboardList = GetDashboardListModel(allDashboards, selected.Id);
 
-					var allWidgets = session.Query<Widget>()
+					var allPanels = session.Query<Panel>()
 						.Where(w => w.Dashboard.Id == selected.Id)
 						.ToArray();
 
-					var allParameters = session.Query<WidgetParameter>()
-							.Where(w => w.Widget.Dashboard.Id == selected.Id)
-							.ToArray();
+					var allWidgets = session.Query<Widget>()
+						.Where(w => w.Panel.Dashboard.Id == selected.Id)
+						.ToArray();
 
-					var widgetList = GetWidgetListModel(allWidgets, allParameters, session);
+					var allParameters = session.Query<WidgetParameter>()
+						.Where(w => w.Widget.Panel.Dashboard.Id == selected.Id)
+						.ToArray();
+
+					var panelList = GetPanelListModel(allPanels, allWidgets, allParameters, session);
 
 					return new
 					{
 						dashboards = dashboardList,
-						widgets = widgetList
+						panels = panelList
 					};
 				}
 
@@ -119,11 +123,33 @@ namespace ThinkingHome.Plugins.UniUI
 			return model;
 		}
 
-		private object[] GetWidgetListModel(Widget[] allWidgets, WidgetParameter[] allParameters, ISession session)
+		private object[] GetPanelListModel(Panel[] allPanels, Widget[] allWidgets, WidgetParameter[] allParameters, ISession session)
 		{
 			var list = new List<object>();
 
-			foreach (var widget in allWidgets)
+			foreach (var panel in allPanels)
+			{
+				var panelWidgets = allWidgets.Where(w => w.Panel.Id == panel.Id).ToArray();
+				var widgetListModel = GetWidgetListModel(panelWidgets, allParameters, session);
+
+				var model = new {
+					id = panel.Id,
+					title = panel.Title,
+					widgets = widgetListModel,
+					sortOrder = panel.SortOrder
+				};
+
+				list.Add(model);
+			}
+
+			return list.ToArray();
+		}
+
+		private object[] GetWidgetListModel(Widget[] panelWidgets, WidgetParameter[] allParameters, ISession session)
+		{
+			var list = new List<object>();
+
+			foreach (var widget in panelWidgets)
 			{
 				var def = defs.GetValueOrDefault(widget.TypeAlias);
 
@@ -142,6 +168,13 @@ namespace ThinkingHome.Plugins.UniUI
 			return list.ToArray();
 		}
 
+		/// <summary>
+		/// Подготовка модели для отображения виджета в интерфейсе
+		/// </summary>
+		/// <param name="def">Определение виджета</param>
+		/// <param name="widget">Данные об экземпляре виджета</param>
+		/// <param name="parameters">Параметры виджета</param>
+		/// <param name="session">Сессия БД</param>
 		private object GetWidgetModel(IWidgetDefinition def, Widget widget, WidgetParameter[] parameters, ISession session)
 		{
 			try

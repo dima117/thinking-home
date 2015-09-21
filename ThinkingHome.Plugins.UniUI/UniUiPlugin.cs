@@ -18,7 +18,8 @@ namespace ThinkingHome.Plugins.UniUI
 		{
 			mapper.Class<Dashboard>(cfg => cfg.Table("UniUI_Dashboard"));
 			mapper.Class<Widget>(cfg => cfg.Table("UniUI_Widget"));
-			mapper.Class<WidgetParameter>(cfg => cfg.Table("UniUI_WidgetParameter"));
+            mapper.Class<Panel>(cfg => cfg.Table("UniUI_Panel"));
+            mapper.Class<WidgetParameter>(cfg => cfg.Table("UniUI_WidgetParameter"));
 		}
 
 		private readonly InternalDictionary<IWidgetDefinition> defs = new InternalDictionary<IWidgetDefinition>();

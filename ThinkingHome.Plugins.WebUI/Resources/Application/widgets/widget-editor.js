@@ -56,9 +56,9 @@
 				application.setContentView(view);
 			},
 
-			createWidget: function (dashboardId, type) {
+			createWidget: function (panelId, type) {
 
-				models.createWidget(dashboardId, type).done(api.initEditor);
+				models.createWidget(panelId, type).done(api.initEditor);
 			},
 
 			editWidget: function (id) {

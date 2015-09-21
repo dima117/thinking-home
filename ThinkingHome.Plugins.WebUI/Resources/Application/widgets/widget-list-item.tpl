@@ -1,11 +1,8 @@
 ﻿<div>
-	<h3>
-		<a href="#" class="js-edit-widget">
+	<h5>
+		<a href="#" class="js-widget-edit">
 			{{displayName}}
-		</a>
-	</h3>
-	<div class="help-block">
-		{{typeDisplayName}}
-	</div>
+		</a> / {{typeDisplayName}}
+	</h5>
 </div>
 

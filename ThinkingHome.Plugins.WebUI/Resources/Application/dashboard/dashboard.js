@@ -1,9 +1,9 @@
-﻿define(['app',
+﻿define(['app', 'lib',
 		'application/dashboard-model.js',
 		'application/dashboard-view.js',
 		'json!api/webui/widgets.json'
 ],
-	function (application, models, views, widgetTypes) {
+	function (application, lib, models, views, widgetTypes) {
 
 		var api = {
 
@@ -23,7 +23,7 @@
 				if (details) {
 
 					// layout
-					var layout = new views.LayoutView({ model: details.widgets });
+					var layout = new views.LayoutView({ model: details.panels });
 					application.setContentView(layout);
 
 					// menu
@@ -36,24 +36,25 @@
 					layout.getRegion('menu').show(menu);
 
 					// widgets
-					details.widgets.each(function (widget) {
+					details.panels.each(function (panel) {
 
-						var type = widget.get("type"),
-							widgetId = widget.get("id");
-						
+						panel.get('widgets').each(function (widget) {
 
-						var path = widgetTypes[type];
+							var type = widget.get("type"),
+								widgetId = widget.get("id");
 
-						if (path) {
+							var path = widgetTypes[type];
 
-							require([path], function (widgetModule) {
+							if (path) {
 
-								var region = layout.addRegion(widgetId, "#" + widgetId);
-								widgetModule.show(widget, region);
-							});
-						}
+								require([path], function (widgetModule) {
+
+									var region = layout.addRegion(widgetId, "#" + widgetId);
+									widgetModule.show(widget, region);
+								});
+							}
+						});
 					});
-
 				} else {
 
 					var empty = new views.EmptyView();

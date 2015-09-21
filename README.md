@@ -1,2 +1,1 @@
-thinking-home
-=============
+Подробная информация: http://thinking-home.ru/system

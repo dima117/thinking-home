@@ -2,9 +2,11 @@
 
 	var emptyWidgetView = lib.marionette.ItemView.extend({
 		template: lib.handlebars.compile(
-			'<div class="th-widget-block th-pointer btn-primary">On</div>' +
-			'<div class="th-widget-block th-pointer btn-primary">Off</div>'),
-		className: 'th-widget-container'
+			'<div class="btn-group pull-right">' +
+				'<a href="#" class="btn btn-default">On</a>' +
+				'<a href="#" class="btn btn-default">Off</a>' +
+			'</div>{{displayName}}'),
+		className: 'clearfix'
 	});
 
 	return {

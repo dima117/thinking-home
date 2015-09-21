@@ -4,11 +4,11 @@
 
 		var api = {
 
-			createWidget: function (dashboardId, type) {
+			createWidget: function (panelId, type) {
 
 				var defer = lib.$.Deferred();
 
-				lib.$.getJSON('/api/uniui/widget/create', { type: type, dashboard: dashboardId })
+				lib.$.getJSON('/api/uniui/widget/create', { type: type, panel: panelId })
 					.done(function (data) {
 
 						var info = new lib.backbone.Model(data.info),

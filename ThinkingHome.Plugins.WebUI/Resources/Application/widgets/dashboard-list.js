@@ -27,7 +27,7 @@
 				var id = childView.model.get('id'),
 					title = childView.model.get('title');
 
-				if (lib.utils.confirm('Do you want to delete the dashboard "{0}"?', title)) {
+				if (lib.utils.confirm('Do you want to delete the "{0}" dashboard?', title)) {
 
 					models.deleteDashboard(id).done(api.loadDashboardList);
 				}

@@ -134,9 +134,10 @@
     <EmbeddedResource Include="Resources\Application\widgets\widget-editor-field.tpl" />
     <EmbeddedResource Include="Resources\Application\widgets\widget-editor.tpl" />
     <EmbeddedResource Include="Resources\Application\widgets\widget-list-item.tpl" />
-    <EmbeddedResource Include="Resources\Application\widgets\widget-list.tpl" />
+    <EmbeddedResource Include="Resources\Application\widgets\panel-list.tpl" />
     <EmbeddedResource Include="Resources\Application\dashboard\dashboard-layout.tpl" />
     <EmbeddedResource Include="Resources\Application\dashboard\dashboard-nothing.tpl" />
+    <EmbeddedResource Include="Resources\Application\widgets\panel-list-item.tpl" />
     <None Include="ThinkingHome.Plugins.WebUI.nuspec">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
