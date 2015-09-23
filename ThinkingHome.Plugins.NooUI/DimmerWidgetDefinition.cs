@@ -8,21 +8,19 @@ using ThinkingHome.Plugins.UniUI.Widgets;
 using NHibernate;
 using NLog;
 
-/* TODO: 
- * Вынести адрес api в доступное для настройки пользователем место.
- */
+// TODO: вынести адрес api в доступное для настройки пользователем место.
 
 namespace ThinkingHome.Plugins.NooUI
 {
-	[Widget("nooui-switcher")]
-	class SwitcherWidgetDefinition : IWidgetDefinition
+	[Widget("nooui-dimmer")]
+	class DimmerWidgetDefinition : IWidgetDefinition
 	{
 		private const string PARAM_CHANNEL = "channel";
 		private const string PARAM_CHANNEL_DISPLAY_NAME = "Channel";
 
 		public string DisplayName
 		{
-			get { return "NooUI Switcher"; }
+			get { return "NooUI Dimmer"; }
 		}
 
 		public object GetWidgetData(Widget widget, WidgetParameter[] parameters, ISession session, Logger logger)
