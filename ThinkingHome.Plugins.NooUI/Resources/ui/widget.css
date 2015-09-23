@@ -1,20 +1,17 @@
 ﻿/* TODO:
-	* Учесть порядок применения классов
 	*
 	*/
-.nooui-widget .nooui-button
+.nooui-widget
+{
+	padding-bottom: 5px;
+}
+
+.nooui-btngroup
+{
+	border-spacing: 3px;
+}
+
+.nooui-button
 {
 	cursor: pointer;
-	opacity: 0.25;
-}
-.nooui-widget .nooui-button:hover
-{
-	opacity: 0.7;
-}
-.nooui-widget .th-widget-block-content
-{
-	padding-top: 12px;
-	padding-bottom: 12px;
-	border-spacing: 7px;
-	height: 149px;
 }
