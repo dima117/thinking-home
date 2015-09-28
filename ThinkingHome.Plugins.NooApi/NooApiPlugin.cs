@@ -8,7 +8,6 @@ using ThinkingHome.Core.Plugins;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.NooLite;
-using ThinkingHome.NooLite;
 
 /* TODO:
  * Обработать знак и пределы чисел, если будет нужно
@@ -20,6 +19,8 @@ namespace ThinkingHome.Plugins.NooApi
 	[Plugin]
 	class NooApiPlugin : PluginBase
 	{
+		private const int CMD_SET_BRIGHTNESS = 6;
+
 		#region api
 		[HttpCommand("/api/noolite")]
 		public object DispatchApiQuery(HttpRequestParams request)
@@ -30,13 +31,13 @@ namespace ThinkingHome.Plugins.NooApi
 			switch (cmd)
 			{
 					// Set command - Установка яркости (формат в процентах и через аргументы d0, d1, d2)
-				case (int)PC11XXCommand.SetLevel:
+				case CMD_SET_BRIGHTNESS:
 					Logger.Debug("nooAPI Set command received, channel = {0}", channel);
 					int? brightness = request.GetInt32("br");
 					if (brightness != null)
 					{
 						int value = (155*brightness.Value/100);
-						Context.GetPlugin<NooLitePlugin>().SendCommand((int)PC11XXCommand.SetLevel, channel, value);
+						Context.GetPlugin<NooLitePlugin>().SendCommand(CMD_SET_BRIGHTNESS, channel, value);
 					}
 					else
 					{
@@ -45,13 +46,13 @@ namespace ThinkingHome.Plugins.NooApi
 						switch (format)
 						{
 							case 1:
-								Context.GetPlugin<NooLitePlugin>().SendCommand((int)PC11XXCommand.SetLevel, channel, d0);
+								Context.GetPlugin<NooLitePlugin>().SendCommand(CMD_SET_BRIGHTNESS, channel, d0);
 								break;
 
 							case 3:
 								int d1 = request.GetRequiredInt32("d1");
 								int d2 = request.GetRequiredInt32("d2");
-								Context.GetPlugin<NooLitePlugin>().SendLedCommand((int)PC11XXCommand.SetLevel, channel, d0, d1, d2);
+								Context.GetPlugin<NooLitePlugin>().SendLedCommand(CMD_SET_BRIGHTNESS, channel, d0, d1, d2);
 								break;
 		
 							default:
@@ -59,13 +60,14 @@ namespace ThinkingHome.Plugins.NooApi
 								throw new NullReferenceException(message);
 						}
 					}
-					return "OK";
+					break;
 
 				default:
 					Logger.Debug("nooAPI {0} command received, channel = {1}", cmd, channel);
 					Context.GetPlugin<NooLitePlugin>().SendCommand(cmd, channel, 0);
-					return "OK";
+					break;
 			}
+			return "OK";
 		}
 		#endregion
 	}
