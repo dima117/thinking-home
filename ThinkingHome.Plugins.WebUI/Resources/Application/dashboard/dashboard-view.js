@@ -10,6 +10,13 @@
 
 		var layoutView = lib.marionette.LayoutView.extend({
 			template: lib.handlebars.compile(layoutTemplate),
+			onShow: function () {
+				this.$('.js-container').dashboard({
+					itemSelector: '.js-panel',
+					width: 320,
+					height: 230,
+				});
+			},
 			regions: {
 				menu: '.js-menu',
 				content: '.js-content'

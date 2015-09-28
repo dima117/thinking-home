@@ -151,6 +151,19 @@ a.list-group-item:hover {
 	cursor: default;
 }
 
+/* ========================== */
+.x-dashboard {
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+.x-dashboard-item {
+	list-style: none;
+	margin: 0;
+	position: absolute;
+}
+
 /*#endregion */
 
 /*#region widgets*/
@@ -164,9 +177,9 @@ a.list-group-item:hover {
 }
 
 .th-panel-toolbar {
-    max-height: 0;
-    transition: max-height 0.2s ease-out;
-    overflow: hidden;
+	max-height: 0;
+	transition: max-height 0.2s ease-out;
+	overflow: hidden;
 }
 
 .th-toolbar-form {
@@ -176,7 +189,7 @@ a.list-group-item:hover {
 
 .th-panel-toolbar-active {
 	max-height: 120px;
-    transition: max-height 0.2s ease-in;
+	transition: max-height 0.2s ease-in;
 }
 
 /*#endregion */

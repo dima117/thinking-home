@@ -19,6 +19,7 @@
 		handlebars: 'vendor/js/handlebars.amd.min',
 		chart: 'vendor/js/chart.min',
 		'chart.scatter': 'vendor/js/chart.scatter.min',
+		'dashboard-layout': 'application/libs/dashboard-layout',
 
 		dashboard:			'application/dashboard',
 		apps:				'application/sections/user',

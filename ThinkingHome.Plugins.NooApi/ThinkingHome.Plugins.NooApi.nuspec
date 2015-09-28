@@ -1,0 +1,21 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+	<metadata>
+		<version>1.0.0.0</version>
+		<authors>dima117</authors>
+		<owners>dima117</owners>
+		<licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+		<dependencies>
+			<dependency id="ThinkingHome.Plugins.Listener" />
+			<dependency id="ThinkingHome.Plugins.NooLite" />
+		</dependencies>
+		<id>ThinkingHome.Plugins.NooApi</id>
+		<title>ThinkingHome.Plugins.NooApi</title>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>NooLite plugin HTTP API</description>
+		<summary>NooLite plugin HTTP API</summary>
+	</metadata>
+	<files>
+		<file src="ThinkingHome.Plugins.NooApi.dll" target="ThinkingHome.Plugins.NooApi.dll" />
+	</files>
+</package>
