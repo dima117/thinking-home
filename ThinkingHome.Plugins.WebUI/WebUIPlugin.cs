@@ -92,6 +92,9 @@ namespace ThinkingHome.Plugins.WebUI
 	[HttpResource("/application/sections/list.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.sections.list.tpl")]
 	[HttpResource("/application/sections/list-item.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.sections.list-item.tpl")]
 
+	// webapp: libs
+	[JavaScriptResource("/application/libs/dashboard-layout.js", "ThinkingHome.Plugins.WebUI.Resources.Application.libs.dashboard-layout.js")]
+
 	#endregion
 
 	[Plugin]
