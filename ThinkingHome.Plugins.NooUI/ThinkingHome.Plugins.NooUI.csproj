@@ -59,6 +59,7 @@
     </Compile>
     <Compile Include="NooUIPlugin.cs" />
     <Compile Include="DimmerWidgetDefinition.cs" />
+    <Compile Include="SavePresetWidgetDefinition.cs" />
     <Compile Include="PresetWidgetDefinition.cs" />
     <Compile Include="SwitcherWidgetDefinition.cs" />
   </ItemGroup>
@@ -103,13 +104,13 @@
     <EmbeddedResource Include="Resources\ui\switcher-widget.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\ui\widget.css" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\ui\dimmer-widget.js" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\ui\preset-widget.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ui\savepreset-widget.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
