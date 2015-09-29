@@ -2,6 +2,8 @@
 using System.ComponentModel.Composition;
 using System.Reflection;
 using Owin;
+using Microsoft.AspNet.SignalR;
+using Microsoft.AspNet.SignalR.Owin;
 using Microsoft.Owin.Hosting;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Core.Plugins.Utils;
@@ -9,6 +11,7 @@ using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.Listener.Handlers;
 using System.Configuration;
+using ThinkingHome.Plugins.Listener.Hubs;
 
 namespace ThinkingHome.Plugins.Listener
 {
@@ -26,6 +29,7 @@ namespace ThinkingHome.Plugins.Listener
             }
         }
 
+		private MessageQueueHub messageHub;
 		private IDisposable server;
 		private InternalDictionary<IListenerHandler> registeredHandlers;
 
@@ -40,20 +44,34 @@ namespace ThinkingHome.Plugins.Listener
 		public override void StartPlugin()
 		{
 			server = WebApp.Start(BaseUrl, ConfigureModules);
+			messageHub = new MessageQueueHub();
 		}
 
 		private void ConfigureModules(IAppBuilder appBuilder)
 		{
 			appBuilder
 				.Use<ListenerModule>(registeredHandlers, Logger)
+				.MapHubs()
 				.Use<Error404Module>();
 		}
 
 		public override void StopPlugin()
 		{
+			messageHub.Dispose();
+			messageHub = null;
+
 			server.Dispose();
 			server = null;
 		}
+
+		#region public api
+
+		public void Send(string channel, object data)
+		{
+			messageHub.Send(channel, data);
+		}
+
+		#endregion
 
 		#region private
 
