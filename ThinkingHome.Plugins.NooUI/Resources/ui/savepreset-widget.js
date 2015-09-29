@@ -1,13 +1,13 @@
 ﻿define(['lib'], function (lib) {
 
-	var PresetWidgetView = lib.marionette.ItemView.extend({
+	var SavePresetWidgetView = lib.marionette.ItemView.extend({
 		template: lib.handlebars.compile(
 			'{{displayName}}' +
 				'<div class="btn-group btn-group-justified">' +
-					'<a href="#" class="btn btn-default th-pointer js-btn-load"> Load </a>' +
+					'<a href="#" class="btn btn-default th-pointer js-btn-save"> Save </a>' +
 				'</div>'),
 		triggers: {
-			"click .js-btn-load": "preset:load",
+			"click .js-btn-save": "savepreset:save",
 		}
 	});
 
@@ -19,11 +19,11 @@
 
 	return {
 		show: function (model, region) {
-			var view = new PresetWidgetView({ model: model });
+			var view = new SavePresetWidgetView({ model: model });
 			var channel = model.get('data').channel;
 
-			view.on("preset:load", createSender(channel, 7)); // NooLite Load
-		
+			view.on("savepreset:save", createSender(channel, 8)); // NooLite Save
+
 			region.show(view);
 		}
 	};

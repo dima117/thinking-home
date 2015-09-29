@@ -8,7 +8,9 @@ using ThinkingHome.Plugins.UniUI.Widgets;
 using NHibernate;
 using NLog;
 
-// TODO: вынести адрес api в доступное для настройки пользователем место.
+/* TODO: 
+ * Вынести адрес api в доступное для настройки пользователем место.
+ */
 
 namespace ThinkingHome.Plugins.NooUI
 {
