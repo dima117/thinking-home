@@ -3,13 +3,13 @@
 	var SwitcherWidgetView = lib.marionette.ItemView.extend({
 		template: lib.handlebars.compile(
 			'{{displayName}}' +
-				'<div class="btn-group btn-group-justified">' +
+				'<div class="btn-group-justified">' +
 					'<a href="#" class="btn btn-default th-pointer js-btn-on">  On   </a>' +
 					'<a href="#" class="btn btn-default th-pointer js-btn-off"> Off  </a>' +
 				'</div>'),
 		triggers: {
 			"click .js-btn-on":  "switcher:on",
-			"click .js-btn-off": "switcher:off",
+			"click .js-btn-off": "switcher:off"
 		}
 	});
 

@@ -14,15 +14,15 @@ using NLog;
 
 namespace ThinkingHome.Plugins.NooUI
 {
-	[Widget("nooui-savepreset")]
-	class SavePresetWidgetDefinition : IWidgetDefinition
+	[Widget("nooui-preset-loader")]
+	class PresetLoaderWidgetDefinition : IWidgetDefinition
 	{
 		private const string PARAM_CHANNEL = "channel";
 		private const string PARAM_CHANNEL_DISPLAY_NAME = "Channel";
 
 		public string DisplayName
 		{
-			get { return "NooUI SavePreset"; }
+			get { return "NooUI Load Preset"; }
 		}
 
 		public object GetWidgetData(Widget widget, WidgetParameter[] parameters, ISession session, Logger logger)

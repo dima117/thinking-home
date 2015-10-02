@@ -3,7 +3,7 @@
 	var DimmerWidgetView = lib.marionette.ItemView.extend({
 		template: lib.handlebars.compile(
 			'{{displayName}}' +
-				'<div class="btn-group btn-group-justified">' +
+				'<div class="btn-group-justified">' +
 					'<a href="#" class="btn btn-default th-pointer js-btn-set" data-brightness="0">   0   </a>' +
 					'<a href="#" class="btn btn-default th-pointer js-btn-set" data-brightness="30">  30  </a>' +
 					'<a href="#" class="btn btn-default th-pointer js-btn-set" data-brightness="50">  50  </a>' +
