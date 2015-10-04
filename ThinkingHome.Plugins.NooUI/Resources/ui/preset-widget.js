@@ -2,11 +2,15 @@
 
 	var PresetWidgetView = lib.marionette.ItemView.extend({
 		template: lib.handlebars.compile(
-			'{{displayName}}' +
-				'<div>' +
-					'<a href="#" class="btn btn-default th-pointer col-sm-9 col-xs-9 js-btn-load"> Load </a>' +
-					'<a href="#" class="btn btn-default th-pointer col-sm-3 col-xs-3 js-btn-save"> Save </a>' +
-				'</div>'),
+			'<div>{{displayName}}</div>' +
+			'<div class="row">' +
+				'<div class="col-xs-8">' +
+					'<a href="#" class="btn btn-default btn-block th-pointer js-btn-load"> Load </a>' +
+				'</div>' +
+				'<div class="col-xs-4">' +
+					'<a href="#" class="btn btn-default btn-block th-pointer js-btn-save"> Save </a>' +
+				'</div>' +
+			'</div>'),
 		triggers: {
 			"click .js-btn-load": "preset:load",
 			"click .js-btn-save": "preset:save"

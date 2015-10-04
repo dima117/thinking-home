@@ -74,16 +74,6 @@
       <Name>ThinkingHome.Plugins.Listener</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\ThinkingHome.Plugins.NooLite\ThinkingHome.Plugins.NooLite.csproj">
-      <Project>{db949272-d96e-4dfc-9305-0dfc0deacef6}</Project>
-      <Name>ThinkingHome.Plugins.NooLite</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\ThinkingHome.Plugins.Scripts\ThinkingHome.Plugins.Scripts.csproj">
-      <Project>{5dbb0362-36d7-49e8-9277-b212e3585e4b}</Project>
-      <Name>ThinkingHome.Plugins.Scripts</Name>
-      <Private>False</Private>
-    </ProjectReference>
     <ProjectReference Include="..\ThinkingHome.Plugins.UniUI\ThinkingHome.Plugins.UniUI.csproj">
       <Project>{5b191430-85f0-423a-a60e-8f171ae73d5c}</Project>
       <Name>ThinkingHome.Plugins.UniUI</Name>
@@ -98,6 +88,9 @@
   <ItemGroup>
     <None Include="packages.config">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="ThinkingHome.Plugins.NooUI.nuspec">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>

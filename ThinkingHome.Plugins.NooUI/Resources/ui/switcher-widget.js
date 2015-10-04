@@ -2,8 +2,8 @@
 
 	var SwitcherWidgetView = lib.marionette.ItemView.extend({
 		template: lib.handlebars.compile(
-			'{{displayName}}' +
-				'<div class="btn-group-justified">' +
+			'<div>{{displayName}}</div>' +
+				'<div class="btn-group btn-group-justified">' +
 					'<a href="#" class="btn btn-default th-pointer js-btn-on">  On   </a>' +
 					'<a href="#" class="btn btn-default th-pointer js-btn-off"> Off  </a>' +
 				'</div>'),

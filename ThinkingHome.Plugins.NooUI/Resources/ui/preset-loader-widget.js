@@ -2,10 +2,9 @@
 
 	var PresetLoaderWidgetView = lib.marionette.ItemView.extend({
 		template: lib.handlebars.compile(
-			'{{displayName}}' +
-				'<div class="btn-group-justified">' +
-					'<a href="#" class="btn btn-default th-pointer js-btn-load"> Load </a>' +
-				'</div>'),
+			'<div class="btn-group btn-group-justified">' +
+				'<a href="#" class="btn btn-default th-pointer js-btn-load"> {{displayName}} </a>' +
+			'</div>'),
 		triggers: {
 			"click .js-btn-load": "preset-loader:load"
 		}
