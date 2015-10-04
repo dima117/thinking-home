@@ -4,17 +4,16 @@
 		template: lib.handlebars.compile(
 			'<div>{{displayName}}</div>' +
 			'<div class="btn-group btn-group-justified">' +
-				'<a href="#" class="btn btn-default th-pointer js-btn-set" data-brightness="0">   0   </a>' +
-				'<a href="#" class="btn btn-default th-pointer js-btn-set" data-brightness="30">  30  </a>' +
-				'<a href="#" class="btn btn-default th-pointer js-btn-set" data-brightness="50">  50  </a>' +
-				'<a href="#" class="btn btn-default th-pointer js-btn-set" data-brightness="70">  70  </a>' +
-				'<a href="#" class="btn btn-default th-pointer js-btn-set" data-brightness="100"> 100 </a>' +
+				'{{#range 0 100 25}}' +
+					'<a href="#" class="btn btn-default js-btn-set" data-brightness="{{this}}">{{this}}</a>' +
+				'{{/range}}' +
 			'</div>'),
 		events: {
 			"click .js-btn-set": "btnSetClick",
 		},
 		btnSetClick: function (e) {
-			this.trigger('dimmer:set',lib.$(e.target).data("brightness")); // call dimmerSet function with "brightness" data attribute from pressed button
+			var brightness = lib.$(e.target).data("brightness");
+			this.trigger('dimmer:set', brightness); // call dimmerSet function with "brightness" data attribute from pressed button
 		}
 	});
 
