@@ -4,8 +4,8 @@
 		template: lib.handlebars.compile(
 			'<div>{{displayName}}</div>' +
 				'<div class="btn-group btn-group-justified">' +
-					'<a href="#" class="btn btn-default th-pointer js-btn-on">  On   </a>' +
-					'<a href="#" class="btn btn-default th-pointer js-btn-off"> Off  </a>' +
+					'<a href="#" class="btn btn-default js-btn-on">On</a>' +
+					'<a href="#" class="btn btn-default js-btn-off">Off</a>' +
 				'</div>'),
 		triggers: {
 			"click .js-btn-on":  "switcher:on",

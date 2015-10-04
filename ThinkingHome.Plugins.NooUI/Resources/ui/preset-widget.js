@@ -5,10 +5,10 @@
 			'<div>{{displayName}}</div>' +
 			'<div class="row">' +
 				'<div class="col-xs-8">' +
-					'<a href="#" class="btn btn-default btn-block th-pointer js-btn-load"> Load </a>' +
+					'<a href="#" class="btn btn-default btn-block js-btn-load">Load</a>' +
 				'</div>' +
 				'<div class="col-xs-4">' +
-					'<a href="#" class="btn btn-default btn-block th-pointer js-btn-save"> Save </a>' +
+					'<a href="#" class="btn btn-default btn-block js-btn-save">Save</a>' +
 				'</div>' +
 			'</div>'),
 		triggers: {
