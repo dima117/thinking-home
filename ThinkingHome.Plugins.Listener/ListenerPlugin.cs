@@ -29,7 +29,6 @@ namespace ThinkingHome.Plugins.Listener
             }
         }
 
-		private MessageQueueHub messageHub;
 		private IDisposable server;
 		private InternalDictionary<IListenerHandler> registeredHandlers;
 
@@ -44,7 +43,6 @@ namespace ThinkingHome.Plugins.Listener
 		public override void StartPlugin()
 		{
 			server = WebApp.Start(BaseUrl, ConfigureModules);
-			messageHub = new MessageQueueHub();
 		}
 
 		private void ConfigureModules(IAppBuilder appBuilder)
@@ -57,9 +55,6 @@ namespace ThinkingHome.Plugins.Listener
 
 		public override void StopPlugin()
 		{
-			messageHub.Dispose();
-			messageHub = null;
-
 			server.Dispose();
 			server = null;
 		}
@@ -68,7 +63,7 @@ namespace ThinkingHome.Plugins.Listener
 
 		public void Send(string channel, object data)
 		{
-			messageHub.Send(channel, data);
+			MessageQueueHub.SendStatic(channel, data);
 		}
 
 		#endregion
