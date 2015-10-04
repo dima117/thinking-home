@@ -1,0 +1,22 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+	<metadata>
+		<version>1.0.0.0</version>
+		<authors>dima117, gorosvi</authors>
+		<owners>dima117</owners>
+		<licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+		<dependencies>
+			<dependency id="ThinkingHome.Plugins.Listener" />
+			<dependency id="ThinkingHome.Plugins.UniUI" />
+			<dependency id="ThinkingHome.Plugins.WebUI" />
+		</dependencies>
+		<id>ThinkingHome.Plugins.NooUI</id>
+		<title>ThinkingHome.Plugins.NooUI</title>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>NooLite UI widgets</description>
+		<summary>NooLite web user interface widgets</summary>
+	</metadata>
+	<files>
+		<file src="ThinkingHome.Plugins.NooUI.dll" target="ThinkingHome.Plugins.NooUI.dll" />
+	</files>
+</package>
