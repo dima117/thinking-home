@@ -21,6 +21,10 @@
 		'chart.scatter': 'vendor/js/chart.scatter.min',
 		'dashboard-layout': 'application/libs/dashboard-layout',
 
+		signalr: 'vendor/js/jquery.signalr.min',
+		hubs: 'signalr/hubs?dummy=',
+
+
 		dashboard:			'application/dashboard',
 		apps:				'application/sections/user',
 		settings:			'application/sections/system'
@@ -31,16 +35,18 @@
 			deps: ['json2', 'jquery', 'underscore'],
 			exports: 'Backbone'
 		},
-		syphon: {
-			deps: ['backbone'],
-			exports: 'Backbone.Syphon'
-		},
 		marionette: {
 			deps: ['backbone', 'syphon'],
 			exports: 'Marionette'
 		},
+		signalr: ['jquery'],
+		hubs: ['signalr'],
 		json2: {
 			exports: 'JSON'
+		},
+		syphon: {
+			deps: ['backbone'],
+			exports: 'Backbone.Syphon'
 		}
 	},
 	map: {
