@@ -2,7 +2,7 @@
 	'lib',
 	'application/router',
 	'application/layout',
-	'json!api/webui/styles.json'],
+	'json!api/webui/styles.json', 'signalr', 'hubs'],
 	function (lib, router, layout, cssFiles) {
 
 	// init
@@ -16,16 +16,30 @@
 		template: '#layout-template'
 	});
 
+	app.radio = new lib.marionette.Object();
+
+	lib.$.connection.messageQueueHub.client.serverMessage = function (message) {
+		app.radio.trigger(message.channel, message);
+	};
+
 	// start
 	app.on('start', function () {
+
+		lib.utils.loadCss.apply(null, cssFiles);
 
 		this.layout.render();
 		this.router.start();
 
-		lib.utils.loadCss.apply(null, cssFiles);
+		$.connection.hub.start()
+			.done(function () { console.log('done'); })
+			.fail(function () { console.log('fail', arguments); });
 	});
 
 	// shortcuts
+	app.sendServerMessage = function (channel, data) {
+		$.connection.messageQueueHub.invoke("Send", channel, data);
+	};
+
 	app.setContentView = function(view) {
 
 		this.layout.setContentView(view);

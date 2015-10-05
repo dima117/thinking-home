@@ -35,6 +35,9 @@ namespace ThinkingHome.Plugins.WebUI
 	[JavaScriptResource("/vendor/js/moment.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.moment.min.js")]
 	[JavaScriptResource("/vendor/js/handlebars.amd.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.handlebars.amd.min.js")]
 
+	[JavaScriptResource("/vendor/js/jquery.signalr.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.jquery.signalr.min.js")]
+
+	
 	[JavaScriptResource("/vendor/js/codemirror-all.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.codemirror-all.js")]
 	[JavaScriptResource("/vendor/js/codemirror.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.codemirror.js")]
 	[JavaScriptResource("/vendor/js/codemirror-javascript.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.codemirror-javascript.js")]

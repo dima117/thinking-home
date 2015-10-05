@@ -183,6 +183,14 @@ namespace ThinkingHome.Plugins.Tmp
 			Logger.Info("complete: [EveryTenMinutes] at {0}", now);
 		}
 
+		[RunPeriodically(1)]
+		public void SendTestMessage()
+		{
+			DateTime now = DateTime.Now;
+
+			Logger.Info("run: [SendTestMessage] at {0}", now);
+			Context.GetPlugin<Listener.ListenerPlugin>().Send("server:time", DateTime.Now.ToShortTimeString());
+		}
 		#endregion
 
 		#region mqtt events
