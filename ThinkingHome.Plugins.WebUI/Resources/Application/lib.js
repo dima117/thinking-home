@@ -131,7 +131,7 @@
 
 			var out = '', i;
 
-			for (i = from; i < to; i += incr) {
+			for (i = from; i <= to; i += incr) {
 
 				out += options.fn(i);
 			}

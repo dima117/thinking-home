@@ -12,7 +12,7 @@
 				<div class="form-group">
 					<label for="select-channel">Channel</label>
 					<select id="select-channel" class="form-control">
-						{{#range 0 64 1}}
+						{{#range 0 63 1}}
 						<option value="{{this}}">{{this}}</option>
 						{{/range}}
 					</select>

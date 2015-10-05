@@ -21,14 +21,14 @@
 				<ul class="list-inline">
 					<li>
 						<select name="hours" class="form-control">
-							{{#range 0 24 1}}
+							{{#range 0 23 1}}
 							<option value="{{this}}">{{pad this 2}}</option>
 							{{/range}}
 						</select>
 					</li>
 					<li>
 						<select name="minutes" class="form-control">
-							{{#range 0 60 1}}
+							{{#range 0 59 1}}
 							<option value="{{this}}">{{pad this 2}}</option>
 							{{/range}}
 						</select>
