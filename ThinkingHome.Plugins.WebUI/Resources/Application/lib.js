@@ -10,7 +10,10 @@
 		'moment',
 		'chart',
 		'chart.scatter',
-		'dashboard-layout'
+		'bootstrap',
+		'dashboard-layout',
+		'signalr',
+		'hubs'
 	],
 	function (marionette, backbone, underscore, jquery, json2, syphon, handlebars, moment, chartjs) {
 
