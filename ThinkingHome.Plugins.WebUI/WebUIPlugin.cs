@@ -20,16 +20,16 @@ namespace ThinkingHome.Plugins.WebUI
 
 	[JavaScriptResource("/vendor/js/json2.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.json2.min.js")]
 	[JavaScriptResource("/vendor/js/jquery.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.jquery.min.js")]
-	
+
 	[JavaScriptResource("/vendor/js/underscore.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.underscore.min.js")]
 	[HttpResource("/vendor/js/underscore.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.underscore.min.js.map", "application/json")]
-	
+
 	[JavaScriptResource("/vendor/js/backbone.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.min.js")]
 	[HttpResource("/vendor/js/backbone.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.min.js.map", "application/json")]
 
 	[JavaScriptResource("/vendor/js/backbone.marionette.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.marionette.min.js")]
 	[HttpResource("/vendor/js/backbone.marionette.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.marionette.min.js.map", "application/json")]
-	
+
 	[JavaScriptResource("/vendor/js/backbone.syphon.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.syphon.js")]
 	[JavaScriptResource("/vendor/js/bootstrap.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.bootstrap.min.js")]
 	[JavaScriptResource("/vendor/js/moment.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.moment.min.js")]
@@ -37,7 +37,7 @@ namespace ThinkingHome.Plugins.WebUI
 
 	[JavaScriptResource("/vendor/js/jquery.signalr.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.jquery.signalr.min.js")]
 
-	
+
 	[JavaScriptResource("/vendor/js/codemirror-all.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.codemirror-all.js")]
 	[JavaScriptResource("/vendor/js/codemirror.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.codemirror.js")]
 	[JavaScriptResource("/vendor/js/codemirror-javascript.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.codemirror-javascript.js")]
@@ -83,6 +83,7 @@ namespace ThinkingHome.Plugins.WebUI
 	// application2
 	[JavaScriptResource("/application2/app.js", "ThinkingHome.Plugins.WebUI.Resources.Application.application2.app.js")]
 	[JavaScriptResource("/application2/app-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.application2.app-view.js")]
+	[JavaScriptResource("/application2/app-router.js", "ThinkingHome.Plugins.WebUI.Resources.Application.application2.app-router.js")]
 	[HttpResource("/application2/app-layout.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.application2.app-layout.tpl")]
 
 	// new app

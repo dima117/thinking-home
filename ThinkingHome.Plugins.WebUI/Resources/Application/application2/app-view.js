@@ -9,14 +9,14 @@
 			- клики по общим ссылкам
 			- панель времени
 		*/
-		var createLinkHandler = function (name, hideMenu) {
+		var createLinkHandler = function (route, hideMenu) {
 			return function (e) {
 				e.preventDefault();
 				e.stopPropagation();
 
 				hideMenu && this.ui.navbarCollapse.collapse('hide');
 
-				this.trigger(name);
+				this.trigger('navigate', route);
 			}
 		};
 
@@ -31,9 +31,9 @@
 				content: ".js-content"
 			},
 			events: {
-				"click .js-link-home": createLinkHandler('navigate:home'),
-				"click .js-link-apps": createLinkHandler('navigate:apps', true),
-				"click .js-link-settings": createLinkHandler('navigate:settings', true),
+				"click .js-link-home": createLinkHandler(),
+				"click .js-link-apps": createLinkHandler('apps', true),
+				"click .js-link-settings": createLinkHandler('settings', true),
 			},
 
 			// api

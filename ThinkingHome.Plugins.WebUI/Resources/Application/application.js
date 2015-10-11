@@ -57,10 +57,5 @@
 			app.router.navigate(route, args);
 		};
 
-		app.loadPath = function (route, args) {
-
-			app.router.navigate(route, args);
-		};
-
 		return app;
 	});
