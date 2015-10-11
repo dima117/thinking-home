@@ -49,7 +49,7 @@ namespace ThinkingHome.Plugins.Listener
 		{
 			appBuilder
 				.Use<ListenerModule>(registeredHandlers, Logger)
-				.MapHubs()
+				.MapSignalR()
 				.Use<Error404Module>();
 		}
 
