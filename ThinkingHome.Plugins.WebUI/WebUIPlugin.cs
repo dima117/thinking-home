@@ -84,6 +84,7 @@ namespace ThinkingHome.Plugins.WebUI
 	[JavaScriptResource("/application2/app.js", "ThinkingHome.Plugins.WebUI.Resources.Application.application2.app.js")]
 	[JavaScriptResource("/application2/app-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.application2.app-view.js")]
 	[JavaScriptResource("/application2/app-router.js", "ThinkingHome.Plugins.WebUI.Resources.Application.application2.app-router.js")]
+	[JavaScriptResource("/application2/app-radio.js", "ThinkingHome.Plugins.WebUI.Resources.Application.application2.app-radio.js")]
 	[JavaScriptResource("/application2/app-time.js", "ThinkingHome.Plugins.WebUI.Resources.Application.application2.app-time.js")]
 	[HttpResource("/application2/app-layout.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.application2.app-layout.tpl")]
 

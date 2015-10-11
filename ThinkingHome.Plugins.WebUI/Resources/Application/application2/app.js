@@ -1,6 +1,6 @@
 ﻿define(
-	['lib', 'application2/app-view', 'application2/app-router', 'application2/app-time'],
-	function (lib, views, routing, time) {
+	['lib', 'application2/app-view', 'application2/app-router', 'application2/app-radio', 'application2/app-time'],
+	function (lib, views, routing, messages, time) {
 
 		var homeApplication = lib.marionette.Application.extend({
 			initialize: function (options) {
@@ -12,14 +12,18 @@
 
 				this.timer = new time.Timer();
 				this.timer.on('update', this._updateInfo, this);
+
+				this.radio = new messages.Radio();
 			},
 			onStart: function () {
 				this.layout.render();
 				this.router.start();
+				this.radio.start();
 				this.timer.start();
 			},
 			onBeforeDestroy: function () {
 				this.layout.destroy();
+				this.radio.destroy();
 				this.timer.destroy();
 			},
 
