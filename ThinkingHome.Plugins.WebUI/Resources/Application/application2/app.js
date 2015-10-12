@@ -1,6 +1,10 @@
-﻿define(
-	['lib', 'application2/app-view', 'application2/app-router', 'application2/app-radio', 'application2/app-time'],
-	function (lib, views, routing, messages, time) {
+﻿define(['lib',
+	'application2/app-view',
+	'application2/app-router',
+	'application2/app-radio',
+	'application2/app-time',
+	'json!api/webui/styles.json'],
+	function (lib, views, routing, messages, time, cssFiles) {
 
 		var homeApplication = lib.marionette.Application.extend({
 			initialize: function (options) {
@@ -17,6 +21,8 @@
 			},
 			onStart: function () {
 				this.layout.render();
+				lib.utils.loadCss.apply(null, cssFiles);
+
 				this.router.start();
 				this.radio.start();
 				this.timer.start();

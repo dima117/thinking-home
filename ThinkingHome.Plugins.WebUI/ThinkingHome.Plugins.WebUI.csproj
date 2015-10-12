@@ -207,8 +207,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Application\application.js" />
-    <EmbeddedResource Include="Resources\Application\layout.js" />
-    <EmbeddedResource Include="Resources\Application\router.js" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Application\widgets\dashboard-list-model.js" />
