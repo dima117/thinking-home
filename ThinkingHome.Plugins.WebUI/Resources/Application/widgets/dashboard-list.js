@@ -1,57 +1,53 @@
-﻿define(['app', 'lib',
+﻿define(['lib',
 		'application/settings/dashboard-list-model.js',
 		'application/settings/dashboard-list-view.js'
 ],
-	function (application, lib, models, views) {
+	function (lib, models, views) {
 
-		var api = {
+		var dashboardList = lib.common.AppSection.extend({
+			start: function () {
+				this.loadDashboardList();
+			},
 
 			openDashboard: function (childView) {
-				
 				var id = childView.model.get("id");
-				application.navigate('application/settings/widget-list', id);
+				this.application.navigate('application/settings/widget-list', id);
 			},
 
 			createDashboard: function () {
-				
 				var title = window.prompt('Enter dashboard title');
 
 				if (title) {
-
-					models.createDashboard(title).done(api.loadDashboardList);
+					models.createDashboard(title).done(this.bindFnContext('loadDashboardList'));
 				}
 			},
 
 			deleteDashboard: function (childView) {
-
 				var id = childView.model.get('id'),
 					title = childView.model.get('title');
 
 				if (lib.utils.confirm('Do you want to delete the "{0}" dashboard?', title)) {
-
-					models.deleteDashboard(id).done(api.loadDashboardList);
+					models.deleteDashboard(id).done(this.bindFnContext('loadDashboardList'));
 				}
 			},
 
 			loadDashboardList: function () {
+				models.loadDashboardList().done(this.bindFnContext('displayDashboardList'));
+			},
 
-				models.loadDashboardList()
-					.done(function (list) {
+			displayDashboardList: function (list) {
 
-						var view = new views.DashboardListView({
-							collection: list
-						});
+				var view = new views.DashboardListView({
+					collection: list
+				});
 
-						view.on('dashboard:create', api.createDashboard);
-						view.on('childview:dashboard:open', api.openDashboard);
-						view.on('childview:dashboard:delete', api.deleteDashboard);
+				this.listenTo(view, 'dashboard:create', this.bindFnContext('createDashboard'))
+				this.listenTo(view, 'childview:dashboard:open', this.bindFnContext('openDashboard'))
+				this.listenTo(view, 'childview:dashboard:delete', this.bindFnContext('deleteDashboard'))
 
-						application.setContentView(view);
-					});
+				this.application.setContentView(view);
 			}
-		};
+		});
 
-		return {
-			start: api.loadDashboardList
-		};
+		return dashboardList;
 	});
