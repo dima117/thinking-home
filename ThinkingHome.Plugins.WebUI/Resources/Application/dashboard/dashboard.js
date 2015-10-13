@@ -20,16 +20,16 @@
 				if (details) {
 
 					// layout
-					var layout = this.view = new views.LayoutView({ model: details.panels });
-					this.application.setContentView(this.view);
+					var layout = new views.LayoutView({ model: details.panels });
+					this.application.setContentView(layout);
 
 					// menu
 					var menu = new views.MenuView({
 						collection: details.dashboards
 					});
 
-					menu.on('childview:dashboard:select', this.bindFnContext('onSelect'));
-					this.view.getRegion('menu').show(menu);
+					this.listenTo(menu, 'childview:dashboard:select', this.bindFnContext('onSelect'));
+					layout.getRegion('menu').show(menu);
 
 					// widgets
 					details.panels.each(function (panel) {
@@ -52,10 +52,13 @@
 						});
 					});
 				} else {
-					this.view = new views.EmptyView();
-					this.application.setContentView(this.view);
+					var empty = new views.EmptyView();
+					this.application.setContentView(empty);
 				}
-			}
+			},
+			onBeforeDestroy: function () {
+				// dima117@todo: уничтожать виджеты
+			},
 		});
 
 		return dashboard;

@@ -58,3 +58,12 @@
 
 hourly -    http://api.wunderground.com/api/6924685d839dcbf6/hourly/lang:RU/q/Russia/Moscow.json
 forecast -  http://api.wunderground.com/api/6924685d839dcbf6/forecast/lang:RU/q/Russia/Moscow.json
+
+
+Создание/удаление сущностей
+- сущности
+  - приложение, разделы приложения, виджеты
+  - отображение представлений через region.show() - в этом случае они уничтожаются автоматически
+  - подписка на события - через listenTo() - в этом случае автоматически отписываемся при уничтожении
+  - остальные действия при удалении сущности добавлять в onBeforeDestroy
+   
