@@ -51,9 +51,16 @@
 				route = route || 'dashboard';
 				args = args || [];
 
-				require([route], function (obj) {
+				require([route], function (appSection) {
 
-					obj.start.apply(obj, args);
+					self.appSection instanceof lib.common.AppSection && self.appSection.destroy();
+
+					// todo: после адаптации убрать проверки
+					var instance = self.appSection = lib._.isFunction(appSection)
+						? new appSection({ application: self })
+						: appSection;
+
+					instance.start.apply(instance, args);
 					self.router.setPath(route, args);
 				});
 			},

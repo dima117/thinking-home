@@ -20,6 +20,7 @@
 		chart: 'vendor/js/chart.min',
 		'chart.scatter': 'vendor/js/chart.scatter.min',
 		'dashboard-layout': 'application/libs/dashboard-layout',
+		'common': 'application/libs/common',
 
 		signalr: 'vendor/js/jquery.signalr.min',
 		hubs: 'signalr/hubs?dummy=',

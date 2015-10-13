@@ -1,5 +1,6 @@
 ﻿define(
 	[
+		'common',
 		'marionette',
 		'backbone',
 		'underscore',
@@ -9,13 +10,14 @@
 		'handlebars',
 		'moment',
 		'chart',
+
 		'chart.scatter',
 		'bootstrap',
 		'dashboard-layout',
 		'signalr',
 		'hubs'
 	],
-	function (marionette, backbone, underscore, jquery, json2, syphon, handlebars, moment, chartjs) {
+	function (common, marionette, backbone, underscore, jquery, json2, syphon, handlebars, moment, chartjs) {
 
 		var utils = {
 			formatString: function () {
@@ -153,6 +155,7 @@
 		//#endregion
 
 		return {
+			common: common,
 			marionette: marionette,
 			backbone: backbone,
 			_: underscore,

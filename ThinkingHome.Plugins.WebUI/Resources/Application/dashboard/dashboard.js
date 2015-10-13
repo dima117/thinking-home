@@ -1,39 +1,35 @@
-﻿define(['app', 'lib',
+﻿define(['lib',
 		'application/dashboard-model.js',
 		'application/dashboard-view.js',
 		'json!api/webui/widgets.json'
 ],
-	function (application, lib, models, views, widgetTypes) {
+	function (lib, models, views, widgetTypes) {
 
-		var api = {
-
-			load: function (id) {
-
-				models.loadDetails(id).done(api.displayDetails);
+		// todo: реализовать onBeforeDestroy
+		var dashboard = lib.common.AppSection.extend({
+			start: function (id) {
+				models.loadDetails(id)
+					.done(this.bindFnContext('displayDetails'));
 			},
-
-			select: function (item) {
-
+			onSelect: function (item) {
 				var id = item.model.get('id');
-				application.navigate('dashboard', id);
+				this.application.navigate('dashboard', id);
 			},
-
 			displayDetails: function (details) {
 
 				if (details) {
 
 					// layout
-					var layout = new views.LayoutView({ model: details.panels });
-					application.setContentView(layout);
+					var layout = this.view = new views.LayoutView({ model: details.panels });
+					this.application.setContentView(this.view);
 
 					// menu
 					var menu = new views.MenuView({
 						collection: details.dashboards
 					});
 
-					menu.on('childview:dashboard:select', api.select);
-
-					layout.getRegion('menu').show(menu);
+					menu.on('childview:dashboard:select', this.bindFnContext('onSelect'));
+					this.view.getRegion('menu').show(menu);
 
 					// widgets
 					details.panels.each(function (panel) {
@@ -56,14 +52,11 @@
 						});
 					});
 				} else {
-
-					var empty = new views.EmptyView();
-					application.setContentView(empty);
+					this.view = new views.EmptyView();
+					this.application.setContentView(this.view);
 				}
 			}
-		};
+		});
 
-		return {
-			start: api.load
-		};
+		return dashboard;
 	});
