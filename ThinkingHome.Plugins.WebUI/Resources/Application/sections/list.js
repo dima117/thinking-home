@@ -1,29 +1,24 @@
 ﻿define(
-	['app', 'application/sections/list-model', 'application/sections/list-view'],
-	function (application, models, views) {
+	['lib', 'application/sections/list-model', 'application/sections/list-view'],
+	function (lib, models, views) {
 
-		var api = {
-
-			navigate: function (childView) {
-
-				var path = childView.model.get('path');
-				application.navigate(path);
+		var sectionList = lib.common.AppSection.extend({
+			start: function () {
+				// todo: переписать выбор метода для загрузки списка
+				models[this.requestName]().done(this.bindFnContext('displayList'));
 			},
 
-			reload: function (requestName, pageTitle) {
+			displayList: function (items) {
+				var view = new views.SectionListView({ collection: items, title: this.pageTitle });
+				this.listenTo(view, 'childview:sections:navigate', this.bindFnContext('onSectionSelect'))
+				this.application.setContentView(view);
+			},
 
-				// todo: переписать выбор метода для загрузки списка
-				models[requestName]().done(function (items) {
-
-					var view = new views.SectionListView({ collection: items, title: pageTitle });
-					view.on('childview:sections:navigate', api.navigate);
-
-					application.setContentView(view);
-				});
+			onSectionSelect: function (childView) {
+				var path = childView.model.get('path');
+				this.application.navigate(path);
 			}
-		};
+		});
 
-		return {
-			api: api
-		};
+		return sectionList;
 	});

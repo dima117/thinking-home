@@ -12,12 +12,12 @@
 		onBeforeDestroy: function () {
 
 		},
-		bindFnContext: function (fn, needInnerContext) {
+		bindFnContext: function (fn, provideInnerContext) {
 			var func = _.isString(fn) ? this[fn] : fn,
 				ctx = this;
 
 			return function () {
-				var args = needInnerContext ? [this].concat([].slice.call(arguments)) : arguments;
+				var args = provideInnerContext ? [this].concat([].slice.call(arguments)) : arguments;
 				return func.apply(ctx, args);
 			};
 		}

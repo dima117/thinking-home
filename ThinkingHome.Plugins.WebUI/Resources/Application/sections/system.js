@@ -1,10 +1,9 @@
 ﻿define(
 	['application/sections/list'],
-	function (sections) {
+	function (sectionList) {
 
-		return {
-			start: function () {
-				sections.api.reload('loadSystemSections', 'System pages');
-			}
-		};
+		return sectionList.extend({
+			requestName: 'loadSystemSections',
+			pageTitle: 'System pages'
+		});
 	});

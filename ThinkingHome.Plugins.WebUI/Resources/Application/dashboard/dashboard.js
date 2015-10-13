@@ -8,8 +8,7 @@
 		// todo: реализовать onBeforeDestroy
 		var dashboard = lib.common.AppSection.extend({
 			start: function (id) {
-				models.loadDetails(id)
-					.done(this.bindFnContext('displayDetails'));
+				models.loadDetails(id).done(this.bindFnContext('displayDetails'));
 			},
 			onSelect: function (item) {
 				var id = item.model.get('id');

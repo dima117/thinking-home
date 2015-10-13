@@ -1,10 +1,9 @@
 ﻿define(
 	['application/sections/list'],
-	function (sections) {
+	function (sectionList) {
 
-		return {
-			start: function () {
-				sections.api.reload('loadCommonSections', 'Common pages');
-			}
-		};
+		return sectionList.extend({
+			requestName: 'loadCommonSections',
+			pageTitle: 'Common pages'
+		});
 	});
