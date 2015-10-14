@@ -5,12 +5,12 @@
 		var sectionList = lib.common.AppSection.extend({
 			start: function () {
 				// todo: переписать выбор метода для загрузки списка
-				models[this.requestName]().done(this.bindFnContext('displayList'));
+				models[this.requestName]().done(this.bind('displayList'));
 			},
 
 			displayList: function (items) {
 				var view = new views.SectionListView({ collection: items, title: this.pageTitle });
-				this.listenTo(view, 'childview:sections:navigate', this.bindFnContext('onSectionSelect'))
+				this.listenTo(view, 'childview:sections:navigate', this.bind('onSectionSelect'))
 				this.application.setContentView(view);
 			},
 

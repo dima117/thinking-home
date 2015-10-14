@@ -8,7 +8,7 @@
 		// todo: реализовать onBeforeDestroy
 		var dashboard = lib.common.AppSection.extend({
 			start: function (id) {
-				models.loadDetails(id).done(this.bindFnContext('displayDetails'));
+				models.loadDetails(id).done(this.bind('displayDetails'));
 			},
 			onSelect: function (item) {
 				var id = item.model.get('id');
@@ -27,7 +27,7 @@
 						collection: details.dashboards
 					});
 
-					this.listenTo(menu, 'childview:dashboard:select', this.bindFnContext('onSelect'));
+					this.listenTo(menu, 'childview:dashboard:select', this.bind('onSelect'));
 					layout.getRegion('menu').show(menu);
 
 					// widgets

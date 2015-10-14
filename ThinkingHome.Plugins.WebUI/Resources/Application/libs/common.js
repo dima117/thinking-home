@@ -12,13 +12,13 @@
 		onBeforeDestroy: function () {
 
 		},
-		bindFnContext: function (fn, provideInnerContext) {
+		bind: function (fn) {
 			var func = _.isString(fn) ? this[fn] : fn,
+				args = [].slice.call(arguments, 1);
 				ctx = this;
 
 			return function () {
-				var args = provideInnerContext ? [this].concat([].slice.call(arguments)) : arguments;
-				return func.apply(ctx, args);
+				return func.apply(ctx, args.concat([].slice.call(arguments)));
 			};
 		}
 	});

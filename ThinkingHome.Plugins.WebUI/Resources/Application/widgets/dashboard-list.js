@@ -18,7 +18,7 @@
 				var title = window.prompt('Enter dashboard title');
 
 				if (title) {
-					models.createDashboard(title).done(this.bindFnContext('loadDashboardList'));
+					models.createDashboard(title).done(this.bind('loadDashboardList'));
 				}
 			},
 
@@ -27,12 +27,12 @@
 					title = childView.model.get('title');
 
 				if (lib.utils.confirm('Do you want to delete the "{0}" dashboard?', title)) {
-					models.deleteDashboard(id).done(this.bindFnContext('loadDashboardList'));
+					models.deleteDashboard(id).done(this.bind('loadDashboardList'));
 				}
 			},
 
 			loadDashboardList: function () {
-				models.loadDashboardList().done(this.bindFnContext('displayDashboardList'));
+				models.loadDashboardList().done(this.bind('displayDashboardList'));
 			},
 
 			displayDashboardList: function (list) {
@@ -41,9 +41,9 @@
 					collection: list
 				});
 
-				this.listenTo(view, 'dashboard:create', this.bindFnContext('createDashboard'))
-				this.listenTo(view, 'childview:dashboard:open', this.bindFnContext('openDashboard'))
-				this.listenTo(view, 'childview:dashboard:delete', this.bindFnContext('deleteDashboard'))
+				this.listenTo(view, 'dashboard:create', this.bind('createDashboard'));
+				this.listenTo(view, 'childview:dashboard:open', this.bind('openDashboard'));
+				this.listenTo(view, 'childview:dashboard:delete', this.bind('deleteDashboard'));
 
 				this.application.setContentView(view);
 			}
