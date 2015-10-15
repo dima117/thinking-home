@@ -1,59 +1,55 @@
 ﻿define(
-	['app', 'lib',
+	['lib',
 		'webapp/alarm-clock/list-model',
 		'webapp/alarm-clock/list-view'],
-	function (application, lib, models, views) {
+	function (lib, models, views) {
 
-		var api = {
+		var alarmList = lib.common.AppSection.extend({
+			start: function () {
+				this.reload();
+			},
 
 			addAlarm: function () {
-				application.navigate('webapp/alarm-clock/editor');
+				this.application.navigate('webapp/alarm-clock/editor');
 			},
 
 			editAlarm: function (childView) {
-
 				var id = childView.model.get('id');
-				application.navigate('webapp/alarm-clock/editor', id);
+				this.application.navigate('webapp/alarm-clock/editor', id);
 			},
 
 			enable: function (childView) {
 				var id = childView.model.get('id');
-				models.setState(id, true).done(api.reload);
+				models.setState(id, true).done(this.bind('reload'));
 			},
 
 			disable: function (childView) {
 				var id = childView.model.get('id');
-				models.setState(id, false).done(api.reload);
+				models.setState(id, false).done(this.bind('reload'));
 			},
 
 			stopAllSounds: function () {
-
 				models.stopAlarm().done(function () {
-
 					lib.utils.alert('All alarm sounds were stopped.');
 				});
 			},
 
+			displayList: function (items) {
+				var view = new views.AlarmListView({ collection: items });
+
+				this.listenTo(view, 'alarm-clock:add', this.bind('addAlarm'));
+				this.listenTo(view, 'alarm-clock:stop', this.bind('stopAllSounds'));
+				this.listenTo(view, 'childview:alarm-clock:enable', this.bind('enable'));
+				this.listenTo(view, 'childview:alarm-clock:disable', this.bind('disable'));
+				this.listenTo(view, 'childview:alarm-clock:edit', this.bind('editAlarm'));
+
+				this.application.setContentView(view);
+			},
+
 			reload: function () {
-
-				models.loadList().done(function (items) {
-
-					var view = new views.AlarmListView({ collection: items });
-
-					view.on('alarm-clock:add', api.addAlarm);
-					view.on('alarm-clock:stop', api.stopAllSounds);
-					view.on('childview:alarm-clock:enable', api.enable);
-					view.on('childview:alarm-clock:disable', api.disable);
-					view.on('childview:alarm-clock:edit', api.editAlarm);
-
-					application.setContentView(view);
-				});
+				models.loadList().done(this.bind('displayList'));
 			}
-		};
+		});
 
-		return {
-			start: function () {
-				api.reload();
-			}
-		};
+		return alarmList;
 	});
