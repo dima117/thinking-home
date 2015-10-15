@@ -1,48 +1,41 @@
-﻿define(['app', 'lib',
+﻿define(['lib',
 		'webapp/alarm-clock/editor-model',
 		'webapp/alarm-clock/editor-view'],
-	function (application, lib, models, views) {
+	function (lib, models, views) {
 
-		var api = {
+		var alarmEditor = lib.common.AppSection.extend({
+			start: function (id) {
+				models.loadEditorData(id).done(this.bind('createEditor'));
+			},
+
 			createEditor: function (model) {
-
 				var view = new views.AlarmEditorView({ model: model });
 
-				view.on('alarm-clock:editor:save', api.save);
-				view.on('alarm-clock:editor:cancel', api.redirectToList);
-				view.on('alarm-clock:editor:delete', api.deleteAlarm);
+				this.listenTo(view, 'alarm-clock:editor:save', this.bind('save', view));
+				this.listenTo(view, 'alarm-clock:editor:delete', this.bind('deleteAlarm', view));
+				this.listenTo(view, 'alarm-clock:editor:cancel', this.bind('redirectToList'));
 
-				application.setContentView(view);
+				this.application.setContentView(view);
 			},
 
-			edit: function (id) {
-
-				models.loadEditorData(id).done(api.createEditor);
+			save: function (view) {
+				var model = view.model.toJSON();
+				models.saveAlarm(model).done(this.bind('redirectToList'));
 			},
 
-			save: function () {
-
-				var model = this.model.toJSON();
-				models.saveAlarm(model).done(api.redirectToList);
-			},
-			deleteAlarm: function() {
-				
-				var name = this.model.get('name');
+			deleteAlarm: function (view) {
+				var name = view.model.get('name');
 
 				if (lib.utils.confirm('Do you want to delete the alarm?', name)) {
-
-					var id = this.model.get('id');
-					models.deleteAlarm(id).done(api.redirectToList);
+					var id = view.model.get('id');
+					models.deleteAlarm(id).done(this.bind('redirectToList'));
 				}
 			},
-			redirectToList: function () {
-				application.navigate('webapp/alarm-clock/list');
-			}
-		};
 
-		return {
-			start: function (id) {
-				api.edit(id);
+			redirectToList: function () {
+				this.application.navigate('webapp/alarm-clock/list');
 			}
-		};
+		});
+
+		return alarmEditor;
 	});
