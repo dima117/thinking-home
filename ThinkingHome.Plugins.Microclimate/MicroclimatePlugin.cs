@@ -13,6 +13,7 @@ using ThinkingHome.Plugins.Microclimate.Model;
 using ThinkingHome.Plugins.NooLite;
 using ThinkingHome.Plugins.Scripts;
 using ThinkingHome.Plugins.WebUI.Attributes;
+using ThinkingHome.Plugins.Listener;
 
 [assembly: MigrationAssembly("ThinkingHome.Plugins.Microclimate")]
 
@@ -79,6 +80,9 @@ namespace ThinkingHome.Plugins.Microclimate
 
 					session.Save(sensor);
 					session.Save(data);
+
+					Context.GetPlugin<ListenerPlugin>()
+						.Send("microclimate:sensor:update", new { id = sensor.Id });
 				}
 
 				session.Flush();
