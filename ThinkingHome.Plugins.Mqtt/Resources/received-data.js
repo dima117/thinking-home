@@ -33,6 +33,7 @@
 
 				this.listenTo(view, 'reload:messages', this.bind('reloadMessages', view));
 				this.listenTo(view, 'childview:delete:message', this.bind('deleteMessage', view));
+				this.listenTo(this.application.radio, 'mqtt:message', this.bind('reloadMessages', view))
 
 				this.application.setContentView(view);
 			},

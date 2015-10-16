@@ -13,6 +13,7 @@ using ThinkingHome.Plugins.Scripts;
 using ThinkingHome.Plugins.Timer.Attributes;
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
+using ThinkingHome.Plugins.Listener;
 
 [assembly: MigrationAssembly("ThinkingHome.Plugins.Mqtt")]
 
@@ -125,7 +126,9 @@ namespace ThinkingHome.Plugins.Mqtt
 				Run(OnMessageReceivedForPlugins, x => x(message));
 
 				this.RaiseScriptEvent(x => x.OnMessageReceivedForScripts, message.path);
-			}
+
+				Context.GetPlugin<ListenerPlugin>().Send("mqtt:message", message);
+            }
 		}
 
 		void client_ConnectionClosed(object sender, EventArgs e)
