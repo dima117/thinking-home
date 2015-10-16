@@ -1,51 +1,46 @@
-﻿define(['app', 'lib',
+﻿define(['lib',
 		'webapp/mqtt/received-data-model',
 		'webapp/mqtt/received-data-view'],
-	function (application, lib, models, views) {
+	function (lib, models, views) {
 
-		var api = {
-			reloadMessages: function () {
+		var messageList = lib.common.AppSection.extend({
+			start: function () {
+				this.loadMessageList();
+			},
 
-				var collection = api.view.collection;
-
+			reloadMessages: function (view) {
 				models.loadMessages()
 					.done(function (model) {
-
 						var messages = model.messages.toJSON();
-						collection.reset(messages);
+						view.collection.reset(messages);
 					});
 			},
-			deleteMessage: function (childView) {
 
+			deleteMessage: function (view, childView) {
 				var path = childView.model.get("path");
 
 				if (lib.utils.confirm('Do you want to delete saved message?\n"{0}"', path)) {
-
 					var id = childView.model.get('id');
-
-					models.deleteMessage(id).done(api.reloadMessages);
+					models.deleteMessage(id).done(this.bind('reloadMessages', view));
 				}
 			},
+
+			displayMessageList: function (model) {
+				var view = new views.MessageList({
+					model: model.info,
+					collection: model.messages
+				});
+
+				this.listenTo(view, 'reload:messages', this.bind('reloadMessages', view));
+				this.listenTo(view, 'childview:delete:message', this.bind('deleteMessage', view));
+
+				this.application.setContentView(view);
+			},
+
 			loadMessageList: function () {
-
-				models.loadMessages()
-					.done(function (model) {
-
-						var view = new views.MessageList({
-							model: model.info,
-							collection: model.messages
-						});
-
-						view.on('reload:messages', api.reloadMessages);
-						view.on('childview:delete:message', api.deleteMessage);
-
-						api.view = view;
-						application.setContentView(view);
-					});
+				models.loadMessages().done(this.bind('displayMessageList'));
 			}
-		};
+		});
 
-		return {
-			start: api.loadMessageList
-		};
+		return messageList;
 	});
