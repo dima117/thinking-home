@@ -108,6 +108,7 @@ a.list-group-item:hover {
 	right: 0;
 	bottom: 0;
 	overflow: auto;
+	z-index: 1040;
 }
 
 .th-container {
