@@ -99,6 +99,12 @@ namespace ThinkingHome.Plugins.NooLite
 			SendCommand((int)PC11XXCommand.SetLevel, channel, level);
 		}
 
+		[ScriptCommand("nooliteSetRgbLevel")]
+		public void SetRgbLevel(int channel, int levelR, int levelG, int levelB)
+		{
+			SendLedCommand((int)PC11XXLedCommand.SetLevel, channel, levelR, levelG, levelB);
+		}
+
 		[ScriptCommand("nooliteSendCommand")]
 		public void SendCommand(int command, int channel, int level)
 		{

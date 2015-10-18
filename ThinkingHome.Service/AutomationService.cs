@@ -1,30 +1,35 @@
-﻿using System.ServiceProcess;
+﻿using System;
+using System.ServiceProcess;
+using System.Threading.Tasks;
 using ThinkingHome.Core.Infrastructure;
 
 namespace ThinkingHome.Service
 {
 	public partial class AutomationService : ServiceBase
 	{
-		private readonly HomeApplication app;
+		private readonly Task<HomeApplication> appTask;
 
 		public AutomationService()
 		{
 			InitializeComponent();
-
 			HomeEnvironment.Init();
-
-			app = new HomeApplication();
-			app.Init();
 		}
 
 		protected override void OnStart(string[] args)
 		{
-			app.StartServices();
-		}
+			var appTask = Task.Run(() => {
+				var app = new HomeApplication();
+				app.Init();
+				app.StartServices();
+
+				return app;
+			});
+        }
 
 		protected override void OnStop()
 		{
-			app.StopServices();
+			appTask.Wait();
+			appTask.Result.StopServices();
 		}
 	}
 }
