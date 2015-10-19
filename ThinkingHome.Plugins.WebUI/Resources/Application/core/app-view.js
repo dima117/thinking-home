@@ -1,14 +1,7 @@
 ﻿define(
-	['lib', 'text!application2/app-layout.tpl'],
+	['lib', 'text!application/core/app-layout.tpl'],
 	function (lib, layoutTemplate) {
 
-		/* 
-			layout
-			- content
-			- доп меню
-			- клики по общим ссылкам
-			- панель времени
-		*/
 		var createLinkHandler = function (route, hideMenu) {
 			return function (e) {
 				e.preventDefault();

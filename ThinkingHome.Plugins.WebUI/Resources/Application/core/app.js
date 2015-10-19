@@ -1,8 +1,8 @@
 ﻿define(['lib',
-	'application2/app-view',
-	'application2/app-router',
-	'application2/app-radio',
-	'application2/app-time',
+	'application/core/app-view',
+	'application/core/app-router',
+	'application/core/app-radio',
+	'application/core/app-time',
 	'json!api/webui/styles.json'],
 	function (lib, views, routing, messages, time, cssFiles) {
 

@@ -56,7 +56,7 @@
 	}
 });
 
-require(['application2/app'], function (application) {
+require(['application/core/app'], function (application) {
 	var app = new application();
 	app.start();
 });

@@ -80,13 +80,13 @@ namespace ThinkingHome.Plugins.WebUI
 	[JavaScriptResource("/application/index.js", "ThinkingHome.Plugins.WebUI.Resources.Application.index.js")]
 	[JavaScriptResource("/application/lib.js", "ThinkingHome.Plugins.WebUI.Resources.Application.lib.js")]
 
-	// application2
-	[JavaScriptResource("/application2/app.js", "ThinkingHome.Plugins.WebUI.Resources.Application.application2.app.js")]
-	[JavaScriptResource("/application2/app-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.application2.app-view.js")]
-	[JavaScriptResource("/application2/app-router.js", "ThinkingHome.Plugins.WebUI.Resources.Application.application2.app-router.js")]
-	[JavaScriptResource("/application2/app-radio.js", "ThinkingHome.Plugins.WebUI.Resources.Application.application2.app-radio.js")]
-	[JavaScriptResource("/application2/app-time.js", "ThinkingHome.Plugins.WebUI.Resources.Application.application2.app-time.js")]
-	[HttpResource("/application2/app-layout.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.application2.app-layout.tpl")]
+	// core
+	[JavaScriptResource("/application/core/app.js", "ThinkingHome.Plugins.WebUI.Resources.Application.core.app.js")]
+	[JavaScriptResource("/application/core/app-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.core.app-view.js")]
+	[JavaScriptResource("/application/core/app-router.js", "ThinkingHome.Plugins.WebUI.Resources.Application.core.app-router.js")]
+	[JavaScriptResource("/application/core/app-radio.js", "ThinkingHome.Plugins.WebUI.Resources.Application.core.app-radio.js")]
+	[JavaScriptResource("/application/core/app-time.js", "ThinkingHome.Plugins.WebUI.Resources.Application.core.app-time.js")]
+	[HttpResource("/application/core/app-layout.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.core.app-layout.tpl")]
 
 	// webapp: sections
 	[JavaScriptResource("/application/sections/system.js", "ThinkingHome.Plugins.WebUI.Resources.Application.sections.system.js")]
