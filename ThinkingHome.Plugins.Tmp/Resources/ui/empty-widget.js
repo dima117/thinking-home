@@ -1,4 +1,4 @@
-﻿define(['app', 'lib'], function (application, lib) {
+﻿define(['lib'], function (lib) {
 
 	var emptyWidgetView = lib.marionette.ItemView.extend({
 		template: lib.handlebars.compile(
@@ -20,9 +20,9 @@
 			view.on("btn:click", clickHandler);
 
 			// обращаемся снаружи к DOM элементам представления - не делайте так никогда
-			application.radio.on('server:time', function (msg) {
-				view.$('.btn').text(msg.data);
-			});
+			//application.radio.on('server:time', function (msg) {
+			//	view.$('.btn').text(msg.data);
+			//});
 
 			region.show(view);
 		}

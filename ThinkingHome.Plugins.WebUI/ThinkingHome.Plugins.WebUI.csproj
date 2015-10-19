@@ -206,9 +206,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Application\application.js" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\Application\widgets\dashboard-list-model.js" />
   </ItemGroup>
   <ItemGroup>

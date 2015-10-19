@@ -1,7 +1,6 @@
 ﻿requirejs.config({
 	baseUrl: '/',
 	paths: {
-		app: 'application/application',
 		lib: 'application/lib',
 
 		text: 'vendor/js/require-text',
@@ -57,6 +56,7 @@
 	}
 });
 
-require(['app'], function (app) {
+require(['application2/app'], function (application) {
+	var app = new application();
 	app.start();
 });
