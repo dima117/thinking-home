@@ -1,55 +1,44 @@
 ﻿define(
-	['app', 'webapp/scripts/script-editor-model', 'webapp/scripts/script-editor-view'],
-	function (application, models, views) {
+	['lib', 'webapp/scripts/script-editor-model', 'webapp/scripts/script-editor-view'],
+	function (lib, models, views) {
 
-		var api = {
-
-			createEditor: function (model) {
-
-				var view = new views.ScriptEditorView({ model: model });
-
-				view.on('scripts:editor:cancel', api.redirectToList);
-				view.on('scripts:editor:save', api.save);
-
-				application.setContentView(view);
+		var scriptEditor = lib.common.AppSection.extend({
+			start: function (scriptId) {
+				if (scriptId) {
+					this.edit(scriptId);
+				} else {
+					this.add();
+				}
 			},
 
 			redirectToList: function () {
-				application.navigate('webapp/scripts/script-list');
+				this.application.navigate('webapp/scripts/script-list');
 			},
 
-			save: function (data) {
+			save: function (view, data) {
+				view.model.set(data);
+				models.saveScript(view.model).done(this.bind('redirectToList'));
+			},
 
-				this.model.set(data);
+			createEditor: function (model) {
+				var view = new views.ScriptEditorView({ model: model });
 
-				models.saveScript(this.model).done(api.redirectToList);
+				this.listenTo(view, 'scripts:editor:cancel', this.bind('redirectToList'));
+				this.listenTo(view, 'scripts:editor:save', this.bind('save', view));
+
+				this.application.setContentView(view);
 			},
 
 			edit: function (scriptId) {
-
-				models.loadScript(scriptId).done(api.createEditor);
+				models.loadScript(scriptId).done(this.bind('createEditor'));
 			},
 
 			add: function () {
-
 				var name = window.prompt('Enter script name:', '');
-
-				if (name) {
-
-					var model = new models.ScriptData({ name: name });
-					api.createEditor(model);
-				}
+				var model = new models.ScriptData({ name: name || 'noname' });
+				this.createEditor(model);
 			}
-		};
+		});
 
-		return {
-			start: function (scriptId) {
-
-				if (scriptId) {
-					api.edit(scriptId);
-				} else {
-					api.add();
-				}
-			}
-		};
+		return scriptEditor;
 	});
