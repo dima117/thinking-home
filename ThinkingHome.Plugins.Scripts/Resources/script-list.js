@@ -1,63 +1,57 @@
 ﻿define(
-	['app',
-		'lib',
+	['lib',
 		'webapp/scripts/script-list-model',
 		'webapp/scripts/script-list-view'],
-	function (application, lib, models, views) {
+	function (lib, models, views) {
 
-		var api = {
+		var scriptList = lib.common.AppSection.extend({
+			start: function () {
+				this.reload();
+			},
+
 			runScript: function (view) {
-
 				var scriptId = view.model.get('id');
 
 				models.runScript(scriptId).done(function () {
-
 					var name = view.model.get('name');
 					lib.utils.alert('The script "{0}" has been executed.', name);
 				});
 			},
 
 			deleteScript: function (view) {
-
 				var scriptName = view.model.get('name');
 
 				if (lib.utils.confirm('Delete the script "{0}"?', scriptName)) {
-
 					var scriptId = view.model.get('id');
-
-					models.deleteScript(scriptId).done(api.reload);
+					models.deleteScript(scriptId).done(this.bind('reload'));
 				}
 			},
 
 			addScript: function () {
-
-				application.navigate('webapp/scripts/script-editor');
+				this.application.navigate('webapp/scripts/script-editor');
 			},
-			editScript: function (childView) {
 
-				var scriptId = childView.model.get('id');
-				application.navigate('webapp/scripts/script-editor', scriptId);
+			editScript: function (view) {
+				var scriptId = view.model.get('id');
+				this.application.navigate('webapp/scripts/script-editor', scriptId);
 			},
+
+			displayList: function (items) {
+				var view = new views.ScriptListView({ collection: items });
+
+				this.listenTo(view, 'scripts:add', this.bind('addScript'));
+				this.listenTo(view, 'childview:scripts:edit', this.bind('editScript'));
+				this.listenTo(view, 'childview:scripts:run', this.bind('runScript'));
+				this.listenTo(view, 'childview:scripts:delete', this.bind('deleteScript'));
+
+				this.application.setContentView(view);
+			},
+
 			reload: function () {
-
 				models.loadScriptList()
-					.done(function (items) {
-
-						var view = new views.ScriptListView({ collection: items });
-
-						view.on('scripts:add', api.addScript);
-						view.on('childview:scripts:edit', api.editScript);
-						view.on('childview:scripts:run', api.runScript);
-						view.on('childview:scripts:delete', api.deleteScript);
-
-						application.setContentView(view);
-					});
+					.done(this.bind('displayList'));
 			}
-		};
+		});
 
-		return {
-			start: function () {
-				api.reload();
-			}
-		};
+		return scriptList;
 	});

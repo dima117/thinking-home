@@ -33,7 +33,7 @@
 
 		_formatQueryString: function (args) {
 
-			if (lib._.isArray(args)) {
+			if (lib._.isArray(args) && args.length) {
 
 				return '?' + args.map(function (arg) {
 					return encodeURIComponent(arg);
