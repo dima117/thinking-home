@@ -1,39 +1,37 @@
 ﻿define(
-	['app', 'lib',
+	['lib',
 		'webapp/weather/locations-model',
 		'webapp/weather/locations-view'],
-	function (application, lib, models, views) {
+	function (lib, models, views) {
 
-		var layoutView;
+		var locationList = lib.common.AppSection.extend({
+			start: function () {
+				this.layout = new views.WeatherSettingsLayout();
+				this.application.setContentView(this.layout);
 
-		var api = {
+				this.reloadForm();
+				this.reloadList();
+			},
 
 			addLocation: function (data) {
-
 				if (data.displayName && data.query) {
-
-					models.addLocation(data.displayName, data.query).done(api.reloadList);
+					models.addLocation(data.displayName, data.query).done(this.bind('reloadList'));
 				}
 			},
 
 			deleteLocation: function (childView) {
-
 				var displayName = childView.model.get('displayName');
 
 				if (lib.utils.confirm('Delete the location "{0}" and all location data?', displayName)) {
-
 					var locationId = childView.model.get('id');
-
-					models.deleteLocation(locationId).done(api.reloadList);
+					models.deleteLocation(locationId).done(this.bind('reloadList'));
 				}
 			},
 
 			updateLocation: function (childView) {
-
 				var locationId = childView.model.get('id');
 
 				childView.showSpinner();
-
 				models.updateLocation(locationId)
 					.done(function () {
 						childView.hideSpinner();
@@ -41,37 +39,25 @@
 			},
 
 			reloadForm: function () {
-
 				var formData = new models.Location();
-
 				var form = new views.WeatherSettingsFormView({ model: formData });
-				form.on('weather:location:add', api.addLocation);
-				layoutView.regionForm.show(form);
+
+				this.listenTo(form, 'weather:location:add', this.bind('addLocation'))
+				this.layout.regionForm.show(form);
+			},
+
+			displayList: function (list) {
+				var view = new views.LocationListView({ collection: list });
+				this.listenTo(view, 'childview:weather:location:delete', this.bind('deleteLocation'));
+				this.listenTo(view, 'childview:weather:location:update', this.bind('updateLocation'));
+
+				this.layout.regionList.show(view);
 			},
 
 			reloadList: function () {
-
-				models.loadLocations()
-					.done(function (list) {
-
-						var view = new views.LocationListView({ collection: list });
-						view.on('childview:weather:location:delete', api.deleteLocation);
-						view.on('childview:weather:location:update', api.updateLocation);
-
-						layoutView.regionList.show(view);
-					});
+				models.loadLocations().done(this.bind('displayList'));
 			}
-		};
+		});
 
-		return {
-			start: function () {
-
-				// init layout
-				layoutView = new views.WeatherSettingsLayout();
-				application.setContentView(layoutView);
-
-				api.reloadForm();
-				api.reloadList();
-			}
-		};
+		return locationList;
 	});
