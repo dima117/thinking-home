@@ -1,12 +1,10 @@
 ﻿define(['lib'], function (lib) {
 
-	var PresetLoaderWidgetView = lib.marionette.ItemView.extend({
+	var presetLoaderWidgetView = lib.marionette.ItemView.extend({
 		template: lib.handlebars.compile(
-			'<div class="btn-group btn-group-justified">' +
-				'<a href="#" class="btn btn-default js-btn-load">{{displayName}}</a>' +
-			'</div>'),
+			'<a href="#" class="btn btn-default btn-block js-btn-load">{{displayName}}</a>'),
 		triggers: {
-			"click .js-btn-load": "preset-loader:load"
+			'click .js-btn-load': 'preset-loader:load'
 		}
 	});
 
@@ -16,14 +14,15 @@
 		}
 	};
 
-	return {
-		show: function (model, region) {
-			var view = new PresetLoaderWidgetView({ model: model });
-			var channel = model.get('data').channel;
+	var presetLoaderWidget = lib.common.Widget.extend({
+		show: function (model) {
+			var view = new presetLoaderWidgetView({ model: model }),
+				channel = model.get('data').channel;
 
-			view.on("preset-loader:load", createSender(channel, 7)); // NooLite Load
-
-			region.show(view);
+			this.listenTo(view, 'preset-loader:load', createSender(channel, 7)); // NooLite Load
+			this.region.show(view);
 		}
-	};
+	});
+
+	return presetLoaderWidget;
 });

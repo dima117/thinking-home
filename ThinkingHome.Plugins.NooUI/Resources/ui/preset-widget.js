@@ -1,6 +1,6 @@
 ﻿define(['lib'], function (lib) {
 
-	var presetLoaderWidgetView = lib.marionette.ItemView.extend({
+	var presetWidgetView = lib.marionette.ItemView.extend({
 		template: lib.handlebars.compile(
 			'<div>{{displayName}}</div>' +
 			'<div class="row">' +
@@ -12,8 +12,8 @@
 				'</div>' +
 			'</div>'),
 		triggers: {
-			"click .js-btn-load": "preset:load",
-			"click .js-btn-save": "preset:save"
+			'click .js-btn-load': 'preset:load',
+			'click .js-btn-save': 'preset:save'
 		}
 	});
 
@@ -23,9 +23,9 @@
 		}
 	};
 
-	var presetLoaderWidget = lib.common.Widget.extend({
+	var presetWidget = lib.common.Widget.extend({
 		show: function (model) {
-			var view = new presetLoaderWidgetView({ model: model }),
+			var view = new presetWidgetView({ model: model }),
 				channel = model.get('data').channel;
 
 			this.listenTo(view, 'preset:load', createSender(channel, 7)); // NooLite Load
@@ -35,5 +35,5 @@
 		}
 	});
 
-	return presetLoaderWidget;
+	return presetWidget;
 });

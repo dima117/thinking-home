@@ -50,10 +50,10 @@
 		ставим всем элементам References свойство Copy Local = false
 
 
-плагины для реализации:
-	- будильник
-	- погода
-	- хранилище
+оформление js кода
+- кавычки в строках - одинарные
+- отступы - через TAB
+- локальные переменные - с маленькой буквы
 
 
 hourly -    http://api.wunderground.com/api/6924685d839dcbf6/hourly/lang:RU/q/Russia/Moscow.json
