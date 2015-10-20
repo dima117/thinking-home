@@ -52,14 +52,9 @@
 				args = args || [];
 
 				require([route], function (appSection) {
+					self.appSection && self.appSection.destroy();
 
-					self.appSection instanceof lib.common.AppSection && self.appSection.destroy();
-
-					// todo: после адаптации убрать проверки
-					var instance = self.appSection = lib._.isFunction(appSection)
-						? new appSection({ application: self })
-						: appSection;
-
+					var instance = self.appSection = new appSection({ application: self });
 					instance.start.apply(instance, args);
 					self.router.setPath(route, args);
 				});

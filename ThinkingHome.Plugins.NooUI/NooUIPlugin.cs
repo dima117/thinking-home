@@ -20,7 +20,7 @@ namespace ThinkingHome.Plugins.NooUI
 	[WebWidget("nooui-preset-loader", "/widgets/nooui/preset-loader-widget.js", "ThinkingHome.Plugins.NooUI.Resources.ui.preset-loader-widget.js")]
 	[WebWidget("nooui-switcher", "/widgets/nooui/switcher-widget.js", "ThinkingHome.Plugins.NooUI.Resources.ui.switcher-widget.js")]
 	
-	class NooUIPlugin : PluginBase
+	public class NooUIPlugin : PluginBase
 	{
 
 	}

@@ -12,23 +12,26 @@
 			"click .js-btn-set": "btnSetClick",
 		},
 		btnSetClick: function (e) {
-			var brightness = lib.$(e.target).data("brightness");
-			this.trigger('dimmer:set', brightness); // call dimmerSet function with "brightness" data attribute from pressed button
+			e.preventDefault();
+			e.stopPropagation();
+
+			var channel = this.model.get('data').channel,
+				brightness = lib.$(e.target).data("brightness");
+			this.trigger('dimmer:set', channel, brightness);
 		}
 	});
 
-	var dimmerSet = function (brightness) {
-		var apiChannel = this.model.get('data').channel;
-		return lib.$.getJSON('/api/noolite', { ch: apiChannel, cmd: 6, br: brightness }); // NooLite Set
-	};
-
-	return {
+	var dimmerWidget = lib.common.Widget.extend({
 		show: function (model, region) {
 			var view = new DimmerWidgetView({ model: model });
 
-			view.on("dimmer:set",  dimmerSet);
+			this.listenTo(view, 'dimmer:set', function (channel, brightness) {
+				lib.$.getJSON('/api/noolite', { ch: channel, cmd: 6, br: brightness });
+			});
 
-			region.show(view);
-		}
-	};
+			this.region.show(view);
+		}	
+	});
+
+	return dimmerWidget;
 });
