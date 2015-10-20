@@ -1,6 +1,6 @@
 ﻿define(['lib'], function (lib) {
 
-	var PresetWidgetView = lib.marionette.ItemView.extend({
+	var presetLoaderWidgetView = lib.marionette.ItemView.extend({
 		template: lib.handlebars.compile(
 			'<div>{{displayName}}</div>' +
 			'<div class="row">' +
@@ -23,15 +23,17 @@
 		}
 	};
 
-	return {
-		show: function (model, region) {
-			var view = new PresetWidgetView({ model: model });
-			var channel = model.get('data').channel;
+	var presetLoaderWidget = lib.common.Widget.extend({
+		show: function (model) {
+			var view = new presetLoaderWidgetView({ model: model }),
+				channel = model.get('data').channel;
 
-			view.on("preset:load", createSender(channel, 7)); // NooLite Load
-			view.on("preset:save", createSender(channel, 8)); // NooLite Save
+			this.listenTo(view, 'preset:load', createSender(channel, 7)); // NooLite Load
+			this.listenTo(view, 'preset:save', createSender(channel, 8)); // NooLite Save
 
-			region.show(view);
+			this.region.show(view);
 		}
-	};
+	});
+
+	return presetLoaderWidget;
 });

@@ -1,6 +1,6 @@
 ﻿define(['lib'], function (lib) {
 
-	var DimmerWidgetView = lib.marionette.ItemView.extend({
+	var dimmerWidgetView = lib.marionette.ItemView.extend({
 		template: lib.handlebars.compile(
 			'<div>{{displayName}}</div>' +
 			'<div class="btn-group btn-group-justified">' +
@@ -22,8 +22,8 @@
 	});
 
 	var dimmerWidget = lib.common.Widget.extend({
-		show: function (model, region) {
-			var view = new DimmerWidgetView({ model: model });
+		show: function (model) {
+			var view = new dimmerWidgetView({ model: model });
 
 			this.listenTo(view, 'dimmer:set', function (channel, brightness) {
 				lib.$.getJSON('/api/noolite', { ch: channel, cmd: 6, br: brightness });
