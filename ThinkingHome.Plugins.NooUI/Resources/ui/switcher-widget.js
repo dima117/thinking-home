@@ -1,6 +1,6 @@
 ﻿define(['lib'], function (lib) {
 
-	var SwitcherWidgetView = lib.marionette.ItemView.extend({
+	var switcherWidgetView = lib.marionette.ItemView.extend({
 		template: lib.handlebars.compile(
 			'<div>{{displayName}}</div>' +
 				'<div class="btn-group btn-group-justified">' +
@@ -19,15 +19,16 @@
 		}
 	};
 
-	return {
-		show: function (model, region) {
-			var view = new SwitcherWidgetView({ model: model });
-			var channel = model.get('data').channel;
+	var switcherWidget = lib.common.Widget.extend({
+		show: function (model) {
+			var view = new switcherWidgetView({ model: model }),
+				channel = model.get('data').channel;
 
-			view.on("switcher:on",  createSender(channel, 2)); // NooLite On
-			view.on("switcher:off", createSender(channel, 0)); // NooLite Off
-
-			region.show(view);
+			this.listenTo(view, 'switcher:on', createSender(channel, 2));
+			this.listenTo(view, 'switcher:off', createSender(channel, 0));
+			this.region.show(view);
 		}
-	};
+	});
+
+	return switcherWidget;
 });
