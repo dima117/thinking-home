@@ -17,9 +17,6 @@ using ThinkingHome.Plugins.WebUI.Attributes;
 namespace ThinkingHome.Plugins.Tmp
 {
 	[Plugin]
-
-	[WebWidget("empty-widget", "/widgets/empty-widget.js", "ThinkingHome.Plugins.Tmp.Resources.ui.empty-widget.js")]
-	[WebWidget("noolite-on-off", "/widgets/noolite-on-off.js", "ThinkingHome.Plugins.Tmp.Resources.ui.noolite-on-off.js")]
 	public class TmpPlugin : PluginBase
 	{
 		#region camera

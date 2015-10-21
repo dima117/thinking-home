@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using ThinkingHome.Plugins.UniUI.Model;
 using ThinkingHome.Plugins.UniUI.Widgets;
 using NHibernate;
 using NLog;
-
-/* TODO: 
- * Вынести адрес api в доступное для настройки пользователем место.
- */
 
 namespace ThinkingHome.Plugins.NooUI
 {
@@ -20,10 +12,7 @@ namespace ThinkingHome.Plugins.NooUI
 		private const string PARAM_CHANNEL = "channel";
 		private const string PARAM_CHANNEL_DISPLAY_NAME = "Channel";
 
-		public string DisplayName
-		{
-			get { return "NooUI Dimmer"; }
-		}
+		public string DisplayName => "NooUI Dimmer";
 
 		public object GetWidgetData(Widget widget, WidgetParameter[] parameters, ISession session, Logger logger)
 		{

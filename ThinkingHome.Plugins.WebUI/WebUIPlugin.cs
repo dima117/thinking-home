@@ -49,13 +49,12 @@ namespace ThinkingHome.Plugins.WebUI
 	[HttpResource("/vendor/js/chart.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.chart.min.js.map", "application/json")]
 	[JavaScriptResource("/vendor/js/chart.scatter.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.chart.scatter.min.js")]
 	[HttpResource("/vendor/js/chart.scatter.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.chart.scatter.min.js.map", "application/json")]
-
-
+	
 	// css
 	[CssResource("/vendor/css/bootstrap.min.css", "ThinkingHome.Plugins.WebUI.Resources.Vendor.css.bootstrap.min.css")]
 	[CssResource("/vendor/css/font-awesome.min.css", "ThinkingHome.Plugins.WebUI.Resources.Vendor.css.font-awesome.min.css")]
+	[CssResource("/vendor/css/weather-icons.min.css", "ThinkingHome.Plugins.WebUI.Resources.Vendor.css.weather-icons.min.css")]
 	[CssResource("/vendor/css/site.css", "ThinkingHome.Plugins.WebUI.Resources.Vendor.css.site.css")]
-
 	[CssResource("/vendor/css/codemirror.css", "ThinkingHome.Plugins.WebUI.Resources.Vendor.css.codemirror.css", AutoLoad = true)]
 
 	// fonts
@@ -69,6 +68,13 @@ namespace ThinkingHome.Plugins.WebUI
 	[HttpResource("/vendor/fonts/fontawesome-webfont.svg", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.fontawesome-webfont.svg", "image/svg+xml")]
 	[HttpResource("/vendor/fonts/fontawesome-webfont.ttf", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.fontawesome-webfont.ttf", "application/x-font-truetype")]
 	[HttpResource("/vendor/fonts/fontawesome-webfont.woff", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.fontawesome-webfont.woff", "application/font-woff")]
+	[HttpResource("/vendor/fonts/fontawesome-webfont.woff2", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.fontawesome-webfont.woff2", "application/font-woff2")]
+
+	[HttpResource("/vendor/fonts/weathericons-regular-webfont.eot", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.weathericons-regular-webfont.eot", "application/vnd.ms-fontobject")]
+	[HttpResource("/vendor/fonts/weathericons-regular-webfont.svg", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.weathericons-regular-webfont.svg", "image/svg+xml")]
+	[HttpResource("/vendor/fonts/weathericons-regular-webfont.ttf", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.weathericons-regular-webfont.ttf", "application/x-font-truetype")]
+	[HttpResource("/vendor/fonts/weathericons-regular-webfont.woff", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.weathericons-regular-webfont.woff", "application/font-woff")]
+	[HttpResource("/vendor/fonts/weathericons-regular-webfont.woff2", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.weathericons-regular-webfont.woff2", "application/font-woff2")]
 
 	//APPLICATION
 

@@ -14,7 +14,7 @@
 				this.$('.js-container').dashboard({
 					itemSelector: '.js-panel',
 					width: 320,
-					height: 230
+					height: 420
 				});
 			},
 			regions: {

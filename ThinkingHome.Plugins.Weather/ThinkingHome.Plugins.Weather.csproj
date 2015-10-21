@@ -76,9 +76,6 @@
   <ItemGroup>
     <None Include="packages.config" />
     <EmbeddedResource Include="Resources\js\forecast\forecast.tpl" />
-    <EmbeddedResource Include="Resources\fonts\weathericons-regular-webfont.eot" />
-    <EmbeddedResource Include="Resources\fonts\weathericons-regular-webfont.ttf" />
-    <EmbeddedResource Include="Resources\fonts\weathericons-regular-webfont.woff" />
     <EmbeddedResource Include="Resources\js\forecast\forecast-item.tpl" />
     <EmbeddedResource Include="Resources\js\forecast\forecast-item-value.tpl" />
     <EmbeddedResource Include="Resources\js\forecast\forecast-item-value-now.tpl" />
@@ -120,10 +117,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\js\forecast\forecast.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\css\weather-icons.min.css" />
-    <EmbeddedResource Include="Resources\fonts\weathericons-regular-webfont.svg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\css\weather-forecast.css" />

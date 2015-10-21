@@ -1,6 +1,3 @@
-
-
-
 /*#region bootstrap */
 
 body {
@@ -167,6 +164,14 @@ a.list-group-item:hover {
 /*#endregion */
 
 /*#region widgets*/
+
+.th-btn-widget {
+	text-align: left;
+}
+
+.th-btn-widget-large {
+	font-size: 27px;
+}
 
 .th-dashboard-list {
 	background-color: #182c3d;
