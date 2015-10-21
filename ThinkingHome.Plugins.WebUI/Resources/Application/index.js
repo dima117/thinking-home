@@ -57,6 +57,6 @@
 });
 
 require(['application/core/app'], function (application) {
-	var app = new application();
-	app.start();
+	window.app = new application();
+	window.app.start();
 });

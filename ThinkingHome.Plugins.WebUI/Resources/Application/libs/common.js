@@ -3,8 +3,8 @@
 	var api = {
 		bind: function (fn) {
 			var func = _.isString(fn) ? this[fn] : fn,
-				args = [].slice.call(arguments, 1);
-			ctx = this;
+				args = [].slice.call(arguments, 1),
+				ctx = this;
 
 			return function () {
 				return func.apply(ctx, args.concat([].slice.call(arguments)));

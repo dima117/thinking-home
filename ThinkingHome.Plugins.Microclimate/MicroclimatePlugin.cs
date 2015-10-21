@@ -82,7 +82,13 @@ namespace ThinkingHome.Plugins.Microclimate
 					session.Save(data);
 
 					Context.GetPlugin<ListenerPlugin>()
-						.Send("microclimate:sensor:update", new { id = sensor.Id });
+						.Send("microclimate:sensor:update", 
+							new
+							{
+								id = sensor.Id, 
+								t = intTemperature,
+								h = humidity
+							});
 				}
 
 				session.Flush();
