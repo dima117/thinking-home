@@ -12,7 +12,10 @@ namespace ThinkingHome.Plugins.NooUI
 		private const string PARAM_CHANNEL = "channel";
 		private const string PARAM_CHANNEL_DISPLAY_NAME = "Channel";
 
-		public string DisplayName => "NooUI Switcher";
+		public string DisplayName
+		{
+			get { return "NooUI Switcher"; }
+		}
 
 		public object GetWidgetData(Widget widget, WidgetParameter[] parameters, ISession session, Logger logger)
 		{

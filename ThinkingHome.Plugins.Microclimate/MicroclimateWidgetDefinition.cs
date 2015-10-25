@@ -14,7 +14,10 @@ namespace ThinkingHome.Plugins.Microclimate
 		private const string PARAM_SENSOR_ID = "sensor-id";
 		private const string PARAM_SENSOR_ID_DISPLAY_NAME = "Sensor";
 
-		public string DisplayName => "Microclimate sensor";
+		public string DisplayName
+		{
+			get { return "Microclimate sensor"; }
+		}
 
 		public object GetWidgetData(Widget widget, WidgetParameter[] parameters, ISession session, Logger logger)
 		{

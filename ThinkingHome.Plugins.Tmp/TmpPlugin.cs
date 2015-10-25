@@ -4,10 +4,13 @@ using System.IO;
 using System.Net;
 using System.Net.Mail;
 using System.Threading;
+using NHibernate.Linq;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Plugins.AlarmClock;
 using ThinkingHome.Plugins.Audio;
 using ThinkingHome.Plugins.Audio.Internal;
+using ThinkingHome.Plugins.Listener.Api;
+using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.Mqtt;
 using ThinkingHome.Plugins.NooLite;
 using ThinkingHome.Plugins.Scripts;
@@ -16,6 +19,7 @@ using ThinkingHome.Plugins.WebUI.Attributes;
 
 namespace ThinkingHome.Plugins.Tmp
 {
+	[WebWidget("tmp-camera", "/widgets/tmp-camera.js", "ThinkingHome.Plugins.Tmp.Resources.ui.tmp-camera.js")]
 	[Plugin]
 	public class TmpPlugin : PluginBase
 	{
@@ -27,8 +31,8 @@ namespace ThinkingHome.Plugins.Tmp
 			var bytes = GetImage(cameraIp, "admin", "");
 
 			var fileName = string.Format("{0:yyyyMMddHHmmss}.jpg", DateTime.Now);
-			var path = Path.Combine(@"D:\images\", fileName);
-			File.WriteAllBytes(path, bytes);
+			//var path = Path.Combine(@"c:\images\", fileName);
+			//File.WriteAllBytes(path, bytes);
 
 			Send(to, subject, fileName, bytes);
 		}
@@ -55,6 +59,17 @@ namespace ThinkingHome.Plugins.Tmp
 					return data;
 				}
 			}
+		}
+
+		[HttpCommand("/api/tmp/camera/image")]
+		public object GetCameraImage(HttpRequestParams request)
+		{
+			var cameraIp = ConfigurationManager.AppSettings["testCameraIP"];
+			var bytes = GetImage(cameraIp, "admin", "");
+			return new
+			{
+				url = string.Format("data:image/jpeg;base64,{0}", Convert.ToBase64String(bytes))
+			};
 		}
 
 		#endregion
