@@ -14,8 +14,7 @@
 		'chart.scatter',
 		'bootstrap',
 		'dashboard-layout',
-		'signalr',
-		'hubs'
+		'signalr'
 	],
 	function (common, marionette, backbone, underscore, jquery, json2, syphon, handlebars, moment, chartjs) {
 

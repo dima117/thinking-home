@@ -2,6 +2,7 @@
 	var radio = lib.marionette.Object.extend({
 		msgHubName: 'messageQueueHub',
 		msgEventName: 'serverMessage',
+		reconnectionTimeout: 7000,
 
 		initialize: function () {
 			this.connection = lib.$.hubConnection();
@@ -20,9 +21,11 @@
 
 			connection && connection.stop();
 		},
-		onDisconnect: function() {
-			var connection = this.connection;
-			connection && connection.start();
+		onDisconnect: function () {
+			setTimeout(lib._.bind(function() {
+				var connection = this.connection;
+				connection && connection.start();
+			}, this), this.reconnectionTimeout);
 		},
 		onMessage: function (message) {
 			this.trigger(message.channel, message);

@@ -22,8 +22,6 @@
 		'common': 'application/libs/common',
 
 		signalr: 'vendor/js/jquery.signalr.min',
-		hubs: 'signalr/hubs?dummy=',
-
 
 		dashboard:			'application/dashboard',
 		apps:				'application/sections/user',
@@ -40,7 +38,6 @@
 			exports: 'Marionette'
 		},
 		signalr: ['jquery'],
-		hubs: ['signalr'],
 		json2: {
 			exports: 'JSON'
 		},

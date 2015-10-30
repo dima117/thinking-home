@@ -3,7 +3,6 @@ using System.ComponentModel.Composition;
 using System.Reflection;
 using Owin;
 using Microsoft.AspNet.SignalR;
-using Microsoft.AspNet.SignalR.Owin;
 using Microsoft.Owin.Hosting;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Core.Plugins.Utils;
@@ -49,7 +48,7 @@ namespace ThinkingHome.Plugins.Listener
 		{
 			appBuilder
 				.Use<ListenerModule>(registeredHandlers, Logger)
-				.MapSignalR()
+				.MapSignalR(new HubConfiguration { EnableJavaScriptProxies = false })
 				.Use<Error404Module>();
 		}
 
