@@ -1,19 +1,28 @@
 ﻿define(['lib'], function (lib) {
 	var radio = lib.marionette.Object.extend({
-		
-		initialize: function () {
+		msgHubName: 'messageQueueHub',
+		msgEventName: 'serverMessage',
 
-			this.hub = lib.$.connection.messageQueueHub;
-			this.hub.client.serverMessage = lib._.bind(this.onMessage, this);
+		initialize: function () {
+			this.connection = lib.$.hubConnection();
+			this.connection.disconnected(lib._.bind(this.onDisconnect, this));
+
+			this.hub = this.connection.createHubProxy(this.msgHubName);
+			this.hub.on(this.msgEventName, lib._.bind(this.onMessage, this));
 		},
 
 		start: function () {
-			$.connection.hub.start()
-				.done(function () { console.log('done'); })
-				.fail(function () { console.log('fail', arguments); });
+			this.connection.start();
 		},
 		onBeforeDestroy: function () {
+			var connection = this.connection;
+			delete this.connection;
 
+			connection && connection.stop();
+		},
+		onDisconnect: function() {
+			var connection = this.connection;
+			connection && connection.start();
 		},
 		onMessage: function (message) {
 			this.trigger(message.channel, message);
