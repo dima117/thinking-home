@@ -35,7 +35,5 @@
 		}
 	});
 
-	return {
-		Radio: radio
-	};
+	return radio;
 });

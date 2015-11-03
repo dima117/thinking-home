@@ -4,7 +4,7 @@
 
 		// dima117@todo: дублирование кода
 		var widgetCollection = lib.backbone.Collection.extend({
-			comparator: "sortOrder"
+			comparator: 'sortOrder'
 		});
 
 		var panelModel = lib.backbone.Model.extend({
@@ -15,7 +15,7 @@
 				});
 			},
 
-			// dima117@todo: проверить: нужно ли в настройках переопределять toJSON
+			// dima117@todo: проверить: нужно ли в настройках виджетов переопределять toJSON
 			toJSON: function () {
 				var json = lib.backbone.Model.prototype.toJSON.call(this);
 				json.widgets = json.widgets.toJSON();
@@ -26,7 +26,7 @@
 
 		var panelCollection = lib.backbone.Collection.extend({
 			model: panelModel,
-			comparator: "sortOrder"
+			comparator: 'sortOrder'
 		});
 
 		var api = {

@@ -27,7 +27,6 @@
 			template: lib.handlebars.compile('<a href="#">{{title}}</a>'),
 			tagName: 'li',
 			onRender: function () {
-
 				var isActive = this.model.get("active");
 				this.$el.toggleClass("active", isActive);
 			},

@@ -15,7 +15,5 @@
 		}
 	});
 
-	return {
-		Timer: timer
-	};
+	return timer;
 });

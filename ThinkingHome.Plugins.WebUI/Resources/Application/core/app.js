@@ -1,23 +1,23 @@
 ﻿define(['lib',
-	'application/core/app-view',
+	'application/layout/layout',
 	'application/core/app-router',
 	'application/core/app-radio',
-	'application/core/app-time',
+	'application/core/app-timer',
 	'json!api/webui/styles.json'],
-	function (lib, views, routing, messages, time, cssFiles) {
+	function (lib, layout, router, radio, timer, cssFiles) {
 
 		var homeApplication = lib.marionette.Application.extend({
-			initialize: function (options) {
-				this.layout = new views.LayoutView();
+			initialize: function () {
+				this.layout = new layout();
 				this.layout.on('navigate', this._loadPage, this);
 
-				this.router = new routing.Router();
+				this.router = new router();
 				this.router.on('navigate', this._loadPage, this);
 
-				this.timer = new time.Timer();
+				this.timer = new timer();
 				this.timer.on('update', this._updateInfo, this);
 
-				this.radio = new messages.Radio();
+				this.radio = new radio();
 			},
 			onStart: function () {
 				this.layout.render();
@@ -34,8 +34,8 @@
 			},
 
 			// shortcuts
-			setContentView: function (view) {
-				this.layout.setContentView(view);
+			setContentView: function (view, menuItems) {
+				this.layout.setContentView(view, menuItems);
 			},
 
 			navigate: function (route) {

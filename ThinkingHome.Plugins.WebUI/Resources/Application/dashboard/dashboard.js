@@ -21,7 +21,7 @@
 
 					// layout
 					var layout = new views.LayoutView({ model: details.panels });
-					this.application.setContentView(layout);
+					this.application.setContentView(layout, details.dashboards);
 
 					// menu
 					var menu = new views.MenuView({

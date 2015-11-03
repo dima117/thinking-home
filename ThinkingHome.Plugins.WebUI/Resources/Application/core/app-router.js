@@ -41,10 +41,8 @@
 			}
 
 			return '';
-		},
+		}
 	});
 
-	return {
-		Router: router
-	};
+	return router;
 });

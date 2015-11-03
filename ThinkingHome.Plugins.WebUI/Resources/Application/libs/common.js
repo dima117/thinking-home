@@ -12,24 +12,27 @@
 		}
 	};
 
-	var appSection = marionette.Object.extend({
-		initialize: function (options) {
-			this.application = options.application;
-		},
-		start: function () { },
+	var applicationBlock = marionette.Object.extend({
 		bind: api.bind
 	});
 
-	var widget = marionette.Object.extend({
+	var appSection = applicationBlock.extend({
+		initialize: function (options) {
+			this.application = options.application;
+		},
+		start: function () { }
+	});
+
+	var widget = applicationBlock.extend({
 		initialize: function (options) {
 			this.application = options.application;
 			this.region = options.region;
 		},
-		show: function (model) { },
-		bind: api.bind
+		show: function (model) { }
 	});
 
 	return {
+		ApplicationBlock: applicationBlock,
 		AppSection: appSection,
 		Widget: widget
 	};
