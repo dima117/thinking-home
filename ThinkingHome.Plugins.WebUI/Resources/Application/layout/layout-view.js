@@ -2,24 +2,16 @@
 	['lib', 'text!application/layout/app-layout.tpl', 'text!application/layout/app-menu.tpl'],
 	function (lib, layoutTemplate, menuTemplate) {
 
-		//var createLinkHandler = function (route, hideMenu) {
-		//	return function (e) {
-		//		e.preventDefault();
-		//		e.stopPropagation();
-
-		//		hideMenu && this.ui.navbarCollapse.collapse('hide');
-
-		//		this.trigger('navigate', route);
-		//	}
-		//};
-
 		var menuItemView = lib.marionette.ItemView.extend({
-			template: lib.handlebars.compile('<a href="#">{{title}}</a>'),
+			template: lib.handlebars.compile('<a href="#" class="js-menu-link">{{title}}</a>'),
 			tagName: 'li',
 			className: 'visible-xs-block',
 			onRender: function () {
 				var isActive = this.model.get('active');
 				this.$el.toggleClass('active', isActive);
+			},
+			triggers: {
+				'click .js-menu-link': 'navigate:custom'
 			}
 		});
 
@@ -27,7 +19,11 @@
 			template: lib.handlebars.compile(menuTemplate),
 			childView: menuItemView,
 			tagName: 'ul',
-			className: 'nav navbar-nav navbar-right'
+			className: 'nav navbar-nav navbar-right',
+			triggers: {
+				'click .js-link-apps': 'navigate:apps',
+				'click .js-link-settings': 'navigate:settings'
+			}
 		});
 
 		var layoutView = lib.marionette.LayoutView.extend({
@@ -41,15 +37,17 @@
 				content: ".js-content",
 				menu: ".js-menu"
 			},
-			//events: {
-			//	"click .js-link-home": createLinkHandler(undefined, true),
-			//	"click .js-link-apps": createLinkHandler('apps', true),
-			//	"click .js-link-settings": createLinkHandler('settings', true)
-			//},
+			triggers: {
+				'click .js-link-home': 'navigate:home'
+			},
 
 			// api
 			setInfoText: function (text) {
 				this.ui.info.text(text);
+			},
+
+			hideNavbarMenu: function() {
+				this.ui.navbarCollapse.collapse('hide');
 			}
 		});
 
