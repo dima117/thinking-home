@@ -94,7 +94,6 @@ namespace ThinkingHome.Plugins.WebUI
 
 	// layout
 	[JavaScriptResource("/application/layout/layout-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.layout.layout-view.js")]
-	[JavaScriptResource("/application/layout/layout-model.js", "ThinkingHome.Plugins.WebUI.Resources.Application.layout.layout-model.js")]
 	[JavaScriptResource("/application/layout/layout.js", "ThinkingHome.Plugins.WebUI.Resources.Application.layout.layout.js")]
 	[HttpResource("/application/layout/app-layout.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.layout.app-layout.tpl")]
 	[HttpResource("/application/layout/app-menu.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.layout.app-menu.tpl")]

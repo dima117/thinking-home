@@ -5,7 +5,6 @@
 ],
 	function (lib, models, views, widgetTypes) {
 
-		// todo: реализовать onBeforeDestroy
 		var dashboard = lib.common.AppSection.extend({
 			widgets: [],
 			start: function (id) {
@@ -21,11 +20,11 @@
 
 					// layout
 					var layout = new views.LayoutView({ model: details.panels });
-					this.application.setContentView(layout, details.dashboards);
+					this.application.setContentView(layout, details.menuItems);
 
 					// menu
 					var menu = new views.MenuView({
-						collection: details.dashboards
+						collection: details.menuItems
 					});
 
 					this.listenTo(menu, 'childview:dashboard:select', this.bind('onSelect'));

@@ -279,7 +279,6 @@
     <EmbeddedResource Include="Resources\Vendor\fonts\weathericons-regular-webfont.svg" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Application\layout\layout-model.js" />
     <EmbeddedResource Include="Resources\Application\layout\layout.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

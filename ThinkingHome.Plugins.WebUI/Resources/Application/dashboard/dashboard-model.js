@@ -39,13 +39,19 @@
 					.done(function (data) {
 
 						if (data) {
-
-							var dashboards = new lib.backbone.Collection(data.dashboards);
-							var panels = new panelCollection(data.panels);
+							var menuItems = data.dashboards.map(function(dashboard) {
+								return {
+									title: dashboard.title,
+									active: dashboard.active,
+									route: 'dashboard',
+									args: [dashboard.id],
+									sortOrder: dashboard.sortOrder
+								};
+							});
 
 							defer.resolve({
-								dashboards: dashboards,
-								panels: panels
+								menuItems: new lib.common.MenuItemCollection(menuItems),
+								panels: new panelCollection(data.panels)
 							});
 						}
 

@@ -1,4 +1,6 @@
-﻿define(['marionette', 'underscore'], function (marionette, _) {
+﻿define(['marionette', 'backbone', 'underscore'], function (marionette, backbone, _) {
+
+	//#region views
 
 	var api = {
 		bind: function (fn) {
@@ -31,7 +33,30 @@
 		show: function (model) { }
 	});
 
+	//#endregion
+
+	//#region models
+
+	var menuItemModel = backbone.Model.extend({
+		defaults: {
+			title: 'undefined',
+			active: false,
+			route: '',
+			args: []
+		}
+	});
+
+	var menuItemCollection = backbone.Collection.extend({
+		model: menuItemModel,
+		comparator: 'sortOrder'
+	});
+
+	//#endregion
+
 	return {
+		MenuItemModel: menuItemModel,
+		MenuItemCollection: menuItemCollection,
+
 		ApplicationBlock: applicationBlock,
 		AppSection: appSection,
 		Widget: widget

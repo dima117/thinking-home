@@ -123,13 +123,14 @@ a.list-group-item:hover {
 	bottom: 0;
 	width: 210px;
 	overflow-y: auto;
+	background-color: #182c3d;
 }
 
 	.th-side-panel + .th-container {
 		left: 210px;
 	}
 
-@media (max-width: 767px) {
+@media (max-width: 800px) {
 
 	.th-side-panel {
 		display: none;
@@ -171,10 +172,6 @@ a.list-group-item:hover {
 
 .th-btn-widget-large {
 	font-size: 27px;
-}
-
-.th-dashboard-list {
-	background-color: #182c3d;
 }
 
 .th-dashboard-container {

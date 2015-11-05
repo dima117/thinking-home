@@ -11,7 +11,7 @@
 				this.$el.toggleClass('active', isActive);
 			},
 			triggers: {
-				'click .js-menu-link': 'navigate:custom'
+				'click .js-menu-link': 'navigate'
 			}
 		});
 
