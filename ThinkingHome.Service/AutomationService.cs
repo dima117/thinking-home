@@ -7,7 +7,7 @@ namespace ThinkingHome.Service
 {
 	public partial class AutomationService : ServiceBase
 	{
-		private readonly Task<HomeApplication> appTask;
+		private Task<HomeApplication> appTask;
 
 		public AutomationService()
 		{
@@ -17,7 +17,7 @@ namespace ThinkingHome.Service
 
 		protected override void OnStart(string[] args)
 		{
-			var appTask = Task.Run(() => {
+			appTask = Task.Run(() => {
 				var app = new HomeApplication();
 				app.Init();
 				app.StartServices();
