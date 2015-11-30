@@ -11,7 +11,7 @@
 			}
 		},
 		_handler: function () {
-			this.trigger('update', lib.moment().format('LT, ll'));
+			this.trigger('update');
 		}
 	});
 

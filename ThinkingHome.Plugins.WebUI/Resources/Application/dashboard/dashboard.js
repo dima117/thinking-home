@@ -11,8 +11,9 @@
 				models.loadDetails(id).done(this.bind('displayDetails'));
 			},
 			onSelect: function (item) {
-				var id = item.model.get('id');
-				this.application.navigate('dashboard', id);
+				var route = item.model.get('route') || '',
+					args = item.model.get('args') || [];
+				this.application.navigate(route, args[0]);
 			},
 			displayDetails: function (details) {
 

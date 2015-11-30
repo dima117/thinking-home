@@ -45,7 +45,6 @@
 
 			// private
 			_loadPage: function (route, args) {
-
 				var self = this;
 
 				route = route || 'dashboard';
@@ -60,7 +59,8 @@
 				});
 			},
 
-			_updateInfo: function(text) {
+			_updateInfo: function () {
+				var text = lib.moment().format('LT, ll');
 				this.layout.setInfoText(text);
 			}
 		});

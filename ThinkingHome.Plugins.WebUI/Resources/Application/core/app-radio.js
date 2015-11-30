@@ -4,6 +4,8 @@
 		msgEventName: 'serverMessage',
 		reconnectionTimeout: 7000,
 
+		// todo: можно ли заменить lib._.bind(this.onDisconnect, this) на this.bind('onDisconnect')?
+
 		initialize: function () {
 			this.connection = lib.$.hubConnection();
 			this.connection.disconnected(lib._.bind(this.onDisconnect, this));
@@ -22,7 +24,7 @@
 			connection && connection.stop();
 		},
 		onDisconnect: function () {
-			setTimeout(lib._.bind(function() {
+			this.connection && setTimeout(lib._.bind(function () {
 				var connection = this.connection;
 				connection && connection.start();
 			}, this), this.reconnectionTimeout);
