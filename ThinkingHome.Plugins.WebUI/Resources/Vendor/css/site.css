@@ -98,22 +98,13 @@ a.list-group-item:hover {
 	position: absolute;
 }
 
-.th-content {
+.th-container {
 	position: absolute;
 	top: 64px;
 	left: 0;
 	right: 0;
 	bottom: 0;
 	overflow: auto;
-}
-
-.th-container {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	overflow-y: auto;
 }
 
 .th-side-panel {
@@ -126,9 +117,14 @@ a.list-group-item:hover {
 	background-color: #182c3d;
 }
 
-	.th-side-panel + .th-container {
-		left: 210px;
-	}
+.th-content {
+	position: absolute;
+	top: 0;
+	left: 210px;
+	right: 0;
+	bottom: 0;
+	overflow-y: auto;
+}
 
 @media (max-width: 800px) {
 
@@ -136,9 +132,9 @@ a.list-group-item:hover {
 		display: none;
 	}
 
-		.th-side-panel + .th-container {
-			left: 0;
-		}
+	.th-content {
+		left: 0;
+	}
 }
 
 .nav-menu > li.active > a,

@@ -23,5 +23,7 @@
 	</div>
 </div>
 
-<div class="container-fluid th-content js-content">
+<div class="container-fluid th-container">
+	<div class="th-side-panel js-side-menu"></div>
+	<div class="th-content js-content"></div>
 </div>

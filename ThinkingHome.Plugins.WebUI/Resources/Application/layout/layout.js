@@ -18,6 +18,7 @@
 			initialize: function () {
 				this.menuItems = new lib.common.MenuItemCollection();
 				this.menu = new views.MenuView({ collection: this.menuItems });
+				this.sideMenu = new views.SideMenuView({ collection: this.menuItems });
 
 				this.layout = new views.LayoutView();
 
@@ -26,10 +27,12 @@
 				this.listenTo(this.menu, 'navigate:apps', this.bind('_linkHandler', 'apps'));
 				this.listenTo(this.menu, 'navigate:settings', this.bind('_linkHandler', 'settings'));
 				this.listenTo(this.menu, 'childview:navigate', this.bind('_customLinkHandler'));
+				this.listenTo(this.sideMenu, 'childview:navigate', this.bind('_customLinkHandler'));
 			},
 			render: function () {
 				this.layout.render();
 				this.layout.showChildView('menu', this.menu);
+				this.layout.showChildView('side', this.sideMenu);
 			},
 			onBeforeDestroy: function () {
 				this.layout.destroy();

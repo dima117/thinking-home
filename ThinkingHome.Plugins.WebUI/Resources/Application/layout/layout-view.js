@@ -2,10 +2,9 @@
 	['lib', 'text!application/layout/app-layout.tpl', 'text!application/layout/app-menu.tpl'],
 	function (lib, layoutTemplate, menuTemplate) {
 
-		var menuItemView = lib.marionette.ItemView.extend({
+		var sideMenuItemView = lib.marionette.ItemView.extend({
 			template: lib.handlebars.compile('<a href="#" class="js-menu-link">{{title}}</a>'),
 			tagName: 'li',
-			className: 'visible-xs-block',
 			onRender: function () {
 				var isActive = this.model.get('active');
 				this.$el.toggleClass('active', isActive);
@@ -13,6 +12,10 @@
 			triggers: {
 				'click .js-menu-link': 'navigate'
 			}
+		});
+
+		var menuItemView = sideMenuItemView.extend({
+			className: 'visible-xs-block'
 		});
 
 		var menuView = lib.marionette.CompositeView.extend({
@@ -26,6 +29,12 @@
 			}
 		});
 
+		var sideMenuView = lib.marionette.CollectionView.extend({
+			childView: sideMenuItemView,
+			className: 'nav nav-menu',
+			tagName: 'ul'
+		});
+
 		var layoutView = lib.marionette.LayoutView.extend({
 			el: 'body',
 			template: lib.handlebars.compile(layoutTemplate),
@@ -34,8 +43,9 @@
 				navbarCollapse: '.js-navbar-collapse'
 			},
 			regions: {
-				content: ".js-content",
-				menu: ".js-menu"
+				content: '.js-content',
+				menu: '.js-menu',
+				side: '.js-side-menu'
 			},
 			triggers: {
 				'click .js-link-home': 'navigate:home'
@@ -53,6 +63,7 @@
 
 		return {
 			MenuView: menuView,
+			SideMenuView: sideMenuView,
 			LayoutView: layoutView
 		};
 	});

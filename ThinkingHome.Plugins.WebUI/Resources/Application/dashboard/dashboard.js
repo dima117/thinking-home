@@ -10,11 +10,6 @@
 			start: function (id) {
 				models.loadDetails(id).done(this.bind('displayDetails'));
 			},
-			onSelect: function (item) {
-				var route = item.model.get('route') || '',
-					args = item.model.get('args') || [];
-				this.application.navigate(route, args[0]);
-			},
 			displayDetails: function (details) {
 
 				if (details) {
@@ -22,14 +17,6 @@
 					// layout
 					var layout = new views.LayoutView({ model: details.panels });
 					this.application.setContentView(layout, details.menuItems);
-
-					// menu
-					var menu = new views.MenuView({
-						collection: details.menuItems
-					});
-
-					this.listenTo(menu, 'childview:dashboard:select', this.bind('onSelect'));
-					layout.getRegion('menu').show(menu);
 
 					// widgets
 					details.panels.each(function (panel) {
