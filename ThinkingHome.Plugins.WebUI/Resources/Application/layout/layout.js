@@ -43,6 +43,7 @@
 				var items = menuItems instanceof lib.common.MenuItemCollection ? menuItems.toJSON() : [];
 
 				this.layout.showChildView('content', view);
+				this.layout.toggleSideMenu(items.length)
 				this.menuItems.reset(items);
 			},
 

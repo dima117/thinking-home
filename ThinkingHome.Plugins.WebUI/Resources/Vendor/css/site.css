@@ -126,6 +126,14 @@ a.list-group-item:hover {
 	overflow-y: auto;
 }
 
+.th-hidden-menu .th-side-panel {
+	display: none;
+}
+
+.th-hidden-menu .th-content {
+	left: 0;
+}
+
 @media (max-width: 800px) {
 
 	.th-side-panel {

@@ -40,6 +40,7 @@
 			template: lib.handlebars.compile(layoutTemplate),
 			ui: {
 				info: '.js-info',
+				container: '.js-container',
 				navbarCollapse: '.js-navbar-collapse'
 			},
 			regions: {
@@ -58,6 +59,10 @@
 
 			hideNavbarMenu: function() {
 				this.ui.navbarCollapse.collapse('hide');
+			},
+
+			toggleSideMenu: function (isVisible) {
+				this.ui.container.toggleClass('th-hidden-menu', !isVisible);
 			}
 		});
 
