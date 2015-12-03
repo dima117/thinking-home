@@ -4,7 +4,6 @@
 
 		var sectionList = lib.common.AppSection.extend({
 			start: function () {
-				// todo: переписать выбор метода для загрузки списка
 				models[this.requestName]().done(this.bind('displayList'));
 			},
 

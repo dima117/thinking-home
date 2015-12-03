@@ -1,17 +1,15 @@
 ﻿define(['lib'], function (lib) {
-	var radio = lib.marionette.Object.extend({
+	var radio = lib.common.ApplicationBlock.extend({
 		msgHubName: 'messageQueueHub',
 		msgEventName: 'serverMessage',
 		reconnectionTimeout: 7000,
 
-		// todo: можно ли заменить lib._.bind(this.onDisconnect, this) на this.bind('onDisconnect')?
-
 		initialize: function () {
 			this.connection = lib.$.hubConnection();
-			this.connection.disconnected(lib._.bind(this.onDisconnect, this));
+			this.connection.disconnected(this.bind('onDisconnect'));
 
 			this.hub = this.connection.createHubProxy(this.msgHubName);
-			this.hub.on(this.msgEventName, lib._.bind(this.onMessage, this));
+			this.hub.on(this.msgEventName, this.bind('onMessage'));
 		},
 
 		start: function () {
@@ -24,10 +22,10 @@
 			connection && connection.stop();
 		},
 		onDisconnect: function () {
-			this.connection && setTimeout(lib._.bind(function () {
+			this.connection && setTimeout(this.bind(function () {
 				var connection = this.connection;
 				connection && connection.start();
-			}, this), this.reconnectionTimeout);
+			}), this.reconnectionTimeout);
 		},
 		onMessage: function (message) {
 			this.trigger(message.channel, message);
