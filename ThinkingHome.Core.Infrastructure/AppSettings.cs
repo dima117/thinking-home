@@ -1,4 +1,5 @@
 ﻿using System.Configuration;
+using System.Globalization;
 using System.IO;
 using System.Reflection;
 
@@ -9,6 +10,16 @@ namespace ThinkingHome.Core.Infrastructure
 		private static string GetStringValue(string name, string defaultValue = null)
 		{
 			return ConfigurationManager.AppSettings[name] ?? defaultValue;
+		}
+
+		public static string CultureName
+		{
+			get { return GetStringValue("culture", string.Empty); }
+		}
+
+		public static CultureInfo Culture
+		{
+			get { return CultureInfo.GetCultureInfo(CultureName); }
 		}
 
 		public static string ShadowedPluginsFolder

@@ -30,7 +30,7 @@ namespace ThinkingHome.Core.Infrastructure
 			Thread.CurrentThread.CurrentCulture =
 			Thread.CurrentThread.CurrentUICulture =
 			CultureInfo.DefaultThreadCurrentCulture =
-				CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.InvariantCulture;
+				CultureInfo.DefaultThreadCurrentUICulture = AppSettings.Culture;
 
 		}
 
