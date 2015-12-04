@@ -173,7 +173,7 @@ namespace ThinkingHome.Plugins.WebUI
 				.Select(x => new
 				{
 					id = Guid.NewGuid(),
-					name = x.Title,
+					name = x.GetTitle(),
 					path = x.GetModulePath(),
 					sortOrder = x.SortOrder
 				})

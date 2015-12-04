@@ -8,11 +8,19 @@ using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.Scripts.Data;
 using ThinkingHome.Plugins.WebUI.Attributes;
+using ThinkingHome.Plugins.AlarmClock.Lang;
 
 namespace ThinkingHome.Plugins.AlarmClock
 {
 	// list
-	[AppSection("Alarms", SectionType.Common, "/webapp/alarm-clock/list.js", "ThinkingHome.Plugins.AlarmClock.Resources.alarm-list.js")]
+	[AppSection(
+		"Alarms", 
+		SectionType.Common, 
+		"/webapp/alarm-clock/list.js", 
+		"ThinkingHome.Plugins.AlarmClock.Resources.alarm-list.js", 
+		LangResourceType = typeof(AlarmClockLang), 
+		LangResourceKey = "Alarms")]
+	
 	[JavaScriptResource("/webapp/alarm-clock/list-model.js", "ThinkingHome.Plugins.AlarmClock.Resources.alarm-list-model.js")]
 	[JavaScriptResource("/webapp/alarm-clock/list-view.js", "ThinkingHome.Plugins.AlarmClock.Resources.alarm-list-view.js")]
 	[HttpResource("/webapp/alarm-clock/list.tpl", "ThinkingHome.Plugins.AlarmClock.Resources.alarm-list.tpl")]

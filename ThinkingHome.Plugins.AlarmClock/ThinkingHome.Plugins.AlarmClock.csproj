@@ -64,6 +64,11 @@
     <Compile Include="AlarmClockUiPlugin.cs" />
     <Compile Include="Data\Migrations.cs" />
     <Compile Include="Data\Model.cs" />
+    <Compile Include="Lang\AlarmClockLang.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AlarmClockLang.resx</DependentUpon>
+    </Compile>
     <Compile Include="OnAlarmStartedAttribute.cs" />
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
@@ -75,6 +80,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Lang\AlarmClockLang.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AlarmClockLang.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lang\AlarmClockLang.ru-RU.resx" />
     <EmbeddedResource Include="SoundResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>SoundResources.Designer.cs</LastGenOutput>

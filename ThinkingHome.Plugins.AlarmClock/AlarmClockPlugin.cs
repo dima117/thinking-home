@@ -10,6 +10,7 @@ using ThinkingHome.Plugins.Audio;
 using ThinkingHome.Plugins.Audio.Internal;
 using ThinkingHome.Plugins.Scripts;
 using ThinkingHome.Plugins.Timer.Attributes;
+using ThinkingHome.Plugins.AlarmClock.Lang;
 
 namespace ThinkingHome.Plugins.AlarmClock
 {
@@ -44,20 +45,18 @@ namespace ThinkingHome.Plugins.AlarmClock
 			{
 				StopSound();
 
-				Logger.Info("Play sound");
+				Logger.Info(AlarmClockLang.Play_sound);
 				playback = Context.GetPlugin<AudioPlugin>().Play(SoundResources.Ring02, 25);
 			}
 		}
 
 		public void StopSound()
 		{
-			
-
 			lock (lockObjectForSound)
 			{
 				if (playback != null)
 				{
-					Logger.Info("Stop all sounds");
+					Logger.Info(AlarmClockLang.Stop_all_sounds);
 					playback.Stop();
 					playback = null;
 				}
@@ -106,7 +105,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 						.Where(t => t.Enabled)
 						.ToList();
 
-					Logger.Info("loaded {0} alarm times", times.Count);
+					Logger.Info(AlarmClockLang.Loaded_0_alarm_times, times.Count);
 				}
 			}
 		}
@@ -135,7 +134,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 
 		private void Alarm(AlarmTime[] alarms)
 		{
-			Logger.Info("ALARM!");
+			Logger.Info(AlarmClockLang.Alarm);
 
 			if (alarms.Any(a => a.PlaySound))
 			{
@@ -144,19 +143,19 @@ namespace ThinkingHome.Plugins.AlarmClock
 
 			foreach (var alarm in alarms)
 			{
-				Logger.Info("Run event handlers: {0} ({1})", alarm.Name, alarm.Id);
+				Logger.Info(AlarmClockLang.Run_event_handlers_0_1, alarm.Name, alarm.Id);
 
 				Guid alarmId = alarm.Id;
 				Run(AlarmStartedForPlugins, x => x(alarmId));
 
 				if (alarm.UserScript != null)
 				{
-					Logger.Info("Run script: {0} ({1})", alarm.UserScript.Name, alarm.UserScript.Id);
+					Logger.Info(AlarmClockLang.Run_alarm_script_0_1, alarm.UserScript.Name, alarm.UserScript.Id);
 					Context.GetPlugin<ScriptsPlugin>().ExecuteScript(alarm.UserScript);
 				}
 			}
 
-			Logger.Info("Run subscribed scripts");
+			Logger.Info(AlarmClockLang.Run_subscribed_scripts);
 			this.RaiseScriptEvent(x => x.AlarmStartedForScripts);
 		}
 
