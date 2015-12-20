@@ -81,10 +81,7 @@ namespace ThinkingHome.Core.Infrastructure
 				// обновляем структуру БД
 				using (var session = context.OpenSession())
 				{
-					foreach (var plugin in context.GetAllPlugins())
-					{
-						UpdateDatabase(session.Connection, plugin);
-					}
+					UpdateDatabase(session.Connection, context.GetAllPlugins());
 				}
 
 				// инициализируем плагины
@@ -175,30 +172,42 @@ namespace ThinkingHome.Core.Infrastructure
 			container.SatisfyImportsOnce(this);
 		}
 
-		private void UpdateDatabase(IDbConnection connection, PluginBase plugin)
+		private void UpdateDatabase(IDbConnection connection, IEnumerable<PluginBase> plugins)
 		{
-			var assembly = plugin.GetType().Assembly;
+			var assemblies = new HashSet<string>();
 
-			logger.Info("update database: {0}", assembly.FullName);
-
-			// todo: sql
-			var provider = ProviderFactory.Create<SqlServerCeTransformationProvider>(connection, null);
-			//var provider = ProviderFactory.Create<SqlServerTransformationProvider>(connection, null);
-
-			using (var migrator = new Migrator(provider, assembly))
+			foreach (var plugin in plugins)
 			{
-				// запрещаем выполнять миграции, для которых не указано "пространство имен"
-				if (migrator.AvailableMigrations.Any())
+				var assembly = plugin.GetType().Assembly;
+
+				if (!assemblies.Contains(assembly.FullName))
 				{
-					var migrationsInfo = assembly.GetCustomAttribute<MigrationAssemblyAttribute>();
+					logger.Info("update database: {0}", assembly.FullName);
 
-					if (migrationsInfo == null || string.IsNullOrWhiteSpace(migrationsInfo.Key))
+					// todo: sql
+					var provider = ProviderFactory.Create<SqlServerCeTransformationProvider>(connection, null);
+					//var provider = ProviderFactory.Create<SqlServerTransformationProvider>(connection, null);
+
+					using (var migrator = new Migrator(provider, assembly))
 					{
-						logger.Error("assembly {0} contains invalid migration info", assembly.FullName);
-					}
-				}
+						// запрещаем выполнять миграции, для которых не указано "пространство имен"
+						if (migrator.AvailableMigrations.Any())
+						{
+							var migrationsInfo = assembly.GetCustomAttribute<MigrationAssemblyAttribute>();
 
-				migrator.Migrate();
+							if (migrationsInfo == null || string.IsNullOrWhiteSpace(migrationsInfo.Key))
+							{
+								logger.Error("assembly {0} contains invalid migration info", assembly.FullName);
+							}
+							else
+							{
+								migrator.Migrate();
+							}
+						}
+					}
+
+					assemblies.Add(assembly.FullName);
+				}
 			}
 		}
 
