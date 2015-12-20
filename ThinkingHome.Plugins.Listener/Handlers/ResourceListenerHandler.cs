@@ -1,8 +1,8 @@
 ﻿using System;
-using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.Owin;
+using ThinkingHome.Plugins.Listener.Attributes;
 
 namespace ThinkingHome.Plugins.Listener.Handlers
 {
@@ -12,30 +12,28 @@ namespace ThinkingHome.Plugins.Listener.Handlers
 		private WeakReference<byte[]> resourceReference;
 
 		private readonly Assembly assembly;
-		private readonly string path;
-		private readonly string contentType;
+		private readonly IHttpResourceAttribute data;
 
-		public ResourceListenerHandler(Assembly assembly, string path, string contentType)
+		public ResourceListenerHandler(Assembly assembly, IHttpResourceAttribute data)
 		{
 			this.assembly = assembly;
-			this.path = path;
-			this.contentType = contentType;
+			this.data = data;
 		}
 
 		public Task ProcessRequest(OwinRequest request)
 		{
-			byte[] resource = PrepareResource();
+			byte[] resource = GetResource();
 
 			var response = new OwinResponse(request.Environment)
 			{
-				ContentType = contentType,
+				ContentType = data.ContentType,
 				ContentLength = resource.Length
 			};
 
 			return response.WriteAsync(resource);
 		}
 
-		private byte[] PrepareResource()
+		private byte[] GetResource()
 		{
 			byte[] result;
 
@@ -45,30 +43,9 @@ namespace ThinkingHome.Plugins.Listener.Handlers
 				{
 					if (resourceReference == null || !resourceReference.TryGetTarget(out result))
 					{
-						result = LoadResource();
+						result = data.GetContent(assembly);
 						resourceReference = new WeakReference<byte[]>(result);
 					}
-				}
-			}
-
-			return result;
-		}
-
-		private byte[] LoadResource()
-		{
-			byte[] result;
-
-			using (var stream = assembly.GetManifestResourceStream(path))
-			{
-				if (stream != null)
-				{
-					result = new byte[stream.Length];
-					stream.Read(result, 0, result.Length);
-				}
-				else
-				{
-					var message = string.Format("resource {0} is not found", path);
-					throw new FileNotFoundException(message);
 				}
 			}
 

@@ -92,8 +92,7 @@ namespace ThinkingHome.Plugins.Listener
 				{
 					Logger.Info("Register HTTP handler (resource): '{0}'", attribute.Url);
 				
-					var resHandler = new ResourceListenerHandler(
-						type.Assembly, attribute.ResourcePath, attribute.ContentType);
+					var resHandler = new ResourceListenerHandler(type.Assembly, attribute);
 
 					handlers.Register(attribute.Url, resHandler);
 				}
