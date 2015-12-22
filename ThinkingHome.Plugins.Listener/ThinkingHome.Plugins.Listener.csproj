@@ -102,7 +102,7 @@
     <Compile Include="Api\HttpRequestParams.cs" />
     <Compile Include="Error404Module.cs" />
     <Compile Include="Handlers\ApiListenerHandler.cs" />
-    <Compile Include="Attributes\HttpResourceAttribute.cs" />
+    <Compile Include="Attributes\HttpEmbeddedResourceAttribute.cs" />
     <Compile Include="Handlers\IListenerHandler.cs" />
     <Compile Include="Handlers\ResourceListenerHandler.cs" />
     <Compile Include="Attributes\HttpCommandAttribute.cs" />

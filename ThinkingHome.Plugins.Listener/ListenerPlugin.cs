@@ -86,7 +86,7 @@ namespace ThinkingHome.Plugins.Listener
 			foreach (var plugin in Context.GetAllPlugins())
 			{
 				Type type = plugin.GetType();
-				var attributes = type.GetCustomAttributes<HttpResourceAttribute>();
+				var attributes = type.GetCustomAttributes<HttpEmbeddedResourceAttribute>();
 
 				foreach (var attribute in attributes)
 				{

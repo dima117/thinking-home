@@ -10,7 +10,7 @@ using ThinkingHome.Plugins.Listener.Attributes;
 
 namespace ThinkingHome.Plugins.WebUI.Attributes
 {
-	public class HttpI18NResourceAttribute : HttpResourceAttribute
+	public class HttpI18NResourceAttribute : HttpEmbeddedResourceAttribute
 	{
 		public HttpI18NResourceAttribute(string url, string baseName) 
 			: base(url, baseName, "application/json;charset=utf-8")

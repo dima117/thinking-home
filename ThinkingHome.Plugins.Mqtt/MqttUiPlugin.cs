@@ -13,8 +13,8 @@ namespace ThinkingHome.Plugins.Mqtt
 	[AppSection("MQTT received data", SectionType.System, "/webapp/mqtt/received-data.js", "ThinkingHome.Plugins.Mqtt.Resources.received-data.js")]
 	[JavaScriptResource("/webapp/mqtt/received-data-model.js", "ThinkingHome.Plugins.Mqtt.Resources.received-data-model.js")]
 	[JavaScriptResource("/webapp/mqtt/received-data-view.js", "ThinkingHome.Plugins.Mqtt.Resources.received-data-view.js")]
-	[HttpResource("/webapp/mqtt/received-data-list.tpl", "ThinkingHome.Plugins.Mqtt.Resources.received-data-list.tpl")]
-	[HttpResource("/webapp/mqtt/received-data-list-item.tpl", "ThinkingHome.Plugins.Mqtt.Resources.received-data-list-item.tpl")]
+	[HttpEmbeddedResource("/webapp/mqtt/received-data-list.tpl", "ThinkingHome.Plugins.Mqtt.Resources.received-data-list.tpl")]
+	[HttpEmbeddedResource("/webapp/mqtt/received-data-list-item.tpl", "ThinkingHome.Plugins.Mqtt.Resources.received-data-list-item.tpl")]
 	public class MqttUiPlugin : PluginBase
 	{
 		[HttpCommand("/api/mqtt/messages")]

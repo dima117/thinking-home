@@ -22,13 +22,13 @@ namespace ThinkingHome.Plugins.WebUI
 	[JavaScriptResource("/vendor/js/jquery.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.jquery.min.js")]
 
 	[JavaScriptResource("/vendor/js/underscore.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.underscore.min.js")]
-	[HttpResource("/vendor/js/underscore.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.underscore.min.js.map", "application/json")]
+	[HttpEmbeddedResource("/vendor/js/underscore.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.underscore.min.js.map", "application/json")]
 
 	[JavaScriptResource("/vendor/js/backbone.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.min.js")]
-	[HttpResource("/vendor/js/backbone.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.min.js.map", "application/json")]
+	[HttpEmbeddedResource("/vendor/js/backbone.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.min.js.map", "application/json")]
 
 	[JavaScriptResource("/vendor/js/backbone.marionette.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.marionette.min.js")]
-	[HttpResource("/vendor/js/backbone.marionette.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.marionette.min.js.map", "application/json")]
+	[HttpEmbeddedResource("/vendor/js/backbone.marionette.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.marionette.min.js.map", "application/json")]
 
 	[JavaScriptResource("/vendor/js/backbone.syphon.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.backbone.syphon.js")]
 	[JavaScriptResource("/vendor/js/bootstrap.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.bootstrap.min.js")]
@@ -46,9 +46,9 @@ namespace ThinkingHome.Plugins.WebUI
 	[JavaScriptResource("/vendor/js/codemirror-fullscreen.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.codemirror-fullscreen.js")]
 
 	[JavaScriptResource("/vendor/js/chart.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.chart.min.js")]
-	[HttpResource("/vendor/js/chart.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.chart.min.js.map", "application/json")]
+	[HttpEmbeddedResource("/vendor/js/chart.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.chart.min.js.map", "application/json")]
 	[JavaScriptResource("/vendor/js/chart.scatter.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.chart.scatter.min.js")]
-	[HttpResource("/vendor/js/chart.scatter.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.chart.scatter.min.js.map", "application/json")]
+	[HttpEmbeddedResource("/vendor/js/chart.scatter.min.js.map", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.chart.scatter.min.js.map", "application/json")]
 	
 	// css
 	[CssResource("/vendor/css/bootstrap.min.css", "ThinkingHome.Plugins.WebUI.Resources.Vendor.css.bootstrap.min.css")]
@@ -58,29 +58,29 @@ namespace ThinkingHome.Plugins.WebUI
 	[CssResource("/vendor/css/codemirror.css", "ThinkingHome.Plugins.WebUI.Resources.Vendor.css.codemirror.css", AutoLoad = true)]
 
 	// fonts
-	[HttpResource("/vendor/fonts/glyphicons-halflings-regular.eot", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.glyphicons-halflings-regular.eot", "application/vnd.ms-fontobject")]
-	[HttpResource("/vendor/fonts/glyphicons-halflings-regular.svg", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.glyphicons-halflings-regular.svg", "image/svg+xml")]
-	[HttpResource("/vendor/fonts/glyphicons-halflings-regular.ttf", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.glyphicons-halflings-regular.ttf", "application/x-font-truetype")]
-	[HttpResource("/vendor/fonts/glyphicons-halflings-regular.woff", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.glyphicons-halflings-regular.woff", "application/font-woff")]
-	[HttpResource("/vendor/fonts/glyphicons-halflings-regular.woff2", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.glyphicons-halflings-regular.woff2", "application/font-woff2")]
+	[HttpEmbeddedResource("/vendor/fonts/glyphicons-halflings-regular.eot", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.glyphicons-halflings-regular.eot", "application/vnd.ms-fontobject")]
+	[HttpEmbeddedResource("/vendor/fonts/glyphicons-halflings-regular.svg", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.glyphicons-halflings-regular.svg", "image/svg+xml")]
+	[HttpEmbeddedResource("/vendor/fonts/glyphicons-halflings-regular.ttf", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.glyphicons-halflings-regular.ttf", "application/x-font-truetype")]
+	[HttpEmbeddedResource("/vendor/fonts/glyphicons-halflings-regular.woff", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.glyphicons-halflings-regular.woff", "application/font-woff")]
+	[HttpEmbeddedResource("/vendor/fonts/glyphicons-halflings-regular.woff2", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.glyphicons-halflings-regular.woff2", "application/font-woff2")]
 
-	[HttpResource("/vendor/fonts/fontawesome-webfont.eot", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.fontawesome-webfont.eot", "application/vnd.ms-fontobject")]
-	[HttpResource("/vendor/fonts/fontawesome-webfont.svg", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.fontawesome-webfont.svg", "image/svg+xml")]
-	[HttpResource("/vendor/fonts/fontawesome-webfont.ttf", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.fontawesome-webfont.ttf", "application/x-font-truetype")]
-	[HttpResource("/vendor/fonts/fontawesome-webfont.woff", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.fontawesome-webfont.woff", "application/font-woff")]
-	[HttpResource("/vendor/fonts/fontawesome-webfont.woff2", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.fontawesome-webfont.woff2", "application/font-woff2")]
+	[HttpEmbeddedResource("/vendor/fonts/fontawesome-webfont.eot", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.fontawesome-webfont.eot", "application/vnd.ms-fontobject")]
+	[HttpEmbeddedResource("/vendor/fonts/fontawesome-webfont.svg", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.fontawesome-webfont.svg", "image/svg+xml")]
+	[HttpEmbeddedResource("/vendor/fonts/fontawesome-webfont.ttf", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.fontawesome-webfont.ttf", "application/x-font-truetype")]
+	[HttpEmbeddedResource("/vendor/fonts/fontawesome-webfont.woff", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.fontawesome-webfont.woff", "application/font-woff")]
+	[HttpEmbeddedResource("/vendor/fonts/fontawesome-webfont.woff2", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.fontawesome-webfont.woff2", "application/font-woff2")]
 
-	[HttpResource("/vendor/fonts/weathericons-regular-webfont.eot", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.weathericons-regular-webfont.eot", "application/vnd.ms-fontobject")]
-	[HttpResource("/vendor/fonts/weathericons-regular-webfont.svg", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.weathericons-regular-webfont.svg", "image/svg+xml")]
-	[HttpResource("/vendor/fonts/weathericons-regular-webfont.ttf", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.weathericons-regular-webfont.ttf", "application/x-font-truetype")]
-	[HttpResource("/vendor/fonts/weathericons-regular-webfont.woff", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.weathericons-regular-webfont.woff", "application/font-woff")]
-	[HttpResource("/vendor/fonts/weathericons-regular-webfont.woff2", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.weathericons-regular-webfont.woff2", "application/font-woff2")]
+	[HttpEmbeddedResource("/vendor/fonts/weathericons-regular-webfont.eot", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.weathericons-regular-webfont.eot", "application/vnd.ms-fontobject")]
+	[HttpEmbeddedResource("/vendor/fonts/weathericons-regular-webfont.svg", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.weathericons-regular-webfont.svg", "image/svg+xml")]
+	[HttpEmbeddedResource("/vendor/fonts/weathericons-regular-webfont.ttf", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.weathericons-regular-webfont.ttf", "application/x-font-truetype")]
+	[HttpEmbeddedResource("/vendor/fonts/weathericons-regular-webfont.woff", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.weathericons-regular-webfont.woff", "application/font-woff")]
+	[HttpEmbeddedResource("/vendor/fonts/weathericons-regular-webfont.woff2", "ThinkingHome.Plugins.WebUI.Resources.Vendor.fonts.weathericons-regular-webfont.woff2", "application/font-woff2")]
 
 	//APPLICATION
 
 	// html
-	[HttpResource("/", "ThinkingHome.Plugins.WebUI.Resources.Application.index.html", "text/html")]
-	[HttpResource("/favicon.ico", "ThinkingHome.Plugins.WebUI.Resources.Application.favicon.ico", "image/x-icon")]
+	[HttpEmbeddedResource("/", "ThinkingHome.Plugins.WebUI.Resources.Application.index.html", "text/html")]
+	[HttpEmbeddedResource("/favicon.ico", "ThinkingHome.Plugins.WebUI.Resources.Application.favicon.ico", "image/x-icon")]
 
 	// webapp: main
 	[JavaScriptResource("/application/index.js", "ThinkingHome.Plugins.WebUI.Resources.Application.index.js")]
@@ -95,8 +95,8 @@ namespace ThinkingHome.Plugins.WebUI
 	// layout
 	[JavaScriptResource("/application/layout/layout-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.layout.layout-view.js")]
 	[JavaScriptResource("/application/layout/layout.js", "ThinkingHome.Plugins.WebUI.Resources.Application.layout.layout.js")]
-	[HttpResource("/application/layout/app-layout.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.layout.app-layout.tpl")]
-	[HttpResource("/application/layout/app-menu.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.layout.app-menu.tpl")]
+	[HttpEmbeddedResource("/application/layout/app-layout.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.layout.app-layout.tpl")]
+	[HttpEmbeddedResource("/application/layout/app-menu.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.layout.app-menu.tpl")]
 
 	// webapp: sections
 	[JavaScriptResource("/application/sections/system.js", "ThinkingHome.Plugins.WebUI.Resources.Application.sections.system.js")]
@@ -105,8 +105,8 @@ namespace ThinkingHome.Plugins.WebUI
 	[JavaScriptResource("/application/sections/list.js", "ThinkingHome.Plugins.WebUI.Resources.Application.sections.list.js")]
 	[JavaScriptResource("/application/sections/list-model.js", "ThinkingHome.Plugins.WebUI.Resources.Application.sections.list-model.js")]
 	[JavaScriptResource("/application/sections/list-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.sections.list-view.js")]
-	[HttpResource("/application/sections/list.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.sections.list.tpl")]
-	[HttpResource("/application/sections/list-item.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.sections.list-item.tpl")]
+	[HttpEmbeddedResource("/application/sections/list.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.sections.list.tpl")]
+	[HttpEmbeddedResource("/application/sections/list-item.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.sections.list-item.tpl")]
 
 	// webapp: libs
 	[JavaScriptResource("/application/libs/dashboard-layout.js", "ThinkingHome.Plugins.WebUI.Resources.Application.libs.dashboard-layout.js")]

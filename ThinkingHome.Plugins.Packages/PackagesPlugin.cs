@@ -12,8 +12,8 @@ namespace ThinkingHome.Plugins.Packages
 	[AppSection("Packages", SectionType.System, "/webapp/packages/list.js", "ThinkingHome.Plugins.Packages.Resources.list.js")]
 	[JavaScriptResource("/webapp/packages/list-model.js", "ThinkingHome.Plugins.Packages.Resources.list-model.js")]
 	[JavaScriptResource("/webapp/packages/list-view.js", "ThinkingHome.Plugins.Packages.Resources.list-view.js")]
-	[HttpResource("/webapp/packages/list-item.tpl", "ThinkingHome.Plugins.Packages.Resources.list-item.tpl")]
-	[HttpResource("/webapp/packages/list.tpl", "ThinkingHome.Plugins.Packages.Resources.list.tpl")]
+	[HttpEmbeddedResource("/webapp/packages/list-item.tpl", "ThinkingHome.Plugins.Packages.Resources.list-item.tpl")]
+	[HttpEmbeddedResource("/webapp/packages/list.tpl", "ThinkingHome.Plugins.Packages.Resources.list.tpl")]
 
 	[Plugin]
 	public class PackagesPlugin : PluginBase

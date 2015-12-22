@@ -29,9 +29,9 @@ namespace ThinkingHome.Plugins.Microclimate
 	[JavaScriptResource("/webapp/microclimate/details-view.js", "ThinkingHome.Plugins.Microclimate.Resources.details-view.js")]
 	[JavaScriptResource("/webapp/microclimate/details-model.js", "ThinkingHome.Plugins.Microclimate.Resources.details-model.js")]
 
-	[HttpResource("/webapp/microclimate/details-template.tpl", "ThinkingHome.Plugins.Microclimate.Resources.details-template.tpl")]
-	[HttpResource("/webapp/microclimate/settings.tpl", "ThinkingHome.Plugins.Microclimate.Resources.settings.tpl")]
-	[HttpResource("/webapp/microclimate/settings-row.tpl", "ThinkingHome.Plugins.Microclimate.Resources.settings-row.tpl")]
+	[HttpEmbeddedResource("/webapp/microclimate/details-template.tpl", "ThinkingHome.Plugins.Microclimate.Resources.details-template.tpl")]
+	[HttpEmbeddedResource("/webapp/microclimate/settings.tpl", "ThinkingHome.Plugins.Microclimate.Resources.settings.tpl")]
+	[HttpEmbeddedResource("/webapp/microclimate/settings-row.tpl", "ThinkingHome.Plugins.Microclimate.Resources.settings-row.tpl")]
 	[CssResource("/webapp/microclimate/microclimate.css", "ThinkingHome.Plugins.Microclimate.Resources.microclimate.css", AutoLoad = true)]
 
 	[WebWidget("microclimate-sensor", "/widgets/microclimate-sensor.js", "ThinkingHome.Plugins.Microclimate.Resources.ui.microclimate-sensor.js")]

@@ -13,22 +13,22 @@ namespace ThinkingHome.Plugins.Scripts
 	[AppSection("Event handlers", SectionType.System, "/webapp/scripts/subscriptions.js", "ThinkingHome.Plugins.Scripts.Resources.subscriptions.js")]
 	[JavaScriptResource("/webapp/scripts/subscriptions-model.js", "ThinkingHome.Plugins.Scripts.Resources.subscriptions-model.js")]
 	[JavaScriptResource("/webapp/scripts/subscriptions-view.js", "ThinkingHome.Plugins.Scripts.Resources.subscriptions-view.js")]
-	[HttpResource("/webapp/scripts/subscriptions-layout.tpl", "ThinkingHome.Plugins.Scripts.Resources.subscriptions-layout.tpl")]
-	[HttpResource("/webapp/scripts/subscriptions-form.tpl", "ThinkingHome.Plugins.Scripts.Resources.subscriptions-form.tpl")]
-	[HttpResource("/webapp/scripts/subscriptions-list.tpl", "ThinkingHome.Plugins.Scripts.Resources.subscriptions-list.tpl")]
-	[HttpResource("/webapp/scripts/subscriptions-list-item.tpl", "ThinkingHome.Plugins.Scripts.Resources.subscriptions-list-item.tpl")]
+	[HttpEmbeddedResource("/webapp/scripts/subscriptions-layout.tpl", "ThinkingHome.Plugins.Scripts.Resources.subscriptions-layout.tpl")]
+	[HttpEmbeddedResource("/webapp/scripts/subscriptions-form.tpl", "ThinkingHome.Plugins.Scripts.Resources.subscriptions-form.tpl")]
+	[HttpEmbeddedResource("/webapp/scripts/subscriptions-list.tpl", "ThinkingHome.Plugins.Scripts.Resources.subscriptions-list.tpl")]
+	[HttpEmbeddedResource("/webapp/scripts/subscriptions-list-item.tpl", "ThinkingHome.Plugins.Scripts.Resources.subscriptions-list-item.tpl")]
 
 	[AppSection("Scripts", SectionType.System, "/webapp/scripts/script-list.js", "ThinkingHome.Plugins.Scripts.Resources.script-list.js")]
 	[JavaScriptResource("/webapp/scripts/script-list-model.js", "ThinkingHome.Plugins.Scripts.Resources.script-list-model.js")]
 	[JavaScriptResource("/webapp/scripts/script-list-view.js", "ThinkingHome.Plugins.Scripts.Resources.script-list-view.js")]
-	[HttpResource("/webapp/scripts/script-list-item.tpl", "ThinkingHome.Plugins.Scripts.Resources.script-list-item.tpl")]
-	[HttpResource("/webapp/scripts/script-list.tpl", "ThinkingHome.Plugins.Scripts.Resources.script-list.tpl")]
+	[HttpEmbeddedResource("/webapp/scripts/script-list-item.tpl", "ThinkingHome.Plugins.Scripts.Resources.script-list-item.tpl")]
+	[HttpEmbeddedResource("/webapp/scripts/script-list.tpl", "ThinkingHome.Plugins.Scripts.Resources.script-list.tpl")]
 
 	// editor
 	[JavaScriptResource("/webapp/scripts/script-editor.js", "ThinkingHome.Plugins.Scripts.Resources.script-editor.js")]
 	[JavaScriptResource("/webapp/scripts/script-editor-model.js", "ThinkingHome.Plugins.Scripts.Resources.script-editor-model.js")]
 	[JavaScriptResource("/webapp/scripts/script-editor-view.js", "ThinkingHome.Plugins.Scripts.Resources.script-editor-view.js")]
-	[HttpResource("/webapp/scripts/script-editor.tpl", "ThinkingHome.Plugins.Scripts.Resources.script-editor.tpl")]
+	[HttpEmbeddedResource("/webapp/scripts/script-editor.tpl", "ThinkingHome.Plugins.Scripts.Resources.script-editor.tpl")]
 
 	[Plugin]
 	public class ScriptsUiPlugin : PluginBase

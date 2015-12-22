@@ -2,7 +2,7 @@
 
 namespace ThinkingHome.Plugins.WebUI.Attributes
 {
-	public class CssResourceAttribute : HttpResourceAttribute
+	public class CssResourceAttribute : HttpEmbeddedResourceAttribute
 	{
 		public bool AutoLoad { get; set; }
 

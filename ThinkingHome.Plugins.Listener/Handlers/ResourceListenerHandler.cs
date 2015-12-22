@@ -12,9 +12,9 @@ namespace ThinkingHome.Plugins.Listener.Handlers
 		private WeakReference<byte[]> resourceReference;
 
 		private readonly Assembly assembly;
-		private readonly HttpResourceAttribute data;
+		private readonly HttpEmbeddedResourceAttribute data;
 
-		public ResourceListenerHandler(Assembly assembly, HttpResourceAttribute data)
+		public ResourceListenerHandler(Assembly assembly, HttpEmbeddedResourceAttribute data)
 		{
 			this.assembly = assembly;
 			this.data = data;

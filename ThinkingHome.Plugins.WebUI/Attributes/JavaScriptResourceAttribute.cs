@@ -3,7 +3,7 @@ using ThinkingHome.Plugins.Listener.Attributes;
 
 namespace ThinkingHome.Plugins.WebUI.Attributes
 {
-	public class JavaScriptResourceAttribute : HttpResourceAttribute
+	public class JavaScriptResourceAttribute : HttpEmbeddedResourceAttribute
 	{
 		public JavaScriptResourceAttribute(string url, string resourcePath)
 			: base(url, resourcePath, "text/javascript")
