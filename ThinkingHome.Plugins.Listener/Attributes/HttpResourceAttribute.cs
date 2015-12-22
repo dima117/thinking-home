@@ -5,7 +5,7 @@ using System.Resources;
 namespace ThinkingHome.Plugins.Listener.Attributes
 {
 	[AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
-	public class HttpResourceAttribute : Attribute, IHttpResourceAttribute
+	public class HttpResourceAttribute : Attribute
 	{
 		private readonly string url;
 		private readonly string resourcePath;

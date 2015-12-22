@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\HttpI18nResourceAttribute.cs" />
     <Compile Include="Attributes\WebWidgetAttribute.cs" />
     <Compile Include="Attributes\CssResourceAttribute.cs" />
     <Compile Include="Attributes\SectionType.cs" />
