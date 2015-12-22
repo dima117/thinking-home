@@ -2,8 +2,9 @@
 	[
 		'lib',
 		'text!webapp/alarm-clock/list.tpl',
-		'text!webapp/alarm-clock/list-item.tpl'],
-	function (lib, listTemplate, itemTemplate) {
+		'text!webapp/alarm-clock/list-item.tpl',
+		'json!/webapp/alarm-clock/lang.json'],
+	function (lib, listTemplate, itemTemplate, lang) {
 
 		var alarmView = lib.marionette.ItemView.extend({
 			template: lib.handlebars.compile(itemTemplate),
@@ -28,7 +29,8 @@
 			triggers: {
 				'click .js-btn-stop': 'alarm-clock:stop',
 				'click .js-btn-add': 'alarm-clock:add'
-			}
+			},
+			templateHelpers: { lang: lang }
 		});
 
 

@@ -117,28 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Alarm" xml:space="preserve">
-    <value>Сработал будильник</value>
+  <data name="Add" xml:space="preserve">
+    <value>Добавить</value>
   </data>
   <data name="Alarms" xml:space="preserve">
     <value>Будильники</value>
   </data>
-  <data name="Loaded_0_alarm_times" xml:space="preserve">
-    <value>Загружено будильников: {0}</value>
-  </data>
-  <data name="Play_sound" xml:space="preserve">
-    <value>Воспроизведение звука</value>
-  </data>
-  <data name="Run_alarm_script_0_1" xml:space="preserve">
-    <value>Запуск сценария будильника: {0} ({1})</value>
-  </data>
-  <data name="Run_event_handlers_0_1" xml:space="preserve">
-    <value>Запуск обработчика собыия: {0} ({1})</value>
-  </data>
-  <data name="Run_subscribed_scripts" xml:space="preserve">
-    <value>Запуск подписанных сценариев</value>
-  </data>
-  <data name="Stop_all_sounds" xml:space="preserve">
-    <value>Выключить все звуки</value>
+  <data name="Stop_all" xml:space="preserve">
+    <value>Выключить</value>
   </data>
 </root>

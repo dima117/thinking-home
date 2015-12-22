@@ -22,14 +22,14 @@ namespace ThinkingHome.Plugins.AlarmClock.Lang {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class AlarmClockLang {
+    internal class AlarmClockUiLang {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal AlarmClockLang() {
+        internal AlarmClockUiLang() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace ThinkingHome.Plugins.AlarmClock.Lang {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ThinkingHome.Plugins.AlarmClock.Lang.AlarmClockLang", typeof(AlarmClockLang).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ThinkingHome.Plugins.AlarmClock.Lang.AlarmClockUiLang", typeof(AlarmClockUiLang).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,11 +61,11 @@ namespace ThinkingHome.Plugins.AlarmClock.Lang {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ALARM!.
+        ///   Looks up a localized string similar to Add.
         /// </summary>
-        internal static string Alarm {
+        internal static string Add {
             get {
-                return ResourceManager.GetString("Alarm", resourceCulture);
+                return ResourceManager.GetString("Add", resourceCulture);
             }
         }
         
@@ -79,56 +79,11 @@ namespace ThinkingHome.Plugins.AlarmClock.Lang {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Loaded {0} alarm times.
+        ///   Looks up a localized string similar to Stop all.
         /// </summary>
-        internal static string Loaded_0_alarm_times {
+        internal static string Stop_all {
             get {
-                return ResourceManager.GetString("Loaded_0_alarm_times", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Play sound.
-        /// </summary>
-        internal static string Play_sound {
-            get {
-                return ResourceManager.GetString("Play_sound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Run alarm script: {0} ({1}).
-        /// </summary>
-        internal static string Run_alarm_script_0_1 {
-            get {
-                return ResourceManager.GetString("Run_alarm_script_0_1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Run event handlers: {0} ({1}).
-        /// </summary>
-        internal static string Run_event_handlers_0_1 {
-            get {
-                return ResourceManager.GetString("Run_event_handlers_0_1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Run subscribed scripts.
-        /// </summary>
-        internal static string Run_subscribed_scripts {
-            get {
-                return ResourceManager.GetString("Run_subscribed_scripts", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Stop all sounds.
-        /// </summary>
-        internal static string Stop_all_sounds {
-            get {
-                return ResourceManager.GetString("Stop_all_sounds", resourceCulture);
+                return ResourceManager.GetString("Stop_all", resourceCulture);
             }
         }
     }

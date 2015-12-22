@@ -151,6 +151,10 @@
 			return (Array(length + 1).join('0') + value).slice(-length);
 		});
 
+		handlebars.registerHelper('lang', function (key) {
+			return (this.lang || {})[key] || key;
+		});
+
 		//#endregion
 
 		return {

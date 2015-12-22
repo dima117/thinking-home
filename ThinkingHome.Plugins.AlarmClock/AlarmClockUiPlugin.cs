@@ -33,7 +33,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 	[HttpEmbeddedResource("/webapp/alarm-clock/editor.tpl", "ThinkingHome.Plugins.AlarmClock.Resources.alarm-editor.tpl")]
 
 	// i18n
-	[HttpI18NResource("/webapp/alarm-clock/lang.json", "ThinkingHome.Plugins.AlarmClock.Lang.AlarmClockLang")]
+	[HttpI18NResource("/webapp/alarm-clock/lang.json", "ThinkingHome.Plugins.AlarmClock.Lang.AlarmClockUiLang")]
 
 	[Plugin]
 	public class AlarmClockUiPlugin : PluginBase
