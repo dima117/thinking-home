@@ -1,39 +1,25 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Resources;
 
 namespace ThinkingHome.Plugins.Listener.Attributes
 {
-	[AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
-	public class HttpEmbeddedResourceAttribute : Attribute
+	
+	public class HttpEmbeddedResourceAttribute : HttpResourceAttribute
 	{
-		private readonly string url;
 		private readonly string resourcePath;
-		private readonly string contentType;
 
 		public HttpEmbeddedResourceAttribute(string url, string resourcePath, string contentType = "text/plain")
+			:base(url, contentType)
 		{
-			this.url = url;
 			this.resourcePath = resourcePath;
-			this.contentType = contentType;
-		}
-
-		public string Url
-		{
-			get { return url; }
 		}
 		
 		public string ResourcePath
 		{
 			get { return resourcePath; }
 		}
-
-		public string ContentType
-		{
-			get { return contentType; }
-		}
-
-		public virtual byte[] GetContent(Assembly assembly)
+		
+		public override byte[] GetContent(Assembly assembly)
 		{
 			byte[] result;
 
