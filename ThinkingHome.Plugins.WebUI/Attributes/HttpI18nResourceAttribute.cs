@@ -13,14 +13,13 @@ namespace ThinkingHome.Plugins.WebUI.Attributes
 	public class HttpI18NResourceAttribute : HttpResourceAttribute
 	{
 		public HttpI18NResourceAttribute(string url, string baseName) 
-			: base(url, baseName, "application/json")
+			: base(url, baseName, "application/json;charset=utf-8")
 		{
 			
 		}
 
 		public override byte[] GetContent(Assembly assembly)
 		{
-			Debugger.Launch();
 			var result = new Dictionary<string, string>();
 
 			var resourceManager = new ResourceManager(ResourcePath, assembly);
