@@ -1,5 +1,7 @@
 using System;
+using System.Diagnostics;
 using System.Reflection;
+using System.Resources;
 
 namespace ThinkingHome.Plugins.WebUI.Attributes
 {
@@ -24,13 +26,14 @@ namespace ThinkingHome.Plugins.WebUI.Attributes
 
 		private string cachedTitle;
 
-		public string GetTitle() {
-
+		public string GetTitle()
+		{
 			if (cachedTitle == null)
 			{
 				if (LangResourceType != null && !string.IsNullOrWhiteSpace(LangResourceKey))
 				{
-					cachedTitle = LangResourceType.GetProperty(LangResourceKey).GetValue(null) as string;
+					var resourceManager = new ResourceManager(LangResourceType.FullName, LangResourceType.Assembly);
+					cachedTitle = resourceManager.GetString(LangResourceKey);
 				}
 				
 				cachedTitle = cachedTitle ?? Title;

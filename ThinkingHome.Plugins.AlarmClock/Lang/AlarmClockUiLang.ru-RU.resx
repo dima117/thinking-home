@@ -123,7 +123,25 @@
   <data name="Alarms" xml:space="preserve">
     <value>Будильники</value>
   </data>
+  <data name="Disable" xml:space="preserve">
+    <value>Запретить</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Неактивен</value>
+  </data>
+  <data name="Enable" xml:space="preserve">
+    <value>Разрешить</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>Активен</value>
+  </data>
+  <data name="Execute_user_script" xml:space="preserve">
+    <value>Сценарий</value>
+  </data>
+  <data name="Play_sound" xml:space="preserve">
+    <value>Звуковой сигнал</value>
+  </data>
   <data name="Stop_all" xml:space="preserve">
-    <value>Выключить</value>
+    <value>Остановить</value>
   </data>
 </root>

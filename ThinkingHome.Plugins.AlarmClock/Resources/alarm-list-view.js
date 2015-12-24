@@ -19,7 +19,8 @@
 				'click .js-btn-enable': 'alarm-clock:enable',
 				'click .js-btn-disable': 'alarm-clock:disable',
 				'click .js-btn-edit': 'alarm-clock:edit'
-			}
+			},
+			templateHelpers: { lang: lang }
 		});
 
 		var alarmListView = lib.marionette.CompositeView.extend({

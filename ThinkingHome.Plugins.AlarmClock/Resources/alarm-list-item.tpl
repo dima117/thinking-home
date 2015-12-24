@@ -1,16 +1,16 @@
 ﻿<div class="th-margin-bottom-32">
 	<h3>
 		<a href="#"
-			class="btn th-btn-width-96 pull-right js-btn-enable"
-			data-action-text="Enable"
+			class="btn th-btn-width-120 pull-right js-btn-enable"
+			data-action-text="{{lang 'Enable'}}"
 			data-action-class="btn-primary"
-			data-state-class="btn-default">Disabled</a>
+			data-state-class="btn-default">{{lang 'Disabled'}}</a>
 
 		<a href="#"
-			class="btn th-btn-width-96 pull-right js-btn-disable"
-			data-action-text="Disable"
+			class="btn th-btn-width-120 pull-right js-btn-disable"
+			data-action-text="{{lang 'Disable'}}"
 			data-action-class="btn-danger"
-			data-state-class="btn-success">Enabled</a>
+			data-state-class="btn-success">{{lang 'Enabled'}}</a>
 		<a href="#" class="js-btn-edit">
 			{{hours}}:{{pad minutes 2}}
 		</a>
@@ -22,9 +22,9 @@
 	</h4>
 	<p>
 		{{#if scriptId}}
-		Execute user script: <em>{{scriptName}}</em>.
+		{{lang 'Execute_user_script'}}: <em>{{scriptName}}</em>.
 		{{else}}
-		Play sound.
+		{{lang 'Play_sound'}}
 		{{/if}}
 	</p>
 </div>

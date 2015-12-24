@@ -123,6 +123,24 @@
   <data name="Alarms" xml:space="preserve">
     <value>Alarms</value>
   </data>
+  <data name="Disable" xml:space="preserve">
+    <value>Disable</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Disabled</value>
+  </data>
+  <data name="Enable" xml:space="preserve">
+    <value>Enable</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
+  <data name="Execute_user_script" xml:space="preserve">
+    <value>Execute user script</value>
+  </data>
+  <data name="Play_sound" xml:space="preserve">
+    <value>Play sound</value>
+  </data>
   <data name="Stop_all" xml:space="preserve">
     <value>Stop all</value>
   </data>
