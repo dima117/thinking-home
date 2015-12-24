@@ -117,17 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Action" xml:space="preserve">
+    <value>Действие</value>
+  </data>
   <data name="Add" xml:space="preserve">
     <value>Добавить</value>
   </data>
   <data name="Alarms" xml:space="preserve">
     <value>Будильники</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
   <data name="Disable" xml:space="preserve">
     <value>Запретить</value>
   </data>
   <data name="Disabled" xml:space="preserve">
     <value>Неактивен</value>
+  </data>
+  <data name="Edit_alarm_settings" xml:space="preserve">
+    <value>Настройки будильника</value>
   </data>
   <data name="Enable" xml:space="preserve">
     <value>Разрешить</value>
@@ -138,10 +150,19 @@
   <data name="Execute_user_script" xml:space="preserve">
     <value>Сценарий</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Название</value>
+  </data>
   <data name="Play_sound" xml:space="preserve">
     <value>Звуковой сигнал</value>
   </data>
+  <data name="Save" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
   <data name="Stop_all" xml:space="preserve">
     <value>Остановить</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Время срабатывания</value>
   </data>
 </root>

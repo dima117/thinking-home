@@ -61,6 +61,15 @@ namespace ThinkingHome.Plugins.AlarmClock.Lang {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Action.
+        /// </summary>
+        internal static string Action {
+            get {
+                return ResourceManager.GetString("Action", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
         internal static string Add {
@@ -79,6 +88,24 @@ namespace ThinkingHome.Plugins.AlarmClock.Lang {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        internal static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Disable.
         /// </summary>
         internal static string Disable {
@@ -93,6 +120,15 @@ namespace ThinkingHome.Plugins.AlarmClock.Lang {
         internal static string Disabled {
             get {
                 return ResourceManager.GetString("Disabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit alarm settings.
+        /// </summary>
+        internal static string Edit_alarm_settings {
+            get {
+                return ResourceManager.GetString("Edit_alarm_settings", resourceCulture);
             }
         }
         
@@ -124,6 +160,15 @@ namespace ThinkingHome.Plugins.AlarmClock.Lang {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Play sound.
         /// </summary>
         internal static string Play_sound {
@@ -133,11 +178,29 @@ namespace ThinkingHome.Plugins.AlarmClock.Lang {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        internal static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Stop all.
         /// </summary>
         internal static string Stop_all {
             get {
                 return ResourceManager.GetString("Stop_all", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time.
+        /// </summary>
+        internal static string Time {
+            get {
+                return ResourceManager.GetString("Time", resourceCulture);
             }
         }
     }

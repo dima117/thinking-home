@@ -1,6 +1,6 @@
 ﻿define(
-	['lib', 'text!webapp/alarm-clock/editor.tpl'],
-	function (lib, editorTemplate) {
+	['lib', 'text!webapp/alarm-clock/editor.tpl', 'json!/webapp/alarm-clock/lang.json'],
+	function (lib, editorTemplate, lang) {
 
 		var alarmEditorView = lib.marionette.ItemView.extend({
 
@@ -42,7 +42,8 @@
 			btnDeleteClick: function (e) {
 				e.preventDefault();
 				this.trigger('alarm-clock:editor:delete');
-			}
+			},
+			templateHelpers: { lang: lang }
 		});
 
 		return {

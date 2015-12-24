@@ -117,17 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
   <data name="Add" xml:space="preserve">
     <value>Add</value>
   </data>
   <data name="Alarms" xml:space="preserve">
     <value>Alarms</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
   <data name="Disable" xml:space="preserve">
     <value>Disable</value>
   </data>
   <data name="Disabled" xml:space="preserve">
     <value>Disabled</value>
+  </data>
+  <data name="Edit_alarm_settings" xml:space="preserve">
+    <value>Edit alarm settings</value>
   </data>
   <data name="Enable" xml:space="preserve">
     <value>Enable</value>
@@ -138,10 +150,19 @@
   <data name="Execute_user_script" xml:space="preserve">
     <value>Execute user script</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
   <data name="Play_sound" xml:space="preserve">
     <value>Play sound</value>
   </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
   <data name="Stop_all" xml:space="preserve">
     <value>Stop all</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
   </data>
 </root>

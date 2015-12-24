@@ -2,21 +2,21 @@
 	<div class="row">
 		<div class="col-md-4">
 
-			<h1>Edit alarm settings</h1>
+			<h1>{{lang 'Edit_alarm_settings'}}</h1>
 			<p>
-				<input type="button" value="Save" class="btn btn-primary js-btn-save" />&nbsp;
-				<input type="button" value="Cancel" class="btn btn-default js-btn-cancel" />
-				<input type="button" value="Delete" class="btn btn-danger pull-right js-btn-delete" />
+				<input type="button" value="{{lang 'Save'}}" class="btn btn-primary js-btn-save" />&nbsp;
+				<input type="button" value="{{lang 'Cancel'}}" class="btn btn-default js-btn-cancel" />
+				<input type="button" value="{{lang 'Delete'}}" class="btn btn-danger pull-right js-btn-delete" />
 			</p>
 			<div class="form-group">
 				<label>
-					Name
+					{{lang 'Name'}}
 				</label>
 				<input name="name" class="form-control" />
 			</div>
 			<div class="form-group">
 				<label>
-					Time
+					{{lang 'Time'}}
 				</label>
 				<ul class="list-inline">
 					<li>
@@ -37,10 +37,10 @@
 			</div>
 			<div class="form-group">
 				<label>
-					Action
+					{{lang 'Action'}}
 				</label>
 				<select name="scriptId" class="form-control js-script-list">
-					<option value="">&lt;PLAY SOUND&gt;</option>
+					<option value="">&lt;{{lang 'Play_sound'}}&gt;</option>
 				</select>
 			</div>
 		</div>
