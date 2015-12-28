@@ -1,8 +1,9 @@
 ﻿define(
 	['lib',
 		'webapp/alarm-clock/list-model',
-		'webapp/alarm-clock/list-view'],
-	function (lib, models, views) {
+		'webapp/alarm-clock/list-view',
+		'lang!/webapp/alarm-clock/lang.json'],
+	function (lib, models, views, lang) {
 
 		var alarmList = lib.common.AppSection.extend({
 			start: function () {
@@ -30,7 +31,7 @@
 
 			stopAllSounds: function () {
 				models.stopAlarm().done(function () {
-					lib.utils.alert('All alarm sounds were stopped.');
+					lib.utils.alert(lang.get('All_alarm_sounds_were_stopped'));
 				});
 			},
 

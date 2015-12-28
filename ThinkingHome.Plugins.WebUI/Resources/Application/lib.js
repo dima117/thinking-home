@@ -152,7 +152,7 @@
 		});
 
 		handlebars.registerHelper('lang', function (key) {
-			return (this.lang || {})[key] || key;
+			return (this.lang && this.lang.get && this.lang.get(key)) || key;
 		});
 
 		//#endregion

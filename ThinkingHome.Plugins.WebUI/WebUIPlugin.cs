@@ -17,6 +17,7 @@ namespace ThinkingHome.Plugins.WebUI
 	[JavaScriptResource("/vendor/js/require.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.require.min.js")]
 	[JavaScriptResource("/vendor/js/require-text.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.require-text.js")]
 	[JavaScriptResource("/vendor/js/require-json.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.require-json.js")]
+	[JavaScriptResource("/vendor/js/require-lang.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.require-lang.js")]
 
 	[JavaScriptResource("/vendor/js/json2.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.json2.min.js")]
 	[JavaScriptResource("/vendor/js/jquery.min.js", "ThinkingHome.Plugins.WebUI.Resources.Vendor.js.jquery.min.js")]
@@ -109,6 +110,7 @@ namespace ThinkingHome.Plugins.WebUI
 	[HttpEmbeddedResource("/application/sections/list-item.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.sections.list-item.tpl")]
 
 	// webapp: libs
+	[JavaScriptResource("/application/libs/i18n.js", "ThinkingHome.Plugins.WebUI.Resources.Application.libs.i18n.js")]
 	[JavaScriptResource("/application/libs/dashboard-layout.js", "ThinkingHome.Plugins.WebUI.Resources.Application.libs.dashboard-layout.js")]
 	[JavaScriptResource("/application/libs/common.js", "ThinkingHome.Plugins.WebUI.Resources.Application.libs.common.js")]
 

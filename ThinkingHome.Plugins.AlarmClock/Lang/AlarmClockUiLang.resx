@@ -126,6 +126,9 @@
   <data name="Alarms" xml:space="preserve">
     <value>Alarms</value>
   </data>
+  <data name="All_alarm_sounds_were_stopped" xml:space="preserve">
+    <value>All alarm sounds were stopped.</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
@@ -137,6 +140,9 @@
   </data>
   <data name="Disabled" xml:space="preserve">
     <value>Disabled</value>
+  </data>
+  <data name="Do_you_want_to_delete_the_alarm_0" xml:space="preserve">
+    <value>Do you want to delete the alarm '{0}'?</value>
   </data>
   <data name="Edit_alarm_settings" xml:space="preserve">
     <value>Edit alarm settings</value>

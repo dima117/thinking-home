@@ -126,6 +126,9 @@
   <data name="Alarms" xml:space="preserve">
     <value>Будильники</value>
   </data>
+  <data name="All_alarm_sounds_were_stopped" xml:space="preserve">
+    <value>Звуковые сигналы всех будильников были остановлены</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Отмена</value>
   </data>
@@ -137,6 +140,9 @@
   </data>
   <data name="Disabled" xml:space="preserve">
     <value>Неактивен</value>
+  </data>
+  <data name="Do_you_want_to_delete_the_alarm_0" xml:space="preserve">
+    <value>Удалить будильник '{0}'?</value>
   </data>
   <data name="Edit_alarm_settings" xml:space="preserve">
     <value>Настройки будильника</value>

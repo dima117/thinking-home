@@ -3,7 +3,7 @@
 		'lib',
 		'text!webapp/alarm-clock/list.tpl',
 		'text!webapp/alarm-clock/list-item.tpl',
-		'json!/webapp/alarm-clock/lang.json'],
+		'lang!/webapp/alarm-clock/lang.json'],
 	function (lib, listTemplate, itemTemplate, lang) {
 
 		var alarmView = lib.marionette.ItemView.extend({

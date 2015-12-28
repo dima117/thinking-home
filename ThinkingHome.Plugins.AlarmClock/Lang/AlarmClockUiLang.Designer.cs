@@ -88,6 +88,15 @@ namespace ThinkingHome.Plugins.AlarmClock.Lang {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All alarm sounds were stopped..
+        /// </summary>
+        internal static string All_alarm_sounds_were_stopped {
+            get {
+                return ResourceManager.GetString("All_alarm_sounds_were_stopped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         internal static string Cancel {
@@ -120,6 +129,15 @@ namespace ThinkingHome.Plugins.AlarmClock.Lang {
         internal static string Disabled {
             get {
                 return ResourceManager.GetString("Disabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to delete the alarm &apos;{0}&apos;?.
+        /// </summary>
+        internal static string Do_you_want_to_delete_the_alarm_0 {
+            get {
+                return ResourceManager.GetString("Do_you_want_to_delete_the_alarm_0", resourceCulture);
             }
         }
         

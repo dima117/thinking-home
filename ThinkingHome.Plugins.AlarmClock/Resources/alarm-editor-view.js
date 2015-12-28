@@ -1,5 +1,5 @@
 ﻿define(
-	['lib', 'text!webapp/alarm-clock/editor.tpl', 'json!/webapp/alarm-clock/lang.json'],
+	['lib', 'text!webapp/alarm-clock/editor.tpl', 'lang!/webapp/alarm-clock/lang.json'],
 	function (lib, editorTemplate, lang) {
 
 		var alarmEditorView = lib.marionette.ItemView.extend({

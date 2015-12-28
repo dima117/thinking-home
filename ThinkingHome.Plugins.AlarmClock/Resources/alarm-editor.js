@@ -1,7 +1,8 @@
 ﻿define(['lib',
 		'webapp/alarm-clock/editor-model',
-		'webapp/alarm-clock/editor-view'],
-	function (lib, models, views) {
+		'webapp/alarm-clock/editor-view',
+		'lang!/webapp/alarm-clock/lang.json'],
+	function (lib, models, views, lang) {
 
 		var alarmEditor = lib.common.AppSection.extend({
 			start: function (id) {
@@ -26,7 +27,7 @@
 			deleteAlarm: function (view) {
 				var name = view.model.get('name');
 
-				if (lib.utils.confirm('Do you want to delete the alarm?', name)) {
+				if (lib.utils.confirm(lang.get('Do_you_want_to_delete_the_alarm_0'), name)) {
 					var id = view.model.get('id');
 					models.deleteAlarm(id).done(this.bind('redirectToList'));
 				}

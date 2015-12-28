@@ -5,6 +5,7 @@
 
 		text: 'vendor/js/require-text',
 		json: 'vendor/js/require-json',
+		lang: 'vendor/js/require-lang',
 
 		json2: 'vendor/js/json2.min',
 		jquery: 'vendor/js/jquery.min',
@@ -19,6 +20,7 @@
 		chart: 'vendor/js/chart.min',
 		'chart.scatter': 'vendor/js/chart.scatter.min',
 		'dashboard-layout': 'application/libs/dashboard-layout',
+		'i18n': 'application/libs/i18n',
 		'common': 'application/libs/common',
 
 		signalr: 'vendor/js/jquery.signalr.min',
