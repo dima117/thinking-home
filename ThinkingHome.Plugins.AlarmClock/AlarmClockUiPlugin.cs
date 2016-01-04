@@ -18,7 +18,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 		SectionType.Common, 
 		"/webapp/alarm-clock/list.js", 
 		"ThinkingHome.Plugins.AlarmClock.Resources.alarm-list.js", 
-		LangResourceType = typeof(AlarmClockLang), 
+		LangResourceType = typeof(AlarmClockUiLang), 
 		LangResourceKey = "Alarms")]
 	
 	[JavaScriptResource("/webapp/alarm-clock/list-model.js", "ThinkingHome.Plugins.AlarmClock.Resources.alarm-list-model.js")]

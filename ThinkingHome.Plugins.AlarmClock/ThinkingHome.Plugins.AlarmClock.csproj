@@ -64,11 +64,6 @@
     <Compile Include="AlarmClockUiPlugin.cs" />
     <Compile Include="Data\Migrations.cs" />
     <Compile Include="Data\Model.cs" />
-    <Compile Include="Lang\AlarmClockLang.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AlarmClockLang.resx</DependentUpon>
-    </Compile>
     <Compile Include="Lang\AlarmClockUiLang.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -85,11 +80,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Lang\AlarmClockLang.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AlarmClockLang.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Lang\AlarmClockLang.ru-RU.resx" />
     <EmbeddedResource Include="Lang\AlarmClockUiLang.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>AlarmClockUiLang.Designer.cs</LastGenOutput>

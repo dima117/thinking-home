@@ -45,7 +45,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 			{
 				StopSound();
 
-				Logger.Info(AlarmClockLang.Play_sound);
+				Logger.Info("Play sound");
 				playback = Context.GetPlugin<AudioPlugin>().Play(SoundResources.Ring02, 25);
 			}
 		}
@@ -56,7 +56,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 			{
 				if (playback != null)
 				{
-					Logger.Info(AlarmClockLang.Stop_all_sounds);
+					Logger.Info("Stop all sounds");
 					playback.Stop();
 					playback = null;
 				}
@@ -105,7 +105,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 						.Where(t => t.Enabled)
 						.ToList();
 
-					Logger.Info(AlarmClockLang.Loaded_0_alarm_times, times.Count);
+					Logger.Info("Loaded {0} alarm times", times.Count);
 				}
 			}
 		}
@@ -134,7 +134,7 @@ namespace ThinkingHome.Plugins.AlarmClock
 
 		private void Alarm(AlarmTime[] alarms)
 		{
-			Logger.Info(AlarmClockLang.Alarm);
+			Logger.Info("ALARM!");
 
 			if (alarms.Any(a => a.PlaySound))
 			{
@@ -143,19 +143,19 @@ namespace ThinkingHome.Plugins.AlarmClock
 
 			foreach (var alarm in alarms)
 			{
-				Logger.Info(AlarmClockLang.Run_event_handlers_0_1, alarm.Name, alarm.Id);
+				Logger.Info("Run event handlers: {0} ({1})", alarm.Name, alarm.Id);
 
 				Guid alarmId = alarm.Id;
 				Run(AlarmStartedForPlugins, x => x(alarmId));
 
 				if (alarm.UserScript != null)
 				{
-					Logger.Info(AlarmClockLang.Run_alarm_script_0_1, alarm.UserScript.Name, alarm.UserScript.Id);
+					Logger.Info("Run alarm script: {0} ({1})", alarm.UserScript.Name, alarm.UserScript.Id);
 					Context.GetPlugin<ScriptsPlugin>().ExecuteScript(alarm.UserScript);
 				}
 			}
 
-			Logger.Info(AlarmClockLang.Run_subscribed_scripts);
+			Logger.Info("Run subscribed scripts");
 			this.RaiseScriptEvent(x => x.AlarmStartedForScripts);
 		}
 
