@@ -2,6 +2,9 @@
 
 namespace ThinkingHome.Plugins.Microclimate
 {
+	/// <summary>
+	/// Модель для отправки данных на клиент
+	/// </summary>
 	public class MicroclimateData
 	{
 		public int channel;

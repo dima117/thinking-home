@@ -58,6 +58,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Lang\MicroclimateLang.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MicroclimateLang.resx</DependentUpon>
+    </Compile>
     <Compile Include="MicroclimateData.cs" />
     <Compile Include="MicroclimatePlugin.cs" />
     <Compile Include="MicroclimateWidgetDefinition.cs" />
@@ -72,6 +77,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Lang\MicroclimateLang.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MicroclimateLang.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lang\MicroclimateLang.ru-RU.resx" />
     <EmbeddedResource Include="Resources\details-model.js" />
     <EmbeddedResource Include="Resources\details-view.js" />
     <EmbeddedResource Include="Resources\details.js" />

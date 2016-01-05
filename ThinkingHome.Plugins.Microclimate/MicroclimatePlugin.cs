@@ -14,6 +14,7 @@ using ThinkingHome.Plugins.NooLite;
 using ThinkingHome.Plugins.Scripts;
 using ThinkingHome.Plugins.WebUI.Attributes;
 using ThinkingHome.Plugins.Listener;
+using ThinkingHome.Plugins.Microclimate.Lang;
 
 [assembly: MigrationAssembly("ThinkingHome.Plugins.Microclimate")]
 
@@ -21,7 +22,10 @@ namespace ThinkingHome.Plugins.Microclimate
 {
 	[Plugin]
 
-	[AppSection("Microclimate sensors", SectionType.System, "/webapp/microclimate/settings.js", "ThinkingHome.Plugins.Microclimate.Resources.settings.js")]
+	[AppSection("Microclimate sensors", SectionType.System, 
+		"/webapp/microclimate/settings.js", "ThinkingHome.Plugins.Microclimate.Resources.settings.js",
+		LangResourceType = typeof(MicroclimateLang), LangResourceKey = "Microclimate_sensors")]
+
 	[JavaScriptResource("/webapp/microclimate/settings-view.js", "ThinkingHome.Plugins.Microclimate.Resources.settings-view.js")]
 	[JavaScriptResource("/webapp/microclimate/settings-model.js", "ThinkingHome.Plugins.Microclimate.Resources.settings-model.js")]
 
