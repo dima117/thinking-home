@@ -1,8 +1,9 @@
 ﻿define(
 	['lib',
 		'text!webapp/packages/list.tpl',
-		'text!webapp/packages/list-item.tpl'],
-	function (lib, listTemplate, itemTemplate) {
+		'text!webapp/packages/list-item.tpl',
+		'lang!webapp/packages/lang.json'],
+	function (lib, listTemplate, itemTemplate, lang) {
 
 		var packageView = lib.marionette.ItemView.extend({
 			template: lib.handlebars.compile(itemTemplate),
@@ -23,13 +24,15 @@
 					this.$('.js-btn-install').stateSwitcher();
 					this.$('.js-btn-uninstall').hide();
 				}
-			}
+			},
+			templateHelpers: { lang: lang }
 		});
 
 		var packageListView = lib.marionette.CompositeView.extend({
 			template: lib.handlebars.compile(listTemplate),
 			childView: packageView,
-			childViewContainer: '.js-list'
+			childViewContainer: '.js-list',
+			templateHelpers: { lang: lang }
 		});
 
 

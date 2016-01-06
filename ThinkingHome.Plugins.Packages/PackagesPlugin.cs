@@ -1,19 +1,24 @@
 ﻿using System.Linq;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Core.Plugins.HomePackages;
-using ThinkingHome.Plugins.Listener;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
-using ThinkingHome.Plugins.Listener.Handlers;
+using ThinkingHome.Plugins.Packages.Lang;
 using ThinkingHome.Plugins.WebUI.Attributes;
 
 namespace ThinkingHome.Plugins.Packages
 {
-	[AppSection("Packages", SectionType.System, "/webapp/packages/list.js", "ThinkingHome.Plugins.Packages.Resources.list.js")]
+	[AppSection("Installed packages", 
+		SectionType.System, "/webapp/packages/list.js", "ThinkingHome.Plugins.Packages.Resources.list.js",
+		LangResourceType = typeof(PackagesLang), LangResourceKey = "Installed_packages")]
+
 	[JavaScriptResource("/webapp/packages/list-model.js", "ThinkingHome.Plugins.Packages.Resources.list-model.js")]
 	[JavaScriptResource("/webapp/packages/list-view.js", "ThinkingHome.Plugins.Packages.Resources.list-view.js")]
 	[HttpEmbeddedResource("/webapp/packages/list-item.tpl", "ThinkingHome.Plugins.Packages.Resources.list-item.tpl")]
 	[HttpEmbeddedResource("/webapp/packages/list.tpl", "ThinkingHome.Plugins.Packages.Resources.list.tpl")]
+
+	// i18n
+	[HttpI18NResource("/webapp/packages/lang.json", "ThinkingHome.Plugins.Packages.Lang.PackagesLang")]
 
 	[Plugin]
 	public class PackagesPlugin : PluginBase

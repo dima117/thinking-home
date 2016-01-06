@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Lang\PackagesLang.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PackagesLang.resx</DependentUpon>
+    </Compile>
     <Compile Include="PackagesPlugin.cs" />
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
@@ -69,6 +74,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Lang\PackagesLang.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PackagesLang.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lang\PackagesLang.ru-RU.resx" />
     <EmbeddedResource Include="Resources\list-item.tpl" />
     <EmbeddedResource Include="Resources\list.tpl" />
     <None Include="packages.config" />
