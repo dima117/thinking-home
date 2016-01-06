@@ -124,7 +124,7 @@
     <value>Humidity</value>
   </data>
   <data name="Microclimate_sensors" xml:space="preserve">
-    <value>Microclimate sensors</value>
+    <value>Microclimate sensors (nooLite)</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>No</value>
@@ -134,5 +134,35 @@
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
+  </data>
+  <data name="Add_sensor" xml:space="preserve">
+    <value>Add sensor</value>
+  </data>
+  <data name="Channel" xml:space="preserve">
+    <value>Channel</value>
+  </data>
+  <data name="channel_lower" xml:space="preserve">
+    <value>channel</value>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>delete</value>
+  </data>
+  <data name="Delete_the_sensor_0_and_all_related_data" xml:space="preserve">
+    <value>Delete the sensor "{0}" and all related data?</value>
+  </data>
+  <data name="details" xml:space="preserve">
+    <value>details</value>
+  </data>
+  <data name="Display_name" xml:space="preserve">
+    <value>Display name</value>
+  </data>
+  <data name="display_name_lower" xml:space="preserve">
+    <value>display_name</value>
+  </data>
+  <data name="Show_humidity" xml:space="preserve">
+    <value>Show humidity</value>
+  </data>
+  <data name="show_humidity_lower" xml:space="preserve">
+    <value>show humidity</value>
   </data>
 </root>

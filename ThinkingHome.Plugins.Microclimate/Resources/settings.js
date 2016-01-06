@@ -1,7 +1,8 @@
 ﻿define(['lib',
 		'webapp/microclimate/settings-model',
-		'webapp/microclimate/settings-view'],
-	function (lib, models, views) {
+		'webapp/microclimate/settings-view',
+		'lang!webapp/microclimate/lang.json'],
+	function (lib, models, views, lang) {
 
 		var microclimateSettings = lib.common.AppSection.extend({
 			start: function () {
@@ -28,7 +29,7 @@
 			deleteSensor: function (childView) {
 				var displayName = childView.model.get('displayName');
 
-				if (lib.utils.confirm('Delete the sensor "{0}" and all related data?', displayName)) {
+				if (lib.utils.confirm(lang.get('Delete_the_sensor_0_and_all_related_data'), displayName)) {
 					var id = childView.model.get('id');
 
 					models.deleteSensor(id).done(this.bind('loadSettings'));

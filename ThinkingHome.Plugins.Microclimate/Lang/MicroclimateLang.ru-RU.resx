@@ -124,7 +124,7 @@
     <value>Влажность</value>
   </data>
   <data name="Microclimate_sensors" xml:space="preserve">
-    <value>Датчики микроклимата</value>
+    <value>Датчики микроклимата (nooLite)</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>Нет</value>
@@ -134,5 +134,35 @@
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Да</value>
+  </data>
+  <data name="Add_sensor" xml:space="preserve">
+    <value>Добавить датчик</value>
+  </data>
+  <data name="Channel" xml:space="preserve">
+    <value>Канал</value>
+  </data>
+  <data name="channel_lower" xml:space="preserve">
+    <value>канал</value>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>удалить</value>
+  </data>
+  <data name="Delete_the_sensor_0_and_all_related_data" xml:space="preserve">
+    <value>Удалить датчик "{0}" и все его данные?</value>
+  </data>
+  <data name="details" xml:space="preserve">
+    <value>подробнее</value>
+  </data>
+  <data name="Display_name" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="display_name_lower" xml:space="preserve">
+    <value>название</value>
+  </data>
+  <data name="Show_humidity" xml:space="preserve">
+    <value>Показывать влажность</value>
+  </data>
+  <data name="show_humidity_lower" xml:space="preserve">
+    <value>показывать влажность</value>
   </data>
 </root>

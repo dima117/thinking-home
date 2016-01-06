@@ -2,8 +2,8 @@
 <td class="col-md-1">{{channel}}</td>
 <td class="col-md-1">{{showHumidity}}</td>
 <td class="col-md-1">
-	<a class="js-btn-details" href="#">details</a>
+	<a class="js-btn-details" href="#">{{lang 'details'}}</a>
 </td>
 <td class="col-md-1">
-	<a class="js-delete-sensor" href="#">delete</a>
+	<a class="js-delete-sensor text-danger" href="#">{{lang 'delete'}}</a>
 </td>

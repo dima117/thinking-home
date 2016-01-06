@@ -61,11 +61,83 @@ namespace ThinkingHome.Plugins.Microclimate.Lang {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add sensor.
+        /// </summary>
+        internal static string Add_sensor {
+            get {
+                return ResourceManager.GetString("Add_sensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Channel.
+        /// </summary>
+        internal static string Channel {
+            get {
+                return ResourceManager.GetString("Channel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to channel.
+        /// </summary>
+        internal static string channel_lower {
+            get {
+                return ResourceManager.GetString("channel_lower", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to chart has no data.
         /// </summary>
         internal static string chart_has_no_data {
             get {
                 return ResourceManager.GetString("chart_has_no_data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to delete.
+        /// </summary>
+        internal static string delete {
+            get {
+                return ResourceManager.GetString("delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete the sensor &quot;{0}&quot; and all related data?.
+        /// </summary>
+        internal static string Delete_the_sensor_0_and_all_related_data {
+            get {
+                return ResourceManager.GetString("Delete_the_sensor_0_and_all_related_data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to details.
+        /// </summary>
+        internal static string details {
+            get {
+                return ResourceManager.GetString("details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display name.
+        /// </summary>
+        internal static string Display_name {
+            get {
+                return ResourceManager.GetString("Display_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to display_name.
+        /// </summary>
+        internal static string display_name_lower {
+            get {
+                return ResourceManager.GetString("display_name_lower", resourceCulture);
             }
         }
         
@@ -79,7 +151,7 @@ namespace ThinkingHome.Plugins.Microclimate.Lang {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Microclimate sensors.
+        ///   Looks up a localized string similar to Microclimate sensors (nooLite).
         /// </summary>
         internal static string Microclimate_sensors {
             get {
@@ -93,6 +165,24 @@ namespace ThinkingHome.Plugins.Microclimate.Lang {
         internal static string No {
             get {
                 return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show humidity.
+        /// </summary>
+        internal static string Show_humidity {
+            get {
+                return ResourceManager.GetString("Show_humidity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to show humidity.
+        /// </summary>
+        internal static string show_humidity_lower {
+            get {
+                return ResourceManager.GetString("show_humidity_lower", resourceCulture);
             }
         }
         
