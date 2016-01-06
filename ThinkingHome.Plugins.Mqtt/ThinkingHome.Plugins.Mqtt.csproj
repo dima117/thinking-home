@@ -62,6 +62,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Lang\MqttUiLang.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MqttUiLang.resx</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Migration01_ReceivedData.cs" />
     <Compile Include="Migrations\Migration02_ReceivedDataMessage.cs" />
     <Compile Include="Model\ReceivedData.cs" />
@@ -75,6 +80,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <EmbeddedResource Include="Lang\MqttUiLang.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MqttUiLang.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lang\MqttUiLang.ru-RU.resx" />
     <EmbeddedResource Include="Resources\received-data-list-item.tpl" />
     <EmbeddedResource Include="Resources\received-data-list.tpl" />
     <None Include="ThinkingHome.Plugins.Mqtt.nuspec">

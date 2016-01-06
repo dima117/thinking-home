@@ -5,5 +5,7 @@
 	<a class="js-btn-details" href="#">{{lang 'details'}}</a>
 </td>
 <td class="col-md-1">
-	<a class="js-delete-sensor text-danger" href="#">{{lang 'delete'}}</a>
+	<a class="js-delete-sensor" href="#">
+		<i class="fa fa-times"></i> {{lang 'delete'}}
+	</a>
 </td>

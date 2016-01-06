@@ -1,28 +1,28 @@
 ﻿<div>
 	<h1>
-		MQTT received data
+		{{lang 'MQTT_received_data'}}
 	</h1>
 	<div class="row">
 		<div class="col-md-12">
-			<h2>Connection</h2>
+			<h2>{{lang 'Connection'}}</h2>
 			<dl>
-				<dt>host</dt>
+				<dt>{{lang 'host'}}</dt>
 				<dd>{{host}}:{{port}}</dd>
-				<dt>path</dt>
+				<dt>{{lang 'path'}}</dt>
 				<dd>{{path}}</dd>
 			</dl>
 			<p>
-				<a href="#" class="btn btn-default js-reload">Reload</a>
+				<a href="#" class="btn btn-default js-reload">{{lang 'Reload'}}</a>
 			</p>
 		</div>
 		<div class="col-md-12">
-			<h2>Messages</h2>
+			<h2>{{lang 'Messages'}}</h2>
 			<table class="table">
 				<thead>
 					<tr>
-						<th>path</th>
-						<th>updated</th>
-						<th colspan="2">message</th>
+						<th>{{lang 'path'}}</th>
+						<th>{{lang 'updated'}}</th>
+						<th colspan="2">{{lang 'message'}}</th>
 					</tr>
 				</thead>
 				<tbody></tbody>

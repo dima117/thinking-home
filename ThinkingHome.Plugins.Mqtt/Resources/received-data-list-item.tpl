@@ -9,6 +9,6 @@
 </td>
 <td class="col-md-1">
 	<a href="#" class="js-delete">
-		<i class="fa fa-times"></i> delete
+		<i class="fa fa-times"></i> {{lang 'delete'}}
 	</a>
 </td>

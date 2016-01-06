@@ -3,6 +3,7 @@ using NHibernate.Linq;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
+using ThinkingHome.Plugins.Mqtt.Lang;
 using ThinkingHome.Plugins.Mqtt.Model;
 using ThinkingHome.Plugins.WebUI.Attributes;
 
@@ -10,11 +11,18 @@ namespace ThinkingHome.Plugins.Mqtt
 {
 	[Plugin]
 
-	[AppSection("MQTT received data", SectionType.System, "/webapp/mqtt/received-data.js", "ThinkingHome.Plugins.Mqtt.Resources.received-data.js")]
+	[AppSection("MQTT received data", SectionType.System, 
+		"/webapp/mqtt/received-data.js", "ThinkingHome.Plugins.Mqtt.Resources.received-data.js",
+		LangResourceType = typeof(MqttUiLang), LangResourceKey = "MQTT_received_data")]
+
 	[JavaScriptResource("/webapp/mqtt/received-data-model.js", "ThinkingHome.Plugins.Mqtt.Resources.received-data-model.js")]
 	[JavaScriptResource("/webapp/mqtt/received-data-view.js", "ThinkingHome.Plugins.Mqtt.Resources.received-data-view.js")]
 	[HttpEmbeddedResource("/webapp/mqtt/received-data-list.tpl", "ThinkingHome.Plugins.Mqtt.Resources.received-data-list.tpl")]
 	[HttpEmbeddedResource("/webapp/mqtt/received-data-list-item.tpl", "ThinkingHome.Plugins.Mqtt.Resources.received-data-list-item.tpl")]
+
+	// i18n
+	[HttpI18NResource("/webapp/mqtt/lang.json", "ThinkingHome.Plugins.Mqtt.Lang.MqttUiLang")]
+
 	public class MqttUiPlugin : PluginBase
 	{
 		[HttpCommand("/api/mqtt/messages")]
