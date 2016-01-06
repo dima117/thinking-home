@@ -38,6 +38,10 @@ namespace ThinkingHome.Plugins.Microclimate
 	[HttpEmbeddedResource("/webapp/microclimate/settings-row.tpl", "ThinkingHome.Plugins.Microclimate.Resources.settings-row.tpl")]
 	[CssResource("/webapp/microclimate/microclimate.css", "ThinkingHome.Plugins.Microclimate.Resources.microclimate.css", AutoLoad = true)]
 
+	// i18n
+	[HttpI18NResource("/webapp/microclimate/lang.json", "ThinkingHome.Plugins.Microclimate.Lang.MicroclimateLang")]
+
+	// widgets
 	[WebWidget("microclimate-sensor", "/widgets/microclimate-sensor.js", "ThinkingHome.Plugins.Microclimate.Resources.ui.microclimate-sensor.js")]
 	public class MicroclimatePlugin : PluginBase
 	{
@@ -154,7 +158,7 @@ namespace ThinkingHome.Plugins.Microclimate
 						id = s.Id,
 						displayName = s.DisplayName,
 						channel = s.Channel,
-						showHumidity = s.ShowHumidity ? "Yes" : "No"
+						showHumidity = s.ShowHumidity ? MicroclimateLang.Yes : MicroclimateLang.No
 					})
 					.ToList();
 

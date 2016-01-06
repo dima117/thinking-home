@@ -115,32 +115,33 @@ a.list-group-item:hover {
 	width: 210px;
 	overflow-y: auto;
 	background-color: #182c3d;
+	display: none;
 }
 
 .th-content {
 	position: absolute;
 	top: 0;
-	left: 210px;
+	left: 0;
 	right: 0;
 	bottom: 0;
 	overflow-y: auto;
 }
 
-.th-hidden-menu .th-side-panel {
-	display: none;
+.th-displayed-menu .th-side-panel {
+	display: block;
 }
 
-.th-hidden-menu .th-content {
-	left: 0;
+.th-displayed-menu .th-content {
+	left: 210px;
 }
 
 @media (max-width: 800px) {
 
-	.th-side-panel {
+	.th-displayed-menu .th-side-panel {
 		display: none;
 	}
 
-	.th-content {
+	.th-displayed-menu .th-content {
 		left: 0;
 	}
 }

@@ -62,7 +62,7 @@
 			},
 
 			toggleSideMenu: function (isVisible) {
-				this.ui.container.toggleClass('th-hidden-menu', !isVisible);
+				this.ui.container.toggleClass('th-displayed-menu', !!isVisible);
 			}
 		});
 

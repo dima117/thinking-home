@@ -61,11 +61,56 @@ namespace ThinkingHome.Plugins.Microclimate.Lang {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to chart has no data.
+        /// </summary>
+        internal static string chart_has_no_data {
+            get {
+                return ResourceManager.GetString("chart_has_no_data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Humidity.
+        /// </summary>
+        internal static string Humidity {
+            get {
+                return ResourceManager.GetString("Humidity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Microclimate sensors.
         /// </summary>
         internal static string Microclimate_sensors {
             get {
                 return ResourceManager.GetString("Microclimate_sensors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        internal static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Temperature.
+        /// </summary>
+        internal static string Temperature {
+            get {
+                return ResourceManager.GetString("Temperature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        internal static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

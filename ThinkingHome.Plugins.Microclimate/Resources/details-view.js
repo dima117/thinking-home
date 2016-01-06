@@ -1,6 +1,6 @@
 ﻿define(
-	['lib', 'text!webapp/microclimate/details-template.tpl'],
-	function (lib, tmplDetails) {
+	['lib', 'text!webapp/microclimate/details-template.tpl', 'lang!webapp/microclimate/lang.json'],
+	function (lib, tmplDetails, lang) {
 
 		var sensorDetailsView = lib.marionette.ItemView.extend({
 
@@ -28,27 +28,28 @@
 			},
 
 			chartOptions: {
-				scaleType: "date",
-				scaleFontFamily: "'Segoe UI','HelveticaNeue-Light',sans-serif",
-				scaleFontColor: "#bbb",
-				scaleGridLineColor: "rgba(255,255,255,.1)",
-				scaleLineColor: "rgba(255,255,255,.2)",
+				scaleType: 'date',
+				scaleFontFamily: '\'Segoe UI\',\'HelveticaNeue-Light\',sans-serif',
+				scaleFontColor: '#bbb',
+				scaleGridLineColor: 'rgba(255,255,255,.1)',
+				scaleLineColor: 'rgba(255,255,255,.2)',
 				tooltipCornerRadius: 3,
-				tooltipFillColor: "rgba(255,255,255,0.85)",
-				tooltipFontColor: "#294C69",
-				tooltipFontFamily: "'Segoe UI','HelveticaNeue-Light',sans-serif",
+				tooltipFillColor: 'rgba(255,255,255,0.85)',
+				tooltipFontColor: '#294C69',
+				tooltipFontFamily: '\'Segoe UI\',\'HelveticaNeue-Light\',sans-serif',
+				emptyDataMessage: lang.get('chart_has_no_data'),
 				responsive: true
 			},
 
 			initChart: function (el, title, labelFormat, color, points) {
 
 				var options = lib._.extend(this.chartOptions, { scaleLabel: labelFormat }),
-					ctxt = el.get(0).getContext("2d"),
+					ctxt = el.get(0).getContext('2d'),
 					chart = new lib.Chart(ctxt).Scatter([
 					{
 						label: title,
 						strokeColor: color,
-						pointStrokeColor: "#294C69",
+						pointStrokeColor: '#294C69',
 						data: points
 					}], options);
 
@@ -62,16 +63,16 @@
 
 			template: lib.handlebars.compile(tmplDetails),
 			ui: {
-				tPanel: ".js-temperature-panel",
-				hPanel: ".js-humidity-panel",
-				tChart: ".js-temperature-chart",
-				hChart: ".js-humidity-chart"
+				tPanel: '.js-temperature-panel',
+				hPanel: '.js-humidity-panel',
+				tChart: '.js-temperature-chart',
+				hChart: '.js-humidity-chart'
 			},
 			onShow: function () {
 
 				var showHumidity = this.model.get('showHumidity'),
-					tClass = showHumidity ? "col-md-6" : "col-md-12",
-					hClass = showHumidity ? "col-md-6" : "hidden";
+					tClass = showHumidity ? 'col-md-6' : 'col-md-12',
+					hClass = showHumidity ? 'col-md-6' : 'hidden';
 
 				this.ui.tPanel.addClass(tClass);
 				this.ui.hPanel.addClass(hClass);
@@ -80,12 +81,12 @@
 				var data = this.buildChartData();
 
 				this.tchart = this.initChart(
-					this.ui.tChart, 'Temperature', '<%=value%>°C', '#689fcd', data.tdataset);
+					this.ui.tChart, lang.get('Temperature'), '<%=value%>°C', '#689fcd', data.tdataset);
 
 				if (showHumidity) {
 
 					this.hchart = this.initChart(
-						this.ui.hChart, 'Humidity', '<%=value%>%', '#f66', data.hdataset);
+						this.ui.hChart, lang.get('Humidity'), '<%=value%>%', '#f66', data.hdataset);
 				}
 			},
 
