@@ -151,6 +151,15 @@ namespace ThinkingHome.Plugins.Microclimate.Lang {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Microclimate sensor.
+        /// </summary>
+        internal static string Microclimate_sensor {
+            get {
+                return ResourceManager.GetString("Microclimate_sensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Microclimate sensors (nooLite).
         /// </summary>
         internal static string Microclimate_sensors {
@@ -165,6 +174,15 @@ namespace ThinkingHome.Plugins.Microclimate.Lang {
         internal static string No {
             get {
                 return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sensor.
+        /// </summary>
+        internal static string Sensor {
+            get {
+                return ResourceManager.GetString("Sensor", resourceCulture);
             }
         }
         

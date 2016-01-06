@@ -1,5 +1,4 @@
 ﻿using System;
-using NLog;
 using ThinkingHome.Core.Plugins;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;

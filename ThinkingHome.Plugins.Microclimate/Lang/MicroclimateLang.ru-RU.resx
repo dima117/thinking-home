@@ -165,4 +165,10 @@
   <data name="show_humidity_lower" xml:space="preserve">
     <value>показывать влажность</value>
   </data>
+  <data name="Microclimate_sensor" xml:space="preserve">
+    <value>Датчик микроклимата</value>
+  </data>
+  <data name="Sensor" xml:space="preserve">
+    <value>Датчик</value>
+  </data>
 </root>

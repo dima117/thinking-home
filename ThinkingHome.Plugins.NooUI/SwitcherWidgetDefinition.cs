@@ -3,6 +3,7 @@ using ThinkingHome.Plugins.UniUI.Model;
 using ThinkingHome.Plugins.UniUI.Widgets;
 using NHibernate;
 using NLog;
+using ThinkingHome.Plugins.NooUI.Lang;
 
 namespace ThinkingHome.Plugins.NooUI
 {
@@ -10,11 +11,10 @@ namespace ThinkingHome.Plugins.NooUI
 	class SwitcherWidgetDefinition : IWidgetDefinition
 	{
 		private const string PARAM_CHANNEL = "channel";
-		private const string PARAM_CHANNEL_DISPLAY_NAME = "Channel";
 
 		public string DisplayName
 		{
-			get { return "NooUI Switcher"; }
+			get { return NooUiLang.NooUI_Switcher; }
 		}
 
 		public object GetWidgetData(Widget widget, WidgetParameter[] parameters, ISession session, Logger logger)
@@ -31,7 +31,7 @@ namespace ThinkingHome.Plugins.NooUI
 			var fldChannel = new WidgetParameterMetaData
 			{
 				Name = PARAM_CHANNEL,
-				DisplayName = PARAM_CHANNEL_DISPLAY_NAME,
+				DisplayName = NooUiLang.Channel,
 				Type = WidgetParameterType.Int32,
 				Items = new WidgetSelectItem[32]
 			};

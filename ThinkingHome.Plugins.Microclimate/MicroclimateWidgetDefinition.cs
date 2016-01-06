@@ -2,6 +2,7 @@
 using NHibernate;
 using NHibernate.Linq;
 using NLog;
+using ThinkingHome.Plugins.Microclimate.Lang;
 using ThinkingHome.Plugins.Microclimate.Model;
 using ThinkingHome.Plugins.UniUI.Model;
 using ThinkingHome.Plugins.UniUI.Widgets;
@@ -12,11 +13,10 @@ namespace ThinkingHome.Plugins.Microclimate
 	public class MicroclimateWidgetDefinition : IWidgetDefinition
 	{
 		private const string PARAM_SENSOR_ID = "sensor-id";
-		private const string PARAM_SENSOR_ID_DISPLAY_NAME = "Sensor";
 
 		public string DisplayName
 		{
-			get { return "Microclimate sensor"; }
+			get { return MicroclimateLang.Microclimate_sensor; }
 		}
 
 		public object GetWidgetData(Widget widget, WidgetParameter[] parameters, ISession session, Logger logger)
@@ -44,7 +44,7 @@ namespace ThinkingHome.Plugins.Microclimate
 			var sensorIdParameter = new WidgetParameterMetaData
 			{
 				Name = PARAM_SENSOR_ID,
-				DisplayName = PARAM_SENSOR_ID_DISPLAY_NAME,
+				DisplayName = MicroclimateLang.Sensor,
 				Type = WidgetParameterType.Guid,
 				Items = sensors
 			};

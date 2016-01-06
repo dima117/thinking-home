@@ -1,16 +1,17 @@
-﻿define(['lib'], function (lib) {
+﻿define(['lib', 'lang!webapp/nooui/lang.json'], function (lib, lang) {
 
 	var switcherWidgetView = lib.marionette.ItemView.extend({
 		template: lib.handlebars.compile(
 			'<div>{{displayName}}</div>' +
 				'<div class="btn-group btn-group-justified">' +
-					'<a href="#" class="btn btn-default js-btn-on">On</a>' +
-					'<a href="#" class="btn btn-default js-btn-off">Off</a>' +
+					'<a href="#" class="btn btn-default js-btn-on">{{lang \'On\'}}</a>' +
+					'<a href="#" class="btn btn-default js-btn-off">{{lang \'Off\'}}</a>' +
 				'</div>'),
 		triggers: {
 			"click .js-btn-on":  "switcher:on",
 			"click .js-btn-off": "switcher:off"
-		}
+		},
+		templateHelpers: { lang: lang }
 	});
 
 	var createSender = function (channel, cmd) {

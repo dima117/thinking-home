@@ -9,7 +9,10 @@ namespace ThinkingHome.Plugins.NooUI
 	[WebWidget("nooui-preset", "/widgets/nooui/preset-widget.js", "ThinkingHome.Plugins.NooUI.Resources.ui.preset-widget.js")]
 	[WebWidget("nooui-preset-loader", "/widgets/nooui/preset-loader-widget.js", "ThinkingHome.Plugins.NooUI.Resources.ui.preset-loader-widget.js")]
 	[WebWidget("nooui-switcher", "/widgets/nooui/switcher-widget.js", "ThinkingHome.Plugins.NooUI.Resources.ui.switcher-widget.js")]
-	
+
+	// i18n
+	[HttpI18NResource("/webapp/nooui/lang.json", "ThinkingHome.Plugins.NooUI.Lang.NooUiLang")]
+
 	public class NooUIPlugin : PluginBase
 	{
 

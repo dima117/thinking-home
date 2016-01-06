@@ -1,20 +1,21 @@
-﻿define(['lib'], function (lib) {
+﻿define(['lib', 'lang!webapp/nooui/lang.json'], function (lib, lang) {
 
 	var presetWidgetView = lib.marionette.ItemView.extend({
 		template: lib.handlebars.compile(
 			'<div>{{displayName}}</div>' +
 			'<div class="row">' +
 				'<div class="col-xs-8">' +
-					'<a href="#" class="btn btn-default btn-block js-btn-load">Load</a>' +
+					'<a href="#" class="btn btn-default btn-block js-btn-load">{{lang \'Load\'}}</a>' +
 				'</div>' +
 				'<div class="col-xs-4">' +
-					'<a href="#" class="btn btn-default btn-block js-btn-save">Save</a>' +
+					'<a href="#" class="btn btn-default btn-block js-btn-save">{{lang \'Save\'}}</a>' +
 				'</div>' +
 			'</div>'),
 		triggers: {
 			'click .js-btn-load': 'preset:load',
 			'click .js-btn-save': 'preset:save'
-		}
+		},
+		templateHelpers: { lang: lang }
 	});
 
 	var createSender = function (channel, cmd) {

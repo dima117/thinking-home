@@ -57,6 +57,11 @@
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Lang\NooUiLang.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NooUiLang.resx</DependentUpon>
+    </Compile>
     <Compile Include="NooUIPlugin.cs" />
     <Compile Include="DimmerWidgetDefinition.cs" />
     <Compile Include="PresetLoaderWidgetDefinition.cs" />
@@ -94,6 +99,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Lang\NooUiLang.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>NooUiLang.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lang\NooUiLang.ru-RU.resx" />
     <EmbeddedResource Include="Resources\ui\switcher-widget.js" />
   </ItemGroup>
   <ItemGroup>

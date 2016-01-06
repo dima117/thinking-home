@@ -9,7 +9,7 @@
 				'{{/range}}' +
 			'</div>'),
 		events: {
-			"click .js-btn-set": "btnSetClick",
+			"click .js-btn-set": "btnSetClick"
 		},
 		btnSetClick: function (e) {
 			e.preventDefault();
