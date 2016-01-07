@@ -1,6 +1,8 @@
-﻿define(
-	['lib', 'webapp/scripts/script-editor-model', 'webapp/scripts/script-editor-view'],
-	function (lib, models, views) {
+﻿define(['lib',
+	'webapp/scripts/script-editor-model',
+	'webapp/scripts/script-editor-view',
+	'lang!webapp/scripts/lang.json'],
+	function (lib, models, views, lang) {
 
 		var scriptEditor = lib.common.AppSection.extend({
 			start: function (scriptId) {
@@ -34,8 +36,8 @@
 			},
 
 			add: function () {
-				var name = window.prompt('Enter script name:', '');
-				var model = new models.ScriptData({ name: name || 'noname' });
+				var name = window.prompt(lang.get('Enter_script_name'), '');
+				var model = new models.ScriptData({ name: name || lang.get('noname') });
 				this.createEditor(model);
 			}
 		});

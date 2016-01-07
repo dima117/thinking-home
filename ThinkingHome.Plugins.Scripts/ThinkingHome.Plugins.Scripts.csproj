@@ -64,6 +64,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IScriptCommandAttribute.cs" />
+    <Compile Include="Lang\ScriptsUiLang.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScriptsUiLang.resx</DependentUpon>
+    </Compile>
     <Compile Include="ScriptHost.cs" />
     <Compile Include="ScriptCommandAttribute.cs" />
     <Compile Include="Data\Migrations.cs" />
@@ -95,6 +100,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <EmbeddedResource Include="Lang\ScriptsUiLang.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScriptsUiLang.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lang\ScriptsUiLang.ru-RU.resx" />
     <EmbeddedResource Include="Resources\script-list.tpl" />
     <EmbeddedResource Include="Resources\script-list-item.tpl" />
     <EmbeddedResource Include="Resources\script-editor.tpl" />

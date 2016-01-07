@@ -1,9 +1,9 @@
 ﻿define(
 	['lib',
 		'codemirror',
-		'text!webapp/scripts/script-editor.tpl'
-	],
-	function (lib, codemirror, editorTemplate) {
+		'text!webapp/scripts/script-editor.tpl',
+		'lang!webapp/scripts/lang.json'],
+	function (lib, codemirror, editorTemplate, lang) {
 
 		var scriptEditorView = lib.marionette.ItemView.extend({
 			template: lib.handlebars.compile(editorTemplate),
@@ -35,16 +35,17 @@
 				'click @ui.btnFullscreen': 'btnFullscreenEditing',
 				'click @ui.btnExitFullscreen': 'btnExitFullscreenEditing'
 			},
+			templateHelpers: { lang: lang },
 			toogleFuulscreen: function (flag) {
 
 				if (flag == undefined) {
-					flag = !this.cm.getOption("fullScreen");
+					flag = !this.cm.getOption('fullScreen');
 				}
 
-				this.cm.setOption("fullScreen", flag);
-				this.ui.editorPanel.toggleClass("CodeMirror-panel-fullscreen", flag);
-				this.ui.btnFullscreen.toggleClass("hidden", flag);
-				this.ui.btnExitFullscreen.toggleClass("hidden", !flag);
+				this.cm.setOption('fullScreen', flag);
+				this.ui.editorPanel.toggleClass('CodeMirror-panel-fullscreen', flag);
+				this.ui.btnFullscreen.toggleClass('hidden', flag);
+				this.ui.btnExitFullscreen.toggleClass('hidden', !flag);
 			},
 
 			btnFullscreenEditing: function (e) {

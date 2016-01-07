@@ -1,8 +1,9 @@
 ﻿define(
 	['lib',
 		'webapp/scripts/script-list-model',
-		'webapp/scripts/script-list-view'],
-	function (lib, models, views) {
+		'webapp/scripts/script-list-view',
+		'lang!webapp/scripts/lang.json'],
+	function (lib, models, views, lang) {
 
 		var scriptList = lib.common.AppSection.extend({
 			start: function () {
@@ -14,14 +15,14 @@
 
 				models.runScript(scriptId).done(function () {
 					var name = view.model.get('name');
-					lib.utils.alert('The script "{0}" has been executed.', name);
+					lib.utils.alert(lang.get('The_0_script_has_been_executed'), name);
 				});
 			},
 
 			deleteScript: function (view) {
 				var scriptName = view.model.get('name');
 
-				if (lib.utils.confirm('Delete the script "{0}"?', scriptName)) {
+				if (lib.utils.confirm(lang.get('Delete_the_0_script'), scriptName)) {
 					var scriptId = view.model.get('id');
 					models.deleteScript(scriptId).done(this.bind('reload'));
 				}
