@@ -1,8 +1,9 @@
 ﻿define(
 	['lib',
 		'webapp/scripts/subscriptions-model',
-		'webapp/scripts/subscriptions-view'],
-	function (lib, models, views) {
+		'webapp/scripts/subscriptions-view',
+		'lang!webapp/scripts/lang.json'],
+	function (lib, models, views, lang) {
 
 		var subscriptionList = lib.common.AppSection.extend({
 			start: function () {
@@ -23,7 +24,7 @@
 				var eventAlias = childView.model.get('eventAlias');
 				var scriptName = childView.model.get('scriptName');
 
-				if (lib.utils.confirm('Delete the subscription?\n- event: "{0}"\n- script: "{1}"', eventAlias, scriptName)) {
+				if (lib.utils.confirm(lang.get('Delete_the_subscription_0_1'), eventAlias, scriptName)) {
 					var subscriptionId = childView.model.get('id');
 					models.deleteSubscription(subscriptionId).done(this.bind('reloadList'));
 				}
@@ -41,7 +42,7 @@
 
 			displayForm: function (formData) {
 				var form = new views.SubscriptionFormView({ model: formData });
-				this.listenTo(form, 'scripts:subscription:add', this.bind('addSubscription'))
+				this.listenTo(form, 'scripts:subscription:add', this.bind('addSubscription'));
 				this.layout.regionForm.show(form);
 			},
 

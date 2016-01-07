@@ -70,6 +70,15 @@ namespace ThinkingHome.Plugins.Scripts.Lang {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add subscription.
+        /// </summary>
+        internal static string Add_subscription {
+            get {
+                return ResourceManager.GetString("Add_subscription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         internal static string Cancel {
@@ -97,6 +106,26 @@ namespace ThinkingHome.Plugins.Scripts.Lang {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete the subscription?
+        ///- event: &quot;{0}&quot;
+        ///- script: &quot;{1}&quot;.
+        /// </summary>
+        internal static string Delete_the_subscription_0_1 {
+            get {
+                return ResourceManager.GetString("Delete_the_subscription_0_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to detach.
+        /// </summary>
+        internal static string detach {
+            get {
+                return ResourceManager.GetString("detach", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit.
         /// </summary>
         internal static string Edit {
@@ -111,6 +140,15 @@ namespace ThinkingHome.Plugins.Scripts.Lang {
         internal static string Enter_script_name {
             get {
                 return ResourceManager.GetString("Enter_script_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Event.
+        /// </summary>
+        internal static string Event {
+            get {
+                return ResourceManager.GetString("Event", resourceCulture);
             }
         }
         
@@ -165,6 +203,15 @@ namespace ThinkingHome.Plugins.Scripts.Lang {
         internal static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Script.
+        /// </summary>
+        internal static string Script {
+            get {
+                return ResourceManager.GetString("Script", resourceCulture);
             }
         }
         
