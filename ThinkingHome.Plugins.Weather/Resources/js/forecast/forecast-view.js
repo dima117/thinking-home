@@ -3,17 +3,19 @@
 		'text!webapp/weather/forecast.tpl',
 		'text!webapp/weather/forecast-item.tpl',
 		'text!webapp/weather/forecast-item-value.tpl',
-		'text!webapp/weather/forecast-item-value-now.tpl'
-], function (lib, template, itemTemplate, dataItemTemplate, nowDataItemTemplate) {
+		'text!webapp/weather/forecast-item-value-now.tpl',
+		'lang!webapp/weather/lang.json'
+], function (lib, template, itemTemplate, dataItemTemplate, nowDataItemTemplate, lang) {
 
 	// погода на текущий момент
 	var weatherNowDataItemView = lib.marionette.ItemView.extend({
 		template: lib.handlebars.compile(nowDataItemTemplate),
 		onRender: function () {
-
-			var cssClass = this.model.get('icon');
-			var description = this.model.get('description');
-			this.$('.js-weather-icon').addClass(cssClass).attr('title', description);
+			if (this.model) {
+				var cssClass = this.model.get('icon');
+				var description = this.model.get('description');
+				this.$('.js-weather-icon').addClass(cssClass).attr('title', description);
+			}
 		}
 	});
 
@@ -60,13 +62,15 @@
 			});
 
 			viewForecast.render();
-		}
+		},
+		templateHelpers: { lang: lang }
 	});
 
 	var weatherForecastView = lib.marionette.CompositeView.extend({
 		template: lib.handlebars.compile(template),
 		childView: weatherForecastItemView,
-		childViewContainer: '.js-weather-list'
+		childViewContainer: '.js-weather-list',
+		templateHelpers: { lang: lang }
 	});
 
 	return {

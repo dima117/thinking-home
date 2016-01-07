@@ -67,6 +67,11 @@
     <Compile Include="Api\WeatherUtils.cs" />
     <Compile Include="Data\Migrations.cs" />
     <Compile Include="Data\Model.cs" />
+    <Compile Include="Lang\WeatherLang.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WeatherLang.resx</DependentUpon>
+    </Compile>
     <Compile Include="WeatherPlugin.cs" />
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
@@ -75,6 +80,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <EmbeddedResource Include="Lang\WeatherLang.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>WeatherLang.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lang\WeatherLang.ru-RU.resx" />
     <EmbeddedResource Include="Resources\js\forecast\forecast.tpl" />
     <EmbeddedResource Include="Resources\js\forecast\forecast-item.tpl" />
     <EmbeddedResource Include="Resources\js\forecast\forecast-item-value.tpl" />

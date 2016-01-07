@@ -123,7 +123,7 @@ namespace ThinkingHome.Plugins.Tmp
 		{
 			lock (lockObjectForSound)
 			{
-				stream = Context.GetPlugin<AudioPlugin>().Play(TmpResources.doorbell, 3);
+				stream = Context.GetPlugin<AudioPlugin>().Play(TmpResources.doorbell);
 			}
 		}
 

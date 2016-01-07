@@ -13,7 +13,7 @@
 			this.updateImage(view);
 			this.region.show(view);
 
-			this.interval = window.setInterval(this.bind('updateImage', view), 2500);
+			this.interval = window.setInterval(this.bind('updateImage', view), 5000);
 		},
 		updateImage: function(view) {
 			lib.$.getJSON('/api/tmp/camera/image').done(function (data) {

@@ -42,7 +42,7 @@
 				var formData = new models.Location();
 				var form = new views.WeatherSettingsFormView({ model: formData });
 
-				this.listenTo(form, 'weather:location:add', this.bind('addLocation'))
+				this.listenTo(form, 'weather:location:add', this.bind('addLocation'));
 				this.layout.regionForm.show(form);
 			},
 

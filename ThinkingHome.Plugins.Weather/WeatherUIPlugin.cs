@@ -6,12 +6,16 @@ using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.Weather.Api;
 using ThinkingHome.Plugins.Weather.Data;
+using ThinkingHome.Plugins.Weather.Lang;
 using ThinkingHome.Plugins.WebUI.Attributes;
 
 namespace ThinkingHome.Plugins.Weather
 {
 	// forecast
-	[AppSection("Weather", SectionType.Common, "/webapp/weather/forecast.js", "ThinkingHome.Plugins.Weather.Resources.js.forecast.forecast.js")]
+	[AppSection("Weather", SectionType.Common, 
+		"/webapp/weather/forecast.js", "ThinkingHome.Plugins.Weather.Resources.js.forecast.forecast.js",
+		LangResourceType = typeof(WeatherLang), LangResourceKey = "Weather")]
+
 	[JavaScriptResource("/webapp/weather/forecast-model.js", "ThinkingHome.Plugins.Weather.Resources.js.forecast.forecast-model.js")]
 	[JavaScriptResource("/webapp/weather/forecast-view.js", "ThinkingHome.Plugins.Weather.Resources.js.forecast.forecast-view.js")]
 
@@ -21,7 +25,10 @@ namespace ThinkingHome.Plugins.Weather
 	[HttpEmbeddedResource("/webapp/weather/forecast-item-value-now.tpl", "ThinkingHome.Plugins.Weather.Resources.js.forecast.forecast-item-value-now.tpl")]
 
 	// settings
-	[AppSection("Weather locations", SectionType.System, "/webapp/weather/locations.js", "ThinkingHome.Plugins.Weather.Resources.js.settings.locations.js")]
+	[AppSection("Weather locations", SectionType.System, 
+		"/webapp/weather/locations.js", "ThinkingHome.Plugins.Weather.Resources.js.settings.locations.js",
+		LangResourceType = typeof(WeatherLang), LangResourceKey = "Weather_locations")]
+
 	[JavaScriptResource("/webapp/weather/locations-model.js", "ThinkingHome.Plugins.Weather.Resources.js.settings.locations-model.js")]
 	[JavaScriptResource("/webapp/weather/locations-view.js", "ThinkingHome.Plugins.Weather.Resources.js.settings.locations-view.js")]
 
@@ -30,9 +37,12 @@ namespace ThinkingHome.Plugins.Weather
 	[HttpEmbeddedResource("/webapp/weather/locations-list-item.tpl", "ThinkingHome.Plugins.Weather.Resources.js.settings.locations-list-item.tpl")]
 	[HttpEmbeddedResource("/webapp/weather/locations-form.tpl", "ThinkingHome.Plugins.Weather.Resources.js.settings.locations-form.tpl")]
 
+	// i18n
+	[HttpI18NResource("/webapp/weather/lang.json", "ThinkingHome.Plugins.Weather.Lang.WeatherLang")]
+
 	// css
 	[CssResource("/webapp/weather/css/weather-forecast.css", "ThinkingHome.Plugins.Weather.Resources.css.weather-forecast.css", AutoLoad = true)]
-
+	
 	[Plugin]
 	public class WeatherUIPlugin : PluginBase
 	{

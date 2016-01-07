@@ -149,7 +149,7 @@ namespace ThinkingHome.Plugins.UniUI
 		{
 			var typeDisplayName = defs.ContainsKey(widget.TypeAlias)
 				? defs[widget.TypeAlias].DisplayName
-				: string.Format("Unknown ({0})", widget.TypeAlias);
+				: string.Format("[{0}]", widget.TypeAlias);
 
 			var widgetModel = new
 			{
