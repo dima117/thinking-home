@@ -168,6 +168,10 @@
 			syphon: syphon,
 			handlebars: handlebars,
 			moment: moment,
-			utils: utils
+			utils: utils,
+
+			setLang: function(lang) {
+				moment.locale(lang);
+			}
 		};
 	});

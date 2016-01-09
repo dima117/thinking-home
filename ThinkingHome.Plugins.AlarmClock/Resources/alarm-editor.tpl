@@ -1,13 +1,7 @@
 ﻿<form>
+	<h1>{{lang 'Edit_alarm_settings'}}</h1>
 	<div class="row">
 		<div class="col-md-4">
-
-			<h1>{{lang 'Edit_alarm_settings'}}</h1>
-			<p>
-				<input type="button" value="{{lang 'Save'}}" class="btn btn-primary js-btn-save" />&nbsp;
-				<input type="button" value="{{lang 'Cancel'}}" class="btn btn-default js-btn-cancel" />
-				<input type="button" value="{{lang 'Delete'}}" class="btn btn-danger pull-right js-btn-delete" />
-			</p>
 			<div class="form-group">
 				<label>
 					{{lang 'Name'}}
@@ -43,6 +37,11 @@
 					<option value="">&lt;{{lang 'Play_sound'}}&gt;</option>
 				</select>
 			</div>
+			<p>
+				<input type="button" value="{{lang 'Save'}}" class="btn btn-primary js-btn-save" />&nbsp;
+				<input type="button" value="{{lang 'Cancel'}}" class="btn btn-default js-btn-cancel" />
+				<input type="button" value="{{lang 'Delete'}}" class="btn btn-danger pull-right js-btn-delete" />
+			</p>
 		</div>
 	</div>
 </form>

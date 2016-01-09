@@ -3,8 +3,10 @@
 	'application/core/app-router',
 	'application/core/app-radio',
 	'application/core/app-timer',
-	'json!api/webui/styles.json'],
-	function (lib, layout, router, radio, timer, cssFiles) {
+	'json!api/webui/params.json'],
+	function (lib, layout, router, radio, timer, params) {
+
+		lib.setLang(params.lang || 'en');
 
 		var homeApplication = lib.marionette.Application.extend({
 			initialize: function () {
@@ -21,7 +23,7 @@
 			},
 			onStart: function () {
 				this.layout.render();
-				lib.utils.loadCss.apply(null, cssFiles);
+				lib.utils.loadCss.apply(null, params.css);
 
 				this.router.start();
 				this.radio.start();

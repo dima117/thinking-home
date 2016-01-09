@@ -6,6 +6,7 @@ using ThinkingHome.Core.Plugins;
 using ThinkingHome.Plugins.Listener.Api;
 using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.WebUI.Attributes;
+using ThinkingHome.Plugins.WebUI.Lang;
 
 namespace ThinkingHome.Plugins.WebUI
 {
@@ -184,10 +185,14 @@ namespace ThinkingHome.Plugins.WebUI
 			return list;
 		}
 
-		[HttpCommand("/api/webui/styles.json")]
-		public object LoadStyles(HttpRequestParams request)
+		[HttpCommand("/api/webui/params.json")]
+		public object LoadParams(HttpRequestParams request)
 		{
-			return cssFiles;
+			return new
+			{
+				lang = AppLang.Lang,
+				css = cssFiles
+			};
 		}
 
 		[HttpCommand("/api/webui/widgets.json")]

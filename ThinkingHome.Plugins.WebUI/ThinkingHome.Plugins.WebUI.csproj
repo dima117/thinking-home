@@ -66,6 +66,11 @@
     <Compile Include="Attributes\SectionType.cs" />
     <Compile Include="Attributes\AppSectionAttribute.cs" />
     <Compile Include="Attributes\JavaScriptResourceAttribute.cs" />
+    <Compile Include="Lang\AppLang.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppLang.resx</DependentUpon>
+    </Compile>
     <Compile Include="WebUIPlugin.cs" />
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
@@ -85,6 +90,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Lang\AppLang.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppLang.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lang\AppLang.ru-RU.resx" />
     <EmbeddedResource Include="Resources\Application\index.html" />
   </ItemGroup>
   <ItemGroup>
