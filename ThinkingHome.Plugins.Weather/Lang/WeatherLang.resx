@@ -117,16 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Add_location" xml:space="preserve">
+    <value>Add location</value>
+  </data>
+  <data name="API_query" xml:space="preserve">
+    <value>API query</value>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>delete</value>
+  </data>
+  <data name="Delete_the_location_0_and_all_location_data" xml:space="preserve">
+    <value>Delete the location "{0}" and all location data?</value>
+  </data>
+  <data name="Display_name" xml:space="preserve">
+    <value>Display name</value>
+  </data>
+  <data name="example_Moscow" xml:space="preserve">
+    <value>example: Moscow</value>
+  </data>
+  <data name="example_Moscow_ru" xml:space="preserve">
+    <value>example: Moscow,ru</value>
+  </data>
   <data name="Forecast" xml:space="preserve">
     <value>Forecast</value>
   </data>
   <data name="Next_day" xml:space="preserve">
     <value>Next day</value>
   </data>
+  <data name="update" xml:space="preserve">
+    <value>update</value>
+  </data>
   <data name="Weather" xml:space="preserve">
     <value>Weather</value>
   </data>
+  <data name="Weather_data_is_loaded_from" xml:space="preserve">
+    <value>Weather data is loaded from</value>
+  </data>
   <data name="Weather_locations" xml:space="preserve">
     <value>Weather locations</value>
+  </data>
+  <data name="Weather_service_API_query" xml:space="preserve">
+    <value>Weather service API query</value>
   </data>
 </root>

@@ -3,15 +3,17 @@
 		'text!webapp/weather/locations-layout.tpl',
 		'text!webapp/weather/locations-form.tpl',
 		'text!webapp/weather/locations-list.tpl',
-		'text!webapp/weather/locations-list-item.tpl'
-], function (lib, layoutTemplate, formTemplate, listTemplate, itemTemplate) {
+		'text!webapp/weather/locations-list-item.tpl',
+		'lang!webapp/weather/lang.json'
+], function (lib, layoutTemplate, formTemplate, listTemplate, itemTemplate, lang) {
 
 	var weatherSettingsLayout = lib.marionette.LayoutView.extend({
 		template: lib.handlebars.compile(layoutTemplate),
 		regions: {
 			regionForm: '#region-weather-locations-form',
 			regionList: '#region-weather-locations-list'
-		}
+		},
+		templateHelpers: { lang: lang }
 	});
 
 	var weatherSettingsFormView = lib.marionette.ItemView.extend({
@@ -24,7 +26,8 @@
 
 			var data = lib.syphon.serialize(this);
 			this.trigger('weather:location:add', data);
-		}
+		},
+		templateHelpers: { lang: lang }
 	});
 
 	var locationView = lib.marionette.ItemView.extend({
@@ -39,13 +42,15 @@
 		},
 		hideSpinner: function () {
 			this.$('.js-update-location-spin').addClass('hidden');
-		}
+		},
+		templateHelpers: { lang: lang }
 	});
 
 	var locationListView = lib.marionette.CompositeView.extend({
 		template: lib.handlebars.compile(listTemplate),
 		childView: locationView,
-		childViewContainer: 'tbody'
+		childViewContainer: 'tbody',
+		templateHelpers: { lang: lang }
 	});
 
 

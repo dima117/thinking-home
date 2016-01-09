@@ -1,8 +1,9 @@
 ﻿define(
 	['lib',
 		'webapp/weather/locations-model',
-		'webapp/weather/locations-view'],
-	function (lib, models, views) {
+		'webapp/weather/locations-view',
+		'lang!webapp/weather/lang.json'],
+	function (lib, models, views, lang) {
 
 		var locationList = lib.common.AppSection.extend({
 			start: function () {
@@ -22,7 +23,7 @@
 			deleteLocation: function (childView) {
 				var displayName = childView.model.get('displayName');
 
-				if (lib.utils.confirm('Delete the location "{0}" and all location data?', displayName)) {
+				if (lib.utils.confirm(lang.get('Delete_the_location_0_and_all_location_data'), displayName)) {
 					var locationId = childView.model.get('id');
 					models.deleteLocation(locationId).done(this.bind('reloadList'));
 				}

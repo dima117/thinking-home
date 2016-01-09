@@ -1,8 +1,8 @@
 ﻿<table class="table table-hover">
 	<thead>
 		<tr>
-			<th>Display name</th>
-			<th>Query</th>
+			<th>{{lang 'Display_name'}}</th>
+			<th>{{lang 'API_query'}}</th>
 			<th colspan="2"></th>
 		</tr>
 	</thead>

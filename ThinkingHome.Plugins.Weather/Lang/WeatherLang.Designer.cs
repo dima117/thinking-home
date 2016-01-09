@@ -61,6 +61,69 @@ namespace ThinkingHome.Plugins.Weather.Lang {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add location.
+        /// </summary>
+        internal static string Add_location {
+            get {
+                return ResourceManager.GetString("Add_location", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to API query.
+        /// </summary>
+        internal static string API_query {
+            get {
+                return ResourceManager.GetString("API_query", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to delete.
+        /// </summary>
+        internal static string delete {
+            get {
+                return ResourceManager.GetString("delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete the location &quot;{0}&quot; and all location data?.
+        /// </summary>
+        internal static string Delete_the_location_0_and_all_location_data {
+            get {
+                return ResourceManager.GetString("Delete_the_location_0_and_all_location_data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display name.
+        /// </summary>
+        internal static string Display_name {
+            get {
+                return ResourceManager.GetString("Display_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to example: Moscow.
+        /// </summary>
+        internal static string example_Moscow {
+            get {
+                return ResourceManager.GetString("example_Moscow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to example: Moscow,ru.
+        /// </summary>
+        internal static string example_Moscow_ru {
+            get {
+                return ResourceManager.GetString("example_Moscow_ru", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Forecast.
         /// </summary>
         internal static string Forecast {
@@ -79,6 +142,15 @@ namespace ThinkingHome.Plugins.Weather.Lang {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to update.
+        /// </summary>
+        internal static string update {
+            get {
+                return ResourceManager.GetString("update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Weather.
         /// </summary>
         internal static string Weather {
@@ -88,11 +160,29 @@ namespace ThinkingHome.Plugins.Weather.Lang {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Weather data is loaded from.
+        /// </summary>
+        internal static string Weather_data_is_loaded_from {
+            get {
+                return ResourceManager.GetString("Weather_data_is_loaded_from", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Weather locations.
         /// </summary>
         internal static string Weather_locations {
             get {
                 return ResourceManager.GetString("Weather_locations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weather service API query.
+        /// </summary>
+        internal static string Weather_service_API_query {
+            get {
+                return ResourceManager.GetString("Weather_service_API_query", resourceCulture);
             }
         }
     }
