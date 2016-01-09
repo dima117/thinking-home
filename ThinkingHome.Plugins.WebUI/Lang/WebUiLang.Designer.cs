@@ -88,11 +88,47 @@ namespace ThinkingHome.Plugins.WebUI.Lang {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to loading.
+        /// </summary>
+        internal static string loading {
+            get {
+                return ResourceManager.GetString("loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         internal static string Settings {
             get {
                 return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to settings page.
+        /// </summary>
+        internal static string settings_page {
+            get {
+                return ResourceManager.GetString("settings_page", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There isn&apos;t any dashboard.
+        /// </summary>
+        internal static string There_isnt_any_dashboard {
+            get {
+                return ResourceManager.GetString("There_isnt_any_dashboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can create new dashboard on the.
+        /// </summary>
+        internal static string You_can_create_new_dashboard_on_the {
+            get {
+                return ResourceManager.GetString("You_can_create_new_dashboard_on_the", resourceCulture);
             }
         }
     }

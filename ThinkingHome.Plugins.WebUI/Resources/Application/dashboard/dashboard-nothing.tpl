@@ -1,4 +1,5 @@
-﻿<h1>There isn't any dashboard</h1>
+﻿<h1>{{lang 'There_isnt_any_dashboard'}}</h1>
 <p>
-	You can create new dashboard on the <a href="#application/settings/dashboard-list">settings page</a>.
+	{{lang 'You_can_create_new_dashboard_on_the'}} 
+	<a href="#application/settings/dashboard-list">{{lang 'settings_page'}}</a>.
 </p>

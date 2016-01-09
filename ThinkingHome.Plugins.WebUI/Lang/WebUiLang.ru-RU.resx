@@ -126,7 +126,19 @@
   <data name="Home" xml:space="preserve">
     <value>Мой дом</value>
   </data>
+  <data name="loading" xml:space="preserve">
+    <value>загружается</value>
+  </data>
   <data name="Settings" xml:space="preserve">
     <value>Настройки</value>
+  </data>
+  <data name="settings_page" xml:space="preserve">
+    <value>странице настроек</value>
+  </data>
+  <data name="There_isnt_any_dashboard" xml:space="preserve">
+    <value>Нет ни одного рабочего стола</value>
+  </data>
+  <data name="You_can_create_new_dashboard_on_the" xml:space="preserve">
+    <value>Вы можете создать новый рабочий стол на</value>
   </data>
 </root>
