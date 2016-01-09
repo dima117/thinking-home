@@ -1,10 +1,13 @@
 ﻿using ThinkingHome.Core.Plugins;
 using ThinkingHome.Plugins.Listener.Attributes;
 using ThinkingHome.Plugins.WebUI.Attributes;
+using ThinkingHome.Plugins.WebUI.Lang;
 
 namespace ThinkingHome.Plugins.WebUI
 {
-	[AppSection("Dashboard list", SectionType.System, "/application/settings/dashboard-list.js", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.dashboard-list.js")]
+	[AppSection("Dashboard list", SectionType.System, 
+		"/application/settings/dashboard-list.js", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.dashboard-list.js",
+		LangResourceType = typeof(WebUiLang), LangResourceKey = "Dashboard_list", SortOrder = 9996)]
 	[JavaScriptResource("/application/settings/dashboard-list-view.js", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.dashboard-list-view.js")]
 	[JavaScriptResource("/application/settings/dashboard-list-model.js", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.dashboard-list-model.js")]
 	[HttpEmbeddedResource("/application/settings/dashboard-list.tpl", "ThinkingHome.Plugins.WebUI.Resources.Application.widgets.dashboard-list.tpl")]

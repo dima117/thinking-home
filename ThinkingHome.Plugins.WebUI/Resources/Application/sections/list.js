@@ -9,7 +9,7 @@
 
 			displayList: function (items) {
 				var view = new views.SectionListView({ collection: items, title: this.pageTitle });
-				this.listenTo(view, 'childview:sections:navigate', this.bind('onSectionSelect'))
+				this.listenTo(view, 'childview:sections:navigate', this.bind('onSectionSelect'));
 				this.application.setContentView(view);
 			},
 

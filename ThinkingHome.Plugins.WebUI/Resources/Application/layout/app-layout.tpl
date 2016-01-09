@@ -2,14 +2,13 @@
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="sr-only">Toggle navigation</span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand js-link-home" href="#">
 				<i class="fa fa-home"></i>
-				<span class="hidden-xs">Home</span>
+				<span class="hidden-xs">{{lang 'Home'}}</span>
 			</a>
 			<div class="navbar-text visible-xs-block th-datetime-panel">
 				<span class="js-info"></span>

@@ -1,6 +1,8 @@
-﻿define(
-	['lib', 'text!application/layout/app-layout.tpl', 'text!application/layout/app-menu.tpl'],
-	function (lib, layoutTemplate, menuTemplate) {
+﻿define(['lib',
+	'text!application/layout/app-layout.tpl',
+	'text!application/layout/app-menu.tpl',
+	'lang!application/lang.json'],
+	function (lib, layoutTemplate, menuTemplate, lang) {
 
 		var sideMenuItemView = lib.marionette.ItemView.extend({
 			template: lib.handlebars.compile('<a href="#" class="js-menu-link">{{title}}</a>'),
@@ -26,7 +28,8 @@
 			triggers: {
 				'click .js-link-apps': 'navigate:apps',
 				'click .js-link-settings': 'navigate:settings'
-			}
+			},
+			templateHelpers: { lang: lang }
 		});
 
 		var sideMenuView = lib.marionette.CollectionView.extend({
@@ -51,6 +54,7 @@
 			triggers: {
 				'click .js-link-home': 'navigate:home'
 			},
+			templateHelpers: { lang: lang },
 
 			// api
 			setInfoText: function (text) {

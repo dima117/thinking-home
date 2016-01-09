@@ -115,6 +115,9 @@ namespace ThinkingHome.Plugins.WebUI
 	[JavaScriptResource("/application/libs/dashboard-layout.js", "ThinkingHome.Plugins.WebUI.Resources.Application.libs.dashboard-layout.js")]
 	[JavaScriptResource("/application/libs/common.js", "ThinkingHome.Plugins.WebUI.Resources.Application.libs.common.js")]
 
+	// webapp: i18n
+	[HttpI18NResource("/application/lang.json", "ThinkingHome.Plugins.WebUI.Lang.WebUiLang")]
+
 	#endregion
 
 	[Plugin]

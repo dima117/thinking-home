@@ -1,9 +1,9 @@
 ﻿define(
-	['application/sections/list'],
-	function (sectionList) {
+	['application/sections/list', 'lang!application/lang.json'],
+	function (sectionList, lang) {
 
 		return sectionList.extend({
 			requestName: 'loadSystemSections',
-			pageTitle: 'System pages'
+			pageTitle: lang.get('Settings')
 		});
 	});

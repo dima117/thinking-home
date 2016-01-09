@@ -71,6 +71,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppLang.resx</DependentUpon>
     </Compile>
+    <Compile Include="Lang\WebUiLang.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WebUiLang.resx</DependentUpon>
+    </Compile>
     <Compile Include="WebUIPlugin.cs" />
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
@@ -95,6 +100,11 @@
       <LastGenOutput>AppLang.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Lang\AppLang.ru-RU.resx" />
+    <EmbeddedResource Include="Lang\WebUiLang.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>WebUiLang.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lang\WebUiLang.ru-RU.resx" />
     <EmbeddedResource Include="Resources\Application\index.html" />
   </ItemGroup>
   <ItemGroup>

@@ -10,7 +10,7 @@ namespace ThinkingHome.Plugins.Packages
 {
 	[AppSection("Installed packages", 
 		SectionType.System, "/webapp/packages/list.js", "ThinkingHome.Plugins.Packages.Resources.list.js",
-		LangResourceType = typeof(PackagesLang), LangResourceKey = "Installed_packages")]
+		LangResourceType = typeof(PackagesLang), LangResourceKey = "Installed_packages", SortOrder = 9999)]
 
 	[JavaScriptResource("/webapp/packages/list-model.js", "ThinkingHome.Plugins.Packages.Resources.list-model.js")]
 	[JavaScriptResource("/webapp/packages/list-view.js", "ThinkingHome.Plugins.Packages.Resources.list-view.js")]

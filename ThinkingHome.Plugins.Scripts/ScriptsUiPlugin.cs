@@ -13,7 +13,7 @@ namespace ThinkingHome.Plugins.Scripts
 	// script list
 	[AppSection("Event handlers", SectionType.System, 
 		"/webapp/scripts/subscriptions.js", "ThinkingHome.Plugins.Scripts.Resources.subscriptions.js",
-		LangResourceType = typeof(ScriptsUiLang), LangResourceKey = "Event_handlers")]
+		LangResourceType = typeof(ScriptsUiLang), LangResourceKey = "Event_handlers", SortOrder = 9998)]
 
 	[JavaScriptResource("/webapp/scripts/subscriptions-model.js", "ThinkingHome.Plugins.Scripts.Resources.subscriptions-model.js")]
 	[JavaScriptResource("/webapp/scripts/subscriptions-view.js", "ThinkingHome.Plugins.Scripts.Resources.subscriptions-view.js")]
@@ -24,7 +24,7 @@ namespace ThinkingHome.Plugins.Scripts
 
 	[AppSection("Scripts", SectionType.System, 
 		"/webapp/scripts/script-list.js", "ThinkingHome.Plugins.Scripts.Resources.script-list.js",
-		LangResourceType = typeof(ScriptsUiLang), LangResourceKey = "Scripts")]
+		LangResourceType = typeof(ScriptsUiLang), LangResourceKey = "Scripts", SortOrder = 9997)]
 
 	[JavaScriptResource("/webapp/scripts/script-list-model.js", "ThinkingHome.Plugins.Scripts.Resources.script-list-model.js")]
 	[JavaScriptResource("/webapp/scripts/script-list-view.js", "ThinkingHome.Plugins.Scripts.Resources.script-list-view.js")]

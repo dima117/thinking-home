@@ -1,6 +1,6 @@
 ﻿<li>
-	<a href="#" class="js-link-apps">Applications</a>
+	<a href="#" class="js-link-apps">{{lang 'Applications'}}</a>
 </li>
 <li>
-	<a href="#" class="js-link-settings">Settings</a>
+	<a href="#" class="js-link-settings">{{lang 'Settings'}}</a>
 </li>
