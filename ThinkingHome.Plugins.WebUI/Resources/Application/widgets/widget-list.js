@@ -1,8 +1,9 @@
 ﻿define(['lib',
 		'application/settings/widget-list-model.js',
-		'application/settings/widget-list-view.js'
-],
-	function (lib, models, views) {
+		'application/settings/widget-list-view.js',
+		'lang!application/lang.json'
+	],
+	function (lib, models, views, lang) {
 
 		var widgetList = lib.common.AppSection.extend({
 			start: function (dashboardId) {
@@ -10,7 +11,7 @@
 			},
 
 			createPanel: function (view) {
-				var title = window.prompt('Enter panel title'),
+				var title = window.prompt(lang.get('Enter_panel_title')),
 					dashboardId = view.model.get('id');
 
 				if (title) {
@@ -24,7 +25,7 @@
 					id = childView.model.get('id'),
 					dashboardId = view.model.get('id');
 
-				title = window.prompt('Enter new panel title', title);
+				title = window.prompt(lang.get('Enter_panel_title'), title);
 
 				if (title) {
 					models.renamePanel(id, title).done(this.bind('loadWidgetList', dashboardId));
@@ -37,7 +38,7 @@
 					title = childView.model.get('title'),
 					dashboardId = view.model.get('id');
 
-				if (lib.utils.confirm('Do you want to delete the "{0}" panel?', title)) {
+				if (lib.utils.confirm(lang.get('Do_you_want_to_delete_the_0_panel'), title)) {
 					models.deletePanel(id).done(this.bind('loadWidgetList', dashboardId));
 				}
 			},

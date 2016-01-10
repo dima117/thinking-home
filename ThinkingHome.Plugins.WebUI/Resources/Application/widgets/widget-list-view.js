@@ -2,14 +2,13 @@
 	'lib',
 	'text!application/settings/panel-list.tpl',
 	'text!application/settings/widget-list-item.tpl',
-	'text!application/settings/panel-list-item.tpl'],
-	function (lib, listTemplate, widgetTemplate, panelTemplate) {
+	'text!application/settings/panel-list-item.tpl',
+	'lang!application/lang.json'],
+	function (lib, listTemplate, widgetTemplate, panelTemplate, lang) {
 
 		var widgetView = lib.marionette.ItemView.extend({
 			template: lib.handlebars.compile(widgetTemplate),
-			triggers: {
-				'click .js-widget-edit': 'widget:edit'
-			}
+			triggers: { 'click .js-widget-edit': 'widget:edit' }
 		});
 
 		var panelView = lib.marionette.CompositeView.extend({
@@ -48,7 +47,8 @@
 				this.on('childview:widget:edit', function (childView) {
 					this.trigger('widget:edit', childView);
 				});
-			}
+			},
+			templateHelpers: { lang: lang }
 		});
 
 		var listView = lib.marionette.CompositeView.extend({
@@ -61,7 +61,8 @@
 			triggers: {
 				"click .js-dashboard-list": "open:dashboard:list",
 				"click .js-create-panel": "panel:create"
-			}
+			},
+			templateHelpers: { lang: lang }
 		});
 
 		return {

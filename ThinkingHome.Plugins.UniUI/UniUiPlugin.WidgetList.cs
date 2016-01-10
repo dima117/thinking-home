@@ -151,13 +151,15 @@ namespace ThinkingHome.Plugins.UniUI
 				? defs[widget.TypeAlias].DisplayName
 				: string.Format("[{0}]", widget.TypeAlias);
 
+			var displayName = string.IsNullOrEmpty(widget.DisplayName) ? "[no name]" : widget.DisplayName;
+
 			var widgetModel = new
 			{
 				id = widget.Id,
 				type = widget.TypeAlias,
-				displayName = widget.DisplayName,
 				sortOrder = widget.SortOrder,
-				typeDisplayName
+				displayName,
+                typeDisplayName
 			};
 
 			return widgetModel;

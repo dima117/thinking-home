@@ -1,8 +1,9 @@
 ﻿define(['lib',
 		'application/settings/dashboard-list-model.js',
-		'application/settings/dashboard-list-view.js'
-],
-	function (lib, models, views) {
+		'application/settings/dashboard-list-view.js',
+		'lang!application/lang.json'
+	],
+	function (lib, models, views, lang) {
 
 		var dashboardList = lib.common.AppSection.extend({
 			start: function () {
@@ -15,7 +16,7 @@
 			},
 
 			createDashboard: function () {
-				var title = window.prompt('Enter dashboard title');
+				var title = window.prompt(lang.get('Enter_dashboard_title'));
 
 				if (title) {
 					models.createDashboard(title).done(this.bind('loadDashboardList'));
@@ -26,7 +27,7 @@
 				var id = childView.model.get('id'),
 					title = childView.model.get('title');
 
-				if (lib.utils.confirm('Do you want to delete the "{0}" dashboard?', title)) {
+				if (lib.utils.confirm(lang.get('Do_you_want_to_delete_the_0_dashboard'), title)) {
 					models.deleteDashboard(id).done(this.bind('loadDashboardList'));
 				}
 			},

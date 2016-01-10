@@ -120,14 +120,50 @@
   <data name="Applications" xml:space="preserve">
     <value>Applications</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Create_dashboard" xml:space="preserve">
+    <value>Create dashboard</value>
+  </data>
   <data name="Dashboard_list" xml:space="preserve">
     <value>Dashboard list</value>
+  </data>
+  <data name="Delete_widget" xml:space="preserve">
+    <value>Delete widget</value>
+  </data>
+  <data name="Display_name" xml:space="preserve">
+    <value>Display name</value>
+  </data>
+  <data name="Do_you_want_to_delete_the_0_dashboard" xml:space="preserve">
+    <value>Do you want to delete the "{0}" dashboard?</value>
+  </data>
+  <data name="Do_you_want_to_delete_the_0_panel" xml:space="preserve">
+    <value>Do you want to delete the "{0}" panel?</value>
+  </data>
+  <data name="Do_you_want_to_delete_the_widget_0" xml:space="preserve">
+    <value>Do you want to delete the widget "{0}"?</value>
+  </data>
+  <data name="EMPTY" xml:space="preserve">
+    <value>EMPTY</value>
+  </data>
+  <data name="Enter_dashboard_title" xml:space="preserve">
+    <value>Enter dashboard title</value>
+  </data>
+  <data name="Enter_panel_title" xml:space="preserve">
+    <value>Enter panel title</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
   </data>
   <data name="loading" xml:space="preserve">
     <value>loading</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>

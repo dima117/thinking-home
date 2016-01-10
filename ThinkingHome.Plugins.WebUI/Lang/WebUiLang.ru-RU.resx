@@ -120,14 +120,50 @@
   <data name="Applications" xml:space="preserve">
     <value>Приложения</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Создать</value>
+  </data>
+  <data name="Create_dashboard" xml:space="preserve">
+    <value>Создать рабочий стол</value>
+  </data>
   <data name="Dashboard_list" xml:space="preserve">
-    <value>Рабочий столы</value>
+    <value>Рабочие столы</value>
+  </data>
+  <data name="Delete_widget" xml:space="preserve">
+    <value>Удалить виджет</value>
+  </data>
+  <data name="Display_name" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="Do_you_want_to_delete_the_0_dashboard" xml:space="preserve">
+    <value>Удалить рабочий стол "{0}"?</value>
+  </data>
+  <data name="Do_you_want_to_delete_the_0_panel" xml:space="preserve">
+    <value>Удалить панель "{0}"?</value>
+  </data>
+  <data name="Do_you_want_to_delete_the_widget_0" xml:space="preserve">
+    <value>Удалить виджет "{0}"?</value>
+  </data>
+  <data name="EMPTY" xml:space="preserve">
+    <value>НЕ ВЫБРАНО</value>
+  </data>
+  <data name="Enter_dashboard_title" xml:space="preserve">
+    <value>Введите название рабочего стола</value>
+  </data>
+  <data name="Enter_panel_title" xml:space="preserve">
+    <value>Введите название панели</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Мой дом</value>
   </data>
   <data name="loading" xml:space="preserve">
     <value>загружается</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Сохранить</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Настройки</value>

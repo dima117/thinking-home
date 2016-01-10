@@ -1,8 +1,9 @@
 ﻿define([
 	'lib',
 	'text!application/settings/dashboard-list.tpl',
-	'text!application/settings/dashboard-list-item.tpl'],
-	function (lib, listTemplate, listItemTemplate) {
+	'text!application/settings/dashboard-list-item.tpl',
+	'lang!application/lang.json'],
+	function (lib, listTemplate, listItemTemplate, lang) {
 
 		var listItemView = lib.marionette.ItemView.extend({
 			template: lib.handlebars.compile(listItemTemplate),
@@ -16,9 +17,8 @@
 			template: lib.handlebars.compile(listTemplate),
 			childView: listItemView,
 			childViewContainer: '.js-list',
-			triggers: {
-				'click .js-create-dashboard': 'dashboard:create'
-			}
+			triggers: { 'click .js-create-dashboard': 'dashboard:create' },
+			templateHelpers: { lang: lang }
 		});
 
 		return {

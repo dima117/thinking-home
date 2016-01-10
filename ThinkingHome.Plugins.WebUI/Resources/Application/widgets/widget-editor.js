@@ -1,8 +1,9 @@
 ﻿define(['lib',
 		'application/settings/widget-editor-model.js',
-		'application/settings/widget-editor-view.js'
+		'application/settings/widget-editor-view.js',
+		'lang!application/lang.json'
 	],
-	function (lib, models, views) {
+	function (lib, models, views, lang) {
 
 		var widgetEditor = lib.common.AppSection.extend({
 			start: function (action, id, type) {
@@ -34,7 +35,7 @@
 				var id = view.model.get("id"),
 					displayName = view.ui.displayName.val();
 
-				if (lib.utils.confirm('Do you want to delete the widget "{0}"?', displayName)) {
+				if (lib.utils.confirm(lang.get('Do_you_want_to_delete_the_widget_0'), displayName)) {
 					models.deleteWidget(id).done(this.bind('openDashboard', view));
 				}
 			},

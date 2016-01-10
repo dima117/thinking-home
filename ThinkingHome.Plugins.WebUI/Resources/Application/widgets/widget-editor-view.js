@@ -1,14 +1,16 @@
 ﻿define([
 	'lib',
 	'text!application/settings/widget-editor.tpl',
-	'text!application/settings/widget-editor-field.tpl'],
-	function (lib, editorTemplate, fieldTemplate) {
+	'text!application/settings/widget-editor-field.tpl',
+	'lang!application/lang.json'],
+	function (lib, editorTemplate, fieldTemplate, lang) {
 
 		var fieldView = lib.marionette.ItemView.extend({
 			template: lib.handlebars.compile(fieldTemplate),
 			ui: {
 				field: ".js-field"
 			},
+			templateHelpers: { lang: lang },
 			onRender: function () {
 
 				// add items
@@ -36,6 +38,7 @@
 				"click .js-cancel": "open:dashboard",
 				"click .js-save": "save:widget"
 			},
+			templateHelpers: { lang: lang },
 			onRender: function () {
 
 				// display name

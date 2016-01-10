@@ -70,11 +70,110 @@ namespace ThinkingHome.Plugins.WebUI.Lang {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create.
+        /// </summary>
+        internal static string Create {
+            get {
+                return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create dashboard.
+        /// </summary>
+        internal static string Create_dashboard {
+            get {
+                return ResourceManager.GetString("Create_dashboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dashboard list.
         /// </summary>
         internal static string Dashboard_list {
             get {
                 return ResourceManager.GetString("Dashboard_list", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete widget.
+        /// </summary>
+        internal static string Delete_widget {
+            get {
+                return ResourceManager.GetString("Delete_widget", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display name.
+        /// </summary>
+        internal static string Display_name {
+            get {
+                return ResourceManager.GetString("Display_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to delete the &quot;{0}&quot; dashboard?.
+        /// </summary>
+        internal static string Do_you_want_to_delete_the_0_dashboard {
+            get {
+                return ResourceManager.GetString("Do_you_want_to_delete_the_0_dashboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to delete the &quot;{0}&quot; panel?.
+        /// </summary>
+        internal static string Do_you_want_to_delete_the_0_panel {
+            get {
+                return ResourceManager.GetString("Do_you_want_to_delete_the_0_panel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to delete the widget &quot;{0}&quot;?.
+        /// </summary>
+        internal static string Do_you_want_to_delete_the_widget_0 {
+            get {
+                return ResourceManager.GetString("Do_you_want_to_delete_the_widget_0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EMPTY.
+        /// </summary>
+        internal static string EMPTY {
+            get {
+                return ResourceManager.GetString("EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter dashboard title.
+        /// </summary>
+        internal static string Enter_dashboard_title {
+            get {
+                return ResourceManager.GetString("Enter_dashboard_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter panel title.
+        /// </summary>
+        internal static string Enter_panel_title {
+            get {
+                return ResourceManager.GetString("Enter_panel_title", resourceCulture);
             }
         }
         
@@ -93,6 +192,15 @@ namespace ThinkingHome.Plugins.WebUI.Lang {
         internal static string loading {
             get {
                 return ResourceManager.GetString("loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        internal static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
             }
         }
         
