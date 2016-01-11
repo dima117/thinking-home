@@ -89,6 +89,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThinkingHome.Plugins.NooApi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThinkingHome.Plugins.NooUI", "ThinkingHome.Plugins.NooUI\ThinkingHome.Plugins.NooUI.csproj", "{57001846-873E-4996-A74D-56AA1F7DDD0F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThinkingHome.Setup", "ThinkingHome.Setup\ThinkingHome.Setup.csproj", "{9D35333D-35F1-4693-9B5A-01052AA22987}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -309,6 +311,18 @@ Global
 		{57001846-873E-4996-A74D-56AA1F7DDD0F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{57001846-873E-4996-A74D-56AA1F7DDD0F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{57001846-873E-4996-A74D-56AA1F7DDD0F}.Release|x86.ActiveCfg = Release|Any CPU
+		{9D35333D-35F1-4693-9B5A-01052AA22987}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D35333D-35F1-4693-9B5A-01052AA22987}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D35333D-35F1-4693-9B5A-01052AA22987}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9D35333D-35F1-4693-9B5A-01052AA22987}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9D35333D-35F1-4693-9B5A-01052AA22987}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9D35333D-35F1-4693-9B5A-01052AA22987}.Debug|x86.Build.0 = Debug|Any CPU
+		{9D35333D-35F1-4693-9B5A-01052AA22987}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D35333D-35F1-4693-9B5A-01052AA22987}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D35333D-35F1-4693-9B5A-01052AA22987}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9D35333D-35F1-4693-9B5A-01052AA22987}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9D35333D-35F1-4693-9B5A-01052AA22987}.Release|x86.ActiveCfg = Release|Any CPU
+		{9D35333D-35F1-4693-9B5A-01052AA22987}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -332,5 +346,6 @@ Global
 		{5B191430-85F0-423A-A60E-8F171AE73D5C} = {532EA930-A6CB-45B1-9203-F9CA087470FC}
 		{4109DBE9-72D5-4AFA-B230-0234084B39C9} = {532EA930-A6CB-45B1-9203-F9CA087470FC}
 		{57001846-873E-4996-A74D-56AA1F7DDD0F} = {532EA930-A6CB-45B1-9203-F9CA087470FC}
+		{9D35333D-35F1-4693-9B5A-01052AA22987} = {3AF935D8-BB2A-4C12-8136-7151E294B49F}
 	EndGlobalSection
 EndGlobal
