@@ -12,77 +12,469 @@
 
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="ProgramFiles64Folder" Name="ProgramFiles64Folder">
-        <Directory Id="ProgramFiles64Folder.ThinkingHome" Name="ThinkingHome">
-          <Directory Id="INSTALLDIR" Name="My Product">
+        <Directory Id="INSTALLDIR" Name="ThinkingHome">
 
-            <Component Id="Component.ECM7.Migrator.dll" Guid="25f88aad-cf60-4ca4-add3-f01a6559da09" Win64="yes">
-              <File Id="ECM7.Migrator.dll" Source="..\Setup\dist\service\ECM7.Migrator.dll" />
+          <Component Id="Component.ECM7.Migrator.dll" Guid="25f88aad-cf60-4ca4-add3-f01a6559da09" Win64="yes">
+            <File Id="ECM7.Migrator.dll" Source="ECM7.Migrator.dll" />
+          </Component>
+
+          <Component Id="Component.ECM7.Migrator.Framework.dll" Guid="25f88aad-cf60-4ca4-add3-f01ad489eb6e" Win64="yes">
+            <File Id="ECM7.Migrator.Framework.dll" Source="ECM7.Migrator.Framework.dll" />
+          </Component>
+
+          <Component Id="Component.ECM7.Migrator.Providers.SqlServer.dll" Guid="25f88aad-cf60-4ca4-add3-f01a00d4f9d1" Win64="yes">
+            <File Id="ECM7.Migrator.Providers.SqlServer.dll" Source="ECM7.Migrator.Providers.SqlServer.dll" />
+          </Component>
+
+          <Component Id="Component.home.sdf" Guid="25f88aad-cf60-4ca4-add3-f01a04559d57" Win64="yes">
+            <File Id="home.sdf" Source="home.sdf" />
+          </Component>
+
+          <Component Id="Component.Iesi.Collections.dll" Guid="25f88aad-cf60-4ca4-add3-f01aa406596b" Win64="yes">
+            <File Id="Iesi.Collections.dll" Source="Iesi.Collections.dll" />
+          </Component>
+
+          <Component Id="Component.Microsoft.Web.XmlTransform.dll" Guid="25f88aad-cf60-4ca4-add3-f01afea56086" Win64="yes">
+            <File Id="Microsoft.Web.XmlTransform.dll" Source="Microsoft.Web.XmlTransform.dll" />
+          </Component>
+
+          <Component Id="Component.Newtonsoft.Json.dll" Guid="25f88aad-cf60-4ca4-add3-f01add697eee" Win64="yes">
+            <File Id="Newtonsoft.Json.dll" Source="Newtonsoft.Json.dll" />
+          </Component>
+
+          <Component Id="Component.NHibernate.dll" Guid="25f88aad-cf60-4ca4-add3-f01a05c8cde6" Win64="yes">
+            <File Id="NHibernate.dll" Source="NHibernate.dll" />
+          </Component>
+
+          <Component Id="Component.NLog.config" Guid="25f88aad-cf60-4ca4-add3-f01af59a1cc4" Win64="yes">
+            <File Id="NLog.config" Source="NLog.config" />
+          </Component>
+
+          <Component Id="Component.NLog.dll" Guid="25f88aad-cf60-4ca4-add3-f01a613b8523" Win64="yes">
+            <File Id="NLog.dll" Source="NLog.dll" />
+          </Component>
+
+          <Component Id="Component.NuGet.Core.dll" Guid="25f88aad-cf60-4ca4-add3-f01a5def215c" Win64="yes">
+            <File Id="NuGet.Core.dll" Source="NuGet.Core.dll" />
+          </Component>
+
+          <Component Id="Component.System.Data.SqlServerCe.dll" Guid="25f88aad-cf60-4ca4-add3-f01a9641b108" Win64="yes">
+            <File Id="System.Data.SqlServerCe.dll" Source="System.Data.SqlServerCe.dll" />
+          </Component>
+
+          <Component Id="Component.ThinkingHome.Core.Infrastructure.dll" Guid="25f88aad-cf60-4ca4-add3-f01a0a42dd70" Win64="yes">
+            <File Id="ThinkingHome.Core.Infrastructure.dll" Source="ThinkingHome.Core.Infrastructure.dll" />
+          </Component>
+
+          <Component Id="Component.ThinkingHome.Core.Plugins.dll" Guid="25f88aad-cf60-4ca4-add3-f01aa796a006" Win64="yes">
+            <File Id="ThinkingHome.Core.Plugins.dll" Source="ThinkingHome.Core.Plugins.dll" />
+          </Component>
+
+          <Component Id="Component.ThinkingHome.Service.exe.config" Guid="25f88aad-cf60-4ca4-add3-f01a46abdc20" Win64="yes">
+            <File Id="ThinkingHome.Service.exe.config" Source="ThinkingHome.Service.exe.config" />
+          </Component>
+
+          <Component Id="Component.ThinkingHome.TestConsole.exe" Guid="25f88aad-cf60-4ca4-add3-f01ae2cd2922" Win64="yes">
+            <File Id="ThinkingHome.TestConsole.exe" Source="ThinkingHome.TestConsole.exe" />
+          </Component>
+
+          <Component Id="Component.ThinkingHome.TestConsole.exe.config" Guid="25f88aad-cf60-4ca4-add3-f01a3cd924db" Win64="yes">
+            <File Id="ThinkingHome.TestConsole.exe.config" Source="ThinkingHome.TestConsole.exe.config" />
+          </Component>
+
+          <Directory Id="INSTALLDIR.amd64" Name="amd64">
+
+            <Component Id="Component.sqlceca40.dll" Guid="25f88aad-cf60-4ca4-add3-f01a059ab9be" Win64="yes">
+              <File Id="sqlceca40.dll" Source="amd64\sqlceca40.dll" />
             </Component>
 
-            <Component Id="Component.ECM7.Migrator.Framework.dll" Guid="25f88aad-cf60-4ca4-add3-f01ad489eb6e" Win64="yes">
-              <File Id="ECM7.Migrator.Framework.dll" Source="..\Setup\dist\service\ECM7.Migrator.Framework.dll" />
+            <Component Id="Component.sqlcecompact40.dll" Guid="25f88aad-cf60-4ca4-add3-f01ac3fd0ca5" Win64="yes">
+              <File Id="sqlcecompact40.dll" Source="amd64\sqlcecompact40.dll" />
             </Component>
 
-            <Component Id="Component.ECM7.Migrator.Providers.SqlServer.dll" Guid="25f88aad-cf60-4ca4-add3-f01a00d4f9d1" Win64="yes">
-              <File Id="ECM7.Migrator.Providers.SqlServer.dll" Source="..\Setup\dist\service\ECM7.Migrator.Providers.SqlServer.dll" />
+            <Component Id="Component.sqlceer40EN.dll" Guid="25f88aad-cf60-4ca4-add3-f01aef20b46e" Win64="yes">
+              <File Id="sqlceer40EN.dll" Source="amd64\sqlceer40EN.dll" />
             </Component>
 
-            <Component Id="Component.home.sdf" Guid="25f88aad-cf60-4ca4-add3-f01a04559d57" Win64="yes">
-              <File Id="home.sdf" Source="..\Setup\dist\service\home.sdf" />
+            <Component Id="Component.sqlceme40.dll" Guid="25f88aad-cf60-4ca4-add3-f01af464b932" Win64="yes">
+              <File Id="sqlceme40.dll" Source="amd64\sqlceme40.dll" />
             </Component>
 
-            <Component Id="Component.Iesi.Collections.dll" Guid="25f88aad-cf60-4ca4-add3-f01aa406596b" Win64="yes">
-              <File Id="Iesi.Collections.dll" Source="..\Setup\dist\service\Iesi.Collections.dll" />
+            <Component Id="Component.sqlceqp40.dll" Guid="25f88aad-cf60-4ca4-add3-f01abec65882" Win64="yes">
+              <File Id="sqlceqp40.dll" Source="amd64\sqlceqp40.dll" />
             </Component>
 
-            <Component Id="Component.Microsoft.Web.XmlTransform.dll" Guid="25f88aad-cf60-4ca4-add3-f01afea56086" Win64="yes">
-              <File Id="Microsoft.Web.XmlTransform.dll" Source="..\Setup\dist\service\Microsoft.Web.XmlTransform.dll" />
+            <Component Id="Component.sqlcese40.dll" Guid="25f88aad-cf60-4ca4-add3-f01a8feab932" Win64="yes">
+              <File Id="sqlcese40.dll" Source="amd64\sqlcese40.dll" />
             </Component>
 
-            <Component Id="Component.Newtonsoft.Json.dll" Guid="25f88aad-cf60-4ca4-add3-f01add697eee" Win64="yes">
-              <File Id="Newtonsoft.Json.dll" Source="..\Setup\dist\service\Newtonsoft.Json.dll" />
+            <Directory Id="INSTALLDIR.amd64.Microsoft.VC90.CRT" Name="Microsoft.VC90.CRT">
+
+              <Component Id="Component.msvcr90.dll" Guid="25f88aad-cf60-4ca4-add3-f01a26830918" Win64="yes">
+                <File Id="msvcr90.dll" Source="amd64\Microsoft.VC90.CRT\msvcr90.dll" />
+              </Component>
+
+            </Directory>
+          </Directory>
+
+          <Directory Id="INSTALLDIR.Plugins" Name="Plugins">
+            <Directory Id="INSTALLDIR.Plugins.ThinkingHome.Plugins.AlarmClock.2.0.0.52" Name="ThinkingHome.Plugins.AlarmClock.2.0.0.52">
+
+              <Component Id="Component.ThinkingHome.Plugins.AlarmClock.2.0.0.52.nupkg" Guid="25f88aad-cf60-4ca4-add3-f01a36607d5f" Win64="yes">
+                <File Id="ThinkingHome.Plugins.AlarmClock.2.0.0.52.nupkg" Source="Plugins\ThinkingHome.Plugins.AlarmClock.2.0.0.52\ThinkingHome.Plugins.AlarmClock.2.0.0.52.nupkg" />
+              </Component>
+
+              <Component Id="Component.ThinkingHome.Plugins.AlarmClock.dll" Guid="25f88aad-cf60-4ca4-add3-f01ac9d6490c" Win64="yes">
+                <File Id="ThinkingHome.Plugins.AlarmClock.dll" Source="Plugins\ThinkingHome.Plugins.AlarmClock.2.0.0.52\ThinkingHome.Plugins.AlarmClock.dll" />
+              </Component>
+
+              <Directory Id="INSTALLDIR.Plugins.ThinkingHome.Plugins.AlarmClock.2.0.0.52.ru_RU" Name="ru-RU">
+
+                <Component Id="Component.ThinkingHome.Plugins.AlarmClock.resources.dll" Guid="25f88aad-cf60-4ca4-add3-f01a8cd0d1fc" Win64="yes">
+                  <File Id="ThinkingHome.Plugins.AlarmClock.resources.dll" Source="Plugins\ThinkingHome.Plugins.AlarmClock.2.0.0.52\ru-RU\ThinkingHome.Plugins.AlarmClock.resources.dll" />
+                </Component>
+
+              </Directory>
+            </Directory>
+
+            <Directory Id="INSTALLDIR.Plugins.ThinkingHome.Plugins.Audio.2.0.0.52" Name="ThinkingHome.Plugins.Audio.2.0.0.52">
+
+              <Component Id="Component.NAudio.dll" Guid="25f88aad-cf60-4ca4-add3-f01ada9adf30" Win64="yes">
+                <File Id="NAudio.dll" Source="Plugins\ThinkingHome.Plugins.Audio.2.0.0.52\NAudio.dll" />
+              </Component>
+
+              <Component Id="Component.NAudio.xml" Guid="25f88aad-cf60-4ca4-add3-f01a380f6a95" Win64="yes">
+                <File Id="NAudio.xml" Source="Plugins\ThinkingHome.Plugins.Audio.2.0.0.52\NAudio.xml" />
+              </Component>
+
+              <Component Id="Component.ThinkingHome.Plugins.Audio.2.0.0.52.nupkg" Guid="25f88aad-cf60-4ca4-add3-f01a151fed6b" Win64="yes">
+                <File Id="ThinkingHome.Plugins.Audio.2.0.0.52.nupkg" Source="Plugins\ThinkingHome.Plugins.Audio.2.0.0.52\ThinkingHome.Plugins.Audio.2.0.0.52.nupkg" />
+              </Component>
+
+              <Component Id="Component.ThinkingHome.Plugins.Audio.dll" Guid="25f88aad-cf60-4ca4-add3-f01ada69dabb" Win64="yes">
+                <File Id="ThinkingHome.Plugins.Audio.dll" Source="Plugins\ThinkingHome.Plugins.Audio.2.0.0.52\ThinkingHome.Plugins.Audio.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="INSTALLDIR.Plugins.ThinkingHome.Plugins.Listener.2.0.0.52" Name="ThinkingHome.Plugins.Listener.2.0.0.52">
+
+              <Component Id="Component.Microsoft.AspNet.SignalR.Core.dll" Guid="25f88aad-cf60-4ca4-add3-f01ad38f1e07" Win64="yes">
+                <File Id="Microsoft.AspNet.SignalR.Core.dll" Source="Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.AspNet.SignalR.Core.dll" />
+              </Component>
+
+              <Component Id="Component.Microsoft.AspNet.SignalR.Core.xml" Guid="25f88aad-cf60-4ca4-add3-f01ad3901eeb" Win64="yes">
+                <File Id="Microsoft.AspNet.SignalR.Core.xml" Source="Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.AspNet.SignalR.Core.xml" />
+              </Component>
+
+              <Component Id="Component.Microsoft.Owin.Diagnostics.dll" Guid="25f88aad-cf60-4ca4-add3-f01a3a939c29" Win64="yes">
+                <File Id="Microsoft.Owin.Diagnostics.dll" Source="Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.Diagnostics.dll" />
+              </Component>
+
+              <Component Id="Component.Microsoft.Owin.Diagnostics.xml" Guid="25f88aad-cf60-4ca4-add3-f01add4710c4" Win64="yes">
+                <File Id="Microsoft.Owin.Diagnostics.xml" Source="Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.Diagnostics.xml" />
+              </Component>
+
+              <Component Id="Component.Microsoft.Owin.dll" Guid="25f88aad-cf60-4ca4-add3-f01a70c20cc6" Win64="yes">
+                <File Id="Microsoft.Owin.dll" Source="Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.dll" />
+              </Component>
+
+              <Component Id="Component.Microsoft.Owin.Host.HttpListener.dll" Guid="25f88aad-cf60-4ca4-add3-f01a2227d451" Win64="yes">
+                <File Id="Microsoft.Owin.Host.HttpListener.dll" Source="Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.Host.HttpListener.dll" />
+              </Component>
+
+              <Component Id="Component.Microsoft.Owin.Host.HttpListener.xml" Guid="25f88aad-cf60-4ca4-add3-f01a996bd452" Win64="yes">
+                <File Id="Microsoft.Owin.Host.HttpListener.xml" Source="Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.Host.HttpListener.xml" />
+              </Component>
+
+              <Component Id="Component.Microsoft.Owin.Hosting.dll" Guid="25f88aad-cf60-4ca4-add3-f01a79beb33f" Win64="yes">
+                <File Id="Microsoft.Owin.Hosting.dll" Source="Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.Hosting.dll" />
+              </Component>
+
+              <Component Id="Component.Microsoft.Owin.Hosting.xml" Guid="25f88aad-cf60-4ca4-add3-f01ad71b3ea4" Win64="yes">
+                <File Id="Microsoft.Owin.Hosting.xml" Source="Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.Hosting.xml" />
+              </Component>
+
+              <Component Id="Component.Microsoft.Owin.Security.dll" Guid="25f88aad-cf60-4ca4-add3-f01a70a49c00" Win64="yes">
+                <File Id="Microsoft.Owin.Security.dll" Source="Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.Security.dll" />
+              </Component>
+
+              <Component Id="Component.Microsoft.Owin.Security.xml" Guid="25f88aad-cf60-4ca4-add3-f01ac65a5df4" Win64="yes">
+                <File Id="Microsoft.Owin.Security.xml" Source="Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.Security.xml" />
+              </Component>
+
+              <Component Id="Component.Microsoft.Owin.xml" Guid="25f88aad-cf60-4ca4-add3-f01ace2e982b" Win64="yes">
+                <File Id="Microsoft.Owin.xml" Source="Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.xml" />
+              </Component>
+
+              <Component Id="Component.Newtonsoft.Json.dll.1" Guid="25f88aad-cf60-4ca4-add3-f01ad6ec19c1" Win64="yes">
+                <File Id="Newtonsoft.Json.dll.1" Source="Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Newtonsoft.Json.dll" />
+              </Component>
+
+              <Component Id="Component.Newtonsoft.Json.xml" Guid="25f88aad-cf60-4ca4-add3-f01adca2515a" Win64="yes">
+                <File Id="Newtonsoft.Json.xml" Source="Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Newtonsoft.Json.xml" />
+              </Component>
+
+              <Component Id="Component.Owin.dll" Guid="25f88aad-cf60-4ca4-add3-f01acf2e67bc" Win64="yes">
+                <File Id="Owin.dll" Source="Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Owin.dll" />
+              </Component>
+
+              <Component Id="Component.Owin.Types.dll" Guid="25f88aad-cf60-4ca4-add3-f01a316dd704" Win64="yes">
+                <File Id="Owin.Types.dll" Source="Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Owin.Types.dll" />
+              </Component>
+
+              <Component Id="Component.ThinkingHome.Plugins.Listener.2.0.0.52.nupkg" Guid="25f88aad-cf60-4ca4-add3-f01ad47d77fb" Win64="yes">
+                <File Id="ThinkingHome.Plugins.Listener.2.0.0.52.nupkg" Source="Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\ThinkingHome.Plugins.Listener.2.0.0.52.nupkg" />
+              </Component>
+
+              <Component Id="Component.ThinkingHome.Plugins.Listener.dll" Guid="25f88aad-cf60-4ca4-add3-f01ab8a9123c" Win64="yes">
+                <File Id="ThinkingHome.Plugins.Listener.dll" Source="Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\ThinkingHome.Plugins.Listener.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="INSTALLDIR.Plugins.ThinkingHome.Plugins.Microclimate.2.0.0.52" Name="ThinkingHome.Plugins.Microclimate.2.0.0.52">
+
+              <Component Id="Component.ThinkingHome.Plugins.Microclimate.2.0.0.52.nupkg" Guid="25f88aad-cf60-4ca4-add3-f01ad669e8a6" Win64="yes">
+                <File Id="ThinkingHome.Plugins.Microclimate.2.0.0.52.nupkg" Source="Plugins\ThinkingHome.Plugins.Microclimate.2.0.0.52\ThinkingHome.Plugins.Microclimate.2.0.0.52.nupkg" />
+              </Component>
+
+              <Component Id="Component.ThinkingHome.Plugins.Microclimate.dll" Guid="25f88aad-cf60-4ca4-add3-f01a188954ee" Win64="yes">
+                <File Id="ThinkingHome.Plugins.Microclimate.dll" Source="Plugins\ThinkingHome.Plugins.Microclimate.2.0.0.52\ThinkingHome.Plugins.Microclimate.dll" />
+              </Component>
+
+              <Directory Id="INSTALLDIR.Plugins.ThinkingHome.Plugins.Microclimate.2.0.0.52.ru_RU" Name="ru-RU">
+
+                <Component Id="Component.ThinkingHome.Plugins.Microclimate.resources.dll" Guid="25f88aad-cf60-4ca4-add3-f01a8bc00a1d" Win64="yes">
+                  <File Id="ThinkingHome.Plugins.Microclimate.resources.dll" Source="Plugins\ThinkingHome.Plugins.Microclimate.2.0.0.52\ru-RU\ThinkingHome.Plugins.Microclimate.resources.dll" />
+                </Component>
+
+              </Directory>
+            </Directory>
+
+            <Directory Id="INSTALLDIR.Plugins.ThinkingHome.Plugins.Mqtt.2.0.0.52" Name="ThinkingHome.Plugins.Mqtt.2.0.0.52">
+
+              <Component Id="Component.M2Mqtt.dll" Guid="25f88aad-cf60-4ca4-add3-f01a09fa70c9" Win64="yes">
+                <File Id="M2Mqtt.dll" Source="Plugins\ThinkingHome.Plugins.Mqtt.2.0.0.52\M2Mqtt.dll" />
+              </Component>
+
+              <Component Id="Component.ThinkingHome.Plugins.Mqtt.2.0.0.52.nupkg" Guid="25f88aad-cf60-4ca4-add3-f01a8df716d7" Win64="yes">
+                <File Id="ThinkingHome.Plugins.Mqtt.2.0.0.52.nupkg" Source="Plugins\ThinkingHome.Plugins.Mqtt.2.0.0.52\ThinkingHome.Plugins.Mqtt.2.0.0.52.nupkg" />
+              </Component>
+
+              <Component Id="Component.ThinkingHome.Plugins.Mqtt.dll" Guid="25f88aad-cf60-4ca4-add3-f01ad5a14194" Win64="yes">
+                <File Id="ThinkingHome.Plugins.Mqtt.dll" Source="Plugins\ThinkingHome.Plugins.Mqtt.2.0.0.52\ThinkingHome.Plugins.Mqtt.dll" />
+              </Component>
+
+              <Directory Id="INSTALLDIR.Plugins.ThinkingHome.Plugins.Mqtt.2.0.0.52.ru_RU" Name="ru-RU">
+
+                <Component Id="Component.ThinkingHome.Plugins.Mqtt.resources.dll" Guid="25f88aad-cf60-4ca4-add3-f01a7d74cd8b" Win64="yes">
+                  <File Id="ThinkingHome.Plugins.Mqtt.resources.dll" Source="Plugins\ThinkingHome.Plugins.Mqtt.2.0.0.52\ru-RU\ThinkingHome.Plugins.Mqtt.resources.dll" />
+                </Component>
+
+              </Directory>
+            </Directory>
+
+            <Directory Id="INSTALLDIR.Plugins.ThinkingHome.Plugins.NooApi.2.0.0.52" Name="ThinkingHome.Plugins.NooApi.2.0.0.52">
+
+              <Component Id="Component.ThinkingHome.Plugins.NooApi.2.0.0.52.nupkg" Guid="25f88aad-cf60-4ca4-add3-f01a42a4e8b3" Win64="yes">
+                <File Id="ThinkingHome.Plugins.NooApi.2.0.0.52.nupkg" Source="Plugins\ThinkingHome.Plugins.NooApi.2.0.0.52\ThinkingHome.Plugins.NooApi.2.0.0.52.nupkg" />
+              </Component>
+
+              <Component Id="Component.ThinkingHome.Plugins.NooApi.dll" Guid="25f88aad-cf60-4ca4-add3-f01ac660a81e" Win64="yes">
+                <File Id="ThinkingHome.Plugins.NooApi.dll" Source="Plugins\ThinkingHome.Plugins.NooApi.2.0.0.52\ThinkingHome.Plugins.NooApi.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="INSTALLDIR.Plugins.ThinkingHome.Plugins.NooLite.2.0.0.52" Name="ThinkingHome.Plugins.NooLite.2.0.0.52">
+
+              <Component Id="Component.HidLibrary.dll" Guid="25f88aad-cf60-4ca4-add3-f01a4578f7c7" Win64="yes">
+                <File Id="HidLibrary.dll" Source="Plugins\ThinkingHome.Plugins.NooLite.2.0.0.52\HidLibrary.dll" />
+              </Component>
+
+              <Component Id="Component.ThinkingHome.NooLite.dll" Guid="25f88aad-cf60-4ca4-add3-f01aa091729e" Win64="yes">
+                <File Id="ThinkingHome.NooLite.dll" Source="Plugins\ThinkingHome.Plugins.NooLite.2.0.0.52\ThinkingHome.NooLite.dll" />
+              </Component>
+
+              <Component Id="Component.ThinkingHome.Plugins.NooLite.2.0.0.52.nupkg" Guid="25f88aad-cf60-4ca4-add3-f01ae79573fa" Win64="yes">
+                <File Id="ThinkingHome.Plugins.NooLite.2.0.0.52.nupkg" Source="Plugins\ThinkingHome.Plugins.NooLite.2.0.0.52\ThinkingHome.Plugins.NooLite.2.0.0.52.nupkg" />
+              </Component>
+
+              <Component Id="Component.ThinkingHome.Plugins.NooLite.dll" Guid="25f88aad-cf60-4ca4-add3-f01a067bf5b4" Win64="yes">
+                <File Id="ThinkingHome.Plugins.NooLite.dll" Source="Plugins\ThinkingHome.Plugins.NooLite.2.0.0.52\ThinkingHome.Plugins.NooLite.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="INSTALLDIR.Plugins.ThinkingHome.Plugins.NooUI.2.0.0.52" Name="ThinkingHome.Plugins.NooUI.2.0.0.52">
+
+              <Component Id="Component.ThinkingHome.Plugins.NooUI.2.0.0.52.nupkg" Guid="25f88aad-cf60-4ca4-add3-f01ad4bf7de6" Win64="yes">
+                <File Id="ThinkingHome.Plugins.NooUI.2.0.0.52.nupkg" Source="Plugins\ThinkingHome.Plugins.NooUI.2.0.0.52\ThinkingHome.Plugins.NooUI.2.0.0.52.nupkg" />
+              </Component>
+
+              <Component Id="Component.ThinkingHome.Plugins.NooUI.dll" Guid="25f88aad-cf60-4ca4-add3-f01aa894ecc1" Win64="yes">
+                <File Id="ThinkingHome.Plugins.NooUI.dll" Source="Plugins\ThinkingHome.Plugins.NooUI.2.0.0.52\ThinkingHome.Plugins.NooUI.dll" />
+              </Component>
+
+              <Directory Id="INSTALLDIR.Plugins.ThinkingHome.Plugins.NooUI.2.0.0.52.ru_RU" Name="ru-RU">
+
+                <Component Id="Component.ThinkingHome.Plugins.NooUI.resources.dll" Guid="25f88aad-cf60-4ca4-add3-f01a19604f46" Win64="yes">
+                  <File Id="ThinkingHome.Plugins.NooUI.resources.dll" Source="Plugins\ThinkingHome.Plugins.NooUI.2.0.0.52\ru-RU\ThinkingHome.Plugins.NooUI.resources.dll" />
+                </Component>
+
+              </Directory>
+            </Directory>
+
+            <Directory Id="INSTALLDIR.Plugins.ThinkingHome.Plugins.Packages.2.0.0.52" Name="ThinkingHome.Plugins.Packages.2.0.0.52">
+
+              <Component Id="Component.ThinkingHome.Plugins.Packages.2.0.0.52.nupkg" Guid="25f88aad-cf60-4ca4-add3-f01a152333e8" Win64="yes">
+                <File Id="ThinkingHome.Plugins.Packages.2.0.0.52.nupkg" Source="Plugins\ThinkingHome.Plugins.Packages.2.0.0.52\ThinkingHome.Plugins.Packages.2.0.0.52.nupkg" />
+              </Component>
+
+              <Component Id="Component.ThinkingHome.Plugins.Packages.dll" Guid="25f88aad-cf60-4ca4-add3-f01a11414bdf" Win64="yes">
+                <File Id="ThinkingHome.Plugins.Packages.dll" Source="Plugins\ThinkingHome.Plugins.Packages.2.0.0.52\ThinkingHome.Plugins.Packages.dll" />
+              </Component>
+
+              <Directory Id="INSTALLDIR.Plugins.ThinkingHome.Plugins.Packages.2.0.0.52.ru_RU" Name="ru-RU">
+
+                <Component Id="Component.ThinkingHome.Plugins.Packages.resources.dll" Guid="25f88aad-cf60-4ca4-add3-f01ae202c30e" Win64="yes">
+                  <File Id="ThinkingHome.Plugins.Packages.resources.dll" Source="Plugins\ThinkingHome.Plugins.Packages.2.0.0.52\ru-RU\ThinkingHome.Plugins.Packages.resources.dll" />
+                </Component>
+
+              </Directory>
+            </Directory>
+
+            <Directory Id="INSTALLDIR.Plugins.ThinkingHome.Plugins.Scripts.2.0.0.52" Name="ThinkingHome.Plugins.Scripts.2.0.0.52">
+
+              <Component Id="Component.ClearScript.dll" Guid="25f88aad-cf60-4ca4-add3-f01a70ae7a72" Win64="yes">
+                <File Id="ClearScript.dll" Source="Plugins\ThinkingHome.Plugins.Scripts.2.0.0.52\ClearScript.dll" />
+              </Component>
+
+              <Component Id="Component.ClearScriptV8_32.dll" Guid="25f88aad-cf60-4ca4-add3-f01a483f8fbf" Win64="yes">
+                <File Id="ClearScriptV8_32.dll" Source="Plugins\ThinkingHome.Plugins.Scripts.2.0.0.52\ClearScriptV8-32.dll" />
+              </Component>
+
+              <Component Id="Component.ClearScriptV8_64.dll" Guid="25f88aad-cf60-4ca4-add3-f01a49758f62" Win64="yes">
+                <File Id="ClearScriptV8_64.dll" Source="Plugins\ThinkingHome.Plugins.Scripts.2.0.0.52\ClearScriptV8-64.dll" />
+              </Component>
+
+              <Component Id="Component.ThinkingHome.Plugins.Scripts.2.0.0.52.nupkg" Guid="25f88aad-cf60-4ca4-add3-f01aa5764993" Win64="yes">
+                <File Id="ThinkingHome.Plugins.Scripts.2.0.0.52.nupkg" Source="Plugins\ThinkingHome.Plugins.Scripts.2.0.0.52\ThinkingHome.Plugins.Scripts.2.0.0.52.nupkg" />
+              </Component>
+
+              <Component Id="Component.ThinkingHome.Plugins.Scripts.dll" Guid="25f88aad-cf60-4ca4-add3-f01a66afa131" Win64="yes">
+                <File Id="ThinkingHome.Plugins.Scripts.dll" Source="Plugins\ThinkingHome.Plugins.Scripts.2.0.0.52\ThinkingHome.Plugins.Scripts.dll" />
+              </Component>
+
+              <Component Id="Component.v8_ia32.dll" Guid="25f88aad-cf60-4ca4-add3-f01afa12ae81" Win64="yes">
+                <File Id="v8_ia32.dll" Source="Plugins\ThinkingHome.Plugins.Scripts.2.0.0.52\v8-ia32.dll" />
+              </Component>
+
+              <Component Id="Component.v8_x64.dll" Guid="25f88aad-cf60-4ca4-add3-f01a83035313" Win64="yes">
+                <File Id="v8_x64.dll" Source="Plugins\ThinkingHome.Plugins.Scripts.2.0.0.52\v8-x64.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="INSTALLDIR.Plugins.ThinkingHome.Plugins.Timer.2.0.0.52" Name="ThinkingHome.Plugins.Timer.2.0.0.52">
+
+              <Component Id="Component.ThinkingHome.Plugins.Timer.2.0.0.52.nupkg" Guid="25f88aad-cf60-4ca4-add3-f01ad5a55229" Win64="yes">
+                <File Id="ThinkingHome.Plugins.Timer.2.0.0.52.nupkg" Source="Plugins\ThinkingHome.Plugins.Timer.2.0.0.52\ThinkingHome.Plugins.Timer.2.0.0.52.nupkg" />
+              </Component>
+
+              <Component Id="Component.ThinkingHome.Plugins.Timer.dll" Guid="25f88aad-cf60-4ca4-add3-f01aaed3b90b" Win64="yes">
+                <File Id="ThinkingHome.Plugins.Timer.dll" Source="Plugins\ThinkingHome.Plugins.Timer.2.0.0.52\ThinkingHome.Plugins.Timer.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="INSTALLDIR.Plugins.ThinkingHome.Plugins.Tmp.2.0.0.52" Name="ThinkingHome.Plugins.Tmp.2.0.0.52">
+
+              <Component Id="Component.ThinkingHome.Plugins.Tmp.2.0.0.52.nupkg" Guid="25f88aad-cf60-4ca4-add3-f01adc138211" Win64="yes">
+                <File Id="ThinkingHome.Plugins.Tmp.2.0.0.52.nupkg" Source="Plugins\ThinkingHome.Plugins.Tmp.2.0.0.52\ThinkingHome.Plugins.Tmp.2.0.0.52.nupkg" />
+              </Component>
+
+              <Component Id="Component.ThinkingHome.Plugins.Tmp.dll" Guid="25f88aad-cf60-4ca4-add3-f01ab10a056a" Win64="yes">
+                <File Id="ThinkingHome.Plugins.Tmp.dll" Source="Plugins\ThinkingHome.Plugins.Tmp.2.0.0.52\ThinkingHome.Plugins.Tmp.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="INSTALLDIR.Plugins.ThinkingHome.Plugins.UniUI.2.0.0.52" Name="ThinkingHome.Plugins.UniUI.2.0.0.52">
+
+              <Component Id="Component.ThinkingHome.Plugins.UniUI.2.0.0.52.nupkg" Guid="25f88aad-cf60-4ca4-add3-f01af3815ae5" Win64="yes">
+                <File Id="ThinkingHome.Plugins.UniUI.2.0.0.52.nupkg" Source="Plugins\ThinkingHome.Plugins.UniUI.2.0.0.52\ThinkingHome.Plugins.UniUI.2.0.0.52.nupkg" />
+              </Component>
+
+              <Component Id="Component.ThinkingHome.Plugins.UniUI.dll" Guid="25f88aad-cf60-4ca4-add3-f01ac34bec60" Win64="yes">
+                <File Id="ThinkingHome.Plugins.UniUI.dll" Source="Plugins\ThinkingHome.Plugins.UniUI.2.0.0.52\ThinkingHome.Plugins.UniUI.dll" />
+              </Component>
+
+              <Component Id="Component.ThinkingHome.Plugins.UniUI.dll.config" Guid="25f88aad-cf60-4ca4-add3-f01ad39ebbde" Win64="yes">
+                <File Id="ThinkingHome.Plugins.UniUI.dll.config" Source="Plugins\ThinkingHome.Plugins.UniUI.2.0.0.52\ThinkingHome.Plugins.UniUI.dll.config" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="INSTALLDIR.Plugins.ThinkingHome.Plugins.Weather.2.0.0.52" Name="ThinkingHome.Plugins.Weather.2.0.0.52">
+
+              <Component Id="Component.ThinkingHome.Plugins.Weather.2.0.0.52.nupkg" Guid="25f88aad-cf60-4ca4-add3-f01a647473f7" Win64="yes">
+                <File Id="ThinkingHome.Plugins.Weather.2.0.0.52.nupkg" Source="Plugins\ThinkingHome.Plugins.Weather.2.0.0.52\ThinkingHome.Plugins.Weather.2.0.0.52.nupkg" />
+              </Component>
+
+              <Component Id="Component.ThinkingHome.Plugins.Weather.dll" Guid="25f88aad-cf60-4ca4-add3-f01a9d701145" Win64="yes">
+                <File Id="ThinkingHome.Plugins.Weather.dll" Source="Plugins\ThinkingHome.Plugins.Weather.2.0.0.52\ThinkingHome.Plugins.Weather.dll" />
+              </Component>
+
+            </Directory>
+
+            <Directory Id="INSTALLDIR.Plugins.ThinkingHome.Plugins.WebUI.2.0.0.52" Name="ThinkingHome.Plugins.WebUI.2.0.0.52">
+
+              <Component Id="Component.ThinkingHome.Plugins.WebUI.2.0.0.52.nupkg" Guid="25f88aad-cf60-4ca4-add3-f01aa3c3e820" Win64="yes">
+                <File Id="ThinkingHome.Plugins.WebUI.2.0.0.52.nupkg" Source="Plugins\ThinkingHome.Plugins.WebUI.2.0.0.52\ThinkingHome.Plugins.WebUI.2.0.0.52.nupkg" />
+              </Component>
+
+              <Component Id="Component.ThinkingHome.Plugins.WebUI.dll" Guid="25f88aad-cf60-4ca4-add3-f01ad786ee17" Win64="yes">
+                <File Id="ThinkingHome.Plugins.WebUI.dll" Source="Plugins\ThinkingHome.Plugins.WebUI.2.0.0.52\ThinkingHome.Plugins.WebUI.dll" />
+              </Component>
+
+            </Directory>
+          </Directory>
+
+          <Directory Id="INSTALLDIR.x86" Name="x86">
+
+            <Component Id="Component.sqlceca40.dll.1" Guid="25f88aad-cf60-4ca4-add3-f01a1f2f0d4a" Win64="yes">
+              <File Id="sqlceca40.dll.1" Source="x86\sqlceca40.dll" />
             </Component>
 
-            <Component Id="Component.NHibernate.dll" Guid="25f88aad-cf60-4ca4-add3-f01a05c8cde6" Win64="yes">
-              <File Id="NHibernate.dll" Source="..\Setup\dist\service\NHibernate.dll" />
+            <Component Id="Component.sqlcecompact40.dll.1" Guid="25f88aad-cf60-4ca4-add3-f01a6c3b55da" Win64="yes">
+              <File Id="sqlcecompact40.dll.1" Source="x86\sqlcecompact40.dll" />
             </Component>
 
-            <Component Id="Component.NLog.config" Guid="25f88aad-cf60-4ca4-add3-f01af59a1cc4" Win64="yes">
-              <File Id="NLog.config" Source="..\Setup\dist\service\NLog.config" />
+            <Component Id="Component.sqlceer40EN.dll.1" Guid="25f88aad-cf60-4ca4-add3-f01a82b549a3" Win64="yes">
+              <File Id="sqlceer40EN.dll.1" Source="x86\sqlceer40EN.dll" />
             </Component>
 
-            <Component Id="Component.NLog.dll" Guid="25f88aad-cf60-4ca4-add3-f01a613b8523" Win64="yes">
-              <File Id="NLog.dll" Source="..\Setup\dist\service\NLog.dll" />
+            <Component Id="Component.sqlceme40.dll.1" Guid="25f88aad-cf60-4ca4-add3-f01ae064fb5e" Win64="yes">
+              <File Id="sqlceme40.dll.1" Source="x86\sqlceme40.dll" />
             </Component>
 
-            <Component Id="Component.NuGet.Core.dll" Guid="25f88aad-cf60-4ca4-add3-f01a5def215c" Win64="yes">
-              <File Id="NuGet.Core.dll" Source="..\Setup\dist\service\NuGet.Core.dll" />
+            <Component Id="Component.sqlceqp40.dll.1" Guid="25f88aad-cf60-4ca4-add3-f01a05eee8d0" Win64="yes">
+              <File Id="sqlceqp40.dll.1" Source="x86\sqlceqp40.dll" />
             </Component>
 
-            <Component Id="Component.System.Data.SqlServerCe.dll" Guid="25f88aad-cf60-4ca4-add3-f01a9641b108" Win64="yes">
-              <File Id="System.Data.SqlServerCe.dll" Source="..\Setup\dist\service\System.Data.SqlServerCe.dll" />
+            <Component Id="Component.sqlcese40.dll.1" Guid="25f88aad-cf60-4ca4-add3-f01aa97efb5e" Win64="yes">
+              <File Id="sqlcese40.dll.1" Source="x86\sqlcese40.dll" />
             </Component>
 
-            <Component Id="Component.ThinkingHome.Core.Infrastructure.dll" Guid="25f88aad-cf60-4ca4-add3-f01a0a42dd70" Win64="yes">
-              <File Id="ThinkingHome.Core.Infrastructure.dll" Source="..\Setup\dist\service\ThinkingHome.Core.Infrastructure.dll" />
-            </Component>
+            <Directory Id="INSTALLDIR.x86.Microsoft.VC90.CRT" Name="Microsoft.VC90.CRT">
 
-            <Component Id="Component.ThinkingHome.Core.Plugins.dll" Guid="25f88aad-cf60-4ca4-add3-f01aa796a006" Win64="yes">
-              <File Id="ThinkingHome.Core.Plugins.dll" Source="..\Setup\dist\service\ThinkingHome.Core.Plugins.dll" />
-            </Component>
+              <Component Id="Component.msvcr90.dll.1" Guid="25f88aad-cf60-4ca4-add3-f01ad9115e4b" Win64="yes">
+                <File Id="msvcr90.dll.1" Source="x86\Microsoft.VC90.CRT\msvcr90.dll" />
+              </Component>
 
-            <Component Id="Component.ThinkingHome.Service.exe.config" Guid="25f88aad-cf60-4ca4-add3-f01a46abdc20" Win64="yes">
-              <File Id="ThinkingHome.Service.exe.config" Source="..\Setup\dist\service\ThinkingHome.Service.exe.config" />
-            </Component>
-
-            <Component Id="Component.ThinkingHome.TestConsole.exe" Guid="25f88aad-cf60-4ca4-add3-f01ae2cd2922" Win64="yes">
-              <File Id="ThinkingHome.TestConsole.exe" Source="..\Setup\dist\service\ThinkingHome.TestConsole.exe" />
-            </Component>
-
-            <Component Id="Component.ThinkingHome.TestConsole.exe.config" Guid="25f88aad-cf60-4ca4-add3-f01a3cd924db" Win64="yes">
-              <File Id="ThinkingHome.TestConsole.exe.config" Source="..\Setup\dist\service\ThinkingHome.TestConsole.exe.config" />
-            </Component>
-
+            </Directory>
           </Directory>
         </Directory>
       </Directory>
@@ -108,6 +500,82 @@
       <ComponentRef Id="Component.ThinkingHome.Service.exe.config" />
       <ComponentRef Id="Component.ThinkingHome.TestConsole.exe" />
       <ComponentRef Id="Component.ThinkingHome.TestConsole.exe.config" />
+      <ComponentRef Id="Component.sqlceca40.dll" />
+      <ComponentRef Id="Component.sqlcecompact40.dll" />
+      <ComponentRef Id="Component.sqlceer40EN.dll" />
+      <ComponentRef Id="Component.sqlceme40.dll" />
+      <ComponentRef Id="Component.sqlceqp40.dll" />
+      <ComponentRef Id="Component.sqlcese40.dll" />
+      <ComponentRef Id="Component.msvcr90.dll" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.AlarmClock.2.0.0.52.nupkg" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.AlarmClock.dll" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.AlarmClock.resources.dll" />
+      <ComponentRef Id="Component.NAudio.dll" />
+      <ComponentRef Id="Component.NAudio.xml" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.Audio.2.0.0.52.nupkg" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.Audio.dll" />
+      <ComponentRef Id="Component.Microsoft.AspNet.SignalR.Core.dll" />
+      <ComponentRef Id="Component.Microsoft.AspNet.SignalR.Core.xml" />
+      <ComponentRef Id="Component.Microsoft.Owin.Diagnostics.dll" />
+      <ComponentRef Id="Component.Microsoft.Owin.Diagnostics.xml" />
+      <ComponentRef Id="Component.Microsoft.Owin.dll" />
+      <ComponentRef Id="Component.Microsoft.Owin.Host.HttpListener.dll" />
+      <ComponentRef Id="Component.Microsoft.Owin.Host.HttpListener.xml" />
+      <ComponentRef Id="Component.Microsoft.Owin.Hosting.dll" />
+      <ComponentRef Id="Component.Microsoft.Owin.Hosting.xml" />
+      <ComponentRef Id="Component.Microsoft.Owin.Security.dll" />
+      <ComponentRef Id="Component.Microsoft.Owin.Security.xml" />
+      <ComponentRef Id="Component.Microsoft.Owin.xml" />
+      <ComponentRef Id="Component.Newtonsoft.Json.dll.1" />
+      <ComponentRef Id="Component.Newtonsoft.Json.xml" />
+      <ComponentRef Id="Component.Owin.dll" />
+      <ComponentRef Id="Component.Owin.Types.dll" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.Listener.2.0.0.52.nupkg" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.Listener.dll" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.Microclimate.2.0.0.52.nupkg" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.Microclimate.dll" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.Microclimate.resources.dll" />
+      <ComponentRef Id="Component.M2Mqtt.dll" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.Mqtt.2.0.0.52.nupkg" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.Mqtt.dll" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.Mqtt.resources.dll" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.NooApi.2.0.0.52.nupkg" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.NooApi.dll" />
+      <ComponentRef Id="Component.HidLibrary.dll" />
+      <ComponentRef Id="Component.ThinkingHome.NooLite.dll" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.NooLite.2.0.0.52.nupkg" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.NooLite.dll" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.NooUI.2.0.0.52.nupkg" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.NooUI.dll" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.NooUI.resources.dll" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.Packages.2.0.0.52.nupkg" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.Packages.dll" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.Packages.resources.dll" />
+      <ComponentRef Id="Component.ClearScript.dll" />
+      <ComponentRef Id="Component.ClearScriptV8_32.dll" />
+      <ComponentRef Id="Component.ClearScriptV8_64.dll" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.Scripts.2.0.0.52.nupkg" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.Scripts.dll" />
+      <ComponentRef Id="Component.v8_ia32.dll" />
+      <ComponentRef Id="Component.v8_x64.dll" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.Timer.2.0.0.52.nupkg" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.Timer.dll" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.Tmp.2.0.0.52.nupkg" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.Tmp.dll" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.UniUI.2.0.0.52.nupkg" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.UniUI.dll" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.UniUI.dll.config" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.Weather.2.0.0.52.nupkg" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.Weather.dll" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.WebUI.2.0.0.52.nupkg" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.WebUI.dll" />
+      <ComponentRef Id="Component.sqlceca40.dll.1" />
+      <ComponentRef Id="Component.sqlcecompact40.dll.1" />
+      <ComponentRef Id="Component.sqlceer40EN.dll.1" />
+      <ComponentRef Id="Component.sqlceme40.dll.1" />
+      <ComponentRef Id="Component.sqlceqp40.dll.1" />
+      <ComponentRef Id="Component.sqlcese40.dll.1" />
+      <ComponentRef Id="Component.msvcr90.dll.1" />
     </Feature>
 
   </Product>
