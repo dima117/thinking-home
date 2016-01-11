@@ -12,6 +12,7 @@ namespace ThinkingHome.Setup
 			{
 				Platform = Platform.x64,
 				GUID = new Guid("25F88AAD-CF60-4CA4-ADD3-F01A4F0F0313"),
+				LicenceFile = "License.rtf",
 				SourceBaseDir = @"C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service"
 			};
 

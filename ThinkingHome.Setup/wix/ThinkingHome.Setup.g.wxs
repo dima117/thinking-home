@@ -34,6 +34,10 @@
             <File Id="Iesi.Collections.dll" Source="Iesi.Collections.dll" />
           </Component>
 
+          <Component Id="Component.License.rtf" Guid="25f88aad-cf60-4ca4-add3-f01a771b37e4" Win64="yes">
+            <File Id="License.rtf" Source="License.rtf" />
+          </Component>
+
           <Component Id="Component.Microsoft.Web.XmlTransform.dll" Guid="25f88aad-cf60-4ca4-add3-f01afea56086" Win64="yes">
             <File Id="Microsoft.Web.XmlTransform.dll" Source="Microsoft.Web.XmlTransform.dll" />
           </Component>
@@ -480,6 +484,8 @@
       </Directory>
     </Directory>
 
+    <WixVariable Id="WixUILicenseRtf" Value="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\License.rtf" />
+
     <UIRef Id="WixUI_Minimal" />
 
     <Feature Id="Complete" Title="Complete" Absent="allow" Level="1">
@@ -488,6 +494,7 @@
       <ComponentRef Id="Component.ECM7.Migrator.Providers.SqlServer.dll" />
       <ComponentRef Id="Component.home.sdf" />
       <ComponentRef Id="Component.Iesi.Collections.dll" />
+      <ComponentRef Id="Component.License.rtf" />
       <ComponentRef Id="Component.Microsoft.Web.XmlTransform.dll" />
       <ComponentRef Id="Component.Newtonsoft.Json.dll" />
       <ComponentRef Id="Component.NHibernate.dll" />
