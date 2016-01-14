@@ -12,14 +12,12 @@
 First-time install dialog sequence:
 - WixUI_WelcomeDlg
 - WixUI_LicenseAgreementDlg
-- WixUI_InstallDirDlg
 - WixUI_VerifyReadyDlg
 - WixUI_DiskCostDlg
 
 Maintenance dialog sequence:
 - WixUI_MaintenanceWelcomeDlg
 - WixUI_MaintenanceTypeDlg
-- WixUI_InstallDirDlg
 - WixUI_VerifyReadyDlg
 
 Patch dialog sequence:
@@ -61,20 +59,12 @@ Patch dialog sequence:
 
 
 			<Publish Dialog="LicenseAgreementDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg">1</Publish>
-			<Publish Dialog="LicenseAgreementDlg" Control="Next" Event="NewDialog" Value="InstallDirDlg">1</Publish>
+			<Publish Dialog="LicenseAgreementDlg" Control="Next" Event="NewDialog" Value="AppSettingsDlg">1</Publish>
 
-			<Publish Dialog="InstallDirDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg">1</Publish>
-			<Publish Dialog="InstallDirDlg" Control="Next" Event="SetTargetPath" Value="[WIXUI_INSTALLDIR]" Order="1">1</Publish>
-			<Publish Dialog="InstallDirDlg" Control="Next" Event="DoAction" Value="WixUIValidatePath" Order="2">NOT WIXUI_DONTVALIDATEPATH</Publish>
-			<Publish Dialog="InstallDirDlg" Control="Next" Event="SpawnDialog" Value="InvalidDirDlg" Order="3"><![CDATA[NOT WIXUI_DONTVALIDATEPATH AND WIXUI_INSTALLDIR_VALID<>"1"]]></Publish>
-			<Publish Dialog="InstallDirDlg" Control="Next" Event="NewDialog" Value="WebAppSetupDlg" Order="4">WIXUI_DONTVALIDATEPATH OR WIXUI_INSTALLDIR_VALID="1"</Publish>
-			<Publish Dialog="InstallDirDlg" Control="ChangeFolder" Property="_BrowseProperty" Value="[WIXUI_INSTALLDIR]" Order="1">1</Publish>
-			<Publish Dialog="InstallDirDlg" Control="ChangeFolder" Event="SpawnDialog" Value="BrowseDlg" Order="2">1</Publish>
+			<Publish Dialog="AppSettingsDlg" Control="Back" Event="NewDialog" Value="LicenseAgreementDlg">1</Publish>
+			<Publish Dialog="AppSettingsDlg" Control="Next" Event="NewDialog" Value="VerifyReadyDlg"><![CDATA[WEBSERVER_PORT <> ""]]></Publish>
 
-			<Publish Dialog="WebAppSetupDlg" Control="Back" Event="NewDialog" Value="InstallDirDlg">1</Publish>
-			<Publish Dialog="WebAppSetupDlg" Control="Next" Event="NewDialog" Value="VerifyReadyDlg"><![CDATA[WEBUI_PORT <> ""]]></Publish>
-
-			<Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="WebAppSetupDlg" Order="1">NOT Installed</Publish>
+			<Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="AppSettingsDlg" Order="1">NOT Installed</Publish>
 			<Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="MaintenanceTypeDlg" Order="2">Installed AND NOT PATCH</Publish>
 			<Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg" Order="2">Installed AND PATCH</Publish>
 
@@ -92,10 +82,18 @@ Patch dialog sequence:
 
 	<Fragment>
 		<UI>
-			<Dialog Id="WebAppSetupDlg" Width="370" Height="270" Title="IIS Settings - [ProductName]" NoMinimize="yes">
+			<Dialog Id="AppSettingsDlg" Width="370" Height="270" Title="[ProductName] Setup" NoMinimize="yes">
 				<!-- Web App details prompt -->
-				<Control Id="WebsitePortLabel" Type="Text"  X="20" Y="60" Width="100" Height="30" TabSkip="no" Text="&amp;Website Port:" />
-				<Control Id="WebsitePortEdit" Type="Edit" X="20" Y="100" Width="40" Height="18" Property="WEBUI_PORT" Text="{8}" />
+				<Control Id="LanguageLabel" Type="Text"  X="20" Y="60" Width="100" Height="30" TabSkip="no" Text="&amp;UI language:" />
+				<Control Id="LanguageSelect" Type="ComboBox" X="110" Y="58" Width="60" Height="18" Property="UI_LANG" ComboList="yes">
+					<ComboBox Property="UI_LANG">
+						<ListItem Text="English" Value="en" />
+						<ListItem Text="Russian" Value="ru" />
+					</ComboBox>
+				</Control>
+
+				<Control Id="WebServerPortLabel" Type="Text"  X="20" Y="82" Width="100" Height="30" TabSkip="no" Text="&amp;Web server port:" />
+				<Control Id="WebServerPortEdit" Type="Edit" X="110" Y="80" Width="40" Height="18" Property="WEBSERVER_PORT" Text="{5}" />
 
 				<!-- Nav button -->
 				<Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Text="!(loc.WixUIBack)" />
@@ -107,12 +105,12 @@ Patch dialog sequence:
 
 				<Control Id="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" TabSkip="no" Text="WixUI_Bmp_Banner" />
 				<Control Id="Description" Type="Text" X="25" Y="23" Width="280" Height="15" Transparent="yes" NoPrefix="yes">
-					<Text>Please enter Web Application Configuration</Text>
+					<Text>Please set the application configuration</Text>
 				</Control>
 
 				<Control Id="BottomLine" Type="Line" X="0" Y="234" Width="370" Height="0" />
 				<Control Id="Title" Type="Text" X="15" Y="6" Width="200" Height="15" Transparent="yes" NoPrefix="yes">
-					<Text>{\WixUI_Font_Title}Web Application Settings</Text>
+					<Text>{\WixUI_Font_Title}Application Settings</Text>
 				</Control>
 
 				<Control Id="BannerLine" Type="Line" X="0" Y="44" Width="370" Height="0" />
