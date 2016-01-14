@@ -74,6 +74,9 @@
     <Compile Include="AutomationService.Designer.cs">
       <DependentUpon>AutomationService.cs</DependentUpon>
     </Compile>
+    <Compile Include="AutomationServiceInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>

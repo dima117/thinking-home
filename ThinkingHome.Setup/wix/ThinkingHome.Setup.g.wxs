@@ -74,6 +74,10 @@
             <File Id="ThinkingHome.Core.Plugins.dll" Source="ThinkingHome.Core.Plugins.dll" />
           </Component>
 
+          <Component Id="Component.ThinkingHome.Service.exe" Guid="25f88aad-cf60-4ca4-add3-f01a60243694" Win64="yes">
+            <File Id="ThinkingHome.Service.exe" Source="ThinkingHome.Service.exe" />
+          </Component>
+
           <Component Id="Component.ThinkingHome.Service.exe.config" Guid="25f88aad-cf60-4ca4-add3-f01a46abdc20" Win64="yes">
             <File Id="ThinkingHome.Service.exe.config" Source="ThinkingHome.Service.exe.config" />
           </Component>
@@ -379,6 +383,13 @@
                 <File Id="v8_x64.dll" Source="Plugins\ThinkingHome.Plugins.Scripts.2.0.0.52\v8-x64.dll" />
               </Component>
 
+              <Directory Id="INSTALLDIR.Plugins.ThinkingHome.Plugins.Scripts.2.0.0.52.ru_RU" Name="ru-RU">
+
+                <Component Id="Component.ThinkingHome.Plugins.Scripts.resources.dll" Guid="25f88aad-cf60-4ca4-add3-f01a1b6cf9e6" Win64="yes">
+                  <File Id="ThinkingHome.Plugins.Scripts.resources.dll" Source="Plugins\ThinkingHome.Plugins.Scripts.2.0.0.52\ru-RU\ThinkingHome.Plugins.Scripts.resources.dll" />
+                </Component>
+
+              </Directory>
             </Directory>
 
             <Directory Id="INSTALLDIR.Plugins.ThinkingHome.Plugins.Timer.2.0.0.52" Name="ThinkingHome.Plugins.Timer.2.0.0.52">
@@ -431,6 +442,13 @@
                 <File Id="ThinkingHome.Plugins.Weather.dll" Source="Plugins\ThinkingHome.Plugins.Weather.2.0.0.52\ThinkingHome.Plugins.Weather.dll" />
               </Component>
 
+              <Directory Id="INSTALLDIR.Plugins.ThinkingHome.Plugins.Weather.2.0.0.52.ru_RU" Name="ru-RU">
+
+                <Component Id="Component.ThinkingHome.Plugins.Weather.resources.dll" Guid="25f88aad-cf60-4ca4-add3-f01a9442e8c1" Win64="yes">
+                  <File Id="ThinkingHome.Plugins.Weather.resources.dll" Source="Plugins\ThinkingHome.Plugins.Weather.2.0.0.52\ru-RU\ThinkingHome.Plugins.Weather.resources.dll" />
+                </Component>
+
+              </Directory>
             </Directory>
 
             <Directory Id="INSTALLDIR.Plugins.ThinkingHome.Plugins.WebUI.2.0.0.52" Name="ThinkingHome.Plugins.WebUI.2.0.0.52">
@@ -443,6 +461,13 @@
                 <File Id="ThinkingHome.Plugins.WebUI.dll" Source="Plugins\ThinkingHome.Plugins.WebUI.2.0.0.52\ThinkingHome.Plugins.WebUI.dll" />
               </Component>
 
+              <Directory Id="INSTALLDIR.Plugins.ThinkingHome.Plugins.WebUI.2.0.0.52.ru_RU" Name="ru-RU">
+
+                <Component Id="Component.ThinkingHome.Plugins.WebUI.resources.dll" Guid="25f88aad-cf60-4ca4-add3-f01a4b2ce4ca" Win64="yes">
+                  <File Id="ThinkingHome.Plugins.WebUI.resources.dll" Source="Plugins\ThinkingHome.Plugins.WebUI.2.0.0.52\ru-RU\ThinkingHome.Plugins.WebUI.resources.dll" />
+                </Component>
+
+              </Directory>
             </Directory>
           </Directory>
 
@@ -486,6 +511,13 @@
 
     <WixVariable Id="WixUILicenseRtf" Value="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\License.rtf" />
 
+    <CustomAction Id="Set_Action1_InstallService_Props" Property="Action1_InstallService" Value="INSTALLDIR=[INSTALLDIR];INSTALLDIR=[INSTALLDIR];UILevel=[UILevel]" />
+    <CustomAction Id="Action1_InstallService" BinaryKey="Action1_InstallService_File" DllEntry="InstallService" Return="check" Impersonate="no" Execute="deferred" />
+    <CustomAction Id="Set_Action2_UnInstallService_Props" Property="Action2_UnInstallService" Value="INSTALLDIR=[INSTALLDIR];INSTALLDIR=[INSTALLDIR];UILevel=[UILevel]" />
+    <CustomAction Id="Action2_UnInstallService" BinaryKey="Action1_InstallService_File" DllEntry="UnInstallService" Return="check" Impersonate="no" Execute="deferred" />
+
+    <Binary Id="Action1_InstallService_File" SourceFile="..\..\..\ThinkingHome.Setup\%this%.CA.dll" />
+
     <UIRef Id="WixUI_Minimal" />
 
     <Feature Id="Complete" Title="Complete" Absent="allow" Level="1">
@@ -504,6 +536,7 @@
       <ComponentRef Id="Component.System.Data.SqlServerCe.dll" />
       <ComponentRef Id="Component.ThinkingHome.Core.Infrastructure.dll" />
       <ComponentRef Id="Component.ThinkingHome.Core.Plugins.dll" />
+      <ComponentRef Id="Component.ThinkingHome.Service.exe" />
       <ComponentRef Id="Component.ThinkingHome.Service.exe.config" />
       <ComponentRef Id="Component.ThinkingHome.TestConsole.exe" />
       <ComponentRef Id="Component.ThinkingHome.TestConsole.exe.config" />
@@ -565,6 +598,7 @@
       <ComponentRef Id="Component.ThinkingHome.Plugins.Scripts.dll" />
       <ComponentRef Id="Component.v8_ia32.dll" />
       <ComponentRef Id="Component.v8_x64.dll" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.Scripts.resources.dll" />
       <ComponentRef Id="Component.ThinkingHome.Plugins.Timer.2.0.0.52.nupkg" />
       <ComponentRef Id="Component.ThinkingHome.Plugins.Timer.dll" />
       <ComponentRef Id="Component.ThinkingHome.Plugins.Tmp.2.0.0.52.nupkg" />
@@ -574,8 +608,10 @@
       <ComponentRef Id="Component.ThinkingHome.Plugins.UniUI.dll.config" />
       <ComponentRef Id="Component.ThinkingHome.Plugins.Weather.2.0.0.52.nupkg" />
       <ComponentRef Id="Component.ThinkingHome.Plugins.Weather.dll" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.Weather.resources.dll" />
       <ComponentRef Id="Component.ThinkingHome.Plugins.WebUI.2.0.0.52.nupkg" />
       <ComponentRef Id="Component.ThinkingHome.Plugins.WebUI.dll" />
+      <ComponentRef Id="Component.ThinkingHome.Plugins.WebUI.resources.dll" />
       <ComponentRef Id="Component.sqlceca40.dll.1" />
       <ComponentRef Id="Component.sqlcecompact40.dll.1" />
       <ComponentRef Id="Component.sqlceer40EN.dll.1" />
@@ -584,6 +620,13 @@
       <ComponentRef Id="Component.sqlcese40.dll.1" />
       <ComponentRef Id="Component.msvcr90.dll.1" />
     </Feature>
+
+    <InstallExecuteSequence>
+      <Custom Action="Set_Action1_InstallService_Props" After="InstallInitialize" />
+      <Custom Action="Action1_InstallService" After="InstallFiles"> (NOT Installed) </Custom>
+      <Custom Action="Set_Action2_UnInstallService_Props" After="InstallInitialize" />
+      <Custom Action="Action2_UnInstallService" Before="RemoveFiles"> (REMOVE="ALL") </Custom>
+    </InstallExecuteSequence>
 
   </Product>
 </Wix>
