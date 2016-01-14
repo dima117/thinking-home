@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+
+	<?define ProductName="Noolite Web Control Panel" ?>
+	<?define ProductVersion="1.0.0.0" ?>
+	<?define ProductCode="8196CE49-33CF-4EC9-A802-2C8DDF08A3F1"?>
+	<?define UpgradeCode="C2499454-DFFF-436E-AA66-ABB581C06EE2"?>
+	<?define Manufacturer="Thinking-Home.RU"?>
+
+</Include>

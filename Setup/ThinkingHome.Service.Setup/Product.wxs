@@ -2,6 +2,9 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
   xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
   xmlns:fire="http://schemas.microsoft.com/wix/FirewallExtension">
+
+	<?include Variables.wxi?>
+
 	<Product Id="*" Name="ThinkingHome.Service" Language="1033" Version="1.0.0.0" 
 		Manufacturer="Thinking-Home.RU" UpgradeCode="48dc066c-97cc-4512-8fa3-52bbe195e075">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
@@ -16,11 +19,14 @@
 
 		<PropertyRef Id="NETFRAMEWORK45"/>
 
+		<Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+		<Property Id="WEBUI_PORT" Value="80" />
+
 		<Condition Message="This application requires .NET Framework 4.5. Please install the .NET Framework then run this installer again.">
 			<![CDATA[Installed OR NETFRAMEWORK45]]>
 		</Condition>
 
-		<UIRef Id="WixUI_Minimal" />
+		<UIRef Id="WixUI_InstallDirNoolite" />
 		<WixVariable Id="WixUILicenseRtf" Value="..\dist\License.rtf" />
 	</Product>
 

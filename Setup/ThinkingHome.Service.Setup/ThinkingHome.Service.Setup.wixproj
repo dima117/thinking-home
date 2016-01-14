@@ -24,6 +24,7 @@
     <Compile Include="Files.wxs" />
     <Compile Include="Folders.wxs" />
     <Compile Include="Product.wxs" />
+    <Compile Include="UserInterface.wxs" />
   </ItemGroup>
   <ItemGroup>
     <WixExtension Include="WixUtilExtension">
@@ -42,6 +43,9 @@
       <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
       <Name>WixUIExtension</Name>
     </WixExtension>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Variables.wxi" />
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
   <!--
