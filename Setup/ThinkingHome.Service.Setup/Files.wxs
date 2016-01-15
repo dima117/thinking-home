@@ -2,157 +2,157 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <Fragment>
     <ComponentGroup Id="ProductComponents">
-      <Component Id="ComponentB06D8598B5D2448E8018178E5446A51C" Guid="b06d8598-b5d2-448e-8018-178e5446a51c" DiskId="1" Directory="SERVICEINSTALLFOLDER">
-        <File Id="FILE_F9B4BEDBC50B455D8C1535E6BFD4C5EC" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\ECM7.Migrator.dll" />
-        <File Id="FILE_274A164F254D4D02B634A5B68423BA79" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\ECM7.Migrator.Framework.dll" />
-        <File Id="FILE_00810E51349D492FA461DCFB749B9A95" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\ECM7.Migrator.Providers.SqlServer.dll" />
-        <File Id="FILE_06E877B975424AAAB84E7384A2E22A91" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\home.sdf" />
-        <File Id="FILE_1337C8357E674972887064C07B391097" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Iesi.Collections.dll" />
-        <File Id="FILE_399EFFFE88A44529A1D7360CB77848D8" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Microsoft.Web.XmlTransform.dll" />
-        <File Id="FILE_58B16A55F05640FD9FCA089EBB3BAD2F" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Newtonsoft.Json.dll" />
-        <File Id="FILE_FC647BF415B540198740D8D33B577134" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\NHibernate.dll" />
-        <File Id="FILE_A0D840ACD9BC482FB8D8E669C93AA4F2" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\NLog.config" />
-        <File Id="FILE_5556D9D97E0146A7B3C783E6BFCE3D0C" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\NLog.dll" />
-        <File Id="FILE_69CB0CEFB93B440EA3B7422CBBC89FEB" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\NuGet.Core.dll" />
-        <File Id="FILE_C93815EC96EC4A35B8B90E4634B6458C" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\System.Data.SqlServerCe.dll" />
-        <File Id="FILE_0CD8AEBC83304E3485144B485437F61B" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\ThinkingHome.Core.Infrastructure.dll" />
-        <File Id="FILE_95EAB5B310574B03BE110F924E4AFC25" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\ThinkingHome.Core.Plugins.dll" />
-        <File Id="FILE_EA1DB5AF1E384630BC21DC85B956A179" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\ThinkingHome.Service.exe.config" />
-        <File Id="FILE_00DF3DD18251435ABFFFB553F3595463" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\ThinkingHome.TestConsole.exe" />
-        <File Id="FILE_F848124FD9844A9189B6C7016144EC00" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\ThinkingHome.TestConsole.exe.config" />
+      <Component Id="Component1F30FE86E67D48E4B3947E4EC84C8E54" Guid="1f30fe86-e67d-48e4-b394-7e4ec84c8e54" DiskId="1" Directory="SERVICEINSTALLFOLDER">
+        <File Id="FILE_B5543DC2465B4CA48F9E4349923BFF55" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\ECM7.Migrator.dll" />
+        <File Id="FILE_52EE7ED6870143F4BEE4918518C3541D" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\ECM7.Migrator.Framework.dll" />
+        <File Id="FILE_AD09EF14E1904D9E9F3D9B0EF46A21B3" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\ECM7.Migrator.Providers.SqlServer.dll" />
+        <File Id="FILE_B209B858AC8C49DEAF49A76095D94662" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\home.sdf" />
+        <File Id="FILE_350CFF10ADCD406EAA7837FF86028043" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Iesi.Collections.dll" />
+        <File Id="FILE_BFAB35A71C634027969600BC58AF0254" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Microsoft.Web.XmlTransform.dll" />
+        <File Id="FILE_1313264B9D294008959C0696B8DD5074" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Newtonsoft.Json.dll" />
+        <File Id="FILE_39CC0BBBA1234BCABF41D68B6F7B6C64" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\NHibernate.dll" />
+        <File Id="FILE_AEC08B7A350E460B885D46CC9DD7AB45" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\NLog.config" />
+        <File Id="FILE_3690A7D7DCBE4C87995D88414F32EC65" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\NLog.dll" />
+        <File Id="FILE_6BC4D84965A04BE8BC8AE238791BB2F7" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\NuGet.Core.dll" />
+        <File Id="FILE_5716C60052A849A2847E641FFCC13232" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\System.Data.SqlServerCe.dll" />
+        <File Id="FILE_8B1740C8236B494D9179AADD8DDC78B8" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\ThinkingHome.Core.Infrastructure.dll" />
+        <File Id="FILE_E7B2AA83295340C5A77D3441561471E4" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\ThinkingHome.Core.Plugins.dll" />
+        <File Id="FILE_BFB6B6CFDF314CCBBE4704F6D0347E77" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\ThinkingHome.Service.exe.config" />
+        <File Id="FILE_68E2BD6EF1474EE8AF06FA2296EA3377" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\ThinkingHome.TestConsole.exe" />
+        <File Id="FILE_2144C00E6F6A486A8D9F338CB3A71B7A" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\ThinkingHome.TestConsole.exe.config" />
       </Component>
-      <Component Id="Component9C6D6C355034425B932FC5E715E0DB69" Guid="9c6d6c35-5034-425b-932f-c5e715e0db69" DiskId="1" Directory="FOLDER_ECF4F14D8D4E4BA58E11E0AE107C16CB">
-        <File Id="FILE_73D2B026082147F3BDE56E04116961A7" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\amd64\sqlceca40.dll" />
-        <File Id="FILE_0A57A01EF2D34FB4834C6DA47EA8440A" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\amd64\sqlcecompact40.dll" />
-        <File Id="FILE_B5BB91509E634AB18A8F415006020FBE" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\amd64\sqlceer40EN.dll" />
-        <File Id="FILE_0981A8BE769943D1A9C8C36FF4071065" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\amd64\sqlceme40.dll" />
-        <File Id="FILE_2C5123EDFC084B378F4C0F9DE241887B" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\amd64\sqlceqp40.dll" />
-        <File Id="FILE_9115798037EF4A458B63529AB0D45118" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\amd64\sqlcese40.dll" />
+      <Component Id="Component4F5153FB79854332BE5C4C1C071E1B2A" Guid="4f5153fb-7985-4332-be5c-4c1c071e1b2a" DiskId="1" Directory="FOLDER_F6CC7DC06382478D83D26A15FD559F1A">
+        <File Id="FILE_6C0B24AA59144FF0A39F9FF10243645E" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\amd64\sqlceca40.dll" />
+        <File Id="FILE_E7BE9A9F2269456E9EEC54B81C0CFF0A" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\amd64\sqlcecompact40.dll" />
+        <File Id="FILE_9D15C8B11D02482FBC6EF707B3AA278A" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\amd64\sqlceer40EN.dll" />
+        <File Id="FILE_DC6A38EFC0E248A3BDA6BA4895B4F861" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\amd64\sqlceme40.dll" />
+        <File Id="FILE_6C663EF3A0D2405AB6AE6FE92824EFDD" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\amd64\sqlceqp40.dll" />
+        <File Id="FILE_DD9D1D42D16743C2AA32F43440FEC83A" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\amd64\sqlcese40.dll" />
       </Component>
-      <Component Id="Component71EA6A6FBF374D3287F5CE1F17F8D223" Guid="71ea6a6f-bf37-4d32-87f5-ce1f17f8d223" DiskId="1" Directory="FOLDER_4E5409523959416EBFA5D396446DD528">
-        <File Id="FILE_0038DC840B6F4D238182473A639D2B1A" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\amd64\Microsoft.VC90.CRT\msvcr90.dll" />
+      <Component Id="ComponentD0EABD9AE72E49529E01F9FB8A9C4A73" Guid="d0eabd9a-e72e-4952-9e01-f9fb8a9c4a73" DiskId="1" Directory="FOLDER_CD318EB16A7341B1A313B25A669E380E">
+        <File Id="FILE_F8D647B31F284348BC689444CBA5FF7B" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\amd64\Microsoft.VC90.CRT\msvcr90.dll" />
       </Component>
-      <Component Id="ComponentCDE87C0811724395A8EFEF44BD18E9D6" Guid="cde87c08-1172-4395-a8ef-ef44bd18e9d6" DiskId="1" Directory="FOLDER_EDF2220B860E4F098F7FA388C1F95C8E">
-        <File Id="FILE_71D7B549F0DB43D18CABD9F7D2F2BD3A" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.AlarmClock.2.0.0.52\ThinkingHome.Plugins.AlarmClock.2.0.0.52.nupkg" />
-        <File Id="FILE_714B4D0FE07C41E6B974EBA7C27130D1" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.AlarmClock.2.0.0.52\ThinkingHome.Plugins.AlarmClock.dll" />
+      <Component Id="ComponentD4A844A062D24E089FB02EC3925DDF14" Guid="d4a844a0-62d2-4e08-9fb0-2ec3925ddf14" DiskId="1" Directory="FOLDER_E13C2180189941FB8AD49C1B8E9D88E7">
+        <File Id="FILE_3DD194E883024EDBBF423837C4C687AA" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.AlarmClock.2.0.0.52\ThinkingHome.Plugins.AlarmClock.2.0.0.52.nupkg" />
+        <File Id="FILE_71D6374A306344E9A74DB4D8BD979440" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.AlarmClock.2.0.0.52\ThinkingHome.Plugins.AlarmClock.dll" />
       </Component>
-      <Component Id="Component57099B28F9E84B24B3F091A6D8BA52FA" Guid="57099b28-f9e8-4b24-b3f0-91a6d8ba52fa" DiskId="1" Directory="FOLDER_83D81FB8559D4070981AE247A0BA3E4B">
-        <File Id="FILE_64AD2A3E671E4579A325E54B9C7AD7A3" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.AlarmClock.2.0.0.52\ru-RU\ThinkingHome.Plugins.AlarmClock.resources.dll" />
+      <Component Id="Component6D7124976B394385BFED7B8FD0F3ED25" Guid="6d712497-6b39-4385-bfed-7b8fd0f3ed25" DiskId="1" Directory="FOLDER_F1FCE6506041478885ACCDD2C8F649DA">
+        <File Id="FILE_7CA4178CDD6948F88FA501F976C6113B" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.AlarmClock.2.0.0.52\ru-RU\ThinkingHome.Plugins.AlarmClock.resources.dll" />
       </Component>
-      <Component Id="ComponentE91B434EFC7A4034BB9BB340F9F4DCE5" Guid="e91b434e-fc7a-4034-bb9b-b340f9f4dce5" DiskId="1" Directory="FOLDER_5CE43A5E7E7E4773A7E826C41390C13E">
-        <File Id="FILE_7D63FCBC99D04630A1CDB653A0595827" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Audio.2.0.0.52\NAudio.dll" />
-        <File Id="FILE_89F73B8AD4BC443EBB46477A5195672D" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Audio.2.0.0.52\NAudio.xml" />
-        <File Id="FILE_FB00E63B2CD54FE2AF61C95D0000DB71" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Audio.2.0.0.52\ThinkingHome.Plugins.Audio.2.0.0.52.nupkg" />
-        <File Id="FILE_A345EA182CF74648B1E8137CF0E901D4" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Audio.2.0.0.52\ThinkingHome.Plugins.Audio.dll" />
+      <Component Id="ComponentB7320BCFC3414364B72AE673758009B1" Guid="b7320bcf-c341-4364-b72a-e673758009b1" DiskId="1" Directory="FOLDER_8498F628DA9F4E5D857E030798EB9575">
+        <File Id="FILE_6D898D44A30F440CAE9CB55F5857CE29" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Audio.2.0.0.52\NAudio.dll" />
+        <File Id="FILE_F4F41B8127804844BBC4C501BCE65A6F" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Audio.2.0.0.52\NAudio.xml" />
+        <File Id="FILE_CC18798021384DDBBE8C7B8DD0F20450" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Audio.2.0.0.52\ThinkingHome.Plugins.Audio.2.0.0.52.nupkg" />
+        <File Id="FILE_A7BCD4D367B740079D5F2E90D3BFC58A" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Audio.2.0.0.52\ThinkingHome.Plugins.Audio.dll" />
       </Component>
-      <Component Id="Component1CBB6C621253400BBF6DC319FC586F36" Guid="1cbb6c62-1253-400b-bf6d-c319fc586f36" DiskId="1" Directory="FOLDER_EE59C40BC7634872B125EACED70ECB10">
-        <File Id="FILE_2184D96F90BF4A4795681DC6F1B9A370" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.AspNet.SignalR.Core.dll" />
-        <File Id="FILE_090EC9C738534198874352EB4E5F4C81" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.AspNet.SignalR.Core.xml" />
-        <File Id="FILE_304F9D2DC7B94031BADEE65E3A82E7CE" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.Diagnostics.dll" />
-        <File Id="FILE_277B0DC8EB6B415D9D407F7B3FDD252F" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.Diagnostics.xml" />
-        <File Id="FILE_F265C74EC87A48F9979E13313B02539C" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.dll" />
-        <File Id="FILE_9C8DE0CB16674196B984A4A33239525F" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.Host.HttpListener.dll" />
-        <File Id="FILE_4E77F18F19A844D591B40DCFF6D0427B" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.Host.HttpListener.xml" />
-        <File Id="FILE_00CA9E1085A443C8861237E4A5C1EB1D" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.Hosting.dll" />
-        <File Id="FILE_8E867BFAB5114AD7AFDA642EDFDF9372" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.Hosting.xml" />
-        <File Id="FILE_4889AE217B0C47008F7BB95878A949E9" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.Security.dll" />
-        <File Id="FILE_AA2F587978BA4D4F84332A36BAAAC6D1" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.Security.xml" />
-        <File Id="FILE_E2CDE44BC22F440795EE242FF06D080B" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.xml" />
-        <File Id="FILE_E668DE5C56F242619A07FAD1321F8A6D" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Newtonsoft.Json.dll" />
-        <File Id="FILE_47E850DAF4B04A09BD91C96717BA7974" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Newtonsoft.Json.xml" />
-        <File Id="FILE_067D2E4A21604EFEB8D36AA124F9DDB7" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Owin.dll" />
-        <File Id="FILE_8B4C5E7E370045B4BCF076B8D2A2627A" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Owin.Types.dll" />
-        <File Id="FILE_AFF98D739AC04F2F8A5F5016DF4E04EA" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\ThinkingHome.Plugins.Listener.2.0.0.52.nupkg" />
-        <File Id="FILE_7E33E8B7C56D4A3CBFBB59ECB40D430C" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\ThinkingHome.Plugins.Listener.dll" />
+      <Component Id="ComponentE5A2952BC2A848E7BE9F879D1E49469E" Guid="e5a2952b-c2a8-48e7-be9f-879d1e49469e" DiskId="1" Directory="FOLDER_D1B65B295A7D4B5F8E6FDB6D387F8026">
+        <File Id="FILE_C4DFD07F40B1442785A834AD10B0038B" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.AspNet.SignalR.Core.dll" />
+        <File Id="FILE_2D179F20EE1042FFA54A79083CEB9B67" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.AspNet.SignalR.Core.xml" />
+        <File Id="FILE_8B4ABA6E08B740A490548DEB36494845" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.Diagnostics.dll" />
+        <File Id="FILE_9E14C15254854998B40A75FF37028AA1" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.Diagnostics.xml" />
+        <File Id="FILE_13CB4796B76440969168ABD27DA7EC8D" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.dll" />
+        <File Id="FILE_855EDC94F8CB429C835A9E5291785531" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.Host.HttpListener.dll" />
+        <File Id="FILE_0889038095144323A05499F3D1B5E168" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.Host.HttpListener.xml" />
+        <File Id="FILE_238E04BFEC674B5B8DE74D9C807B1D7D" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.Hosting.dll" />
+        <File Id="FILE_D798F04145F246819C550BB7AA82973F" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.Hosting.xml" />
+        <File Id="FILE_CB15641CE52C488ABFBBDD894E39A2CE" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.Security.dll" />
+        <File Id="FILE_5E71230886A849A8ACECE1F0C2FC8D69" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.Security.xml" />
+        <File Id="FILE_1A25CB2684D64544A35AD0C080AE3AA8" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Microsoft.Owin.xml" />
+        <File Id="FILE_94BFF15A613A433AA7ADE101EE30C8E3" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Newtonsoft.Json.dll" />
+        <File Id="FILE_D2A479FFF6A0410CA246721DD33E7067" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Newtonsoft.Json.xml" />
+        <File Id="FILE_ECEC995938CC407ABBD8C735EDB6630B" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Owin.dll" />
+        <File Id="FILE_665465923B0C4C73B1935979240A1F69" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\Owin.Types.dll" />
+        <File Id="FILE_14AE543268584D7F920B53590B59C23F" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\ThinkingHome.Plugins.Listener.2.0.0.52.nupkg" />
+        <File Id="FILE_156FB42208F14775B488D2BFD46CB800" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Listener.2.0.0.52\ThinkingHome.Plugins.Listener.dll" />
       </Component>
-      <Component Id="Component9B55EF2C3C2A4AA1A0994E3C54B35047" Guid="9b55ef2c-3c2a-4aa1-a099-4e3c54b35047" DiskId="1" Directory="FOLDER_262E05AE543A4D6BB5EF2626ED042008">
-        <File Id="FILE_1D7155CF47504F63A9BAE54C7E548EC1" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Microclimate.2.0.0.52\ThinkingHome.Plugins.Microclimate.2.0.0.52.nupkg" />
-        <File Id="FILE_F9733F03597344A1B94573DF935680A8" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Microclimate.2.0.0.52\ThinkingHome.Plugins.Microclimate.dll" />
+      <Component Id="Component4E1CC4A6B02947159F16FC4B963FC405" Guid="4e1cc4a6-b029-4715-9f16-fc4b963fc405" DiskId="1" Directory="FOLDER_2FCF79FA4D4B415595A01AD08375730C">
+        <File Id="FILE_A1DEC6F0A90C4A688EE7B5291D823169" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Microclimate.2.0.0.52\ThinkingHome.Plugins.Microclimate.2.0.0.52.nupkg" />
+        <File Id="FILE_3023AED5236542E09C3AF31E1F92C750" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Microclimate.2.0.0.52\ThinkingHome.Plugins.Microclimate.dll" />
       </Component>
-      <Component Id="ComponentB499667A01A8468BB7988855C8515FB7" Guid="b499667a-01a8-468b-b798-8855c8515fb7" DiskId="1" Directory="FOLDER_F87DD4C46857445E83F7DB5785E6144B">
-        <File Id="FILE_5135B1D3D0FD4637838C9489BD3941DC" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Microclimate.2.0.0.52\ru-RU\ThinkingHome.Plugins.Microclimate.resources.dll" />
+      <Component Id="Component4CBA18919379499FB56EF932EEB51E80" Guid="4cba1891-9379-499f-b56e-f932eeb51e80" DiskId="1" Directory="FOLDER_9C0828BE049E4742B49A4E9DECA2140A">
+        <File Id="FILE_D9125A81B732434AA30E12E262BCFB70" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Microclimate.2.0.0.52\ru-RU\ThinkingHome.Plugins.Microclimate.resources.dll" />
       </Component>
-      <Component Id="Component9E673EEF5C734C36AD7C3D21B7B7F7A8" Guid="9e673eef-5c73-4c36-ad7c-3d21b7b7f7a8" DiskId="1" Directory="FOLDER_B7F5CCA21C584CE18BB938EEF6326AB9">
-        <File Id="FILE_696CBE87282944D6BA8EDC0A5FCC34A5" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Mqtt.2.0.0.52\M2Mqtt.dll" />
-        <File Id="FILE_153607AAD0434A0F889E73B3983F830C" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Mqtt.2.0.0.52\ThinkingHome.Plugins.Mqtt.2.0.0.52.nupkg" />
-        <File Id="FILE_409F10D60C8E4241BC4F0C09ABEB15E8" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Mqtt.2.0.0.52\ThinkingHome.Plugins.Mqtt.dll" />
+      <Component Id="Component582AF81B615E43A588972284AFC8B271" Guid="582af81b-615e-43a5-8897-2284afc8b271" DiskId="1" Directory="FOLDER_6E639B2845B04653A863019C253F679B">
+        <File Id="FILE_4D5941554CA642B5B04C5E05E5EF29AB" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Mqtt.2.0.0.52\M2Mqtt.dll" />
+        <File Id="FILE_938CFB266E8447C78FF3E8F43442222E" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Mqtt.2.0.0.52\ThinkingHome.Plugins.Mqtt.2.0.0.52.nupkg" />
+        <File Id="FILE_DC42DD88F7DB430B8ED7198D27D12A95" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Mqtt.2.0.0.52\ThinkingHome.Plugins.Mqtt.dll" />
       </Component>
-      <Component Id="Component517F73DFDF934D5DAA04F5AAE872ACBC" Guid="517f73df-df93-4d5d-aa04-f5aae872acbc" DiskId="1" Directory="FOLDER_6797C8F68E6C4EB8BDAA791C47686580">
-        <File Id="FILE_2DBB14FA219F4D1D832DC28B630F1C99" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Mqtt.2.0.0.52\ru-RU\ThinkingHome.Plugins.Mqtt.resources.dll" />
+      <Component Id="Component8C847793E2234F359309CF3D6F2B3A70" Guid="8c847793-e223-4f35-9309-cf3d6f2b3a70" DiskId="1" Directory="FOLDER_CDAC655C4266422EB6D04B45D09687FE">
+        <File Id="FILE_4E759D6D664C46949380D91BA0665476" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Mqtt.2.0.0.52\ru-RU\ThinkingHome.Plugins.Mqtt.resources.dll" />
       </Component>
-      <Component Id="ComponentB8E62069E52A4E7E9D961508196DCDF8" Guid="b8e62069-e52a-4e7e-9d96-1508196dcdf8" DiskId="1" Directory="FOLDER_116CFC8091F84659BFCCA4808FF5D1F1">
-        <File Id="FILE_8CC528ED22844A92A860D0BD6DB4A326" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooApi.2.0.0.52\ThinkingHome.Plugins.NooApi.2.0.0.52.nupkg" />
-        <File Id="FILE_195E25FD301549F592A4A40200332335" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooApi.2.0.0.52\ThinkingHome.Plugins.NooApi.dll" />
+      <Component Id="Component21E5DC783A7A47C7956A53846D414421" Guid="21e5dc78-3a7a-47c7-956a-53846d414421" DiskId="1" Directory="FOLDER_4F9E66D48FEE44B281F270444A9D80BC">
+        <File Id="FILE_AD232C96A79F4B1E8DCA90C1CC4185D7" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooApi.2.0.0.52\ThinkingHome.Plugins.NooApi.2.0.0.52.nupkg" />
+        <File Id="FILE_7E51EEDB2DCC4B89A7B9B494B8D86B68" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooApi.2.0.0.52\ThinkingHome.Plugins.NooApi.dll" />
       </Component>
-      <Component Id="Component88CDAC1A7303484B9FAB84E0B32C9DB3" Guid="88cdac1a-7303-484b-9fab-84e0b32c9db3" DiskId="1" Directory="FOLDER_992DC9E01814436FAF02D556B064C36F">
-        <File Id="FILE_14DEF311C0BD47A7902AD4161B8772BC" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooLite.2.0.0.52\HidLibrary.dll" />
-        <File Id="FILE_3147AFE02D164D22811D832060A68E39" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooLite.2.0.0.52\ThinkingHome.NooLite.dll" />
-        <File Id="FILE_723042FBD838442F80C3E46B20212A09" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooLite.2.0.0.52\ThinkingHome.Plugins.NooLite.2.0.0.52.nupkg" />
-        <File Id="FILE_D2A687A347124462820386BFF7BBC4F6" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooLite.2.0.0.52\ThinkingHome.Plugins.NooLite.dll" />
+      <Component Id="Component3948FAE2D8D64974BA9F5D2B222EB955" Guid="3948fae2-d8d6-4974-ba9f-5d2b222eb955" DiskId="1" Directory="FOLDER_0EC3E8E800AD4BA6BE28EE68F08CB635">
+        <File Id="FILE_2D889B586B1C4699B3F851633924FE16" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooLite.2.0.0.52\HidLibrary.dll" />
+        <File Id="FILE_3D673C442C85448AB9A51FA30C11FCF2" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooLite.2.0.0.52\ThinkingHome.NooLite.dll" />
+        <File Id="FILE_2D9FA61E59F1480D89F42F4E625DDE1C" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooLite.2.0.0.52\ThinkingHome.Plugins.NooLite.2.0.0.52.nupkg" />
+        <File Id="FILE_D41FF114B3DB4320A542C69DD83CF5F2" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooLite.2.0.0.52\ThinkingHome.Plugins.NooLite.dll" />
       </Component>
-      <Component Id="Component88730FEC38FA4DB29F97C687A36A8354" Guid="88730fec-38fa-4db2-9f97-c687a36a8354" DiskId="1" Directory="FOLDER_7F4A6A5D7FE44864B6A452056EDA3ACC">
-        <File Id="FILE_0F0BCE82DA4646A9B77CFD3FB29745AF" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooUI.2.0.0.52\ThinkingHome.Plugins.NooUI.2.0.0.52.nupkg" />
-        <File Id="FILE_8456CBB16E5B4C4292D1E671132EFD69" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooUI.2.0.0.52\ThinkingHome.Plugins.NooUI.dll" />
+      <Component Id="ComponentAB913AE9486547D880D593BAB305EA93" Guid="ab913ae9-4865-47d8-80d5-93bab305ea93" DiskId="1" Directory="FOLDER_5B62A59333014BE2A5FA142191A5F802">
+        <File Id="FILE_E528DDCACC5A4A7995F37A10BDA9AD3F" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooUI.2.0.0.52\ThinkingHome.Plugins.NooUI.2.0.0.52.nupkg" />
+        <File Id="FILE_D6ABBD79BE7E44118EEE5B340E1DF8A0" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooUI.2.0.0.52\ThinkingHome.Plugins.NooUI.dll" />
       </Component>
-      <Component Id="ComponentBBE58D40ADFB472EA306E7A16518EE71" Guid="bbe58d40-adfb-472e-a306-e7a16518ee71" DiskId="1" Directory="FOLDER_FF4ECEC8AFBB4D35B435601310BF3CAB">
-        <File Id="FILE_93789BAA667646BC9967F975985D0C5E" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooUI.2.0.0.52\ru-RU\ThinkingHome.Plugins.NooUI.resources.dll" />
+      <Component Id="ComponentE43C20F0657944F391A1E37E961CF7BA" Guid="e43c20f0-6579-44f3-91a1-e37e961cf7ba" DiskId="1" Directory="FOLDER_12380F263F4D4CD98BE23547A87A45E9">
+        <File Id="FILE_2EAA6060F10F4DD79977814A0602F07E" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.NooUI.2.0.0.52\ru-RU\ThinkingHome.Plugins.NooUI.resources.dll" />
       </Component>
-      <Component Id="Component2C3BD5DFA615467D989D1E4243D91252" Guid="2c3bd5df-a615-467d-989d-1e4243d91252" DiskId="1" Directory="FOLDER_39B145B70C0E4381AE72154FDF66886D">
-        <File Id="FILE_A4A3CC4A7D8D44E0883231BC80DBF449" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Packages.2.0.0.52\ThinkingHome.Plugins.Packages.2.0.0.52.nupkg" />
-        <File Id="FILE_7926DCF3426C47D7951AB601516C3B28" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Packages.2.0.0.52\ThinkingHome.Plugins.Packages.dll" />
+      <Component Id="ComponentBE5B0C16260440D68FE16A49EE10143A" Guid="be5b0c16-2604-40d6-8fe1-6a49ee10143a" DiskId="1" Directory="FOLDER_8D0D96C31FDF4598AB7B4FC48725E921">
+        <File Id="FILE_70558EEBA8404507967B722BFF1169AA" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Packages.2.0.0.52\ThinkingHome.Plugins.Packages.2.0.0.52.nupkg" />
+        <File Id="FILE_47AEACA1DE984940B8CA15832C080EC0" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Packages.2.0.0.52\ThinkingHome.Plugins.Packages.dll" />
       </Component>
-      <Component Id="ComponentB1EEE8EFE9D341C3A7850490CCB747F3" Guid="b1eee8ef-e9d3-41c3-a785-0490ccb747f3" DiskId="1" Directory="FOLDER_034B5BD022BF4A2AA67BA6F316AE8AE3">
-        <File Id="FILE_798657DC7B444A728428ED2C427D1C4E" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Packages.2.0.0.52\ru-RU\ThinkingHome.Plugins.Packages.resources.dll" />
+      <Component Id="Component9CFB0B7D79514FC393EB40825CC0CAEC" Guid="9cfb0b7d-7951-4fc3-93eb-40825cc0caec" DiskId="1" Directory="FOLDER_3097971BB1C2437E86CA3D73BBCA8EE9">
+        <File Id="FILE_64258ECC3561404B9B436FAD59465EC0" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Packages.2.0.0.52\ru-RU\ThinkingHome.Plugins.Packages.resources.dll" />
       </Component>
-      <Component Id="ComponentF1A9C5A2D8C243E9AAFCC78071F6ED3E" Guid="f1a9c5a2-d8c2-43e9-aafc-c78071f6ed3e" DiskId="1" Directory="FOLDER_F6E62479380D43A7A1CB88E1E6E5EEBB">
-        <File Id="FILE_B89D5E1B520F4FD1B28B9925E046D6C2" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.52\ClearScript.dll" />
-        <File Id="FILE_6287BC5D1DB240D882F3616FEEC1B2CD" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.52\ClearScriptV8-32.dll" />
-        <File Id="FILE_D67FA156A8354F288B544BE467985D96" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.52\ClearScriptV8-64.dll" />
-        <File Id="FILE_1909A5B0172D4D3BB8CF2E5B0717786B" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.52\ThinkingHome.Plugins.Scripts.2.0.0.52.nupkg" />
-        <File Id="FILE_7F3E6C545D934A25AEB8BD9EA505BA08" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.52\ThinkingHome.Plugins.Scripts.dll" />
-        <File Id="FILE_BBBEB3F98C954840825C8BE3CE918537" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.52\v8-ia32.dll" />
-        <File Id="FILE_1DD1F54202024F65AC971FA5CAA46F70" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.52\v8-x64.dll" />
+      <Component Id="ComponentD4CA6D21EE0B4514AD42E86324C63F76" Guid="d4ca6d21-ee0b-4514-ad42-e86324c63f76" DiskId="1" Directory="FOLDER_811E70BAC000493ABA306E2B3A60ADFD">
+        <File Id="FILE_F4D6B47BCC674D0E8275053E1D7F638B" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.52\ClearScript.dll" />
+        <File Id="FILE_B83A6D3A9C76423DB75F3F566E25F9B0" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.52\ClearScriptV8-32.dll" />
+        <File Id="FILE_5B0DF765CBDF45389420F958FE4DC634" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.52\ClearScriptV8-64.dll" />
+        <File Id="FILE_96B0FFCE41DF4D27BF500130C4FB1682" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.52\ThinkingHome.Plugins.Scripts.2.0.0.52.nupkg" />
+        <File Id="FILE_4AD64396F20C404382479CD62DCBFDAB" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.52\ThinkingHome.Plugins.Scripts.dll" />
+        <File Id="FILE_D508A6676704402F997164D7B1CE34AA" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.52\v8-ia32.dll" />
+        <File Id="FILE_D28BE95D10D7469999E5B026AFAC64C3" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.52\v8-x64.dll" />
       </Component>
-      <Component Id="Component4C73439C05A543C58E9AFECCDA7B8F23" Guid="4c73439c-05a5-43c5-8e9a-feccda7b8f23" DiskId="1" Directory="FOLDER_F866C95871AC4B6BA27C0E514D3C7428">
-        <File Id="FILE_0AD2B11F515849B8B9D4A78BFC31E67D" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.52\ru-RU\ThinkingHome.Plugins.Scripts.resources.dll" />
+      <Component Id="Component28B1ECC883694AC693E91AE312286518" Guid="28b1ecc8-8369-4ac6-93e9-1ae312286518" DiskId="1" Directory="FOLDER_C4196685DB514392BE6ED27AAB6900EA">
+        <File Id="FILE_165C640EB7464124AD550E9C4BD25327" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Scripts.2.0.0.52\ru-RU\ThinkingHome.Plugins.Scripts.resources.dll" />
       </Component>
-      <Component Id="Component8A8C6C95DA754C189F4218FA845ADE07" Guid="8a8c6c95-da75-4c18-9f42-18fa845ade07" DiskId="1" Directory="FOLDER_79C9EE1FF24D4510B93CBF2680EA575B">
-        <File Id="FILE_7139FD0BAEA2450FBAD3753E1D6B24F1" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Timer.2.0.0.52\ThinkingHome.Plugins.Timer.2.0.0.52.nupkg" />
-        <File Id="FILE_CD51B0CBE3444031979B9817750D15BC" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Timer.2.0.0.52\ThinkingHome.Plugins.Timer.dll" />
+      <Component Id="Component91BC9E6DE6194451B61F444633B51212" Guid="91bc9e6d-e619-4451-b61f-444633b51212" DiskId="1" Directory="FOLDER_76F40DB0B07541618CD5088F926BB146">
+        <File Id="FILE_636E57F316AF44329D2C2D9B1A52C211" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Timer.2.0.0.52\ThinkingHome.Plugins.Timer.2.0.0.52.nupkg" />
+        <File Id="FILE_6597ABBA04F44CF094AC74083BC7B6FF" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Timer.2.0.0.52\ThinkingHome.Plugins.Timer.dll" />
       </Component>
-      <Component Id="Component96A1FFF55DB24A2A9AEB48697425740A" Guid="96a1fff5-5db2-4a2a-9aeb-48697425740a" DiskId="1" Directory="FOLDER_614C3A3804E341A0AC8F253795A28DDB">
-        <File Id="FILE_29271564E9214BFC98168432C9B3748C" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Tmp.2.0.0.52\ThinkingHome.Plugins.Tmp.2.0.0.52.nupkg" />
-        <File Id="FILE_D587C12BE70549C9BA5CBC1C0A15E80D" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Tmp.2.0.0.52\ThinkingHome.Plugins.Tmp.dll" />
+      <Component Id="Component3D29F9E580D0430CB6F27C1A3FE5BF05" Guid="3d29f9e5-80d0-430c-b6f2-7c1a3fe5bf05" DiskId="1" Directory="FOLDER_3A3F5EFEEC59447C80D6466FDB595AD2">
+        <File Id="FILE_68F5D1FCC56D4A99BFDD3950C826135C" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Tmp.2.0.0.52\ThinkingHome.Plugins.Tmp.2.0.0.52.nupkg" />
+        <File Id="FILE_DAF53445253E40CC953DC988DA23CD11" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Tmp.2.0.0.52\ThinkingHome.Plugins.Tmp.dll" />
       </Component>
-      <Component Id="Component474059E7362B4D5085D657A58DB32DC2" Guid="474059e7-362b-4d50-85d6-57a58db32dc2" DiskId="1" Directory="FOLDER_D8CBFF5221C64D3BBE057CBCDEC80038">
-        <File Id="FILE_49A8F8498045408593562285F6C467AC" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.UniUI.2.0.0.52\ThinkingHome.Plugins.UniUI.2.0.0.52.nupkg" />
-        <File Id="FILE_5A9A43A564EE4DA6B31B322852DAEEB5" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.UniUI.2.0.0.52\ThinkingHome.Plugins.UniUI.dll" />
-        <File Id="FILE_BEB3BD0E33C64B04A699D1D77F927B54" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.UniUI.2.0.0.52\ThinkingHome.Plugins.UniUI.dll.config" />
+      <Component Id="Component5EC2399E730E41D4A672CC24AA97DD4E" Guid="5ec2399e-730e-41d4-a672-cc24aa97dd4e" DiskId="1" Directory="FOLDER_F23610886F1E4269B960966E824B5DA6">
+        <File Id="FILE_EF54B6B211C94C00B50C7BDFADB784CC" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.UniUI.2.0.0.52\ThinkingHome.Plugins.UniUI.2.0.0.52.nupkg" />
+        <File Id="FILE_99BC62EC0AE04807BC7CA871C6F05F31" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.UniUI.2.0.0.52\ThinkingHome.Plugins.UniUI.dll" />
+        <File Id="FILE_F07A5A1CEE174B53B7F9DEDB1AA8644D" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.UniUI.2.0.0.52\ThinkingHome.Plugins.UniUI.dll.config" />
       </Component>
-      <Component Id="Component9F5CDBBA4ACA44C4B0826262F4884B4B" Guid="9f5cdbba-4aca-44c4-b082-6262f4884b4b" DiskId="1" Directory="FOLDER_2727FBC63FB74E3BBD44967A3112071C">
-        <File Id="FILE_57FD1E50BC2841C9B0EA02349DAACDC7" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Weather.2.0.0.52\ThinkingHome.Plugins.Weather.2.0.0.52.nupkg" />
-        <File Id="FILE_53085416228344D7AD4F142513939DE7" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Weather.2.0.0.52\ThinkingHome.Plugins.Weather.dll" />
+      <Component Id="Component5B6FC4C5A805441992183AAE0A42943B" Guid="5b6fc4c5-a805-4419-9218-3aae0a42943b" DiskId="1" Directory="FOLDER_CF428E9492F04BD788E963C0226DA4AC">
+        <File Id="FILE_0140981F24B6469B9186B56EDA6DD70B" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Weather.2.0.0.52\ThinkingHome.Plugins.Weather.2.0.0.52.nupkg" />
+        <File Id="FILE_0FC809A4799C463989EAD1A313B49CDD" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Weather.2.0.0.52\ThinkingHome.Plugins.Weather.dll" />
       </Component>
-      <Component Id="Component4DC02BCF3DAB4023A2DEE097679A7507" Guid="4dc02bcf-3dab-4023-a2de-e097679a7507" DiskId="1" Directory="FOLDER_44634251FCE34C94B673D88F5A92DF12">
-        <File Id="FILE_C4CF08674A864FD29BC85E613B8A63EC" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Weather.2.0.0.52\ru-RU\ThinkingHome.Plugins.Weather.resources.dll" />
+      <Component Id="ComponentCE8279EBFAF84D7AB65A569C790BBA89" Guid="ce8279eb-faf8-4d7a-b65a-569c790bba89" DiskId="1" Directory="FOLDER_EBCE30AA780646018B47328EDB982A25">
+        <File Id="FILE_EC56217430CA49B69B86856C28C1AA97" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.Weather.2.0.0.52\ru-RU\ThinkingHome.Plugins.Weather.resources.dll" />
       </Component>
-      <Component Id="Component5043A01DE821425EB61A2DC7F9D7BBD0" Guid="5043a01d-e821-425e-b61a-2dc7f9d7bbd0" DiskId="1" Directory="FOLDER_8F79054B1F814501828711493AA69FA5">
-        <File Id="FILE_74034B0EC2F445538CB3D4C393782312" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.WebUI.2.0.0.52\ThinkingHome.Plugins.WebUI.2.0.0.52.nupkg" />
-        <File Id="FILE_53C2BB4986064B5784B5E39ACEDCEACD" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.WebUI.2.0.0.52\ThinkingHome.Plugins.WebUI.dll" />
+      <Component Id="ComponentADA4EA9DAD72435596AABF75A94737C5" Guid="ada4ea9d-ad72-4355-96aa-bf75a94737c5" DiskId="1" Directory="FOLDER_1C5829552EF24B1E96772D32685A1568">
+        <File Id="FILE_E5ED61874D884F37807703C94323FE1C" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.WebUI.2.0.0.52\ThinkingHome.Plugins.WebUI.2.0.0.52.nupkg" />
+        <File Id="FILE_F56FB3AB32174549B43F9983D0EDD6E3" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.WebUI.2.0.0.52\ThinkingHome.Plugins.WebUI.dll" />
       </Component>
-      <Component Id="ComponentC8CD3D38616C44FE99EC3791906B29E3" Guid="c8cd3d38-616c-44fe-99ec-3791906b29e3" DiskId="1" Directory="FOLDER_E86763F80E404930B9269D7CF3B5C318">
-        <File Id="FILE_8926928742CA47C3B5AC49B9DC2B9B15" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.WebUI.2.0.0.52\ru-RU\ThinkingHome.Plugins.WebUI.resources.dll" />
+      <Component Id="Component4948AA217120419D979B88067DD875F7" Guid="4948aa21-7120-419d-979b-88067dd875f7" DiskId="1" Directory="FOLDER_97A71137104741DC9868F775169BD326">
+        <File Id="FILE_DCA198C8649B4BF0A8D0451AD7E56A57" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\Plugins\ThinkingHome.Plugins.WebUI.2.0.0.52\ru-RU\ThinkingHome.Plugins.WebUI.resources.dll" />
       </Component>
-      <Component Id="ComponentDDF8B5EE06174D0DAF9B9C8D0F038408" Guid="ddf8b5ee-0617-4d0d-af9b-9c8d0f038408" DiskId="1" Directory="FOLDER_E2D9B77770D5454983EBFB7BEBAB51CF">
-        <File Id="FILE_4BE36BDB61A04C16AEB746CFA2D9B72E" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\x86\sqlceca40.dll" />
-        <File Id="FILE_97E1D6378DD54964AD744A46C924C580" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\x86\sqlcecompact40.dll" />
-        <File Id="FILE_991F65A7324F4AB497F2566B4947C2EF" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\x86\sqlceer40EN.dll" />
-        <File Id="FILE_3EBA07AB07554134A1EE60AD6FEBBE53" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\x86\sqlceme40.dll" />
-        <File Id="FILE_45BB4E16D51A42FF8DEE20C87770730F" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\x86\sqlceqp40.dll" />
-        <File Id="FILE_525E326158084DC6B25DCDD5B8672A4D" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\x86\sqlcese40.dll" />
+      <Component Id="Component3FF878EB25DF41C0A3FAD8535632F6A9" Guid="3ff878eb-25df-41c0-a3fa-d8535632f6a9" DiskId="1" Directory="FOLDER_4F1F32A6B015474382422370BFA5B782">
+        <File Id="FILE_447C20AC3E6D47EF8A924E48638CC6B4" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\x86\sqlceca40.dll" />
+        <File Id="FILE_126449DE78584819B687E40FE3E7A9CD" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\x86\sqlcecompact40.dll" />
+        <File Id="FILE_EE5173514F4040DDA12A7902C8BE242B" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\x86\sqlceer40EN.dll" />
+        <File Id="FILE_8263191F6963499BB1B8F45DC05463C7" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\x86\sqlceme40.dll" />
+        <File Id="FILE_ECE23C25A8944A9F9D99840FFC682B62" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\x86\sqlceqp40.dll" />
+        <File Id="FILE_E792FFDFFC7E4CB29E5C6AEEBCE502A4" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\x86\sqlcese40.dll" />
       </Component>
-      <Component Id="Component97794C93A16348F99F03D30FD55C91EB" Guid="97794c93-a163-48f9-9f03-d30fd55c91eb" DiskId="1" Directory="FOLDER_CBA6DC21B0CC4B9D98F851636DB08C24">
-        <File Id="FILE_C75DE6E436C3456DADC1DCFC3DCCBFD1" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\x86\Microsoft.VC90.CRT\msvcr90.dll" />
+      <Component Id="Component2F51495E42934CF3B891D32323405B02" Guid="2f51495e-4293-4cf3-b891-d32323405b02" DiskId="1" Directory="FOLDER_5311BBFC4DAE4AFE94B717737B6B1C7A">
+        <File Id="FILE_6D944F5AAD1341F3BF2E8BC796515DEA" Source="C:\Users\dima117\Documents\Visual Studio 2015\Projects\thinking-home\Setup\dist\service\x86\Microsoft.VC90.CRT\msvcr90.dll" />
       </Component>
     </ComponentGroup>
   </Fragment>

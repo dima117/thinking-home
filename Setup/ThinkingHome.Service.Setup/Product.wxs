@@ -20,8 +20,8 @@
 		<PropertyRef Id="NETFRAMEWORK45"/>
 
 		<Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
-		<Property Id="WEBSERVER_PORT" Value="80" />
-		<Property Id="UI_LANG" Value="en" />
+		<Property Id="HTTP_LISTENER_PORT" Value="80" />
+		<Property Id="UI_LANG" Value="en-US" />
 
 		<Condition Message="This application requires .NET Framework 4.5. Please install the .NET Framework then run this installer again.">
 			<![CDATA[Installed OR NETFRAMEWORK45]]>
@@ -81,9 +81,25 @@
 				<fire:FirewallException Id="th_ui_domain_tcp"
 							   Name="ThinkingHome WebUI"
 							   Protocol="tcp"
-							   Port="41831"
+							   Port="[HTTP_LISTENER_PORT]"
 							   Scope="any"
 							   IgnoreFailure="yes" />
+
+				<util:XmlFile Id="configure_console_lang" Action="setValue" Value="[UI_LANG]"
+					File="[SERVICEINSTALLFOLDER]/ThinkingHome.TestConsole.exe.config"
+					ElementPath="/configuration/appSettings/add[\[]@key='culture'[\]]/@value" />
+
+				<util:XmlFile Id="configure_service_lang" Action="setValue" Value="[UI_LANG]"
+					File="[SERVICEINSTALLFOLDER]/ThinkingHome.Service.exe.config"
+					ElementPath="/configuration/appSettings/add[\[]@key='culture'[\]]/@value" />
+
+				<util:XmlFile Id="configure_console_listener_port" Action="setValue" Value="[HTTP_LISTENER_PORT]"
+					File="[SERVICEINSTALLFOLDER]/ThinkingHome.TestConsole.exe.config"
+					ElementPath="/configuration/appSettings/add[\[]@key='Listner.Port'[\]]/@value" />
+
+				<util:XmlFile Id="configure_service_listener_port" Action="setValue" Value="[HTTP_LISTENER_PORT]"
+					File="[SERVICEINSTALLFOLDER]/ThinkingHome.Service.exe.config"
+					ElementPath="/configuration/appSettings/add[\[]@key='Listner.Port'[\]]/@value" />
 
 			</Component>
 			<Component
@@ -93,7 +109,7 @@
 				<util:InternetShortcut
 					Id="DesktopShortcut"
 					Name="ThinkingHome Control Panel"
-					Target="http://127.0.0.1:41831"/>
+					Target="http://127.0.0.1:[HTTP_LISTENER_PORT]"/>
 				<RemoveFolder Id="DesktopFolder" On="uninstall"/>
 				<RegistryValue Root="HKCU" Key="Software\Microsoft\ThinkingHome" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
 			</Component>

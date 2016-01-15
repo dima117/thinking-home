@@ -62,7 +62,7 @@ Patch dialog sequence:
 			<Publish Dialog="LicenseAgreementDlg" Control="Next" Event="NewDialog" Value="AppSettingsDlg">1</Publish>
 
 			<Publish Dialog="AppSettingsDlg" Control="Back" Event="NewDialog" Value="LicenseAgreementDlg">1</Publish>
-			<Publish Dialog="AppSettingsDlg" Control="Next" Event="NewDialog" Value="VerifyReadyDlg"><![CDATA[WEBSERVER_PORT <> ""]]></Publish>
+			<Publish Dialog="AppSettingsDlg" Control="Next" Event="NewDialog" Value="VerifyReadyDlg"><![CDATA[HTTP_LISTENER_PORT <> ""]]></Publish>
 
 			<Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="AppSettingsDlg" Order="1">NOT Installed</Publish>
 			<Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="MaintenanceTypeDlg" Order="2">Installed AND NOT PATCH</Publish>
@@ -87,13 +87,13 @@ Patch dialog sequence:
 				<Control Id="LanguageLabel" Type="Text"  X="20" Y="60" Width="100" Height="30" TabSkip="no" Text="&amp;UI language:" />
 				<Control Id="LanguageSelect" Type="ComboBox" X="110" Y="58" Width="60" Height="18" Property="UI_LANG" ComboList="yes">
 					<ComboBox Property="UI_LANG">
-						<ListItem Text="English" Value="en" />
-						<ListItem Text="Russian" Value="ru" />
+						<ListItem Text="English" Value="en-US" />
+						<ListItem Text="Russian" Value="ru-RU" />
 					</ComboBox>
 				</Control>
 
 				<Control Id="WebServerPortLabel" Type="Text"  X="20" Y="82" Width="100" Height="30" TabSkip="no" Text="&amp;Web server port:" />
-				<Control Id="WebServerPortEdit" Type="Edit" X="110" Y="80" Width="40" Height="18" Property="WEBSERVER_PORT" Text="{5}" />
+				<Control Id="WebServerPortEdit" Type="Edit" X="110" Y="80" Width="40" Height="18" Property="HTTP_LISTENER_PORT" Text="{5}" />
 
 				<!-- Nav button -->
 				<Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Text="!(loc.WixUIBack)" />
