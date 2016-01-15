@@ -20,6 +20,9 @@
     <OutputPath>..\msi\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
+  <PropertyGroup>
+    <InstallerPlatform>x64</InstallerPlatform>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Files.wxs" />
     <Compile Include="Folders.wxs" />
@@ -43,9 +46,6 @@
       <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
       <Name>WixUIExtension</Name>
     </WixExtension>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Variables.wxi" />
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
   <!--

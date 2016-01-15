@@ -13,7 +13,6 @@ First-time install dialog sequence:
 - WixUI_WelcomeDlg
 - WixUI_LicenseAgreementDlg
 - WixUI_VerifyReadyDlg
-- WixUI_DiskCostDlg
 
 Maintenance dialog sequence:
 - WixUI_MaintenanceWelcomeDlg
@@ -36,8 +35,6 @@ Patch dialog sequence:
 			<Property Id="DefaultUIFont" Value="WixUI_Font_Normal" />
 			<Property Id="WixUI_Mode" Value="InstallDir" />
 
-			<DialogRef Id="BrowseDlg" />
-			<DialogRef Id="DiskCostDlg" />
 			<DialogRef Id="ErrorDlg" />
 			<DialogRef Id="FatalError" />
 			<DialogRef Id="FilesInUse" />
@@ -46,9 +43,6 @@ Patch dialog sequence:
 			<DialogRef Id="ProgressDlg" />
 			<DialogRef Id="ResumeDlg" />
 			<DialogRef Id="UserExit" />
-
-			<Publish Dialog="BrowseDlg" Control="OK" Event="DoAction" Value="WixUIValidatePath" Order="3">1</Publish>
-			<Publish Dialog="BrowseDlg" Control="OK" Event="SpawnDialog" Value="InvalidDirDlg" Order="4"><![CDATA[WIXUI_INSTALLDIR_VALID<>"1"]]></Publish>
 
 			<Publish Dialog="ExitDialog" Control="Finish" Event="EndDialog" Value="Return" Order="999">1</Publish>
 

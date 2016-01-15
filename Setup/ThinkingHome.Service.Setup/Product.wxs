@@ -3,9 +3,7 @@
   xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
   xmlns:fire="http://schemas.microsoft.com/wix/FirewallExtension">
 
-	<?include Variables.wxi?>
-
-	<Product Id="*" Name="ThinkingHome.Service" Language="1033" Version="1.0.0.0" 
+	<Product Id="*" Name="Thinking Home" Language="1033" Version="1.0.0.0" 
 		Manufacturer="Thinking-Home.RU" UpgradeCode="48dc066c-97cc-4512-8fa3-52bbe195e075">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 		<Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
@@ -17,9 +15,11 @@
 			<ComponentGroupRef Id="ServiceComponents" />
 		</Feature>
 
+		<CustomAction Id="Set_ARPINSTALLLOCATION" Property="ARPINSTALLLOCATION" Value="[INSTALLFOLDER]" Return="check" Execute="immediate" />
+
 		<PropertyRef Id="NETFRAMEWORK45"/>
 
-		<Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+		<Property Id="ARPHELPLINK" Value="http://thinking-home.ru/system" />
 		<Property Id="HTTP_LISTENER_PORT" Value="80" />
 		<Property Id="UI_LANG" Value="en-US" />
 
@@ -29,12 +29,15 @@
 
 		<UIRef Id="WixUI_InstallDirNoolite" />
 		<WixVariable Id="WixUILicenseRtf" Value="..\dist\License.rtf" />
+		<InstallExecuteSequence>
+			<Custom Action="Set_ARPINSTALLLOCATION" After="InstallInitialize"> (NOT Installed) </Custom>
+		</InstallExecuteSequence>
 	</Product>
 
 
 	<Fragment>
 		<Directory Id="TARGETDIR" Name="SourceDir">
-			<Directory Id="ProgramFilesFolder">
+			<Directory Id="ProgramFiles64Folder">
 				<Directory Id="INSTALLFOLDER" Name="ThinkingHome" >
 				</Directory>
 			</Directory>
