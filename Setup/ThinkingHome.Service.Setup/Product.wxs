@@ -20,7 +20,7 @@
 		<PropertyRef Id="NETFRAMEWORK45"/>
 
 		<Property Id="ARPHELPLINK" Value="http://thinking-home.ru/system" />
-		<Property Id="HTTP_LISTENER_PORT" Value="80" />
+		<Property Id="HTTP_LISTENER_PORT" Value="41831" />
 		<Property Id="UI_LANG" Value="en-US" />
 
 		<Condition Message="This application requires .NET Framework 4.5. Please install the .NET Framework then run this installer again.">
