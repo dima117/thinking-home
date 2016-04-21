@@ -123,9 +123,6 @@
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="Create" xml:space="preserve">
-    <value>Create</value>
-  </data>
   <data name="Create_dashboard" xml:space="preserve">
     <value>Create dashboard</value>
   </data>
@@ -176,5 +173,11 @@
   </data>
   <data name="You_can_create_new_dashboard_on_the" xml:space="preserve">
     <value>You can create new dashboard on the</value>
+  </data>
+  <data name="Create_panel" xml:space="preserve">
+    <value>Create panel</value>
+  </data>
+  <data name="Create_widget" xml:space="preserve">
+    <value>Create widget</value>
   </data>
 </root>

@@ -79,20 +79,29 @@ namespace ThinkingHome.Plugins.WebUI.Lang {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create.
-        /// </summary>
-        internal static string Create {
-            get {
-                return ResourceManager.GetString("Create", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Create dashboard.
         /// </summary>
         internal static string Create_dashboard {
             get {
                 return ResourceManager.GetString("Create_dashboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create panel.
+        /// </summary>
+        internal static string Create_panel {
+            get {
+                return ResourceManager.GetString("Create_panel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create widget.
+        /// </summary>
+        internal static string Create_widget {
+            get {
+                return ResourceManager.GetString("Create_widget", resourceCulture);
             }
         }
         

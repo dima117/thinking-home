@@ -8,9 +8,9 @@
 		</li>
 	</ul>
 	<form class="form-inline">
-		<a href="#" class="btn btn-primary js-create-panel">{{lang 'Create'}}</a>
+		<a href="#" class="btn btn-primary js-create-panel">{{lang 'Create_panel'}}</a>
 	</form>
-	<div class="row">
+	<div class="row th-margin-top-16">
 		<div class="js-list col-md-8"></div>
 	</div>
 </div>

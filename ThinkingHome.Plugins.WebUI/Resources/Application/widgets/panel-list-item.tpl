@@ -13,7 +13,7 @@
 				<div class="form-group">
 					<select class="form-control js-widget-type" />
 				</div>
-				<a href="#" class="btn btn-default js-widget-create">{{lang 'Create'}}</a>
+				<a href="#" class="btn btn-default js-widget-create">{{lang 'Create_widget'}}</a>
 				<a href="#" class="btn btn-link js-hide-toolbar">{{lang 'Cancel'}}</a>
 			</div>
 		</div>
