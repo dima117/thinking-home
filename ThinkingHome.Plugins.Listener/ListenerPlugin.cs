@@ -23,7 +23,7 @@ namespace ThinkingHome.Plugins.Listener
         {
             get 
             {
-                var port = ConfigurationManager.AppSettings["Listner.Port"] ?? "41831";
+                var port = ConfigurationManager.AppSettings["Listener.Port"] ?? "41831";
                 return string.Format(BASE_URL_HTTP_FORMAT, port);
             }
         }
