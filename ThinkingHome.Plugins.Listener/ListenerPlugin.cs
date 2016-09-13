@@ -28,6 +28,14 @@ namespace ThinkingHome.Plugins.Listener
             }
         }
 
+		private static bool HubEnableJsonp 
+        {
+            get 
+            {
+				return ConfigurationManager.AppSettings["Listener.Hub.EnableJSONP"] == "true";
+            }
+        }
+
 		private IDisposable server;
 		private InternalDictionary<IListenerHandler> registeredHandlers;
 
@@ -48,7 +56,7 @@ namespace ThinkingHome.Plugins.Listener
 		{
 			appBuilder
 				.Use<ListenerModule>(registeredHandlers, Logger)
-				.MapSignalR(new HubConfiguration { EnableJavaScriptProxies = false })
+				.MapSignalR(new HubConfiguration { EnableJavaScriptProxies = false, EnableJSONP = HubEnableJsonp })
 				.Use<Error404Module>();
 		}
 
