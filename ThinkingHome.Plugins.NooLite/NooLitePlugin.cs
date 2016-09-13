@@ -106,10 +106,8 @@ namespace ThinkingHome.Plugins.NooLite
 		}
 
 		[ScriptCommand("nooliteSendCommand")]
-		public void SendCommand(int command, int channel, int level)
+		public void SendCommand(int command, int channel, int level = 0)
 		{
-			//Debugger.Launch();
-
 			lock (pcLock)
 			{
 				try
@@ -138,8 +136,6 @@ namespace ThinkingHome.Plugins.NooLite
 		[ScriptCommand("nooliteSendLedCommand")]
 		public void SendLedCommand(int ledCommand, int channel, int levelR = 0, int levelG = 0, int levelB = 0)
 		{
-			//Debugger.Launch();
-
 			lock (pcLock)
 			{
 				try
@@ -150,7 +146,7 @@ namespace ThinkingHome.Plugins.NooLite
 						{
 							var pc11XxLedCommand = (PC11XXLedCommand)ledCommand;
 							adapter.SendLedCommand(pc11XxLedCommand, (byte)channel, (byte)levelR, (byte)levelG, (byte)levelB);
-							Logger.Info("send command {0}: levelR {1} levelG {2} levelB{3} in channel {4}", pc11XxLedCommand, levelR, levelG, levelB, channel);
+							Logger.Info("send command {0}: levelR {1} levelG {2} levelB {3} in channel {4}", pc11XxLedCommand, levelR, levelG, levelB, channel);
 						}
 						else
 						{
