@@ -3,11 +3,6 @@ using NLog;
 
 namespace ThinkingHome.Plugins.Audio.Internal
 {
-	public interface IPlayback
-	{
-		void Stop();
-	}
-
 	/// <summary>
 	/// Stream for looping playback
 	/// </summary>

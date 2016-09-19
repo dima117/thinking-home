@@ -22,7 +22,7 @@ namespace ThinkingHome.Plugins.Audio
 			waveOut = null;
 		}
 
-		public IPlayback Play(Stream stream, int loop = 0)
+		public IPlayback Play(Stream stream, int loop = 1)
 		{
 			lock (lockObject)
 			{

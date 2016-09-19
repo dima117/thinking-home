@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AudioPlugin.cs" />
+    <Compile Include="IPlayback.cs" />
     <Compile Include="Internal\LoopStream.cs" />
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
