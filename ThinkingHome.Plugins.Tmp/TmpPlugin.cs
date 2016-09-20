@@ -20,6 +20,7 @@ using ThinkingHome.Plugins.WebUI.Attributes;
 namespace ThinkingHome.Plugins.Tmp
 {
 	[WebWidget("tmp-camera", "/widgets/tmp-camera.js", "ThinkingHome.Plugins.Tmp.Resources.ui.tmp-camera.js")]
+	[AppSection("My plugin", SectionType.Common, "/my-plugin/my-file.js", "ThinkingHome.Plugins.Tmp.Resources.ui.tmp-section.js")]
 	[Plugin]
 	public class TmpPlugin : PluginBase
 	{
