@@ -203,7 +203,7 @@ start: function () {
 }
 ```
 
-В примере мы присвоили в переменную `people` объект с информацией о человеке. После этого мы создали экземпляр модели - специального объекта, унаследованного от <code>lib.backbone.Model</code>. Модель &mdash; это обертка над данными, добавляющая удобные средства работы с ними. Например, с помощью модели вы можете указать для полей значения по умолчанию или можете автоматически выполнять нужные действия при изменении значений полей.
+В примере мы присвоили в переменную `people` объект с информацией о человеке. После этого мы создали экземпляр модели - специального объекта, унаследованного от `lib.backbone.Mode`. Модель &mdash; это обертка над данными, добавляющая удобные средства работы с ними. Например, с помощью модели вы можете указать для полей значения по умолчанию или можете автоматически выполнять нужные действия при изменении значений полей.
 
 В нашем веб-интерфейсе используются модели из библиотеки Backbone.js. Вы можете узнать о них подробнее в [документации Backbone.js](http://backbonejs.org/#Model).
 
@@ -241,15 +241,15 @@ var items = [
     { id: 4, name: 'Alexander', surname: 'Pushkin' }
 ];
 	
-var model = new backbone.Collection(items);
+var model = new lib.backbone.Collection(items);
 ...
 ```
 
-В приведенном примере мы сформировали массив объектов, каждый из которых имеет поля `id`, `name`, `surname` (как в предыдущем примере). Далее мы создали экземпляр `lib.backbone.Collection` &mdash; модель для нашего нашего массива. *Backbone.Collection* содержит средства для удобной работы с нашими объектами. Например, мы легко можем задать порядок сортировки для коллекции и при обращении к ее элементам они будут выдаваться в нужном порядке.
+В приведенном примере мы сформировали массив объектов, каждый из которых имеет поля `id`, `name`, `surname`. Далее мы создали экземпляр `lib.backbone.Collection` &mdash; модель для нашего нашего массива. *Backbone.Collection* содержит средства для удобной работы с объектами коллекции. Например, мы легко можем задать порядок сортировки и при обращении к элементам коллекции они будут выдаваться в нужном порядке.
 
 ```js
 ...
-var collection = new backbone.Collection(items);
+var collection = new lib.backbone.Collection(items);
     collection.comparator = 'surname';
 		
     collection.sort();
@@ -257,17 +257,45 @@ var collection = new backbone.Collection(items);
         console.log('%s %s', obj.get('name'), obj.get('surname'));
     });
 		
-// будет выведено в алфавитном порядке: 
+// будет выведено по фамилии в алфавитном порядке: 
 // Nikolay Gogol, Alexander Pushkin, Lev Tolstoy, Ivan Turgenev 
 ```
 
-Для отображения <em>коллекции</em> объектов используйте базовое представление
-            <a target="_blank" href="https://github.com/marionettejs/backbone.marionette/blob/master/docs/marionette.compositeview.md">marionette.CompositeView</a>.
-            Кроме шаблона, необходимо указать представление для отображения дочерних объектов
-            (элементов коллекции) и селектор для контейнера, в который будет добавлена разметка для дочерних объектов.
+Для отображения коллекции на странице используйте базовое представление `lib.marionette.CompositeView` ([документациия](http://marionettejs.com/docs/v2.4.7/marionette.compositeview.html)). Кроме шаблона,ему нужно указать прототип представления для отображения элементов коллекци, а также селектор для контейнера, в который они будут добавлены.
 
-            При создании экземпляра представления
-            объект с данными (Backbone.Collection) нужно поместить в поле <code>collection</code>.
+```js
+// описываем представление для отдельного элемента коллекции
+var peopleView = lib.marionette.ItemView.extend({
+    // шаблон отображения
+    template: lib.handlebars.compile(('{{name}} {{surname}} ({{id}})')
+});
+
+var peopleListView = lib.marionette.CompositeView.extend({
+    // шаблон отображения
+    template: lib.handlebars.compile('<h1>Peoples</h1><div id="list"></div>'),
+    // прототип представления отдельного элемента
+    childView: peopleView,
+    // контейнер, куда будут добавляться элементы
+    childViewContainer: '#list'
+});
+
+```
+
+При создании экземпляра представления объект с данными (*Backbone.Collection*) нужно поместить в поле `collection`.
+
+```js
+var data = new lib.backbone.Collection(...);
+
+var module = {
+    start: function () {
+        ...
+        // создаем экземпляр представления и передаем туда данные (Backbone.Collection)
+        var view = new peopleListView({ collection: model });
+        // отображаем представление на странице
+        this.application.setContentView(view);
+    }
+};
+```
 
 ## Макет страницы (layout)
 
@@ -280,70 +308,6 @@ var collection = new backbone.Collection(items);
 <div class="row">
     <div class="col-md-12">
 
-        <pre>
-define(
-	['app', 'marionette', 'backbone', 'underscore'],
-	function (application, marionette, backbone, _) {
-        <strong>// описываем параметры представлений для коллекции и для ее отдельного элемента</strong>
-		var peopleView = marionette.ItemView.extend({
-				template: _.template('<%= name %> (<%= id %>)')			<strong>// шаблон отображения</strong>
-			});
-		
-		var peoplesView = marionette.CompositeView.extend({
-				template: _.template('&lt;h1>Peoples&lt;/h1>&lt;div id="list">&lt;/div>'),	<strong>// шаблон отображения</strong>
-				childView: peopleView,			<strong>// представление для элемента коллекции</strong>
-				childViewContainer: '#list'		<strong>// контейнер, куда будут добавляться элементы</strong>
-			});
-		
-		
-		var module = {
-        <strong>start</strong>: function () {
-				...
-		
-        <strong>// создаем экземпляр представления и передаем туда данные (модель Backbone.Collection)</strong>
-				var view = new peoplesView({ collection: model });
-	
-        <strong>// отображаем представление на странице</strong>
-				application.setContentView(view);
-			}
-		};
-		return module;
-	});
-</pre>
-
-        <h3>Представление для отображения объекта с данными</h3>
-        <p>
-            Для отображения объекта с данными используйте базовое представление
-            <a target="_blank" href="https://github.com/marionettejs/backbone.marionette/blob/master/docs/marionette.itemview.md">marionette.ItemView</a>.
-            Для него необходимо задать только шаблон отображения. При создании экземпляра представления
-            объект с данными (Backbone.Model) нужно поместить в поле <code>model</code>.
-        </p>
-        <pre>
-<strong>// определяем параметры представления</strong>
-var myView = marionette.ItemView.extend({
-	template: _.template('<%= id %>: <%= field1 %> (<%= field2 %>)')
-});
-...
-<strong>// создаем экземпляр представления</strong>
-var view = new myView({ <strong>model</strong>: myDataObject });
-...
-</pre>
-        <h3>Представление для отображения коллекции объектов</h3>
-        <p>
-            
-        </p>
-        <pre>
-<strong>// определяем параметры представления</strong>
-var myListView = marionette.CompositeView.extend({
-	template: _.template('&lt;h1>Title&lt;/h1>&lt;div id="list">&lt;/div>'),
-        <strong>childView</strong>: myView,
-        <strong>childViewContainer</strong>: '#list'
-});
-<strong>// создаем экземпляр представления</strong>
-var view = new myListView({ <strong>collection</strong>: myCollection });
-...
-</pre>
-        ========================================
         <h3>Макет страницы (layout)</h3>
         <p>
             Если страница состоит из нескольких независимых блоков, вы можете создать для каждого из них
