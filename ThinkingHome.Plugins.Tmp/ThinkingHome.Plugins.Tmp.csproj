@@ -143,6 +143,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Resources\doorbell.wav" />
+    <EmbeddedResource Include="Resources\ui\xxx-filter.tpl" />
     <None Include="ThinkingHome.Plugins.Tmp.nuspec">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -1,11 +1,29 @@
 ﻿define(
-	['lib'],			// список зависимостей
-	function (lib) {	// функция инициализации нашего модуля 
+	['lib', 'text!my-plugin/xxx-filter.tpl'],			// список зависимостей
+	function (lib, myTemplate) {	// функция инициализации нашего модуля 
+
+	    var myFilterView = lib.marionette.ItemView.extend({
+	        template: lib.handlebars.compile(myTemplate)
+	    });
 
 		// шаблон содержимого: заголовок и кнопка
 		var myTemplate = lib.handlebars.compile(
 			'<h1>Hello!</h1><input type="button" class="btn btn-default" value="click me" />');
 
+		var layoutTemplate = '<div>' +
+            '<h1>List items</h1>' +
+            '<div id="region-filter"></div>' +
+            '<div id="region-list"></div>' +
+            '</div>';
+
+	    // определяем параметры представления
+		var myLayout = lib.marionette.LayoutView.extend({
+		    template: lib.handlebars.compile(layoutTemplate),
+		    regions: {
+		        filter: '#region-filter',
+		        list: '#region-list'
+		    }
+		});
 		// описываем представление
 		var myView = lib.marionette.ItemView.extend({
 
@@ -21,6 +39,9 @@
 
 			// действия при открытии страницы
 			start: function () {
+			    // создаем экземпляр layout view и добавляем его на страницу
+			    var layoutView = new myLayout();
+			    this.application.setContentView(layoutView);
 
 				// создаем экземпляр представления
 				var view = new myView();
@@ -30,8 +51,11 @@
 					alert('I\'m happy!');
 				});
 
+				var filterView = new myFilterView();
+
 				// отображаем представление пользователю
-				this.application.setContentView(view);
+				layoutView.filter.show(filterView);
+				layoutView.list.show(view);
 			}
 		});
 
