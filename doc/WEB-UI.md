@@ -685,7 +685,7 @@ public object RunScript(HttpRequestParams request)
 
 ```js
 // пример вызова методом POST (на стороне клиента)
-$.post('/api/scripts/run', { scriptId: "8819B702-55BB-44CD-85C6-629D949ACAF6" })
+lib.$.post('/api/scripts/run', { scriptId: "8819B702-55BB-44CD-85C6-629D949ACAF6" })
     .done(function () {
         ...
     });
