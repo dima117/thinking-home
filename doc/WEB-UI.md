@@ -641,59 +641,59 @@ view.on('childview:delete:item', function(childView){
 });
 ```
 
+## Запросы к серверу
+
+Как правило, интерфейс запрашивает данные, которые нужно отобразить пользователю, с сервера при помощи отдельного ajax запроса (например, можно вызвать методы плагинов, доступные по протоколу HTTP). Это очень легко сделать средствами jQuery (переменная $ доступна как поле модуля `lib`). Т.к. веб-интерфейс загружается с того же сервера, где находится HTTP API плагинов, нужно использовать относительные URL (относительно корня сайта, т.е. начинающиеся с символа "/").
+
+Например, вот таким образом в UI загружается список сценариев:
+
+```csharp
+// метод плагина (на стороне сервера)
+[HttpCommand("/api/scripts/list")]
+public object GetScriptList(HttpRequestParams request)
+{
+    ...
+    return list;
+}
+```
+
+```js
+// вызов метода плагина (на стороне клиента)
+lib.$.getJSON('/api/scripts/list')
+    .done(function (items) {
+        ...
+    })
+    .fail(function () {
+        ...
+    });
+```
+
+Пример запроса с параметрами:
+
+```csharp
+// метод плагина (на стороне сервера)
+[HttpCommand("/api/scripts/run")]
+public object RunScript(HttpRequestParams request)
+{
+    // метод плагина обрабатывает параметр "scriptId"
+    Guid scriptId = request.GetRequiredGuid("scriptId");
+
+    ...
+    return null;
+}
+```
+
+```js
+// пример вызова методом POST (на стороне клиента)
+$.post('/api/scripts/run', { scriptId: "8819B702-55BB-44CD-85C6-629D949ACAF6" })
+    .done(function () {
+        ...
+    });
+```
+
 <div class="row">
     <div class="col-md-12">
 
-        <h2 id="requests">Запросы к серверу</h2>
-        <p>
-            Как правило, интерфейс запрашивает данные, которые нужно отобразить пользователю, с сервера
-            при помощи отдельного ajax запроса (например, можно вызвать методы плагинов, доступные по
-            протоколу HTTP). Это очень легко сделать средствами jQuery. Т.к. веб-интерфейс загружается
-            с того же сервера, где находится HTTP API плагинов, нужно использовать относительные URL
-            (от корня сайта, т.е. начинающиеся с символа "/").
-        </p>
-        <p>
-            Например, вот таким образом в UI загружается список сценариев:
-        </p>
-        <pre>
-// метод плагина
-[HttpCommand(<strong>"/api/scripts/list"</strong>)]
-public object GetScriptList(HttpRequestParams request)
-{
-	...
-	return list;
-}
----
-// вызов метода плагина (на стороне клиента) - метод GET
-$.getJSON(<strong>'/api/scripts/list'</strong>)
-	.done(function (items) {
-		...
-	})
-	.fail(function () {
-		...
-	});
-</pre>
-        <p>
-            Пример запроса с параметрами:
-        </p>
-        <pre>
-// метод плагина
-[HttpCommand(<strong>"/api/scripts/run"</strong>)]
-public object GetScriptList(HttpRequestParams request)
-{
-	Guid scriptId = request.GetRequiredGuid(<strong>"scriptId"</strong>);
-	
-	...
-	return null;
-}
----	
-	
-// пример вызова методом POST
-$.post(<strong>'/api/scripts/run'</strong>, { <strong>scriptId</strong>: "8819B702-55BB-44CD-85C6-629D949ACAF6" })
-	.done(function () {
-		...
-	});
-</pre>
         <h3 id="deferred">Использование jQuery.Deferred для управления асинхронными запросами</h3>
         <p>
             Обращения к серверу являются асинхронными. Это значит, что после начала выполнения запроса
