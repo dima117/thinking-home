@@ -904,7 +904,9 @@ define([... , 'my-plugin/queries'],
 
 ### Файлы языковых ресурсов
 
-Для хранения текстов на нескольких языках создайте в проекте файлы ресурсов (`.resx`), отдельный файл для каждого языка. Для всех языков, кроме английского, укажите в названии файла суффикс, соответствующий коду языка.
+Для хранения текстов на нескольких языках создайте в проекте файлы ресурсов (`.resx`). Для каждой группы ресурсов создайте один *главный* `.resx` файл (для текстов на английском языке) и дополнительный `.resx` файл для каждого дополнительного языка (например, для русского). Названия файлов для дополнительных языков должны повторять название главного файла и иметь дополнительный суффикс, соответствующий коду языка (для русского языка - `ru-RU`).
+
+Пример:
 
 ```js
 Lang
@@ -914,9 +916,50 @@ Lang
 
 Каждый файл `.resx` хранит набор пар *ключ-значение*: значение - это текст на нужном языке, а ключ - идентификатор, по которому можно ссылаться на этот текст в интерфейсе.
 
-Для всех файлов языковых ресурсов установите свойство *Build Action* = *Embedded Resource*. Для файла с английскими текстами необходимо установить свойство *Custom Tool* в значение *ResXFileCodeGenerator*.
-
 ### Локализация на стороне сервера
+
+Для всех файлов языковых ресурсов установите свойство *Build Action* = *Embedded Resource*. Для файла с английскими текстами необходимо проверить, что свойство *Custom Tool* имеет значение *ResXFileCodeGenerator*.
+
+Если всё настроено правильно, IDE автоматически сгенерирует для каждого главного файла группы статический класс. Внутри класса будут автоматически сгенерированы статические свойства (`string`), повторяющие ключи файла ресурсов. Обращаясь в коде к этим статическим свойствам, вы будете получать соответствующие строки из файлов ресурсов на текущем выбранном языке.
+
+Например, если в файле ресурсов написано:
+
+```xml
+<!-- MicroclimateLang.resx -->
+
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    ...
+    <data name="Microclimate_sensors" xml:space="preserve">
+        <value>Microclimate sensors</value>
+    </data>
+    <data name="Humidity" xml:space="preserve">
+        <value>Humidity</value>
+    </data>
+    <data name="Temperature" xml:space="preserve">
+        <value>Temperature</value>
+    </data>
+</root>
+```
+
+то для него будет сгенерирован статический класс:
+
+```csharp
+// MicroclimateLang.Designer.cs
+
+internal class MicroclimateLang {
+    ...
+    internal static string Microclimate_sensor {
+        get { return ResourceManager.GetString("Microclimate_sensor", resourceCulture); }
+    }
+    internal static string Humidity {
+        get { return ResourceManager.GetString("Humidity", resourceCulture); }
+    }
+    internal static string Temperature {
+        get { return ResourceManager.GetString("Temperature", resourceCulture); }
+    }
+}
+```
 
 ### Локализация на стороне клиента
 
