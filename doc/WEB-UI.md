@@ -963,6 +963,43 @@ internal class MicroclimateLang {
 
 ### Локализация на стороне клиента
 
+Клиентская часть системы содержит API для 
+
+Тексты на нужных языках описываются в файлах ресурсов.
+
+В первую очередь, нужно сделать так, чтобы строки на нужном языке могли быть загружены на клиент. Для этого пометьте свой плагин атрибутом `ThinkingHome.Plugins.WebUI.Attributes.HttpI18NResourceAttribute`. В его конструктор нужно передать два параметра: URL, с которого можно будет загрузить тексты на нужном языке и путь к файлу ресурсов DLL.
+
+```csharp
+[HttpI18NResource("/webapp/microclimate/lang.json", "ThinkingHome.Plugins.Microclimate.Lang.MicroclimateLang")]
+```
+
+Если после этого открыть в браузере адрес, указанный в качестве первого параметра, на клиент будет возвращен json файл с текстами на текущем выбранном языке.
+
+```json
+
+```
+
+Теперь вы можете указывать адрес этого файла с ресурсами в списке зависимостей клиентских модулей и получать нужные тексты с помощью метода `get('resource_key')`.
+
+```js
+define(['lib', 'lang!webapp/microclimate/lang.json'],
+	function (lib, lang) {
+        return lib.common.AppSection.extend({
+            start: function() {
+                alert(lang.get('Microclimate_sensor'));
+            }
+        });
+    });
+```
+
+Также вы можете использовать языковые ресурсы в шаблонах. Для этого укажите для представления параметр `templateHelpers`. После этого в шаблонах будет доступен хелпер `lang`.
+
+```js
+    var myView = lib.marionette.ItemView.extend({
+        template: lib.handlebars.compile('<h1>{{lang 'delete'}}</h1>'),
+        templateHelpers: { lang: lang }
+    });
+```
 
 <div class="row">
 
