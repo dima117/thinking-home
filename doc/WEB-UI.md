@@ -764,7 +764,8 @@ function loadData() {
 ```js
 var module = {
     start: function () {
-        var query = loadData();	// функция из предыдущего примера
+        var query = loadData(), // функция из предыдущего примера
+            application = this.application;	
 
         query.done(function(data) {
             // при успешном завершении ajax запроса отображаем полученные данные на странице 
@@ -1011,6 +1012,58 @@ define(['lib', 'lang!my-plugin/lang.json'],
         templateHelpers: { lang: lang }
     });
 ```
+
+## Клиент-серверная шина сообщений
+
+В разделе про написание плагинов было рассказано про [клиент-серверную шину сообщений](PLUGINS.md#Клиент-серверная-шина-сообщений). Для работы с ней на стороне клиента используйте специальный объект `this.application.radio` (доступен внутри каждого клиентского модуля, унаследованного от `lib.common.AppSection`). 
+
+При получении любого сообщения объект `radio` генерирует событие, название которого совпадает с названием канала, указанного при отправке сообщения. Ваш модуль может подписаться на события объекта `radio` и выполнять нужные действия при получении сообщений в заданных каналах. Подписка на события происходит аналогично событиям представлений: с помощью методов `this.listenTo(...)` или `radio.on(...)`.
+
+```js
+define(['lib'], function (lib, lang) {
+    return lib.common.AppSection.extend({
+        start: function() {
+
+            // отписка - автоматически
+            this.listenTo(
+                this.application.radio, // объект, на события которого подписываемся
+                'channel-name',         // название события (название канала)
+                function(data) {        // обработчик события
+                    alert('listenTo: ' + JSON.stringify(data));
+                });
+            
+            // отписка - вручную
+            this.application.radio.on('channel-name', function(data){
+                alert('radio.on: ' + JSON.stringify(data));
+            });
+        },
+
+        onBeforeDestroy: function() {
+            // отписываемся от событий
+            this.application.radio.off('channel-name');    
+        }
+    });
+});
+```
+
+Отправить сообщение в шину можно при помощи метода `sendMessage`. Его получат все клиентские модули, подписанные на указанный канал, во всех браузерах, открытых в текущий момент.
+
+```js
+define(['lib'], function (lib, lang) {
+    return lib.common.AppSection.extend({
+        start: function() {
+
+            // любые данные, которые хотите отправить
+            var data = { ... };
+
+            // это сообщение получат все модули, подписавшиеся на канал channel-name 
+            this.application.radio.sendMessage('channel-name', data);
+        }
+    });
+});
+```
+
+
 
 <div class="row">
 
