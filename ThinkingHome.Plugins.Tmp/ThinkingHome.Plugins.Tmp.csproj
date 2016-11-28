@@ -72,6 +72,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CameraWidgetDefinition.cs" />
+    <Compile Include="Lang\MyTexts.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyTexts.resx</DependentUpon>
+    </Compile>
     <Compile Include="TmpPlugin.cs" />
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
@@ -135,6 +140,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Lang\MyTexts.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MyTexts.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lang\MyTexts.ru-RU.resx" />
     <EmbeddedResource Include="TmpResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>TmpResources.Designer.cs</LastGenOutput>

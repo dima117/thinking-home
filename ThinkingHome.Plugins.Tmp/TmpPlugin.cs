@@ -22,6 +22,7 @@ namespace ThinkingHome.Plugins.Tmp
 	[WebWidget("tmp-camera", "/widgets/tmp-camera.js", "ThinkingHome.Plugins.Tmp.Resources.ui.tmp-camera.js")]
 	[AppSection("My plugin", SectionType.Common, "/my-plugin/my-file.js", "ThinkingHome.Plugins.Tmp.Resources.ui.tmp-section.js")]
     [HttpEmbeddedResource("/my-plugin/xxx-filter.tpl", "ThinkingHome.Plugins.Tmp.Resources.ui.xxx-filter.tpl")]
+    [HttpI18NResource("/my-plugin/lang.json", "ThinkingHome.Plugins.Tmp.Lang.MyTexts")]
     [Plugin]
 	public class TmpPlugin : PluginBase
 	{

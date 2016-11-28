@@ -925,19 +925,16 @@ Lang
 Например, если в файле ресурсов написано:
 
 ```xml
-<!-- MicroclimateLang.resx -->
+<!-- MyTexts.resx -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <root>
     ...
-    <data name="Microclimate_sensors" xml:space="preserve">
-        <value>Microclimate sensors</value>
+    <data name="Title" xml:space="preserve">
+        <value>My title</value>
     </data>
-    <data name="Humidity" xml:space="preserve">
-        <value>Humidity</value>
-    </data>
-    <data name="Temperature" xml:space="preserve">
-        <value>Temperature</value>
+    <data name="Body" xml:space="preserve">
+        <value>Main text</value>
     </data>
 </root>
 ```
@@ -945,18 +942,15 @@ Lang
 то для него будет сгенерирован статический класс:
 
 ```csharp
-// MicroclimateLang.Designer.cs
+// MyTexts.Designer.cs
 
-internal class MicroclimateLang {
+internal class MyTexts {
     ...
-    internal static string Microclimate_sensor {
-        get { return ResourceManager.GetString("Microclimate_sensor", resourceCulture); }
+    internal static string Title {
+        get { return ResourceManager.GetString("Title", resourceCulture); }
     }
-    internal static string Humidity {
-        get { return ResourceManager.GetString("Humidity", resourceCulture); }
-    }
-    internal static string Temperature {
-        get { return ResourceManager.GetString("Temperature", resourceCulture); }
+    internal static string Body {
+        get { return ResourceManager.GetString("Body", resourceCulture); }
     }
 }
 ```
@@ -966,35 +960,54 @@ internal class MicroclimateLang {
 Чтобы использовать языковые ресурсы на стороне клиента, необходимо указать для них URL, по кторому их можно было бы запросить из бразера. Для этого пометьте свой плагин атрибутом `ThinkingHome.Plugins.WebUI.Attributes.HttpI18NResourceAttribute`. В его конструктор нужно передать два параметра: URL, с которого можно будет загрузить тексты, и путь к файлу ресурсов DLL.
 
 ```csharp
-[HttpI18NResource("/webapp/microclimate/lang.json", "ThinkingHome.Plugins.Microclimate.Lang.MicroclimateLang")]
+[HttpI18NResource("/my-plugin/lang.json", "ThinkingHome.Plugins.MyPlugin.Lang.MyTexts")]
 ```
 
-Если после этого открыть в браузере адрес `/webapp/microclimate/lang.json`, то на клиент будет возвращен json файл с текстами на текущем выбранном языке.
+Если после этого открыть в браузере адрес `/my-plugin/lang.json`, то на клиент будет возвращен json файл с текстами на текущем выбранном языке.
 
 ```json
-
+{
+    "Title": "My title",
+    "Body": "Main text"
+}
 ```
 
-Для использования языковых ресурсов в клиентских модулях, укажите путь к нужному файлу ресурсов в списке зависимостей модуля. 
+Для использования языковых ресурсов в клиентских модулях, укажите путь к нужному файлу ресурсов в списке зависимостей модуля. Так как файл ресурсов содержит данные в формате json (а не код JavaScript), для корректной его загрузки нужно указать префикс `json!` или `lang!`.
 
-Теперь вы можете указывать адрес этого файла с ресурсами в списке зависимостей клиентских модулей и получать нужные тексты с помощью метода `get('resource_key')`.
+Если указать префикс `json!`, в параметры функции инициализации модуля будет переданы ресурсы в виде объекта, поля которого будут содержить нужные тексты.
 
 ```js
-define(['lib', 'lang!webapp/microclimate/lang.json'],
+define(['lib', 'json!my-plugin/lang.json'],
 	function (lib, lang) {
         return lib.common.AppSection.extend({
             start: function() {
-                alert(lang.get('Microclimate_sensor'));
+                // будет выведен заголовок на нужном языке
+                alert(obj.Title);
             }
         });
     });
 ```
 
-Также вы можете использовать языковые ресурсы в шаблонах. Для этого укажите для представления параметр `templateHelpers`. После этого в шаблонах будет доступен хелпер `lang`.
+Если указать префикс `lang!`, то для файла ресурсов будет создан объект-обертка, имеющий более удобный API для работы с ресурсами. При работе с этим API корректно обрабатываются обращения к несуществующим ключам. Кроме того, в таком виде тексты из ресурсов можно использовать в шаблонах.
+
+```js
+define(['lib', 'lang!my-plugin/lang.json'],
+	function (lib, lang) {
+        return lib.common.AppSection.extend({
+            start: function() {
+                // будет выведен заголовок на нужном языке
+                alert(lang.get('Title'));
+            }
+        });
+    });
+```
+
+Чтобы использовать в шаблонах тексты из ресурсов, укажите для представления параметр `templateHelpers`, как в примере. После этого в шаблонах будет доступен хелпер `lang`.
 
 ```js
     var myView = lib.marionette.ItemView.extend({
-        template: lib.handlebars.compile('<h1>{{lang 'delete'}}</h1>'),
+        template: lib.handlebars.compile(
+            '<h1>{{lang 'Title'}}</h1><p>{{lang 'Body'}}</p>'),
         templateHelpers: { lang: lang }
     });
 ```
