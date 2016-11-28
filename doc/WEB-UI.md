@@ -1020,7 +1020,7 @@ define(['lib', 'lang!my-plugin/lang.json'],
 При получении любого сообщения объект `radio` генерирует событие, название которого совпадает с названием канала, указанного при отправке сообщения. Ваш модуль может подписаться на события объекта `radio` и выполнять нужные действия при получении сообщений в заданных каналах. Подписка на события происходит аналогично событиям представлений: с помощью методов `this.listenTo(...)` или `radio.on(...)`.
 
 ```js
-define(['lib'], function (lib, lang) {
+define(['lib'], function (lib) {
     return lib.common.AppSection.extend({
         start: function() {
 
@@ -1049,7 +1049,7 @@ define(['lib'], function (lib, lang) {
 Отправить сообщение в шину можно при помощи метода `sendMessage`. Его получат все клиентские модули, подписанные на указанный канал, во всех браузерах, открытых в текущий момент.
 
 ```js
-define(['lib'], function (lib, lang) {
+define(['lib'], function (lib) {
     return lib.common.AppSection.extend({
         start: function() {
 
