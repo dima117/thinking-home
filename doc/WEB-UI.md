@@ -720,7 +720,7 @@ var obj = $.Deferred();
 Например:
 
 ```js
-if (obj.state() === "resolved")
+if (obj.state() === 'resolved')
 {
     alert('Success!');
 }
@@ -775,7 +775,7 @@ var module = {
 
         query.fail(function() {
             // при ошибке выводим сообщение "error"
-            alert("error");
+            alert('error');
         });
     }
 };
@@ -797,15 +797,15 @@ var module = {
 var d1 = new $.Deferred();
 var d2 = new $.Deferred();
 var d3 = new $.Deferred();
-$.when( d1, d2, d3 ).always(function ( v1, v2, v3 ) {
+$.when(d1, d2, d3).always(function (v1, v2, v3) {
   
-	console.log("v1", v1 ); // v1 is undefined
-	console.log("v2", v2 ); // v2 is "abc"
-	console.log("v3", v3 ); // v3 is an array [ 1, 2, 3, 4, 5 ]
+	console.log('v1', v1 ); // v1 is undefined
+	console.log('v2', v2 ); // v2 is "abc"
+	console.log('v3', v3 ); // v3 is an array [ 1, 2, 3, 4, 5 ]
 });
 d1.resolve();
-d2.resolve( "abc" );
-d3.resolve( 1, 2, 3, 4, 5 );
+d2.resolve('abc');
+d3.resolve(1, 2, 3, 4, 5);
 ```
 
 ### Размещение кода обращений к серверу в отдельном файле
@@ -1033,8 +1033,8 @@ define(['lib'], function (lib) {
                 });
             
             // отписка - вручную
-            this.application.radio.on('channel-name', function(data){
-                alert('radio.on: ' + JSON.stringify(data));
+            this.application.radio.on('channel-name', function(msg){
+                alert('radio.on: ' + JSON.stringify(msg.data));
             });
         },
 

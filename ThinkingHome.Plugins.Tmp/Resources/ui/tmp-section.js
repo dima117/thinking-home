@@ -8,7 +8,7 @@
 
 		// шаблон содержимого: заголовок и кнопка
 		var myTemplate = lib.handlebars.compile(
-			'<h1>Hello!</h1><input type="button" class="btn btn-default" value="click me" />');
+			'<h1>Hello!</h1><input class="msg" /><input type="button" class="btn btn-default" value="click me" />');
 
 		var layoutTemplate = '<div>' +
             '<h1>List items</h1>' +
@@ -31,7 +31,11 @@
 			template: myTemplate,
 
 			// события
-			triggers: { 'click input': 'my-event' }
+			triggers: { 'click .btn': 'my-event' },
+
+            getMsg: function() {
+                return this.$('.msg').val();
+            }
 		});
 
 		// описываем новый раздел
@@ -48,8 +52,12 @@
 
 				// подписываемся на события
 				this.listenTo(view, 'my-event', function() {
-					alert('I\'m happy!');
+				    this.application.radio.sendMessage('channel-name', view.getMsg());
 				});
+
+				this.listenTo(this.application.radio, 'channel-name', function (msg) {
+				    alert(msg.data);
+                });
 
 				var filterView = new myFilterView();
 
