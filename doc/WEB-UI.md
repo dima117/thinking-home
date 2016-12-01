@@ -1081,6 +1081,30 @@ define(['lib'], function (lib) {
 
 ![Схема стартовой страницы](images/start-page-scheme.png)
 
+### Создание собственных виджетов
+
+Вы можете добавлять в систему новые типы виджетов. Для каждого типа виджета нужно создать специальный класс, предоставляющий информацию о виджете и его параметрах. Класс, описывающий виджет, должен быть помечен атрибутом `ThinkingHome.Plugins.UniUI.Widgets.Widget` и реализовывать интерфейс `ThinkingHome.Plugins.UniUI.Widgets.IWidgetDefinition`.
+
+
+
+```c#
+public interface IWidgetDefinition
+{
+    string DisplayName { get; }
+
+    object GetWidgetData(Widget widget, WidgetParameter[] parameters, ISession session, Logger logger);
+		
+    WidgetParameterMetaData[] GetWidgetMetaData(ISession session, Logger logger);
+}
+```
+
+Свойство **DisplayName** должно возвращать название типа виджета (на текущем выбранном языке) для отображения в интерфейсе. Например:
+
+```c#
+
+```
+  
+
 ## TOTO
 - поля и связи
 - API
