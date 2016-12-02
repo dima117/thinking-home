@@ -1085,27 +1085,119 @@ define(['lib'], function (lib) {
 
 Вы можете добавлять в систему новые типы виджетов. Для каждого типа виджета нужно создать специальный класс, предоставляющий информацию о виджете и его параметрах. Класс, описывающий виджет, должен быть помечен атрибутом `ThinkingHome.Plugins.UniUI.Widgets.Widget` и реализовывать интерфейс `ThinkingHome.Plugins.UniUI.Widgets.IWidgetDefinition`.
 
+#### Атрибут [Widget]
 
+Для атрибута `[Widget]` необходимо указать обязательный параметр - идентификатор виджета (строка). Идентификатор должен быть уникальным в пределах приложения. 
+
+```c#
+[Widget("my-widget")]
+public class MyWidget : IWidgetDefinition
+{
+
+}
+```
+
+#### Интерфейс [IWidgetDefinition]
+
+Интерфейс `IWidgetDefinition` содержит методы предоставляющие информацию, которая нужна для настройки параметров виджета через редактор и для отображения виджета на стартовой странице.
 
 ```c#
 public interface IWidgetDefinition
 {
+    // название виджета
     string DisplayName { get; }
 
-    object GetWidgetData(Widget widget, WidgetParameter[] parameters, ISession session, Logger logger);
-		
+    // получить параметры виджета
     WidgetParameterMetaData[] GetWidgetMetaData(ISession session, Logger logger);
+
+    // получить данные для отображения конкретного экземпляра виджета
+    object GetWidgetData(Widget widget, WidgetParameter[] parameters, ISession session, Logger logger);
 }
 ```
 
-Свойство **DisplayName** должно возвращать название типа виджета (на текущем выбранном языке) для отображения в интерфейсе. Например:
+#### DisplayName
+
+Свойство **DisplayName** должно возвращать название типа виджета (на текущем выбранном языке) для отображения в интерфейсе.
+
+#### GetWidgetMetaData
+
+Метод **GetWidgetMetaData** должен возвращать информацию о параметрах виджета. Он используется для того, чтобы отобразить в редакторе виджетов нужный набор полей.
+
+Каждый параметр - это экземпляр класса `WidgetParameterMetaData`.
 
 ```c#
+public class WidgetParameterMetaData
+{
+    // идентификатор параметра
+    public string Name { get; set; }
 
+    // название параметра в интерфейсе (на нужном языке)
+    public string DisplayName { get; set; }
+
+    // тип параметра (строка/число/guid)
+    public WidgetParameterType Type { get; set; }
+    
+    // набор доступных значений 
+    // (каждое значение: id, displayName)
+    public WidgetSelectItem[] Items { get; set; }
+}
 ```
-  
+
+Если задан набор допустимых значений, в редакторе для этого параметра будет отображаться выпадающий список. Иначе будет отображаться текстовое поле ввода.
+
+#### Пример
+
+Предположим, вы делаете виджет, позволяющий искать информацию в поисковой системе. Вы хотите уметь настраивать для него два параметра: поисковую систему (Yandex/Google) и количество выводимых результатов поиска. В этом случае, метод `GetWidgetMetaData` вашего виджета может выглядеть примерно так:
+
+```c#
+public WidgetParameterMetaData[] GetWidgetMetaData(ISession session, Logger logger)
+{
+    var paramEngine = new WidgetParameterMetaData
+    {
+        DisplayName = "Поисковая система",
+        Name = "engine",
+        Type = WidgetParameterType.Int32,
+        Items = new WidgetSelectItem[] {
+            new new WidgetSelectItem(1, "Yandex"),
+            new new WidgetSelectItem(1, "Google")
+        }
+    };
+
+    var paramCount = new WidgetParameterMetaData
+    {
+        DisplayName = "Количество результатов поиска",
+        Name = "count",
+        Type = WidgetParameterType.Int32
+    };
+
+    return new[] { paramEngine, paramCount };
+}
+```  
+
+Обратите внимание, внутри метода `GetWidgetMetaData` доступна сессия базы данных. С ее помощью вы можете, например, сделать в параметрах виджета выбор сценария из списка сценариев, созданных в системе.
+
+```c#
+public WidgetParameterMetaData[] GetWidgetMetaData(ISession session, Logger logger)
+{
+    var scripts = session
+        .Query<UserScript>()
+        .Select(s => new WidgetSelectItem(s.Id, s.Name))
+        .ToArray();
+
+    var paramScriptId = new WidgetParameterMetaData
+    {
+        Name = "script-id",
+        DisplayName = "Выберите сценарий",
+        Type = WidgetParameterType.Guid,
+        Items = scripts
+    };
+
+    return new[] { paramScriptId };
+}
+```
 
 ## TOTO
+- сделать примеры и добавить скриншоты редактора
 - поля и связи
 - API
 - как создать виджет
