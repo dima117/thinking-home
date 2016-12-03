@@ -69,6 +69,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ScriptsUiLang.resx</DependentUpon>
     </Compile>
+    <Compile Include="ScriptExecWidget.cs" />
     <Compile Include="ScriptHost.cs" />
     <Compile Include="ScriptCommandAttribute.cs" />
     <Compile Include="Data\Migrations.cs" />
@@ -90,6 +91,11 @@
     <ProjectReference Include="..\ThinkingHome.Plugins.Listener\ThinkingHome.Plugins.Listener.csproj">
       <Project>{db321a2c-ff9c-48ef-80cf-d356a5d5f3a8}</Project>
       <Name>ThinkingHome.Plugins.Listener</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\ThinkingHome.Plugins.UniUI\ThinkingHome.Plugins.UniUI.csproj">
+      <Project>{5B191430-85F0-423A-A60E-8F171AE73D5C}</Project>
+      <Name>ThinkingHome.Plugins.UniUI</Name>
       <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\ThinkingHome.Plugins.WebUI\ThinkingHome.Plugins.WebUI.csproj">

@@ -176,4 +176,7 @@
   <data name="The_0_script_has_been_executed" xml:space="preserve">
     <value>Сценарий "{0}" был выполнен.</value>
   </data>
+  <data name="Execute_script" xml:space="preserve">
+    <value>Выполнить сценарий</value>
+  </data>
 </root>

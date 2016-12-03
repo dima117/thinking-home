@@ -176,4 +176,7 @@
   <data name="The_0_script_has_been_executed" xml:space="preserve">
     <value>The "{0}" script has been executed.</value>
   </data>
+  <data name="Execute_script" xml:space="preserve">
+    <value>Execute script</value>
+  </data>
 </root>

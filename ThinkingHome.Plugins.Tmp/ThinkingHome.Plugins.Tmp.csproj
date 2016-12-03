@@ -77,6 +77,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MyTexts.resx</DependentUpon>
     </Compile>
+    <Compile Include="SearchWidgetDefinition.cs" />
     <Compile Include="TmpPlugin.cs" />
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>

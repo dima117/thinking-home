@@ -1154,18 +1154,18 @@ public WidgetParameterMetaData[] GetWidgetMetaData(ISession session, Logger logg
 {
     var paramEngine = new WidgetParameterMetaData
     {
-        DisplayName = "Поисковая система",
+        DisplayName = "Search engine",
         Name = "engine",
         Type = WidgetParameterType.Int32,
         Items = new WidgetSelectItem[] {
-            new new WidgetSelectItem(1, "Yandex"),
-            new new WidgetSelectItem(2, "Google")
+            new WidgetSelectItem(1, "Yandex"),
+            new WidgetSelectItem(2, "Google")
         }
     };
 
     var paramCount = new WidgetParameterMetaData
     {
-        DisplayName = "Количество результатов поиска",
+        DisplayName = "Search result count",
         Name = "count",
         Type = WidgetParameterType.Int32
     };
@@ -1173,6 +1173,10 @@ public WidgetParameterMetaData[] GetWidgetMetaData(ISession session, Logger logg
     return new[] { paramEngine, paramCount };
 }
 ```  
+
+Результат:
+
+![Параметры поискового виджета](images/widget-editor-example1.png)
 
 Обратите внимание, внутри метода `GetWidgetMetaData` доступна сессия базы данных. С ее помощью вы можете, например, сделать в параметрах виджета выбор сценария из списка сценариев, созданных в системе.
 
@@ -1187,7 +1191,7 @@ public WidgetParameterMetaData[] GetWidgetMetaData(ISession session, Logger logg
     var paramScriptId = new WidgetParameterMetaData
     {
         Name = "script-id",
-        DisplayName = "Выберите сценарий",
+        DisplayName = "Script",
         Type = WidgetParameterType.Guid,
         Items = scripts
     };
@@ -1196,8 +1200,11 @@ public WidgetParameterMetaData[] GetWidgetMetaData(ISession session, Logger logg
 }
 ```
 
+Результат:
+
+![Параметры поискового виджета](images/widget-editor-example2.png)
+
 ## TOTO
-- сделать примеры и добавить скриншоты редактора
 - поля и связи
 - API
 - как создать виджет

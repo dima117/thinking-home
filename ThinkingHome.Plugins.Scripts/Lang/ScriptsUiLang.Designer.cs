@@ -171,6 +171,15 @@ namespace ThinkingHome.Plugins.Scripts.Lang {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Execute script.
+        /// </summary>
+        internal static string Execute_script {
+            get {
+                return ResourceManager.GetString("Execute_script", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exit fullscreen.
         /// </summary>
         internal static string Exit_fullscreen {
