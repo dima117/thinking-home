@@ -1159,7 +1159,7 @@ public WidgetParameterMetaData[] GetWidgetMetaData(ISession session, Logger logg
         Type = WidgetParameterType.Int32,
         Items = new WidgetSelectItem[] {
             new new WidgetSelectItem(1, "Yandex"),
-            new new WidgetSelectItem(1, "Google")
+            new new WidgetSelectItem(2, "Google")
         }
     };
 
