@@ -1202,10 +1202,29 @@ public WidgetParameterMetaData[] GetWidgetMetaData(ISession session, Logger logg
 
 Результат:
 
-![Параметры поискового виджета](images/widget-editor-example2.png)
+![Параметры виджета, запускающего сценарии](images/widget-editor-example2.png)
+
+#### GetWidgetData
+
+Метод `GetWidgetData` должен возвращать информацию, необходимую для отображения конкретного экземпляра виджета на стартовой странице. На вход он получает информацию об экземпляре виджета и о его параметрах. Метод `GetWidgetData` должен вернуть объект с данными, который будет сериализован в JSON и отправлен на клиент. Кроме информации о виджете, в метод также передаются логгер и сессия БД.
+
+Например, для виджета, запускающего сценарии, метод `GetWidgetData` может быть реализован следующим образом:
+
+```c#
+publi object GetWidgetData(Widget widget, WidgetParameter[] parameters, ISession session, Logger logger)
+{
+    var scriptId = parameters.First(p => p.Name == "script-id").ValueGuid;
+	var script = session.Get<UserScript>(scriptId);
+
+    return new
+    {
+        id = scriptId, 
+        name = script.Name
+    };
+}
+``` 
 
 ## TOTO
-- поля и связи
 - API
 - как создать виджет
 - веб-реализация
