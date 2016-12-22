@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using NHibernate;
 using NLog;
 using ThinkingHome.Plugins.UniUI.Model;
@@ -20,7 +19,10 @@ namespace ThinkingHome.Plugins.Scripts
 
         public object GetWidgetData(Widget widget, WidgetParameter[] parameters, ISession session, Logger logger)
         {
-            throw new NotImplementedException();
+            var id = parameters.Single(p => p.Name == "script-id").ValueGuid;
+            var script = session.Get<UserScript>(id); ;
+
+            return new { scriptId = script.Id, scriptName = script.Name };
         }
 
         public WidgetParameterMetaData[] GetWidgetMetaData(ISession session, Logger logger)

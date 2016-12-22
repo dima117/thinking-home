@@ -40,7 +40,10 @@ namespace ThinkingHome.Plugins.Scripts
 	// i18n
 	[HttpI18NResource("/webapp/scripts/lang.json", "ThinkingHome.Plugins.Scripts.Lang.ScriptsUiLang")]
 
-	[Plugin]
+    [WebWidget("scripts-exec", "/widgets/scripts/execute-script-widget.js", "ThinkingHome.Plugins.Scripts.Resources.execute-script-widget.js")]
+
+    
+    [Plugin]
 	public class ScriptsUiPlugin : PluginBase
 	{
 		#region http scripts

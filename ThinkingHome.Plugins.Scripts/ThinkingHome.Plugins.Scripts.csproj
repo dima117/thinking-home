@@ -141,6 +141,9 @@
     <EmbeddedResource Include="Resources\subscriptions-view.js" />
     <EmbeddedResource Include="Resources\subscriptions.js" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\execute-script-widget.js" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
