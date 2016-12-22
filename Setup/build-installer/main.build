@@ -4,7 +4,7 @@
 	<!-- Settings -->
 	<property name="nant.settings.currentframework" value="net-4.0" />
 
-	<property name="base.version" value="2.0.0"/>
+	<property name="base.version" value="3.0"/>
 	<property name="build.number" value="1377" unless="${property::exists('build.number')}" />
 	<property name="version" value="${base.version}.${build.number}"/>
 
