@@ -98,11 +98,11 @@
 
 				<util:XmlFile Id="configure_console_listener_port" Action="setValue" Value="[HTTP_LISTENER_PORT]"
 					File="[SERVICEINSTALLFOLDER]/ThinkingHome.TestConsole.exe.config"
-					ElementPath="/configuration/appSettings/add[\[]@key='Listner.Port'[\]]/@value" />
+					ElementPath="/configuration/appSettings/add[\[]@key='Listener.Port'[\]]/@value" />
 
 				<util:XmlFile Id="configure_service_listener_port" Action="setValue" Value="[HTTP_LISTENER_PORT]"
 					File="[SERVICEINSTALLFOLDER]/ThinkingHome.Service.exe.config"
-					ElementPath="/configuration/appSettings/add[\[]@key='Listner.Port'[\]]/@value" />
+					ElementPath="/configuration/appSettings/add[\[]@key='Listener.Port'[\]]/@value" />
 
 			</Component>
 			<Component
