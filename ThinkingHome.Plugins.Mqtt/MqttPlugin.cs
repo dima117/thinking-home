@@ -36,7 +36,7 @@ namespace ThinkingHome.Plugins.Mqtt
 			get
 			{
 				int port;
-				return int.TryParse(ConfigurationManager.AppSettings["Mqtt.Host"], out port)
+				return int.TryParse(ConfigurationManager.AppSettings["Mqtt.Port"], out port)
 					? port
 					: DEFAULT_PORT;
 			}
