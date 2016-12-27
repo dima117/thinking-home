@@ -1,19 +1,24 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
-    <version>3.0.0</version>
+    <version>3.0.2</version>
     <authors>dima117</authors>
     <owners>dima117</owners>
     <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
     <dependencies>
+      <dependency id="Microsoft.AspNet.SignalR.Core" version="2.2.0" />
+      <dependency id="Microsoft.AspNet.SignalR.SelfHost" version="2.2.0" />
       <dependency id="Owin" version="1.0" />
       <dependency id="Owin.Types" version="0.8.5" />
-      <dependency id="Microsoft.Owin" version="3.0.1" />
-      <dependency id="Microsoft.Owin.Diagnostics" version="3.0.1" />
-      <dependency id="Microsoft.Owin.Host.HttpListener" version="3.0.1" />
-      <dependency id="Microsoft.Owin.Hosting" version="3.0.1" />
-      <dependency id="Microsoft.Owin.SelfHost" version="3.0.1" />
+      <dependency id="Microsoft.Owin" version="2.1.0" />
+      <dependency id="Microsoft.Owin.Diagnostics" version="2.1.0" />
+      <dependency id="Microsoft.Owin.Host.HttpListener" version="2.1.0" />
+      <dependency id="Microsoft.Owin.Hosting" version="2.1.0" />
+      <dependency id="Microsoft.Owin.Security" version="2.1.0" />
+      <dependency id="Microsoft.Owin.SelfHost" version="2.1.0" />
       <dependency id="ThinkingHome.Core.Plugins" />
+      <dependency id="Newtonsoft.Json" version="6.0.8" />
+      <dependency id="NLog" version="3.2.1" />
     </dependencies>
     <id>ThinkingHome.Plugins.Listener</id>
     <title>HTTP Listener plugin</title>

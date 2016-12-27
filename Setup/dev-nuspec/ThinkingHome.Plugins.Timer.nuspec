@@ -1,12 +1,13 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
-    <version>3.0.0</version>
+    <version>3.0.2</version>
     <authors>dima117</authors>
     <owners>dima117</owners>
     <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
     <dependencies>
       <dependency id="ThinkingHome.Core.Plugins" />
+      <dependency id="NLog" version="3.2.1" />
     </dependencies>
     <id>ThinkingHome.Plugins.Timer</id>
     <title>Timer plugin</title>

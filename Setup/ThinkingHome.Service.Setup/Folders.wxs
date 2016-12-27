@@ -3,46 +3,46 @@
   <Fragment>
     <DirectoryRef Id="INSTALLFOLDER">
       <Directory Id="SERVICEINSTALLFOLDER" Name="service">
-        <Directory Id="FOLDER_74B7F6D2508F45AB902A0E0753DCD3DD" Name="amd64">
-          <Directory Id="FOLDER_A39490E36A5F4E50B25852067418B297" Name="Microsoft.VC90.CRT" />
+        <Directory Id="FOLDER_89A269A797874B7C8009E006A30673D0" Name="amd64">
+          <Directory Id="FOLDER_4E9ED602095345559326703045AD55D7" Name="Microsoft.VC90.CRT" />
         </Directory>
-        <Directory Id="FOLDER_C0CC30C113234679B4FB75E16E9DD988" Name="Plugins">
-          <Directory Id="FOLDER_B9ACB11FE21642ED8D58E743C20EB3AE" Name="ThinkingHome.Plugins.AlarmClock.3.0.0">
-            <Directory Id="FOLDER_DE0B5F100033473F8D565C198684A3ED" Name="ru-RU" />
+        <Directory Id="FOLDER_1B0C43AFFD2545D7AA982764B6C17C35" Name="Plugins">
+          <Directory Id="FOLDER_B53A92E3167A419DBAB53E03A22B18BF" Name="ThinkingHome.Plugins.AlarmClock.3.0.2">
+            <Directory Id="FOLDER_CB08E778D8C5481D809260D036F7009E" Name="ru-RU" />
           </Directory>
-          <Directory Id="FOLDER_8A7508A4282649BF893F19F4FDB324A2" Name="ThinkingHome.Plugins.Audio.3.0.0" />
-          <Directory Id="FOLDER_71D44B0735A7429B816D1910CB88BDB8" Name="ThinkingHome.Plugins.Listener.3.0.0" />
-          <Directory Id="FOLDER_156E6FA1BAFF4BDFA73D2AC4B3CA00FC" Name="ThinkingHome.Plugins.Microclimate.3.0.0">
-            <Directory Id="FOLDER_6044073683824689944A307A00F6A931" Name="ru-RU" />
+          <Directory Id="FOLDER_ABB5275D636B45018B84BC519B5BD91A" Name="ThinkingHome.Plugins.Audio.3.0.2" />
+          <Directory Id="FOLDER_9EA99EFFAA3D493789B47BB92550A298" Name="ThinkingHome.Plugins.Listener.3.0.2" />
+          <Directory Id="FOLDER_20FBFF2B43CF4DD4916CB6B24CFDD90A" Name="ThinkingHome.Plugins.Microclimate.3.0.2">
+            <Directory Id="FOLDER_D47099CB5B1E44E58D344DE4F8A02E5B" Name="ru-RU" />
           </Directory>
-          <Directory Id="FOLDER_B7F63084C1F54B1082F6301D8A8D4F02" Name="ThinkingHome.Plugins.Mqtt.3.0.0">
-            <Directory Id="FOLDER_DC540A83A008462393C82A7ABDA08528" Name="ru-RU" />
+          <Directory Id="FOLDER_01A8DC0BBE044D1297239EAF501D6C64" Name="ThinkingHome.Plugins.Mqtt.3.0.2">
+            <Directory Id="FOLDER_12130CA4ED2B44659F156CEC1B4E0614" Name="ru-RU" />
           </Directory>
-          <Directory Id="FOLDER_110E5A79EDAB4DE0AC8C3E695C0A9A08" Name="ThinkingHome.Plugins.NooApi.3.0.0" />
-          <Directory Id="FOLDER_87F3C10D84264EACAFC2308E440AB5B2" Name="ThinkingHome.Plugins.NooLite.3.0.0" />
-          <Directory Id="FOLDER_4FDF4306F4B7485CAB566A55152DD4AE" Name="ThinkingHome.Plugins.NooUI.3.0.0">
-            <Directory Id="FOLDER_44A158AF297D4DAFB9D00A33090B8462" Name="ru-RU" />
+          <Directory Id="FOLDER_D46CFC012F144EBE9DCFE92C8B0B83D2" Name="ThinkingHome.Plugins.NooApi.3.0.2" />
+          <Directory Id="FOLDER_BC718034BBCB42BFBABA42CAC9047BF8" Name="ThinkingHome.Plugins.NooLite.3.0.2" />
+          <Directory Id="FOLDER_1F5FA4106A3D4BB8A4DA45DF00F0044A" Name="ThinkingHome.Plugins.NooUI.3.0.2">
+            <Directory Id="FOLDER_1312D61E07174DE68C8D0B470625A230" Name="ru-RU" />
           </Directory>
-          <Directory Id="FOLDER_1A905ED2BCB9469A8608485495ACCB27" Name="ThinkingHome.Plugins.Packages.3.0.0">
-            <Directory Id="FOLDER_9068F5D51F9442B1AF4F47E597D1CD90" Name="ru-RU" />
+          <Directory Id="FOLDER_160AB46416984187BCD1D772E831FF64" Name="ThinkingHome.Plugins.Packages.3.0.2">
+            <Directory Id="FOLDER_A8BA78B0C21F413185ECE302E9355F77" Name="ru-RU" />
           </Directory>
-          <Directory Id="FOLDER_C9C729EA4BE84F0681E0CDE441AEB701" Name="ThinkingHome.Plugins.Scripts.3.0.0">
-            <Directory Id="FOLDER_FA3A3341E7DE492C9485544E1C564FA1" Name="ru-RU" />
+          <Directory Id="FOLDER_5D9857290AC94E07ADB5F0D324737F59" Name="ThinkingHome.Plugins.Scripts.3.0.2">
+            <Directory Id="FOLDER_F2548F7349854104BEFC701EFBCA9C8D" Name="ru-RU" />
           </Directory>
-          <Directory Id="FOLDER_EDC310FD0A984023B3A7789B372120DA" Name="ThinkingHome.Plugins.Timer.3.0.0" />
-          <Directory Id="FOLDER_2E67C8E20B934CA6A235081C959C45E2" Name="ThinkingHome.Plugins.Tmp.3.0.0">
-            <Directory Id="FOLDER_46695021BCEE4EF7B78DCF73E2AAA8B1" Name="ru-RU" />
+          <Directory Id="FOLDER_E992C62B3D5646BAB54A6174B7047BBC" Name="ThinkingHome.Plugins.Timer.3.0.2" />
+          <Directory Id="FOLDER_DD84BF4FCEAB4EED9330C2E860549B91" Name="ThinkingHome.Plugins.Tmp.3.0.2">
+            <Directory Id="FOLDER_6B4C6443AF8C4D55884FD434CFCFB769" Name="ru-RU" />
           </Directory>
-          <Directory Id="FOLDER_2DF4F4422DC04D76BBB53E88CC9D8E5C" Name="ThinkingHome.Plugins.UniUI.3.0.0" />
-          <Directory Id="FOLDER_82FD95DFA9834A8584CA0DD9A19601AD" Name="ThinkingHome.Plugins.Weather.3.0.0">
-            <Directory Id="FOLDER_CB454683BA5341178D29BCC963C57A99" Name="ru-RU" />
+          <Directory Id="FOLDER_4EA5C5E46A3C496F9864C7A68215C95F" Name="ThinkingHome.Plugins.UniUI.3.0.2" />
+          <Directory Id="FOLDER_CF767892F12C46AC9F6401F9E29AB533" Name="ThinkingHome.Plugins.Weather.3.0.2">
+            <Directory Id="FOLDER_CF6567801BD84BFDB1CBC57595807A8E" Name="ru-RU" />
           </Directory>
-          <Directory Id="FOLDER_9DD0AAE7F4AE4DA2B31525EA08687424" Name="ThinkingHome.Plugins.WebUI.3.0.0">
-            <Directory Id="FOLDER_3E4302069CF84589A4533B88FFFE81AD" Name="ru-RU" />
+          <Directory Id="FOLDER_8E317A3CC2D448088154F3BE6CA64992" Name="ThinkingHome.Plugins.WebUI.3.0.2">
+            <Directory Id="FOLDER_E1161FD38DFD4E00BD57BCF098258941" Name="ru-RU" />
           </Directory>
         </Directory>
-        <Directory Id="FOLDER_B2DE074E4675495E938A3AB828D8FE86" Name="x86">
-          <Directory Id="FOLDER_F423DDB3A960429DA23A8C505B79D82D" Name="Microsoft.VC90.CRT" />
+        <Directory Id="FOLDER_A417A9C8CAB7497585557680F85D8EE1" Name="x86">
+          <Directory Id="FOLDER_6A9A112748804EAEA763F594DFF8D06B" Name="Microsoft.VC90.CRT" />
         </Directory>
       </Directory>
     </DirectoryRef>

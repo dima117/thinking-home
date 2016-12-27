@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: AssemblyVersionAttribute("3.0.0")]
-[assembly: AssemblyFileVersionAttribute("3.0.0")]
+[assembly: AssemblyVersionAttribute("3.0.2")]
+[assembly: AssemblyFileVersionAttribute("3.0.2")]
 [assembly: AssemblyCopyrightAttribute("Copyright © 2013-2015 Thinking-Home.RU")]
 [assembly: AssemblyProductAttribute("ThinkingHome.Service")]
 
